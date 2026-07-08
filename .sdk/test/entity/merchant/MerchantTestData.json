@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "merchant": {
+      "MERCHANT00": {
+        "reason": "sa",
+        "merchant_id": "MERCHANT01",
+        "user_id": "USER01",
+        "tag_id": "TAG01",
+        "id": "MERCHANT00"
+      },
+      "MERCHANT01": {
+        "reason": "s14",
+        "merchant_id": "MERCHANT01",
+        "user_id": "USER01",
+        "tag_id": "TAG01",
+        "id": "MERCHANT01"
+      },
+      "MERCHANT02": {
+        "reason": "s1e",
+        "merchant_id": "MERCHANT01",
+        "user_id": "USER01",
+        "tag_id": "TAG01",
+        "id": "MERCHANT02"
+      }
+    }
+  },
+  "new": {
+    "merchant": {
+      "merchant_ref01": {
+        "reason": "s28"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicNoFrixionMoneyMoovModelsAuthorisationSettingsMerchantFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsAuthorisationSettingsMerchantFlow:
+{
+  entity: "no_frixion_money_moov_models_authorisation_settings_merchant",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsAuthorisationSettingsMerchantFlow",
+  step: [
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "no_frixion_money_moov_models_authorisation_settings_merchant_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsAuthorisationSettingsMerchantFlow"
+}

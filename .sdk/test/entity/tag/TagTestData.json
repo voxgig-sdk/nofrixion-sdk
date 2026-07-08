@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "tag": {
+      "TAG00": {
+        "colour_hex": "s32",
+        "description": "s33",
+        "id": "TAG00",
+        "merchant_id": "MERCHANT01",
+        "name": "s36"
+      },
+      "TAG01": {
+        "colour_hex": "s64",
+        "description": "s65",
+        "id": "TAG01",
+        "merchant_id": "MERCHANT01",
+        "name": "s68"
+      },
+      "TAG02": {
+        "colour_hex": "s96",
+        "description": "s97",
+        "id": "TAG02",
+        "merchant_id": "MERCHANT01",
+        "name": "s9a"
+      }
+    }
+  },
+  "new": {
+    "tag": {
+      "tag_ref01": {
+        "colour_hex": "sc8",
+        "description": "sc9",
+        "merchant_id": "MERCHANT01",
+        "name": "scc"
+      }
+    }
+  }
+}

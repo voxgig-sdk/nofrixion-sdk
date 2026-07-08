@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_payment_account_minimal_page": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE00": {
+        "account_name": "s6e",
+        "available_balance": 111,
+        "balance": 112,
+        "balance_minor_unit": "s71",
+        "currency": "s72",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE00",
+        "identifier": {},
+        "is_archived": false,
+        "is_connected_account": true,
+        "merchant_id": "MERCHANT01",
+        "submitted_payouts_balance": 120
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE01": {
+        "account_name": "sdc",
+        "available_balance": 221,
+        "balance": 222,
+        "balance_minor_unit": "sdf",
+        "currency": "se0",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE01",
+        "identifier": {},
+        "is_archived": false,
+        "is_connected_account": true,
+        "merchant_id": "MERCHANT01",
+        "submitted_payouts_balance": 230
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE02": {
+        "account_name": "s14a",
+        "available_balance": 331,
+        "balance": 332,
+        "balance_minor_unit": "s14d",
+        "currency": "s14e",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_ACCOUNT_MINIMAL_PAGE02",
+        "identifier": {},
+        "is_archived": false,
+        "is_connected_account": true,
+        "merchant_id": "MERCHANT01",
+        "submitted_payouts_balance": 340
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_payment_account_minimal_page": {
+      "no_frixion_money_moov_models_payment_account_minimal_page_ref01": {
+        "account_name": "s1b8",
+        "available_balance": 441,
+        "balance": 442,
+        "balance_minor_unit": "s1bb",
+        "currency": "s1bc",
+        "identifier": {},
+        "is_archived": false,
+        "is_connected_account": true,
+        "merchant_id": "MERCHANT01",
+        "submitted_payouts_balance": 450
+      }
+    }
+  }
+}

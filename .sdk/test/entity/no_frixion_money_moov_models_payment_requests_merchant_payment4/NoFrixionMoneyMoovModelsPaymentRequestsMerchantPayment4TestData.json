@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_payment_requests_merchant_payment4": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT400": {
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "template_id": "TEMPLATE01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT400"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT401": {
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "template_id": "TEMPLATE01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT401"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT402": {
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "template_id": "TEMPLATE01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUESTS_MERCHANT_PAYMENT402"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_payment_requests_merchant_payment4": {
+      "no_frixion_money_moov_models_payment_requests_merchant_payment4_ref01": {}
+    }
+  }
+}

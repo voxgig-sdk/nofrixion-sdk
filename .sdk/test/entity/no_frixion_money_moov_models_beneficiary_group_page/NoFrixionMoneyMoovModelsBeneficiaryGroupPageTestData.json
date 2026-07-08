@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_beneficiary_group_page": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE00": {
+        "group_member": [],
+        "group_name": "s3d",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE00",
+        "inserted": "s3f",
+        "last_updated": "s40",
+        "merchant_id": "MERCHANT01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE01": {
+        "group_member": [],
+        "group_name": "s79",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE01",
+        "inserted": "s7b",
+        "last_updated": "s7c",
+        "merchant_id": "MERCHANT01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE02": {
+        "group_member": [],
+        "group_name": "sb5",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_BENEFICIARY_GROUP_PAGE02",
+        "inserted": "sb7",
+        "last_updated": "sb8",
+        "merchant_id": "MERCHANT01"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_beneficiary_group_page": {
+      "no_frixion_money_moov_models_beneficiary_group_page_ref01": {
+        "group_member": [],
+        "group_name": "sf1",
+        "inserted": "sf3",
+        "last_updated": "sf4",
+        "merchant_id": "MERCHANT01"
+      }
+    }
+  }
+}

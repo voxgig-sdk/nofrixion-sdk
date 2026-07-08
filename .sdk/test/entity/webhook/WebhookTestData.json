@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "webhook": {
+      "WEBHOOK00": {
+        "id": "WEBHOOK00"
+      },
+      "WEBHOOK01": {
+        "id": "WEBHOOK01"
+      },
+      "WEBHOOK02": {
+        "id": "WEBHOOK02"
+      }
+    }
+  },
+  "new": {
+    "webhook": {
+      "webhook_ref01": {}
+    }
+  }
+}

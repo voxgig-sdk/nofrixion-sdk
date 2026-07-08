@@ -1,0 +1,29 @@
+# BasicCancelFlow
+
+main: kit: flow: BasicCancelFlow:
+{
+  entity: "cancel",
+  kind: "basic",
+  name: "BasicCancelFlow",
+  step: [
+    {
+      input: {
+        ref: "cancel_ref01",
+        srcdatavar: "cancel_ref01_data",
+        suffix: "_up0",
+        textfield: "account_id"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-cancel_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCancelFlow"
+}

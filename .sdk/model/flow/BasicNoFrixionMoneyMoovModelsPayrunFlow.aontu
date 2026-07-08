@@ -1,0 +1,63 @@
+# BasicNoFrixionMoneyMoovModelsPayrunFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsPayrunFlow:
+{
+  entity: "no_frixion_money_moov_models_payrun",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsPayrunFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payrun_ref01"
+      }
+
+      match: {
+        merchant_i_d: "merchant_i_d01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payrun_ref01",
+        srcdatavar: "no_frixion_money_moov_models_payrun_ref01_data",
+        suffix: "_up0",
+        textfield: "authorisation_date"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_payrun_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payrun_ref01",
+        srcdatavar: "no_frixion_money_moov_models_payrun_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "no_frixion_money_moov_models_payrun01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_payrun_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsPayrunFlow"
+}

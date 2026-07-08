@@ -1,0 +1,40 @@
+# BasicNoFrixionMoneyMoovModelsBatchPayoutFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsBatchPayoutFlow:
+{
+  entity: "no_frixion_money_moov_models_batch_payout",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsBatchPayoutFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_batch_payout_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_batch_payout_ref01",
+        srcdatavar: "no_frixion_money_moov_models_batch_payout_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "no_frixion_money_moov_models_batch_payout01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_batch_payout_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsBatchPayoutFlow"
+}

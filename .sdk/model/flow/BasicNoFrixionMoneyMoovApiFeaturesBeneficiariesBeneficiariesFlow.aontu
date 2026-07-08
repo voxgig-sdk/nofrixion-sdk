@@ -1,0 +1,18 @@
+# BasicNoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesFlow:
+{
+  entity: "no_frixion_money_moov_api_features_beneficiaries_beneficiaries",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_api_features_beneficiaries_beneficiaries_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesFlow"
+}

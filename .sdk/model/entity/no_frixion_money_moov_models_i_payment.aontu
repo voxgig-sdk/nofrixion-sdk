@@ -1,0 +1,45 @@
+# Entity: no_frixion_money_moov_models_i_payment
+
+main: kit: entity: no_frixion_money_moov_models_i_payment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "payment_request_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "response_type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "no_frixion_money_moov_models_i_payment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v1/paymentrequests/payondemand"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "payondemand"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

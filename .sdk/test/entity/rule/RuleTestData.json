@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "rule": {
+      "RULE00": {
+        "id": "RULE00"
+      },
+      "RULE01": {
+        "id": "RULE01"
+      },
+      "RULE02": {
+        "id": "RULE02"
+      }
+    }
+  },
+  "new": {
+    "rule": {
+      "rule_ref01": {}
+    }
+  }
+}

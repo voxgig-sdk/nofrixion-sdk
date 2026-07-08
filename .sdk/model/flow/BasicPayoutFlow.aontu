@@ -1,0 +1,73 @@
+# BasicPayoutFlow
+
+main: kit: flow: BasicPayoutFlow:
+{
+  entity: "payout",
+  kind: "basic",
+  name: "BasicPayoutFlow",
+  step: [
+    {
+      input: {
+        ref: "payout_ref01"
+      }
+
+      match: {
+        destination: "destination01",
+        source: "source01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "payout_ref01",
+        srcdatavar: "payout_ref01_data",
+        suffix: "_up0",
+        textfield: "account_id"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payout_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payout_ref01",
+        srcdatavar: "payout_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "payout01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payout_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payout_ref01",
+        suffix: "_rm0"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicPayoutFlow"
+}

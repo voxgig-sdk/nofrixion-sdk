@@ -1,0 +1,41 @@
+# BasicRuleFlow
+
+main: kit: flow: BasicRuleFlow:
+{
+  entity: "rule",
+  kind: "basic",
+  name: "BasicRuleFlow",
+  step: [
+    {
+      input: {
+        ref: "rule_ref01",
+        srcdatavar: "rule_ref01_data",
+        suffix: "_up0"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "rule_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "rule01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicRuleFlow"
+}

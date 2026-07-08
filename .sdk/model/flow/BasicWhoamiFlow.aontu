@@ -1,0 +1,22 @@
+# BasicWhoamiFlow
+
+main: kit: flow: BasicWhoamiFlow:
+{
+  entity: "whoami",
+  kind: "basic",
+  name: "BasicWhoamiFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "whoami_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWhoamiFlow"
+}

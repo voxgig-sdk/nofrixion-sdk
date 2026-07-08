@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_user_invite_page": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE00": {
+        "authorisation_status": {},
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE00",
+        "initial_role_id": "INITIAL_ROLE01",
+        "invitee_email_address": "sc1",
+        "invitee_first_name": "sc2",
+        "invitee_last_name": "sc3",
+        "inviter_email_address": "sc4",
+        "inviter_first_name": "sc5",
+        "inviter_last_name": "sc6",
+        "is_authorised": false,
+        "is_invitee_registered": true,
+        "last_invited": "sc9",
+        "merchant_id": "MERCHANT01",
+        "merchant_name": "scb",
+        "message": "scc",
+        "registration_url": "scd",
+        "status": "sce",
+        "user": {},
+        "user_id": "USER01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE01": {
+        "authorisation_status": {},
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE01",
+        "initial_role_id": "INITIAL_ROLE01",
+        "invitee_email_address": "s17f",
+        "invitee_first_name": "s180",
+        "invitee_last_name": "s181",
+        "inviter_email_address": "s182",
+        "inviter_first_name": "s183",
+        "inviter_last_name": "s184",
+        "is_authorised": false,
+        "is_invitee_registered": true,
+        "last_invited": "s187",
+        "merchant_id": "MERCHANT01",
+        "merchant_name": "s189",
+        "message": "s18a",
+        "registration_url": "s18b",
+        "status": "s18c",
+        "user": {},
+        "user_id": "USER01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE02": {
+        "authorisation_status": {},
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_USER_INVITE_PAGE02",
+        "initial_role_id": "INITIAL_ROLE01",
+        "invitee_email_address": "s23d",
+        "invitee_first_name": "s23e",
+        "invitee_last_name": "s23f",
+        "inviter_email_address": "s240",
+        "inviter_first_name": "s241",
+        "inviter_last_name": "s242",
+        "is_authorised": false,
+        "is_invitee_registered": true,
+        "last_invited": "s245",
+        "merchant_id": "MERCHANT01",
+        "merchant_name": "s247",
+        "message": "s248",
+        "registration_url": "s249",
+        "status": "s24a",
+        "user": {},
+        "user_id": "USER01"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_user_invite_page": {
+      "no_frixion_money_moov_models_user_invite_page_ref01": {
+        "authorisation_status": {},
+        "initial_role_id": "INITIAL_ROLE01",
+        "invitee_email_address": "s2fb",
+        "invitee_first_name": "s2fc",
+        "invitee_last_name": "s2fd",
+        "inviter_email_address": "s2fe",
+        "inviter_first_name": "s2ff",
+        "inviter_last_name": "s300",
+        "is_authorised": false,
+        "is_invitee_registered": true,
+        "last_invited": "s303",
+        "merchant_id": "MERCHANT01",
+        "merchant_name": "s305",
+        "message": "s306",
+        "registration_url": "s307",
+        "status": "s308",
+        "user": {},
+        "user_id": "USER01"
+      }
+    }
+  }
+}

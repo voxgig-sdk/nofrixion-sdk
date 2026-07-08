@@ -1,0 +1,36 @@
+# BasicOpenBankingFlow
+
+main: kit: flow: BasicOpenBankingFlow:
+{
+  entity: "open_banking",
+  kind: "basic",
+  name: "BasicOpenBankingFlow",
+  step: [
+    {
+      input: {
+        ref: "open_banking_ref01"
+      }
+
+      match: {
+        account_id: "account01",
+        merchant_id: "merchant01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "open_banking_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "open_banking01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicOpenBankingFlow"
+}

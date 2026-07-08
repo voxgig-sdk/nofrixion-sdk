@@ -1,0 +1,22 @@
+# BasicNoFrixionMoneyMoovModelsPaymentInitiationFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsPaymentInitiationFlow:
+{
+  entity: "no_frixion_money_moov_models_payment_initiation",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsPaymentInitiationFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payment_initiation_ref01"
+      }
+
+      match: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsPaymentInitiationFlow"
+}

@@ -1,0 +1,152 @@
+# Entity: open_banking
+
+main: kit: entity: open_banking: {
+
+  alias: field: {}
+
+  name: "open_banking"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/openbanking/account/{accountID}/synchronise"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "account"
+            "{account_id}"
+            "synchronise"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "email"
+                orig: "email"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v1/openbanking/consents/{merchantID}/{email}"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "consents"
+            "{merchant_id}"
+            "{email}"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "email"
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v1/openbanking/account/{accountID}"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "account"
+            "{account_id}"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+      [
+        "consent"
+      ]
+    ]
+  }
+
+
+
+}

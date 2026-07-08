@@ -1,0 +1,136 @@
+# Entity: tag
+
+main: kit: entity: tag: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "colour_hex"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "tag"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/merchants/{merchantID}/tags"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "tags"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}/tags"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "tags"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "merchant"
+      ]
+    ]
+  }
+
+
+
+}

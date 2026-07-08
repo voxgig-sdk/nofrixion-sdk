@@ -1,0 +1,32 @@
+# BasicNoFrixionMoneyMoovModelsOpenBankingAccountFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsOpenBankingAccountFlow:
+{
+  entity: "no_frixion_money_moov_models_open_banking_account",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsOpenBankingAccountFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_open_banking_account_ref01",
+        srcdatavar: "no_frixion_money_moov_models_open_banking_account_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "no_frixion_money_moov_models_open_banking_account01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_open_banking_account_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsOpenBankingAccountFlow"
+}

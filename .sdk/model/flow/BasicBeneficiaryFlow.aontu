@@ -1,0 +1,76 @@
+# BasicBeneficiaryFlow
+
+main: kit: flow: BasicBeneficiaryFlow:
+{
+  entity: "beneficiary",
+  kind: "basic",
+  name: "BasicBeneficiaryFlow",
+  step: [
+    {
+      input: {
+        ref: "beneficiary_ref01"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "beneficiary_ref01",
+        srcdatavar: "beneficiary_ref01_data",
+        suffix: "_up0",
+        textfield: "approval_callback_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-beneficiary_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "beneficiary_ref01",
+        srcdatavar: "beneficiary_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "beneficiary01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-beneficiary_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "beneficiary_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "beneficiary01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicBeneficiaryFlow"
+}

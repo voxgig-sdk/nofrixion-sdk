@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_card_customer_token": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN00": {
+        "card_type": "s6e",
+        "customer_email_address": "s6f",
+        "expiry_month": "s70",
+        "expiry_year": "s71",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN00",
+        "inserted": "s73",
+        "last_four_digit": "s74",
+        "last_updated": "s75",
+        "masked_card_number": "s76",
+        "merchant_id": "MERCHANT01",
+        "payment_request_id": "PAYMENT_REQUEST01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN01": {
+        "card_type": "sdc",
+        "customer_email_address": "sdd",
+        "expiry_month": "sde",
+        "expiry_year": "sdf",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN01",
+        "inserted": "se1",
+        "last_four_digit": "se2",
+        "last_updated": "se3",
+        "masked_card_number": "se4",
+        "merchant_id": "MERCHANT01",
+        "payment_request_id": "PAYMENT_REQUEST01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN02": {
+        "card_type": "s14a",
+        "customer_email_address": "s14b",
+        "expiry_month": "s14c",
+        "expiry_year": "s14d",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_CARD_CUSTOMER_TOKEN02",
+        "inserted": "s14f",
+        "last_four_digit": "s150",
+        "last_updated": "s151",
+        "masked_card_number": "s152",
+        "merchant_id": "MERCHANT01",
+        "payment_request_id": "PAYMENT_REQUEST01"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_card_customer_token": {
+      "no_frixion_money_moov_models_card_customer_token_ref01": {
+        "card_type": "s1b8",
+        "customer_email_address": "s1b9",
+        "expiry_month": "s1ba",
+        "expiry_year": "s1bb",
+        "inserted": "s1bd",
+        "last_four_digit": "s1be",
+        "last_updated": "s1bf",
+        "masked_card_number": "s1c0",
+        "merchant_id": "MERCHANT01",
+        "payment_request_id": "PAYMENT_REQUEST01"
+      }
+    }
+  }
+}

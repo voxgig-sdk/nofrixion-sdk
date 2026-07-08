@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_direct_debit_batch_submit": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT00": {
+        "failed_submission": {},
+        "successful_submission": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT00"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT01": {
+        "failed_submission": {},
+        "successful_submission": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT02": {
+        "failed_submission": {},
+        "successful_submission": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_DIRECT_DEBIT_BATCH_SUBMIT02"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_direct_debit_batch_submit": {
+      "no_frixion_money_moov_models_direct_debit_batch_submit_ref01": {
+        "failed_submission": {},
+        "successful_submission": []
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+# BasicNoFrixionMoneyMoovModelsReportResultFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsReportResultFlow:
+{
+  entity: "no_frixion_money_moov_models_report_result",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsReportResultFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_report_result_ref01",
+        srcdatavar: "no_frixion_money_moov_models_report_result_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "no_frixion_money_moov_models_report_result01",
+        report_id: "report01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_report_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsReportResultFlow"
+}

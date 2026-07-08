@@ -1,0 +1,49 @@
+# BasicUserInviteFlow
+
+main: kit: flow: BasicUserInviteFlow:
+{
+  entity: "user_invite",
+  kind: "basic",
+  name: "BasicUserInviteFlow",
+  step: [
+    {
+      input: {
+        ref: "user_invite_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "user_invite_ref01",
+        srcdatavar: "user_invite_ref01_data",
+        suffix: "_up0"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_invite_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "user_invite_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "user_invite01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicUserInviteFlow"
+}

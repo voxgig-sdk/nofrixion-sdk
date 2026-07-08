@@ -1,0 +1,18 @@
+# BasicSendbeneficiaryFlow
+
+main: kit: flow: BasicSendbeneficiaryFlow:
+{
+  entity: "sendbeneficiary",
+  kind: "basic",
+  name: "BasicSendbeneficiaryFlow",
+  step: [
+    {
+      input: {
+        ref: "sendbeneficiary_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicSendbeneficiaryFlow"
+}

@@ -1,0 +1,85 @@
+# Entity: whoamitrustedapp
+
+main: kit: entity: whoamitrustedapp: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "client_session_timeout"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "email_address"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "first_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "passkey_added"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "permission"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "roles_with_scope"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "two_factor_enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "whoamitrustedapp"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoamitrustedapp"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoamitrustedapp"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

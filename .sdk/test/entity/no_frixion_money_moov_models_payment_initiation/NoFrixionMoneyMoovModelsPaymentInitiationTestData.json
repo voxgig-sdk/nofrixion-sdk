@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_payment_initiation": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION00": {
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "payment_request_callback_url": "s3d",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "redirect_url": "s3f",
+        "response_type": "s40",
+        "specific_error_message": "s41",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION00"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION01": {
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "payment_request_callback_url": "s79",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "redirect_url": "s7b",
+        "response_type": "s7c",
+        "specific_error_message": "s7d",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION02": {
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "payment_request_callback_url": "sb5",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "redirect_url": "sb7",
+        "response_type": "sb8",
+        "specific_error_message": "sb9",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_INITIATION02"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_payment_initiation": {
+      "no_frixion_money_moov_models_payment_initiation_ref01": {
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "payment_request_callback_url": "sf1",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "redirect_url": "sf3",
+        "response_type": "sf4",
+        "specific_error_message": "sf5"
+      }
+    }
+  }
+}

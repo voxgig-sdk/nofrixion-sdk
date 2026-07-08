@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "metadata": {
+      "METADATA00": {
+        "id": "METADATA00"
+      },
+      "METADATA01": {
+        "id": "METADATA01"
+      },
+      "METADATA02": {
+        "id": "METADATA02"
+      }
+    }
+  },
+  "new": {
+    "metadata": {
+      "metadata_ref01": {}
+    }
+  }
+}

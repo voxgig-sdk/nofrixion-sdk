@@ -1,0 +1,22 @@
+# BasicWhoamitrustedappFlow
+
+main: kit: flow: BasicWhoamitrustedappFlow:
+{
+  entity: "whoamitrustedapp",
+  kind: "basic",
+  name: "BasicWhoamitrustedappFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "whoamitrustedapp_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWhoamitrustedappFlow"
+}

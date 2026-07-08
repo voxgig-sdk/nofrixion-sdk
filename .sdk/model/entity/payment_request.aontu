@@ -1,0 +1,364 @@
+# Entity: payment_request
+
+main: kit: entity: payment_request: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "do_simulate_settlement_failure"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "error_description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "institution"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payment_initiation_id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "payment_request"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "mandate_id"
+                orig: "mandate_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "submit_after"
+                orig: "submit_after"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/paymentrequests/{id}/directdebit"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "directdebit"
+          ]
+          rename: {
+            param: {
+              id: "paymentrequest_id"
+            }
+          }
+          select: {
+            exist: [
+              "mandate_id"
+              "paymentrequest_id"
+              "submit_after"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "from_date"
+                orig: "from_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "max_amount"
+                orig: "max_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "min_amount"
+                orig: "min_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "payment_method"
+                orig: "payment_method"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "size"
+                orig: "size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "All"
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tag"
+                orig: "tag"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "to_date"
+                orig: "to_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/paymentrequests/export"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "export"
+          ]
+          select: {
+            exist: [
+              "currency"
+              "from_date"
+              "include_archived"
+              "max_amount"
+              "merchant_id"
+              "min_amount"
+              "page"
+              "payment_method"
+              "search"
+              "size"
+              "sort"
+              "status"
+              "tag"
+              "to_date"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/paymentrequests/{id}/receipt"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "receipt"
+          ]
+          rename: {
+            param: {
+              id: "paymentrequest_id"
+            }
+          }
+          select: {
+            exist: [
+              "paymentrequest_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v1/paymentrequests/{id}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/paymentrequests/{id}/pisp/sandboxcallback"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "pisp"
+            "sandboxcallback"
+          ]
+          rename: {
+            param: {
+              id: "paymentrequest_id"
+            }
+          }
+          select: {
+            exist: [
+              "paymentrequest_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "paymentrequest"
+      ]
+    ]
+  }
+
+
+
+}

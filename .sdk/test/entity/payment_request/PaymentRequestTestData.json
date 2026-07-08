@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "payment_request": {
+      "PAYMENT_REQUEST00": {
+        "amount": 50,
+        "do_simulate_settlement_failure": false,
+        "error_description": "s34",
+        "institution": "s35",
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "PAYMENT_REQUEST00"
+      },
+      "PAYMENT_REQUEST01": {
+        "amount": 100,
+        "do_simulate_settlement_failure": false,
+        "error_description": "s66",
+        "institution": "s67",
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "PAYMENT_REQUEST01"
+      },
+      "PAYMENT_REQUEST02": {
+        "amount": 150,
+        "do_simulate_settlement_failure": false,
+        "error_description": "s98",
+        "institution": "s99",
+        "payment_initiation_id": "PAYMENT_INITIATION01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "PAYMENT_REQUEST02"
+      }
+    }
+  },
+  "new": {
+    "payment_request": {
+      "payment_request_ref01": {
+        "amount": 200,
+        "do_simulate_settlement_failure": false,
+        "error_description": "sca",
+        "institution": "scb",
+        "payment_initiation_id": "PAYMENT_INITIATION01"
+      }
+    }
+  }
+}

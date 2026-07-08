@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "transaction": {
+      "TRANSACTION00": {
+        "account_id": "ACCOUNT01",
+        "sequence_number": "SEQUENCE_NUMBER01",
+        "transaction_id": "TRANSACTION01",
+        "id": "TRANSACTION00"
+      },
+      "TRANSACTION01": {
+        "account_id": "ACCOUNT01",
+        "sequence_number": "SEQUENCE_NUMBER01",
+        "transaction_id": "TRANSACTION01",
+        "id": "TRANSACTION01"
+      },
+      "TRANSACTION02": {
+        "account_id": "ACCOUNT01",
+        "sequence_number": "SEQUENCE_NUMBER01",
+        "transaction_id": "TRANSACTION01",
+        "id": "TRANSACTION02"
+      }
+    }
+  },
+  "new": {
+    "transaction": {
+      "transaction_ref01": {}
+    }
+  }
+}

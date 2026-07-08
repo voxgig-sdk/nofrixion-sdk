@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "token": {
+      "TOKEN00": {
+        "id": "TOKEN00"
+      },
+      "TOKEN01": {
+        "id": "TOKEN01"
+      },
+      "TOKEN02": {
+        "id": "TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "token": {
+      "token_ref01": {}
+    }
+  }
+}

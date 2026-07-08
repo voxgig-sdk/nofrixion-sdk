@@ -1,0 +1,70 @@
+# Entity: payeeverification
+
+main: kit: entity: payeeverification: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "iban"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "payee_verified_account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "secondary_identification"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sort_code"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "payeeverification"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v1/openbanking/payeeverification"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "payeeverification"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

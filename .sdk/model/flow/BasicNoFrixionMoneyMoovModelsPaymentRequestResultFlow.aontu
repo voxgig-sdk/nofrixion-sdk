@@ -1,0 +1,26 @@
+# BasicNoFrixionMoneyMoovModelsPaymentRequestResultFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsPaymentRequestResultFlow:
+{
+  entity: "no_frixion_money_moov_models_payment_request_result",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsPaymentRequestResultFlow",
+  step: [
+    {
+      match: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "no_frixion_money_moov_models_payment_request_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsPaymentRequestResultFlow"
+}

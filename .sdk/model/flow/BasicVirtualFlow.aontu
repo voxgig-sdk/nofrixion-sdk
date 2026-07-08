@@ -1,0 +1,45 @@
+# BasicVirtualFlow
+
+main: kit: flow: BasicVirtualFlow:
+{
+  entity: "virtual",
+  kind: "basic",
+  name: "BasicVirtualFlow",
+  step: [
+    {
+      input: {
+        ref: "virtual_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        account_id: "account01"
+      }
+
+      input: {
+        ref: "virtual_ref01",
+        srcdatavar: "virtual_ref01_data",
+        suffix: "_up0",
+        textfield: "account_name"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-virtual_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVirtualFlow"
+}

@@ -1,0 +1,116 @@
+# Entity: no_frixion_money_moov_models_payment_requests_merchant_payment3
+
+main: kit: entity: no_frixion_money_moov_models_payment_requests_merchant_payment3: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "template"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "no_frixion_money_moov_models_payment_requests_merchant_payment3"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "template_id"
+                orig: "template_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "templates"
+            "{template_id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "paymentrequest_id"
+              templateID: "template_id"
+            }
+          }
+          select: {
+            exist: [
+              "paymentrequest_id"
+              "template_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "paymentrequest"
+        "template"
+      ]
+    ]
+  }
+
+
+
+}

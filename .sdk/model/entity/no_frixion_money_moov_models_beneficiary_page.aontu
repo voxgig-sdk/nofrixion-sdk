@@ -1,0 +1,330 @@
+# Entity: no_frixion_money_moov_models_beneficiary_page
+
+main: kit: entity: no_frixion_money_moov_models_beneficiary_page: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "approval_callback_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "authentication_method"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisation"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisers_completed_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "authorisers_required_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "beneficiary_event"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "can_authorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_update"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "created_by_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "destination"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "has_current_user_authorised"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_authorised"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "nonce"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "their_reference"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "no_frixion_money_moov_models_beneficiary_page"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_disabled"
+                orig: "include_disabled"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "source_account_id"
+                orig: "source_account_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/beneficiaries"
+          parts: [
+            "api"
+            "v1"
+            "beneficiaries"
+          ]
+          select: {
+            exist: [
+              "currency"
+              "include_disabled"
+              "merchant_id"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+              "source_account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_disabled"
+                orig: "include_disabled"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "source_account_id"
+                orig: "source_account_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}/beneficiaries"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "beneficiaries"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "currency"
+              "include_disabled"
+              "merchant_id"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+              "source_account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "merchant"
+      ]
+    ]
+  }
+
+
+
+}

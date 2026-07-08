@@ -1,0 +1,76 @@
+# BasicPaymentRequestFlow
+
+main: kit: flow: BasicPaymentRequestFlow:
+{
+  entity: "payment_request",
+  kind: "basic",
+  name: "BasicPaymentRequestFlow",
+  step: [
+    {
+      input: {
+        ref: "payment_request_ref01"
+      }
+
+      match: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "payment_request_ref01",
+        srcdatavar: "payment_request_ref01_data",
+        suffix: "_up0",
+        textfield: "error_description"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payment_request_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payment_request_ref01",
+        srcdatavar: "payment_request_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "payment_request01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payment_request_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payment_request_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "payment_request01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicPaymentRequestFlow"
+}

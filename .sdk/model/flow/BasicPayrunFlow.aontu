@@ -1,0 +1,50 @@
+# BasicPayrunFlow
+
+main: kit: flow: BasicPayrunFlow:
+{
+  entity: "payrun",
+  kind: "basic",
+  name: "BasicPayrunFlow",
+  step: [
+    {
+      input: {
+        ref: "payrun_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "payrun_ref01",
+        srcdatavar: "payrun_ref01_data",
+        suffix: "_up0",
+        textfield: "note"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payrun_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payrun_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "payrun01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicPayrunFlow"
+}

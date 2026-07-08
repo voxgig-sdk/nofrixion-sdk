@@ -1,0 +1,263 @@
+# Entity: no_frixion_biz_biz_models_paging_rules_page
+
+main: kit: entity: no_frixion_biz_biz_models_paging_rules_page: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "approve_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "approver_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "authentication_method"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisation"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisers_completed_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "authorisers_required_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "can_authorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "end_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "has_current_user_authorised"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_disabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_executed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_run_at_transaction_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nonce"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "on_approved_web_hook_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "on_execution_error_web_hook_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "on_execution_success_web_hook_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "start_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sweep_action"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "time_zone_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trigger_cron_expression"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trigger_on_pay_in"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "user_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "web_hook_secret"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "no_frixion_biz_biz_models_paging_rules_page"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "archived_only"
+                orig: "archived_only"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "size"
+                orig: "size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/rules"
+          parts: [
+            "api"
+            "v1"
+            "rules"
+          ]
+          select: {
+            exist: [
+              "archived_only"
+              "merchant_id"
+              "page"
+              "search"
+              "size"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

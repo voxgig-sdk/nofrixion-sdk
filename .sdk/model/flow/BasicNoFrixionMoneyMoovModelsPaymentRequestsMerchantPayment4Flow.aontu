@@ -1,0 +1,24 @@
+# BasicNoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Flow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Flow:
+{
+  entity: "no_frixion_money_moov_models_payment_requests_merchant_payment4",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Flow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payment_requests_merchant_payment4_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "no_frixion_money_moov_models_payment_requests_merchant_payment401",
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Flow"
+}

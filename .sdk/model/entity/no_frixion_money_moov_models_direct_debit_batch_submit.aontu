@@ -1,0 +1,46 @@
+# Entity: no_frixion_money_moov_models_direct_debit_batch_submit
+
+main: kit: entity: no_frixion_money_moov_models_direct_debit_batch_submit: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "failed_submission"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "successful_submission"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "no_frixion_money_moov_models_direct_debit_batch_submit"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v1/paymentrequests/directdebit/batchsubmit"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "directdebit"
+            "batchsubmit"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

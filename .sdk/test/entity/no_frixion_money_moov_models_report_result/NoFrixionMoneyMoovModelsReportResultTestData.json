@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_report_result": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT00": {
+        "content": "s46",
+        "content_type": "s47",
+        "last_completed_at": "s48",
+        "merchant_id": "MERCHANT01",
+        "report_name": "s4a",
+        "report_type": "s4b",
+        "statement_number": "s4c",
+        "report_id": "REPORT01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT00"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT01": {
+        "content": "s8c",
+        "content_type": "s8d",
+        "last_completed_at": "s8e",
+        "merchant_id": "MERCHANT01",
+        "report_name": "s90",
+        "report_type": "s91",
+        "statement_number": "s92",
+        "report_id": "REPORT01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT02": {
+        "content": "sd2",
+        "content_type": "sd3",
+        "last_completed_at": "sd4",
+        "merchant_id": "MERCHANT01",
+        "report_name": "sd6",
+        "report_type": "sd7",
+        "statement_number": "sd8",
+        "report_id": "REPORT01",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_REPORT_RESULT02"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_report_result": {
+      "no_frixion_money_moov_models_report_result_ref01": {
+        "content": "s118",
+        "content_type": "s119",
+        "last_completed_at": "s11a",
+        "merchant_id": "MERCHANT01",
+        "report_name": "s11c",
+        "report_type": "s11d",
+        "statement_number": "s11e"
+      }
+    }
+  }
+}

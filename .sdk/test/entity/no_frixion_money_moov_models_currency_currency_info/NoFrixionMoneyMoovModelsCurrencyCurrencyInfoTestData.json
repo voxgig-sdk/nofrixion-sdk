@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_currency_currency_info": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_CURRENCY_CURRENCY_INFO00": {
+        "code": "s3c",
+        "decimal": "s3d",
+        "is_fiat": true,
+        "iso4217_alpha_code": "s3f",
+        "iso4217_numeric_code": "s40",
+        "symbol": "s41"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_CURRENCY_CURRENCY_INFO01": {
+        "code": "s78",
+        "decimal": "s79",
+        "is_fiat": true,
+        "iso4217_alpha_code": "s7b",
+        "iso4217_numeric_code": "s7c",
+        "symbol": "s7d"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_CURRENCY_CURRENCY_INFO02": {
+        "code": "sb4",
+        "decimal": "sb5",
+        "is_fiat": true,
+        "iso4217_alpha_code": "sb7",
+        "iso4217_numeric_code": "sb8",
+        "symbol": "sb9"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_currency_currency_info": {
+      "no_frixion_money_moov_models_currency_currency_info_ref01": {
+        "code": "sf0",
+        "decimal": "sf1",
+        "is_fiat": true,
+        "iso4217_alpha_code": "sf3",
+        "iso4217_numeric_code": "sf4",
+        "symbol": "sf5"
+      }
+    }
+  }
+}

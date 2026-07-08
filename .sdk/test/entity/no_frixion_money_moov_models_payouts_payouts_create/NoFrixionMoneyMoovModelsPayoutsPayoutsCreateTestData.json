@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_payouts_payouts_create": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE00": {
+        "failed_payout": {},
+        "payout": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE00"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE01": {
+        "failed_payout": {},
+        "payout": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE02": {
+        "failed_payout": {},
+        "payout": [],
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_PAYOUTS_PAYOUTS_CREATE02"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_payouts_payouts_create": {
+      "no_frixion_money_moov_models_payouts_payouts_create_ref01": {
+        "failed_payout": {},
+        "payout": []
+      }
+    }
+  }
+}

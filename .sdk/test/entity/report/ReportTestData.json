@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "report": {
+      "REPORT00": {
+        "id": "REPORT00"
+      },
+      "REPORT01": {
+        "id": "REPORT01"
+      },
+      "REPORT02": {
+        "id": "REPORT02"
+      }
+    }
+  },
+  "new": {
+    "report": {
+      "report_ref01": {}
+    }
+  }
+}

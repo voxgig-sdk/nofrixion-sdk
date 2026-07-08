@@ -1,0 +1,260 @@
+# Entity: no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page
+
+main: kit: entity: no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "approved_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_country_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_country_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_first_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_iban"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_last_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_sort_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_recurring"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "reference"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_bank_account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_customer_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_mandate_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "from_date"
+                orig: "from_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "mandate_i_d"
+                orig: "mandate_i_d"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "max_amount"
+                orig: "max_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "min_amount"
+                orig: "min_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "size"
+                orig: "size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "to_date"
+                orig: "to_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/mandates"
+          parts: [
+            "api"
+            "v1"
+            "mandates"
+          ]
+          select: {
+            exist: [
+              "currency"
+              "from_date"
+              "mandate_i_d"
+              "max_amount"
+              "merchant_id"
+              "min_amount"
+              "page"
+              "search"
+              "size"
+              "sort"
+              "status"
+              "to_date"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

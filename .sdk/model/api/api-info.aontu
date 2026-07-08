@@ -1,0 +1,26 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "Bearer"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          description: "v1"
+          url: "https://api-sandbox.nofrixion.com"
+        }
+      ]
+      title: "NoFrixion MoneyMoov API"
+      version: "1.0"
+      website: "https://nofrixion.com"
+    }
+  }
+}
+

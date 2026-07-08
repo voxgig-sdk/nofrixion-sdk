@@ -1,0 +1,321 @@
+# Entity: virtual
+
+main: kit: entity: virtual: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "account_supplier_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "available_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "available_balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bank_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "consent_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "created_by_display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "default_payment_rail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expiry_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "external_account_icon"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_connected_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_default"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_trust_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_virtual"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_transaction"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "physical_account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rule"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "submitted_payouts_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "submitted_payouts_balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "summary"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_sepa_instant_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_connection_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_last_synced_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_last_failed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_last_failure_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_unsynchronised_transactions_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "virtual"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/accounts/{accountID}/virtual"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "{account_id}"
+            "virtual"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "virtual_account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/accounts/{accountID}/virtual/{virtualAccountID}"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "{account_id}"
+            "virtual"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+              virtualAccountID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

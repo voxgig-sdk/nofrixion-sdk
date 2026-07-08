@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_payment_request_result": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUEST_RESULT00": {
+        "amount": 110,
+        "amount_pending": 111,
+        "amount_received": 112,
+        "amount_refunded": 113,
+        "currency": "s72",
+        "customer_id": "CUSTOMER01",
+        "payment": [],
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "pisp_authorization": [],
+        "requested_amount": 119,
+        "result": "s78",
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUEST_RESULT01": {
+        "amount": 220,
+        "amount_pending": 221,
+        "amount_received": 222,
+        "amount_refunded": 223,
+        "currency": "se0",
+        "customer_id": "CUSTOMER01",
+        "payment": [],
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "pisp_authorization": [],
+        "requested_amount": 229,
+        "result": "se6",
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_PAYMENT_REQUEST_RESULT02": {
+        "amount": 330,
+        "amount_pending": 331,
+        "amount_received": 332,
+        "amount_refunded": 333,
+        "currency": "s14e",
+        "customer_id": "CUSTOMER01",
+        "payment": [],
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "pisp_authorization": [],
+        "requested_amount": 339,
+        "result": "s154",
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_payment_request_result": {
+      "no_frixion_money_moov_models_payment_request_result_ref01": {
+        "amount": 440,
+        "amount_pending": 441,
+        "amount_received": 442,
+        "amount_refunded": 443,
+        "currency": "s1bc",
+        "customer_id": "CUSTOMER01",
+        "payment": [],
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "pisp_authorization": [],
+        "requested_amount": 449,
+        "result": "s1c2"
+      }
+    }
+  }
+}

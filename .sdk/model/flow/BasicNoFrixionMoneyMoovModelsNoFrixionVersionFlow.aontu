@@ -1,0 +1,28 @@
+# BasicNoFrixionMoneyMoovModelsNoFrixionVersionFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsNoFrixionVersionFlow:
+{
+  entity: "no_frixion_money_moov_models_no_frixion_version",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsNoFrixionVersionFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_no_frixion_version_ref01",
+        srcdatavar: "no_frixion_money_moov_models_no_frixion_version_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_money_moov_models_no_frixion_version_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsNoFrixionVersionFlow"
+}

@@ -1,0 +1,73 @@
+# Entity: no_frixion_money_moov_models_payment_requests_merchant_payment4
+
+main: kit: entity: no_frixion_money_moov_models_payment_requests_merchant_payment4: {
+
+  alias: field: {}
+
+  name: "no_frixion_money_moov_models_payment_requests_merchant_payment4"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "template_id"
+                orig: "template_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "templates"
+            "{template_id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "paymentrequest_id"
+              templateID: "template_id"
+            }
+          }
+          select: {
+            exist: [
+              "paymentrequest_id"
+              "template_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "paymentrequest"
+        "template"
+      ]
+    ]
+  }
+
+
+
+}

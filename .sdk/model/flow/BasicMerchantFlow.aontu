@@ -1,0 +1,65 @@
+# BasicMerchantFlow
+
+main: kit: flow: BasicMerchantFlow:
+{
+  entity: "merchant",
+  kind: "basic",
+  name: "BasicMerchantFlow",
+  step: [
+    {
+      input: {
+        ref: "merchant_ref01",
+        srcdatavar: "merchant_ref01_data",
+        suffix: "_up0",
+        textfield: "reason"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_ref01",
+        srcdatavar: "merchant_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "merchant01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "merchant01",
+        merchant_id: "merchant01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicMerchantFlow"
+}

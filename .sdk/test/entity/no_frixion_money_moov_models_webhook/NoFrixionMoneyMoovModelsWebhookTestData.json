@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_webhook": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK00": {
+        "destination_url": "s6e",
+        "email_address": "s6f",
+        "failed_notification_email_address": "s70",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK00",
+        "is_active": true,
+        "merchant_id": "MERCHANT01",
+        "notification_method": "s74",
+        "resource_type": [],
+        "retry": true,
+        "secret": "s77",
+        "version": "s78"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK01": {
+        "destination_url": "sdc",
+        "email_address": "sdd",
+        "failed_notification_email_address": "sde",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK01",
+        "is_active": true,
+        "merchant_id": "MERCHANT01",
+        "notification_method": "se2",
+        "resource_type": [],
+        "retry": true,
+        "secret": "se5",
+        "version": "se6"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK02": {
+        "destination_url": "s14a",
+        "email_address": "s14b",
+        "failed_notification_email_address": "s14c",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_WEBHOOK02",
+        "is_active": true,
+        "merchant_id": "MERCHANT01",
+        "notification_method": "s150",
+        "resource_type": [],
+        "retry": true,
+        "secret": "s153",
+        "version": "s154"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_webhook": {
+      "no_frixion_money_moov_models_webhook_ref01": {
+        "destination_url": "s1b8",
+        "email_address": "s1b9",
+        "failed_notification_email_address": "s1ba",
+        "is_active": true,
+        "merchant_id": "MERCHANT01",
+        "notification_method": "s1be",
+        "resource_type": [],
+        "retry": true,
+        "secret": "s1c1",
+        "version": "s1c2"
+      }
+    }
+  }
+}

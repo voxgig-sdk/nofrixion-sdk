@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "no_frixion_money_moov_models_open_banking_account": {
+      "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT00": {
+        "account_balance": [],
+        "account_identification": [],
+        "account_name": [],
+        "account_type": "s85",
+        "balance": 134,
+        "consolidated_account_information": {},
+        "currency": "s88",
+        "description": "s89",
+        "detail": "s8a",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT00",
+        "nickname": "s8c",
+        "type": "s8d",
+        "usage_type": "s8e"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT01": {
+        "account_balance": [],
+        "account_identification": [],
+        "account_name": [],
+        "account_type": "s107",
+        "balance": 264,
+        "consolidated_account_information": {},
+        "currency": "s10a",
+        "description": "s10b",
+        "detail": "s10c",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT01",
+        "nickname": "s10e",
+        "type": "s10f",
+        "usage_type": "s110"
+      },
+      "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT02": {
+        "account_balance": [],
+        "account_identification": [],
+        "account_name": [],
+        "account_type": "s189",
+        "balance": 394,
+        "consolidated_account_information": {},
+        "currency": "s18c",
+        "description": "s18d",
+        "detail": "s18e",
+        "id": "NO_FRIXION_MONEY_MOOV_MODELS_OPEN_BANKING_ACCOUNT02",
+        "nickname": "s190",
+        "type": "s191",
+        "usage_type": "s192"
+      }
+    }
+  },
+  "new": {
+    "no_frixion_money_moov_models_open_banking_account": {
+      "no_frixion_money_moov_models_open_banking_account_ref01": {
+        "account_balance": [],
+        "account_identification": [],
+        "account_name": [],
+        "account_type": "s20b",
+        "balance": 524,
+        "consolidated_account_information": {},
+        "currency": "s20e",
+        "description": "s20f",
+        "detail": "s210",
+        "nickname": "s212",
+        "type": "s213",
+        "usage_type": "s214"
+      }
+    }
+  }
+}

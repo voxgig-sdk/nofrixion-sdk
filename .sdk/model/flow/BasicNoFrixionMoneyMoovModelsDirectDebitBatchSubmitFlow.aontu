@@ -1,0 +1,18 @@
+# BasicNoFrixionMoneyMoovModelsDirectDebitBatchSubmitFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsDirectDebitBatchSubmitFlow:
+{
+  entity: "no_frixion_money_moov_models_direct_debit_batch_submit",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsDirectDebitBatchSubmitFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_direct_debit_batch_submit_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsDirectDebitBatchSubmitFlow"
+}

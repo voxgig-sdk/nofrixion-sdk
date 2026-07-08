@@ -1,0 +1,18 @@
+# BasicPayeeverificationFlow
+
+main: kit: flow: BasicPayeeverificationFlow:
+{
+  entity: "payeeverification",
+  kind: "basic",
+  name: "BasicPayeeverificationFlow",
+  step: [
+    {
+      input: {
+        ref: "payeeverification_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPayeeverificationFlow"
+}

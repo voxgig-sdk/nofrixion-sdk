@@ -1,0 +1,156 @@
+# Entity: no_frixion_money_moov_models_fx_rate
+
+main: kit: entity: no_frixion_money_moov_models_fx_rate: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "destination_currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "exchange_rate"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "expiry_time"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "quote_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_currency"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "no_frixion_money_moov_models_fx_rate"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "destination"
+                orig: "destination"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "source"
+                orig: "source"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payouts/fxallheldrates/{source}/{destination}"
+          parts: [
+            "api"
+            "v1"
+            "payouts"
+            "fxallheldrates"
+            "{source}"
+            "{destination}"
+          ]
+          select: {
+            exist: [
+              "destination"
+              "source"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "destination"
+                orig: "destination"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "source"
+                orig: "source"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "valid_for_minute"
+                orig: "valid_for_minute"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}"
+          parts: [
+            "api"
+            "v1"
+            "payouts"
+            "fxheldrate"
+            "{source}"
+            "{destination}"
+            "{valid_for_minute}"
+          ]
+          rename: {
+            param: {
+              validForMinutes: "valid_for_minute"
+            }
+          }
+          select: {
+            exist: [
+              "destination"
+              "source"
+              "valid_for_minute"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "fxallheldrate"
+      ]
+      [
+        "fxheldrate"
+      ]
+    ]
+  }
+
+
+
+}

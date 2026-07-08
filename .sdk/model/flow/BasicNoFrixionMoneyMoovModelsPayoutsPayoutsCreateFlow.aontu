@@ -1,0 +1,18 @@
+# BasicNoFrixionMoneyMoovModelsPayoutsPayoutsCreateFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsPayoutsPayoutsCreateFlow:
+{
+  entity: "no_frixion_money_moov_models_payouts_payouts_create",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsPayoutsPayoutsCreateFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_money_moov_models_payouts_payouts_create_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsPayoutsPayoutsCreateFlow"
+}

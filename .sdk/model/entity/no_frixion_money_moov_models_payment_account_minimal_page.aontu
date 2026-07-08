@@ -1,0 +1,189 @@
+# Entity: no_frixion_money_moov_models_payment_account_minimal_page
+
+main: kit: entity: no_frixion_money_moov_models_payment_account_minimal_page: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "available_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_connected_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "submitted_payouts_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "no_frixion_money_moov_models_payment_account_minimal_page"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "connected_account"
+                orig: "connected_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_archived"
+                orig: "only_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_connect_account"
+                orig: "only_connect_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/minimal"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "minimal"
+          ]
+          select: {
+            exist: [
+              "connected_account"
+              "currency"
+              "include_archived"
+              "merchant_id"
+              "only_archived"
+              "only_connect_account"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

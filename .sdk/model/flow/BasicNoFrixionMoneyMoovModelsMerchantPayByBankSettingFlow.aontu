@@ -1,0 +1,26 @@
+# BasicNoFrixionMoneyMoovModelsMerchantPayByBankSettingFlow
+
+main: kit: flow: BasicNoFrixionMoneyMoovModelsMerchantPayByBankSettingFlow:
+{
+  entity: "no_frixion_money_moov_models_merchant_pay_by_bank_setting",
+  kind: "basic",
+  name: "BasicNoFrixionMoneyMoovModelsMerchantPayByBankSettingFlow",
+  step: [
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "no_frixion_money_moov_models_merchant_pay_by_bank_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionMoneyMoovModelsMerchantPayByBankSettingFlow"
+}
