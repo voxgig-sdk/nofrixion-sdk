@@ -3511,7 +3511,7 @@ Create an instance: `const no_frixion_biz_biz_models_payments_card_payment = cli
 
 ```ts
 const no_frixion_biz_biz_models_payments_card_payment = await client.NoFrixionBizBizModelsPaymentsCardPayment().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -3610,7 +3610,7 @@ Create an instance: `const no_frixion_money_moov_api_features_permissions_roles_
 
 ```ts
 const no_frixion_money_moov_api_features_permissions_roles_create = await client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().create({
-  merchant_id: /* string */,
+  merchant_id: 'example_merchant_id',
 })
 ```
 
@@ -3992,13 +3992,13 @@ const no_frixion_money_moov_models_mandates_mandate = await client.NoFrixionMone
 
 ```ts
 const no_frixion_money_moov_models_mandates_mandate = await client.NoFrixionMoneyMoovModelsMandatesMandate().create({
-  address_line1: /* string */,
-  city: /* string */,
-  country_code: /* string */,
-  email_address: /* string */,
-  first_name: /* string */,
-  last_name: /* string */,
-  postal_code: /* string */,
+  address_line1: 'example_address_line1',
+  city: 'example_city',
+  country_code: 'example_country_code',
+  email_address: 'example_email_address',
+  first_name: 'example_first_name',
+  last_name: 'example_last_name',
+  postal_code: 'example_postal_code',
 })
 ```
 
@@ -4196,7 +4196,7 @@ const no_frixion_money_moov_models_merchant_token = await client.NoFrixionMoneyM
 
 ```ts
 const no_frixion_money_moov_models_merchant_token = await client.NoFrixionMoneyMoovModelsMerchantToken().create({
-  nonce: /* string */,
+  nonce: 'example_nonce',
 })
 ```
 
@@ -4509,7 +4509,7 @@ const no_frixion_money_moov_models_payment = await client.NoFrixionMoneyMoovMode
 
 ```ts
 const no_frixion_money_moov_models_payment = await client.NoFrixionMoneyMoovModelsPayment().create({
-  created_by_user: /* Record<string, any> */,
+  created_by_user: {},
 })
 ```
 
@@ -4633,7 +4633,7 @@ Create an instance: `const no_frixion_money_moov_models_payment_initiation = cli
 
 ```ts
 const no_frixion_money_moov_models_payment_initiation = await client.NoFrixionMoneyMoovModelsPaymentInitiation().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -5108,7 +5108,7 @@ const no_frixion_money_moov_models_payrun = await client.NoFrixionMoneyMoovModel
 
 ```ts
 const no_frixion_money_moov_models_payrun = await client.NoFrixionMoneyMoovModelsPayrun().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -5202,8 +5202,8 @@ const no_frixion_money_moov_models_rule = await client.NoFrixionMoneyMoovModelsR
 
 ```ts
 const no_frixion_money_moov_models_rule = await client.NoFrixionMoneyMoovModelsRule().create({
-  created_by: /* Record<string, any> */,
-  nonce: /* string */,
+  created_by: {},
+  nonce: 'example_nonce',
 })
 ```
 
@@ -5366,7 +5366,7 @@ const no_frixion_money_moov_models_user_invite = await client.NoFrixionMoneyMoov
 
 ```ts
 const no_frixion_money_moov_models_user_invite = await client.NoFrixionMoneyMoovModelsUserInvite().create({
-  user: /* Record<string, any> */,
+  user: {},
 })
 ```
 
@@ -5507,7 +5507,7 @@ Create an instance: `const open_banking = client.OpenBanking()`
 
 ```ts
 const open_banking = await client.OpenBanking().create({
-  account_id: /* string */,
+  account_id: 'example_account_id',
 })
 ```
 
@@ -5538,8 +5538,8 @@ Create an instance: `const payeeverification = client.Payeeverification()`
 
 ```ts
 const payeeverification = await client.Payeeverification().create({
-  account_name: /* string */,
-  iban: /* string */,
+  account_name: 'example_account_name',
+  iban: 'example_iban',
 })
 ```
 
@@ -5577,7 +5577,7 @@ const payment_request = await client.PaymentRequest().load()
 
 ```ts
 const payment_request = await client.PaymentRequest().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -5714,7 +5714,7 @@ Create an instance: `const payrun = client.Payrun()`
 
 ```ts
 const payrun = await client.Payrun().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -5927,8 +5927,8 @@ Create an instance: `const send = client.Send()`
 
 ```ts
 const send = await client.Send().create({
-  beneficiary: /* Record<string, any> */,
-  source_account_identifier: /* Record<string, any> */,
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -6028,8 +6028,8 @@ Create an instance: `const sendbeneficiary = client.Sendbeneficiary()`
 
 ```ts
 const sendbeneficiary = await client.Sendbeneficiary().create({
-  beneficiary: /* Record<string, any> */,
-  source_account_identifier: /* Record<string, any> */,
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -6065,7 +6065,7 @@ const tags = await client.Tag().list()
 
 ```ts
 const tag = await client.Tag().create({
-  merchant_id: /* string */,
+  merchant_id: 'example_merchant_id',
 })
 ```
 
@@ -6085,7 +6085,7 @@ Create an instance: `const token = client.Token()`
 
 ```ts
 const token = await client.Token().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -6112,7 +6112,7 @@ const transaction = await client.Transaction().load({ sequence_number: 1, transa
 
 ```ts
 const transaction = await client.Transaction().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -6167,7 +6167,7 @@ Create an instance: `const user_invite = client.UserInvite()`
 
 ```ts
 const user_invite = await client.UserInvite().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -6232,7 +6232,7 @@ Create an instance: `const virtual = client.Virtual()`
 
 ```ts
 const virtual = await client.Virtual().create({
-  account_id: /* string */,
+  account_id: 'example_account_id',
 })
 ```
 

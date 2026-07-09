@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: '$$main.kit.info.servers.0.url$$',
+    base: 'https://api-sandbox.nofrixion.com',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -1667,7 +1667,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionBizBizModelsPaymentsCardPayment(nil).Create(map[string]any{
-    "paymentrequest_id": /* string */,
+    "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -1878,7 +1878,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil).Create(map[string]any{
-    "merchant_id": /* string */,
+    "merchant_id": "example_merchant_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -2638,13 +2638,13 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsMandatesMandate(nil).Create(map[string]any{
-    "address_line1": /* string */,
-    "city": /* string */,
-    "country_code": /* string */,
-    "email_address": /* string */,
-    "first_name": /* string */,
-    "last_name": /* string */,
-    "postal_code": /* string */,
+    "address_line1": "example_address_line1",
+    "city": "example_city",
+    "country_code": "example_country_code",
+    "email_address": "example_email_address",
+    "first_name": "example_first_name",
+    "last_name": "example_last_name",
+    "postal_code": "example_postal_code",
 }, nil)
 if err != nil {
     panic(err)
@@ -3005,7 +3005,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Create(map[string]any{
-    "nonce": /* string */,
+    "nonce": "example_nonce",
 }, nil)
 if err != nil {
     panic(err)
@@ -3640,7 +3640,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsPayment(nil).Create(map[string]any{
-    "created_by_user": /* map[string]any */,
+    "created_by_user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3863,7 +3863,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsPaymentInitiation(nil).Create(map[string]any{
-    "paymentrequest_id": /* string */,
+    "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4694,7 +4694,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4901,8 +4901,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsRule(nil).Create(map[string]any{
-    "created_by": /* map[string]any */,
-    "nonce": /* string */,
+    "created_by": map[string]any{},
+    "nonce": "example_nonce",
 }, nil)
 if err != nil {
     panic(err)
@@ -5199,7 +5199,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.NoFrixionMoneyMoovModelsUserInvite(nil).Create(map[string]any{
-    "user": /* map[string]any */,
+    "user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -5491,7 +5491,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.OpenBanking(nil).Create(map[string]any{
-    "account_id": /* string */,
+    "account_id": "example_account_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5562,8 +5562,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Payeeverification(nil).Create(map[string]any{
-    "account_name": /* string */,
-    "iban": /* string */,
+    "account_name": "example_account_name",
+    "iban": "example_iban",
 }, nil)
 if err != nil {
     panic(err)
@@ -5632,7 +5632,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PaymentRequest(nil).Create(map[string]any{
-    "paymentrequest_id": /* string */,
+    "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -5961,7 +5961,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Payrun(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6432,8 +6432,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Send(nil).Create(map[string]any{
-    "beneficiary": /* map[string]any */,
-    "source_account_identifier": /* map[string]any */,
+    "beneficiary": map[string]any{},
+    "source_account_identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -6642,8 +6642,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Sendbeneficiary(nil).Create(map[string]any{
-    "beneficiary": /* map[string]any */,
-    "source_account_identifier": /* map[string]any */,
+    "beneficiary": map[string]any{},
+    "source_account_identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -6712,7 +6712,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Tag(nil).Create(map[string]any{
-    "merchant_id": /* string */,
+    "merchant_id": "example_merchant_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6759,7 +6759,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Token(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6830,7 +6830,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Transaction(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6981,7 +6981,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
-    "id": /* string */,
+    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -7100,7 +7100,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Virtual(nil).Create(map[string]any{
-    "account_id": /* string */,
+    "account_id": "example_account_id",
 }, nil)
 if err != nil {
     panic(err)

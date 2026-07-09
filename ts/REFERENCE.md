@@ -2276,7 +2276,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionBizBizModelsPaymentsCardPayment().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -2483,7 +2483,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().create({
-  merchant_id: /* string */,
+  merchant_id: 'example_merchant_id',
 })
 ```
 
@@ -3204,13 +3204,13 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsMandatesMandate().create({
-  address_line1: /* string */,
-  city: /* string */,
-  country_code: /* string */,
-  email_address: /* string */,
-  first_name: /* string */,
-  last_name: /* string */,
-  postal_code: /* string */,
+  address_line1: 'example_address_line1',
+  city: 'example_city',
+  country_code: 'example_country_code',
+  email_address: 'example_email_address',
+  first_name: 'example_first_name',
+  last_name: 'example_last_name',
+  postal_code: 'example_postal_code',
 })
 ```
 
@@ -3555,7 +3555,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsMerchantToken().create({
-  nonce: /* string */,
+  nonce: 'example_nonce',
 })
 ```
 
@@ -4160,7 +4160,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsPayment().create({
-  created_by_user: /* Record<string, any> */,
+  created_by_user: {},
 })
 ```
 
@@ -4384,7 +4384,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsPaymentInitiation().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -5191,7 +5191,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsPayrun().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -5388,8 +5388,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsRule().create({
-  created_by: /* Record<string, any> */,
-  nonce: /* string */,
+  created_by: {},
+  nonce: 'example_nonce',
 })
 ```
 
@@ -5671,7 +5671,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.NoFrixionMoneyMoovModelsUserInvite().create({
-  user: /* Record<string, any> */,
+  user: {},
 })
 ```
 
@@ -5955,7 +5955,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.OpenBanking().create({
-  account_id: /* string */,
+  account_id: 'example_account_id',
 })
 ```
 
@@ -6021,8 +6021,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Payeeverification().create({
-  account_name: /* string */,
-  iban: /* string */,
+  account_name: 'example_account_name',
+  iban: 'example_iban',
 })
 ```
 
@@ -6078,7 +6078,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PaymentRequest().create({
-  paymentrequest_id: /* string */,
+  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -6393,7 +6393,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Payrun().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -6848,8 +6848,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Send().create({
-  beneficiary: /* Record<string, any> */,
-  source_account_identifier: /* Record<string, any> */,
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -7057,8 +7057,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Sendbeneficiary().create({
-  beneficiary: /* Record<string, any> */,
-  source_account_identifier: /* Record<string, any> */,
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -7114,7 +7114,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Tag().create({
-  merchant_id: /* string */,
+  merchant_id: 'example_merchant_id',
 })
 ```
 
@@ -7168,7 +7168,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Token().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -7222,7 +7222,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Transaction().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -7371,7 +7371,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.UserInvite().create({
-  id: /* string */,
+  id: 'example_id',
 })
 ```
 
@@ -7481,7 +7481,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Virtual().create({
-  account_id: /* string */,
+  account_id: 'example_account_id',
 })
 ```
 
