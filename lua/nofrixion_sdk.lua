@@ -468,15 +468,15 @@ function NofrixionSDK:MerchantAuthorisationSetting(data)
 end
 
 
--- Idiomatic facade: client:MerchantDirectDebitMandate():list() / client:MerchantDirectDebitMandate():load({ id = ... })
+-- Idiomatic facade: client:MerchantDirectDebitMandatePage():list() / client:MerchantDirectDebitMandatePage():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:MerchantDirectDebitMandate(data)
-  local EntityMod = require("entity.merchant_direct_debit_mandate_entity")
+function NofrixionSDK:MerchantDirectDebitMandatePage(data)
+  local EntityMod = require("entity.merchant_direct_debit_mandate_page_entity")
   if data == nil then
-    if self._merchant_direct_debit_mandate == nil then
-      self._merchant_direct_debit_mandate = EntityMod.new(self, nil)
+    if self._merchant_direct_debit_mandate_page == nil then
+      self._merchant_direct_debit_mandate_page = EntityMod.new(self, nil)
     end
-    return self._merchant_direct_debit_mandate
+    return self._merchant_direct_debit_mandate_page
   end
   return EntityMod.new(self, data)
 end
@@ -720,15 +720,15 @@ function NofrixionSDK:Payout(data)
 end
 
 
--- Idiomatic facade: client:PayoutKeyset():list() / client:PayoutKeyset():load({ id = ... })
+-- Idiomatic facade: client:PayoutKeysetPage():list() / client:PayoutKeysetPage():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:PayoutKeyset(data)
-  local EntityMod = require("entity.payout_keyset_entity")
+function NofrixionSDK:PayoutKeysetPage(data)
+  local EntityMod = require("entity.payout_keyset_page_entity")
   if data == nil then
-    if self._payout_keyset == nil then
-      self._payout_keyset = EntityMod.new(self, nil)
+    if self._payout_keyset_page == nil then
+      self._payout_keyset_page = EntityMod.new(self, nil)
     end
-    return self._payout_keyset
+    return self._payout_keyset_page
   end
   return EntityMod.new(self, data)
 end

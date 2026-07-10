@@ -256,7 +256,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `Mandate` | `($data): MandateEntity` | Create a Mandate entity instance. |
 | `Merchant` | `($data): MerchantEntity` | Create a Merchant entity instance. |
 | `MerchantAuthorisationSetting` | `($data): MerchantAuthorisationSettingEntity` | Create a MerchantAuthorisationSetting entity instance. |
-| `MerchantDirectDebitMandate` | `($data): MerchantDirectDebitMandateEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantDirectDebitMandatePage` | `($data): MerchantDirectDebitMandatePageEntity` | Create a MerchantDirectDebitMandatePage entity instance. |
 | `MerchantPayByBankSetting` | `($data): MerchantPayByBankSettingEntity` | Create a MerchantPayByBankSetting entity instance. |
 | `MerchantPaymentRequestTemplate` | `($data): MerchantPaymentRequestTemplateEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
 | `MerchantToken` | `($data): MerchantTokenEntity` | Create a MerchantToken entity instance. |
@@ -274,7 +274,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `PaymentRequestMinimal` | `($data): PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `($data): PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
 | `Payout` | `($data): PayoutEntity` | Create a Payout entity instance. |
-| `PayoutKeyset` | `($data): PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutKeysetPage` | `($data): PayoutKeysetPageEntity` | Create a PayoutKeysetPage entity instance. |
 | `PayoutMetric` | `($data): PayoutMetricEntity` | Create a PayoutMetric entity instance. |
 | `Payrun` | `($data): PayrunEntity` | Create a Payrun entity instance. |
 | `Report` | `($data): ReportEntity` | Create a Report entity instance. |
@@ -710,7 +710,7 @@ Operations: List.
 
 API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### MerchantDirectDebitMandate
+#### MerchantDirectDebitMandatePage
 
 | Field | Description |
 | --- | --- |
@@ -1312,7 +1312,7 @@ Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### PayoutKeyset
+#### PayoutKeysetPage
 
 | Field | Description |
 | --- | --- |
@@ -2469,9 +2469,9 @@ $merchant_authorisation_settings = $client->MerchantAuthorisationSetting()->list
 ```
 
 
-### MerchantDirectDebitMandate
+### MerchantDirectDebitMandatePage
 
-Create an instance: `$merchant_direct_debit_mandate = $client->MerchantDirectDebitMandate();`
+Create an instance: `$merchant_direct_debit_mandate_page = $client->MerchantDirectDebitMandatePage();`
 
 #### Operations
 
@@ -2510,8 +2510,8 @@ Create an instance: `$merchant_direct_debit_mandate = $client->MerchantDirectDeb
 #### Example: List
 
 ```php
-// list() returns an array of MerchantDirectDebitMandate records (throws on error).
-$merchant_direct_debit_mandates = $client->MerchantDirectDebitMandate()->list();
+// list() returns an array of MerchantDirectDebitMandatePage records (throws on error).
+$merchant_direct_debit_mandate_pages = $client->MerchantDirectDebitMandatePage()->list();
 ```
 
 
@@ -3392,9 +3392,9 @@ $payout = $client->Payout()->create([
 ```
 
 
-### PayoutKeyset
+### PayoutKeysetPage
 
-Create an instance: `$payout_keyset = $client->PayoutKeyset();`
+Create an instance: `$payout_keyset_page = $client->PayoutKeysetPage();`
 
 #### Operations
 
@@ -3483,8 +3483,8 @@ Create an instance: `$payout_keyset = $client->PayoutKeyset();`
 #### Example: List
 
 ```php
-// list() returns an array of PayoutKeyset records (throws on error).
-$payout_keysets = $client->PayoutKeyset()->list();
+// list() returns an array of PayoutKeysetPage records (throws on error).
+$payout_keyset_pages = $client->PayoutKeysetPage()->list();
 ```
 
 

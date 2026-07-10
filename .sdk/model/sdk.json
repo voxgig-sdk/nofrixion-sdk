@@ -5109,7 +5109,7 @@
             ]
           }
         },
-        "merchant_direct_debit_mandate": {
+        "merchant_direct_debit_mandate_page": {
           "active": true,
           "alias": {
             "field": {}
@@ -5258,7 +5258,7 @@
             "field": "id",
             "name": "id"
           },
-          "name": "merchant_direct_debit_mandate",
+          "name": "merchant_direct_debit_mandate_page",
           "op": {
             "list": {
               "input": "data",
@@ -11253,7 +11253,7 @@
             ]
           }
         },
-        "payout_keyset": {
+        "payout_keyset_page": {
           "active": true,
           "alias": {
             "field": {}
@@ -11702,7 +11702,7 @@
             "field": "id",
             "name": "id"
           },
-          "name": "payout_keyset",
+          "name": "payout_keyset_page",
           "op": {
             "list": {
               "input": "data",
@@ -17465,12 +17465,12 @@
             }
           ]
         },
-        "BasicMerchantDirectDebitMandateFlow": {
+        "BasicMerchantDirectDebitMandatePageFlow": {
           "active": true,
-          "entity": "merchant_direct_debit_mandate",
-          "key$": "BasicMerchantDirectDebitMandateFlow",
+          "entity": "merchant_direct_debit_mandate_page",
+          "key$": "BasicMerchantDirectDebitMandatePageFlow",
           "kind": "basic",
-          "name": "BasicMerchantDirectDebitMandateFlow",
+          "name": "BasicMerchantDirectDebitMandatePageFlow",
           "param": {},
           "step": [
             {
@@ -17484,7 +17484,7 @@
                 {
                   "apply": "ItemExists",
                   "def": {
-                    "ref": "merchant_direct_debit_mandate_ref01"
+                    "ref": "merchant_direct_debit_mandate_page_ref01"
                   }
                 }
               ]
@@ -18419,12 +18419,12 @@
             }
           ]
         },
-        "BasicPayoutKeysetFlow": {
+        "BasicPayoutKeysetPageFlow": {
           "active": true,
-          "entity": "payout_keyset",
-          "key$": "BasicPayoutKeysetFlow",
+          "entity": "payout_keyset_page",
+          "key$": "BasicPayoutKeysetPageFlow",
           "kind": "basic",
-          "name": "BasicPayoutKeysetFlow",
+          "name": "BasicPayoutKeysetPageFlow",
           "param": {},
           "step": [
             {
@@ -18440,7 +18440,7 @@
                 {
                   "apply": "ItemExists",
                   "def": {
-                    "ref": "payout_keyset_ref01"
+                    "ref": "payout_keyset_page_ref01"
                   }
                 }
               ]

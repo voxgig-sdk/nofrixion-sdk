@@ -373,11 +373,11 @@ func (sdk *NofrixionSDK) MerchantAuthorisationSetting(data map[string]any) Nofri
 }
 
 
-// MerchantDirectDebitMandate returns a MerchantDirectDebitMandate entity bound to this client.
-// Idiomatic usage: client.MerchantDirectDebitMandate(nil).List(nil, nil) or
-// client.MerchantDirectDebitMandate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) MerchantDirectDebitMandate(data map[string]any) NofrixionEntity {
-	return NewMerchantDirectDebitMandateEntityFunc(sdk, data)
+// MerchantDirectDebitMandatePage returns a MerchantDirectDebitMandatePage entity bound to this client.
+// Idiomatic usage: client.MerchantDirectDebitMandatePage(nil).List(nil, nil) or
+// client.MerchantDirectDebitMandatePage(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *NofrixionSDK) MerchantDirectDebitMandatePage(data map[string]any) NofrixionEntity {
+	return NewMerchantDirectDebitMandatePageEntityFunc(sdk, data)
 }
 
 
@@ -517,11 +517,11 @@ func (sdk *NofrixionSDK) Payout(data map[string]any) NofrixionEntity {
 }
 
 
-// PayoutKeyset returns a PayoutKeyset entity bound to this client.
-// Idiomatic usage: client.PayoutKeyset(nil).List(nil, nil) or
-// client.PayoutKeyset(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) PayoutKeyset(data map[string]any) NofrixionEntity {
-	return NewPayoutKeysetEntityFunc(sdk, data)
+// PayoutKeysetPage returns a PayoutKeysetPage entity bound to this client.
+// Idiomatic usage: client.PayoutKeysetPage(nil).List(nil, nil) or
+// client.PayoutKeysetPage(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *NofrixionSDK) PayoutKeysetPage(data map[string]any) NofrixionEntity {
+	return NewPayoutKeysetPageEntityFunc(sdk, data)
 }
 
 

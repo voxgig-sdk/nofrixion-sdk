@@ -16,7 +16,7 @@ struct's `json` / `jsonschema` tags — no schema is hand-written.
 
 ## Entities
 
-account | batch | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payout | payout_keyset | payout_metric | payrun | report | report_result | role | rule | rule_event | tag | token | transaction | user | user_invite | virtual | webhook
+account | batch | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate_page | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payout | payout_keyset_page | payout_metric | payrun | report | report_result | role | rule | rule_event | tag | token | transaction | user | user_invite | virtual | webhook
 
 ## Build
 

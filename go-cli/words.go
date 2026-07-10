@@ -118,8 +118,8 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.Merchant(nil), nil
 	case "merchant_authorisation_setting":
 		return client.MerchantAuthorisationSetting(nil), nil
-	case "merchant_direct_debit_mandate":
-		return client.MerchantDirectDebitMandate(nil), nil
+	case "merchant_direct_debit_mandate_page":
+		return client.MerchantDirectDebitMandatePage(nil), nil
 	case "merchant_pay_by_bank_setting":
 		return client.MerchantPayByBankSetting(nil), nil
 	case "merchant_payment_request_template":
@@ -154,8 +154,8 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.PaymentRequestResult(nil), nil
 	case "payout":
 		return client.Payout(nil), nil
-	case "payout_keyset":
-		return client.PayoutKeyset(nil), nil
+	case "payout_keyset_page":
+		return client.PayoutKeysetPage(nil), nil
 	case "payout_metric":
 		return client.PayoutMetric(nil), nil
 	case "payrun":

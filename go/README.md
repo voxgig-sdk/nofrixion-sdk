@@ -269,7 +269,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Mandate` | `(data map[string]any) NofrixionEntity` | Create a Mandate entity instance. |
 | `Merchant` | `(data map[string]any) NofrixionEntity` | Create a Merchant entity instance. |
 | `MerchantAuthorisationSetting` | `(data map[string]any) NofrixionEntity` | Create a MerchantAuthorisationSetting entity instance. |
-| `MerchantDirectDebitMandate` | `(data map[string]any) NofrixionEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantDirectDebitMandatePage` | `(data map[string]any) NofrixionEntity` | Create a MerchantDirectDebitMandatePage entity instance. |
 | `MerchantPayByBankSetting` | `(data map[string]any) NofrixionEntity` | Create a MerchantPayByBankSetting entity instance. |
 | `MerchantPaymentRequestTemplate` | `(data map[string]any) NofrixionEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
 | `MerchantToken` | `(data map[string]any) NofrixionEntity` | Create a MerchantToken entity instance. |
@@ -287,7 +287,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `PaymentRequestMinimal` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestResult entity instance. |
 | `Payout` | `(data map[string]any) NofrixionEntity` | Create a Payout entity instance. |
-| `PayoutKeyset` | `(data map[string]any) NofrixionEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutKeysetPage` | `(data map[string]any) NofrixionEntity` | Create a PayoutKeysetPage entity instance. |
 | `PayoutMetric` | `(data map[string]any) NofrixionEntity` | Create a PayoutMetric entity instance. |
 | `Payrun` | `(data map[string]any) NofrixionEntity` | Create a Payrun entity instance. |
 | `Report` | `(data map[string]any) NofrixionEntity` | Create a Report entity instance. |
@@ -724,7 +724,7 @@ Operations: List.
 
 API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### MerchantDirectDebitMandate
+#### MerchantDirectDebitMandatePage
 
 | Field | Description |
 | --- | --- |
@@ -1326,7 +1326,7 @@ Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### PayoutKeyset
+#### PayoutKeysetPage
 
 | Field | Description |
 | --- | --- |
@@ -2573,9 +2573,9 @@ fmt.Println(merchantAuthorisationSettings) // the array of records
 ```
 
 
-### MerchantDirectDebitMandate
+### MerchantDirectDebitMandatePage
 
-Create an instance: `merchantDirectDebitMandate := client.MerchantDirectDebitMandate(nil)`
+Create an instance: `merchantDirectDebitMandatePage := client.MerchantDirectDebitMandatePage(nil)`
 
 #### Operations
 
@@ -2614,11 +2614,11 @@ Create an instance: `merchantDirectDebitMandate := client.MerchantDirectDebitMan
 #### Example: List
 
 ```go
-merchantDirectDebitMandates, err := client.MerchantDirectDebitMandate(nil).List(nil, nil)
+merchantDirectDebitMandatePages, err := client.MerchantDirectDebitMandatePage(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(merchantDirectDebitMandates) // the array of records
+fmt.Println(merchantDirectDebitMandatePages) // the array of records
 ```
 
 
@@ -3581,9 +3581,9 @@ fmt.Println(result)
 ```
 
 
-### PayoutKeyset
+### PayoutKeysetPage
 
-Create an instance: `payoutKeyset := client.PayoutKeyset(nil)`
+Create an instance: `payoutKeysetPage := client.PayoutKeysetPage(nil)`
 
 #### Operations
 
@@ -3672,11 +3672,11 @@ Create an instance: `payoutKeyset := client.PayoutKeyset(nil)`
 #### Example: List
 
 ```go
-payoutKeysets, err := client.PayoutKeyset(nil).List(nil, nil)
+payoutKeysetPages, err := client.PayoutKeysetPage(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(payoutKeysets) // the array of records
+fmt.Println(payoutKeysetPages) // the array of records
 ```
 
 

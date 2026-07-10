@@ -1,0 +1,22 @@
+# BasicMerchantDirectDebitMandatePageFlow
+
+main: kit: flow: BasicMerchantDirectDebitMandatePageFlow:
+{
+  entity: "merchant_direct_debit_mandate_page",
+  kind: "basic",
+  name: "BasicMerchantDirectDebitMandatePageFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "merchant_direct_debit_mandate_page_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMerchantDirectDebitMandatePageFlow"
+}

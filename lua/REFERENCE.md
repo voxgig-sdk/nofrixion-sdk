@@ -105,9 +105,9 @@ Create a new `Merchant` entity instance. Pass `nil` for no initial data.
 
 Create a new `MerchantAuthorisationSetting` entity instance. Pass `nil` for no initial data.
 
-#### `MerchantDirectDebitMandate(data)`
+#### `MerchantDirectDebitMandatePage(data)`
 
-Create a new `MerchantDirectDebitMandate` entity instance. Pass `nil` for no initial data.
+Create a new `MerchantDirectDebitMandatePage` entity instance. Pass `nil` for no initial data.
 
 #### `MerchantPayByBankSetting(data)`
 
@@ -177,9 +177,9 @@ Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial d
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
 
-#### `PayoutKeyset(data)`
+#### `PayoutKeysetPage(data)`
 
-Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
+Create a new `PayoutKeysetPage` entity instance. Pass `nil` for no initial data.
 
 #### `PayoutMetric(data)`
 
@@ -1606,10 +1606,10 @@ Return the entity name.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```lua
-local merchant_direct_debit_mandate = client:MerchantDirectDebitMandate(nil)
+local merchant_direct_debit_mandate_page = client:MerchantDirectDebitMandatePage(nil)
 ```
 
 ### Fields
@@ -1647,7 +1647,7 @@ local merchant_direct_debit_mandate = client:MerchantDirectDebitMandate(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:MerchantDirectDebitMandate():list()
+local results, err = client:MerchantDirectDebitMandatePage():list()
 ```
 
 ### Common Methods
@@ -1670,7 +1670,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3312,10 +3312,10 @@ Return the entity name.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```lua
-local payout_keyset = client:PayoutKeyset(nil)
+local payout_keyset_page = client:PayoutKeysetPage(nil)
 ```
 
 ### Fields
@@ -3403,7 +3403,7 @@ local payout_keyset = client:PayoutKeyset(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:PayoutKeyset():list()
+local results, err = client:PayoutKeysetPage():list()
 ```
 
 ### Common Methods
@@ -3426,7 +3426,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `PayoutKeysetEntity` instance with the same client and
+Create a new `PayoutKeysetPageEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`

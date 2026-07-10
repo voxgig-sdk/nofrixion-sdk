@@ -112,9 +112,9 @@ Create a new `Merchant` entity instance. Pass `nil` for no initial data.
 
 Create a new `MerchantAuthorisationSetting` entity instance. Pass `nil` for no initial data.
 
-#### `MerchantDirectDebitMandate(data map[string]any) NofrixionEntity`
+#### `MerchantDirectDebitMandatePage(data map[string]any) NofrixionEntity`
 
-Create a new `MerchantDirectDebitMandate` entity instance. Pass `nil` for no initial data.
+Create a new `MerchantDirectDebitMandatePage` entity instance. Pass `nil` for no initial data.
 
 #### `MerchantPayByBankSetting(data map[string]any) NofrixionEntity`
 
@@ -184,9 +184,9 @@ Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial d
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
 
-#### `PayoutKeyset(data map[string]any) NofrixionEntity`
+#### `PayoutKeysetPage(data map[string]any) NofrixionEntity`
 
-Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
+Create a new `PayoutKeysetPage` entity instance. Pass `nil` for no initial data.
 
 #### `PayoutMetric(data map[string]any) NofrixionEntity`
 
@@ -1677,11 +1677,11 @@ Return the entity name.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```go
-merchantDirectDebitMandate := client.MerchantDirectDebitMandate(nil)
-fmt.Println(merchantDirectDebitMandate.GetName()) // "merchant_direct_debit_mandate"
+merchantDirectDebitMandatePage := client.MerchantDirectDebitMandatePage(nil)
+fmt.Println(merchantDirectDebitMandatePage.GetName()) // "merchant_direct_debit_mandate_page"
 ```
 
 ### Fields
@@ -1719,7 +1719,7 @@ fmt.Println(merchantDirectDebitMandate.GetName()) // "merchant_direct_debit_mand
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.MerchantDirectDebitMandate(nil).List(nil, nil)
+results, err := client.MerchantDirectDebitMandatePage(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1740,7 +1740,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3433,11 +3433,11 @@ Return the entity name.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```go
-payoutKeyset := client.PayoutKeyset(nil)
-fmt.Println(payoutKeyset.GetName()) // "payout_keyset"
+payoutKeysetPage := client.PayoutKeysetPage(nil)
+fmt.Println(payoutKeysetPage.GetName()) // "payout_keyset_page"
 ```
 
 ### Fields
@@ -3525,7 +3525,7 @@ fmt.Println(payoutKeyset.GetName()) // "payout_keyset"
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.PayoutKeyset(nil).List(nil, nil)
+results, err := client.PayoutKeysetPage(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -3546,7 +3546,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `PayoutKeysetEntity` instance with the same client and
+Create a new `PayoutKeysetPageEntity` instance with the same client and
 options.
 
 #### `GetName() string`

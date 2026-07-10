@@ -241,9 +241,9 @@ Create a new `MerchantAuthorisationSetting` entity instance.
 
 **Returns:** `MerchantAuthorisationSettingEntity` instance.
 
-#### `MerchantDirectDebitMandate(data?: object)`
+#### `MerchantDirectDebitMandatePage(data?: object)`
 
-Create a new `MerchantDirectDebitMandate` entity instance.
+Create a new `MerchantDirectDebitMandatePage` entity instance.
 
 **Parameters:**
 
@@ -251,7 +251,7 @@ Create a new `MerchantDirectDebitMandate` entity instance.
 | --- | --- | --- |
 | `data` | `object` | Initial entity data. |
 
-**Returns:** `MerchantDirectDebitMandateEntity` instance.
+**Returns:** `MerchantDirectDebitMandatePageEntity` instance.
 
 #### `MerchantPayByBankSetting(data?: object)`
 
@@ -457,9 +457,9 @@ Create a new `Payout` entity instance.
 
 **Returns:** `PayoutEntity` instance.
 
-#### `PayoutKeyset(data?: object)`
+#### `PayoutKeysetPage(data?: object)`
 
-Create a new `PayoutKeyset` entity instance.
+Create a new `PayoutKeysetPage` entity instance.
 
 **Parameters:**
 
@@ -467,7 +467,7 @@ Create a new `PayoutKeyset` entity instance.
 | --- | --- | --- |
 | `data` | `object` | Initial entity data. |
 
-**Returns:** `PayoutKeysetEntity` instance.
+**Returns:** `PayoutKeysetPageEntity` instance.
 
 #### `PayoutMetric(data?: object)`
 
@@ -1984,10 +1984,10 @@ Return a copy of the entity options.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```ts
-const merchant_direct_debit_mandate = client.MerchantDirectDebitMandate()
+const merchant_direct_debit_mandate_page = client.MerchantDirectDebitMandatePage()
 ```
 
 ### Fields
@@ -2025,7 +2025,7 @@ const merchant_direct_debit_mandate = client.MerchantDirectDebitMandate()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.MerchantDirectDebitMandate().list()
+const results = await client.MerchantDirectDebitMandatePage().list()
 ```
 
 ### Common Methods
@@ -2042,7 +2042,7 @@ Get or set the entity match criteria. Works the same as `data()`.
 
 #### `make()`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3654,10 +3654,10 @@ Return a copy of the entity options.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```ts
-const payout_keyset = client.PayoutKeyset()
+const payout_keyset_page = client.PayoutKeysetPage()
 ```
 
 ### Fields
@@ -3745,7 +3745,7 @@ const payout_keyset = client.PayoutKeyset()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PayoutKeyset().list()
+const results = await client.PayoutKeysetPage().list()
 ```
 
 ### Common Methods
@@ -3762,7 +3762,7 @@ Get or set the entity match criteria. Works the same as `data()`.
 
 #### `make()`
 
-Create a new `PayoutKeysetEntity` instance with the same client and
+Create a new `PayoutKeysetPageEntity` instance with the same client and
 options.
 
 #### `client()`

@@ -80,8 +80,8 @@ func init() {
 	core.NewMerchantAuthorisationSettingEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewMerchantAuthorisationSettingEntity(client, entopts)
 	}
-	core.NewMerchantDirectDebitMandateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewMerchantDirectDebitMandateEntity(client, entopts)
+	core.NewMerchantDirectDebitMandatePageEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
+		return entity.NewMerchantDirectDebitMandatePageEntity(client, entopts)
 	}
 	core.NewMerchantPayByBankSettingEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewMerchantPayByBankSettingEntity(client, entopts)
@@ -134,8 +134,8 @@ func init() {
 	core.NewPayoutEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPayoutEntity(client, entopts)
 	}
-	core.NewPayoutKeysetEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewPayoutKeysetEntity(client, entopts)
+	core.NewPayoutKeysetPageEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
+		return entity.NewPayoutKeysetPageEntity(client, entopts)
 	}
 	core.NewPayoutMetricEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPayoutMetricEntity(client, entopts)

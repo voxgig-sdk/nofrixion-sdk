@@ -38,7 +38,7 @@ def make_config():
                 "mandate": {},
                 "merchant": {},
                 "merchant_authorisation_setting": {},
-                "merchant_direct_debit_mandate": {},
+                "merchant_direct_debit_mandate_page": {},
                 "merchant_pay_by_bank_setting": {},
                 "merchant_payment_request_template": {},
                 "merchant_token": {},
@@ -56,7 +56,7 @@ def make_config():
                 "payment_request_minimal": {},
                 "payment_request_result": {},
                 "payout": {},
-                "payout_keyset": {},
+                "payout_keyset_page": {},
                 "payout_metric": {},
                 "payrun": {},
                 "report": {},
@@ -5469,7 +5469,7 @@ def make_config():
           ],
         },
       },
-      "merchant_direct_debit_mandate": {
+      "merchant_direct_debit_mandate_page": {
         "fields": [
           {
             "active": True,
@@ -5633,7 +5633,7 @@ def make_config():
             "index$": 22,
           },
         ],
-        "name": "merchant_direct_debit_mandate",
+        "name": "merchant_direct_debit_mandate_page",
         "op": {
           "list": {
             "input": "data",
@@ -12069,7 +12069,7 @@ def make_config():
           ],
         },
       },
-      "payout_keyset": {
+      "payout_keyset_page": {
         "fields": [
           {
             "active": True,
@@ -12583,7 +12583,7 @@ def make_config():
             "index$": 72,
           },
         ],
-        "name": "payout_keyset",
+        "name": "payout_keyset_page",
         "op": {
           "list": {
             "input": "data",

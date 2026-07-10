@@ -327,10 +327,10 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.MerchantDirectDebitMandate.list / client.MerchantDirectDebitMandate.load({ "id" => ... })
-  def MerchantDirectDebitMandate(data = nil)
-    require_relative 'entity/merchant_direct_debit_mandate_entity'
-    MerchantDirectDebitMandateEntity.new(self, data)
+  # Canonical facade: client.MerchantDirectDebitMandatePage.list / client.MerchantDirectDebitMandatePage.load({ "id" => ... })
+  def MerchantDirectDebitMandatePage(data = nil)
+    require_relative 'entity/merchant_direct_debit_mandate_page_entity'
+    MerchantDirectDebitMandatePageEntity.new(self, data)
   end
 
 
@@ -453,10 +453,10 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.PayoutKeyset.list / client.PayoutKeyset.load({ "id" => ... })
-  def PayoutKeyset(data = nil)
-    require_relative 'entity/payout_keyset_entity'
-    PayoutKeysetEntity.new(self, data)
+  # Canonical facade: client.PayoutKeysetPage.list / client.PayoutKeysetPage.load({ "id" => ... })
+  def PayoutKeysetPage(data = nil)
+    require_relative 'entity/payout_keyset_page_entity'
+    PayoutKeysetPageEntity.new(self, data)
   end
 
 

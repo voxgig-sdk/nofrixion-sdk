@@ -106,9 +106,9 @@ Create a new `MerchantEntity` instance. Pass `None` for no initial data.
 
 Create a new `MerchantAuthorisationSettingEntity` instance. Pass `None` for no initial data.
 
-#### `MerchantDirectDebitMandate(data=None)`
+#### `MerchantDirectDebitMandatePage(data=None)`
 
-Create a new `MerchantDirectDebitMandateEntity` instance. Pass `None` for no initial data.
+Create a new `MerchantDirectDebitMandatePageEntity` instance. Pass `None` for no initial data.
 
 #### `MerchantPayByBankSetting(data=None)`
 
@@ -178,9 +178,9 @@ Create a new `PaymentRequestResultEntity` instance. Pass `None` for no initial d
 
 Create a new `PayoutEntity` instance. Pass `None` for no initial data.
 
-#### `PayoutKeyset(data=None)`
+#### `PayoutKeysetPage(data=None)`
 
-Create a new `PayoutKeysetEntity` instance. Pass `None` for no initial data.
+Create a new `PayoutKeysetPageEntity` instance. Pass `None` for no initial data.
 
 #### `PayoutMetric(data=None)`
 
@@ -1605,10 +1605,10 @@ Return the entity name.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```python
-merchant_direct_debit_mandate = client.MerchantDirectDebitMandate()
+merchant_direct_debit_mandate_page = client.MerchantDirectDebitMandatePage()
 ```
 
 ### Fields
@@ -1646,9 +1646,9 @@ merchant_direct_debit_mandate = client.MerchantDirectDebitMandate()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.MerchantDirectDebitMandate().list()
-for merchant_direct_debit_mandate in results:
-    print(merchant_direct_debit_mandate)
+results = client.MerchantDirectDebitMandatePage().list()
+for merchant_direct_debit_mandate_page in results:
+    print(merchant_direct_debit_mandate_page)
 ```
 
 ### Common Methods
@@ -1671,7 +1671,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same options.
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3315,10 +3315,10 @@ Return the entity name.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```python
-payout_keyset = client.PayoutKeyset()
+payout_keyset_page = client.PayoutKeysetPage()
 ```
 
 ### Fields
@@ -3406,9 +3406,9 @@ payout_keyset = client.PayoutKeyset()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PayoutKeyset().list()
-for payout_keyset in results:
-    print(payout_keyset)
+results = client.PayoutKeysetPage().list()
+for payout_keyset_page in results:
+    print(payout_keyset_page)
 ```
 
 ### Common Methods
@@ -3431,7 +3431,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `PayoutKeysetEntity` instance with the same options.
+Create a new `PayoutKeysetPageEntity` instance with the same options.
 
 #### `get_name() -> str`
 

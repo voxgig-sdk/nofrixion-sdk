@@ -316,10 +316,10 @@ class NofrixionSDK:
         return MerchantAuthorisationSettingEntity(self, data)
 
 
-    def MerchantDirectDebitMandate(self, data=None) -> "MerchantDirectDebitMandateEntity":
-        """Entity factory: client.MerchantDirectDebitMandate().list() / client.MerchantDirectDebitMandate().load({"id": ...})."""
-        from entity.merchant_direct_debit_mandate_entity import MerchantDirectDebitMandateEntity
-        return MerchantDirectDebitMandateEntity(self, data)
+    def MerchantDirectDebitMandatePage(self, data=None) -> "MerchantDirectDebitMandatePageEntity":
+        """Entity factory: client.MerchantDirectDebitMandatePage().list() / client.MerchantDirectDebitMandatePage().load({"id": ...})."""
+        from entity.merchant_direct_debit_mandate_page_entity import MerchantDirectDebitMandatePageEntity
+        return MerchantDirectDebitMandatePageEntity(self, data)
 
 
     def MerchantPayByBankSetting(self, data=None) -> "MerchantPayByBankSettingEntity":
@@ -424,10 +424,10 @@ class NofrixionSDK:
         return PayoutEntity(self, data)
 
 
-    def PayoutKeyset(self, data=None) -> "PayoutKeysetEntity":
-        """Entity factory: client.PayoutKeyset().list() / client.PayoutKeyset().load({"id": ...})."""
-        from entity.payout_keyset_entity import PayoutKeysetEntity
-        return PayoutKeysetEntity(self, data)
+    def PayoutKeysetPage(self, data=None) -> "PayoutKeysetPageEntity":
+        """Entity factory: client.PayoutKeysetPage().list() / client.PayoutKeysetPage().load({"id": ...})."""
+        from entity.payout_keyset_page_entity import PayoutKeysetPageEntity
+        return PayoutKeysetPageEntity(self, data)
 
 
     def PayoutMetric(self, data=None) -> "PayoutMetricEntity":
@@ -557,7 +557,7 @@ if TYPE_CHECKING:
     from entity.mandate_entity import MandateEntity
     from entity.merchant_entity import MerchantEntity
     from entity.merchant_authorisation_setting_entity import MerchantAuthorisationSettingEntity
-    from entity.merchant_direct_debit_mandate_entity import MerchantDirectDebitMandateEntity
+    from entity.merchant_direct_debit_mandate_page_entity import MerchantDirectDebitMandatePageEntity
     from entity.merchant_pay_by_bank_setting_entity import MerchantPayByBankSettingEntity
     from entity.merchant_payment_request_template_entity import MerchantPaymentRequestTemplateEntity
     from entity.merchant_token_entity import MerchantTokenEntity
@@ -575,7 +575,7 @@ if TYPE_CHECKING:
     from entity.payment_request_minimal_entity import PaymentRequestMinimalEntity
     from entity.payment_request_result_entity import PaymentRequestResultEntity
     from entity.payout_entity import PayoutEntity
-    from entity.payout_keyset_entity import PayoutKeysetEntity
+    from entity.payout_keyset_page_entity import PayoutKeysetPageEntity
     from entity.payout_metric_entity import PayoutMetricEntity
     from entity.payrun_entity import PayrunEntity
     from entity.report_entity import ReportEntity

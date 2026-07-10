@@ -646,8 +646,8 @@ class MerchantAuthorisationSettingListMatch
     public string $merchant_id;
 }
 
-/** MerchantDirectDebitMandate entity data model. */
-class MerchantDirectDebitMandate
+/** MerchantDirectDebitMandatePage entity data model. */
+class MerchantDirectDebitMandatePage
 {
     public ?string $approved_at = null;
     public ?string $currency = null;
@@ -674,8 +674,8 @@ class MerchantDirectDebitMandate
     public ?string $supplier_status = null;
 }
 
-/** Request payload for MerchantDirectDebitMandate#list. */
-class MerchantDirectDebitMandateListMatch
+/** Request payload for MerchantDirectDebitMandatePage#list. */
+class MerchantDirectDebitMandatePageListMatch
 {
     public ?string $approved_at = null;
     public ?string $currency = null;
@@ -1606,8 +1606,8 @@ class PayoutRemoveMatch
     public string $id;
 }
 
-/** PayoutKeyset entity data model. */
-class PayoutKeyset
+/** PayoutKeysetPage entity data model. */
+class PayoutKeysetPage
 {
     public ?string $account_id = null;
     public ?float $amount = null;
@@ -1684,8 +1684,8 @@ class PayoutKeyset
     public ?string $your_reference = null;
 }
 
-/** Request payload for PayoutKeyset#list. */
-class PayoutKeysetListMatch
+/** Request payload for PayoutKeysetPage#list. */
+class PayoutKeysetPageListMatch
 {
     public ?string $account_id = null;
     public ?string $merchant_id = null;

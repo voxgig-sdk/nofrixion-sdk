@@ -535,7 +535,7 @@ export interface MerchantAuthorisationSettingListMatch {
   merchant_id: string
 }
 
-export interface MerchantDirectDebitMandate {
+export interface MerchantDirectDebitMandatePage {
   approved_at?: string
   currency?: string
   customer_account_number?: string
@@ -561,7 +561,7 @@ export interface MerchantDirectDebitMandate {
   supplier_status?: string
 }
 
-export interface MerchantDirectDebitMandateListMatch {
+export interface MerchantDirectDebitMandatePageListMatch {
   approved_at?: string
   currency?: string
   customer_account_number?: string
@@ -1389,7 +1389,7 @@ export interface PayoutRemoveMatch {
   id: string
 }
 
-export interface PayoutKeyset {
+export interface PayoutKeysetPage {
   account_id?: string
   amount?: number
   amount_minor_unit?: number
@@ -1465,7 +1465,7 @@ export interface PayoutKeyset {
   your_reference?: string
 }
 
-export interface PayoutKeysetListMatch {
+export interface PayoutKeysetPageListMatch {
   account_id?: string
   merchant_id?: string
 }

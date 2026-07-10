@@ -1764,7 +1764,7 @@ MerchantAuthorisationSettingListMatch = Struct.new(
   keyword_init: true
 )
 
-# MerchantDirectDebitMandate entity data model.
+# MerchantDirectDebitMandatePage entity data model.
 #
 # @!attribute [rw] approved_at
 #   @return [String, nil]
@@ -1834,7 +1834,7 @@ MerchantAuthorisationSettingListMatch = Struct.new(
 #
 # @!attribute [rw] supplier_status
 #   @return [String, nil]
-MerchantDirectDebitMandate = Struct.new(
+MerchantDirectDebitMandatePage = Struct.new(
   :approved_at,
   :currency,
   :customer_account_number,
@@ -1861,7 +1861,7 @@ MerchantDirectDebitMandate = Struct.new(
   keyword_init: true
 )
 
-# Request payload for MerchantDirectDebitMandate#list.
+# Request payload for MerchantDirectDebitMandatePage#list.
 #
 # @!attribute [rw] approved_at
 #   @return [String, nil]
@@ -1931,7 +1931,7 @@ MerchantDirectDebitMandate = Struct.new(
 #
 # @!attribute [rw] supplier_status
 #   @return [String, nil]
-MerchantDirectDebitMandateListMatch = Struct.new(
+MerchantDirectDebitMandatePageListMatch = Struct.new(
   :approved_at,
   :currency,
   :customer_account_number,
@@ -4806,7 +4806,7 @@ PayoutRemoveMatch = Struct.new(
   keyword_init: true
 )
 
-# PayoutKeyset entity data model.
+# PayoutKeysetPage entity data model.
 #
 # @!attribute [rw] account_id
 #   @return [String, nil]
@@ -5026,7 +5026,7 @@ PayoutRemoveMatch = Struct.new(
 #
 # @!attribute [rw] your_reference
 #   @return [String, nil]
-PayoutKeyset = Struct.new(
+PayoutKeysetPage = Struct.new(
   :account_id,
   :amount,
   :amount_minor_unit,
@@ -5103,14 +5103,14 @@ PayoutKeyset = Struct.new(
   keyword_init: true
 )
 
-# Request payload for PayoutKeyset#list.
+# Request payload for PayoutKeysetPage#list.
 #
 # @!attribute [rw] account_id
 #   @return [String, nil]
 #
 # @!attribute [rw] merchant_id
 #   @return [String, nil]
-PayoutKeysetListMatch = Struct.new(
+PayoutKeysetPageListMatch = Struct.new(
   :account_id,
   :merchant_id,
   keyword_init: true

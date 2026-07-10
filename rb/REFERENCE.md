@@ -106,9 +106,9 @@ Create a new `Merchant` entity instance. Pass `nil` for no initial data.
 
 Create a new `MerchantAuthorisationSetting` entity instance. Pass `nil` for no initial data.
 
-#### `MerchantDirectDebitMandate(data = nil)`
+#### `MerchantDirectDebitMandatePage(data = nil)`
 
-Create a new `MerchantDirectDebitMandate` entity instance. Pass `nil` for no initial data.
+Create a new `MerchantDirectDebitMandatePage` entity instance. Pass `nil` for no initial data.
 
 #### `MerchantPayByBankSetting(data = nil)`
 
@@ -178,9 +178,9 @@ Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial d
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
 
-#### `PayoutKeyset(data = nil)`
+#### `PayoutKeysetPage(data = nil)`
 
-Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
+Create a new `PayoutKeysetPage` entity instance. Pass `nil` for no initial data.
 
 #### `PayoutMetric(data = nil)`
 
@@ -1609,10 +1609,10 @@ Return the entity name.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```ruby
-merchant_direct_debit_mandate = client.MerchantDirectDebitMandate
+merchant_direct_debit_mandate_page = client.MerchantDirectDebitMandatePage
 ```
 
 ### Fields
@@ -1650,7 +1650,7 @@ merchant_direct_debit_mandate = client.MerchantDirectDebitMandate
 List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.MerchantDirectDebitMandate.list
+results = client.MerchantDirectDebitMandatePage.list
 ```
 
 ### Common Methods
@@ -1673,7 +1673,7 @@ Set the entity match criteria.
 
 #### `make -> Entity`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -3315,10 +3315,10 @@ Return the entity name.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```ruby
-payout_keyset = client.PayoutKeyset
+payout_keyset_page = client.PayoutKeysetPage
 ```
 
 ### Fields
@@ -3406,7 +3406,7 @@ payout_keyset = client.PayoutKeyset
 List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.PayoutKeyset.list
+results = client.PayoutKeysetPage.list
 ```
 
 ### Common Methods
@@ -3429,7 +3429,7 @@ Set the entity match criteria.
 
 #### `make -> Entity`
 
-Create a new `PayoutKeysetEntity` instance with the same client and
+Create a new `PayoutKeysetPageEntity` instance with the same client and
 options.
 
 #### `get_name -> String`

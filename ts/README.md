@@ -274,7 +274,7 @@ new NofrixionSDK(options?: {
 | `Mandate(data?)` | `MandateEntity` | Create a Mandate entity instance. |
 | `Merchant(data?)` | `MerchantEntity` | Create a Merchant entity instance. |
 | `MerchantAuthorisationSetting(data?)` | `MerchantAuthorisationSettingEntity` | Create a MerchantAuthorisationSetting entity instance. |
-| `MerchantDirectDebitMandate(data?)` | `MerchantDirectDebitMandateEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantDirectDebitMandatePage(data?)` | `MerchantDirectDebitMandatePageEntity` | Create a MerchantDirectDebitMandatePage entity instance. |
 | `MerchantPayByBankSetting(data?)` | `MerchantPayByBankSettingEntity` | Create a MerchantPayByBankSetting entity instance. |
 | `MerchantPaymentRequestTemplate(data?)` | `MerchantPaymentRequestTemplateEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
 | `MerchantToken(data?)` | `MerchantTokenEntity` | Create a MerchantToken entity instance. |
@@ -292,7 +292,7 @@ new NofrixionSDK(options?: {
 | `PaymentRequestMinimal(data?)` | `PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult(data?)` | `PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
 | `Payout(data?)` | `PayoutEntity` | Create a Payout entity instance. |
-| `PayoutKeyset(data?)` | `PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutKeysetPage(data?)` | `PayoutKeysetPageEntity` | Create a PayoutKeysetPage entity instance. |
 | `PayoutMetric(data?)` | `PayoutMetricEntity` | Create a PayoutMetric entity instance. |
 | `Payrun(data?)` | `PayrunEntity` | Create a Payrun entity instance. |
 | `Report(data?)` | `ReportEntity` | Create a Report entity instance. |
@@ -760,7 +760,7 @@ Operations: list.
 
 API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### MerchantDirectDebitMandate
+#### MerchantDirectDebitMandatePage
 
 | Field | Description |
 | --- | --- |
@@ -1362,7 +1362,7 @@ Operations: create, list, load, remove, update.
 
 API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### PayoutKeyset
+#### PayoutKeysetPage
 
 | Field | Description |
 | --- | --- |
@@ -2501,9 +2501,9 @@ const merchant_authorisation_settings = await client.MerchantAuthorisationSettin
 ```
 
 
-### MerchantDirectDebitMandate
+### MerchantDirectDebitMandatePage
 
-Create an instance: `const merchant_direct_debit_mandate = client.MerchantDirectDebitMandate()`
+Create an instance: `const merchant_direct_debit_mandate_page = client.MerchantDirectDebitMandatePage()`
 
 #### Operations
 
@@ -2542,7 +2542,7 @@ Create an instance: `const merchant_direct_debit_mandate = client.MerchantDirect
 #### Example: List
 
 ```ts
-const merchant_direct_debit_mandates = await client.MerchantDirectDebitMandate().list()
+const merchant_direct_debit_mandate_pages = await client.MerchantDirectDebitMandatePage().list()
 ```
 
 
@@ -3405,9 +3405,9 @@ const payout = await client.Payout().create({
 ```
 
 
-### PayoutKeyset
+### PayoutKeysetPage
 
-Create an instance: `const payout_keyset = client.PayoutKeyset()`
+Create an instance: `const payout_keyset_page = client.PayoutKeysetPage()`
 
 #### Operations
 
@@ -3496,7 +3496,7 @@ Create an instance: `const payout_keyset = client.PayoutKeyset()`
 #### Example: List
 
 ```ts
-const payout_keysets = await client.PayoutKeyset().list()
+const payout_keyset_pages = await client.PayoutKeysetPage().list()
 ```
 
 

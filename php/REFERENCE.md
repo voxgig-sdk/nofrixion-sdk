@@ -106,9 +106,9 @@ Create a new `MerchantEntity` instance. Pass `null` for no initial data.
 
 Create a new `MerchantAuthorisationSettingEntity` instance. Pass `null` for no initial data.
 
-#### `MerchantDirectDebitMandate($data = null)`
+#### `MerchantDirectDebitMandatePage($data = null)`
 
-Create a new `MerchantDirectDebitMandateEntity` instance. Pass `null` for no initial data.
+Create a new `MerchantDirectDebitMandatePageEntity` instance. Pass `null` for no initial data.
 
 #### `MerchantPayByBankSetting($data = null)`
 
@@ -178,9 +178,9 @@ Create a new `PaymentRequestResultEntity` instance. Pass `null` for no initial d
 
 Create a new `PayoutEntity` instance. Pass `null` for no initial data.
 
-#### `PayoutKeyset($data = null)`
+#### `PayoutKeysetPage($data = null)`
 
-Create a new `PayoutKeysetEntity` instance. Pass `null` for no initial data.
+Create a new `PayoutKeysetPageEntity` instance. Pass `null` for no initial data.
 
 #### `PayoutMetric($data = null)`
 
@@ -1608,10 +1608,10 @@ Return the entity name.
 
 ---
 
-## MerchantDirectDebitMandateEntity
+## MerchantDirectDebitMandatePageEntity
 
 ```php
-$merchant_direct_debit_mandate = $client->MerchantDirectDebitMandate();
+$merchant_direct_debit_mandate_page = $client->MerchantDirectDebitMandatePage();
 ```
 
 ### Fields
@@ -1649,7 +1649,7 @@ $merchant_direct_debit_mandate = $client->MerchantDirectDebitMandate();
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->MerchantDirectDebitMandate()->list();
+$results = $client->MerchantDirectDebitMandatePage()->list();
 ```
 
 ### Common Methods
@@ -1670,9 +1670,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): MerchantDirectDebitMandateEntity`
+#### `make(): MerchantDirectDebitMandatePageEntity`
 
-Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+Create a new `MerchantDirectDebitMandatePageEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3314,10 +3314,10 @@ Return the entity name.
 
 ---
 
-## PayoutKeysetEntity
+## PayoutKeysetPageEntity
 
 ```php
-$payout_keyset = $client->PayoutKeyset();
+$payout_keyset_page = $client->PayoutKeysetPage();
 ```
 
 ### Fields
@@ -3405,7 +3405,7 @@ $payout_keyset = $client->PayoutKeyset();
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->PayoutKeyset()->list();
+$results = $client->PayoutKeysetPage()->list();
 ```
 
 ### Common Methods
@@ -3426,9 +3426,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): PayoutKeysetEntity`
+#### `make(): PayoutKeysetPageEntity`
 
-Create a new `PayoutKeysetEntity` instance with the same client and
+Create a new `PayoutKeysetPageEntity` instance with the same client and
 options.
 
 #### `get_name(): string`

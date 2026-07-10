@@ -1,0 +1,26 @@
+# BasicPayoutKeysetPageFlow
+
+main: kit: flow: BasicPayoutKeysetPageFlow:
+{
+  entity: "payout_keyset_page",
+  kind: "basic",
+  name: "BasicPayoutKeysetPageFlow",
+  step: [
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payout_keyset_page_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPayoutKeysetPageFlow"
+}

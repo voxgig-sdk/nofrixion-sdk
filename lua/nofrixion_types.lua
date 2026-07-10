@@ -484,7 +484,7 @@
 ---@class MerchantAuthorisationSettingListMatch
 ---@field merchant_id string
 
----@class MerchantDirectDebitMandate
+---@class MerchantDirectDebitMandatePage
 ---@field approved_at? string
 ---@field currency? string
 ---@field customer_account_number? string
@@ -509,7 +509,7 @@
 ---@field supplier_name? string
 ---@field supplier_status? string
 
----@class MerchantDirectDebitMandateListMatch
+---@class MerchantDirectDebitMandatePageListMatch
 ---@field approved_at? string
 ---@field currency? string
 ---@field customer_account_number? string
@@ -1285,7 +1285,7 @@
 ---@class PayoutRemoveMatch
 ---@field id string
 
----@class PayoutKeyset
+---@class PayoutKeysetPage
 ---@field account_id? string
 ---@field amount? number
 ---@field amount_minor_unit? number
@@ -1360,7 +1360,7 @@
 ---@field user_id? string
 ---@field your_reference? string
 
----@class PayoutKeysetListMatch
+---@class PayoutKeysetPageListMatch
 ---@field account_id? string
 ---@field merchant_id? string
 

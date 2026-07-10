@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"account | batch | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payout | payout_keyset | payout_metric | payrun | report | report_result | role | rule | rule_event | tag | token | transaction | user | user_invite | virtual | webhook"`
+	Entity string         `json:"entity" jsonschema:"account | batch | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate_page | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payout | payout_keyset_page | payout_metric | payrun | report | report_result | role | rule | rule_event | tag | token | transaction | user | user_invite | virtual | webhook"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -109,8 +109,8 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.Merchant(nil), nil
 	case "merchant_authorisation_setting":
 		return client.MerchantAuthorisationSetting(nil), nil
-	case "merchant_direct_debit_mandate":
-		return client.MerchantDirectDebitMandate(nil), nil
+	case "merchant_direct_debit_mandate_page":
+		return client.MerchantDirectDebitMandatePage(nil), nil
 	case "merchant_pay_by_bank_setting":
 		return client.MerchantPayByBankSetting(nil), nil
 	case "merchant_payment_request_template":
@@ -145,8 +145,8 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.PaymentRequestResult(nil), nil
 	case "payout":
 		return client.Payout(nil), nil
-	case "payout_keyset":
-		return client.PayoutKeyset(nil), nil
+	case "payout_keyset_page":
+		return client.PayoutKeysetPage(nil), nil
 	case "payout_metric":
 		return client.PayoutMetric(nil), nil
 	case "payrun":

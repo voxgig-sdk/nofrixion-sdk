@@ -37,7 +37,7 @@ func MakeConfig() map[string]any {
 				"mandate": map[string]any{},
 				"merchant": map[string]any{},
 				"merchant_authorisation_setting": map[string]any{},
-				"merchant_direct_debit_mandate": map[string]any{},
+				"merchant_direct_debit_mandate_page": map[string]any{},
 				"merchant_pay_by_bank_setting": map[string]any{},
 				"merchant_payment_request_template": map[string]any{},
 				"merchant_token": map[string]any{},
@@ -55,7 +55,7 @@ func MakeConfig() map[string]any {
 				"payment_request_minimal": map[string]any{},
 				"payment_request_result": map[string]any{},
 				"payout": map[string]any{},
-				"payout_keyset": map[string]any{},
+				"payout_keyset_page": map[string]any{},
 				"payout_metric": map[string]any{},
 				"payrun": map[string]any{},
 				"report": map[string]any{},
@@ -5465,7 +5465,7 @@ func MakeConfig() map[string]any {
 					},
 				},
 			},
-			"merchant_direct_debit_mandate": map[string]any{
+			"merchant_direct_debit_mandate_page": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"active": true,
@@ -5629,7 +5629,7 @@ func MakeConfig() map[string]any {
 						"index$": 22,
 					},
 				},
-				"name": "merchant_direct_debit_mandate",
+				"name": "merchant_direct_debit_mandate_page",
 				"op": map[string]any{
 					"list": map[string]any{
 						"input": "data",
@@ -12065,7 +12065,7 @@ func MakeConfig() map[string]any {
 					},
 				},
 			},
-			"payout_keyset": map[string]any{
+			"payout_keyset_page": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"active": true,
@@ -12579,7 +12579,7 @@ func MakeConfig() map[string]any {
 						"index$": 72,
 					},
 				},
-				"name": "payout_keyset",
+				"name": "payout_keyset_page",
 				"op": map[string]any{
 					"list": map[string]any{
 						"input": "data",

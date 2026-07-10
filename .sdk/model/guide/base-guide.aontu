@@ -296,7 +296,7 @@ guide: {
     }
   }
 
-  entity: merchant_direct_debit_mandate: {
+  entity: merchant_direct_debit_mandate_page: {
     path: "/api/v1/mandates": {
       op: list: method: *GET
     }
@@ -525,7 +525,7 @@ guide: {
     }
   }
 
-  entity: payout_keyset: {
+  entity: payout_keyset_page: {
     path: "/api/v1/accounts/{accountID}/payouts/failed": {
       rename: param: "accountID": *"account_id"
       op: list: method: *GET

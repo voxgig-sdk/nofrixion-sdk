@@ -175,7 +175,7 @@ The API exposes 49 entities:
 | **Mandate** | The Mandate entity (create, load). | `/api/v1/mandates` |
 | **Merchant** | The Merchant entity (list, load, remove, update). | `/api/v1/merchants/{merchantID}/childmerchants` |
 | **MerchantAuthorisationSetting** | The MerchantAuthorisationSetting entity (list). | `/api/v1/merchants/{merchantID}/authorisationsettings` |
-| **MerchantDirectDebitMandate** | The MerchantDirectDebitMandate entity (list). | `/api/v1/mandates` |
+| **MerchantDirectDebitMandatePage** | The MerchantDirectDebitMandatePage entity (list). | `/api/v1/mandates` |
 | **MerchantPayByBankSetting** | The MerchantPayByBankSetting entity (list). | `/api/v1/merchants/{merchantID}/banksettings` |
 | **MerchantPaymentRequestTemplate** | The MerchantPaymentRequestTemplate entity (list, load, remove, update). | `/api/v1/paymentrequests/{merchantID}/templates` |
 | **MerchantToken** | The MerchantToken entity (create, list, load, update). | `/api/v1/tokens` |
@@ -193,7 +193,7 @@ The API exposes 49 entities:
 | **PaymentRequestMinimal** | The PaymentRequestMinimal entity (list). | `/api/v1/paymentrequests/{id}/minimal` |
 | **PaymentRequestResult** | The PaymentRequestResult entity (list). | `/api/v1/paymentrequests/{id}/result` |
 | **Payout** | The Payout entity (create, list, load, remove, update). | `/api/v1/payouts/batch/submit/{id}` |
-| **PayoutKeyset** | The PayoutKeyset entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
+| **PayoutKeysetPage** | The PayoutKeysetPage entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
 | **PayoutMetric** | The PayoutMetric entity (load). | `/api/v1/payouts/metrics` |
 | **Payrun** | The Payrun entity (create, list, load, remove, update). | `/api/v1/payruns/{id}/request-authorisation` |
 | **Report** | The Report entity (update). | `/api/v1/reports/{id}/initiate` |

@@ -235,7 +235,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Mandate` | `(data) -> MandateEntity` | Create a Mandate entity instance. |
 | `Merchant` | `(data) -> MerchantEntity` | Create a Merchant entity instance. |
 | `MerchantAuthorisationSetting` | `(data) -> MerchantAuthorisationSettingEntity` | Create a MerchantAuthorisationSetting entity instance. |
-| `MerchantDirectDebitMandate` | `(data) -> MerchantDirectDebitMandateEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantDirectDebitMandatePage` | `(data) -> MerchantDirectDebitMandatePageEntity` | Create a MerchantDirectDebitMandatePage entity instance. |
 | `MerchantPayByBankSetting` | `(data) -> MerchantPayByBankSettingEntity` | Create a MerchantPayByBankSetting entity instance. |
 | `MerchantPaymentRequestTemplate` | `(data) -> MerchantPaymentRequestTemplateEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
 | `MerchantToken` | `(data) -> MerchantTokenEntity` | Create a MerchantToken entity instance. |
@@ -253,7 +253,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `PaymentRequestMinimal` | `(data) -> PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `(data) -> PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
 | `Payout` | `(data) -> PayoutEntity` | Create a Payout entity instance. |
-| `PayoutKeyset` | `(data) -> PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutKeysetPage` | `(data) -> PayoutKeysetPageEntity` | Create a PayoutKeysetPage entity instance. |
 | `PayoutMetric` | `(data) -> PayoutMetricEntity` | Create a PayoutMetric entity instance. |
 | `Payrun` | `(data) -> PayrunEntity` | Create a Payrun entity instance. |
 | `Report` | `(data) -> ReportEntity` | Create a Report entity instance. |
@@ -690,7 +690,7 @@ Operations: List.
 
 API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### MerchantDirectDebitMandate
+#### MerchantDirectDebitMandatePage
 
 | Field | Description |
 | --- | --- |
@@ -1292,7 +1292,7 @@ Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### PayoutKeyset
+#### PayoutKeysetPage
 
 | Field | Description |
 | --- | --- |
@@ -2431,9 +2431,9 @@ local merchant_authorisation_settings, err = client:MerchantAuthorisationSetting
 ```
 
 
-### MerchantDirectDebitMandate
+### MerchantDirectDebitMandatePage
 
-Create an instance: `local merchant_direct_debit_mandate = client:MerchantDirectDebitMandate(nil)`
+Create an instance: `local merchant_direct_debit_mandate_page = client:MerchantDirectDebitMandatePage(nil)`
 
 #### Operations
 
@@ -2472,7 +2472,7 @@ Create an instance: `local merchant_direct_debit_mandate = client:MerchantDirect
 #### Example: List
 
 ```lua
-local merchant_direct_debit_mandates, err = client:MerchantDirectDebitMandate():list()
+local merchant_direct_debit_mandate_pages, err = client:MerchantDirectDebitMandatePage():list()
 ```
 
 
@@ -3335,9 +3335,9 @@ local payout, err = client:Payout():create({
 ```
 
 
-### PayoutKeyset
+### PayoutKeysetPage
 
-Create an instance: `local payout_keyset = client:PayoutKeyset(nil)`
+Create an instance: `local payout_keyset_page = client:PayoutKeysetPage(nil)`
 
 #### Operations
 
@@ -3426,7 +3426,7 @@ Create an instance: `local payout_keyset = client:PayoutKeyset(nil)`
 #### Example: List
 
 ```lua
-local payout_keysets, err = client:PayoutKeyset():list()
+local payout_keyset_pages, err = client:PayoutKeysetPage():list()
 ```
 
 

@@ -570,7 +570,7 @@ class MerchantAuthorisationSettingListMatch(TypedDict):
     merchant_id: str
 
 
-class MerchantDirectDebitMandate(TypedDict, total=False):
+class MerchantDirectDebitMandatePage(TypedDict, total=False):
     approved_at: str
     currency: str
     customer_account_number: str
@@ -596,7 +596,7 @@ class MerchantDirectDebitMandate(TypedDict, total=False):
     supplier_status: str
 
 
-class MerchantDirectDebitMandateListMatch(TypedDict, total=False):
+class MerchantDirectDebitMandatePageListMatch(TypedDict, total=False):
     approved_at: str
     currency: str
     customer_account_number: str
@@ -1463,12 +1463,12 @@ class PayoutRemoveMatch(TypedDict):
     id: str
 
 
-class PayoutKeysetRequired(TypedDict):
+class PayoutKeysetPageRequired(TypedDict):
     beneficiary: dict
     source_account_identifier: dict
 
 
-class PayoutKeyset(PayoutKeysetRequired, total=False):
+class PayoutKeysetPage(PayoutKeysetPageRequired, total=False):
     account_id: str
     amount: float
     amount_minor_unit: int
@@ -1542,7 +1542,7 @@ class PayoutKeyset(PayoutKeysetRequired, total=False):
     your_reference: str
 
 
-class PayoutKeysetListMatch(TypedDict, total=False):
+class PayoutKeysetPageListMatch(TypedDict, total=False):
     account_id: str
     merchant_id: str
 

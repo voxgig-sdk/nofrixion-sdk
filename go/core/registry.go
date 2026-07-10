@@ -38,7 +38,7 @@ var NewMerchantEntityFunc func(client *NofrixionSDK, entopts map[string]any) Nof
 
 var NewMerchantAuthorisationSettingEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
-var NewMerchantDirectDebitMandateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
+var NewMerchantDirectDebitMandatePageEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewMerchantPayByBankSettingEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
@@ -74,7 +74,7 @@ var NewPaymentRequestResultEntityFunc func(client *NofrixionSDK, entopts map[str
 
 var NewPayoutEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
-var NewPayoutKeysetEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
+var NewPayoutKeysetPageEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewPayoutMetricEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 

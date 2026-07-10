@@ -16,7 +16,7 @@ import { IPaymentEntity } from './entity/IPaymentEntity'
 import { MandateEntity } from './entity/MandateEntity'
 import { MerchantEntity } from './entity/MerchantEntity'
 import { MerchantAuthorisationSettingEntity } from './entity/MerchantAuthorisationSettingEntity'
-import { MerchantDirectDebitMandateEntity } from './entity/MerchantDirectDebitMandateEntity'
+import { MerchantDirectDebitMandatePageEntity } from './entity/MerchantDirectDebitMandatePageEntity'
 import { MerchantPayByBankSettingEntity } from './entity/MerchantPayByBankSettingEntity'
 import { MerchantPaymentRequestTemplateEntity } from './entity/MerchantPaymentRequestTemplateEntity'
 import { MerchantTokenEntity } from './entity/MerchantTokenEntity'
@@ -34,7 +34,7 @@ import { PaymentRequestMetricEntity } from './entity/PaymentRequestMetricEntity'
 import { PaymentRequestMinimalEntity } from './entity/PaymentRequestMinimalEntity'
 import { PaymentRequestResultEntity } from './entity/PaymentRequestResultEntity'
 import { PayoutEntity } from './entity/PayoutEntity'
-import { PayoutKeysetEntity } from './entity/PayoutKeysetEntity'
+import { PayoutKeysetPageEntity } from './entity/PayoutKeysetPageEntity'
 import { PayoutMetricEntity } from './entity/PayoutMetricEntity'
 import { PayrunEntity } from './entity/PayrunEntity'
 import { ReportEntity } from './entity/ReportEntity'
@@ -364,10 +364,10 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.MerchantDirectDebitMandate().list()` / `client.MerchantDirectDebitMandate().load({ id })`.
-  MerchantDirectDebitMandate(data?: any) {
+  // Entity access: `client.MerchantDirectDebitMandatePage().list()` / `client.MerchantDirectDebitMandatePage().load({ id })`.
+  MerchantDirectDebitMandatePage(data?: any) {
     const self = this
-    return new MerchantDirectDebitMandateEntity(self,data)
+    return new MerchantDirectDebitMandatePageEntity(self,data)
   }
 
 
@@ -490,10 +490,10 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.PayoutKeyset().list()` / `client.PayoutKeyset().load({ id })`.
-  PayoutKeyset(data?: any) {
+  // Entity access: `client.PayoutKeysetPage().list()` / `client.PayoutKeysetPage().load({ id })`.
+  PayoutKeysetPage(data?: any) {
     const self = this
-    return new PayoutKeysetEntity(self,data)
+    return new PayoutKeysetPageEntity(self,data)
   }
 
 

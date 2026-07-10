@@ -519,21 +519,21 @@ class NofrixionSDK
     }
 
 
-    private $_merchant_direct_debit_mandate = null;
+    private $_merchant_direct_debit_mandate_page = null;
 
-    // Canonical facade: $client->MerchantDirectDebitMandate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->merchant_direct_debit_mandate()
+    // Canonical facade: $client->MerchantDirectDebitMandatePage()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->merchant_direct_debit_mandate_page()
     // resolves here too.
-    public function MerchantDirectDebitMandate($data = null)
+    public function MerchantDirectDebitMandatePage($data = null)
     {
-        require_once __DIR__ . '/entity/merchant_direct_debit_mandate_entity.php';
+        require_once __DIR__ . '/entity/merchant_direct_debit_mandate_page_entity.php';
         if ($data === null) {
-            if ($this->_merchant_direct_debit_mandate === null) {
-                $this->_merchant_direct_debit_mandate = new MerchantDirectDebitMandateEntity($this, null);
+            if ($this->_merchant_direct_debit_mandate_page === null) {
+                $this->_merchant_direct_debit_mandate_page = new MerchantDirectDebitMandatePageEntity($this, null);
             }
-            return $this->_merchant_direct_debit_mandate;
+            return $this->_merchant_direct_debit_mandate_page;
         }
-        return new MerchantDirectDebitMandateEntity($this, $data);
+        return new MerchantDirectDebitMandatePageEntity($this, $data);
     }
 
 
@@ -843,21 +843,21 @@ class NofrixionSDK
     }
 
 
-    private $_payout_keyset = null;
+    private $_payout_keyset_page = null;
 
-    // Canonical facade: $client->PayoutKeyset()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->payout_keyset()
+    // Canonical facade: $client->PayoutKeysetPage()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->payout_keyset_page()
     // resolves here too.
-    public function PayoutKeyset($data = null)
+    public function PayoutKeysetPage($data = null)
     {
-        require_once __DIR__ . '/entity/payout_keyset_entity.php';
+        require_once __DIR__ . '/entity/payout_keyset_page_entity.php';
         if ($data === null) {
-            if ($this->_payout_keyset === null) {
-                $this->_payout_keyset = new PayoutKeysetEntity($this, null);
+            if ($this->_payout_keyset_page === null) {
+                $this->_payout_keyset_page = new PayoutKeysetPageEntity($this, null);
             }
-            return $this->_payout_keyset;
+            return $this->_payout_keyset_page;
         }
-        return new PayoutKeysetEntity($this, $data);
+        return new PayoutKeysetPageEntity($this, $data);
     }
 
 

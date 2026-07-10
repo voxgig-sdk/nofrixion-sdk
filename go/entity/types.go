@@ -590,8 +590,8 @@ type MerchantAuthorisationSettingListMatch struct {
 	MerchantId string `json:"merchant_id"`
 }
 
-// MerchantDirectDebitMandate is the typed data model for the merchant_direct_debit_mandate entity.
-type MerchantDirectDebitMandate struct {
+// MerchantDirectDebitMandatePage is the typed data model for the merchant_direct_debit_mandate_page entity.
+type MerchantDirectDebitMandatePage struct {
 	ApprovedAt *string `json:"approved_at,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	CustomerAccountNumber *string `json:"customer_account_number,omitempty"`
@@ -617,8 +617,8 @@ type MerchantDirectDebitMandate struct {
 	SupplierStatus *string `json:"supplier_status,omitempty"`
 }
 
-// MerchantDirectDebitMandateListMatch is the typed request payload for MerchantDirectDebitMandate.ListTyped.
-type MerchantDirectDebitMandateListMatch struct {
+// MerchantDirectDebitMandatePageListMatch is the typed request payload for MerchantDirectDebitMandatePage.ListTyped.
+type MerchantDirectDebitMandatePageListMatch struct {
 	ApprovedAt *string `json:"approved_at,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	CustomerAccountNumber *string `json:"customer_account_number,omitempty"`
@@ -1497,8 +1497,8 @@ type PayoutRemoveMatch struct {
 	Id string `json:"id"`
 }
 
-// PayoutKeyset is the typed data model for the payout_keyset entity.
-type PayoutKeyset struct {
+// PayoutKeysetPage is the typed data model for the payout_keyset_page entity.
+type PayoutKeysetPage struct {
 	AccountId *string `json:"account_id,omitempty"`
 	Amount *float64 `json:"amount,omitempty"`
 	AmountMinorUnit *int `json:"amount_minor_unit,omitempty"`
@@ -1574,8 +1574,8 @@ type PayoutKeyset struct {
 	YourReference *string `json:"your_reference,omitempty"`
 }
 
-// PayoutKeysetListMatch is the typed request payload for PayoutKeyset.ListTyped.
-type PayoutKeysetListMatch struct {
+// PayoutKeysetPageListMatch is the typed request payload for PayoutKeysetPage.ListTyped.
+type PayoutKeysetPageListMatch struct {
 	AccountId *string `json:"account_id,omitempty"`
 	MerchantId *string `json:"merchant_id,omitempty"`
 }
