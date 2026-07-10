@@ -73,18 +73,6 @@ Create a new `Batch` entity instance.
 
 **Returns:** `BatchEntity` instance.
 
-#### `BeneficiariesCreate(data?: object)`
-
-Create a new `BeneficiariesCreate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `BeneficiariesCreateEntity` instance.
-
 #### `Beneficiary(data?: object)`
 
 Create a new `Beneficiary` entity instance.
@@ -457,18 +445,6 @@ Create a new `PaymentRequestResult` entity instance.
 
 **Returns:** `PaymentRequestResultEntity` instance.
 
-#### `PaymentRequestsCreate(data?: object)`
-
-Create a new `PaymentRequestsCreate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `PaymentRequestsCreateEntity` instance.
-
 #### `Payout(data?: object)`
 
 Create a new `Payout` entity instance.
@@ -504,18 +480,6 @@ Create a new `PayoutMetric` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `PayoutMetricEntity` instance.
-
-#### `PayoutsCreate(data?: object)`
-
-Create a new `PayoutsCreate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `PayoutsCreateEntity` instance.
 
 #### `Payrun(data?: object)`
 
@@ -553,9 +517,9 @@ Create a new `ReportResult` entity instance.
 
 **Returns:** `ReportResultEntity` instance.
 
-#### `RolesCreate(data?: object)`
+#### `Role(data?: object)`
 
-Create a new `RolesCreate` entity instance.
+Create a new `Role` entity instance.
 
 **Parameters:**
 
@@ -563,7 +527,7 @@ Create a new `RolesCreate` entity instance.
 | --- | --- | --- |
 | `data` | `object` | Initial entity data. |
 
-**Returns:** `RolesCreateEntity` instance.
+**Returns:** `RoleEntity` instance.
 
 #### `Rule(data?: object)`
 
@@ -648,18 +612,6 @@ Create a new `UserInvite` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `UserInviteEntity` instance.
-
-#### `UserInvitesCreate(data?: object)`
-
-Create a new `UserInvitesCreate` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `UserInvitesCreateEntity` instance.
 
 #### `Virtual(data?: object)`
 
@@ -931,58 +883,6 @@ Return a copy of the entity options.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```ts
-const beneficiaries_create = client.BeneficiariesCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `any[]` | No |  |
-| `failed_beneficiary` | `Record<string, any>` | No |  |
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.BeneficiariesCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `BeneficiariesCreateEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `NofrixionSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## BeneficiaryEntity
 
 ```ts
@@ -998,6 +898,7 @@ const beneficiary = client.Beneficiary()
 | `authorisation` | `any[]` | No |  |
 | `authorisers_completed_count` | `number` | No |  |
 | `authorisers_required_count` | `number` | No |  |
+| `beneficiary` | `any[]` | No |  |
 | `beneficiary_event` | `any[]` | No |  |
 | `can_authorise` | `boolean` | No |  |
 | `can_update` | `boolean` | No |  |
@@ -1005,6 +906,7 @@ const beneficiary = client.Beneficiary()
 | `created_by_email_address` | `string` | No |  |
 | `currency` | `string` | Yes |  |
 | `destination` | `Record<string, any>` | No |  |
+| `failed_beneficiary` | `Record<string, any>` | No |  |
 | `has_current_user_authorised` | `boolean` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
@@ -1027,6 +929,7 @@ const beneficiary = client.Beneficiary()
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -1034,6 +937,7 @@ const beneficiary = client.Beneficiary()
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -3107,6 +3011,7 @@ const payment_request = client.PaymentRequest()
 | `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
 | `event` | `any[]` | No |  |
+| `failed_payment_request` | `Record<string, any>` | No |  |
 | `failure_callback_url` | `string` | No |  |
 | `field_display_setting` | `any[]` | No |  |
 | `formatted_amount` | `string` | No |  |
@@ -3133,6 +3038,7 @@ const payment_request = client.PaymentRequest()
 | `payment_initiation_id` | `string` | No |  |
 | `payment_method` | `any[]` | No |  |
 | `payment_processor` | `string` | No |  |
+| `payment_request` | `any[]` | No |  |
 | `payrun_id` | `string` | No |  |
 | `pisp_account_id` | `string` | No |  |
 | `priority_bank_id` | `string` | No |  |
@@ -3155,7 +3061,6 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PaymentRequest().create({
-  paymentrequest_id: 'example_paymentrequest_id',
 })
 ```
 
@@ -3501,58 +3406,6 @@ Return a copy of the entity options.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```ts
-const payment_requests_create = client.PaymentRequestsCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `Record<string, any>` | No |  |
-| `payment_request` | `any[]` | No |  |
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.PaymentRequestsCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `NofrixionSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## PayoutEntity
 
 ```ts
@@ -3588,6 +3441,7 @@ const payout = client.Payout()
 | `destination` | `Record<string, any>` | No |  |
 | `document` | `any[]` | No |  |
 | `event` | `any[]` | No |  |
+| `failed_payout` | `Record<string, any>` | No |  |
 | `formatted_amount` | `string` | No |  |
 | `formatted_fx_destination_amount` | `string` | No |  |
 | `formatted_schedule` | `string` | No |  |
@@ -3614,6 +3468,7 @@ const payout = client.Payout()
 | `nonce` | `string` | No |  |
 | `payment_processor` | `string` | No |  |
 | `payment_rail` | `string` | No |  |
+| `payout` | `any[]` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
 | `reason` | `string` | No |  |
@@ -3670,6 +3525,7 @@ const payout = client.Payout()
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3696,6 +3552,7 @@ const payout = client.Payout()
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3975,58 +3832,6 @@ Return a copy of the entity options.
 
 ---
 
-## PayoutsCreateEntity
-
-```ts
-const payouts_create = client.PayoutsCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `Record<string, any>` | No |  |
-| `payout` | `any[]` | No |  |
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.PayoutsCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `PayoutsCreateEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `NofrixionSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## PayrunEntity
 
 ```ts
@@ -4248,10 +4053,10 @@ Return a copy of the entity options.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```ts
-const roles_create = client.RolesCreate()
+const role = client.Role()
 ```
 
 ### Fields
@@ -4268,7 +4073,7 @@ const roles_create = client.RolesCreate()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.RolesCreate().create({
+const result = await client.Role().create({
   merchant_id: 'example_merchant_id',
 })
 ```
@@ -4287,7 +4092,7 @@ Get or set the entity match criteria. Works the same as `data()`.
 
 #### `make()`
 
-Create a new `RolesCreateEntity` instance with the same client and
+Create a new `RoleEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -4861,6 +4666,7 @@ const user_invite = client.UserInvite()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `Record<string, any>` | No |  |
+| `failed_user_invite` | `Record<string, any>` | No |  |
 | `id` | `string` | No |  |
 | `initial_role_id` | `string` | No |  |
 | `invitee_email_address` | `string` | No |  |
@@ -4880,12 +4686,14 @@ const user_invite = client.UserInvite()
 | `status` | `string` | No |  |
 | `user` | `Record<string, any>` | Yes |  |
 | `user_id` | `string` | No |  |
+| `user_invite` | `any[]` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4905,6 +4713,7 @@ const user_invite = client.UserInvite()
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4967,58 +4776,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `UserInviteEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `NofrixionSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## UserInvitesCreateEntity
-
-```ts
-const user_invites_create = client.UserInvitesCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `Record<string, any>` | No |  |
-| `user_invite` | `any[]` | No |  |
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.UserInvitesCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `client()`

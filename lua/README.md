@@ -221,7 +221,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
 | `Account` | `(data) -> AccountEntity` | Create an Account entity instance. |
 | `Batch` | `(data) -> BatchEntity` | Create a Batch entity instance. |
-| `BeneficiariesCreate` | `(data) -> BeneficiariesCreateEntity` | Create a BeneficiariesCreate entity instance. |
 | `Beneficiary` | `(data) -> BeneficiaryEntity` | Create a Beneficiary entity instance. |
 | `BeneficiaryGroup` | `(data) -> BeneficiaryGroupEntity` | Create a BeneficiaryGroup entity instance. |
 | `Card` | `(data) -> CardEntity` | Create a Card entity instance. |
@@ -253,15 +252,13 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `PaymentRequestMetric` | `(data) -> PaymentRequestMetricEntity` | Create a PaymentRequestMetric entity instance. |
 | `PaymentRequestMinimal` | `(data) -> PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `(data) -> PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
-| `PaymentRequestsCreate` | `(data) -> PaymentRequestsCreateEntity` | Create a PaymentRequestsCreate entity instance. |
 | `Payout` | `(data) -> PayoutEntity` | Create a Payout entity instance. |
 | `PayoutKeyset` | `(data) -> PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
 | `PayoutMetric` | `(data) -> PayoutMetricEntity` | Create a PayoutMetric entity instance. |
-| `PayoutsCreate` | `(data) -> PayoutsCreateEntity` | Create a PayoutsCreate entity instance. |
 | `Payrun` | `(data) -> PayrunEntity` | Create a Payrun entity instance. |
 | `Report` | `(data) -> ReportEntity` | Create a Report entity instance. |
 | `ReportResult` | `(data) -> ReportResultEntity` | Create a ReportResult entity instance. |
-| `RolesCreate` | `(data) -> RolesCreateEntity` | Create a RolesCreate entity instance. |
+| `Role` | `(data) -> RoleEntity` | Create a Role entity instance. |
 | `Rule` | `(data) -> RuleEntity` | Create a Rule entity instance. |
 | `RuleEvent` | `(data) -> RuleEventEntity` | Create a RuleEvent entity instance. |
 | `Tag` | `(data) -> TagEntity` | Create a Tag entity instance. |
@@ -269,7 +266,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Transaction` | `(data) -> TransactionEntity` | Create a Transaction entity instance. |
 | `User` | `(data) -> UserEntity` | Create an User entity instance. |
 | `UserInvite` | `(data) -> UserInviteEntity` | Create an UserInvite entity instance. |
-| `UserInvitesCreate` | `(data) -> UserInvitesCreateEntity` | Create an UserInvitesCreate entity instance. |
 | `Virtual` | `(data) -> VirtualEntity` | Create a Virtual entity instance. |
 | `Webhook` | `(data) -> WebhookEntity` | Create a Webhook entity instance. |
 
@@ -387,17 +383,6 @@ Operations: Create, Load.
 
 API path: `/api/v1/payouts/batch`
 
-#### BeneficiariesCreate
-
-| Field | Description |
-| --- | --- |
-| `beneficiary` |  |
-| `failed_beneficiary` |  |
-
-Operations: Create.
-
-API path: `/api/v1/beneficiaries/batchcreate`
-
 #### Beneficiary
 
 | Field | Description |
@@ -407,6 +392,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `authorisation` |  |
 | `authorisers_completed_count` |  |
 | `authorisers_required_count` |  |
+| `beneficiary` |  |
 | `beneficiary_event` |  |
 | `can_authorise` |  |
 | `can_update` |  |
@@ -414,6 +400,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `created_by_email_address` |  |
 | `currency` |  |
 | `destination` |  |
+| `failed_beneficiary` |  |
 | `has_current_user_authorised` |  |
 | `id` |  |
 | `inserted` |  |
@@ -1052,6 +1039,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `due_date` |  |
 | `error_description` |  |
 | `event` |  |
+| `failed_payment_request` |  |
 | `failure_callback_url` |  |
 | `field_display_setting` |  |
 | `formatted_amount` |  |
@@ -1078,6 +1066,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `payment_initiation_id` |  |
 | `payment_method` |  |
 | `payment_processor` |  |
+| `payment_request` |  |
 | `payrun_id` |  |
 | `pisp_account_id` |  |
 | `priority_bank_id` |  |
@@ -1215,17 +1204,6 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/result`
 
-#### PaymentRequestsCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_payment_request` |  |
-| `payment_request` |  |
-
-Operations: Create.
-
-API path: `/api/v1/paymentrequests/batchcreate`
-
 #### Payout
 
 | Field | Description |
@@ -1255,6 +1233,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `destination` |  |
 | `document` |  |
 | `event` |  |
+| `failed_payout` |  |
 | `formatted_amount` |  |
 | `formatted_fx_destination_amount` |  |
 | `formatted_schedule` |  |
@@ -1281,6 +1260,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `nonce` |  |
 | `payment_processor` |  |
 | `payment_rail` |  |
+| `payout` |  |
 | `payrun_id` |  |
 | `payrun_name` |  |
 | `reason` |  |
@@ -1410,17 +1390,6 @@ Operations: Load.
 
 API path: `/api/v1/payouts/metrics`
 
-#### PayoutsCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_payout` |  |
-| `payout` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/batchcreate`
-
 #### Payrun
 
 | Field | Description |
@@ -1487,7 +1456,7 @@ Operations: Load.
 
 API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
-#### RolesCreate
+#### Role
 
 | Field | Description |
 | --- | --- |
@@ -1668,6 +1637,7 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | Field | Description |
 | --- | --- |
 | `authorisation_status` |  |
+| `failed_user_invite` |  |
 | `id` |  |
 | `initial_role_id` |  |
 | `invitee_email_address` |  |
@@ -1687,21 +1657,11 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | `status` |  |
 | `user` |  |
 | `user_id` |  |
+| `user_invite` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/userinvites/authorise/{id}`
-
-#### UserInvitesCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_user_invite` |  |
-| `user_invite` |  |
-
-Operations: Create.
-
-API path: `/api/v1/userinvites/batchcreate`
 
 #### Virtual
 
@@ -1903,31 +1863,6 @@ local batch, err = client:Batch():create({
 ```
 
 
-### BeneficiariesCreate
-
-Create an instance: `local beneficiaries_create = client:BeneficiariesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `beneficiary` | `table` |  |
-| `failed_beneficiary` | `table` |  |
-
-#### Example: Create
-
-```lua
-local beneficiaries_create, err = client:BeneficiariesCreate():create({
-})
-```
-
-
 ### Beneficiary
 
 Create an instance: `local beneficiary = client:Beneficiary(nil)`
@@ -1951,6 +1886,7 @@ Create an instance: `local beneficiary = client:Beneficiary(nil)`
 | `authorisation` | `table` |  |
 | `authorisers_completed_count` | `number` |  |
 | `authorisers_required_count` | `number` |  |
+| `beneficiary` | `table` |  |
 | `beneficiary_event` | `table` |  |
 | `can_authorise` | `boolean` |  |
 | `can_update` | `boolean` |  |
@@ -1958,6 +1894,7 @@ Create an instance: `local beneficiary = client:Beneficiary(nil)`
 | `created_by_email_address` | `string` |  |
 | `currency` | `string` |  |
 | `destination` | `table` |  |
+| `failed_beneficiary` | `table` |  |
 | `has_current_user_authorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
@@ -3047,6 +2984,7 @@ Create an instance: `local payment_request = client:PaymentRequest(nil)`
 | `due_date` | `string` |  |
 | `error_description` | `string` |  |
 | `event` | `table` |  |
+| `failed_payment_request` | `table` |  |
 | `failure_callback_url` | `string` |  |
 | `field_display_setting` | `table` |  |
 | `formatted_amount` | `string` |  |
@@ -3073,6 +3011,7 @@ Create an instance: `local payment_request = client:PaymentRequest(nil)`
 | `payment_initiation_id` | `string` |  |
 | `payment_method` | `table` |  |
 | `payment_processor` | `string` |  |
+| `payment_request` | `table` |  |
 | `payrun_id` | `string` |  |
 | `pisp_account_id` | `string` |  |
 | `priority_bank_id` | `string` |  |
@@ -3103,7 +3042,6 @@ local payment_requests, err = client:PaymentRequest():list()
 
 ```lua
 local payment_request, err = client:PaymentRequest():create({
-  paymentrequest_id = "example_paymentrequest_id", -- string
 })
 ```
 
@@ -3279,31 +3217,6 @@ local payment_request_results, err = client:PaymentRequestResult():list()
 ```
 
 
-### PaymentRequestsCreate
-
-Create an instance: `local payment_requests_create = client:PaymentRequestsCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payment_request` | `table` |  |
-| `payment_request` | `table` |  |
-
-#### Example: Create
-
-```lua
-local payment_requests_create, err = client:PaymentRequestsCreate():create({
-})
-```
-
-
 ### Payout
 
 Create an instance: `local payout = client:Payout(nil)`
@@ -3347,6 +3260,7 @@ Create an instance: `local payout = client:Payout(nil)`
 | `destination` | `table` |  |
 | `document` | `table` |  |
 | `event` | `table` |  |
+| `failed_payout` | `table` |  |
 | `formatted_amount` | `string` |  |
 | `formatted_fx_destination_amount` | `string` |  |
 | `formatted_schedule` | `string` |  |
@@ -3373,6 +3287,7 @@ Create an instance: `local payout = client:Payout(nil)`
 | `nonce` | `string` |  |
 | `payment_processor` | `string` |  |
 | `payment_rail` | `string` |  |
+| `payout` | `table` |  |
 | `payrun_id` | `string` |  |
 | `payrun_name` | `string` |  |
 | `reason` | `string` |  |
@@ -3544,31 +3459,6 @@ local payout_metric, err = client:PayoutMetric():load()
 ```
 
 
-### PayoutsCreate
-
-Create an instance: `local payouts_create = client:PayoutsCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payout` | `table` |  |
-| `payout` | `table` |  |
-
-#### Example: Create
-
-```lua
-local payouts_create, err = client:PayoutsCreate():create({
-})
-```
-
-
 ### Payrun
 
 Create an instance: `local payrun = client:Payrun(nil)`
@@ -3681,9 +3571,9 @@ local report_result, err = client:ReportResult():load({ id = 1, report_id = "rep
 ```
 
 
-### RolesCreate
+### Role
 
-Create an instance: `local roles_create = client:RolesCreate(nil)`
+Create an instance: `local role = client:Role(nil)`
 
 #### Operations
 
@@ -3701,7 +3591,7 @@ Create an instance: `local roles_create = client:RolesCreate(nil)`
 #### Example: Create
 
 ```lua
-local roles_create, err = client:RolesCreate():create({
+local role, err = client:Role():create({
   merchant_id = "example_merchant_id", -- string
 })
 ```
@@ -4013,6 +3903,7 @@ Create an instance: `local user_invite = client:UserInvite(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `authorisation_status` | `table` |  |
+| `failed_user_invite` | `table` |  |
 | `id` | `string` |  |
 | `initial_role_id` | `string` |  |
 | `invitee_email_address` | `string` |  |
@@ -4032,6 +3923,7 @@ Create an instance: `local user_invite = client:UserInvite(nil)`
 | `status` | `string` |  |
 | `user` | `table` |  |
 | `user_id` | `string` |  |
+| `user_invite` | `table` |  |
 
 #### Example: Load
 
@@ -4049,31 +3941,6 @@ local user_invites, err = client:UserInvite():list()
 
 ```lua
 local user_invite, err = client:UserInvite():create({
-})
-```
-
-
-### UserInvitesCreate
-
-Create an instance: `local user_invites_create = client:UserInvitesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_user_invite` | `table` |  |
-| `user_invite` | `table` |  |
-
-#### Example: Create
-
-```lua
-local user_invites_create, err = client:UserInvitesCreate():create({
 })
 ```
 

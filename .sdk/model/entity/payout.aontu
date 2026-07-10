@@ -143,6 +143,11 @@ main: kit: entity: payout: {
       type: "`$ARRAY`"
     }
     {
+      name: "failed_payout"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
       name: "formatted_amount"
       req: false
       type: "`$STRING`"
@@ -271,6 +276,11 @@ main: kit: entity: payout: {
       name: "payment_rail"
       req: false
       type: "`$STRING`"
+    }
+    {
+      name: "payout"
+      req: false
+      type: "`$ARRAY`"
     }
     {
       name: "payrun_id"
@@ -491,6 +501,23 @@ main: kit: entity: payout: {
             "v1"
             "payouts"
           ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/api/v1/payouts/batchcreate"
+          parts: [
+            "api"
+            "v1"
+            "payouts"
+            "batchcreate"
+          ]
+          select: {
+            "$action": "batchcreate"
+          }
           transform: {
             req: "`reqdata`"
             res: "`body`"

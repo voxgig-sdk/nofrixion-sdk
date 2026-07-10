@@ -38,7 +38,6 @@ describe("PaymentRequestEntity", function()
     local payment_request_ref01_ent = client:PaymentRequest(nil)
     local payment_request_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.payment_request"), "payment_request_ref01"))
-    payment_request_ref01_data["paymentrequest_id"] = setup.idmap["paymentrequest01"]
 
     local payment_request_ref01_data_result, err = payment_request_ref01_ent:create(payment_request_ref01_data, nil)
     assert.is_nil(err)

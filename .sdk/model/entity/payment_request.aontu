@@ -146,6 +146,11 @@ main: kit: entity: payment_request: {
       type: "`$ARRAY`"
     }
     {
+      name: "failed_payment_request"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
       name: "failure_callback_url"
       req: false
       type: "`$STRING`"
@@ -276,6 +281,11 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
+      name: "payment_request"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "payrun_id"
       req: false
       type: "`$STRING`"
@@ -401,6 +411,20 @@ main: kit: entity: payment_request: {
               "submit_after"
             ]
           }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/api/v1/paymentrequests/batchcreate"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "batchcreate"
+          ]
           transform: {
             req: "`reqdata`"
             res: "`body`"

@@ -337,32 +337,6 @@ BatchCreateData = Struct.new(
   keyword_init: true
 )
 
-# BeneficiariesCreate entity data model.
-#
-# @!attribute [rw] beneficiary
-#   @return [Array, nil]
-#
-# @!attribute [rw] failed_beneficiary
-#   @return [Hash, nil]
-BeneficiariesCreate = Struct.new(
-  :beneficiary,
-  :failed_beneficiary,
-  keyword_init: true
-)
-
-# Request payload for BeneficiariesCreate#create.
-#
-# @!attribute [rw] beneficiary
-#   @return [Array, nil]
-#
-# @!attribute [rw] failed_beneficiary
-#   @return [Hash, nil]
-BeneficiariesCreateCreateData = Struct.new(
-  :beneficiary,
-  :failed_beneficiary,
-  keyword_init: true
-)
-
 # Beneficiary entity data model.
 #
 # @!attribute [rw] approval_callback_url
@@ -379,6 +353,9 @@ BeneficiariesCreateCreateData = Struct.new(
 #
 # @!attribute [rw] authorisers_required_count
 #   @return [Integer, nil]
+#
+# @!attribute [rw] beneficiary
+#   @return [Array, nil]
 #
 # @!attribute [rw] beneficiary_event
 #   @return [Array, nil]
@@ -399,6 +376,9 @@ BeneficiariesCreateCreateData = Struct.new(
 #   @return [String]
 #
 # @!attribute [rw] destination
+#   @return [Hash, nil]
+#
+# @!attribute [rw] failed_beneficiary
 #   @return [Hash, nil]
 #
 # @!attribute [rw] has_current_user_authorised
@@ -442,6 +422,7 @@ Beneficiary = Struct.new(
   :authorisation,
   :authorisers_completed_count,
   :authorisers_required_count,
+  :beneficiary,
   :beneficiary_event,
   :can_authorise,
   :can_update,
@@ -449,6 +430,7 @@ Beneficiary = Struct.new(
   :created_by_email_address,
   :currency,
   :destination,
+  :failed_beneficiary,
   :has_current_user_authorised,
   :id,
   :inserted,
@@ -3522,6 +3504,9 @@ PaymentInitiationCreateData = Struct.new(
 # @!attribute [rw] event
 #   @return [Array, nil]
 #
+# @!attribute [rw] failed_payment_request
+#   @return [Hash, nil]
+#
 # @!attribute [rw] failure_callback_url
 #   @return [String, nil]
 #
@@ -3600,6 +3585,9 @@ PaymentInitiationCreateData = Struct.new(
 # @!attribute [rw] payment_processor
 #   @return [String, nil]
 #
+# @!attribute [rw] payment_request
+#   @return [Array, nil]
+#
 # @!attribute [rw] payrun_id
 #   @return [String, nil]
 #
@@ -3667,6 +3655,7 @@ PaymentRequest = Struct.new(
   :due_date,
   :error_description,
   :event,
+  :failed_payment_request,
   :failure_callback_url,
   :field_display_setting,
   :formatted_amount,
@@ -3693,6 +3682,7 @@ PaymentRequest = Struct.new(
   :payment_initiation_id,
   :payment_method,
   :payment_processor,
+  :payment_request,
   :payrun_id,
   :pisp_account_id,
   :priority_bank_id,
@@ -3804,6 +3794,9 @@ PaymentRequestLoadMatch = Struct.new(
 # @!attribute [rw] event
 #   @return [Array, nil]
 #
+# @!attribute [rw] failed_payment_request
+#   @return [Hash, nil]
+#
 # @!attribute [rw] failure_callback_url
 #   @return [String, nil]
 #
@@ -3882,6 +3875,9 @@ PaymentRequestLoadMatch = Struct.new(
 # @!attribute [rw] payment_processor
 #   @return [String, nil]
 #
+# @!attribute [rw] payment_request
+#   @return [Array, nil]
+#
 # @!attribute [rw] payrun_id
 #   @return [String, nil]
 #
@@ -3949,6 +3945,7 @@ PaymentRequestListMatch = Struct.new(
   :due_date,
   :error_description,
   :event,
+  :failed_payment_request,
   :failure_callback_url,
   :field_display_setting,
   :formatted_amount,
@@ -3975,6 +3972,7 @@ PaymentRequestListMatch = Struct.new(
   :payment_initiation_id,
   :payment_method,
   :payment_processor,
+  :payment_request,
   :payrun_id,
   :pisp_account_id,
   :priority_bank_id,
@@ -3994,7 +3992,7 @@ PaymentRequestListMatch = Struct.new(
 # Request payload for PaymentRequest#create.
 #
 # @!attribute [rw] paymentrequest_id
-#   @return [String]
+#   @return [String, nil]
 PaymentRequestCreateData = Struct.new(
   :paymentrequest_id,
   keyword_init: true
@@ -4426,32 +4424,6 @@ PaymentRequestResultListMatch = Struct.new(
   keyword_init: true
 )
 
-# PaymentRequestsCreate entity data model.
-#
-# @!attribute [rw] failed_payment_request
-#   @return [Hash, nil]
-#
-# @!attribute [rw] payment_request
-#   @return [Array, nil]
-PaymentRequestsCreate = Struct.new(
-  :failed_payment_request,
-  :payment_request,
-  keyword_init: true
-)
-
-# Request payload for PaymentRequestsCreate#create.
-#
-# @!attribute [rw] failed_payment_request
-#   @return [Hash, nil]
-#
-# @!attribute [rw] payment_request
-#   @return [Array, nil]
-PaymentRequestsCreateCreateData = Struct.new(
-  :failed_payment_request,
-  :payment_request,
-  keyword_init: true
-)
-
 # Payout entity data model.
 #
 # @!attribute [rw] account_id
@@ -4528,6 +4500,9 @@ PaymentRequestsCreateCreateData = Struct.new(
 #
 # @!attribute [rw] event
 #   @return [Array, nil]
+#
+# @!attribute [rw] failed_payout
+#   @return [Hash, nil]
 #
 # @!attribute [rw] formatted_amount
 #   @return [String, nil]
@@ -4606,6 +4581,9 @@ PaymentRequestsCreateCreateData = Struct.new(
 #
 # @!attribute [rw] payment_rail
 #   @return [String, nil]
+#
+# @!attribute [rw] payout
+#   @return [Array, nil]
 #
 # @!attribute [rw] payrun_id
 #   @return [String, nil]
@@ -4710,6 +4688,7 @@ Payout = Struct.new(
   :destination,
   :document,
   :event,
+  :failed_payout,
   :formatted_amount,
   :formatted_fx_destination_amount,
   :formatted_schedule,
@@ -4736,6 +4715,7 @@ Payout = Struct.new(
   :nonce,
   :payment_processor,
   :payment_rail,
+  :payout,
   :payrun_id,
   :payrun_name,
   :reason,
@@ -5202,32 +5182,6 @@ PayoutMetricLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# PayoutsCreate entity data model.
-#
-# @!attribute [rw] failed_payout
-#   @return [Hash, nil]
-#
-# @!attribute [rw] payout
-#   @return [Array, nil]
-PayoutsCreate = Struct.new(
-  :failed_payout,
-  :payout,
-  keyword_init: true
-)
-
-# Request payload for PayoutsCreate#create.
-#
-# @!attribute [rw] failed_payout
-#   @return [Hash, nil]
-#
-# @!attribute [rw] payout
-#   @return [Array, nil]
-PayoutsCreateCreateData = Struct.new(
-  :failed_payout,
-  :payout,
-  keyword_init: true
-)
-
 # Payrun entity data model.
 #
 # @!attribute [rw] authorisation
@@ -5589,24 +5543,24 @@ ReportResultLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# RolesCreate entity data model.
+# Role entity data model.
 #
 # @!attribute [rw] failed_role
 #   @return [Hash, nil]
 #
 # @!attribute [rw] role
 #   @return [Array, nil]
-RolesCreate = Struct.new(
+Role = Struct.new(
   :failed_role,
   :role,
   keyword_init: true
 )
 
-# Request payload for RolesCreate#create.
+# Request payload for Role#create.
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
-RolesCreateCreateData = Struct.new(
+RoleCreateData = Struct.new(
   :merchant_id,
   keyword_init: true
 )
@@ -6509,6 +6463,9 @@ UserUpdateData = Struct.new(
 # @!attribute [rw] authorisation_status
 #   @return [Hash, nil]
 #
+# @!attribute [rw] failed_user_invite
+#   @return [Hash, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
@@ -6565,8 +6522,12 @@ UserUpdateData = Struct.new(
 #
 # @!attribute [rw] user_id
 #   @return [String, nil]
+#
+# @!attribute [rw] user_invite
+#   @return [Array, nil]
 UserInvite = Struct.new(
   :authorisation_status,
+  :failed_user_invite,
   :id,
   :initial_role_id,
   :invitee_email_address,
@@ -6586,6 +6547,7 @@ UserInvite = Struct.new(
   :status,
   :user,
   :user_id,
+  :user_invite,
   keyword_init: true
 )
 
@@ -6635,32 +6597,6 @@ UserInviteUpdateData = Struct.new(
 #   @return [String]
 UserInviteRemoveMatch = Struct.new(
   :id,
-  keyword_init: true
-)
-
-# UserInvitesCreate entity data model.
-#
-# @!attribute [rw] failed_user_invite
-#   @return [Hash, nil]
-#
-# @!attribute [rw] user_invite
-#   @return [Array, nil]
-UserInvitesCreate = Struct.new(
-  :failed_user_invite,
-  :user_invite,
-  keyword_init: true
-)
-
-# Request payload for UserInvitesCreate#create.
-#
-# @!attribute [rw] failed_user_invite
-#   @return [Hash, nil]
-#
-# @!attribute [rw] user_invite
-#   @return [Array, nil]
-UserInvitesCreateCreateData = Struct.new(
-  :failed_user_invite,
-  :user_invite,
   keyword_init: true
 )
 

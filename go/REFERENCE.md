@@ -56,10 +56,6 @@ Create a new `Account` entity instance. Pass `nil` for no initial data.
 
 Create a new `Batch` entity instance. Pass `nil` for no initial data.
 
-#### `BeneficiariesCreate(data map[string]any) NofrixionEntity`
-
-Create a new `BeneficiariesCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Beneficiary(data map[string]any) NofrixionEntity`
 
 Create a new `Beneficiary` entity instance. Pass `nil` for no initial data.
@@ -184,10 +180,6 @@ Create a new `PaymentRequestMinimal` entity instance. Pass `nil` for no initial 
 
 Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial data.
 
-#### `PaymentRequestsCreate(data map[string]any) NofrixionEntity`
-
-Create a new `PaymentRequestsCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Payout(data map[string]any) NofrixionEntity`
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
@@ -199,10 +191,6 @@ Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
 #### `PayoutMetric(data map[string]any) NofrixionEntity`
 
 Create a new `PayoutMetric` entity instance. Pass `nil` for no initial data.
-
-#### `PayoutsCreate(data map[string]any) NofrixionEntity`
-
-Create a new `PayoutsCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Payrun(data map[string]any) NofrixionEntity`
 
@@ -216,9 +204,9 @@ Create a new `Report` entity instance. Pass `nil` for no initial data.
 
 Create a new `ReportResult` entity instance. Pass `nil` for no initial data.
 
-#### `RolesCreate(data map[string]any) NofrixionEntity`
+#### `Role(data map[string]any) NofrixionEntity`
 
-Create a new `RolesCreate` entity instance. Pass `nil` for no initial data.
+Create a new `Role` entity instance. Pass `nil` for no initial data.
 
 #### `Rule(data map[string]any) NofrixionEntity`
 
@@ -247,10 +235,6 @@ Create a new `User` entity instance. Pass `nil` for no initial data.
 #### `UserInvite(data map[string]any) NofrixionEntity`
 
 Create a new `UserInvite` entity instance. Pass `nil` for no initial data.
-
-#### `UserInvitesCreate(data map[string]any) NofrixionEntity`
-
-Create a new `UserInvitesCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Virtual(data map[string]any) NofrixionEntity`
 
@@ -518,59 +502,6 @@ Return the entity name.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```go
-beneficiariesCreate := client.BeneficiariesCreate(nil)
-fmt.Println(beneficiariesCreate.GetName()) // "beneficiaries_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `[]any` | No |  |
-| `failed_beneficiary` | `map[string]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.BeneficiariesCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `BeneficiariesCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## BeneficiaryEntity
 
 ```go
@@ -587,6 +518,7 @@ fmt.Println(beneficiary.GetName()) // "beneficiary"
 | `authorisation` | `[]any` | No |  |
 | `authorisers_completed_count` | `int` | No |  |
 | `authorisers_required_count` | `int` | No |  |
+| `beneficiary` | `[]any` | No |  |
 | `beneficiary_event` | `[]any` | No |  |
 | `can_authorise` | `bool` | No |  |
 | `can_update` | `bool` | No |  |
@@ -594,6 +526,7 @@ fmt.Println(beneficiary.GetName()) // "beneficiary"
 | `created_by_email_address` | `string` | No |  |
 | `currency` | `string` | Yes |  |
 | `destination` | `map[string]any` | No |  |
+| `failed_beneficiary` | `map[string]any` | No |  |
 | `has_current_user_authorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
@@ -616,6 +549,7 @@ fmt.Println(beneficiary.GetName()) // "beneficiary"
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -623,6 +557,7 @@ fmt.Println(beneficiary.GetName()) // "beneficiary"
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -2818,6 +2753,7 @@ fmt.Println(paymentRequest.GetName()) // "payment_request"
 | `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
 | `event` | `[]any` | No |  |
+| `failed_payment_request` | `map[string]any` | No |  |
 | `failure_callback_url` | `string` | No |  |
 | `field_display_setting` | `[]any` | No |  |
 | `formatted_amount` | `string` | No |  |
@@ -2844,6 +2780,7 @@ fmt.Println(paymentRequest.GetName()) // "payment_request"
 | `payment_initiation_id` | `string` | No |  |
 | `payment_method` | `[]any` | No |  |
 | `payment_processor` | `string` | No |  |
+| `payment_request` | `[]any` | No |  |
 | `payrun_id` | `string` | No |  |
 | `pisp_account_id` | `string` | No |  |
 | `priority_bank_id` | `string` | No |  |
@@ -2890,7 +2827,6 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PaymentRequest(nil).Create(map[string]any{
-    "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -3232,59 +3168,6 @@ Return the entity name.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```go
-paymentRequestsCreate := client.PaymentRequestsCreate(nil)
-fmt.Println(paymentRequestsCreate.GetName()) // "payment_requests_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `map[string]any` | No |  |
-| `payment_request` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.PaymentRequestsCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## PayoutEntity
 
 ```go
@@ -3321,6 +3204,7 @@ fmt.Println(payout.GetName()) // "payout"
 | `destination` | `map[string]any` | No |  |
 | `document` | `[]any` | No |  |
 | `event` | `[]any` | No |  |
+| `failed_payout` | `map[string]any` | No |  |
 | `formatted_amount` | `string` | No |  |
 | `formatted_fx_destination_amount` | `string` | No |  |
 | `formatted_schedule` | `string` | No |  |
@@ -3347,6 +3231,7 @@ fmt.Println(payout.GetName()) // "payout"
 | `nonce` | `string` | No |  |
 | `payment_processor` | `string` | No |  |
 | `payment_rail` | `string` | No |  |
+| `payout` | `[]any` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
 | `reason` | `string` | No |  |
@@ -3403,6 +3288,7 @@ fmt.Println(payout.GetName()) // "payout"
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3429,6 +3315,7 @@ fmt.Println(payout.GetName()) // "payout"
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3726,59 +3613,6 @@ Return the entity name.
 
 ---
 
-## PayoutsCreateEntity
-
-```go
-payoutsCreate := client.PayoutsCreate(nil)
-fmt.Println(payoutsCreate.GetName()) // "payouts_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `map[string]any` | No |  |
-| `payout` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.PayoutsCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `PayoutsCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## PayrunEntity
 
 ```go
@@ -4019,11 +3853,11 @@ Return the entity name.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```go
-rolesCreate := client.RolesCreate(nil)
-fmt.Println(rolesCreate.GetName()) // "roles_create"
+role := client.Role(nil)
+fmt.Println(role.GetName()) // "role"
 ```
 
 ### Fields
@@ -4040,7 +3874,7 @@ fmt.Println(rolesCreate.GetName()) // "roles_create"
 Create a new entity with the given data.
 
 ```go
-result, err := client.RolesCreate(nil).Create(map[string]any{
+result, err := client.Role(nil).Create(map[string]any{
     "merchant_id": "example_merchant_id",
 }, nil)
 if err != nil {
@@ -4063,7 +3897,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `RolesCreateEntity` instance with the same client and
+Create a new `RoleEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -4680,6 +4514,7 @@ fmt.Println(userInvite.GetName()) // "user_invite"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `map[string]any` | No |  |
+| `failed_user_invite` | `map[string]any` | No |  |
 | `id` | `string` | No |  |
 | `initial_role_id` | `string` | No |  |
 | `invitee_email_address` | `string` | No |  |
@@ -4699,12 +4534,14 @@ fmt.Println(userInvite.GetName()) // "user_invite"
 | `status` | `string` | No |  |
 | `user` | `map[string]any` | Yes |  |
 | `user_id` | `string` | No |  |
+| `user_invite` | `[]any` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4724,6 +4561,7 @@ fmt.Println(userInvite.GetName()) // "user_invite"
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4806,59 +4644,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `UserInviteEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## UserInvitesCreateEntity
-
-```go
-userInvitesCreate := client.UserInvitesCreate(nil)
-fmt.Println(userInvitesCreate.GetName()) // "user_invites_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `map[string]any` | No |  |
-| `user_invite` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.UserInvitesCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `GetName() string`

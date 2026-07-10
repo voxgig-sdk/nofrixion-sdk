@@ -1,0 +1,77 @@
+# Entity: role
+
+main: kit: entity: role: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "failed_role"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "role"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "role"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/merchants/{merchantID}/roles/batchcreate"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "roles"
+            "batchcreate"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            "$action": "batchcreate"
+            exist: [
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "merchant"
+      ]
+    ]
+  }
+
+
+
+}

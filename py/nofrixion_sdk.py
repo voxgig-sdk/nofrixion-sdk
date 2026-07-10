@@ -232,12 +232,6 @@ class NofrixionSDK:
         return BatchEntity(self, data)
 
 
-    def BeneficiariesCreate(self, data=None) -> "BeneficiariesCreateEntity":
-        """Entity factory: client.BeneficiariesCreate().list() / client.BeneficiariesCreate().load({"id": ...})."""
-        from entity.beneficiaries_create_entity import BeneficiariesCreateEntity
-        return BeneficiariesCreateEntity(self, data)
-
-
     def Beneficiary(self, data=None) -> "BeneficiaryEntity":
         """Entity factory: client.Beneficiary().list() / client.Beneficiary().load({"id": ...})."""
         from entity.beneficiary_entity import BeneficiaryEntity
@@ -424,12 +418,6 @@ class NofrixionSDK:
         return PaymentRequestResultEntity(self, data)
 
 
-    def PaymentRequestsCreate(self, data=None) -> "PaymentRequestsCreateEntity":
-        """Entity factory: client.PaymentRequestsCreate().list() / client.PaymentRequestsCreate().load({"id": ...})."""
-        from entity.payment_requests_create_entity import PaymentRequestsCreateEntity
-        return PaymentRequestsCreateEntity(self, data)
-
-
     def Payout(self, data=None) -> "PayoutEntity":
         """Entity factory: client.Payout().list() / client.Payout().load({"id": ...})."""
         from entity.payout_entity import PayoutEntity
@@ -446,12 +434,6 @@ class NofrixionSDK:
         """Entity factory: client.PayoutMetric().list() / client.PayoutMetric().load({"id": ...})."""
         from entity.payout_metric_entity import PayoutMetricEntity
         return PayoutMetricEntity(self, data)
-
-
-    def PayoutsCreate(self, data=None) -> "PayoutsCreateEntity":
-        """Entity factory: client.PayoutsCreate().list() / client.PayoutsCreate().load({"id": ...})."""
-        from entity.payouts_create_entity import PayoutsCreateEntity
-        return PayoutsCreateEntity(self, data)
 
 
     def Payrun(self, data=None) -> "PayrunEntity":
@@ -472,10 +454,10 @@ class NofrixionSDK:
         return ReportResultEntity(self, data)
 
 
-    def RolesCreate(self, data=None) -> "RolesCreateEntity":
-        """Entity factory: client.RolesCreate().list() / client.RolesCreate().load({"id": ...})."""
-        from entity.roles_create_entity import RolesCreateEntity
-        return RolesCreateEntity(self, data)
+    def Role(self, data=None) -> "RoleEntity":
+        """Entity factory: client.Role().list() / client.Role().load({"id": ...})."""
+        from entity.role_entity import RoleEntity
+        return RoleEntity(self, data)
 
 
     def Rule(self, data=None) -> "RuleEntity":
@@ -520,12 +502,6 @@ class NofrixionSDK:
         return UserInviteEntity(self, data)
 
 
-    def UserInvitesCreate(self, data=None) -> "UserInvitesCreateEntity":
-        """Entity factory: client.UserInvitesCreate().list() / client.UserInvitesCreate().load({"id": ...})."""
-        from entity.user_invites_create_entity import UserInvitesCreateEntity
-        return UserInvitesCreateEntity(self, data)
-
-
     def Virtual(self, data=None) -> "VirtualEntity":
         """Entity factory: client.Virtual().list() / client.Virtual().load({"id": ...})."""
         from entity.virtual_entity import VirtualEntity
@@ -567,7 +543,6 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from entity.account_entity import AccountEntity
     from entity.batch_entity import BatchEntity
-    from entity.beneficiaries_create_entity import BeneficiariesCreateEntity
     from entity.beneficiary_entity import BeneficiaryEntity
     from entity.beneficiary_group_entity import BeneficiaryGroupEntity
     from entity.card_entity import CardEntity
@@ -599,15 +574,13 @@ if TYPE_CHECKING:
     from entity.payment_request_metric_entity import PaymentRequestMetricEntity
     from entity.payment_request_minimal_entity import PaymentRequestMinimalEntity
     from entity.payment_request_result_entity import PaymentRequestResultEntity
-    from entity.payment_requests_create_entity import PaymentRequestsCreateEntity
     from entity.payout_entity import PayoutEntity
     from entity.payout_keyset_entity import PayoutKeysetEntity
     from entity.payout_metric_entity import PayoutMetricEntity
-    from entity.payouts_create_entity import PayoutsCreateEntity
     from entity.payrun_entity import PayrunEntity
     from entity.report_entity import ReportEntity
     from entity.report_result_entity import ReportResultEntity
-    from entity.roles_create_entity import RolesCreateEntity
+    from entity.role_entity import RoleEntity
     from entity.rule_entity import RuleEntity
     from entity.rule_event_entity import RuleEventEntity
     from entity.tag_entity import TagEntity
@@ -615,6 +588,5 @@ if TYPE_CHECKING:
     from entity.transaction_entity import TransactionEntity
     from entity.user_entity import UserEntity
     from entity.user_invite_entity import UserInviteEntity
-    from entity.user_invites_create_entity import UserInvitesCreateEntity
     from entity.virtual_entity import VirtualEntity
     from entity.webhook_entity import WebhookEntity

@@ -128,20 +128,6 @@ class BatchCreateData
     public ?array $payout = null;
 }
 
-/** BeneficiariesCreate entity data model. */
-class BeneficiariesCreate
-{
-    public ?array $beneficiary = null;
-    public ?array $failed_beneficiary = null;
-}
-
-/** Request payload for BeneficiariesCreate#create. */
-class BeneficiariesCreateCreateData
-{
-    public ?array $beneficiary = null;
-    public ?array $failed_beneficiary = null;
-}
-
 /** Beneficiary entity data model. */
 class Beneficiary
 {
@@ -150,6 +136,7 @@ class Beneficiary
     public ?array $authorisation = null;
     public ?int $authorisers_completed_count = null;
     public ?int $authorisers_required_count = null;
+    public ?array $beneficiary = null;
     public ?array $beneficiary_event = null;
     public ?bool $can_authorise = null;
     public ?bool $can_update = null;
@@ -157,6 +144,7 @@ class Beneficiary
     public ?string $created_by_email_address = null;
     public string $currency;
     public ?array $destination = null;
+    public ?array $failed_beneficiary = null;
     public ?bool $has_current_user_authorised = null;
     public ?string $id = null;
     public ?string $inserted = null;
@@ -1227,6 +1215,7 @@ class PaymentRequest
     public ?string $due_date = null;
     public ?string $error_description = null;
     public ?array $event = null;
+    public ?array $failed_payment_request = null;
     public ?string $failure_callback_url = null;
     public ?array $field_display_setting = null;
     public ?string $formatted_amount = null;
@@ -1253,6 +1242,7 @@ class PaymentRequest
     public ?string $payment_initiation_id = null;
     public ?array $payment_method = null;
     public ?string $payment_processor = null;
+    public ?array $payment_request = null;
     public ?string $payrun_id = null;
     public ?string $pisp_account_id = null;
     public ?string $priority_bank_id = null;
@@ -1305,6 +1295,7 @@ class PaymentRequestListMatch
     public ?string $due_date = null;
     public ?string $error_description = null;
     public ?array $event = null;
+    public ?array $failed_payment_request = null;
     public ?string $failure_callback_url = null;
     public ?array $field_display_setting = null;
     public ?string $formatted_amount = null;
@@ -1331,6 +1322,7 @@ class PaymentRequestListMatch
     public ?string $payment_initiation_id = null;
     public ?array $payment_method = null;
     public ?string $payment_processor = null;
+    public ?array $payment_request = null;
     public ?string $payrun_id = null;
     public ?string $pisp_account_id = null;
     public ?string $priority_bank_id = null;
@@ -1349,7 +1341,7 @@ class PaymentRequestListMatch
 /** Request payload for PaymentRequest#create. */
 class PaymentRequestCreateData
 {
-    public string $paymentrequest_id;
+    public ?string $paymentrequest_id = null;
 }
 
 /** Request payload for PaymentRequest#update. */
@@ -1496,20 +1488,6 @@ class PaymentRequestResultListMatch
     public string $paymentrequest_id;
 }
 
-/** PaymentRequestsCreate entity data model. */
-class PaymentRequestsCreate
-{
-    public ?array $failed_payment_request = null;
-    public ?array $payment_request = null;
-}
-
-/** Request payload for PaymentRequestsCreate#create. */
-class PaymentRequestsCreateCreateData
-{
-    public ?array $failed_payment_request = null;
-    public ?array $payment_request = null;
-}
-
 /** Payout entity data model. */
 class Payout
 {
@@ -1538,6 +1516,7 @@ class Payout
     public ?array $destination = null;
     public ?array $document = null;
     public ?array $event = null;
+    public ?array $failed_payout = null;
     public ?string $formatted_amount = null;
     public ?string $formatted_fx_destination_amount = null;
     public ?string $formatted_schedule = null;
@@ -1564,6 +1543,7 @@ class Payout
     public ?string $nonce = null;
     public ?string $payment_processor = null;
     public ?string $payment_rail = null;
+    public ?array $payout = null;
     public ?string $payrun_id = null;
     public ?string $payrun_name = null;
     public ?string $reason = null;
@@ -1735,20 +1715,6 @@ class PayoutMetricLoadMatch
     public ?array $total_amounts_by_currency = null;
 }
 
-/** PayoutsCreate entity data model. */
-class PayoutsCreate
-{
-    public ?array $failed_payout = null;
-    public ?array $payout = null;
-}
-
-/** Request payload for PayoutsCreate#create. */
-class PayoutsCreateCreateData
-{
-    public ?array $failed_payout = null;
-    public ?array $payout = null;
-}
-
 /** Payrun entity data model. */
 class Payrun
 {
@@ -1877,15 +1843,15 @@ class ReportResultLoadMatch
     public string $report_id;
 }
 
-/** RolesCreate entity data model. */
-class RolesCreate
+/** Role entity data model. */
+class Role
 {
     public ?array $failed_role = null;
     public ?array $role = null;
 }
 
-/** Request payload for RolesCreate#create. */
-class RolesCreateCreateData
+/** Request payload for Role#create. */
+class RoleCreateData
 {
     public string $merchant_id;
 }
@@ -2200,6 +2166,7 @@ class UserUpdateData
 class UserInvite
 {
     public ?array $authorisation_status = null;
+    public ?array $failed_user_invite = null;
     public ?string $id = null;
     public ?string $initial_role_id = null;
     public ?string $invitee_email_address = null;
@@ -2219,6 +2186,7 @@ class UserInvite
     public ?string $status = null;
     public array $user;
     public ?string $user_id = null;
+    public ?array $user_invite = null;
 }
 
 /** Request payload for UserInvite#load. */
@@ -2250,20 +2218,6 @@ class UserInviteUpdateData
 class UserInviteRemoveMatch
 {
     public string $id;
-}
-
-/** UserInvitesCreate entity data model. */
-class UserInvitesCreate
-{
-    public ?array $failed_user_invite = null;
-    public ?array $user_invite = null;
-}
-
-/** Request payload for UserInvitesCreate#create. */
-class UserInvitesCreateCreateData
-{
-    public ?array $failed_user_invite = null;
-    public ?array $user_invite = null;
 }
 
 /** Virtual entity data model. */

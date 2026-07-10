@@ -1,15 +1,6 @@
 {
-  "NAME": "NOFRIXION",
-  "Name": "Nofrixion",
   "def": "nofrixion-openapi.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -1325,55 +1316,6 @@
             "ancestors": []
           }
         },
-        "beneficiaries_create": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "beneficiary",
-              "req": false,
-              "type": "`$ARRAY`"
-            },
-            {
-              "active": true,
-              "name": "failed_beneficiary",
-              "req": false,
-              "type": "`$OBJECT`"
-            }
-          ],
-          "name": "beneficiaries_create",
-          "op": {
-            "create": {
-              "input": "data",
-              "name": "create",
-              "points": [
-                {
-                  "active": true,
-                  "args": {},
-                  "method": "POST",
-                  "orig": "/api/v1/beneficiaries/batchcreate",
-                  "parts": [
-                    "api",
-                    "v1",
-                    "beneficiaries",
-                    "batchcreate"
-                  ],
-                  "select": {},
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": []
-          }
-        },
         "beneficiary": {
           "active": true,
           "alias": {
@@ -1409,6 +1351,12 @@
               "name": "authorisers_required_count",
               "req": false,
               "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "beneficiary",
+              "req": false,
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -1461,6 +1409,12 @@
                   "type": "`$OBJECT`"
                 }
               },
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "failed_beneficiary",
               "req": false,
               "type": "`$OBJECT`"
             },
@@ -1603,6 +1557,25 @@
                     "beneficiaries"
                   ],
                   "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/api/v1/beneficiaries/batchcreate",
+                  "parts": [
+                    "api",
+                    "v1",
+                    "beneficiaries",
+                    "batchcreate"
+                  ],
+                  "select": {
+                    "$action": "batchcreate"
+                  },
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
@@ -8157,6 +8130,12 @@
             },
             {
               "active": true,
+              "name": "failed_payment_request",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
               "name": "failure_callback_url",
               "req": false,
               "type": "`$STRING`"
@@ -8313,6 +8292,12 @@
             },
             {
               "active": true,
+              "name": "payment_request",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
               "name": "payrun_id",
               "req": false,
               "type": "`$STRING`"
@@ -8453,6 +8438,23 @@
                       "submit_after"
                     ]
                   },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/api/v1/paymentrequests/batchcreate",
+                  "parts": [
+                    "api",
+                    "v1",
+                    "paymentrequests",
+                    "batchcreate"
+                  ],
+                  "select": {},
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
@@ -9733,55 +9735,6 @@
             ]
           }
         },
-        "payment_requests_create": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "failed_payment_request",
-              "req": false,
-              "type": "`$OBJECT`"
-            },
-            {
-              "active": true,
-              "name": "payment_request",
-              "req": false,
-              "type": "`$ARRAY`"
-            }
-          ],
-          "name": "payment_requests_create",
-          "op": {
-            "create": {
-              "input": "data",
-              "name": "create",
-              "points": [
-                {
-                  "active": true,
-                  "args": {},
-                  "method": "POST",
-                  "orig": "/api/v1/paymentrequests/batchcreate",
-                  "parts": [
-                    "api",
-                    "v1",
-                    "paymentrequests",
-                    "batchcreate"
-                  ],
-                  "select": {},
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": []
-          }
-        },
         "payout": {
           "active": true,
           "alias": {
@@ -9952,6 +9905,12 @@
             },
             {
               "active": true,
+              "name": "failed_payout",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
               "name": "formatted_amount",
               "req": false,
               "type": "`$STRING`"
@@ -10105,6 +10064,12 @@
               "name": "payment_rail",
               "req": false,
               "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "payout",
+              "req": false,
+              "type": "`$ARRAY`"
             },
             {
               "active": true,
@@ -10357,6 +10322,25 @@
                     "payouts"
                   ],
                   "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/api/v1/payouts/batchcreate",
+                  "parts": [
+                    "api",
+                    "v1",
+                    "payouts",
+                    "batchcreate"
+                  ],
+                  "select": {
+                    "$action": "batchcreate"
+                  },
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
@@ -12087,55 +12071,6 @@
             "ancestors": []
           }
         },
-        "payouts_create": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "failed_payout",
-              "req": false,
-              "type": "`$OBJECT`"
-            },
-            {
-              "active": true,
-              "name": "payout",
-              "req": false,
-              "type": "`$ARRAY`"
-            }
-          ],
-          "name": "payouts_create",
-          "op": {
-            "create": {
-              "input": "data",
-              "name": "create",
-              "points": [
-                {
-                  "active": true,
-                  "args": {},
-                  "method": "POST",
-                  "orig": "/api/v1/payouts/batchcreate",
-                  "parts": [
-                    "api",
-                    "v1",
-                    "payouts",
-                    "batchcreate"
-                  ],
-                  "select": {},
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": []
-          }
-        },
         "payrun": {
           "active": true,
           "alias": {
@@ -12985,7 +12920,7 @@
             ]
           }
         },
-        "roles_create": {
+        "role": {
           "active": true,
           "alias": {
             "field": {}
@@ -13004,7 +12939,7 @@
               "type": "`$ARRAY`"
             }
           ],
-          "name": "roles_create",
+          "name": "role",
           "op": {
             "create": {
               "input": "data",
@@ -13040,6 +12975,7 @@
                     }
                   },
                   "select": {
+                    "$action": "batchcreate",
                     "exist": [
                       "merchant_id"
                     ]
@@ -15494,6 +15430,12 @@
             },
             {
               "active": true,
+              "name": "failed_user_invite",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
               "name": "id",
               "req": false,
               "type": "`$STRING`"
@@ -15611,6 +15553,12 @@
               "name": "user_id",
               "req": false,
               "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "user_invite",
+              "req": false,
+              "type": "`$ARRAY`"
             }
           ],
           "id": {
@@ -15665,6 +15613,23 @@
                     "api",
                     "v1",
                     "userinvites"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/api/v1/userinvites/batchcreate",
+                  "parts": [
+                    "api",
+                    "v1",
+                    "userinvites",
+                    "batchcreate"
                   ],
                   "select": {},
                   "transform": {
@@ -15920,55 +15885,6 @@
                 "userinvite"
               ]
             ]
-          }
-        },
-        "user_invites_create": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "failed_user_invite",
-              "req": false,
-              "type": "`$OBJECT`"
-            },
-            {
-              "active": true,
-              "name": "user_invite",
-              "req": false,
-              "type": "`$ARRAY`"
-            }
-          ],
-          "name": "user_invites_create",
-          "op": {
-            "create": {
-              "input": "data",
-              "name": "create",
-              "points": [
-                {
-                  "active": true,
-                  "args": {},
-                  "method": "POST",
-                  "orig": "/api/v1/userinvites/batchcreate",
-                  "parts": [
-                    "api",
-                    "v1",
-                    "userinvites",
-                    "batchcreate"
-                  ],
-                  "select": {},
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": []
           }
         },
         "virtual": {
@@ -16923,27 +16839,6 @@
                   }
                 }
               ]
-            }
-          ]
-        },
-        "BasicBeneficiariesCreateFlow": {
-          "active": true,
-          "entity": "beneficiaries_create",
-          "key$": "BasicBeneficiariesCreateFlow",
-          "kind": "basic",
-          "name": "BasicBeneficiariesCreateFlow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "beneficiaries_create_ref01"
-              },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
             }
           ]
         },
@@ -18221,9 +18116,7 @@
               "input": {
                 "ref": "payment_request_ref01"
               },
-              "match": {
-                "paymentrequest_id": "paymentrequest01"
-              },
+              "match": {},
               "op": "create",
               "spec": [],
               "valid": []
@@ -18407,27 +18300,6 @@
             }
           ]
         },
-        "BasicPaymentRequestsCreateFlow": {
-          "active": true,
-          "entity": "payment_requests_create",
-          "key$": "BasicPaymentRequestsCreateFlow",
-          "kind": "basic",
-          "name": "BasicPaymentRequestsCreateFlow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "payment_requests_create_ref01"
-              },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
-            }
-          ]
-        },
         "BasicPayoutFlow": {
           "active": true,
           "entity": "payout",
@@ -18602,27 +18474,6 @@
                   }
                 }
               ]
-            }
-          ]
-        },
-        "BasicPayoutsCreateFlow": {
-          "active": true,
-          "entity": "payouts_create",
-          "key$": "BasicPayoutsCreateFlow",
-          "kind": "basic",
-          "name": "BasicPayoutsCreateFlow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "payouts_create_ref01"
-              },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
             }
           ]
         },
@@ -18803,19 +18654,19 @@
             }
           ]
         },
-        "BasicRolesCreateFlow": {
+        "BasicRoleFlow": {
           "active": true,
-          "entity": "roles_create",
-          "key$": "BasicRolesCreateFlow",
+          "entity": "role",
+          "key$": "BasicRoleFlow",
           "kind": "basic",
-          "name": "BasicRolesCreateFlow",
+          "name": "BasicRoleFlow",
           "param": {},
           "step": [
             {
               "active": true,
               "data": {},
               "input": {
-                "ref": "roles_create_ref01"
+                "ref": "role_ref01"
               },
               "match": {
                 "merchant_id": "merchant01"
@@ -19297,27 +19148,6 @@
                   }
                 }
               ]
-            }
-          ]
-        },
-        "BasicUserInvitesCreateFlow": {
-          "active": true,
-          "entity": "user_invites_create",
-          "key$": "BasicUserInvitesCreateFlow",
-          "kind": "basic",
-          "name": "BasicUserInvitesCreateFlow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "user_invites_create_ref01"
-              },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
             }
           ]
         },
@@ -19877,8 +19707,5 @@
     }
   },
   "name": "nofrixion",
-  "name-": "nofrixion",
-  "name_": "nofrixion",
-  "name__orig": "nofrixion",
   "origin": "voxgig-sdk"
 }

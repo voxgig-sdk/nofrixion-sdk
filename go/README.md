@@ -255,7 +255,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
 | `Account` | `(data map[string]any) NofrixionEntity` | Create an Account entity instance. |
 | `Batch` | `(data map[string]any) NofrixionEntity` | Create a Batch entity instance. |
-| `BeneficiariesCreate` | `(data map[string]any) NofrixionEntity` | Create a BeneficiariesCreate entity instance. |
 | `Beneficiary` | `(data map[string]any) NofrixionEntity` | Create a Beneficiary entity instance. |
 | `BeneficiaryGroup` | `(data map[string]any) NofrixionEntity` | Create a BeneficiaryGroup entity instance. |
 | `Card` | `(data map[string]any) NofrixionEntity` | Create a Card entity instance. |
@@ -287,15 +286,13 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `PaymentRequestMetric` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestMetric entity instance. |
 | `PaymentRequestMinimal` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestResult entity instance. |
-| `PaymentRequestsCreate` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestsCreate entity instance. |
 | `Payout` | `(data map[string]any) NofrixionEntity` | Create a Payout entity instance. |
 | `PayoutKeyset` | `(data map[string]any) NofrixionEntity` | Create a PayoutKeyset entity instance. |
 | `PayoutMetric` | `(data map[string]any) NofrixionEntity` | Create a PayoutMetric entity instance. |
-| `PayoutsCreate` | `(data map[string]any) NofrixionEntity` | Create a PayoutsCreate entity instance. |
 | `Payrun` | `(data map[string]any) NofrixionEntity` | Create a Payrun entity instance. |
 | `Report` | `(data map[string]any) NofrixionEntity` | Create a Report entity instance. |
 | `ReportResult` | `(data map[string]any) NofrixionEntity` | Create a ReportResult entity instance. |
-| `RolesCreate` | `(data map[string]any) NofrixionEntity` | Create a RolesCreate entity instance. |
+| `Role` | `(data map[string]any) NofrixionEntity` | Create a Role entity instance. |
 | `Rule` | `(data map[string]any) NofrixionEntity` | Create a Rule entity instance. |
 | `RuleEvent` | `(data map[string]any) NofrixionEntity` | Create a RuleEvent entity instance. |
 | `Tag` | `(data map[string]any) NofrixionEntity` | Create a Tag entity instance. |
@@ -303,7 +300,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Transaction` | `(data map[string]any) NofrixionEntity` | Create a Transaction entity instance. |
 | `User` | `(data map[string]any) NofrixionEntity` | Create an User entity instance. |
 | `UserInvite` | `(data map[string]any) NofrixionEntity` | Create an UserInvite entity instance. |
-| `UserInvitesCreate` | `(data map[string]any) NofrixionEntity` | Create an UserInvitesCreate entity instance. |
 | `Virtual` | `(data map[string]any) NofrixionEntity` | Create a Virtual entity instance. |
 | `Webhook` | `(data map[string]any) NofrixionEntity` | Create a Webhook entity instance. |
 
@@ -421,17 +417,6 @@ Operations: Create, Load.
 
 API path: `/api/v1/payouts/batch`
 
-#### BeneficiariesCreate
-
-| Field | Description |
-| --- | --- |
-| `"beneficiary"` |  |
-| `"failed_beneficiary"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/beneficiaries/batchcreate`
-
 #### Beneficiary
 
 | Field | Description |
@@ -441,6 +426,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `"authorisation"` |  |
 | `"authorisers_completed_count"` |  |
 | `"authorisers_required_count"` |  |
+| `"beneficiary"` |  |
 | `"beneficiary_event"` |  |
 | `"can_authorise"` |  |
 | `"can_update"` |  |
@@ -448,6 +434,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `"created_by_email_address"` |  |
 | `"currency"` |  |
 | `"destination"` |  |
+| `"failed_beneficiary"` |  |
 | `"has_current_user_authorised"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
@@ -1086,6 +1073,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `"due_date"` |  |
 | `"error_description"` |  |
 | `"event"` |  |
+| `"failed_payment_request"` |  |
 | `"failure_callback_url"` |  |
 | `"field_display_setting"` |  |
 | `"formatted_amount"` |  |
@@ -1112,6 +1100,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `"payment_initiation_id"` |  |
 | `"payment_method"` |  |
 | `"payment_processor"` |  |
+| `"payment_request"` |  |
 | `"payrun_id"` |  |
 | `"pisp_account_id"` |  |
 | `"priority_bank_id"` |  |
@@ -1249,17 +1238,6 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/result`
 
-#### PaymentRequestsCreate
-
-| Field | Description |
-| --- | --- |
-| `"failed_payment_request"` |  |
-| `"payment_request"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/paymentrequests/batchcreate`
-
 #### Payout
 
 | Field | Description |
@@ -1289,6 +1267,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `"destination"` |  |
 | `"document"` |  |
 | `"event"` |  |
+| `"failed_payout"` |  |
 | `"formatted_amount"` |  |
 | `"formatted_fx_destination_amount"` |  |
 | `"formatted_schedule"` |  |
@@ -1315,6 +1294,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `"nonce"` |  |
 | `"payment_processor"` |  |
 | `"payment_rail"` |  |
+| `"payout"` |  |
 | `"payrun_id"` |  |
 | `"payrun_name"` |  |
 | `"reason"` |  |
@@ -1444,17 +1424,6 @@ Operations: Load.
 
 API path: `/api/v1/payouts/metrics`
 
-#### PayoutsCreate
-
-| Field | Description |
-| --- | --- |
-| `"failed_payout"` |  |
-| `"payout"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/batchcreate`
-
 #### Payrun
 
 | Field | Description |
@@ -1521,7 +1490,7 @@ Operations: Load.
 
 API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
-#### RolesCreate
+#### Role
 
 | Field | Description |
 | --- | --- |
@@ -1702,6 +1671,7 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | Field | Description |
 | --- | --- |
 | `"authorisation_status"` |  |
+| `"failed_user_invite"` |  |
 | `"id"` |  |
 | `"initial_role_id"` |  |
 | `"invitee_email_address"` |  |
@@ -1721,21 +1691,11 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | `"status"` |  |
 | `"user"` |  |
 | `"user_id"` |  |
+| `"user_invite"` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/userinvites/authorise/{id}`
-
-#### UserInvitesCreate
-
-| Field | Description |
-| --- | --- |
-| `"failed_user_invite"` |  |
-| `"user_invite"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/userinvites/batchcreate`
 
 #### Virtual
 
@@ -1957,35 +1917,6 @@ fmt.Println(result)
 ```
 
 
-### BeneficiariesCreate
-
-Create an instance: `beneficiariesCreate := client.BeneficiariesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `beneficiary` | `[]any` |  |
-| `failed_beneficiary` | `map[string]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.BeneficiariesCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
 ### Beneficiary
 
 Create an instance: `beneficiary := client.Beneficiary(nil)`
@@ -2009,6 +1940,7 @@ Create an instance: `beneficiary := client.Beneficiary(nil)`
 | `authorisation` | `[]any` |  |
 | `authorisers_completed_count` | `int` |  |
 | `authorisers_required_count` | `int` |  |
+| `beneficiary` | `[]any` |  |
 | `beneficiary_event` | `[]any` |  |
 | `can_authorise` | `bool` |  |
 | `can_update` | `bool` |  |
@@ -2016,6 +1948,7 @@ Create an instance: `beneficiary := client.Beneficiary(nil)`
 | `created_by_email_address` | `string` |  |
 | `currency` | `string` |  |
 | `destination` | `map[string]any` |  |
+| `failed_beneficiary` | `map[string]any` |  |
 | `has_current_user_authorised` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
@@ -3257,6 +3190,7 @@ Create an instance: `paymentRequest := client.PaymentRequest(nil)`
 | `due_date` | `string` |  |
 | `error_description` | `string` |  |
 | `event` | `[]any` |  |
+| `failed_payment_request` | `map[string]any` |  |
 | `failure_callback_url` | `string` |  |
 | `field_display_setting` | `[]any` |  |
 | `formatted_amount` | `string` |  |
@@ -3283,6 +3217,7 @@ Create an instance: `paymentRequest := client.PaymentRequest(nil)`
 | `payment_initiation_id` | `string` |  |
 | `payment_method` | `[]any` |  |
 | `payment_processor` | `string` |  |
+| `payment_request` | `[]any` |  |
 | `payrun_id` | `string` |  |
 | `pisp_account_id` | `string` |  |
 | `priority_bank_id` | `string` |  |
@@ -3321,7 +3256,6 @@ fmt.Println(paymentRequests) // the array of records
 
 ```go
 result, err := client.PaymentRequest(nil).Create(map[string]any{
-    "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -3517,35 +3451,6 @@ fmt.Println(paymentRequestResults) // the array of records
 ```
 
 
-### PaymentRequestsCreate
-
-Create an instance: `paymentRequestsCreate := client.PaymentRequestsCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payment_request` | `map[string]any` |  |
-| `payment_request` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.PaymentRequestsCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
 ### Payout
 
 Create an instance: `payout := client.Payout(nil)`
@@ -3589,6 +3494,7 @@ Create an instance: `payout := client.Payout(nil)`
 | `destination` | `map[string]any` |  |
 | `document` | `[]any` |  |
 | `event` | `[]any` |  |
+| `failed_payout` | `map[string]any` |  |
 | `formatted_amount` | `string` |  |
 | `formatted_fx_destination_amount` | `string` |  |
 | `formatted_schedule` | `string` |  |
@@ -3615,6 +3521,7 @@ Create an instance: `payout := client.Payout(nil)`
 | `nonce` | `string` |  |
 | `payment_processor` | `string` |  |
 | `payment_rail` | `string` |  |
+| `payout` | `[]any` |  |
 | `payrun_id` | `string` |  |
 | `payrun_name` | `string` |  |
 | `reason` | `string` |  |
@@ -3806,35 +3713,6 @@ fmt.Println(payoutMetric) // the loaded record
 ```
 
 
-### PayoutsCreate
-
-Create an instance: `payoutsCreate := client.PayoutsCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payout` | `map[string]any` |  |
-| `payout` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.PayoutsCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
 ### Payrun
 
 Create an instance: `payrun := client.Payrun(nil)`
@@ -3963,9 +3841,9 @@ fmt.Println(reportResult) // the loaded record
 ```
 
 
-### RolesCreate
+### Role
 
-Create an instance: `rolesCreate := client.RolesCreate(nil)`
+Create an instance: `role := client.Role(nil)`
 
 #### Operations
 
@@ -3983,7 +3861,7 @@ Create an instance: `rolesCreate := client.RolesCreate(nil)`
 #### Example: Create
 
 ```go
-result, err := client.RolesCreate(nil).Create(map[string]any{
+result, err := client.Role(nil).Create(map[string]any{
     "merchant_id": "example_merchant_id",
 }, nil)
 if err != nil {
@@ -4343,6 +4221,7 @@ Create an instance: `userInvite := client.UserInvite(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `authorisation_status` | `map[string]any` |  |
+| `failed_user_invite` | `map[string]any` |  |
 | `id` | `string` |  |
 | `initial_role_id` | `string` |  |
 | `invitee_email_address` | `string` |  |
@@ -4362,6 +4241,7 @@ Create an instance: `userInvite := client.UserInvite(nil)`
 | `status` | `string` |  |
 | `user` | `map[string]any` |  |
 | `user_id` | `string` |  |
+| `user_invite` | `[]any` |  |
 
 #### Example: Load
 
@@ -4387,35 +4267,6 @@ fmt.Println(userInvites) // the array of records
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### UserInvitesCreate
-
-Create an instance: `userInvitesCreate := client.UserInvitesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_user_invite` | `map[string]any` |  |
-| `user_invite` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.UserInvitesCreate(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)

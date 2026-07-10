@@ -229,13 +229,6 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.BeneficiariesCreate.list / client.BeneficiariesCreate.load({ "id" => ... })
-  def BeneficiariesCreate(data = nil)
-    require_relative 'entity/beneficiaries_create_entity'
-    BeneficiariesCreateEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Beneficiary.list / client.Beneficiary.load({ "id" => ... })
   def Beneficiary(data = nil)
     require_relative 'entity/beneficiary_entity'
@@ -453,13 +446,6 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.PaymentRequestsCreate.list / client.PaymentRequestsCreate.load({ "id" => ... })
-  def PaymentRequestsCreate(data = nil)
-    require_relative 'entity/payment_requests_create_entity'
-    PaymentRequestsCreateEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Payout.list / client.Payout.load({ "id" => ... })
   def Payout(data = nil)
     require_relative 'entity/payout_entity'
@@ -478,13 +464,6 @@ class NofrixionSDK
   def PayoutMetric(data = nil)
     require_relative 'entity/payout_metric_entity'
     PayoutMetricEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.PayoutsCreate.list / client.PayoutsCreate.load({ "id" => ... })
-  def PayoutsCreate(data = nil)
-    require_relative 'entity/payouts_create_entity'
-    PayoutsCreateEntity.new(self, data)
   end
 
 
@@ -509,10 +488,10 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.RolesCreate.list / client.RolesCreate.load({ "id" => ... })
-  def RolesCreate(data = nil)
-    require_relative 'entity/roles_create_entity'
-    RolesCreateEntity.new(self, data)
+  # Canonical facade: client.Role.list / client.Role.load({ "id" => ... })
+  def Role(data = nil)
+    require_relative 'entity/role_entity'
+    RoleEntity.new(self, data)
   end
 
 
@@ -562,13 +541,6 @@ class NofrixionSDK
   def UserInvite(data = nil)
     require_relative 'entity/user_invite_entity'
     UserInviteEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.UserInvitesCreate.list / client.UserInvitesCreate.load({ "id" => ... })
-  def UserInvitesCreate(data = nil)
-    require_relative 'entity/user_invites_create_entity'
-    UserInvitesCreateEntity.new(self, data)
   end
 
 

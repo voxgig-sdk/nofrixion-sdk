@@ -38,9 +38,6 @@ func init() {
 	core.NewBatchEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewBatchEntity(client, entopts)
 	}
-	core.NewBeneficiariesCreateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewBeneficiariesCreateEntity(client, entopts)
-	}
 	core.NewBeneficiaryEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewBeneficiaryEntity(client, entopts)
 	}
@@ -134,9 +131,6 @@ func init() {
 	core.NewPaymentRequestResultEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPaymentRequestResultEntity(client, entopts)
 	}
-	core.NewPaymentRequestsCreateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewPaymentRequestsCreateEntity(client, entopts)
-	}
 	core.NewPayoutEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPayoutEntity(client, entopts)
 	}
@@ -145,9 +139,6 @@ func init() {
 	}
 	core.NewPayoutMetricEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPayoutMetricEntity(client, entopts)
-	}
-	core.NewPayoutsCreateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewPayoutsCreateEntity(client, entopts)
 	}
 	core.NewPayrunEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewPayrunEntity(client, entopts)
@@ -158,8 +149,8 @@ func init() {
 	core.NewReportResultEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewReportResultEntity(client, entopts)
 	}
-	core.NewRolesCreateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewRolesCreateEntity(client, entopts)
+	core.NewRoleEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
+		return entity.NewRoleEntity(client, entopts)
 	}
 	core.NewRuleEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewRuleEntity(client, entopts)
@@ -181,9 +172,6 @@ func init() {
 	}
 	core.NewUserInviteEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewUserInviteEntity(client, entopts)
-	}
-	core.NewUserInvitesCreateEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
-		return entity.NewUserInvitesCreateEntity(client, entopts)
 	}
 	core.NewVirtualEntityFunc = func(client *core.NofrixionSDK, entopts map[string]any) core.NofrixionEntity {
 		return entity.NewVirtualEntity(client, entopts)

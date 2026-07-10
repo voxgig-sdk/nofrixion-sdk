@@ -50,10 +50,6 @@ Create a new `AccountEntity` instance. Pass `null` for no initial data.
 
 Create a new `BatchEntity` instance. Pass `null` for no initial data.
 
-#### `BeneficiariesCreate($data = null)`
-
-Create a new `BeneficiariesCreateEntity` instance. Pass `null` for no initial data.
-
 #### `Beneficiary($data = null)`
 
 Create a new `BeneficiaryEntity` instance. Pass `null` for no initial data.
@@ -178,10 +174,6 @@ Create a new `PaymentRequestMinimalEntity` instance. Pass `null` for no initial 
 
 Create a new `PaymentRequestResultEntity` instance. Pass `null` for no initial data.
 
-#### `PaymentRequestsCreate($data = null)`
-
-Create a new `PaymentRequestsCreateEntity` instance. Pass `null` for no initial data.
-
 #### `Payout($data = null)`
 
 Create a new `PayoutEntity` instance. Pass `null` for no initial data.
@@ -193,10 +185,6 @@ Create a new `PayoutKeysetEntity` instance. Pass `null` for no initial data.
 #### `PayoutMetric($data = null)`
 
 Create a new `PayoutMetricEntity` instance. Pass `null` for no initial data.
-
-#### `PayoutsCreate($data = null)`
-
-Create a new `PayoutsCreateEntity` instance. Pass `null` for no initial data.
 
 #### `Payrun($data = null)`
 
@@ -210,9 +198,9 @@ Create a new `ReportEntity` instance. Pass `null` for no initial data.
 
 Create a new `ReportResultEntity` instance. Pass `null` for no initial data.
 
-#### `RolesCreate($data = null)`
+#### `Role($data = null)`
 
-Create a new `RolesCreateEntity` instance. Pass `null` for no initial data.
+Create a new `RoleEntity` instance. Pass `null` for no initial data.
 
 #### `Rule($data = null)`
 
@@ -241,10 +229,6 @@ Create a new `UserEntity` instance. Pass `null` for no initial data.
 #### `UserInvite($data = null)`
 
 Create a new `UserInviteEntity` instance. Pass `null` for no initial data.
-
-#### `UserInvitesCreate($data = null)`
-
-Create a new `UserInvitesCreateEntity` instance. Pass `null` for no initial data.
 
 #### `Virtual($data = null)`
 
@@ -495,60 +479,6 @@ Return the entity name.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```php
-$beneficiaries_create = $client->BeneficiariesCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `array` | No |  |
-| `failed_beneficiary` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->BeneficiariesCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): BeneficiariesCreateEntity`
-
-Create a new `BeneficiariesCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## BeneficiaryEntity
 
 ```php
@@ -564,6 +494,7 @@ $beneficiary = $client->Beneficiary();
 | `authorisation` | `array` | No |  |
 | `authorisers_completed_count` | `int` | No |  |
 | `authorisers_required_count` | `int` | No |  |
+| `beneficiary` | `array` | No |  |
 | `beneficiary_event` | `array` | No |  |
 | `can_authorise` | `bool` | No |  |
 | `can_update` | `bool` | No |  |
@@ -571,6 +502,7 @@ $beneficiary = $client->Beneficiary();
 | `created_by_email_address` | `string` | No |  |
 | `currency` | `string` | Yes |  |
 | `destination` | `array` | No |  |
+| `failed_beneficiary` | `array` | No |  |
 | `has_current_user_authorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
@@ -593,6 +525,7 @@ $beneficiary = $client->Beneficiary();
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -600,6 +533,7 @@ $beneficiary = $client->Beneficiary();
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -2725,6 +2659,7 @@ $payment_request = $client->PaymentRequest();
 | `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
 | `event` | `array` | No |  |
+| `failed_payment_request` | `array` | No |  |
 | `failure_callback_url` | `string` | No |  |
 | `field_display_setting` | `array` | No |  |
 | `formatted_amount` | `string` | No |  |
@@ -2751,6 +2686,7 @@ $payment_request = $client->PaymentRequest();
 | `payment_initiation_id` | `string` | No |  |
 | `payment_method` | `array` | No |  |
 | `payment_processor` | `string` | No |  |
+| `payment_request` | `array` | No |  |
 | `payrun_id` | `string` | No |  |
 | `pisp_account_id` | `string` | No |  |
 | `priority_bank_id` | `string` | No |  |
@@ -2773,7 +2709,6 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->PaymentRequest()->create([
-  "paymentrequest_id" => null, // string
 ]);
 ```
 
@@ -3129,60 +3064,6 @@ Return the entity name.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```php
-$payment_requests_create = $client->PaymentRequestsCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `array` | No |  |
-| `payment_request` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->PaymentRequestsCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): PaymentRequestsCreateEntity`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## PayoutEntity
 
 ```php
@@ -3218,6 +3099,7 @@ $payout = $client->Payout();
 | `destination` | `array` | No |  |
 | `document` | `array` | No |  |
 | `event` | `array` | No |  |
+| `failed_payout` | `array` | No |  |
 | `formatted_amount` | `string` | No |  |
 | `formatted_fx_destination_amount` | `string` | No |  |
 | `formatted_schedule` | `string` | No |  |
@@ -3244,6 +3126,7 @@ $payout = $client->Payout();
 | `nonce` | `string` | No |  |
 | `payment_processor` | `string` | No |  |
 | `payment_rail` | `string` | No |  |
+| `payout` | `array` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
 | `reason` | `string` | No |  |
@@ -3300,6 +3183,7 @@ $payout = $client->Payout();
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3326,6 +3210,7 @@ $payout = $client->Payout();
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3611,60 +3496,6 @@ Return the entity name.
 
 ---
 
-## PayoutsCreateEntity
-
-```php
-$payouts_create = $client->PayoutsCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `array` | No |  |
-| `payout` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->PayoutsCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): PayoutsCreateEntity`
-
-Create a new `PayoutsCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## PayrunEntity
 
 ```php
@@ -3892,10 +3723,10 @@ Return the entity name.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```php
-$roles_create = $client->RolesCreate();
+$role = $client->Role();
 ```
 
 ### Fields
@@ -3912,7 +3743,7 @@ $roles_create = $client->RolesCreate();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->RolesCreate()->create([
+$result = $client->Role()->create([
   "merchant_id" => null, // string
 ]);
 ```
@@ -3935,9 +3766,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): RolesCreateEntity`
+#### `make(): RoleEntity`
 
-Create a new `RolesCreateEntity` instance with the same client and
+Create a new `RoleEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -4519,6 +4350,7 @@ $user_invite = $client->UserInvite();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `array` | No |  |
+| `failed_user_invite` | `array` | No |  |
 | `id` | `string` | No |  |
 | `initial_role_id` | `string` | No |  |
 | `invitee_email_address` | `string` | No |  |
@@ -4538,12 +4370,14 @@ $user_invite = $client->UserInvite();
 | `status` | `string` | No |  |
 | `user` | `array` | Yes |  |
 | `user_id` | `string` | No |  |
+| `user_invite` | `array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4563,6 +4397,7 @@ $user_invite = $client->UserInvite();
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4631,60 +4466,6 @@ Set the entity match criteria.
 #### `make(): UserInviteEntity`
 
 Create a new `UserInviteEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## UserInvitesCreateEntity
-
-```php
-$user_invites_create = $client->UserInvitesCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `array` | No |  |
-| `user_invite` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->UserInvitesCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): UserInvitesCreateEntity`
-
-Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`

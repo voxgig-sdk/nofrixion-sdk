@@ -10,8 +10,6 @@ var NewAccountEntityFunc func(client *NofrixionSDK, entopts map[string]any) Nofr
 
 var NewBatchEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
-var NewBeneficiariesCreateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
-
 var NewBeneficiaryEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewBeneficiaryGroupEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
@@ -74,15 +72,11 @@ var NewPaymentRequestMinimalEntityFunc func(client *NofrixionSDK, entopts map[st
 
 var NewPaymentRequestResultEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
-var NewPaymentRequestsCreateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
-
 var NewPayoutEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewPayoutKeysetEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewPayoutMetricEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
-
-var NewPayoutsCreateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewPayrunEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
@@ -90,7 +84,7 @@ var NewReportEntityFunc func(client *NofrixionSDK, entopts map[string]any) Nofri
 
 var NewReportResultEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
-var NewRolesCreateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
+var NewRoleEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewRuleEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
@@ -105,8 +99,6 @@ var NewTransactionEntityFunc func(client *NofrixionSDK, entopts map[string]any) 
 var NewUserEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewUserInviteEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
-
-var NewUserInvitesCreateEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 
 var NewVirtualEntityFunc func(client *NofrixionSDK, entopts map[string]any) NofrixionEntity
 

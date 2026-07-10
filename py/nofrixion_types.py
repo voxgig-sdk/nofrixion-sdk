@@ -120,16 +120,6 @@ class BatchCreateData(TypedDict, total=False):
     payout: list
 
 
-class BeneficiariesCreate(TypedDict, total=False):
-    beneficiary: list
-    failed_beneficiary: dict
-
-
-class BeneficiariesCreateCreateData(TypedDict, total=False):
-    beneficiary: list
-    failed_beneficiary: dict
-
-
 class BeneficiaryRequired(TypedDict):
     created_by: dict
     currency: str
@@ -142,11 +132,13 @@ class Beneficiary(BeneficiaryRequired, total=False):
     authorisation: list
     authorisers_completed_count: int
     authorisers_required_count: int
+    beneficiary: list
     beneficiary_event: list
     can_authorise: bool
     can_update: bool
     created_by_email_address: str
     destination: dict
+    failed_beneficiary: dict
     has_current_user_authorised: bool
     id: str
     inserted: str
@@ -1112,6 +1104,7 @@ class PaymentRequest(PaymentRequestRequired, total=False):
     due_date: str
     error_description: str
     event: list
+    failed_payment_request: dict
     failure_callback_url: str
     field_display_setting: list
     formatted_amount: str
@@ -1138,6 +1131,7 @@ class PaymentRequest(PaymentRequestRequired, total=False):
     payment_initiation_id: str
     payment_method: list
     payment_processor: str
+    payment_request: list
     payrun_id: str
     pisp_account_id: str
     priority_bank_id: str
@@ -1186,6 +1180,7 @@ class PaymentRequestListMatch(TypedDict, total=False):
     due_date: str
     error_description: str
     event: list
+    failed_payment_request: dict
     failure_callback_url: str
     field_display_setting: list
     formatted_amount: str
@@ -1212,6 +1207,7 @@ class PaymentRequestListMatch(TypedDict, total=False):
     payment_initiation_id: str
     payment_method: list
     payment_processor: str
+    payment_request: list
     payrun_id: str
     pisp_account_id: str
     priority_bank_id: str
@@ -1227,7 +1223,7 @@ class PaymentRequestListMatch(TypedDict, total=False):
     use_hosted_payment_page: bool
 
 
-class PaymentRequestCreateData(TypedDict):
+class PaymentRequestCreateData(TypedDict, total=False):
     paymentrequest_id: str
 
 
@@ -1358,16 +1354,6 @@ class PaymentRequestResultListMatch(TypedDict):
     paymentrequest_id: str
 
 
-class PaymentRequestsCreate(TypedDict, total=False):
-    failed_payment_request: dict
-    payment_request: list
-
-
-class PaymentRequestsCreateCreateData(TypedDict, total=False):
-    failed_payment_request: dict
-    payment_request: list
-
-
 class PayoutRequired(TypedDict):
     beneficiary: dict
     source_account_identifier: dict
@@ -1398,6 +1384,7 @@ class Payout(PayoutRequired, total=False):
     destination: dict
     document: list
     event: list
+    failed_payout: dict
     formatted_amount: str
     formatted_fx_destination_amount: str
     formatted_schedule: str
@@ -1424,6 +1411,7 @@ class Payout(PayoutRequired, total=False):
     nonce: str
     payment_processor: str
     payment_rail: str
+    payout: list
     payrun_id: str
     payrun_name: str
     reason: str
@@ -1579,16 +1567,6 @@ class PayoutMetricLoadMatch(TypedDict, total=False):
     total_amounts_by_currency: dict
 
 
-class PayoutsCreate(TypedDict, total=False):
-    failed_payout: dict
-    payout: list
-
-
-class PayoutsCreateCreateData(TypedDict, total=False):
-    failed_payout: dict
-    payout: list
-
-
 class PayrunRequired(TypedDict):
     last_updated_by: dict
 
@@ -1701,12 +1679,12 @@ class ReportResultLoadMatch(TypedDict):
     report_id: str
 
 
-class RolesCreate(TypedDict, total=False):
+class Role(TypedDict, total=False):
     failed_role: dict
     role: list
 
 
-class RolesCreateCreateData(TypedDict):
+class RoleCreateData(TypedDict):
     merchant_id: str
 
 
@@ -1997,6 +1975,7 @@ class UserInviteRequired(TypedDict):
 
 class UserInvite(UserInviteRequired, total=False):
     authorisation_status: dict
+    failed_user_invite: dict
     id: str
     initial_role_id: str
     invitee_email_address: str
@@ -2015,6 +1994,7 @@ class UserInvite(UserInviteRequired, total=False):
     send_invite_email: bool
     status: str
     user_id: str
+    user_invite: list
 
 
 class UserInviteLoadMatch(TypedDict, total=False):
@@ -2036,16 +2016,6 @@ class UserInviteUpdateData(TypedDict):
 
 class UserInviteRemoveMatch(TypedDict):
     id: str
-
-
-class UserInvitesCreate(TypedDict, total=False):
-    failed_user_invite: dict
-    user_invite: list
-
-
-class UserInvitesCreateCreateData(TypedDict, total=False):
-    failed_user_invite: dict
-    user_invite: list
 
 
 class VirtualRequired(TypedDict):

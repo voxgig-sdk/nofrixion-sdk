@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"account | batch | beneficiaries_create | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payment_requests_create | payout | payout_keyset | payout_metric | payouts_create | payrun | report | report_result | roles_create | rule | rule_event | tag | token | transaction | user | user_invite | user_invites_create | virtual | webhook"`
+	Entity string         `json:"entity" jsonschema:"account | batch | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payout | payout_keyset | payout_metric | payrun | report | report_result | role | rule | rule_event | tag | token | transaction | user | user_invite | virtual | webhook"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -81,8 +81,6 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.Account(nil), nil
 	case "batch":
 		return client.Batch(nil), nil
-	case "beneficiaries_create":
-		return client.BeneficiariesCreate(nil), nil
 	case "beneficiary":
 		return client.Beneficiary(nil), nil
 	case "beneficiary_group":
@@ -145,24 +143,20 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.PaymentRequestMinimal(nil), nil
 	case "payment_request_result":
 		return client.PaymentRequestResult(nil), nil
-	case "payment_requests_create":
-		return client.PaymentRequestsCreate(nil), nil
 	case "payout":
 		return client.Payout(nil), nil
 	case "payout_keyset":
 		return client.PayoutKeyset(nil), nil
 	case "payout_metric":
 		return client.PayoutMetric(nil), nil
-	case "payouts_create":
-		return client.PayoutsCreate(nil), nil
 	case "payrun":
 		return client.Payrun(nil), nil
 	case "report":
 		return client.Report(nil), nil
 	case "report_result":
 		return client.ReportResult(nil), nil
-	case "roles_create":
-		return client.RolesCreate(nil), nil
+	case "role":
+		return client.Role(nil), nil
 	case "rule":
 		return client.Rule(nil), nil
 	case "rule_event":
@@ -177,8 +171,6 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.User(nil), nil
 	case "user_invite":
 		return client.UserInvite(nil), nil
-	case "user_invites_create":
-		return client.UserInvitesCreate(nil), nil
 	case "virtual":
 		return client.Virtual(nil), nil
 	case "webhook":

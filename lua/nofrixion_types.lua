@@ -95,20 +95,13 @@
 ---@field id? string
 ---@field payout? table
 
----@class BeneficiariesCreate
----@field beneficiary? table
----@field failed_beneficiary? table
-
----@class BeneficiariesCreateCreateData
----@field beneficiary? table
----@field failed_beneficiary? table
-
 ---@class Beneficiary
 ---@field approval_callback_url? string
 ---@field authentication_method? table
 ---@field authorisation? table
 ---@field authorisers_completed_count? number
 ---@field authorisers_required_count? number
+---@field beneficiary? table
 ---@field beneficiary_event? table
 ---@field can_authorise? boolean
 ---@field can_update? boolean
@@ -116,6 +109,7 @@
 ---@field created_by_email_address? string
 ---@field currency string
 ---@field destination? table
+---@field failed_beneficiary? table
 ---@field has_current_user_authorised? boolean
 ---@field id? string
 ---@field inserted? string
@@ -958,6 +952,7 @@
 ---@field due_date? string
 ---@field error_description? string
 ---@field event? table
+---@field failed_payment_request? table
 ---@field failure_callback_url? string
 ---@field field_display_setting? table
 ---@field formatted_amount? string
@@ -984,6 +979,7 @@
 ---@field payment_initiation_id? string
 ---@field payment_method? table
 ---@field payment_processor? string
+---@field payment_request? table
 ---@field payrun_id? string
 ---@field pisp_account_id? string
 ---@field priority_bank_id? string
@@ -1030,6 +1026,7 @@
 ---@field due_date? string
 ---@field error_description? string
 ---@field event? table
+---@field failed_payment_request? table
 ---@field failure_callback_url? string
 ---@field field_display_setting? table
 ---@field formatted_amount? string
@@ -1056,6 +1053,7 @@
 ---@field payment_initiation_id? string
 ---@field payment_method? table
 ---@field payment_processor? string
+---@field payment_request? table
 ---@field payrun_id? string
 ---@field pisp_account_id? string
 ---@field priority_bank_id? string
@@ -1071,7 +1069,7 @@
 ---@field use_hosted_payment_page? boolean
 
 ---@class PaymentRequestCreateData
----@field paymentrequest_id string
+---@field paymentrequest_id? string
 
 ---@class PaymentRequestUpdateData
 ---@field paymentrequest_id string
@@ -1187,14 +1185,6 @@
 ---@class PaymentRequestResultListMatch
 ---@field paymentrequest_id string
 
----@class PaymentRequestsCreate
----@field failed_payment_request? table
----@field payment_request? table
-
----@class PaymentRequestsCreateCreateData
----@field failed_payment_request? table
----@field payment_request? table
-
 ---@class Payout
 ---@field account_id? string
 ---@field allow_incomplete? boolean
@@ -1221,6 +1211,7 @@
 ---@field destination? table
 ---@field document? table
 ---@field event? table
+---@field failed_payout? table
 ---@field formatted_amount? string
 ---@field formatted_fx_destination_amount? string
 ---@field formatted_schedule? string
@@ -1247,6 +1238,7 @@
 ---@field nonce? string
 ---@field payment_processor? string
 ---@field payment_rail? string
+---@field payout? table
 ---@field payrun_id? string
 ---@field payrun_name? string
 ---@field reason? string
@@ -1390,14 +1382,6 @@
 ---@field scheduled? number
 ---@field total_amounts_by_currency? table
 
----@class PayoutsCreate
----@field failed_payout? table
----@field payout? table
-
----@class PayoutsCreateCreateData
----@field failed_payout? table
----@field payout? table
-
 ---@class Payrun
 ---@field authorisation? table
 ---@field authorisation_date? string
@@ -1496,11 +1480,11 @@
 ---@field id number
 ---@field report_id string
 
----@class RolesCreate
+---@class Role
 ---@field failed_role? table
 ---@field role? table
 
----@class RolesCreateCreateData
+---@class RoleCreateData
 ---@field merchant_id string
 
 ---@class Rule
@@ -1745,6 +1729,7 @@
 
 ---@class UserInvite
 ---@field authorisation_status? table
+---@field failed_user_invite? table
 ---@field id? string
 ---@field initial_role_id? string
 ---@field invitee_email_address? string
@@ -1764,6 +1749,7 @@
 ---@field status? string
 ---@field user table
 ---@field user_id? string
+---@field user_invite? table
 
 ---@class UserInviteLoadMatch
 ---@field id? string
@@ -1780,14 +1766,6 @@
 
 ---@class UserInviteRemoveMatch
 ---@field id string
-
----@class UserInvitesCreate
----@field failed_user_invite? table
----@field user_invite? table
-
----@class UserInvitesCreateCreateData
----@field failed_user_invite? table
----@field user_invite? table
 
 ---@class Virtual
 ---@field account_name? string

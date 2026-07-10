@@ -31,6 +31,11 @@ main: kit: entity: beneficiary: {
       type: "`$INTEGER`"
     }
     {
+      name: "beneficiary"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "beneficiary_event"
       req: false
       type: "`$ARRAY`"
@@ -74,6 +79,11 @@ main: kit: entity: beneficiary: {
           type: "`$OBJECT`"
         }
       }
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "failed_beneficiary"
       req: false
       type: "`$OBJECT`"
     }
@@ -200,6 +210,23 @@ main: kit: entity: beneficiary: {
             "v1"
             "beneficiaries"
           ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/api/v1/beneficiaries/batchcreate"
+          parts: [
+            "api"
+            "v1"
+            "beneficiaries"
+            "batchcreate"
+          ]
+          select: {
+            "$action": "batchcreate"
+          }
           transform: {
             req: "`reqdata`"
             res: "`body`"

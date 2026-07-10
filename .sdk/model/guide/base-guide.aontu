@@ -1,7 +1,7 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 53
+  metrics: count: entity: 49
   metrics: count: path: 157
   metrics: count: method: 187
 
@@ -77,18 +77,16 @@ guide: {
     }
   }
 
-  entity: beneficiaries_create: {
-    path: "/api/v1/beneficiaries/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
   entity: beneficiary: {
     path: "/api/v1/beneficiaries": {
       op: create: method: *POST
       op: list: method: *GET
     }
     path: "/api/v1/beneficiaries/authorise/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/beneficiaries/batchcreate": {
+      action: "batchcreate": {}
       op: create: method: *POST
     }
     path: "/api/v1/beneficiaries/disable/{id}": {
@@ -418,6 +416,9 @@ guide: {
     path: "/api/v1/paymentrequests": {
       op: list: method: *GET
     }
+    path: "/api/v1/paymentrequests/batchcreate": {
+      op: create: method: *POST
+    }
     path: "/api/v1/paymentrequests/export": {
       op: load: method: *GET
     }
@@ -465,12 +466,6 @@ guide: {
     }
   }
 
-  entity: payment_requests_create: {
-    path: "/api/v1/paymentrequests/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
   entity: payout: {
     path: "/api/v1/accounts/{accountID}/payouts": {
       rename: param: "accountID": *"account_id"
@@ -485,6 +480,10 @@ guide: {
       op: list: method: *GET
     }
     path: "/api/v1/payouts/batch/submit/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/batchcreate": {
+      action: "batchcreate": {}
       op: create: method: *POST
     }
     path: "/api/v1/payouts/batchdelete": {
@@ -547,12 +546,6 @@ guide: {
     }
   }
 
-  entity: payouts_create: {
-    path: "/api/v1/payouts/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
   entity: payrun: {
     path: "/api/v1/payruns": {
       op: list: method: *GET
@@ -607,8 +600,9 @@ guide: {
     }
   }
 
-  entity: roles_create: {
+  entity: role: {
     path: "/api/v1/merchants/{merchantID}/roles/batchcreate": {
+      action: "batchcreate": {}
       rename: param: "merchantID": *"merchant_id"
       op: create: method: *POST
     }
@@ -739,6 +733,9 @@ guide: {
     path: "/api/v1/userinvites/authorise/{id}": {
       op: create: method: *POST
     }
+    path: "/api/v1/userinvites/batchcreate": {
+      op: create: method: *POST
+    }
     path: "/api/v1/userinvites/{id}": {
       op: load: method: *GET
       op: remove: method: *DELETE
@@ -747,12 +744,6 @@ guide: {
     path: "/api/v1/userinvites/{id}/details": {
       rename: param: "id": *"userinvite_id"
       op: load: method: *GET
-    }
-  }
-
-  entity: user_invites_create: {
-    path: "/api/v1/userinvites/batchcreate": {
-      op: create: method: *POST
     }
   }
 

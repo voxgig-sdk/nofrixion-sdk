@@ -49,10 +49,6 @@ Create a new `Account` entity instance. Pass `nil` for no initial data.
 
 Create a new `Batch` entity instance. Pass `nil` for no initial data.
 
-#### `BeneficiariesCreate(data)`
-
-Create a new `BeneficiariesCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Beneficiary(data)`
 
 Create a new `Beneficiary` entity instance. Pass `nil` for no initial data.
@@ -177,10 +173,6 @@ Create a new `PaymentRequestMinimal` entity instance. Pass `nil` for no initial 
 
 Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial data.
 
-#### `PaymentRequestsCreate(data)`
-
-Create a new `PaymentRequestsCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Payout(data)`
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
@@ -192,10 +184,6 @@ Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
 #### `PayoutMetric(data)`
 
 Create a new `PayoutMetric` entity instance. Pass `nil` for no initial data.
-
-#### `PayoutsCreate(data)`
-
-Create a new `PayoutsCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Payrun(data)`
 
@@ -209,9 +197,9 @@ Create a new `Report` entity instance. Pass `nil` for no initial data.
 
 Create a new `ReportResult` entity instance. Pass `nil` for no initial data.
 
-#### `RolesCreate(data)`
+#### `Role(data)`
 
-Create a new `RolesCreate` entity instance. Pass `nil` for no initial data.
+Create a new `Role` entity instance. Pass `nil` for no initial data.
 
 #### `Rule(data)`
 
@@ -240,10 +228,6 @@ Create a new `User` entity instance. Pass `nil` for no initial data.
 #### `UserInvite(data)`
 
 Create a new `UserInvite` entity instance. Pass `nil` for no initial data.
-
-#### `UserInvitesCreate(data)`
-
-Create a new `UserInvitesCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Virtual(data)`
 
@@ -493,60 +477,6 @@ Return the entity name.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```lua
-local beneficiaries_create = client:BeneficiariesCreate(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `table` | No |  |
-| `failed_beneficiary` | `table` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl) -> any, err`
-
-Create a new entity with the given data.
-
-```lua
-local result, err = client:BeneficiariesCreate():create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `BeneficiariesCreateEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## BeneficiaryEntity
 
 ```lua
@@ -562,6 +492,7 @@ local beneficiary = client:Beneficiary(nil)
 | `authorisation` | `table` | No |  |
 | `authorisers_completed_count` | `number` | No |  |
 | `authorisers_required_count` | `number` | No |  |
+| `beneficiary` | `table` | No |  |
 | `beneficiary_event` | `table` | No |  |
 | `can_authorise` | `boolean` | No |  |
 | `can_update` | `boolean` | No |  |
@@ -569,6 +500,7 @@ local beneficiary = client:Beneficiary(nil)
 | `created_by_email_address` | `string` | No |  |
 | `currency` | `string` | Yes |  |
 | `destination` | `table` | No |  |
+| `failed_beneficiary` | `table` | No |  |
 | `has_current_user_authorised` | `boolean` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
@@ -591,6 +523,7 @@ local beneficiary = client:Beneficiary(nil)
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -598,6 +531,7 @@ local beneficiary = client:Beneficiary(nil)
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -2723,6 +2657,7 @@ local payment_request = client:PaymentRequest(nil)
 | `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
 | `event` | `table` | No |  |
+| `failed_payment_request` | `table` | No |  |
 | `failure_callback_url` | `string` | No |  |
 | `field_display_setting` | `table` | No |  |
 | `formatted_amount` | `string` | No |  |
@@ -2749,6 +2684,7 @@ local payment_request = client:PaymentRequest(nil)
 | `payment_initiation_id` | `string` | No |  |
 | `payment_method` | `table` | No |  |
 | `payment_processor` | `string` | No |  |
+| `payment_request` | `table` | No |  |
 | `payrun_id` | `string` | No |  |
 | `pisp_account_id` | `string` | No |  |
 | `priority_bank_id` | `string` | No |  |
@@ -2771,7 +2707,6 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:PaymentRequest():create({
-  paymentrequest_id = --[[ string ]],
 })
 ```
 
@@ -3127,60 +3062,6 @@ Return the entity name.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```lua
-local payment_requests_create = client:PaymentRequestsCreate(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `table` | No |  |
-| `payment_request` | `table` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl) -> any, err`
-
-Create a new entity with the given data.
-
-```lua
-local result, err = client:PaymentRequestsCreate():create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## PayoutEntity
 
 ```lua
@@ -3216,6 +3097,7 @@ local payout = client:Payout(nil)
 | `destination` | `table` | No |  |
 | `document` | `table` | No |  |
 | `event` | `table` | No |  |
+| `failed_payout` | `table` | No |  |
 | `formatted_amount` | `string` | No |  |
 | `formatted_fx_destination_amount` | `string` | No |  |
 | `formatted_schedule` | `string` | No |  |
@@ -3242,6 +3124,7 @@ local payout = client:Payout(nil)
 | `nonce` | `string` | No |  |
 | `payment_processor` | `string` | No |  |
 | `payment_rail` | `string` | No |  |
+| `payout` | `table` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
 | `reason` | `string` | No |  |
@@ -3298,6 +3181,7 @@ local payout = client:Payout(nil)
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3324,6 +3208,7 @@ local payout = client:Payout(nil)
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3609,60 +3494,6 @@ Return the entity name.
 
 ---
 
-## PayoutsCreateEntity
-
-```lua
-local payouts_create = client:PayoutsCreate(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `table` | No |  |
-| `payout` | `table` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl) -> any, err`
-
-Create a new entity with the given data.
-
-```lua
-local result, err = client:PayoutsCreate():create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PayoutsCreateEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## PayrunEntity
 
 ```lua
@@ -3890,10 +3721,10 @@ Return the entity name.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```lua
-local roles_create = client:RolesCreate(nil)
+local role = client:Role(nil)
 ```
 
 ### Fields
@@ -3910,7 +3741,7 @@ local roles_create = client:RolesCreate(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:RolesCreate():create({
+local result, err = client:Role():create({
   merchant_id = --[[ string ]],
 })
 ```
@@ -3935,7 +3766,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `RolesCreateEntity` instance with the same client and
+Create a new `RoleEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -4517,6 +4348,7 @@ local user_invite = client:UserInvite(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `table` | No |  |
+| `failed_user_invite` | `table` | No |  |
 | `id` | `string` | No |  |
 | `initial_role_id` | `string` | No |  |
 | `invitee_email_address` | `string` | No |  |
@@ -4536,12 +4368,14 @@ local user_invite = client:UserInvite(nil)
 | `status` | `string` | No |  |
 | `user` | `table` | Yes |  |
 | `user_id` | `string` | No |  |
+| `user_invite` | `table` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4561,6 +4395,7 @@ local user_invite = client:UserInvite(nil)
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4629,60 +4464,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `UserInviteEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## UserInvitesCreateEntity
-
-```lua
-local user_invites_create = client:UserInvitesCreate(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `table` | No |  |
-| `user_invite` | `table` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl) -> any, err`
-
-Create a new entity with the given data.
-
-```lua
-local result, err = client:UserInvitesCreate():create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`

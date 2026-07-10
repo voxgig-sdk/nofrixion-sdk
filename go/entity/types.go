@@ -115,18 +115,6 @@ type BatchCreateData struct {
 	Payout *[]any `json:"payout,omitempty"`
 }
 
-// BeneficiariesCreate is the typed data model for the beneficiaries_create entity.
-type BeneficiariesCreate struct {
-	Beneficiary *[]any `json:"beneficiary,omitempty"`
-	FailedBeneficiary *map[string]any `json:"failed_beneficiary,omitempty"`
-}
-
-// BeneficiariesCreateCreateData is the typed request payload for BeneficiariesCreate.CreateTyped.
-type BeneficiariesCreateCreateData struct {
-	Beneficiary *[]any `json:"beneficiary,omitempty"`
-	FailedBeneficiary *map[string]any `json:"failed_beneficiary,omitempty"`
-}
-
 // Beneficiary is the typed data model for the beneficiary entity.
 type Beneficiary struct {
 	ApprovalCallbackUrl *string `json:"approval_callback_url,omitempty"`
@@ -134,6 +122,7 @@ type Beneficiary struct {
 	Authorisation *[]any `json:"authorisation,omitempty"`
 	AuthorisersCompletedCount *int `json:"authorisers_completed_count,omitempty"`
 	AuthorisersRequiredCount *int `json:"authorisers_required_count,omitempty"`
+	Beneficiary *[]any `json:"beneficiary,omitempty"`
 	BeneficiaryEvent *[]any `json:"beneficiary_event,omitempty"`
 	CanAuthorise *bool `json:"can_authorise,omitempty"`
 	CanUpdate *bool `json:"can_update,omitempty"`
@@ -141,6 +130,7 @@ type Beneficiary struct {
 	CreatedByEmailAddress *string `json:"created_by_email_address,omitempty"`
 	Currency string `json:"currency"`
 	Destination *map[string]any `json:"destination,omitempty"`
+	FailedBeneficiary *map[string]any `json:"failed_beneficiary,omitempty"`
 	HasCurrentUserAuthorised *bool `json:"has_current_user_authorised,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Inserted *string `json:"inserted,omitempty"`
@@ -1135,6 +1125,7 @@ type PaymentRequest struct {
 	DueDate *string `json:"due_date,omitempty"`
 	ErrorDescription *string `json:"error_description,omitempty"`
 	Event *[]any `json:"event,omitempty"`
+	FailedPaymentRequest *map[string]any `json:"failed_payment_request,omitempty"`
 	FailureCallbackUrl *string `json:"failure_callback_url,omitempty"`
 	FieldDisplaySetting *[]any `json:"field_display_setting,omitempty"`
 	FormattedAmount *string `json:"formatted_amount,omitempty"`
@@ -1161,6 +1152,7 @@ type PaymentRequest struct {
 	PaymentInitiationId *string `json:"payment_initiation_id,omitempty"`
 	PaymentMethod *[]any `json:"payment_method,omitempty"`
 	PaymentProcessor *string `json:"payment_processor,omitempty"`
+	PaymentRequest *[]any `json:"payment_request,omitempty"`
 	PayrunId *string `json:"payrun_id,omitempty"`
 	PispAccountId *string `json:"pisp_account_id,omitempty"`
 	PriorityBankId *string `json:"priority_bank_id,omitempty"`
@@ -1211,6 +1203,7 @@ type PaymentRequestListMatch struct {
 	DueDate *string `json:"due_date,omitempty"`
 	ErrorDescription *string `json:"error_description,omitempty"`
 	Event *[]any `json:"event,omitempty"`
+	FailedPaymentRequest *map[string]any `json:"failed_payment_request,omitempty"`
 	FailureCallbackUrl *string `json:"failure_callback_url,omitempty"`
 	FieldDisplaySetting *[]any `json:"field_display_setting,omitempty"`
 	FormattedAmount *string `json:"formatted_amount,omitempty"`
@@ -1237,6 +1230,7 @@ type PaymentRequestListMatch struct {
 	PaymentInitiationId *string `json:"payment_initiation_id,omitempty"`
 	PaymentMethod *[]any `json:"payment_method,omitempty"`
 	PaymentProcessor *string `json:"payment_processor,omitempty"`
+	PaymentRequest *[]any `json:"payment_request,omitempty"`
 	PayrunId *string `json:"payrun_id,omitempty"`
 	PispAccountId *string `json:"pisp_account_id,omitempty"`
 	PriorityBankId *string `json:"priority_bank_id,omitempty"`
@@ -1254,7 +1248,7 @@ type PaymentRequestListMatch struct {
 
 // PaymentRequestCreateData is the typed request payload for PaymentRequest.CreateTyped.
 type PaymentRequestCreateData struct {
-	PaymentrequestId string `json:"paymentrequest_id"`
+	PaymentrequestId *string `json:"paymentrequest_id,omitempty"`
 }
 
 // PaymentRequestUpdateData is the typed request payload for PaymentRequest.UpdateTyped.
@@ -1391,18 +1385,6 @@ type PaymentRequestResultListMatch struct {
 	PaymentrequestId string `json:"paymentrequest_id"`
 }
 
-// PaymentRequestsCreate is the typed data model for the payment_requests_create entity.
-type PaymentRequestsCreate struct {
-	FailedPaymentRequest *map[string]any `json:"failed_payment_request,omitempty"`
-	PaymentRequest *[]any `json:"payment_request,omitempty"`
-}
-
-// PaymentRequestsCreateCreateData is the typed request payload for PaymentRequestsCreate.CreateTyped.
-type PaymentRequestsCreateCreateData struct {
-	FailedPaymentRequest *map[string]any `json:"failed_payment_request,omitempty"`
-	PaymentRequest *[]any `json:"payment_request,omitempty"`
-}
-
 // Payout is the typed data model for the payout entity.
 type Payout struct {
 	AccountId *string `json:"account_id,omitempty"`
@@ -1430,6 +1412,7 @@ type Payout struct {
 	Destination *map[string]any `json:"destination,omitempty"`
 	Document *[]any `json:"document,omitempty"`
 	Event *[]any `json:"event,omitempty"`
+	FailedPayout *map[string]any `json:"failed_payout,omitempty"`
 	FormattedAmount *string `json:"formatted_amount,omitempty"`
 	FormattedFxDestinationAmount *string `json:"formatted_fx_destination_amount,omitempty"`
 	FormattedSchedule *string `json:"formatted_schedule,omitempty"`
@@ -1456,6 +1439,7 @@ type Payout struct {
 	Nonce *string `json:"nonce,omitempty"`
 	PaymentProcessor *string `json:"payment_processor,omitempty"`
 	PaymentRail *string `json:"payment_rail,omitempty"`
+	Payout *[]any `json:"payout,omitempty"`
 	PayrunId *string `json:"payrun_id,omitempty"`
 	PayrunName *string `json:"payrun_name,omitempty"`
 	Reason *string `json:"reason,omitempty"`
@@ -1618,18 +1602,6 @@ type PayoutMetricLoadMatch struct {
 	TotalAmountsByCurrency *map[string]any `json:"total_amounts_by_currency,omitempty"`
 }
 
-// PayoutsCreate is the typed data model for the payouts_create entity.
-type PayoutsCreate struct {
-	FailedPayout *map[string]any `json:"failed_payout,omitempty"`
-	Payout *[]any `json:"payout,omitempty"`
-}
-
-// PayoutsCreateCreateData is the typed request payload for PayoutsCreate.CreateTyped.
-type PayoutsCreateCreateData struct {
-	FailedPayout *map[string]any `json:"failed_payout,omitempty"`
-	Payout *[]any `json:"payout,omitempty"`
-}
-
 // Payrun is the typed data model for the payrun entity.
 type Payrun struct {
 	Authorisation *[]any `json:"authorisation,omitempty"`
@@ -1748,14 +1720,14 @@ type ReportResultLoadMatch struct {
 	ReportId string `json:"report_id"`
 }
 
-// RolesCreate is the typed data model for the roles_create entity.
-type RolesCreate struct {
+// Role is the typed data model for the role entity.
+type Role struct {
 	FailedRole *map[string]any `json:"failed_role,omitempty"`
 	Role *[]any `json:"role,omitempty"`
 }
 
-// RolesCreateCreateData is the typed request payload for RolesCreate.CreateTyped.
-type RolesCreateCreateData struct {
+// RoleCreateData is the typed request payload for Role.CreateTyped.
+type RoleCreateData struct {
 	MerchantId string `json:"merchant_id"`
 }
 
@@ -2046,6 +2018,7 @@ type UserUpdateData struct {
 // UserInvite is the typed data model for the user_invite entity.
 type UserInvite struct {
 	AuthorisationStatus *map[string]any `json:"authorisation_status,omitempty"`
+	FailedUserInvite *map[string]any `json:"failed_user_invite,omitempty"`
 	Id *string `json:"id,omitempty"`
 	InitialRoleId *string `json:"initial_role_id,omitempty"`
 	InviteeEmailAddress *string `json:"invitee_email_address,omitempty"`
@@ -2065,6 +2038,7 @@ type UserInvite struct {
 	Status *string `json:"status,omitempty"`
 	User map[string]any `json:"user"`
 	UserId *string `json:"user_id,omitempty"`
+	UserInvite *[]any `json:"user_invite,omitempty"`
 }
 
 // UserInviteLoadMatch is the typed request payload for UserInvite.LoadTyped.
@@ -2091,18 +2065,6 @@ type UserInviteUpdateData struct {
 // UserInviteRemoveMatch is the typed request payload for UserInvite.RemoveTyped.
 type UserInviteRemoveMatch struct {
 	Id string `json:"id"`
-}
-
-// UserInvitesCreate is the typed data model for the user_invites_create entity.
-type UserInvitesCreate struct {
-	FailedUserInvite *map[string]any `json:"failed_user_invite,omitempty"`
-	UserInvite *[]any `json:"user_invite,omitempty"`
-}
-
-// UserInvitesCreateCreateData is the typed request payload for UserInvitesCreate.CreateTyped.
-type UserInvitesCreateCreateData struct {
-	FailedUserInvite *map[string]any `json:"failed_user_invite,omitempty"`
-	UserInvite *[]any `json:"user_invite,omitempty"`
 }
 
 // Virtual is the typed data model for the virtual entity.

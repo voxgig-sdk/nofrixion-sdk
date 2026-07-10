@@ -54,7 +54,6 @@ func TestPaymentRequestEntity(t *testing.T) {
 		paymentRequestRef01Ent := client.PaymentRequest(nil)
 		paymentRequestRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath([]any{"new", "payment_request"}, setup.data), "payment_request_ref01"))
-		paymentRequestRef01Data["paymentrequest_id"] = setup.idmap["paymentrequest01"]
 
 		paymentRequestRef01DataResult, err := paymentRequestRef01Ent.Create(paymentRequestRef01Data, nil)
 		if err != nil {

@@ -11,10 +11,6 @@ main: kit: flow: BasicPaymentRequestFlow:
         ref: "payment_request_ref01"
       }
 
-      match: {
-        paymentrequest_id: "paymentrequest01"
-      }
-
       op: "create"
     }
 

@@ -261,14 +261,6 @@ func (sdk *NofrixionSDK) Batch(data map[string]any) NofrixionEntity {
 }
 
 
-// BeneficiariesCreate returns a BeneficiariesCreate entity bound to this client.
-// Idiomatic usage: client.BeneficiariesCreate(nil).List(nil, nil) or
-// client.BeneficiariesCreate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) BeneficiariesCreate(data map[string]any) NofrixionEntity {
-	return NewBeneficiariesCreateEntityFunc(sdk, data)
-}
-
-
 // Beneficiary returns a Beneficiary entity bound to this client.
 // Idiomatic usage: client.Beneficiary(nil).List(nil, nil) or
 // client.Beneficiary(nil).Load(map[string]any{"id": ...}, nil).
@@ -517,14 +509,6 @@ func (sdk *NofrixionSDK) PaymentRequestResult(data map[string]any) NofrixionEnti
 }
 
 
-// PaymentRequestsCreate returns a PaymentRequestsCreate entity bound to this client.
-// Idiomatic usage: client.PaymentRequestsCreate(nil).List(nil, nil) or
-// client.PaymentRequestsCreate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) PaymentRequestsCreate(data map[string]any) NofrixionEntity {
-	return NewPaymentRequestsCreateEntityFunc(sdk, data)
-}
-
-
 // Payout returns a Payout entity bound to this client.
 // Idiomatic usage: client.Payout(nil).List(nil, nil) or
 // client.Payout(nil).Load(map[string]any{"id": ...}, nil).
@@ -546,14 +530,6 @@ func (sdk *NofrixionSDK) PayoutKeyset(data map[string]any) NofrixionEntity {
 // client.PayoutMetric(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *NofrixionSDK) PayoutMetric(data map[string]any) NofrixionEntity {
 	return NewPayoutMetricEntityFunc(sdk, data)
-}
-
-
-// PayoutsCreate returns a PayoutsCreate entity bound to this client.
-// Idiomatic usage: client.PayoutsCreate(nil).List(nil, nil) or
-// client.PayoutsCreate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) PayoutsCreate(data map[string]any) NofrixionEntity {
-	return NewPayoutsCreateEntityFunc(sdk, data)
 }
 
 
@@ -581,11 +557,11 @@ func (sdk *NofrixionSDK) ReportResult(data map[string]any) NofrixionEntity {
 }
 
 
-// RolesCreate returns a RolesCreate entity bound to this client.
-// Idiomatic usage: client.RolesCreate(nil).List(nil, nil) or
-// client.RolesCreate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) RolesCreate(data map[string]any) NofrixionEntity {
-	return NewRolesCreateEntityFunc(sdk, data)
+// Role returns a Role entity bound to this client.
+// Idiomatic usage: client.Role(nil).List(nil, nil) or
+// client.Role(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *NofrixionSDK) Role(data map[string]any) NofrixionEntity {
+	return NewRoleEntityFunc(sdk, data)
 }
 
 
@@ -642,14 +618,6 @@ func (sdk *NofrixionSDK) User(data map[string]any) NofrixionEntity {
 // client.UserInvite(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *NofrixionSDK) UserInvite(data map[string]any) NofrixionEntity {
 	return NewUserInviteEntityFunc(sdk, data)
-}
-
-
-// UserInvitesCreate returns a UserInvitesCreate entity bound to this client.
-// Idiomatic usage: client.UserInvitesCreate(nil).List(nil, nil) or
-// client.UserInvitesCreate(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *NofrixionSDK) UserInvitesCreate(data map[string]any) NofrixionEntity {
-	return NewUserInvitesCreateEntityFunc(sdk, data)
 }
 
 

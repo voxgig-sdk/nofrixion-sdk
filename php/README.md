@@ -242,7 +242,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
 | `Account` | `($data): AccountEntity` | Create an Account entity instance. |
 | `Batch` | `($data): BatchEntity` | Create a Batch entity instance. |
-| `BeneficiariesCreate` | `($data): BeneficiariesCreateEntity` | Create a BeneficiariesCreate entity instance. |
 | `Beneficiary` | `($data): BeneficiaryEntity` | Create a Beneficiary entity instance. |
 | `BeneficiaryGroup` | `($data): BeneficiaryGroupEntity` | Create a BeneficiaryGroup entity instance. |
 | `Card` | `($data): CardEntity` | Create a Card entity instance. |
@@ -274,15 +273,13 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `PaymentRequestMetric` | `($data): PaymentRequestMetricEntity` | Create a PaymentRequestMetric entity instance. |
 | `PaymentRequestMinimal` | `($data): PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
 | `PaymentRequestResult` | `($data): PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
-| `PaymentRequestsCreate` | `($data): PaymentRequestsCreateEntity` | Create a PaymentRequestsCreate entity instance. |
 | `Payout` | `($data): PayoutEntity` | Create a Payout entity instance. |
 | `PayoutKeyset` | `($data): PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
 | `PayoutMetric` | `($data): PayoutMetricEntity` | Create a PayoutMetric entity instance. |
-| `PayoutsCreate` | `($data): PayoutsCreateEntity` | Create a PayoutsCreate entity instance. |
 | `Payrun` | `($data): PayrunEntity` | Create a Payrun entity instance. |
 | `Report` | `($data): ReportEntity` | Create a Report entity instance. |
 | `ReportResult` | `($data): ReportResultEntity` | Create a ReportResult entity instance. |
-| `RolesCreate` | `($data): RolesCreateEntity` | Create a RolesCreate entity instance. |
+| `Role` | `($data): RoleEntity` | Create a Role entity instance. |
 | `Rule` | `($data): RuleEntity` | Create a Rule entity instance. |
 | `RuleEvent` | `($data): RuleEventEntity` | Create a RuleEvent entity instance. |
 | `Tag` | `($data): TagEntity` | Create a Tag entity instance. |
@@ -290,7 +287,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `Transaction` | `($data): TransactionEntity` | Create a Transaction entity instance. |
 | `User` | `($data): UserEntity` | Create an User entity instance. |
 | `UserInvite` | `($data): UserInviteEntity` | Create an UserInvite entity instance. |
-| `UserInvitesCreate` | `($data): UserInvitesCreateEntity` | Create an UserInvitesCreate entity instance. |
 | `Virtual` | `($data): VirtualEntity` | Create a Virtual entity instance. |
 | `Webhook` | `($data): WebhookEntity` | Create a Webhook entity instance. |
 
@@ -407,17 +403,6 @@ Operations: Create, Load.
 
 API path: `/api/v1/payouts/batch`
 
-#### BeneficiariesCreate
-
-| Field | Description |
-| --- | --- |
-| `beneficiary` |  |
-| `failed_beneficiary` |  |
-
-Operations: Create.
-
-API path: `/api/v1/beneficiaries/batchcreate`
-
 #### Beneficiary
 
 | Field | Description |
@@ -427,6 +412,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `authorisation` |  |
 | `authorisers_completed_count` |  |
 | `authorisers_required_count` |  |
+| `beneficiary` |  |
 | `beneficiary_event` |  |
 | `can_authorise` |  |
 | `can_update` |  |
@@ -434,6 +420,7 @@ API path: `/api/v1/beneficiaries/batchcreate`
 | `created_by_email_address` |  |
 | `currency` |  |
 | `destination` |  |
+| `failed_beneficiary` |  |
 | `has_current_user_authorised` |  |
 | `id` |  |
 | `inserted` |  |
@@ -1072,6 +1059,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `due_date` |  |
 | `error_description` |  |
 | `event` |  |
+| `failed_payment_request` |  |
 | `failure_callback_url` |  |
 | `field_display_setting` |  |
 | `formatted_amount` |  |
@@ -1098,6 +1086,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | `payment_initiation_id` |  |
 | `payment_method` |  |
 | `payment_processor` |  |
+| `payment_request` |  |
 | `payrun_id` |  |
 | `pisp_account_id` |  |
 | `priority_bank_id` |  |
@@ -1235,17 +1224,6 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/result`
 
-#### PaymentRequestsCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_payment_request` |  |
-| `payment_request` |  |
-
-Operations: Create.
-
-API path: `/api/v1/paymentrequests/batchcreate`
-
 #### Payout
 
 | Field | Description |
@@ -1275,6 +1253,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `destination` |  |
 | `document` |  |
 | `event` |  |
+| `failed_payout` |  |
 | `formatted_amount` |  |
 | `formatted_fx_destination_amount` |  |
 | `formatted_schedule` |  |
@@ -1301,6 +1280,7 @@ API path: `/api/v1/paymentrequests/batchcreate`
 | `nonce` |  |
 | `payment_processor` |  |
 | `payment_rail` |  |
+| `payout` |  |
 | `payrun_id` |  |
 | `payrun_name` |  |
 | `reason` |  |
@@ -1430,17 +1410,6 @@ Operations: Load.
 
 API path: `/api/v1/payouts/metrics`
 
-#### PayoutsCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_payout` |  |
-| `payout` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/batchcreate`
-
 #### Payrun
 
 | Field | Description |
@@ -1507,7 +1476,7 @@ Operations: Load.
 
 API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
-#### RolesCreate
+#### Role
 
 | Field | Description |
 | --- | --- |
@@ -1688,6 +1657,7 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | Field | Description |
 | --- | --- |
 | `authorisation_status` |  |
+| `failed_user_invite` |  |
 | `id` |  |
 | `initial_role_id` |  |
 | `invitee_email_address` |  |
@@ -1707,21 +1677,11 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | `status` |  |
 | `user` |  |
 | `user_id` |  |
+| `user_invite` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/userinvites/authorise/{id}`
-
-#### UserInvitesCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_user_invite` |  |
-| `user_invite` |  |
-
-Operations: Create.
-
-API path: `/api/v1/userinvites/batchcreate`
 
 #### Virtual
 
@@ -1926,31 +1886,6 @@ $batch = $client->Batch()->create([
 ```
 
 
-### BeneficiariesCreate
-
-Create an instance: `$beneficiaries_create = $client->BeneficiariesCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `beneficiary` | `array` |  |
-| `failed_beneficiary` | `array` |  |
-
-#### Example: Create
-
-```php
-$beneficiaries_create = $client->BeneficiariesCreate()->create([
-]);
-```
-
-
 ### Beneficiary
 
 Create an instance: `$beneficiary = $client->Beneficiary();`
@@ -1974,6 +1909,7 @@ Create an instance: `$beneficiary = $client->Beneficiary();`
 | `authorisation` | `array` |  |
 | `authorisers_completed_count` | `int` |  |
 | `authorisers_required_count` | `int` |  |
+| `beneficiary` | `array` |  |
 | `beneficiary_event` | `array` |  |
 | `can_authorise` | `bool` |  |
 | `can_update` | `bool` |  |
@@ -1981,6 +1917,7 @@ Create an instance: `$beneficiary = $client->Beneficiary();`
 | `created_by_email_address` | `string` |  |
 | `currency` | `string` |  |
 | `destination` | `array` |  |
+| `failed_beneficiary` | `array` |  |
 | `has_current_user_authorised` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
@@ -3096,6 +3033,7 @@ Create an instance: `$payment_request = $client->PaymentRequest();`
 | `due_date` | `string` |  |
 | `error_description` | `string` |  |
 | `event` | `array` |  |
+| `failed_payment_request` | `array` |  |
 | `failure_callback_url` | `string` |  |
 | `field_display_setting` | `array` |  |
 | `formatted_amount` | `string` |  |
@@ -3122,6 +3060,7 @@ Create an instance: `$payment_request = $client->PaymentRequest();`
 | `payment_initiation_id` | `string` |  |
 | `payment_method` | `array` |  |
 | `payment_processor` | `string` |  |
+| `payment_request` | `array` |  |
 | `payrun_id` | `string` |  |
 | `pisp_account_id` | `string` |  |
 | `priority_bank_id` | `string` |  |
@@ -3154,7 +3093,6 @@ $payment_requests = $client->PaymentRequest()->list();
 
 ```php
 $payment_request = $client->PaymentRequest()->create([
-    "paymentrequest_id" => null, // string
 ]);
 ```
 
@@ -3334,31 +3272,6 @@ $payment_request_results = $client->PaymentRequestResult()->list();
 ```
 
 
-### PaymentRequestsCreate
-
-Create an instance: `$payment_requests_create = $client->PaymentRequestsCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payment_request` | `array` |  |
-| `payment_request` | `array` |  |
-
-#### Example: Create
-
-```php
-$payment_requests_create = $client->PaymentRequestsCreate()->create([
-]);
-```
-
-
 ### Payout
 
 Create an instance: `$payout = $client->Payout();`
@@ -3402,6 +3315,7 @@ Create an instance: `$payout = $client->Payout();`
 | `destination` | `array` |  |
 | `document` | `array` |  |
 | `event` | `array` |  |
+| `failed_payout` | `array` |  |
 | `formatted_amount` | `string` |  |
 | `formatted_fx_destination_amount` | `string` |  |
 | `formatted_schedule` | `string` |  |
@@ -3428,6 +3342,7 @@ Create an instance: `$payout = $client->Payout();`
 | `nonce` | `string` |  |
 | `payment_processor` | `string` |  |
 | `payment_rail` | `string` |  |
+| `payout` | `array` |  |
 | `payrun_id` | `string` |  |
 | `payrun_name` | `string` |  |
 | `reason` | `string` |  |
@@ -3603,31 +3518,6 @@ $payout_metric = $client->PayoutMetric()->load();
 ```
 
 
-### PayoutsCreate
-
-Create an instance: `$payouts_create = $client->PayoutsCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payout` | `array` |  |
-| `payout` | `array` |  |
-
-#### Example: Create
-
-```php
-$payouts_create = $client->PayoutsCreate()->create([
-]);
-```
-
-
 ### Payrun
 
 Create an instance: `$payrun = $client->Payrun();`
@@ -3743,9 +3633,9 @@ $report_result = $client->ReportResult()->load(["id" => 1, "report_id" => "repor
 ```
 
 
-### RolesCreate
+### Role
 
-Create an instance: `$roles_create = $client->RolesCreate();`
+Create an instance: `$role = $client->Role();`
 
 #### Operations
 
@@ -3763,7 +3653,7 @@ Create an instance: `$roles_create = $client->RolesCreate();`
 #### Example: Create
 
 ```php
-$roles_create = $client->RolesCreate()->create([
+$role = $client->Role()->create([
     "merchant_id" => null, // string
 ]);
 ```
@@ -4082,6 +3972,7 @@ Create an instance: `$user_invite = $client->UserInvite();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `authorisation_status` | `array` |  |
+| `failed_user_invite` | `array` |  |
 | `id` | `string` |  |
 | `initial_role_id` | `string` |  |
 | `invitee_email_address` | `string` |  |
@@ -4101,6 +3992,7 @@ Create an instance: `$user_invite = $client->UserInvite();`
 | `status` | `string` |  |
 | `user` | `array` |  |
 | `user_id` | `string` |  |
+| `user_invite` | `array` |  |
 
 #### Example: Load
 
@@ -4120,31 +4012,6 @@ $user_invites = $client->UserInvite()->list();
 
 ```php
 $user_invite = $client->UserInvite()->create([
-]);
-```
-
-
-### UserInvitesCreate
-
-Create an instance: `$user_invites_create = $client->UserInvitesCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_user_invite` | `array` |  |
-| `user_invite` | `array` |  |
-
-#### Example: Create
-
-```php
-$user_invites_create = $client->UserInvitesCreate()->create([
 ]);
 ```
 

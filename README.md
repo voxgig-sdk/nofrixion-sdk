@@ -12,7 +12,7 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **53 semantic entities** that you
+This SDK exposes the API as **49 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`):
@@ -155,13 +155,12 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 53 entities:
+The API exposes 49 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
 | **Account** | The Account entity (create, list, load, remove, update). | `/api/v1/accounts/{accountID}/{currency}` |
 | **Batch** | The Batch entity (create, load). | `/api/v1/payouts/batch` |
-| **BeneficiariesCreate** | The BeneficiariesCreate entity (create). | `/api/v1/beneficiaries/batchcreate` |
 | **Beneficiary** | The Beneficiary entity (create, list, load, remove, update). | `/api/v1/beneficiaries/authorise/{id}` |
 | **BeneficiaryGroup** | The BeneficiaryGroup entity (list). | `/api/v1/merchants/{merchantID}/beneficiarygroups` |
 | **Card** | The Card entity (create). | `/api/v1/paymentrequests/{id}/card` |
@@ -193,15 +192,13 @@ The API exposes 53 entities:
 | **PaymentRequestMetric** | The PaymentRequestMetric entity (load). | `/api/v1/paymentrequests/metrics` |
 | **PaymentRequestMinimal** | The PaymentRequestMinimal entity (list). | `/api/v1/paymentrequests/{id}/minimal` |
 | **PaymentRequestResult** | The PaymentRequestResult entity (list). | `/api/v1/paymentrequests/{id}/result` |
-| **PaymentRequestsCreate** | The PaymentRequestsCreate entity (create). | `/api/v1/paymentrequests/batchcreate` |
 | **Payout** | The Payout entity (create, list, load, remove, update). | `/api/v1/payouts/batch/submit/{id}` |
 | **PayoutKeyset** | The PayoutKeyset entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
 | **PayoutMetric** | The PayoutMetric entity (load). | `/api/v1/payouts/metrics` |
-| **PayoutsCreate** | The PayoutsCreate entity (create). | `/api/v1/payouts/batchcreate` |
 | **Payrun** | The Payrun entity (create, list, load, remove, update). | `/api/v1/payruns/{id}/request-authorisation` |
 | **Report** | The Report entity (update). | `/api/v1/reports/{id}/initiate` |
 | **ReportResult** | The ReportResult entity (load). | `/api/v1/reports/{id}/result/{statementNumber}` |
-| **RolesCreate** | The RolesCreate entity (create). | `/api/v1/merchants/{merchantID}/roles/batchcreate` |
+| **Role** | The Role entity (create). | `/api/v1/merchants/{merchantID}/roles/batchcreate` |
 | **Rule** | The Rule entity (create, list, load, remove, update). | `/api/v1/rules` |
 | **RuleEvent** | The RuleEvent entity (list). | `/api/v1/rules/{id}/events` |
 | **Tag** | The Tag entity (create, list). | `/api/v1/merchants/{merchantID}/tags` |
@@ -209,7 +206,6 @@ The API exposes 53 entities:
 | **Transaction** | The Transaction entity (create, list, load, remove). | `/api/v1/transactions/{id}/tags` |
 | **User** | The User entity (list, update). | `/api/v1/user/{merchantID}/userspaged` |
 | **UserInvite** | The UserInvite entity (create, list, load, remove, update). | `/api/v1/userinvites/authorise/{id}` |
-| **UserInvitesCreate** | The UserInvitesCreate entity (create). | `/api/v1/userinvites/batchcreate` |
 | **Virtual** | The Virtual entity (create, update). | `/api/v1/accounts/{accountID}/virtual` |
 | **Webhook** | The Webhook entity (create, list, load, remove, update). | `/api/v1/webhooks` |
 

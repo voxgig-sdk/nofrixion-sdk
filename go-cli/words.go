@@ -90,8 +90,6 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.Account(nil), nil
 	case "batch":
 		return client.Batch(nil), nil
-	case "beneficiaries_create":
-		return client.BeneficiariesCreate(nil), nil
 	case "beneficiary":
 		return client.Beneficiary(nil), nil
 	case "beneficiary_group":
@@ -154,24 +152,20 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.PaymentRequestMinimal(nil), nil
 	case "payment_request_result":
 		return client.PaymentRequestResult(nil), nil
-	case "payment_requests_create":
-		return client.PaymentRequestsCreate(nil), nil
 	case "payout":
 		return client.Payout(nil), nil
 	case "payout_keyset":
 		return client.PayoutKeyset(nil), nil
 	case "payout_metric":
 		return client.PayoutMetric(nil), nil
-	case "payouts_create":
-		return client.PayoutsCreate(nil), nil
 	case "payrun":
 		return client.Payrun(nil), nil
 	case "report":
 		return client.Report(nil), nil
 	case "report_result":
 		return client.ReportResult(nil), nil
-	case "roles_create":
-		return client.RolesCreate(nil), nil
+	case "role":
+		return client.Role(nil), nil
 	case "rule":
 		return client.Rule(nil), nil
 	case "rule_event":
@@ -186,8 +180,6 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.User(nil), nil
 	case "user_invite":
 		return client.UserInvite(nil), nil
-	case "user_invites_create":
-		return client.UserInvitesCreate(nil), nil
 	case "virtual":
 		return client.Virtual(nil), nil
 	case "webhook":

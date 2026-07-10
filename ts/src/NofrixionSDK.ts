@@ -2,7 +2,6 @@
 
 import { AccountEntity } from './entity/AccountEntity'
 import { BatchEntity } from './entity/BatchEntity'
-import { BeneficiariesCreateEntity } from './entity/BeneficiariesCreateEntity'
 import { BeneficiaryEntity } from './entity/BeneficiaryEntity'
 import { BeneficiaryGroupEntity } from './entity/BeneficiaryGroupEntity'
 import { CardEntity } from './entity/CardEntity'
@@ -34,15 +33,13 @@ import { PaymentRequestEventEntity } from './entity/PaymentRequestEventEntity'
 import { PaymentRequestMetricEntity } from './entity/PaymentRequestMetricEntity'
 import { PaymentRequestMinimalEntity } from './entity/PaymentRequestMinimalEntity'
 import { PaymentRequestResultEntity } from './entity/PaymentRequestResultEntity'
-import { PaymentRequestsCreateEntity } from './entity/PaymentRequestsCreateEntity'
 import { PayoutEntity } from './entity/PayoutEntity'
 import { PayoutKeysetEntity } from './entity/PayoutKeysetEntity'
 import { PayoutMetricEntity } from './entity/PayoutMetricEntity'
-import { PayoutsCreateEntity } from './entity/PayoutsCreateEntity'
 import { PayrunEntity } from './entity/PayrunEntity'
 import { ReportEntity } from './entity/ReportEntity'
 import { ReportResultEntity } from './entity/ReportResultEntity'
-import { RolesCreateEntity } from './entity/RolesCreateEntity'
+import { RoleEntity } from './entity/RoleEntity'
 import { RuleEntity } from './entity/RuleEntity'
 import { RuleEventEntity } from './entity/RuleEventEntity'
 import { TagEntity } from './entity/TagEntity'
@@ -50,7 +47,6 @@ import { TokenEntity } from './entity/TokenEntity'
 import { TransactionEntity } from './entity/TransactionEntity'
 import { UserEntity } from './entity/UserEntity'
 import { UserInviteEntity } from './entity/UserInviteEntity'
-import { UserInvitesCreateEntity } from './entity/UserInvitesCreateEntity'
 import { VirtualEntity } from './entity/VirtualEntity'
 import { WebhookEntity } from './entity/WebhookEntity'
 
@@ -267,13 +263,6 @@ class NofrixionSDK {
   Batch(data?: any) {
     const self = this
     return new BatchEntity(self,data)
-  }
-
-
-  // Entity access: `client.BeneficiariesCreate().list()` / `client.BeneficiariesCreate().load({ id })`.
-  BeneficiariesCreate(data?: any) {
-    const self = this
-    return new BeneficiariesCreateEntity(self,data)
   }
 
 
@@ -494,13 +483,6 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.PaymentRequestsCreate().list()` / `client.PaymentRequestsCreate().load({ id })`.
-  PaymentRequestsCreate(data?: any) {
-    const self = this
-    return new PaymentRequestsCreateEntity(self,data)
-  }
-
-
   // Entity access: `client.Payout().list()` / `client.Payout().load({ id })`.
   Payout(data?: any) {
     const self = this
@@ -519,13 +501,6 @@ class NofrixionSDK {
   PayoutMetric(data?: any) {
     const self = this
     return new PayoutMetricEntity(self,data)
-  }
-
-
-  // Entity access: `client.PayoutsCreate().list()` / `client.PayoutsCreate().load({ id })`.
-  PayoutsCreate(data?: any) {
-    const self = this
-    return new PayoutsCreateEntity(self,data)
   }
 
 
@@ -550,10 +525,10 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.RolesCreate().list()` / `client.RolesCreate().load({ id })`.
-  RolesCreate(data?: any) {
+  // Entity access: `client.Role().list()` / `client.Role().load({ id })`.
+  Role(data?: any) {
     const self = this
-    return new RolesCreateEntity(self,data)
+    return new RoleEntity(self,data)
   }
 
 
@@ -603,13 +578,6 @@ class NofrixionSDK {
   UserInvite(data?: any) {
     const self = this
     return new UserInviteEntity(self,data)
-  }
-
-
-  // Entity access: `client.UserInvitesCreate().list()` / `client.UserInvitesCreate().load({ id })`.
-  UserInvitesCreate(data?: any) {
-    const self = this
-    return new UserInvitesCreateEntity(self,data)
   }
 
 

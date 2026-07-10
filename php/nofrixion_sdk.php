@@ -267,24 +267,6 @@ class NofrixionSDK
     }
 
 
-    private $_beneficiaries_create = null;
-
-    // Canonical facade: $client->BeneficiariesCreate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->beneficiaries_create()
-    // resolves here too.
-    public function BeneficiariesCreate($data = null)
-    {
-        require_once __DIR__ . '/entity/beneficiaries_create_entity.php';
-        if ($data === null) {
-            if ($this->_beneficiaries_create === null) {
-                $this->_beneficiaries_create = new BeneficiariesCreateEntity($this, null);
-            }
-            return $this->_beneficiaries_create;
-        }
-        return new BeneficiariesCreateEntity($this, $data);
-    }
-
-
     private $_beneficiary = null;
 
     // Canonical facade: $client->Beneficiary()->list() / ->load(["id" => ...]).
@@ -843,24 +825,6 @@ class NofrixionSDK
     }
 
 
-    private $_payment_requests_create = null;
-
-    // Canonical facade: $client->PaymentRequestsCreate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->payment_requests_create()
-    // resolves here too.
-    public function PaymentRequestsCreate($data = null)
-    {
-        require_once __DIR__ . '/entity/payment_requests_create_entity.php';
-        if ($data === null) {
-            if ($this->_payment_requests_create === null) {
-                $this->_payment_requests_create = new PaymentRequestsCreateEntity($this, null);
-            }
-            return $this->_payment_requests_create;
-        }
-        return new PaymentRequestsCreateEntity($this, $data);
-    }
-
-
     private $_payout = null;
 
     // Canonical facade: $client->Payout()->list() / ->load(["id" => ...]).
@@ -912,24 +876,6 @@ class NofrixionSDK
             return $this->_payout_metric;
         }
         return new PayoutMetricEntity($this, $data);
-    }
-
-
-    private $_payouts_create = null;
-
-    // Canonical facade: $client->PayoutsCreate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->payouts_create()
-    // resolves here too.
-    public function PayoutsCreate($data = null)
-    {
-        require_once __DIR__ . '/entity/payouts_create_entity.php';
-        if ($data === null) {
-            if ($this->_payouts_create === null) {
-                $this->_payouts_create = new PayoutsCreateEntity($this, null);
-            }
-            return $this->_payouts_create;
-        }
-        return new PayoutsCreateEntity($this, $data);
     }
 
 
@@ -987,21 +933,21 @@ class NofrixionSDK
     }
 
 
-    private $_roles_create = null;
+    private $_role = null;
 
-    // Canonical facade: $client->RolesCreate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->roles_create()
+    // Canonical facade: $client->Role()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->role()
     // resolves here too.
-    public function RolesCreate($data = null)
+    public function Role($data = null)
     {
-        require_once __DIR__ . '/entity/roles_create_entity.php';
+        require_once __DIR__ . '/entity/role_entity.php';
         if ($data === null) {
-            if ($this->_roles_create === null) {
-                $this->_roles_create = new RolesCreateEntity($this, null);
+            if ($this->_role === null) {
+                $this->_role = new RoleEntity($this, null);
             }
-            return $this->_roles_create;
+            return $this->_role;
         }
-        return new RolesCreateEntity($this, $data);
+        return new RoleEntity($this, $data);
     }
 
 
@@ -1128,24 +1074,6 @@ class NofrixionSDK
             return $this->_user_invite;
         }
         return new UserInviteEntity($this, $data);
-    }
-
-
-    private $_user_invites_create = null;
-
-    // Canonical facade: $client->UserInvitesCreate()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->user_invites_create()
-    // resolves here too.
-    public function UserInvitesCreate($data = null)
-    {
-        require_once __DIR__ . '/entity/user_invites_create_entity.php';
-        if ($data === null) {
-            if ($this->_user_invites_create === null) {
-                $this->_user_invites_create = new UserInvitesCreateEntity($this, null);
-            }
-            return $this->_user_invites_create;
-        }
-        return new UserInvitesCreateEntity($this, $data);
     }
 
 

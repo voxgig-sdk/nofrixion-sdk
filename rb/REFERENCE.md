@@ -50,10 +50,6 @@ Create a new `Account` entity instance. Pass `nil` for no initial data.
 
 Create a new `Batch` entity instance. Pass `nil` for no initial data.
 
-#### `BeneficiariesCreate(data = nil)`
-
-Create a new `BeneficiariesCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Beneficiary(data = nil)`
 
 Create a new `Beneficiary` entity instance. Pass `nil` for no initial data.
@@ -178,10 +174,6 @@ Create a new `PaymentRequestMinimal` entity instance. Pass `nil` for no initial 
 
 Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial data.
 
-#### `PaymentRequestsCreate(data = nil)`
-
-Create a new `PaymentRequestsCreate` entity instance. Pass `nil` for no initial data.
-
 #### `Payout(data = nil)`
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
@@ -193,10 +185,6 @@ Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
 #### `PayoutMetric(data = nil)`
 
 Create a new `PayoutMetric` entity instance. Pass `nil` for no initial data.
-
-#### `PayoutsCreate(data = nil)`
-
-Create a new `PayoutsCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Payrun(data = nil)`
 
@@ -210,9 +198,9 @@ Create a new `Report` entity instance. Pass `nil` for no initial data.
 
 Create a new `ReportResult` entity instance. Pass `nil` for no initial data.
 
-#### `RolesCreate(data = nil)`
+#### `Role(data = nil)`
 
-Create a new `RolesCreate` entity instance. Pass `nil` for no initial data.
+Create a new `Role` entity instance. Pass `nil` for no initial data.
 
 #### `Rule(data = nil)`
 
@@ -241,10 +229,6 @@ Create a new `User` entity instance. Pass `nil` for no initial data.
 #### `UserInvite(data = nil)`
 
 Create a new `UserInvite` entity instance. Pass `nil` for no initial data.
-
-#### `UserInvitesCreate(data = nil)`
-
-Create a new `UserInvitesCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Virtual(data = nil)`
 
@@ -496,60 +480,6 @@ Return the entity name.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```ruby
-beneficiaries_create = client.BeneficiariesCreate
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `Array` | No |  |
-| `failed_beneficiary` | `Hash` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl = nil) -> result`
-
-Create a new entity with the given data. Raises on error.
-
-```ruby
-result = client.BeneficiariesCreate.create({
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `BeneficiariesCreateEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## BeneficiaryEntity
 
 ```ruby
@@ -565,6 +495,7 @@ beneficiary = client.Beneficiary
 | `authorisation` | `Array` | No |  |
 | `authorisers_completed_count` | `Integer` | No |  |
 | `authorisers_required_count` | `Integer` | No |  |
+| `beneficiary` | `Array` | No |  |
 | `beneficiary_event` | `Array` | No |  |
 | `can_authorise` | `Boolean` | No |  |
 | `can_update` | `Boolean` | No |  |
@@ -572,6 +503,7 @@ beneficiary = client.Beneficiary
 | `created_by_email_address` | `String` | No |  |
 | `currency` | `String` | Yes |  |
 | `destination` | `Hash` | No |  |
+| `failed_beneficiary` | `Hash` | No |  |
 | `has_current_user_authorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
@@ -594,6 +526,7 @@ beneficiary = client.Beneficiary
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -601,6 +534,7 @@ beneficiary = client.Beneficiary
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -2726,6 +2660,7 @@ payment_request = client.PaymentRequest
 | `due_date` | `String` | No |  |
 | `error_description` | `String` | No |  |
 | `event` | `Array` | No |  |
+| `failed_payment_request` | `Hash` | No |  |
 | `failure_callback_url` | `String` | No |  |
 | `field_display_setting` | `Array` | No |  |
 | `formatted_amount` | `String` | No |  |
@@ -2752,6 +2687,7 @@ payment_request = client.PaymentRequest
 | `payment_initiation_id` | `String` | No |  |
 | `payment_method` | `Array` | No |  |
 | `payment_processor` | `String` | No |  |
+| `payment_request` | `Array` | No |  |
 | `payrun_id` | `String` | No |  |
 | `pisp_account_id` | `String` | No |  |
 | `priority_bank_id` | `String` | No |  |
@@ -2774,7 +2710,6 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.PaymentRequest.create({
-  "paymentrequest_id" => "example_paymentrequest_id", # String
 })
 ```
 
@@ -3130,60 +3065,6 @@ Return the entity name.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```ruby
-payment_requests_create = client.PaymentRequestsCreate
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `Hash` | No |  |
-| `payment_request` | `Array` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl = nil) -> result`
-
-Create a new entity with the given data. Raises on error.
-
-```ruby
-result = client.PaymentRequestsCreate.create({
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## PayoutEntity
 
 ```ruby
@@ -3219,6 +3100,7 @@ payout = client.Payout
 | `destination` | `Hash` | No |  |
 | `document` | `Array` | No |  |
 | `event` | `Array` | No |  |
+| `failed_payout` | `Hash` | No |  |
 | `formatted_amount` | `String` | No |  |
 | `formatted_fx_destination_amount` | `String` | No |  |
 | `formatted_schedule` | `String` | No |  |
@@ -3245,6 +3127,7 @@ payout = client.Payout
 | `nonce` | `String` | No |  |
 | `payment_processor` | `String` | No |  |
 | `payment_rail` | `String` | No |  |
+| `payout` | `Array` | No |  |
 | `payrun_id` | `String` | No |  |
 | `payrun_name` | `String` | No |  |
 | `reason` | `String` | No |  |
@@ -3301,6 +3184,7 @@ payout = client.Payout
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3327,6 +3211,7 @@ payout = client.Payout
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3612,60 +3497,6 @@ Return the entity name.
 
 ---
 
-## PayoutsCreateEntity
-
-```ruby
-payouts_create = client.PayoutsCreate
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `Hash` | No |  |
-| `payout` | `Array` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl = nil) -> result`
-
-Create a new entity with the given data. Raises on error.
-
-```ruby
-result = client.PayoutsCreate.create({
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `PayoutsCreateEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
 ## PayrunEntity
 
 ```ruby
@@ -3893,10 +3724,10 @@ Return the entity name.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```ruby
-roles_create = client.RolesCreate
+role = client.Role
 ```
 
 ### Fields
@@ -3913,7 +3744,7 @@ roles_create = client.RolesCreate
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.RolesCreate.create({
+result = client.Role.create({
   "merchant_id" => "example_merchant_id", # String
 })
 ```
@@ -3938,7 +3769,7 @@ Set the entity match criteria.
 
 #### `make -> Entity`
 
-Create a new `RolesCreateEntity` instance with the same client and
+Create a new `RoleEntity` instance with the same client and
 options.
 
 #### `get_name -> String`
@@ -4520,6 +4351,7 @@ user_invite = client.UserInvite
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `Hash` | No |  |
+| `failed_user_invite` | `Hash` | No |  |
 | `id` | `String` | No |  |
 | `initial_role_id` | `String` | No |  |
 | `invitee_email_address` | `String` | No |  |
@@ -4539,12 +4371,14 @@ user_invite = client.UserInvite
 | `status` | `String` | No |  |
 | `user` | `Hash` | Yes |  |
 | `user_id` | `String` | No |  |
+| `user_invite` | `Array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4564,6 +4398,7 @@ user_invite = client.UserInvite
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4632,60 +4467,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `UserInviteEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## UserInvitesCreateEntity
-
-```ruby
-user_invites_create = client.UserInvitesCreate
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `Hash` | No |  |
-| `user_invite` | `Array` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl = nil) -> result`
-
-Create a new entity with the given data. Raises on error.
-
-```ruby
-result = client.UserInvitesCreate.create({
-})
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `get_name -> String`

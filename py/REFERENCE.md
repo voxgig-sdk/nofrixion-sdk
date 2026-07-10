@@ -50,10 +50,6 @@ Create a new `AccountEntity` instance. Pass `None` for no initial data.
 
 Create a new `BatchEntity` instance. Pass `None` for no initial data.
 
-#### `BeneficiariesCreate(data=None)`
-
-Create a new `BeneficiariesCreateEntity` instance. Pass `None` for no initial data.
-
 #### `Beneficiary(data=None)`
 
 Create a new `BeneficiaryEntity` instance. Pass `None` for no initial data.
@@ -178,10 +174,6 @@ Create a new `PaymentRequestMinimalEntity` instance. Pass `None` for no initial 
 
 Create a new `PaymentRequestResultEntity` instance. Pass `None` for no initial data.
 
-#### `PaymentRequestsCreate(data=None)`
-
-Create a new `PaymentRequestsCreateEntity` instance. Pass `None` for no initial data.
-
 #### `Payout(data=None)`
 
 Create a new `PayoutEntity` instance. Pass `None` for no initial data.
@@ -193,10 +185,6 @@ Create a new `PayoutKeysetEntity` instance. Pass `None` for no initial data.
 #### `PayoutMetric(data=None)`
 
 Create a new `PayoutMetricEntity` instance. Pass `None` for no initial data.
-
-#### `PayoutsCreate(data=None)`
-
-Create a new `PayoutsCreateEntity` instance. Pass `None` for no initial data.
 
 #### `Payrun(data=None)`
 
@@ -210,9 +198,9 @@ Create a new `ReportEntity` instance. Pass `None` for no initial data.
 
 Create a new `ReportResultEntity` instance. Pass `None` for no initial data.
 
-#### `RolesCreate(data=None)`
+#### `Role(data=None)`
 
-Create a new `RolesCreateEntity` instance. Pass `None` for no initial data.
+Create a new `RoleEntity` instance. Pass `None` for no initial data.
 
 #### `Rule(data=None)`
 
@@ -241,10 +229,6 @@ Create a new `UserEntity` instance. Pass `None` for no initial data.
 #### `UserInvite(data=None)`
 
 Create a new `UserInviteEntity` instance. Pass `None` for no initial data.
-
-#### `UserInvitesCreate(data=None)`
-
-Create a new `UserInvitesCreateEntity` instance. Pass `None` for no initial data.
 
 #### `Virtual(data=None)`
 
@@ -490,59 +474,6 @@ Return the entity name.
 
 ---
 
-## BeneficiariesCreateEntity
-
-```python
-beneficiaries_create = client.BeneficiariesCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `list` | No |  |
-| `failed_beneficiary` | `dict` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl=None) -> dict`
-
-Create a new entity with the given data. Returns the created entity data and raises on error.
-
-```python
-result = client.BeneficiariesCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `BeneficiariesCreateEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## BeneficiaryEntity
 
 ```python
@@ -558,6 +489,7 @@ beneficiary = client.Beneficiary()
 | `authorisation` | `list` | No |  |
 | `authorisers_completed_count` | `int` | No |  |
 | `authorisers_required_count` | `int` | No |  |
+| `beneficiary` | `list` | No |  |
 | `beneficiary_event` | `list` | No |  |
 | `can_authorise` | `bool` | No |  |
 | `can_update` | `bool` | No |  |
@@ -565,6 +497,7 @@ beneficiary = client.Beneficiary()
 | `created_by_email_address` | `str` | No |  |
 | `currency` | `str` | Yes |  |
 | `destination` | `dict` | No |  |
+| `failed_beneficiary` | `dict` | No |  |
 | `has_current_user_authorised` | `bool` | No |  |
 | `id` | `str` | No |  |
 | `inserted` | `str` | No |  |
@@ -587,6 +520,7 @@ beneficiary = client.Beneficiary()
 | `authorisation` | - | - | - | - | - |
 | `authorisers_completed_count` | - | - | - | - | - |
 | `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
 | `beneficiary_event` | - | - | - | - | - |
 | `can_authorise` | - | - | - | - | - |
 | `can_update` | - | - | - | - | - |
@@ -594,6 +528,7 @@ beneficiary = client.Beneficiary()
 | `created_by_email_address` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
+| `failed_beneficiary` | - | - | - | - | - |
 | `has_current_user_authorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
@@ -2721,6 +2656,7 @@ payment_request = client.PaymentRequest()
 | `due_date` | `str` | No |  |
 | `error_description` | `str` | No |  |
 | `event` | `list` | No |  |
+| `failed_payment_request` | `dict` | No |  |
 | `failure_callback_url` | `str` | No |  |
 | `field_display_setting` | `list` | No |  |
 | `formatted_amount` | `str` | No |  |
@@ -2747,6 +2683,7 @@ payment_request = client.PaymentRequest()
 | `payment_initiation_id` | `str` | No |  |
 | `payment_method` | `list` | No |  |
 | `payment_processor` | `str` | No |  |
+| `payment_request` | `list` | No |  |
 | `payrun_id` | `str` | No |  |
 | `pisp_account_id` | `str` | No |  |
 | `priority_bank_id` | `str` | No |  |
@@ -2769,7 +2706,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.PaymentRequest().create({
-    "paymentrequest_id": "example_paymentrequest_id",  # str
 })
 ```
 
@@ -3128,59 +3064,6 @@ Return the entity name.
 
 ---
 
-## PaymentRequestsCreateEntity
-
-```python
-payment_requests_create = client.PaymentRequestsCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `dict` | No |  |
-| `payment_request` | `list` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl=None) -> dict`
-
-Create a new entity with the given data. Returns the created entity data and raises on error.
-
-```python
-result = client.PaymentRequestsCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PaymentRequestsCreateEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## PayoutEntity
 
 ```python
@@ -3216,6 +3099,7 @@ payout = client.Payout()
 | `destination` | `dict` | No |  |
 | `document` | `list` | No |  |
 | `event` | `list` | No |  |
+| `failed_payout` | `dict` | No |  |
 | `formatted_amount` | `str` | No |  |
 | `formatted_fx_destination_amount` | `str` | No |  |
 | `formatted_schedule` | `str` | No |  |
@@ -3242,6 +3126,7 @@ payout = client.Payout()
 | `nonce` | `str` | No |  |
 | `payment_processor` | `str` | No |  |
 | `payment_rail` | `str` | No |  |
+| `payout` | `list` | No |  |
 | `payrun_id` | `str` | No |  |
 | `payrun_name` | `str` | No |  |
 | `reason` | `str` | No |  |
@@ -3298,6 +3183,7 @@ payout = client.Payout()
 | `destination` | - | - | - | - | - |
 | `document` | - | - | - | - | - |
 | `event` | - | - | - | - | - |
+| `failed_payout` | - | - | - | - | - |
 | `formatted_amount` | - | - | - | - | - |
 | `formatted_fx_destination_amount` | - | - | - | - | - |
 | `formatted_schedule` | - | - | - | - | - |
@@ -3324,6 +3210,7 @@ payout = client.Payout()
 | `nonce` | - | - | - | - | - |
 | `payment_processor` | - | - | - | - | - |
 | `payment_rail` | - | - | - | - | - |
+| `payout` | - | - | - | - | - |
 | `payrun_id` | - | - | - | - | - |
 | `payrun_name` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
@@ -3610,59 +3497,6 @@ Return the entity name.
 
 ---
 
-## PayoutsCreateEntity
-
-```python
-payouts_create = client.PayoutsCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `dict` | No |  |
-| `payout` | `list` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl=None) -> dict`
-
-Create a new entity with the given data. Returns the created entity data and raises on error.
-
-```python
-result = client.PayoutsCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `PayoutsCreateEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## PayrunEntity
 
 ```python
@@ -3889,10 +3723,10 @@ Return the entity name.
 
 ---
 
-## RolesCreateEntity
+## RoleEntity
 
 ```python
-roles_create = client.RolesCreate()
+role = client.Role()
 ```
 
 ### Fields
@@ -3909,7 +3743,7 @@ roles_create = client.RolesCreate()
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.RolesCreate().create({
+result = client.Role().create({
     "merchant_id": "example_merchant_id",  # str
 })
 ```
@@ -3934,7 +3768,7 @@ Set the entity match criteria.
 
 #### `make() -> Entity`
 
-Create a new `RolesCreateEntity` instance with the same options.
+Create a new `RoleEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -4519,6 +4353,7 @@ user_invite = client.UserInvite()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `authorisation_status` | `dict` | No |  |
+| `failed_user_invite` | `dict` | No |  |
 | `id` | `str` | No |  |
 | `initial_role_id` | `str` | No |  |
 | `invitee_email_address` | `str` | No |  |
@@ -4538,12 +4373,14 @@ user_invite = client.UserInvite()
 | `status` | `str` | No |  |
 | `user` | `dict` | Yes |  |
 | `user_id` | `str` | No |  |
+| `user_invite` | `list` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `authorisation_status` | - | - | - | - | - |
+| `failed_user_invite` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `initial_role_id` | - | - | - | - | - |
 | `invitee_email_address` | - | - | Yes | - | - |
@@ -4563,6 +4400,7 @@ user_invite = client.UserInvite()
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
 | `user_id` | - | - | - | - | - |
+| `user_invite` | - | - | - | - | - |
 
 ### Operations
 
@@ -4633,59 +4471,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `UserInviteEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## UserInvitesCreateEntity
-
-```python
-user_invites_create = client.UserInvitesCreate()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `dict` | No |  |
-| `user_invite` | `list` | No |  |
-
-### Operations
-
-#### `create(reqdata, ctrl=None) -> dict`
-
-Create a new entity with the given data. Returns the created entity data and raises on error.
-
-```python
-result = client.UserInvitesCreate().create({
-})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `UserInvitesCreateEntity` instance with the same options.
 
 #### `get_name() -> str`
 

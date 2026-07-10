@@ -11,6 +11,11 @@ main: kit: entity: user_invite: {
       type: "`$OBJECT`"
     }
     {
+      name: "failed_user_invite"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
       name: "id"
       req: false
       type: "`$STRING`"
@@ -111,6 +116,11 @@ main: kit: entity: user_invite: {
       req: false
       type: "`$STRING`"
     }
+    {
+      name: "user_invite"
+      req: false
+      type: "`$ARRAY`"
+    }
   ]
 
   id: {
@@ -161,6 +171,20 @@ main: kit: entity: user_invite: {
             "api"
             "v1"
             "userinvites"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/api/v1/userinvites/batchcreate"
+          parts: [
+            "api"
+            "v1"
+            "userinvites"
+            "batchcreate"
           ]
           transform: {
             req: "`reqdata`"

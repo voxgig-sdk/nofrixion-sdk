@@ -43,7 +43,6 @@ class TestPaymentRequestEntity:
         payment_request_ref01_ent = client.PaymentRequest(None)
         payment_request_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.payment_request"), "payment_request_ref01"))
-        payment_request_ref01_data["paymentrequest_id"] = setup["idmap"]["paymentrequest01"]
 
         payment_request_ref01_data = helpers.to_map(payment_request_ref01_ent.create(payment_request_ref01_data, None))
         assert payment_request_ref01_data is not None

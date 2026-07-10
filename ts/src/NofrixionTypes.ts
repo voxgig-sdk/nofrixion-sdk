@@ -103,22 +103,13 @@ export interface BatchCreateData {
   payout?: any[]
 }
 
-export interface BeneficiariesCreate {
-  beneficiary?: any[]
-  failed_beneficiary?: Record<string, any>
-}
-
-export interface BeneficiariesCreateCreateData {
-  beneficiary?: any[]
-  failed_beneficiary?: Record<string, any>
-}
-
 export interface Beneficiary {
   approval_callback_url?: string
   authentication_method?: any[]
   authorisation?: any[]
   authorisers_completed_count?: number
   authorisers_required_count?: number
+  beneficiary?: any[]
   beneficiary_event?: any[]
   can_authorise?: boolean
   can_update?: boolean
@@ -126,6 +117,7 @@ export interface Beneficiary {
   created_by_email_address?: string
   currency: string
   destination?: Record<string, any>
+  failed_beneficiary?: Record<string, any>
   has_current_user_authorised?: boolean
   id?: string
   inserted?: string
@@ -1044,6 +1036,7 @@ export interface PaymentRequest {
   due_date?: string
   error_description?: string
   event?: any[]
+  failed_payment_request?: Record<string, any>
   failure_callback_url?: string
   field_display_setting?: any[]
   formatted_amount?: string
@@ -1070,6 +1063,7 @@ export interface PaymentRequest {
   payment_initiation_id?: string
   payment_method?: any[]
   payment_processor?: string
+  payment_request?: any[]
   payrun_id?: string
   pisp_account_id?: string
   priority_bank_id?: string
@@ -1118,6 +1112,7 @@ export interface PaymentRequestListMatch {
   due_date?: string
   error_description?: string
   event?: any[]
+  failed_payment_request?: Record<string, any>
   failure_callback_url?: string
   field_display_setting?: any[]
   formatted_amount?: string
@@ -1144,6 +1139,7 @@ export interface PaymentRequestListMatch {
   payment_initiation_id?: string
   payment_method?: any[]
   payment_processor?: string
+  payment_request?: any[]
   payrun_id?: string
   pisp_account_id?: string
   priority_bank_id?: string
@@ -1160,7 +1156,7 @@ export interface PaymentRequestListMatch {
 }
 
 export interface PaymentRequestCreateData {
-  paymentrequest_id: string
+  paymentrequest_id?: string
 }
 
 export interface PaymentRequestUpdateData {
@@ -1287,16 +1283,6 @@ export interface PaymentRequestResultListMatch {
   paymentrequest_id: string
 }
 
-export interface PaymentRequestsCreate {
-  failed_payment_request?: Record<string, any>
-  payment_request?: any[]
-}
-
-export interface PaymentRequestsCreateCreateData {
-  failed_payment_request?: Record<string, any>
-  payment_request?: any[]
-}
-
 export interface Payout {
   account_id?: string
   allow_incomplete?: boolean
@@ -1323,6 +1309,7 @@ export interface Payout {
   destination?: Record<string, any>
   document?: any[]
   event?: any[]
+  failed_payout?: Record<string, any>
   formatted_amount?: string
   formatted_fx_destination_amount?: string
   formatted_schedule?: string
@@ -1349,6 +1336,7 @@ export interface Payout {
   nonce?: string
   payment_processor?: string
   payment_rail?: string
+  payout?: any[]
   payrun_id?: string
   payrun_name?: string
   reason?: string
@@ -1502,16 +1490,6 @@ export interface PayoutMetricLoadMatch {
   total_amounts_by_currency?: Record<string, any>
 }
 
-export interface PayoutsCreate {
-  failed_payout?: Record<string, any>
-  payout?: any[]
-}
-
-export interface PayoutsCreateCreateData {
-  failed_payout?: Record<string, any>
-  payout?: any[]
-}
-
 export interface Payrun {
   authorisation?: any[]
   authorisation_date?: string
@@ -1620,12 +1598,12 @@ export interface ReportResultLoadMatch {
   report_id: string
 }
 
-export interface RolesCreate {
+export interface Role {
   failed_role?: Record<string, any>
   role?: any[]
 }
 
-export interface RolesCreateCreateData {
+export interface RoleCreateData {
   merchant_id: string
 }
 
@@ -1893,6 +1871,7 @@ export interface UserUpdateData {
 
 export interface UserInvite {
   authorisation_status?: Record<string, any>
+  failed_user_invite?: Record<string, any>
   id?: string
   initial_role_id?: string
   invitee_email_address?: string
@@ -1912,6 +1891,7 @@ export interface UserInvite {
   status?: string
   user: Record<string, any>
   user_id?: string
+  user_invite?: any[]
 }
 
 export interface UserInviteLoadMatch {
@@ -1933,16 +1913,6 @@ export interface UserInviteUpdateData {
 
 export interface UserInviteRemoveMatch {
   id: string
-}
-
-export interface UserInvitesCreate {
-  failed_user_invite?: Record<string, any>
-  user_invite?: any[]
-}
-
-export interface UserInvitesCreateCreateData {
-  failed_user_invite?: Record<string, any>
-  user_invite?: any[]
 }
 
 export interface Virtual {

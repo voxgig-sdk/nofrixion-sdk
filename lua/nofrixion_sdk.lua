@@ -272,20 +272,6 @@ function NofrixionSDK:Batch(data)
 end
 
 
--- Idiomatic facade: client:BeneficiariesCreate():list() / client:BeneficiariesCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:BeneficiariesCreate(data)
-  local EntityMod = require("entity.beneficiaries_create_entity")
-  if data == nil then
-    if self._beneficiaries_create == nil then
-      self._beneficiaries_create = EntityMod.new(self, nil)
-    end
-    return self._beneficiaries_create
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Beneficiary():list() / client:Beneficiary():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Beneficiary(data)
@@ -720,20 +706,6 @@ function NofrixionSDK:PaymentRequestResult(data)
 end
 
 
--- Idiomatic facade: client:PaymentRequestsCreate():list() / client:PaymentRequestsCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:PaymentRequestsCreate(data)
-  local EntityMod = require("entity.payment_requests_create_entity")
-  if data == nil then
-    if self._payment_requests_create == nil then
-      self._payment_requests_create = EntityMod.new(self, nil)
-    end
-    return self._payment_requests_create
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Payout():list() / client:Payout():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Payout(data)
@@ -771,20 +743,6 @@ function NofrixionSDK:PayoutMetric(data)
       self._payout_metric = EntityMod.new(self, nil)
     end
     return self._payout_metric
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:PayoutsCreate():list() / client:PayoutsCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:PayoutsCreate(data)
-  local EntityMod = require("entity.payouts_create_entity")
-  if data == nil then
-    if self._payouts_create == nil then
-      self._payouts_create = EntityMod.new(self, nil)
-    end
-    return self._payouts_create
   end
   return EntityMod.new(self, data)
 end
@@ -832,15 +790,15 @@ function NofrixionSDK:ReportResult(data)
 end
 
 
--- Idiomatic facade: client:RolesCreate():list() / client:RolesCreate():load({ id = ... })
+-- Idiomatic facade: client:Role():list() / client:Role():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:RolesCreate(data)
-  local EntityMod = require("entity.roles_create_entity")
+function NofrixionSDK:Role(data)
+  local EntityMod = require("entity.role_entity")
   if data == nil then
-    if self._roles_create == nil then
-      self._roles_create = EntityMod.new(self, nil)
+    if self._role == nil then
+      self._role = EntityMod.new(self, nil)
     end
-    return self._roles_create
+    return self._role
   end
   return EntityMod.new(self, data)
 end
@@ -939,20 +897,6 @@ function NofrixionSDK:UserInvite(data)
       self._user_invite = EntityMod.new(self, nil)
     end
     return self._user_invite
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:UserInvitesCreate():list() / client:UserInvitesCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:UserInvitesCreate(data)
-  local EntityMod = require("entity.user_invites_create_entity")
-  if data == nil then
-    if self._user_invites_create == nil then
-      self._user_invites_create = EntityMod.new(self, nil)
-    end
-    return self._user_invites_create
   end
   return EntityMod.new(self, data)
 end

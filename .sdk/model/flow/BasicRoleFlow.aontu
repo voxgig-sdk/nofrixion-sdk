@@ -1,0 +1,22 @@
+# BasicRoleFlow
+
+main: kit: flow: BasicRoleFlow:
+{
+  entity: "role",
+  kind: "basic",
+  name: "BasicRoleFlow",
+  step: [
+    {
+      input: {
+        ref: "role_ref01"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicRoleFlow"
+}

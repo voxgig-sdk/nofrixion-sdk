@@ -42,7 +42,6 @@ class PaymentRequestEntityTest extends TestCase
         $payment_request_ref01_ent = $client->PaymentRequest(null);
         $payment_request_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.payment_request"), "payment_request_ref01"));
-        $payment_request_ref01_data["paymentrequest_id"] = $setup["idmap"]["paymentrequest01"];
 
         $payment_request_ref01_data_result = $payment_request_ref01_ent->create($payment_request_ref01_data, null);
         $payment_request_ref01_data = Helpers::to_map($payment_request_ref01_data_result);
