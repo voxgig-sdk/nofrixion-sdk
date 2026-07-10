@@ -1,0 +1,2808 @@
+-- Typed models for the Nofrixion SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+-- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class Account
+---@field account_id? string
+---@field account_name? string
+---@field account_supplier_name? string
+---@field account_type? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field created_by table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field format? string
+---@field from_date? string
+---@field id? string
+---@field identifier table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field physical_account_id? string
+---@field role_i_d? table
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_physical_account_id? string
+---@field supplier_sepa_instant_status? string
+---@field to_date? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
+
+---@class AccountLoadMatch
+---@field account_id? string
+---@field id string
+---@field merchant_id? string
+
+---@class AccountListMatch
+---@field merchant_id? string
+
+---@class AccountCreateData
+---@field account_id? string
+---@field currency? string
+
+---@class AccountUpdateData
+---@field account_id? string
+---@field amount? number
+---@field id? string
+
+---@class AccountRemoveMatch
+---@field id string
+
+---@class Beneficiary
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by table
+---@field created_by_email_address? string
+---@field currency string
+---@field destination? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field nonce? string
+---@field source_account? table
+---@field source_account_i_d? table
+---@field their_reference? string
+
+---@class BeneficiaryLoadMatch
+---@field id string
+---@field merchant_id? string
+
+---@class BeneficiaryCreateData
+---@field id? string
+
+---@class BeneficiaryUpdateData
+---@field id string
+
+---@class BeneficiaryRemoveMatch
+---@field id string
+
+---@class Cancel
+---@field account_id? string
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class CancelUpdateData
+---@field id string
+
+---@class Disable
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by table
+---@field created_by_email_address? string
+---@field currency string
+---@field destination? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field nonce? string
+---@field source_account? table
+---@field their_reference? string
+
+---@class DisableUpdateData
+---@field id string
+
+---@class Enable
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by table
+---@field created_by_email_address? string
+---@field currency string
+---@field destination? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field nonce? string
+---@field source_account? table
+---@field their_reference? string
+
+---@class EnableUpdateData
+---@field id string
+
+---@class Merchant
+---@field reason? string
+
+---@class MerchantLoadMatch
+---@field merchant_id string
+
+---@class MerchantUpdateData
+---@field id string
+
+---@class MerchantRemoveMatch
+---@field id? string
+---@field user_id? string
+---@field merchant_id? string
+---@field tag_id? string
+
+---@class Metadata
+
+---@class MetadataLoadMatch
+
+---@class NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage
+---@field approved_at? string
+---@field currency? string
+---@field customer_account_number? string
+---@field customer_city? string
+---@field customer_country_code? string
+---@field customer_country_name? string
+---@field customer_email_address? string
+---@field customer_first_name? string
+---@field customer_iban? string
+---@field customer_last_name? string
+---@field customer_sort_code? string
+---@field id? string
+---@field inserted? string
+---@field is_recurring? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field reference? string
+---@field status? string
+---@field supplier_bank_account_id? string
+---@field supplier_customer_id? string
+---@field supplier_mandate_id? string
+---@field supplier_name? string
+---@field supplier_status? string
+
+---@class NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageListMatch
+---@field approved_at? string
+---@field currency? string
+---@field customer_account_number? string
+---@field customer_city? string
+---@field customer_country_code? string
+---@field customer_country_name? string
+---@field customer_email_address? string
+---@field customer_first_name? string
+---@field customer_iban? string
+---@field customer_last_name? string
+---@field customer_sort_code? string
+---@field id? string
+---@field inserted? string
+---@field is_recurring? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field reference? string
+---@field status? string
+---@field supplier_bank_account_id? string
+---@field supplier_customer_id? string
+---@field supplier_mandate_id? string
+---@field supplier_name? string
+---@field supplier_status? string
+
+---@class NoFrixionBizBizModelsPagingPaymentRequestPage
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field created_by_user table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field due_date? string
+---@field event? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_method? table
+---@field payment_processor? string
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
+
+---@class NoFrixionBizBizModelsPagingPaymentRequestPageListMatch
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field created_by_user? table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field due_date? string
+---@field event? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_method? table
+---@field payment_processor? string
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
+
+---@class NoFrixionBizBizModelsPagingPayoutPage
+---@field account_id? string
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class NoFrixionBizBizModelsPagingPayoutPageListMatch
+---@field account_id? string
+---@field merchant_id? string
+
+---@class NoFrixionBizBizModelsPagingPayrunPage
+---@field authorisation? table
+---@field authorisation_date? string
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field can_authorise? boolean
+---@field can_delete? boolean
+---@field can_edit? boolean
+---@field event? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice? table
+---@field invoices_minimal? table
+---@field is_archived? boolean
+---@field last_updated? string
+---@field last_updated_by table
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field payment? table
+---@field payout? table
+---@field payouts_count? number
+---@field schedule_date? string
+---@field source_account? table
+---@field status? string
+---@field total_eur? number
+---@field total_gbp? number
+---@field total_usd? number
+
+---@class NoFrixionBizBizModelsPagingPayrunPageListMatch
+---@field authorisation? table
+---@field authorisation_date? string
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field can_authorise? boolean
+---@field can_delete? boolean
+---@field can_edit? boolean
+---@field event? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice? table
+---@field invoices_minimal? table
+---@field is_archived? boolean
+---@field last_updated? string
+---@field last_updated_by? table
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field payment? table
+---@field payout? table
+---@field payouts_count? number
+---@field schedule_date? string
+---@field source_account? table
+---@field status? string
+---@field total_eur? number
+---@field total_gbp? number
+---@field total_usd? number
+
+---@class NoFrixionBizBizModelsPagingRuleEventsPage
+---@field error_message? string
+---@field id? string
+---@field inserted? string
+---@field is_authorise_to_enable? boolean
+---@field message? string
+---@field raw_response? string
+---@field rule_event_type? string
+---@field rule_id? string
+---@field user table
+
+---@class NoFrixionBizBizModelsPagingRuleEventsPageListMatch
+---@field rule_id string
+
+---@class NoFrixionBizBizModelsPagingRulesPage
+---@field account? table
+---@field account_id? string
+---@field approve_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field created_by table
+---@field description? string
+---@field end_at? string
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_disabled? boolean
+---@field last_executed_at? string
+---@field last_run_at_transaction_date? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce string
+---@field on_approved_web_hook_url? string
+---@field on_execution_error_web_hook_url? string
+---@field on_execution_success_web_hook_url? string
+---@field start_at? string
+---@field status? string
+---@field sweep_action? table
+---@field time_zone_id? string
+---@field trigger_cron_expression? string
+---@field trigger_on_pay_in? boolean
+---@field user_id? string
+---@field web_hook_secret? string
+
+---@class NoFrixionBizBizModelsPagingRulesPageListMatch
+---@field account? table
+---@field account_id? string
+---@field approve_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field created_by? table
+---@field description? string
+---@field end_at? string
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_disabled? boolean
+---@field last_executed_at? string
+---@field last_run_at_transaction_date? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field on_approved_web_hook_url? string
+---@field on_execution_error_web_hook_url? string
+---@field on_execution_success_web_hook_url? string
+---@field start_at? string
+---@field status? string
+---@field sweep_action? table
+---@field time_zone_id? string
+---@field trigger_cron_expression? string
+---@field trigger_on_pay_in? boolean
+---@field user_id? string
+---@field web_hook_secret? string
+
+---@class NoFrixionBizBizModelsPaymentsCardPayment
+---@field authorized_amount? string
+---@field currency_code? string
+---@field is_payer_authentication_required? boolean
+---@field is_soft_decline? boolean
+---@field payer_authentication_access_token? string
+---@field payer_authentication_merchant_data? string
+---@field payer_authentication_url? string
+---@field payer_authentication_window_height? number
+---@field payer_authentication_window_width? number
+---@field payment_request_callback_url? string
+---@field payment_request_id? string
+---@field request_id? string
+---@field response_code? string
+---@field response_type? string
+---@field status? string
+---@field three_ds_redirect_url? string
+---@field transaction_id? string
+
+---@class NoFrixionBizBizModelsPaymentsCardPaymentCreateData
+---@field partial_refund_amount? number
+---@field paymentrequest_id string
+
+---@class NoFrixionBizBizModelsPaymentsCardPublicKey
+---@field jwt? string
+
+---@class NoFrixionBizBizModelsPaymentsCardPublicKeyLoadMatch
+---@field paymentrequest_id string
+
+---@class NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries
+---@field beneficiary? table
+---@field failed_beneficiary? table
+
+---@class NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesCreateData
+---@field beneficiary? table
+---@field failed_beneficiary? table
+
+---@class NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment
+---@field failed_payment_request? table
+---@field payment_request? table
+
+---@class NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentCreateData
+---@field failed_payment_request? table
+---@field payment_request? table
+
+---@class NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate
+---@field failed_role? table
+---@field role? table
+
+---@class NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateCreateData
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovApiFeaturesUserInvitesCreate
+---@field failed_user_invite? table
+---@field user_invite? table
+
+---@class NoFrixionMoneyMoovApiFeaturesUserInvitesCreateCreateData
+---@field failed_user_invite? table
+---@field user_invite? table
+
+---@class NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant
+---@field amount_lower? number
+---@field amount_upper? number
+---@field authorisation_type? string
+---@field beneficiaries_only? boolean
+---@field id? string
+---@field inserted? string
+---@field last_editor_cant_authorise? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field number_of_authoriser? number
+---@field role_setting? table
+
+---@class NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsBatchPayout
+---@field approve_url? string
+---@field id? string
+---@field payout? table
+
+---@class NoFrixionMoneyMoovModelsBatchPayoutLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsBatchPayoutCreateData
+---@field approve_url? string
+---@field id? string
+---@field payout? table
+
+---@class NoFrixionMoneyMoovModelsBeneficiaryGroupPage
+---@field group_member? table
+---@field group_name string
+---@field id? string
+---@field inserted? string
+---@field last_updated? string
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsBeneficiaryGroupPageListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsBeneficiaryPage
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by table
+---@field created_by_email_address? string
+---@field currency string
+---@field destination? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field nonce? string
+---@field source_account? table
+---@field their_reference? string
+
+---@class NoFrixionMoneyMoovModelsBeneficiaryPageListMatch
+---@field merchant_id? string
+
+---@class NoFrixionMoneyMoovModelsCardCustomerToken
+---@field card_type? string
+---@field customer_email_address? string
+---@field expiry_month? string
+---@field expiry_year? string
+---@field id? string
+---@field inserted? string
+---@field last_four_digit? string
+---@field last_updated? string
+---@field masked_card_number? string
+---@field merchant_id? string
+---@field payment_request_id? string
+
+---@class NoFrixionMoneyMoovModelsCardCustomerTokenLoadMatch
+---@field customer_email_address string
+
+---@class NoFrixionMoneyMoovModelsCardCustomerTokenListMatch
+---@field customer_email_address string
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsCardCustomerTokenRemoveMatch
+---@field customer_email_address? string
+---@field merchant_id? string
+---@field id? string
+
+---@class NoFrixionMoneyMoovModelsCurrencyCurrencyInfo
+---@field code? string
+---@field decimal? number
+---@field is_fiat? boolean
+---@field iso4217_alpha_code? string
+---@field iso4217_numeric_code? string
+---@field symbol? string
+
+---@class NoFrixionMoneyMoovModelsCurrencyCurrencyInfoListMatch
+---@field code? string
+---@field decimal? number
+---@field is_fiat? boolean
+---@field iso4217_alpha_code? string
+---@field iso4217_numeric_code? string
+---@field symbol? string
+
+---@class NoFrixionMoneyMoovModelsDirectDebitBatchSubmit
+---@field failed_submission? table
+---@field successful_submission? table
+
+---@class NoFrixionMoneyMoovModelsDirectDebitBatchSubmitCreateData
+---@field failed_submission? table
+---@field successful_submission? table
+
+---@class NoFrixionMoneyMoovModelsFxRate
+---@field destination_currency? string
+---@field exchange_rate? number
+---@field expiry_time? string
+---@field quote_id? string
+---@field source_currency? string
+
+---@class NoFrixionMoneyMoovModelsFxRateLoadMatch
+---@field destination string
+---@field source string
+---@field valid_for_minute number
+
+---@class NoFrixionMoneyMoovModelsFxRateListMatch
+---@field destination string
+---@field source string
+
+---@class NoFrixionMoneyMoovModelsIPayment
+---@field payment_request_id? string
+---@field response_type? string
+
+---@class NoFrixionMoneyMoovModelsIPaymentCreateData
+---@field payment_request_id? string
+---@field response_type? string
+
+---@class NoFrixionMoneyMoovModelsMandatesMandate
+---@field account_number? string
+---@field address_line1 string
+---@field address_line2? string
+---@field approved_at? string
+---@field city string
+---@field country_code string
+---@field currency? string
+---@field customer_account_number? string
+---@field customer_city? string
+---@field customer_country_code? string
+---@field customer_country_name? string
+---@field customer_email_address? string
+---@field customer_first_name? string
+---@field customer_iban? string
+---@field customer_last_name? string
+---@field customer_sort_code? string
+---@field email_address string
+---@field first_name string
+---@field iban? string
+---@field id? string
+---@field inserted? string
+---@field is_recurring? boolean
+---@field last_name string
+---@field last_updated? string
+---@field merchant_id? string
+---@field postal_code string
+---@field reference? string
+---@field sort_code? string
+---@field status? string
+---@field supplier_bank_account_id? string
+---@field supplier_customer_id? string
+---@field supplier_mandate_id? string
+---@field supplier_name? string
+---@field supplier_status? string
+
+---@class NoFrixionMoneyMoovModelsMandatesMandateLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsMandatesMandateCreateData
+---@field account_number? string
+---@field address_line1 string
+---@field address_line2? string
+---@field approved_at? string
+---@field city string
+---@field country_code string
+---@field currency? string
+---@field customer_account_number? string
+---@field customer_city? string
+---@field customer_country_code? string
+---@field customer_country_name? string
+---@field customer_email_address? string
+---@field customer_first_name? string
+---@field customer_iban? string
+---@field customer_last_name? string
+---@field customer_sort_code? string
+---@field email_address string
+---@field first_name string
+---@field iban? string
+---@field id? string
+---@field inserted? string
+---@field is_recurring? boolean
+---@field last_name string
+---@field last_updated? string
+---@field merchant_id? string
+---@field postal_code string
+---@field reference? string
+---@field sort_code? string
+---@field status? string
+---@field supplier_bank_account_id? string
+---@field supplier_customer_id? string
+---@field supplier_mandate_id? string
+---@field supplier_name? string
+---@field supplier_status? string
+
+---@class NoFrixionMoneyMoovModelsMerchant
+---@field account_currency? table
+---@field can_have_trust_account? boolean
+---@field card_payment_processor? string
+---@field company_id? string
+---@field display_qr_on_hosted_pay? boolean
+---@field hosted_pay_version? number
+---@field id? string
+---@field inserted? string
+---@field is_blocked? boolean
+---@field is_exited? boolean
+---@field is_suspended? boolean
+---@field jurisdiction? string
+---@field logo_url_png? string
+---@field logo_url_svg? string
+---@field merchant_category_code? string
+---@field name? string
+---@field note? string
+---@field parent_merchant? table
+---@field payment_account? table
+---@field payment_account_limit? number
+---@field short_name? string
+---@field supported_payment_methods_list? table
+---@field suspension_reason? string
+---@field tag? table
+---@field time_zone_id? string
+---@field trading_name? string
+---@field web_hook_limit? number
+---@field your_role_name? string
+
+---@class NoFrixionMoneyMoovModelsMerchantLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsMerchantListMatch
+---@field account_currency? table
+---@field can_have_trust_account? boolean
+---@field card_payment_processor? string
+---@field company_id? string
+---@field display_qr_on_hosted_pay? boolean
+---@field hosted_pay_version? number
+---@field id? string
+---@field inserted? string
+---@field is_blocked? boolean
+---@field is_exited? boolean
+---@field is_suspended? boolean
+---@field jurisdiction? string
+---@field logo_url_png? string
+---@field logo_url_svg? string
+---@field merchant_category_code? string
+---@field name? string
+---@field note? string
+---@field parent_merchant? table
+---@field payment_account? table
+---@field payment_account_limit? number
+---@field short_name? string
+---@field supported_payment_methods_list? table
+---@field suspension_reason? string
+---@field tag? table
+---@field time_zone_id? string
+---@field trading_name? string
+---@field web_hook_limit? number
+---@field your_role_name? string
+
+---@class NoFrixionMoneyMoovModelsMerchantUpdateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsMerchantPage
+---@field account_currency? table
+---@field can_have_trust_account? boolean
+---@field card_payment_processor? string
+---@field company_id? string
+---@field display_qr_on_hosted_pay? boolean
+---@field hosted_pay_version? number
+---@field id? string
+---@field inserted? string
+---@field is_blocked? boolean
+---@field is_exited? boolean
+---@field is_suspended? boolean
+---@field jurisdiction? string
+---@field logo_url_png? string
+---@field logo_url_svg? string
+---@field merchant_category_code? string
+---@field name? string
+---@field note? string
+---@field parent_merchant? table
+---@field payment_account? table
+---@field payment_account_limit? number
+---@field short_name? string
+---@field supported_payment_methods_list? table
+---@field suspension_reason? string
+---@field tag? table
+---@field time_zone_id? string
+---@field trading_name? string
+---@field web_hook_limit? number
+---@field your_role_name? string
+
+---@class NoFrixionMoneyMoovModelsMerchantPageListMatch
+---@field merchant_id? string
+
+---@class NoFrixionMoneyMoovModelsMerchantPayByBankSetting
+---@field bank_country_code? table
+---@field bank_id? string
+---@field bank_name? string
+---@field business_institution_id? string
+---@field currency? string
+---@field logo? string
+---@field message? string
+---@field message_image_url? string
+---@field order? number
+---@field personal_institution_id? string
+---@field processor? string
+---@field warning_heading? string
+---@field warning_message? string
+
+---@class NoFrixionMoneyMoovModelsMerchantPayByBankSettingListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsMerchantToken
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field description? string
+---@field expires_at? string
+---@field has_current_user_authorised? boolean
+---@field hmac_algorithm? string
+---@field id? string
+---@field inserted? string
+---@field ip_address_whitelist? string
+---@field is_archived? boolean
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field nonce string
+---@field permission_type? table
+---@field request_signature_version? number
+---@field shared_secret_algorithm? string
+---@field shared_secret_base64? string
+---@field token? string
+
+---@class NoFrixionMoneyMoovModelsMerchantTokenLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsMerchantTokenCreateData
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field description? string
+---@field expires_at? string
+---@field has_current_user_authorised? boolean
+---@field hmac_algorithm? string
+---@field id? string
+---@field inserted? string
+---@field ip_address_whitelist? string
+---@field is_archived? boolean
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field nonce string
+---@field permission_type? table
+---@field request_signature_version? number
+---@field shared_secret_algorithm? string
+---@field shared_secret_base64? string
+---@field token? string
+
+---@class NoFrixionMoneyMoovModelsMerchantTokenUpdateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsMerchantTokenPage
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field description? string
+---@field expires_at? string
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field ip_address_whitelist? string
+---@field is_archived? boolean
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field nonce string
+---@field permission_type? table
+---@field request_signature_version? number
+---@field shared_secret_algorithm? string
+---@field shared_secret_base64? string
+---@field token? string
+
+---@class NoFrixionMoneyMoovModelsMerchantTokenPageListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsNoFrixionVersion
+---@field build_version? number
+---@field major_version? number
+---@field minor_version? number
+---@field release_name? string
+
+---@class NoFrixionMoneyMoovModelsNoFrixionVersionLoadMatch
+---@field build_version? number
+---@field major_version? number
+---@field minor_version? number
+---@field release_name? string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingAccount
+---@field account_balance? table
+---@field account_identification? table
+---@field account_name? table
+---@field account_type? string
+---@field balance? number
+---@field consolidated_account_information? table
+---@field currency? string
+---@field description? string
+---@field detail? string
+---@field id? string
+---@field nickname? string
+---@field type? string
+---@field usage_type? string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingAccountLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsent
+---@field authorisation_url? string
+---@field callback_url? string
+---@field consent_id? string
+---@field email_address? string
+---@field expiry_date? string
+---@field failure_callback_url? string
+---@field id? string
+---@field inserted? string
+---@field institution_id? string
+---@field is_connected_account? boolean
+---@field is_enabled? boolean
+---@field merchant_id? string
+---@field provider? string
+---@field success_web_hook_url? string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsentLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsentListMatch
+---@field email string
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsentCreateData
+---@field authorisation_url? string
+---@field callback_url? string
+---@field consent_id? string
+---@field email_address? string
+---@field expiry_date? string
+---@field failure_callback_url? string
+---@field id? string
+---@field inserted? string
+---@field institution_id? string
+---@field is_connected_account? boolean
+---@field is_enabled? boolean
+---@field merchant_id? string
+---@field provider? string
+---@field success_web_hook_url? string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsentUpdateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingConsentRemoveMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingTransaction
+---@field address_detail? table
+---@field amount? number
+---@field balance? table
+---@field booking_date_time? string
+---@field charge_detail? table
+---@field currency? string
+---@field currency_exchange? table
+---@field date? string
+---@field description? string
+---@field enrichment? table
+---@field gross_amount table
+---@field id? string
+---@field iso_bank_transaction_code? table
+---@field merchant? table
+---@field payee_detail table
+---@field payer_detail table
+---@field proprietary_bank_transaction_code? table
+---@field reference? string
+---@field statement_reference? table
+---@field status? string
+---@field supplementary_data? any
+---@field transaction_amount table
+---@field transaction_information? table
+---@field transaction_mutability? string
+---@field value_date_time? string
+
+---@class NoFrixionMoneyMoovModelsOpenBankingTransactionListMatch
+---@field account_id string
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsPayment
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_no_payer_authentication? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field card_transmit_raw_detail? boolean
+---@field created_by_user table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field due_date? string
+---@field event? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_method? table
+---@field payment_processor? string
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field shipping_address_city? string
+---@field shipping_address_country_code? string
+---@field shipping_address_county? string
+---@field shipping_address_line1? string
+---@field shipping_address_line2? string
+---@field shipping_address_post_code? string
+---@field shipping_email? string
+---@field shipping_first_name? string
+---@field shipping_last_name? string
+---@field shipping_phone? string
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field tag_id? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
+
+---@class NoFrixionMoneyMoovModelsPaymentLoadMatch
+---@field id? string
+---@field order_id? string
+
+---@class NoFrixionMoneyMoovModelsPaymentCreateData
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_no_payer_authentication? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field card_transmit_raw_detail? boolean
+---@field created_by_user table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field due_date? string
+---@field event? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_method? table
+---@field payment_processor? string
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field shipping_address_city? string
+---@field shipping_address_country_code? string
+---@field shipping_address_county? string
+---@field shipping_address_line1? string
+---@field shipping_address_line2? string
+---@field shipping_address_post_code? string
+---@field shipping_email? string
+---@field shipping_first_name? string
+---@field shipping_last_name? string
+---@field shipping_phone? string
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field tag_id? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
+
+---@class NoFrixionMoneyMoovModelsPaymentUpdateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsPaymentAccountMinimalPage
+---@field account_name? string
+---@field available_balance? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field currency? string
+---@field id? string
+---@field identifier table
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field merchant_id? string
+---@field submitted_payouts_balance? number
+
+---@class NoFrixionMoneyMoovModelsPaymentAccountMinimalPageListMatch
+---@field account_name? string
+---@field available_balance? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field currency? string
+---@field id? string
+---@field identifier? table
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field merchant_id? string
+---@field submitted_payouts_balance? number
+
+---@class NoFrixionMoneyMoovModelsPaymentAccountPage
+---@field account_name? string
+---@field account_supplier_name? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field created_by table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field id? string
+---@field identifier table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field physical_account_id? string
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_sepa_instant_status? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
+
+---@class NoFrixionMoneyMoovModelsPaymentAccountPageListMatch
+---@field account_id? string
+
+---@class NoFrixionMoneyMoovModelsPaymentInitiation
+---@field payment_initiation_id? string
+---@field payment_request_callback_url? string
+---@field payment_request_id? string
+---@field redirect_url? string
+---@field response_type? string
+---@field specific_error_message? string
+
+---@class NoFrixionMoneyMoovModelsPaymentInitiationCreateData
+---@field paymentrequest_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestEvent
+---@field amount number
+---@field apple_pay_transaction_id? string
+---@field card_authorization_response_id? string
+---@field card_expiry_month? number
+---@field card_expiry_year? number
+---@field card_issuer? string
+---@field card_issuer_country? string
+---@field card_last_four_digit? string
+---@field card_request_id? string
+---@field card_scheme? string
+---@field card_token_customer_id? string
+---@field card_transaction_id? string
+---@field currency? string
+---@field direct_debit_payment_id? string
+---@field direct_debit_payment_reference? string
+---@field drirect_debit_mandate_id? string
+---@field error_message? string
+---@field error_reason? string
+---@field event_type? string
+---@field id? string
+---@field inserted? string
+---@field lightning_invoice? string
+---@field lightning_r_hash? string
+---@field origin_url? string
+---@field payment_method_type? string
+---@field payment_processor_name? string
+---@field payment_request_id? string
+---@field pisp_bank_status? string
+---@field pisp_payment_initiation_id? string
+---@field pisp_payment_institution_name? string
+---@field pisp_payment_service_provider_id? string
+---@field pisp_redirect_url? string
+---@field reconciled_transaction_id? string
+---@field refund_payout_id? string
+---@field status? string
+---@field wallet_name? string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestEventListMatch
+---@field paymentrequest_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestMetric
+---@field all? number
+---@field authorized? number
+---@field paid? number
+---@field partially_paid? number
+---@field total_amounts_by_currency? table
+---@field unpaid? number
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestMetricLoadMatch
+---@field all? number
+---@field authorized? number
+---@field paid? number
+---@field partially_paid? number
+---@field total_amounts_by_currency? table
+---@field unpaid? number
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestMinimal
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field callback_url? string
+---@field card_stripe_payment_intent_secret? string
+---@field country_code? string
+---@field currency? string
+---@field custom_fields_to_display? table
+---@field description? string
+---@field due_date? string
+---@field field_display_setting? table
+---@field google_pay_merchant_id? string
+---@field id? string
+---@field jwk? string
+---@field merchant_id? string
+---@field merchant_logo_url_png? string
+---@field merchant_logo_url_svg? string
+---@field merchant_name? string
+---@field merchant_short_name? string
+---@field partial_payment_method? string
+---@field payment_attempt? table
+---@field payment_methods_list? table
+---@field payment_processor? string
+---@field payment_processor_key? string
+---@field pisp_error? string
+---@field priority_bank_id? string
+---@field status? string
+---@field stripe_account_id? string
+---@field title? string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestMinimalListMatch
+---@field paymentrequest_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestResult
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field currency? string
+---@field customer_id? string
+---@field payment? table
+---@field payment_request_id? string
+---@field pisp_authorization? table
+---@field requested_amount? number
+---@field result? string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestResultListMatch
+---@field paymentrequest_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment
+---@field description string
+---@field id? string
+---@field inserted? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field template table
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2
+---@field description string
+---@field id? string
+---@field inserted? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field template table
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2LoadMatch
+---@field paymentrequest_id string
+---@field template_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3
+---@field description string
+---@field id? string
+---@field inserted? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field template table
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3UpdateData
+---@field paymentrequest_id string
+---@field template_id string
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4
+
+---@class NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4RemoveMatch
+---@field paymentrequest_id string
+---@field template_id string
+
+---@class NoFrixionMoneyMoovModelsPayoutKeysetPage
+---@field account_id? string
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class NoFrixionMoneyMoovModelsPayoutKeysetPageListMatch
+---@field account_id? string
+---@field merchant_id? string
+
+---@class NoFrixionMoneyMoovModelsPayoutMetric
+---@field all? number
+---@field failed? number
+---@field in_progress? number
+---@field paid? number
+---@field pending_approval? number
+---@field scheduled? number
+---@field total_amounts_by_currency? table
+
+---@class NoFrixionMoneyMoovModelsPayoutMetricLoadMatch
+---@field all? number
+---@field failed? number
+---@field in_progress? number
+---@field paid? number
+---@field pending_approval? number
+---@field scheduled? number
+---@field total_amounts_by_currency? table
+
+---@class NoFrixionMoneyMoovModelsPayoutsPayoutsCreate
+---@field failed_payout? table
+---@field payout? table
+
+---@class NoFrixionMoneyMoovModelsPayoutsPayoutsCreateCreateData
+---@field failed_payout? table
+---@field payout? table
+
+---@class NoFrixionMoneyMoovModelsPayrun
+---@field authorisation? table
+---@field authorisation_date? string
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field can_authorise? boolean
+---@field can_delete? boolean
+---@field can_edit? boolean
+---@field event? table
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice? table
+---@field invoices_minimal? table
+---@field is_archived? boolean
+---@field last_updated? string
+---@field last_updated_by table
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field payment? table
+---@field payout? table
+---@field payouts_count? number
+---@field reason? string
+---@field schedule_date? string
+---@field scheduled_date? string
+---@field source_account? table
+---@field status? string
+---@field total_eur? number
+---@field total_gbp? number
+---@field total_usd? number
+
+---@class NoFrixionMoneyMoovModelsPayrunLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsPayrunCreateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsPayrunUpdateData
+---@field id? string
+---@field payrun_id? string
+
+---@class NoFrixionMoneyMoovModelsReportResult
+---@field content? string
+---@field content_type? string
+---@field last_completed_at? string
+---@field merchant_id? string
+---@field report_name? string
+---@field report_type? string
+---@field statement_number? number
+
+---@class NoFrixionMoneyMoovModelsReportResultLoadMatch
+---@field id number
+---@field report_id string
+
+---@class NoFrixionMoneyMoovModelsRule
+---@field account? table
+---@field account_id? string
+---@field approve_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field created_by table
+---@field description? string
+---@field end_at? string
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_disabled? boolean
+---@field last_executed_at? string
+---@field last_run_at_transaction_date? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce string
+---@field on_approved_web_hook_url? string
+---@field on_execution_error_web_hook_url? string
+---@field on_execution_success_web_hook_url? string
+---@field start_at? string
+---@field status? string
+---@field sweep_action? table
+---@field time_zone_id? string
+---@field trigger_cron_expression? string
+---@field trigger_on_pay_in? boolean
+---@field user_id? string
+---@field web_hook_secret? string
+
+---@class NoFrixionMoneyMoovModelsRuleLoadMatch
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsRuleCreateData
+---@field account? table
+---@field account_id? string
+---@field approve_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field created_by table
+---@field description? string
+---@field end_at? string
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field is_disabled? boolean
+---@field last_executed_at? string
+---@field last_run_at_transaction_date? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce string
+---@field on_approved_web_hook_url? string
+---@field on_execution_error_web_hook_url? string
+---@field on_execution_success_web_hook_url? string
+---@field start_at? string
+---@field status? string
+---@field sweep_action? table
+---@field time_zone_id? string
+---@field trigger_cron_expression? string
+---@field trigger_on_pay_in? boolean
+---@field user_id? string
+---@field web_hook_secret? string
+
+---@class NoFrixionMoneyMoovModelsRuleUpdateData
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsTransaction
+---@field account_id? string
+---@field account_name? string
+---@field account_sequence_number? number
+---@field amount? number
+---@field amount_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field counterparty? table
+---@field counterparty_summary? string
+---@field currency? string
+---@field description? string
+---@field fx_amount? number
+---@field fx_currency? string
+---@field fx_rate? number
+---@field id? string
+---@field inserted? string
+---@field merchant_id? string
+---@field payment_request_custom_field? table
+---@field payment_request_id? string
+---@field payout_id? string
+---@field raw_reference? string
+---@field rule_id? string
+---@field tag? table
+---@field their_reference? string
+---@field transaction_date? string
+---@field type? string
+---@field virtual_iban? string
+---@field your_reference? string
+
+---@class NoFrixionMoneyMoovModelsTransactionLoadMatch
+---@field account_id? string
+---@field id string
+
+---@class NoFrixionMoneyMoovModelsTransactionPage
+---@field account_id? string
+---@field account_name? string
+---@field account_sequence_number? number
+---@field amount? number
+---@field amount_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field content? table
+---@field counterparty? table
+---@field counterparty_summary? string
+---@field currency? string
+---@field description? string
+---@field fx_amount? number
+---@field fx_currency? string
+---@field fx_rate? number
+---@field id? string
+---@field inserted? string
+---@field merchant_id? string
+---@field page_number? number
+---@field page_size? number
+---@field payment_request_custom_field? table
+---@field payment_request_id? string
+---@field payout_id? string
+---@field raw_reference? string
+---@field rule_id? string
+---@field tag? table
+---@field their_reference? string
+---@field total_page? number
+---@field total_size? number
+---@field transaction_date? string
+---@field type? string
+---@field virtual_iban? string
+---@field your_reference? string
+
+---@class NoFrixionMoneyMoovModelsTransactionPageLoadMatch
+---@field account_id string
+
+---@class NoFrixionMoneyMoovModelsTransactionPageListMatch
+---@field account_id? string
+---@field merchant_id? string
+
+---@class NoFrixionMoneyMoovModelsUserInvite
+---@field authorisation_status? table
+---@field id? string
+---@field initial_role_id? string
+---@field invitee_email_address? string
+---@field invitee_first_name? string
+---@field invitee_last_name? string
+---@field inviter_email_address? string
+---@field inviter_first_name? string
+---@field inviter_last_name? string
+---@field is_authorised? boolean
+---@field is_invitee_registered? boolean
+---@field last_invited? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field message? string
+---@field registration_url? string
+---@field send_invite_email? boolean
+---@field status? string
+---@field user table
+---@field user_id? string
+
+---@class NoFrixionMoneyMoovModelsUserInviteLoadMatch
+---@field id? string
+---@field userinvite_id? string
+
+---@class NoFrixionMoneyMoovModelsUserInviteCreateData
+---@field authorisation_status? table
+---@field id? string
+---@field initial_role_id? string
+---@field invitee_email_address? string
+---@field invitee_first_name? string
+---@field invitee_last_name? string
+---@field inviter_email_address? string
+---@field inviter_first_name? string
+---@field inviter_last_name? string
+---@field is_authorised? boolean
+---@field is_invitee_registered? boolean
+---@field last_invited? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field message? string
+---@field registration_url? string
+---@field send_invite_email? boolean
+---@field status? string
+---@field user table
+---@field user_id? string
+
+---@class NoFrixionMoneyMoovModelsUserInvitePage
+---@field authorisation_status? table
+---@field id? string
+---@field initial_role_id? string
+---@field invitee_email_address? string
+---@field invitee_first_name? string
+---@field invitee_last_name? string
+---@field inviter_email_address? string
+---@field inviter_first_name? string
+---@field inviter_last_name? string
+---@field is_authorised? boolean
+---@field is_invitee_registered? boolean
+---@field last_invited? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field message? string
+---@field registration_url? string
+---@field status? string
+---@field user table
+---@field user_id? string
+
+---@class NoFrixionMoneyMoovModelsUserInvitePageListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsUserPage
+---@field client_session_timeout? table
+---@field email_address string
+---@field first_name string
+---@field id? string
+---@field last_name string
+---@field passkey_added? boolean
+---@field permission? table
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+
+---@class NoFrixionMoneyMoovModelsUserPageListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsWebhook
+---@field destination_url? string
+---@field email_address? string
+---@field failed_notification_email_address? string
+---@field id? string
+---@field is_active? boolean
+---@field merchant_id? string
+---@field notification_method? string
+---@field resource_type? table
+---@field retry? boolean
+---@field secret? string
+---@field version? number
+
+---@class NoFrixionMoneyMoovModelsWebhookLoadMatch
+---@field id string
+---@field merchant_id? string
+
+---@class NoFrixionMoneyMoovModelsWebhookListMatch
+---@field merchant_id string
+
+---@class NoFrixionMoneyMoovModelsWebhookCreateData
+---@field destination_url? string
+---@field email_address? string
+---@field failed_notification_email_address? string
+---@field id? string
+---@field is_active? boolean
+---@field merchant_id? string
+---@field notification_method? string
+---@field resource_type? table
+---@field retry? boolean
+---@field secret? string
+---@field version? number
+
+---@class NoFrixionMoneyMoovModelsWebhookUpdateData
+---@field id string
+
+---@class OpenBanking
+
+---@class OpenBankingCreateData
+---@field account_id string
+
+---@class OpenBankingRemoveMatch
+---@field email? string
+---@field merchant_id? string
+---@field account_id? string
+
+---@class Payeeverification
+---@field account_name string
+---@field account_number? string
+---@field iban string
+---@field payee_verified_account_name? string
+---@field result? string
+---@field secondary_identification? string
+---@field sort_code? string
+
+---@class PayeeverificationCreateData
+---@field account_name string
+---@field account_number? string
+---@field iban string
+---@field payee_verified_account_name? string
+---@field result? string
+---@field secondary_identification? string
+---@field sort_code? string
+
+---@class PaymentRequest
+---@field amount? number
+---@field do_simulate_settlement_failure? boolean
+---@field error_description? string
+---@field institution? string
+---@field payment_initiation_id? string
+
+---@class PaymentRequestLoadMatch
+---@field paymentrequest_id? string
+
+---@class PaymentRequestCreateData
+---@field paymentrequest_id string
+
+---@class PaymentRequestUpdateData
+---@field paymentrequest_id string
+
+---@class PaymentRequestRemoveMatch
+---@field id string
+
+---@class Payout
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class PayoutLoadMatch
+---@field amount? number
+---@field destination? string
+---@field source? string
+---@field id? string
+
+---@class PayoutCreateData
+---@field id? string
+
+---@class PayoutUpdateData
+---@field id string
+
+---@class PayoutRemoveMatch
+---@field id string
+
+---@class Payrun
+---@field id? string
+---@field note? string
+---@field scheduled_date? string
+
+---@class PayrunCreateData
+---@field id string
+
+---@class PayrunUpdateData
+---@field id string
+
+---@class PayrunRemoveMatch
+---@field id string
+
+---@class Reject
+---@field account_id? string
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field reason? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class RejectUpdateData
+---@field id string
+
+---@class Report
+
+---@class ReportUpdateData
+---@field id string
+
+---@class Rule
+
+---@class RuleUpdateData
+---@field id string
+
+---@class RuleRemoveMatch
+---@field id string
+
+---@class Send
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class SendCreateData
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class Sendbeneficiary
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class SendbeneficiaryCreateData
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payrun_id? string
+---@field payrun_name? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
+
+---@class Tag
+---@field colour_hex? string
+---@field description? string
+---@field id? string
+---@field merchant_id string
+---@field name string
+
+---@class TagListMatch
+---@field merchant_id string
+
+---@class TagCreateData
+---@field merchant_id string
+
+---@class Token
+
+---@class TokenCreateData
+---@field id string
+
+---@class TokenRemoveMatch
+---@field id string
+
+---@class Transaction
+
+---@class TransactionLoadMatch
+---@field sequence_number number
+---@field transaction_id string
+
+---@class TransactionCreateData
+---@field id string
+
+---@class TransactionRemoveMatch
+---@field id string
+
+---@class User
+---@field client_session_timeout? table
+---@field email_address string
+---@field first_name string
+---@field id? string
+---@field last_name string
+---@field passkey_added? boolean
+---@field permission? table
+---@field profile? string
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+---@field user_invite_id? string
+
+---@class UserListMatch
+---@field merchant_id? string
+
+---@class UserUpdateData
+---@field id string
+
+---@class UserInvite
+
+---@class UserInviteCreateData
+---@field id string
+
+---@class UserInviteUpdateData
+---@field id string
+
+---@class UserInviteRemoveMatch
+---@field id string
+
+---@class Virtual
+---@field account_name? string
+---@field account_supplier_name? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field created_by table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field id? string
+---@field identifier table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field name string
+---@field physical_account_id? string
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_sepa_instant_status? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
+
+---@class VirtualCreateData
+---@field account_id string
+
+---@class VirtualUpdateData
+---@field account_id string
+---@field id string
+
+---@class Webhook
+
+---@class WebhookRemoveMatch
+---@field id string
+
+---@class Whoami
+---@field client_session_timeout? table
+---@field email_address string
+---@field first_name string
+---@field id? string
+---@field last_name string
+---@field passkey_added? boolean
+---@field permission? table
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+
+---@class WhoamiListMatch
+---@field client_session_timeout? table
+---@field email_address? string
+---@field first_name? string
+---@field id? string
+---@field last_name? string
+---@field passkey_added? boolean
+---@field permission? table
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+
+---@class Whoamitrustedapp
+---@field client_session_timeout? table
+---@field email_address string
+---@field first_name string
+---@field id? string
+---@field last_name string
+---@field passkey_added? boolean
+---@field permission? table
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+
+---@class WhoamitrustedappListMatch
+---@field client_session_timeout? table
+---@field email_address? string
+---@field first_name? string
+---@field id? string
+---@field last_name? string
+---@field passkey_added? boolean
+---@field permission? table
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+
+local M = {}
+
+return M

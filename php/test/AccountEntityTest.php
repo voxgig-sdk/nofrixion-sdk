@@ -1,0 +1,171 @@
+<?php
+declare(strict_types=1);
+
+// Account entity test
+
+require_once __DIR__ . '/../nofrixion_sdk.php';
+require_once __DIR__ . '/Runner.php';
+
+use PHPUnit\Framework\TestCase;
+use Voxgig\Struct\Struct as Vs;
+
+class AccountEntityTest extends TestCase
+{
+    public function test_create_instance(): void
+    {
+        $testsdk = NofrixionSDK::test(null, null);
+        $ent = $testsdk->Account(null);
+        $this->assertNotNull($ent);
+    }
+
+    public function test_basic_flow(): void
+    {
+        $setup = account_basic_setup(null);
+        // Per-op sdk-test-control.json skip.
+        $_live = !empty($setup["live"]);
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
+            [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "account." . $_op, $_live ? "live" : "unit");
+            if ($_shouldSkip) {
+                $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
+                return;
+            }
+        }
+        // The basic flow consumes synthetic IDs from the fixture. In live mode
+        // without an *_ENTID env override, those IDs hit the live API and 4xx.
+        if (!empty($setup["synthetic_only"])) {
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set NOFRIXION_TEST_ACCOUNT_ENTID JSON to run live");
+            return;
+        }
+        $client = $setup["client"];
+
+        // CREATE
+        $account_ref01_ent = $client->Account(null);
+        $account_ref01_data = Helpers::to_map(Vs::getprop(
+            Vs::getpath($setup["data"], "new.account"), "account_ref01"));
+        $account_ref01_data["account_id"] = $setup["idmap"]["account01"];
+        $account_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
+
+        $account_ref01_data_result = $account_ref01_ent->create($account_ref01_data, null);
+        $account_ref01_data = Helpers::to_map($account_ref01_data_result);
+        $this->assertNotNull($account_ref01_data);
+        $this->assertNotNull($account_ref01_data["id"]);
+
+        // LIST
+        $account_ref01_match = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $account_ref01_list_result = $account_ref01_ent->list($account_ref01_match, null);
+        $this->assertIsArray($account_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($account_ref01_list_result),
+            ["id" => $account_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
+        // UPDATE
+        $account_ref01_data_up0_up = [
+            "id" => $account_ref01_data["id"],
+        ];
+
+        $account_ref01_markdef_up0_name = "account_id";
+        $account_ref01_markdef_up0_value = "Mark01-account_ref01_" . $setup["now"];
+        $account_ref01_data_up0_up[$account_ref01_markdef_up0_name] = $account_ref01_markdef_up0_value;
+
+        $account_ref01_resdata_up0_result = $account_ref01_ent->update($account_ref01_data_up0_up, null);
+        $account_ref01_resdata_up0 = Helpers::to_map($account_ref01_resdata_up0_result);
+        $this->assertNotNull($account_ref01_resdata_up0);
+        $this->assertEquals($account_ref01_resdata_up0["id"], $account_ref01_data_up0_up["id"]);
+        $this->assertEquals($account_ref01_resdata_up0[$account_ref01_markdef_up0_name], $account_ref01_markdef_up0_value);
+
+        // LOAD
+        $account_ref01_match_dt0 = [
+            "id" => $account_ref01_data["id"],
+        ];
+        $account_ref01_data_dt0_loaded = $account_ref01_ent->load($account_ref01_match_dt0, null);
+        $account_ref01_data_dt0_load_result = Helpers::to_map($account_ref01_data_dt0_loaded);
+        $this->assertNotNull($account_ref01_data_dt0_load_result);
+        $this->assertEquals($account_ref01_data_dt0_load_result["id"], $account_ref01_data["id"]);
+
+        // REMOVE
+        $account_ref01_match_rm0 = [
+            "id" => $account_ref01_data["id"],
+        ];
+        $account_ref01_ent->remove($account_ref01_match_rm0, null);
+
+        // LIST
+        $account_ref01_match_rt0 = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $account_ref01_list_rt0_result = $account_ref01_ent->list($account_ref01_match_rt0, null);
+        $this->assertIsArray($account_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($account_ref01_list_rt0_result),
+            ["id" => $account_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
+
+    }
+}
+
+function account_basic_setup($extra)
+{
+    Runner::load_env_local();
+
+    $entity_data_file = __DIR__ . '/../../.sdk/test/entity/account/AccountTestData.json';
+    $entity_data_source = file_get_contents($entity_data_file);
+    $entity_data = json_decode($entity_data_source, true);
+
+    $options = [];
+    $options["entity"] = $entity_data["existing"];
+
+    $client = NofrixionSDK::test($options, $extra);
+
+    // Generate idmap.
+    $idmap = [];
+    foreach (["account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "topup01", "topup02", "topup03"] as $k) {
+        $idmap[$k] = strtoupper($k);
+    }
+
+    // Detect ENTID env override before envOverride consumes it. When live
+    // mode is on without a real override, the basic test runs against synthetic
+    // IDs from the fixture and 4xx's. Surface this so the test can skip.
+    $entid_env_raw = getenv("NOFRIXION_TEST_ACCOUNT_ENTID");
+    $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
+
+    $env = Runner::env_override([
+        "NOFRIXION_TEST_ACCOUNT_ENTID" => $idmap,
+        "NOFRIXION_TEST_LIVE" => "FALSE",
+        "NOFRIXION_TEST_EXPLAIN" => "FALSE",
+        "NOFRIXION_APIKEY" => "NONE",
+    ]);
+
+    $idmap_resolved = Helpers::to_map(
+        $env["NOFRIXION_TEST_ACCOUNT_ENTID"]);
+    if ($idmap_resolved === null) {
+        $idmap_resolved = Helpers::to_map($idmap);
+    }
+
+    if ($env["NOFRIXION_TEST_LIVE"] === "TRUE") {
+        $merged_opts = Vs::merge([
+            [
+                "apikey" => $env["NOFRIXION_APIKEY"],
+            ],
+            $extra ?? [],
+        ]);
+        $client = new NofrixionSDK(Helpers::to_map($merged_opts));
+    }
+
+    $live = $env["NOFRIXION_TEST_LIVE"] === "TRUE";
+    return [
+        "client" => $client,
+        "data" => $entity_data,
+        "idmap" => $idmap_resolved,
+        "env" => $env,
+        "explain" => $env["NOFRIXION_TEST_EXPLAIN"] === "TRUE",
+        "live" => $live,
+        "synthetic_only" => $live && !$idmap_overridden,
+        "now" => (int)(microtime(true) * 1000),
+    ];
+}
