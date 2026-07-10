@@ -27,7 +27,7 @@ class TestPayoutEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "load", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "payout." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -43,12 +43,27 @@ class TestPayoutEntity:
         payout_ref01_ent = client.Payout(None)
         payout_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.payout"), "payout_ref01"))
+        payout_ref01_data["account_id"] = setup["idmap"]["account01"]
         payout_ref01_data["destination"] = setup["idmap"]["destination01"]
+        payout_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
         payout_ref01_data["source"] = setup["idmap"]["source01"]
 
         payout_ref01_data = helpers.to_map(payout_ref01_ent.create(payout_ref01_data, None))
         assert payout_ref01_data is not None
         assert payout_ref01_data["id"] is not None
+
+        # LIST
+        payout_ref01_match = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        payout_ref01_list_result = payout_ref01_ent.list(payout_ref01_match, None)
+        assert isinstance(payout_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(payout_ref01_list_result),
+            {"id": payout_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         payout_ref01_data_up0_up = {
@@ -79,6 +94,19 @@ class TestPayoutEntity:
         }
         payout_ref01_ent.remove(payout_ref01_match_rm0, None)
 
+        # LIST
+        payout_ref01_match_rt0 = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        payout_ref01_list_rt0_result = payout_ref01_ent.list(payout_ref01_match_rt0, None)
+        assert isinstance(payout_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(payout_ref01_list_rt0_result),
+            {"id": payout_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
+
 
 
 def _payout_basic_setup(extra):
@@ -97,7 +125,7 @@ def _payout_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["payout01", "payout02", "payout03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"],
+        ["payout01", "payout02", "payout03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

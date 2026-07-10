@@ -79,6 +79,57 @@ end
 
 
 
+---@param reqmatch PayrunLoadMatch
+---@param ctrl? table
+---@return Payrun
+---@return string? err
+function PayrunEntity:load(reqmatch, ctrl)
+  local utility = self._utility
+  local ctx = utility.make_context({
+    opname = "load",
+    ctrl = ctrl,
+    match = self._match,
+    data = self._data,
+    reqmatch = reqmatch,
+  }, self._entctx)
+
+  return self:_run_op(ctx, function()
+    if ctx.result ~= nil then
+      if ctx.result.resmatch ~= nil then
+        self._match = ctx.result.resmatch
+      end
+      if ctx.result.resdata ~= nil then
+        self._data = helpers.to_map(vs.clone(ctx.result.resdata)) or {}
+      end
+    end
+  end)
+end
+
+
+
+
+---@param reqmatch PayrunListMatch
+---@param ctrl? table
+---@return Payrun[]
+---@return string? err
+function PayrunEntity:list(reqmatch, ctrl)
+  local utility = self._utility
+  local ctx = utility.make_context({
+    opname = "list",
+    ctrl = ctrl,
+    match = self._match,
+    data = self._data,
+    reqmatch = reqmatch,
+  }, self._entctx)
+
+  return self:_run_op(ctx, function()
+    if ctx.result ~= nil then
+      if ctx.result.resmatch ~= nil then
+        self._match = ctx.result.resmatch
+      end
+    end
+  end)
+end
 
 
 

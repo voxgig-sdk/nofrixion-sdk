@@ -1,0 +1,572 @@
+# Entity: payout_keyset
+
+main: kit: entity: payout_keyset: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "amount_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "approve_payout_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "approver_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "authentication_method"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisation"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisers_completed_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "authorisers_required_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "batch_payout_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "beneficiary"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "can_authorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_process"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_update"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "charge_bearer"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "current_user_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "destination"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "document"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "event"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "formatted_amount"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "formatted_fx_destination_amount"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "formatted_schedule"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "formatted_schedule_day_only"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "formatted_source_account_available_balance"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "fx_destination_amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "fx_destination_amount_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "fx_destination_currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "fx_quote_expires_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "fx_quote_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "fx_rate"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "fx_use_destination_amount"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_current_user_authorised"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "invoice_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_failed"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_settled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_submitted"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_token_description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nonce"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payment_processor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payment_rail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payrun_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payrun_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rule"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "schedule_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "scheduled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "source_account_available_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "source_account_available_balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "source_account_bic"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account_currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account_iban"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account_identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "source_account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_account_sortcode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tag"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "their_reference"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "topup_payrun_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "transacted_amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "transacted_fx_amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "transacted_fx_rate"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "your_reference"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "payout_keyset"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "from_date_utc"
+                orig: "from_date_utc"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/{accountID}/payouts/failed"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "{account_id}"
+            "payouts"
+            "failed"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "from_date_utc"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "from_date_utc"
+                orig: "from_date_utc"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}/payouts/failed"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "payouts"
+            "failed"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "from_date_utc"
+              "merchant_id"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "from_date_utc"
+                orig: "from_date_utc"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payouts/{merchantID}/failed"
+          parts: [
+            "api"
+            "v1"
+            "payouts"
+            "{merchant_id}"
+            "failed"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "from_date_utc"
+              "merchant_id"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+      [
+        "merchant"
+      ]
+      [
+        "payout"
+      ]
+    ]
+  }
+
+
+
+}

@@ -39,7 +39,7 @@ describe('PayoutEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'update', 'load', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'payout.' + op, live)) return
     }
 
@@ -61,11 +61,22 @@ describe('PayoutEntity', async () => {
     // CREATE
     const payout_ref01_ent = client.Payout()
     let payout_ref01_data = setup.data.new.payout['payout_ref01']
+    payout_ref01_data['account_id'] = setup.idmap['account01']
     payout_ref01_data['destination'] = setup.idmap['destination01']
+    payout_ref01_data['merchant_id'] = setup.idmap['merchant01']
     payout_ref01_data['source'] = setup.idmap['source01']
 
     payout_ref01_data = await payout_ref01_ent.create(payout_ref01_data)
     assert(null != payout_ref01_data.id)
+
+
+    // LIST
+    const payout_ref01_match: any = {}
+    payout_ref01_match['merchant_id'] = setup.idmap['merchant01']
+
+    const payout_ref01_list = await payout_ref01_ent.list(payout_ref01_match)
+
+    assert(!isempty(select(payout_ref01_list, { id: payout_ref01_data.id })))
 
 
     // UPDATE
@@ -92,6 +103,15 @@ describe('PayoutEntity', async () => {
     const payout_ref01_match_rm0: any = { id: payout_ref01_data.id }
     await payout_ref01_ent.remove(payout_ref01_match_rm0)
   
+
+    // LIST
+    const payout_ref01_match_rt0: any = {}
+    payout_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
+
+    const payout_ref01_list_rt0 = await payout_ref01_ent.list(payout_ref01_match_rt0)
+
+    assert(isempty(select(payout_ref01_list_rt0, { id: payout_ref01_data.id })))
+
 
   })
 })
@@ -121,7 +141,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['payout01','payout02','payout03','fxquote01','fxquote02','fxquote03'],
+    ['payout01','payout02','payout03','account01','account02','account03','merchant01','merchant02','merchant03','fxquote01','fxquote02','fxquote03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

@@ -79,8 +79,83 @@ end
 
 
 
+---@param reqmatch RuleLoadMatch
+---@param ctrl? table
+---@return Rule
+---@return string? err
+function RuleEntity:load(reqmatch, ctrl)
+  local utility = self._utility
+  local ctx = utility.make_context({
+    opname = "load",
+    ctrl = ctrl,
+    match = self._match,
+    data = self._data,
+    reqmatch = reqmatch,
+  }, self._entctx)
+
+  return self:_run_op(ctx, function()
+    if ctx.result ~= nil then
+      if ctx.result.resmatch ~= nil then
+        self._match = ctx.result.resmatch
+      end
+      if ctx.result.resdata ~= nil then
+        self._data = helpers.to_map(vs.clone(ctx.result.resdata)) or {}
+      end
+    end
+  end)
+end
 
 
+
+
+---@param reqmatch RuleListMatch
+---@param ctrl? table
+---@return Rule[]
+---@return string? err
+function RuleEntity:list(reqmatch, ctrl)
+  local utility = self._utility
+  local ctx = utility.make_context({
+    opname = "list",
+    ctrl = ctrl,
+    match = self._match,
+    data = self._data,
+    reqmatch = reqmatch,
+  }, self._entctx)
+
+  return self:_run_op(ctx, function()
+    if ctx.result ~= nil then
+      if ctx.result.resmatch ~= nil then
+        self._match = ctx.result.resmatch
+      end
+    end
+  end)
+end
+
+
+
+
+---@param reqdata RuleCreateData
+---@param ctrl? table
+---@return Rule
+---@return string? err
+function RuleEntity:create(reqdata, ctrl)
+  local utility = self._utility
+  local ctx = utility.make_context({
+    opname = "create",
+    ctrl = ctrl,
+    match = self._match,
+    data = self._data,
+    reqdata = reqdata,
+  }, self._entctx)
+
+  return self:_run_op(ctx, function()
+    if ctx.result ~= nil then
+      if ctx.result.resdata ~= nil then
+        self._data = helpers.to_map(vs.clone(ctx.result.resdata)) or {}
+      end
+    end
+  end)
+end
 
 
 

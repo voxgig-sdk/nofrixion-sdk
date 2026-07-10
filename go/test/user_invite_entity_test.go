@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -32,7 +33,7 @@ func TestUserInviteEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "user_invite." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -53,6 +54,7 @@ func TestUserInviteEntity(t *testing.T) {
 		userInviteRef01Ent := client.UserInvite(nil)
 		userInviteRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath([]any{"new", "user_invite"}, setup.data), "user_invite_ref01"))
+		userInviteRef01Data["merchant_id"] = setup.idmap["merchant01"]
 
 		userInviteRef01DataResult, err := userInviteRef01Ent.Create(userInviteRef01Data, nil)
 		if err != nil {
@@ -62,10 +64,37 @@ func TestUserInviteEntity(t *testing.T) {
 		if userInviteRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if userInviteRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		userInviteRef01Match := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		userInviteRef01ListResult, err := userInviteRef01Ent.List(userInviteRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		userInviteRef01List, userInviteRef01ListOk := userInviteRef01ListResult.([]any)
+		if !userInviteRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", userInviteRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(userInviteRef01List), map[string]any{"id": userInviteRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
 
 		// UPDATE
 		userInviteRef01DataUp0Up := map[string]any{
+			"id": userInviteRef01Data["id"],
 		}
+
+		userInviteRef01MarkdefUp0Name := "initial_role_id"
+		userInviteRef01MarkdefUp0Value := fmt.Sprintf("Mark01-user_invite_ref01_%d", setup.now)
+		userInviteRef01DataUp0Up[userInviteRef01MarkdefUp0Name] = userInviteRef01MarkdefUp0Value
 
 		userInviteRef01ResdataUp0Result, err := userInviteRef01Ent.Update(userInviteRef01DataUp0Up, nil)
 		if err != nil {
@@ -75,6 +104,28 @@ func TestUserInviteEntity(t *testing.T) {
 		if userInviteRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if userInviteRef01ResdataUp0["id"] != userInviteRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if userInviteRef01ResdataUp0[userInviteRef01MarkdefUp0Name] != userInviteRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", userInviteRef01MarkdefUp0Name, userInviteRef01ResdataUp0[userInviteRef01MarkdefUp0Name])
+		}
+
+		// LOAD
+		userInviteRef01MatchDt0 := map[string]any{
+			"id": userInviteRef01Data["id"],
+		}
+		userInviteRef01DataDt0Loaded, err := userInviteRef01Ent.Load(userInviteRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		userInviteRef01DataDt0LoadResult := core.ToMapAny(userInviteRef01DataDt0Loaded)
+		if userInviteRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if userInviteRef01DataDt0LoadResult["id"] != userInviteRef01Data["id"] {
+			t.Fatal("expected load result id to match")
+		}
 
 		// REMOVE
 		userInviteRef01MatchRm0 := map[string]any{
@@ -83,6 +134,25 @@ func TestUserInviteEntity(t *testing.T) {
 		_, err = userInviteRef01Ent.Remove(userInviteRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		userInviteRef01MatchRt0 := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		userInviteRef01ListRt0Result, err := userInviteRef01Ent.List(userInviteRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		userInviteRef01ListRt0, userInviteRef01ListRt0Ok := userInviteRef01ListRt0Result.([]any)
+		if !userInviteRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", userInviteRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(userInviteRef01ListRt0), map[string]any{"id": userInviteRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})
@@ -113,7 +183,7 @@ func user_inviteBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"user_invite01", "user_invite02", "user_invite03"},
+		[]any{"user_invite01", "user_invite02", "user_invite03", "merchant01", "merchant02", "merchant03", "userinvite01", "userinvite02", "userinvite03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

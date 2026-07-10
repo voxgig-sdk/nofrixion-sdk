@@ -39,7 +39,7 @@ describe('WebhookEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'webhook.' + op, live)) return
     }
 
@@ -57,13 +57,58 @@ describe('WebhookEntity', async () => {
     const isempty = struct.isempty
     const select = struct.select
 
-    let webhook_ref01_data = Object.values(setup.data.existing.webhook)[0] as any
+
+    // CREATE
+    const webhook_ref01_ent = client.Webhook()
+    let webhook_ref01_data = setup.data.new.webhook['webhook_ref01']
+    webhook_ref01_data['merchant_id'] = setup.idmap['merchant01']
+
+    webhook_ref01_data = await webhook_ref01_ent.create(webhook_ref01_data)
+    assert(null != webhook_ref01_data.id)
+
+
+    // LIST
+    const webhook_ref01_match: any = {}
+    webhook_ref01_match['merchant_id'] = setup.idmap['merchant01']
+
+    const webhook_ref01_list = await webhook_ref01_ent.list(webhook_ref01_match)
+
+    assert(!isempty(select(webhook_ref01_list, { id: webhook_ref01_data.id })))
+
+
+    // UPDATE
+    const webhook_ref01_data_up0: any = {}
+    webhook_ref01_data_up0.id = webhook_ref01_data.id
+
+    const webhook_ref01_markdef_up0 = { name: 'destination_url', value: 'Mark01-webhook_ref01_' + setup.now }
+    ;(webhook_ref01_data_up0 as any)[webhook_ref01_markdef_up0.name] = webhook_ref01_markdef_up0.value
+
+    const webhook_ref01_resdata_up0 = await webhook_ref01_ent.update(webhook_ref01_data_up0)
+    assert(webhook_ref01_resdata_up0.id === webhook_ref01_data_up0.id)
+
+    assert((webhook_ref01_resdata_up0 as any)[webhook_ref01_markdef_up0.name] === webhook_ref01_markdef_up0.value)
+
+
+    // LOAD
+    const webhook_ref01_match_dt0: any = {}
+    webhook_ref01_match_dt0.id = webhook_ref01_data.id
+    const webhook_ref01_data_dt0 = await webhook_ref01_ent.load(webhook_ref01_match_dt0)
+    assert(webhook_ref01_data_dt0.id === webhook_ref01_data.id)
+
 
     // REMOVE
-    const webhook_ref01_ent = client.Webhook()
     const webhook_ref01_match_rm0: any = { id: webhook_ref01_data.id }
     await webhook_ref01_ent.remove(webhook_ref01_match_rm0)
   
+
+    // LIST
+    const webhook_ref01_match_rt0: any = {}
+    webhook_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
+
+    const webhook_ref01_list_rt0 = await webhook_ref01_ent.list(webhook_ref01_match_rt0)
+
+    assert(isempty(select(webhook_ref01_list_rt0, { id: webhook_ref01_data.id })))
+
 
   })
 })
@@ -93,7 +138,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['webhook01','webhook02','webhook03'],
+    ['webhook01','webhook02','webhook03','merchant01','merchant02','merchant03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

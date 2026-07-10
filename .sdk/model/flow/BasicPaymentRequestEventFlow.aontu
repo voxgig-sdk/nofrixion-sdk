@@ -1,0 +1,26 @@
+# BasicPaymentRequestEventFlow
+
+main: kit: flow: BasicPaymentRequestEventFlow:
+{
+  entity: "payment_request_event",
+  kind: "basic",
+  name: "BasicPaymentRequestEventFlow",
+  step: [
+    {
+      match: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payment_request_event_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaymentRequestEventFlow"
+}

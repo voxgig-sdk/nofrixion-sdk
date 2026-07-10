@@ -16,7 +16,7 @@ class PayrunEntityTest < Minitest::Test
     setup = payrun_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "update", "remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "payrun." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -35,18 +35,30 @@ class PayrunEntityTest < Minitest::Test
     payrun_ref01_ent = client.Payrun(nil)
     payrun_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.payrun"), "payrun_ref01"))
+    payrun_ref01_data["merchant_i_d"] = setup[:idmap]["merchant_i_d01"]
 
     payrun_ref01_data_result = payrun_ref01_ent.create(payrun_ref01_data, nil)
     payrun_ref01_data = Helpers.to_map(payrun_ref01_data_result)
     assert !payrun_ref01_data.nil?
     assert !payrun_ref01_data["id"].nil?
 
+    # LIST
+    payrun_ref01_match = {}
+
+    payrun_ref01_list_result = payrun_ref01_ent.list(payrun_ref01_match, nil)
+    assert payrun_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(payrun_ref01_list_result),
+      { "id" => payrun_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     payrun_ref01_data_up0_up = {
       "id" => payrun_ref01_data["id"],
     }
 
-    payrun_ref01_markdef_up0_name = "note"
+    payrun_ref01_markdef_up0_name = "authorisation_date"
     payrun_ref01_markdef_up0_value = "Mark01-payrun_ref01_#{setup[:now]}"
     payrun_ref01_data_up0_up[payrun_ref01_markdef_up0_name] = payrun_ref01_markdef_up0_value
 
@@ -56,11 +68,31 @@ class PayrunEntityTest < Minitest::Test
     assert_equal payrun_ref01_resdata_up0["id"], payrun_ref01_data_up0_up["id"]
     assert_equal payrun_ref01_resdata_up0[payrun_ref01_markdef_up0_name], payrun_ref01_markdef_up0_value
 
+    # LOAD
+    payrun_ref01_match_dt0 = {
+      "id" => payrun_ref01_data["id"],
+    }
+    payrun_ref01_data_dt0_loaded = payrun_ref01_ent.load(payrun_ref01_match_dt0, nil)
+    payrun_ref01_data_dt0_load_result = Helpers.to_map(payrun_ref01_data_dt0_loaded)
+    assert !payrun_ref01_data_dt0_load_result.nil?
+    assert_equal payrun_ref01_data_dt0_load_result["id"], payrun_ref01_data["id"]
+
     # REMOVE
     payrun_ref01_match_rm0 = {
       "id" => payrun_ref01_data["id"],
     }
     payrun_ref01_ent.remove(payrun_ref01_match_rm0, nil)
+
+    # LIST
+    payrun_ref01_match_rt0 = {}
+
+    payrun_ref01_list_rt0_result = payrun_ref01_ent.list(payrun_ref01_match_rt0, nil)
+    assert payrun_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(payrun_ref01_list_rt0_result),
+      { "id" => payrun_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end
@@ -79,7 +111,7 @@ def payrun_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["payrun01", "payrun02", "payrun03"],
+    ["payrun01", "payrun02", "payrun03", "merchant_i_d01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

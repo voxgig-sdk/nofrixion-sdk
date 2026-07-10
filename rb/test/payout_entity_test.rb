@@ -16,7 +16,7 @@ class PayoutEntityTest < Minitest::Test
     setup = payout_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "update", "load", "remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "payout." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -35,13 +35,28 @@ class PayoutEntityTest < Minitest::Test
     payout_ref01_ent = client.Payout(nil)
     payout_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.payout"), "payout_ref01"))
+    payout_ref01_data["account_id"] = setup[:idmap]["account01"]
     payout_ref01_data["destination"] = setup[:idmap]["destination01"]
+    payout_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
     payout_ref01_data["source"] = setup[:idmap]["source01"]
 
     payout_ref01_data_result = payout_ref01_ent.create(payout_ref01_data, nil)
     payout_ref01_data = Helpers.to_map(payout_ref01_data_result)
     assert !payout_ref01_data.nil?
     assert !payout_ref01_data["id"].nil?
+
+    # LIST
+    payout_ref01_match = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    payout_ref01_list_result = payout_ref01_ent.list(payout_ref01_match, nil)
+    assert payout_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(payout_ref01_list_result),
+      { "id" => payout_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
     # UPDATE
     payout_ref01_data_up0_up = {
@@ -73,6 +88,19 @@ class PayoutEntityTest < Minitest::Test
     }
     payout_ref01_ent.remove(payout_ref01_match_rm0, nil)
 
+    # LIST
+    payout_ref01_match_rt0 = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    payout_ref01_list_rt0_result = payout_ref01_ent.list(payout_ref01_match_rt0, nil)
+    assert payout_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(payout_ref01_list_rt0_result),
+      { "id" => payout_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
+
   end
 end
 
@@ -90,7 +118,7 @@ def payout_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["payout01", "payout02", "payout03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"],
+    ["payout01", "payout02", "payout03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

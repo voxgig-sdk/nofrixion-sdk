@@ -101,6 +101,79 @@ main: kit: entity: user: {
                 type: "`$STRING`"
               }
             ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/user/{merchantID}/userspaged"
+          parts: [
+            "api"
+            "v1"
+            "user"
+            "{merchant_id}"
+            "userspaged"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            "$action": "userspaged"
+            exist: [
+              "merchant_id"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/users"
@@ -121,6 +194,34 @@ main: kit: entity: user: {
               "merchant_id"
             ]
           }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoami"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoami"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoamitrustedapp"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoamitrustedapp"
+          ]
           transform: {
             req: "`reqdata`"
             res: "`body`"
@@ -182,6 +283,9 @@ main: kit: entity: user: {
     ancestors: [
       [
         "merchant"
+      ]
+      [
+        "user"
       ]
     ]
   }

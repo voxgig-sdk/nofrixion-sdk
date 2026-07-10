@@ -19,7 +19,7 @@ describe("RuleEntity", function()
     local setup = rule_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"update", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "rule." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -34,23 +34,54 @@ describe("RuleEntity", function()
     end
     local client = setup.client
 
-    -- Bootstrap entity data from existing test data.
-    local rule_ref01_data_raw = vs.items(helpers.to_map(
-      vs.getpath(setup.data, "existing.rule")))
-    local rule_ref01_data = nil
-    if #rule_ref01_data_raw > 0 then
-      rule_ref01_data = helpers.to_map(rule_ref01_data_raw[1][2])
-    end
+    -- CREATE
+    local rule_ref01_ent = client:Rule(nil)
+    local rule_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.rule"), "rule_ref01"))
+
+    local rule_ref01_data_result, err = rule_ref01_ent:create(rule_ref01_data, nil)
+    assert.is_nil(err)
+    rule_ref01_data = helpers.to_map(rule_ref01_data_result)
+    assert.is_not_nil(rule_ref01_data)
+    assert.is_not_nil(rule_ref01_data["id"])
+
+    -- LIST
+    local rule_ref01_match = {}
+
+    local rule_ref01_list_result, err = rule_ref01_ent:list(rule_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(rule_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(rule_ref01_list_result),
+      { id = rule_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
-    local rule_ref01_ent = client:Rule(nil)
     local rule_ref01_data_up0_up = {
+      id = rule_ref01_data["id"],
     }
+
+    local rule_ref01_markdef_up0_name = "account_id"
+    local rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" .. tostring(setup.now)
+    rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
     local rule_ref01_resdata_up0_result, err = rule_ref01_ent:update(rule_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local rule_ref01_resdata_up0 = helpers.to_map(rule_ref01_resdata_up0_result)
     assert.is_not_nil(rule_ref01_resdata_up0)
+    assert.are.equal(rule_ref01_resdata_up0["id"], rule_ref01_data_up0_up["id"])
+    assert.are.equal(rule_ref01_resdata_up0[rule_ref01_markdef_up0_name], rule_ref01_markdef_up0_value)
+
+    -- LOAD
+    local rule_ref01_match_dt0 = {
+      id = rule_ref01_data["id"],
+    }
+    local rule_ref01_data_dt0_loaded, err = rule_ref01_ent:load(rule_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    local rule_ref01_data_dt0_load_result = helpers.to_map(rule_ref01_data_dt0_loaded)
+    assert.is_not_nil(rule_ref01_data_dt0_load_result)
+    assert.are.equal(rule_ref01_data_dt0_load_result["id"], rule_ref01_data["id"])
 
     -- REMOVE
     local rule_ref01_match_rm0 = {
@@ -58,6 +89,18 @@ describe("RuleEntity", function()
     }
     local _, err = rule_ref01_ent:remove(rule_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local rule_ref01_match_rt0 = {}
+
+    local rule_ref01_list_rt0_result, err = rule_ref01_ent:list(rule_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(rule_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(rule_ref01_list_rt0_result),
+      { id = rule_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

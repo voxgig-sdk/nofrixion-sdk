@@ -23,7 +23,7 @@ class BeneficiaryEntityTest extends TestCase
         $setup = beneficiary_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "update", "load", "remove"] as $_op) {
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "beneficiary." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -48,6 +48,19 @@ class BeneficiaryEntityTest extends TestCase
         $beneficiary_ref01_data = Helpers::to_map($beneficiary_ref01_data_result);
         $this->assertNotNull($beneficiary_ref01_data);
         $this->assertNotNull($beneficiary_ref01_data["id"]);
+
+        // LIST
+        $beneficiary_ref01_match = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $beneficiary_ref01_list_result = $beneficiary_ref01_ent->list($beneficiary_ref01_match, null);
+        $this->assertIsArray($beneficiary_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($beneficiary_ref01_list_result),
+            ["id" => $beneficiary_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $beneficiary_ref01_data_up0_up = [
@@ -78,6 +91,19 @@ class BeneficiaryEntityTest extends TestCase
             "id" => $beneficiary_ref01_data["id"],
         ];
         $beneficiary_ref01_ent->remove($beneficiary_ref01_match_rm0, null);
+
+        // LIST
+        $beneficiary_ref01_match_rt0 = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $beneficiary_ref01_list_rt0_result = $beneficiary_ref01_ent->list($beneficiary_ref01_match_rt0, null);
+        $this->assertIsArray($beneficiary_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($beneficiary_ref01_list_rt0_result),
+            ["id" => $beneficiary_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }

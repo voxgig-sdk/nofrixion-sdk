@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "beneficiaries_create": {
+      "BENEFICIARIES_CREATE00": {
+        "beneficiary": [],
+        "failed_beneficiary": {},
+        "id": "BENEFICIARIES_CREATE00"
+      },
+      "BENEFICIARIES_CREATE01": {
+        "beneficiary": [],
+        "failed_beneficiary": {},
+        "id": "BENEFICIARIES_CREATE01"
+      },
+      "BENEFICIARIES_CREATE02": {
+        "beneficiary": [],
+        "failed_beneficiary": {},
+        "id": "BENEFICIARIES_CREATE02"
+      }
+    }
+  },
+  "new": {
+    "beneficiaries_create": {
+      "beneficiaries_create_ref01": {
+        "beneficiary": [],
+        "failed_beneficiary": {}
+      }
+    }
+  }
+}

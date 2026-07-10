@@ -1,0 +1,151 @@
+# Entity: payout_metric
+
+main: kit: entity: payout_metric: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "all"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "failed"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "in_progress"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "paid"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "pending_approval"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "scheduled"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "total_amounts_by_currency"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "payout_metric"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "from_date"
+                orig: "from_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "max_amount"
+                orig: "max_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "min_amount"
+                orig: "min_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tag"
+                orig: "tag"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "to_date"
+                orig: "to_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payouts/metrics"
+          parts: [
+            "api"
+            "v1"
+            "payouts"
+            "metrics"
+          ]
+          select: {
+            exist: [
+              "currency"
+              "from_date"
+              "include_archived"
+              "max_amount"
+              "merchant_id"
+              "min_amount"
+              "search"
+              "tag"
+              "to_date"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

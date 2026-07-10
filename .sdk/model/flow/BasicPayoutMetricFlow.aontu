@@ -1,0 +1,28 @@
+# BasicPayoutMetricFlow
+
+main: kit: flow: BasicPayoutMetricFlow:
+{
+  entity: "payout_metric",
+  kind: "basic",
+  name: "BasicPayoutMetricFlow",
+  step: [
+    {
+      input: {
+        ref: "payout_metric_ref01",
+        srcdatavar: "payout_metric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payout_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPayoutMetricFlow"
+}

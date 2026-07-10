@@ -19,6 +19,22 @@ main: kit: flow: BasicBeneficiaryFlow:
     }
 
     {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "beneficiary_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       input: {
         ref: "beneficiary_ref01",
         srcdatavar: "beneficiary_ref01_data",
@@ -70,6 +86,26 @@ main: kit: flow: BasicBeneficiaryFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "beneficiary_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicBeneficiaryFlow"

@@ -1,0 +1,22 @@
+# BasicPaymentAccountMinimalFlow
+
+main: kit: flow: BasicPaymentAccountMinimalFlow:
+{
+  entity: "payment_account_minimal",
+  kind: "basic",
+  name: "BasicPaymentAccountMinimalFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payment_account_minimal_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaymentAccountMinimalFlow"
+}

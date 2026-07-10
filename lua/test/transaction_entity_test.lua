@@ -19,7 +19,7 @@ describe("TransactionEntity", function()
     local setup = transaction_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "transaction." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -38,18 +38,37 @@ describe("TransactionEntity", function()
     local transaction_ref01_ent = client:Transaction(nil)
     local transaction_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.transaction"), "transaction_ref01"))
+    transaction_ref01_data["account_id"] = setup.idmap["account01"]
+    transaction_ref01_data["merchant_id"] = setup.idmap["merchant01"]
     transaction_ref01_data["transaction_id"] = setup.idmap["transaction01"]
 
     local transaction_ref01_data_result, err = transaction_ref01_ent:create(transaction_ref01_data, nil)
     assert.is_nil(err)
     transaction_ref01_data = helpers.to_map(transaction_ref01_data_result)
     assert.is_not_nil(transaction_ref01_data)
+    assert.is_not_nil(transaction_ref01_data["id"])
+
+    -- LIST
+    local transaction_ref01_match = {}
+
+    local transaction_ref01_list_result, err = transaction_ref01_ent:list(transaction_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(transaction_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(transaction_ref01_list_result),
+      { id = transaction_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- LOAD
-    local transaction_ref01_match_dt0 = {}
+    local transaction_ref01_match_dt0 = {
+      id = transaction_ref01_data["id"],
+    }
     local transaction_ref01_data_dt0_loaded, err = transaction_ref01_ent:load(transaction_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(transaction_ref01_data_dt0_loaded)
+    local transaction_ref01_data_dt0_load_result = helpers.to_map(transaction_ref01_data_dt0_loaded)
+    assert.is_not_nil(transaction_ref01_data_dt0_load_result)
+    assert.are.equal(transaction_ref01_data_dt0_load_result["id"], transaction_ref01_data["id"])
 
     -- REMOVE
     local transaction_ref01_match_rm0 = {
@@ -57,6 +76,18 @@ describe("TransactionEntity", function()
     }
     local _, err = transaction_ref01_ent:remove(transaction_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local transaction_ref01_match_rt0 = {}
+
+    local transaction_ref01_list_rt0_result, err = transaction_ref01_ent:list(transaction_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(transaction_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(transaction_ref01_list_rt0_result),
+      { id = transaction_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)
@@ -81,7 +112,7 @@ function transaction_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "transaction01", "transaction02", "transaction03", "from01", "from02", "from03" },
+    { "transaction01", "transaction02", "transaction03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "from01", "from02", "from03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

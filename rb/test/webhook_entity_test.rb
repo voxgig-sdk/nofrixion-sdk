@@ -16,7 +16,7 @@ class WebhookEntityTest < Minitest::Test
     setup = webhook_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "webhook." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -31,20 +31,72 @@ class WebhookEntityTest < Minitest::Test
     end
     client = setup[:client]
 
-    # Bootstrap entity data from existing test data.
-    webhook_ref01_data_raw = Vs.items(Helpers.to_map(
-      Vs.getpath(setup[:data], "existing.webhook")))
-    webhook_ref01_data = nil
-    if webhook_ref01_data_raw.length > 0
-      webhook_ref01_data = Helpers.to_map(webhook_ref01_data_raw[0][1])
-    end
+    # CREATE
+    webhook_ref01_ent = client.Webhook(nil)
+    webhook_ref01_data = Helpers.to_map(Vs.getprop(
+      Vs.getpath(setup[:data], "new.webhook"), "webhook_ref01"))
+    webhook_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
+
+    webhook_ref01_data_result = webhook_ref01_ent.create(webhook_ref01_data, nil)
+    webhook_ref01_data = Helpers.to_map(webhook_ref01_data_result)
+    assert !webhook_ref01_data.nil?
+    assert !webhook_ref01_data["id"].nil?
+
+    # LIST
+    webhook_ref01_match = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    webhook_ref01_list_result = webhook_ref01_ent.list(webhook_ref01_match, nil)
+    assert webhook_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(webhook_ref01_list_result),
+      { "id" => webhook_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
+    # UPDATE
+    webhook_ref01_data_up0_up = {
+      "id" => webhook_ref01_data["id"],
+    }
+
+    webhook_ref01_markdef_up0_name = "destination_url"
+    webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_#{setup[:now]}"
+    webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
+
+    webhook_ref01_resdata_up0_result = webhook_ref01_ent.update(webhook_ref01_data_up0_up, nil)
+    webhook_ref01_resdata_up0 = Helpers.to_map(webhook_ref01_resdata_up0_result)
+    assert !webhook_ref01_resdata_up0.nil?
+    assert_equal webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"]
+    assert_equal webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value
+
+    # LOAD
+    webhook_ref01_match_dt0 = {
+      "id" => webhook_ref01_data["id"],
+    }
+    webhook_ref01_data_dt0_loaded = webhook_ref01_ent.load(webhook_ref01_match_dt0, nil)
+    webhook_ref01_data_dt0_load_result = Helpers.to_map(webhook_ref01_data_dt0_loaded)
+    assert !webhook_ref01_data_dt0_load_result.nil?
+    assert_equal webhook_ref01_data_dt0_load_result["id"], webhook_ref01_data["id"]
 
     # REMOVE
-    webhook_ref01_ent = client.Webhook(nil)
     webhook_ref01_match_rm0 = {
       "id" => webhook_ref01_data["id"],
     }
     webhook_ref01_ent.remove(webhook_ref01_match_rm0, nil)
+
+    # LIST
+    webhook_ref01_match_rt0 = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    webhook_ref01_list_rt0_result = webhook_ref01_ent.list(webhook_ref01_match_rt0, nil)
+    assert webhook_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(webhook_ref01_list_rt0_result),
+      { "id" => webhook_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end
@@ -63,7 +115,7 @@ def webhook_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["webhook01", "webhook02", "webhook03"],
+    ["webhook01", "webhook02", "webhook03", "merchant01", "merchant02", "merchant03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

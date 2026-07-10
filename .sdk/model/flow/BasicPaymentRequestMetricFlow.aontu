@@ -1,0 +1,28 @@
+# BasicPaymentRequestMetricFlow
+
+main: kit: flow: BasicPaymentRequestMetricFlow:
+{
+  entity: "payment_request_metric",
+  kind: "basic",
+  name: "BasicPaymentRequestMetricFlow",
+  step: [
+    {
+      input: {
+        ref: "payment_request_metric_ref01",
+        srcdatavar: "payment_request_metric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payment_request_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaymentRequestMetricFlow"
+}

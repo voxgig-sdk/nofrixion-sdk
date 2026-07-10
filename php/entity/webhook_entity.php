@@ -96,12 +96,138 @@ class WebhookEntity
     }
 
     
+    /**
+     * Load a single Webhook.
+     *
+     * @param WebhookLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed WebhookLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Webhook|array The loaded Webhook as an assoc-array at the
+     *   SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "load",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqmatch" => $reqmatch,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+                if ($ctx->result->resdata) {
+                    $this->_data = NofrixionHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
+                }
+            }
+        });
+    }
+
+
 
     
+    /**
+     * List Webhook items matching the given filter.
+     *
+     * @param WebhookListMatch|array|null $reqmatch Match filter (any subset
+     *   of Webhook fields) as an assoc-array; WebhookListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Webhook[]|array A list of Webhook items as assoc-arrays at
+     *   the SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "list",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqmatch" => $reqmatch,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+            }
+        });
+    }
+
+
 
     
+    /**
+     * Create a new Webhook.
+     *
+     * @param WebhookCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed WebhookCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Webhook|array The created Webhook as an assoc-array at the
+     *   SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "create",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqdata" => $reqdata,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resdata) {
+                    $this->_data = NofrixionHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
+                }
+            }
+        });
+    }
+
+
 
     
+    /**
+     * Update an existing Webhook.
+     *
+     * @param WebhookUpdateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed WebhookUpdateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Webhook|array The updated Webhook as an assoc-array at the
+     *   SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function update(?array $reqdata = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "update",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqdata" => $reqdata,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+                if ($ctx->result->resdata) {
+                    $this->_data = NofrixionHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
+                }
+            }
+        });
+    }
+
+
 
     
     /**

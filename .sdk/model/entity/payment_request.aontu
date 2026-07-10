@@ -6,9 +6,124 @@ main: kit: entity: payment_request: {
 
   fields: [
     {
+      name: "address"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "amount"
       req: false
       type: "`$NUMBER`"
+    }
+    {
+      name: "amount_pending"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "amount_received"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "amount_refunded"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "auto_send_receipt"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "base_origin_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "callback_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_authorize_only"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "card_create_token"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "card_create_token_mode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_ignore_cvn"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "card_processor_merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_stripe_payment_intent_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_stripe_payment_intent_secret"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by_user"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_field"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "customer_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "destination_account"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "direct_debit_payment"
+      req: false
+      type: "`$OBJECT`"
     }
     {
       name: "do_simulate_settlement_failure"
@@ -16,7 +131,57 @@ main: kit: entity: payment_request: {
       type: "`$BOOLEAN`"
     }
     {
+      name: "due_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "error_description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "failure_callback_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "field_display_setting"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "formatted_amount"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "hosted_pay_checkout_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ignore_address_verification"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted_sortable"
       req: false
       type: "`$STRING`"
     }
@@ -26,11 +191,161 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "jwk"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lightning_invoice"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lightning_invoice_expires_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_direct_debit_mandate_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_token_description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "notification_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "notification_role_i_d"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "order_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "partial_payment_method"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "partial_payment_step"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payment_attempt"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "payment_initiation_id"
       req: false
       type: "`$STRING`"
     }
+    {
+      name: "payment_method"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "payment_processor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payrun_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "pisp_account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "priority_bank_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "sandbox_settle_delay_in_second"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "shipping_address"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "success_web_hook_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tag"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tokenised_card"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "transaction"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "use_hosted_payment_page"
+      req: false
+      type: "`$BOOLEAN`"
+    }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "payment_request"
   op: {
@@ -84,6 +399,148 @@ main: kit: entity: payment_request: {
               "mandate_id"
               "paymentrequest_id"
               "submit_after"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "from_date"
+                orig: "from_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "max_amount"
+                orig: "max_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "min_amount"
+                orig: "min_amount"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "payment_method"
+                orig: "payment_method"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "size"
+                orig: "size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "All"
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tag"
+                orig: "tag"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "to_date"
+                orig: "to_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/paymentrequests"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+          ]
+          select: {
+            exist: [
+              "currency"
+              "from_date"
+              "include_archived"
+              "max_amount"
+              "merchant_id"
+              "min_amount"
+              "page"
+              "payment_method"
+              "search"
+              "size"
+              "sort"
+              "status"
+              "tag"
+              "to_date"
             ]
           }
           transform: {

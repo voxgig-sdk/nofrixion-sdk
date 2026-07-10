@@ -1,0 +1,28 @@
+# BasicNoFrixionVersionFlow
+
+main: kit: flow: BasicNoFrixionVersionFlow:
+{
+  entity: "no_frixion_version",
+  kind: "basic",
+  name: "BasicNoFrixionVersionFlow",
+  step: [
+    {
+      input: {
+        ref: "no_frixion_version_ref01",
+        srcdatavar: "no_frixion_version_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-no_frixion_version_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNoFrixionVersionFlow"
+}

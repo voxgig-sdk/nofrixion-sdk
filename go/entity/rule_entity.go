@@ -106,19 +106,112 @@ func (e *RuleEntity) MatchTyped(match ...Rule) Rule {
 	return typedFrom[Rule](e.Match())
 }
 
-func (e *RuleEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
-	return core.UnsupportedOp("load", e.name)
+
+func (e *RuleEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
+	utility := e.utility
+	ctx := utility.MakeContext(map[string]any{
+		"opname":   "load",
+		"ctrl":     ctrl,
+		"match":    e.match,
+		"data":     e.data,
+		"reqmatch": reqmatch,
+	}, e.entctx)
+
+	return e.runOp(ctx, func() {
+		if ctx.Result != nil {
+			if ctx.Result.Resmatch != nil {
+				e.match = ctx.Result.Resmatch
+			}
+			if ctx.Result.Resdata != nil {
+				e.data = core.ToMapAny(vs.Clone(ctx.Result.Resdata))
+				if e.data == nil {
+					e.data = map[string]any{}
+				}
+			}
+		}
+	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// RuleLoadMatch and returns an Rule. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *RuleEntity) LoadTyped(reqmatch RuleLoadMatch, ctrl map[string]any) (Rule, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Rule{}, err
+	}
+	return typedFrom[Rule](res), nil
 }
 
 
-func (e *RuleEntity) List(_ map[string]any, _ map[string]any) (any, error) {
-	return core.UnsupportedOp("list", e.name)
+
+
+func (e *RuleEntity) List(reqmatch map[string]any, ctrl map[string]any) (any, error) {
+	utility := e.utility
+	ctx := utility.MakeContext(map[string]any{
+		"opname":   "list",
+		"ctrl":     ctrl,
+		"match":    e.match,
+		"data":     e.data,
+		"reqmatch": reqmatch,
+	}, e.entctx)
+
+	return e.runOp(ctx, func() {
+		if ctx.Result != nil {
+			if ctx.Result.Resmatch != nil {
+				e.match = ctx.Result.Resmatch
+			}
+		}
+	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// RuleListMatch and returns []Rule. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *RuleEntity) ListTyped(reqmatch RuleListMatch, ctrl map[string]any) ([]Rule, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[Rule](res), nil
 }
 
 
-func (e *RuleEntity) Create(_ map[string]any, _ map[string]any) (any, error) {
-	return core.UnsupportedOp("create", e.name)
+
+
+func (e *RuleEntity) Create(reqdata map[string]any, ctrl map[string]any) (any, error) {
+	utility := e.utility
+	ctx := utility.MakeContext(map[string]any{
+		"opname":  "create",
+		"ctrl":    ctrl,
+		"match":   e.match,
+		"data":    e.data,
+		"reqdata": reqdata,
+	}, e.entctx)
+
+	return e.runOp(ctx, func() {
+		if ctx.Result != nil {
+			if ctx.Result.Resdata != nil {
+				e.data = core.ToMapAny(vs.Clone(ctx.Result.Resdata))
+				if e.data == nil {
+					e.data = map[string]any{}
+				}
+			}
+		}
+	})
 }
+
+// CreateTyped is the statically-typed variant of Create: it takes an
+// RuleCreateData and returns an Rule. It delegates to the untyped
+// Create (identical runtime) and converts at the typed boundary.
+func (e *RuleEntity) CreateTyped(reqdata RuleCreateData, ctrl map[string]any) (Rule, error) {
+	res, err := e.Create(asMap(reqdata), ctrl)
+	if err != nil {
+		return Rule{}, err
+	}
+	return typedFrom[Rule](res), nil
+}
+
 
 
 

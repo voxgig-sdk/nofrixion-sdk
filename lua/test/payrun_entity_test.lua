@@ -19,7 +19,7 @@ describe("PayrunEntity", function()
     local setup = payrun_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "payrun." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -38,6 +38,7 @@ describe("PayrunEntity", function()
     local payrun_ref01_ent = client:Payrun(nil)
     local payrun_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.payrun"), "payrun_ref01"))
+    payrun_ref01_data["merchant_i_d"] = setup.idmap["merchant_i_d01"]
 
     local payrun_ref01_data_result, err = payrun_ref01_ent:create(payrun_ref01_data, nil)
     assert.is_nil(err)
@@ -45,12 +46,24 @@ describe("PayrunEntity", function()
     assert.is_not_nil(payrun_ref01_data)
     assert.is_not_nil(payrun_ref01_data["id"])
 
+    -- LIST
+    local payrun_ref01_match = {}
+
+    local payrun_ref01_list_result, err = payrun_ref01_ent:list(payrun_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(payrun_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(payrun_ref01_list_result),
+      { id = payrun_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local payrun_ref01_data_up0_up = {
       id = payrun_ref01_data["id"],
     }
 
-    local payrun_ref01_markdef_up0_name = "note"
+    local payrun_ref01_markdef_up0_name = "authorisation_date"
     local payrun_ref01_markdef_up0_value = "Mark01-payrun_ref01_" .. tostring(setup.now)
     payrun_ref01_data_up0_up[payrun_ref01_markdef_up0_name] = payrun_ref01_markdef_up0_value
 
@@ -61,12 +74,34 @@ describe("PayrunEntity", function()
     assert.are.equal(payrun_ref01_resdata_up0["id"], payrun_ref01_data_up0_up["id"])
     assert.are.equal(payrun_ref01_resdata_up0[payrun_ref01_markdef_up0_name], payrun_ref01_markdef_up0_value)
 
+    -- LOAD
+    local payrun_ref01_match_dt0 = {
+      id = payrun_ref01_data["id"],
+    }
+    local payrun_ref01_data_dt0_loaded, err = payrun_ref01_ent:load(payrun_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    local payrun_ref01_data_dt0_load_result = helpers.to_map(payrun_ref01_data_dt0_loaded)
+    assert.is_not_nil(payrun_ref01_data_dt0_load_result)
+    assert.are.equal(payrun_ref01_data_dt0_load_result["id"], payrun_ref01_data["id"])
+
     -- REMOVE
     local payrun_ref01_match_rm0 = {
       id = payrun_ref01_data["id"],
     }
     local _, err = payrun_ref01_ent:remove(payrun_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local payrun_ref01_match_rt0 = {}
+
+    local payrun_ref01_list_rt0_result, err = payrun_ref01_ent:list(payrun_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(payrun_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(payrun_ref01_list_rt0_result),
+      { id = payrun_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)
@@ -91,7 +126,7 @@ function payrun_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "payrun01", "payrun02", "payrun03" },
+    { "payrun01", "payrun02", "payrun03", "merchant_i_d01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

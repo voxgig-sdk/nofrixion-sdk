@@ -254,86 +254,58 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
 | `Account` | `(data map[string]any) NofrixionEntity` | Create an Account entity instance. |
+| `Batch` | `(data map[string]any) NofrixionEntity` | Create a Batch entity instance. |
+| `BeneficiariesCreate` | `(data map[string]any) NofrixionEntity` | Create a BeneficiariesCreate entity instance. |
 | `Beneficiary` | `(data map[string]any) NofrixionEntity` | Create a Beneficiary entity instance. |
-| `Cancel` | `(data map[string]any) NofrixionEntity` | Create a Cancel entity instance. |
-| `Disable` | `(data map[string]any) NofrixionEntity` | Create a Disable entity instance. |
-| `Enable` | `(data map[string]any) NofrixionEntity` | Create an Enable entity instance. |
+| `BeneficiaryGroup` | `(data map[string]any) NofrixionEntity` | Create a BeneficiaryGroup entity instance. |
+| `Card` | `(data map[string]any) NofrixionEntity` | Create a Card entity instance. |
+| `CardCustomerToken` | `(data map[string]any) NofrixionEntity` | Create a CardCustomerToken entity instance. |
+| `CardPayment` | `(data map[string]any) NofrixionEntity` | Create a CardPayment entity instance. |
+| `CardPublicKey` | `(data map[string]any) NofrixionEntity` | Create a CardPublicKey entity instance. |
+| `Consent` | `(data map[string]any) NofrixionEntity` | Create a Consent entity instance. |
+| `Currency` | `(data map[string]any) NofrixionEntity` | Create a Currency entity instance. |
+| `DirectDebitBatchSubmit` | `(data map[string]any) NofrixionEntity` | Create a DirectDebitBatchSubmit entity instance. |
+| `FxRate` | `(data map[string]any) NofrixionEntity` | Create a FxRate entity instance. |
+| `IPayment` | `(data map[string]any) NofrixionEntity` | Create an IPayment entity instance. |
+| `Mandate` | `(data map[string]any) NofrixionEntity` | Create a Mandate entity instance. |
 | `Merchant` | `(data map[string]any) NofrixionEntity` | Create a Merchant entity instance. |
+| `MerchantAuthorisationSetting` | `(data map[string]any) NofrixionEntity` | Create a MerchantAuthorisationSetting entity instance. |
+| `MerchantDirectDebitMandate` | `(data map[string]any) NofrixionEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantPayByBankSetting` | `(data map[string]any) NofrixionEntity` | Create a MerchantPayByBankSetting entity instance. |
+| `MerchantPaymentRequestTemplate` | `(data map[string]any) NofrixionEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
+| `MerchantToken` | `(data map[string]any) NofrixionEntity` | Create a MerchantToken entity instance. |
 | `Metadata` | `(data map[string]any) NofrixionEntity` | Create a Metadata entity instance. |
-| `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage entity instance. |
-| `NoFrixionBizBizModelsPagingPaymentRequestPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingPaymentRequestPage entity instance. |
-| `NoFrixionBizBizModelsPagingPayoutPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingPayoutPage entity instance. |
-| `NoFrixionBizBizModelsPagingPayrunPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingPayrunPage entity instance. |
-| `NoFrixionBizBizModelsPagingRuleEventsPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingRuleEventsPage entity instance. |
-| `NoFrixionBizBizModelsPagingRulesPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPagingRulesPage entity instance. |
-| `NoFrixionBizBizModelsPaymentsCardPayment` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPaymentsCardPayment entity instance. |
-| `NoFrixionBizBizModelsPaymentsCardPublicKey` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionBizBizModelsPaymentsCardPublicKey entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesUserInvitesCreate` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovApiFeaturesUserInvitesCreate entity instance. |
-| `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant entity instance. |
-| `NoFrixionMoneyMoovModelsBatchPayout` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsBatchPayout entity instance. |
-| `NoFrixionMoneyMoovModelsBeneficiaryGroupPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsBeneficiaryGroupPage entity instance. |
-| `NoFrixionMoneyMoovModelsBeneficiaryPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsBeneficiaryPage entity instance. |
-| `NoFrixionMoneyMoovModelsCardCustomerToken` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsCardCustomerToken entity instance. |
-| `NoFrixionMoneyMoovModelsCurrencyCurrencyInfo` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsCurrencyCurrencyInfo entity instance. |
-| `NoFrixionMoneyMoovModelsDirectDebitBatchSubmit` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsDirectDebitBatchSubmit entity instance. |
-| `NoFrixionMoneyMoovModelsFxRate` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsFxRate entity instance. |
-| `NoFrixionMoneyMoovModelsIPayment` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsIPayment entity instance. |
-| `NoFrixionMoneyMoovModelsMandatesMandate` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMandatesMandate entity instance. |
-| `NoFrixionMoneyMoovModelsMerchant` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMerchant entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMerchantPage entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantPayByBankSetting` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMerchantPayByBankSetting entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantToken` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMerchantToken entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantTokenPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsMerchantTokenPage entity instance. |
-| `NoFrixionMoneyMoovModelsNoFrixionVersion` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsNoFrixionVersion entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingAccount` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingAccount entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingConsent` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingConsent entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingTransaction` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingTransaction entity instance. |
-| `NoFrixionMoneyMoovModelsPayment` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPayment entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentAccountMinimalPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentAccountMinimalPage entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentAccountPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentAccountPage entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentInitiation` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentInitiation entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestEvent` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestEvent entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestMetric` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestMetric entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestMinimal` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestMinimal entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestResult` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestResult entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3 entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4 entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutKeysetPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPayoutKeysetPage entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutMetric` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPayoutMetric entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutsPayoutsCreate` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPayoutsPayoutsCreate entity instance. |
-| `NoFrixionMoneyMoovModelsPayrun` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsPayrun entity instance. |
-| `NoFrixionMoneyMoovModelsReportResult` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsReportResult entity instance. |
-| `NoFrixionMoneyMoovModelsRule` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsRule entity instance. |
-| `NoFrixionMoneyMoovModelsTransaction` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsTransaction entity instance. |
-| `NoFrixionMoneyMoovModelsTransactionPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsTransactionPage entity instance. |
-| `NoFrixionMoneyMoovModelsUserInvite` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsUserInvite entity instance. |
-| `NoFrixionMoneyMoovModelsUserInvitePage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsUserInvitePage entity instance. |
-| `NoFrixionMoneyMoovModelsUserPage` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsUserPage entity instance. |
-| `NoFrixionMoneyMoovModelsWebhook` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionMoneyMoovModelsWebhook entity instance. |
+| `NoFrixionVersion` | `(data map[string]any) NofrixionEntity` | Create a NoFrixionVersion entity instance. |
 | `OpenBanking` | `(data map[string]any) NofrixionEntity` | Create an OpenBanking entity instance. |
 | `Payeeverification` | `(data map[string]any) NofrixionEntity` | Create a Payeeverification entity instance. |
+| `Payment` | `(data map[string]any) NofrixionEntity` | Create a Payment entity instance. |
+| `PaymentAccount` | `(data map[string]any) NofrixionEntity` | Create a PaymentAccount entity instance. |
+| `PaymentAccountMinimal` | `(data map[string]any) NofrixionEntity` | Create a PaymentAccountMinimal entity instance. |
+| `PaymentInitiation` | `(data map[string]any) NofrixionEntity` | Create a PaymentInitiation entity instance. |
 | `PaymentRequest` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequest entity instance. |
+| `PaymentRequestEvent` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestEvent entity instance. |
+| `PaymentRequestMetric` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestMetric entity instance. |
+| `PaymentRequestMinimal` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestMinimal entity instance. |
+| `PaymentRequestResult` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestResult entity instance. |
+| `PaymentRequestsCreate` | `(data map[string]any) NofrixionEntity` | Create a PaymentRequestsCreate entity instance. |
 | `Payout` | `(data map[string]any) NofrixionEntity` | Create a Payout entity instance. |
+| `PayoutKeyset` | `(data map[string]any) NofrixionEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutMetric` | `(data map[string]any) NofrixionEntity` | Create a PayoutMetric entity instance. |
+| `PayoutsCreate` | `(data map[string]any) NofrixionEntity` | Create a PayoutsCreate entity instance. |
 | `Payrun` | `(data map[string]any) NofrixionEntity` | Create a Payrun entity instance. |
-| `Reject` | `(data map[string]any) NofrixionEntity` | Create a Reject entity instance. |
 | `Report` | `(data map[string]any) NofrixionEntity` | Create a Report entity instance. |
+| `ReportResult` | `(data map[string]any) NofrixionEntity` | Create a ReportResult entity instance. |
+| `RolesCreate` | `(data map[string]any) NofrixionEntity` | Create a RolesCreate entity instance. |
 | `Rule` | `(data map[string]any) NofrixionEntity` | Create a Rule entity instance. |
-| `Send` | `(data map[string]any) NofrixionEntity` | Create a Send entity instance. |
-| `Sendbeneficiary` | `(data map[string]any) NofrixionEntity` | Create a Sendbeneficiary entity instance. |
+| `RuleEvent` | `(data map[string]any) NofrixionEntity` | Create a RuleEvent entity instance. |
 | `Tag` | `(data map[string]any) NofrixionEntity` | Create a Tag entity instance. |
 | `Token` | `(data map[string]any) NofrixionEntity` | Create a Token entity instance. |
 | `Transaction` | `(data map[string]any) NofrixionEntity` | Create a Transaction entity instance. |
 | `User` | `(data map[string]any) NofrixionEntity` | Create an User entity instance. |
 | `UserInvite` | `(data map[string]any) NofrixionEntity` | Create an UserInvite entity instance. |
+| `UserInvitesCreate` | `(data map[string]any) NofrixionEntity` | Create an UserInvitesCreate entity instance. |
 | `Virtual` | `(data map[string]any) NofrixionEntity` | Create a Virtual entity instance. |
 | `Webhook` | `(data map[string]any) NofrixionEntity` | Create a Webhook entity instance. |
-| `Whoami` | `(data map[string]any) NofrixionEntity` | Create a Whoami entity instance. |
-| `Whoamitrustedapp` | `(data map[string]any) NofrixionEntity` | Create a Whoamitrustedapp entity instance. |
 
 ### Entity interface (NofrixionEntity)
 
@@ -378,7 +350,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
+| `"account_balance"` |  |
 | `"account_id"` |  |
+| `"account_identification"` |  |
 | `"account_name"` |  |
 | `"account_supplier_name"` |  |
 | `"account_type"` |  |
@@ -388,10 +362,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"balance_minor_unit"` |  |
 | `"bank_name"` |  |
 | `"consent_id"` |  |
+| `"consolidated_account_information"` |  |
 | `"created_by"` |  |
 | `"created_by_display_name"` |  |
 | `"currency"` |  |
 | `"default_payment_rail"` |  |
+| `"description"` |  |
+| `"detail"` |  |
 | `"display_name"` |  |
 | `"expiry_date"` |  |
 | `"external_account_icon"` |  |
@@ -409,6 +386,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"last_updated"` |  |
 | `"merchant_id"` |  |
 | `"merchant_name"` |  |
+| `"nickname"` |  |
 | `"physical_account_id"` |  |
 | `"role_i_d"` |  |
 | `"rule"` |  |
@@ -418,6 +396,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"supplier_physical_account_id"` |  |
 | `"supplier_sepa_instant_status"` |  |
 | `"to_date"` |  |
+| `"type"` |  |
+| `"usage_type"` |  |
 | `"xero_bank_feed_connection_status"` |  |
 | `"xero_bank_feed_last_synced_at"` |  |
 | `"xero_bank_feed_sync_last_failed_at"` |  |
@@ -428,6 +408,29 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/accounts/{accountID}/{currency}`
+
+#### Batch
+
+| Field | Description |
+| --- | --- |
+| `"approve_url"` |  |
+| `"id"` |  |
+| `"payout"` |  |
+
+Operations: Create, Load.
+
+API path: `/api/v1/payouts/batch`
+
+#### BeneficiariesCreate
+
+| Field | Description |
+| --- | --- |
+| `"beneficiary"` |  |
+| `"failed_beneficiary"` |  |
+
+Operations: Create.
+
+API path: `/api/v1/beneficiaries/batchcreate`
 
 #### Beneficiary
 
@@ -458,460 +461,72 @@ API path: `/api/v1/accounts/{accountID}/{currency}`
 | `"source_account_i_d"` |  |
 | `"their_reference"` |  |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/beneficiaries/authorise/{id}`
 
-#### Cancel
+#### BeneficiaryGroup
 
 | Field | Description |
 | --- | --- |
-| `"account_id"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
+| `"group_member"` |  |
+| `"group_name"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
 | `"last_updated"` |  |
 | `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
+
+Operations: List.
+
+API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
+
+#### Card
+
+| Field | Description |
+| --- | --- |
+| `"authorized_amount"` |  |
+| `"currency_code"` |  |
+| `"is_payer_authentication_required"` |  |
+| `"is_soft_decline"` |  |
+| `"payer_authentication_access_token"` |  |
+| `"payer_authentication_merchant_data"` |  |
+| `"payer_authentication_url"` |  |
+| `"payer_authentication_window_height"` |  |
+| `"payer_authentication_window_width"` |  |
+| `"payment_request_callback_url"` |  |
+| `"payment_request_id"` |  |
+| `"request_id"` |  |
+| `"response_code"` |  |
+| `"response_type"` |  |
 | `"status"` |  |
-| `"tag"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
+| `"three_ds_redirect_url"` |  |
+| `"transaction_id"` |  |
 
-Operations: Update.
+Operations: Create.
 
-API path: `/api/v1/payouts/cancel/{id}`
+API path: `/api/v1/paymentrequests/{id}/card`
 
-#### Disable
+#### CardCustomerToken
 
 | Field | Description |
 | --- | --- |
-| `"approval_callback_url"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"beneficiary_event"` |  |
-| `"can_authorise"` |  |
-| `"can_update"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"destination"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"is_enabled"` |  |
-| `"last_authorised"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"nonce"` |  |
-| `"source_account"` |  |
-| `"their_reference"` |  |
-
-Operations: Update.
-
-API path: `/api/v1/beneficiaries/disable/{id}`
-
-#### Enable
-
-| Field | Description |
-| --- | --- |
-| `"approval_callback_url"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"beneficiary_event"` |  |
-| `"can_authorise"` |  |
-| `"can_update"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"destination"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"is_enabled"` |  |
-| `"last_authorised"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"nonce"` |  |
-| `"source_account"` |  |
-| `"their_reference"` |  |
-
-Operations: Update.
-
-API path: `/api/v1/beneficiaries/enable/{id}`
-
-#### Merchant
-
-| Field | Description |
-| --- | --- |
-| `"reason"` |  |
-
-Operations: Load, Remove, Update.
-
-API path: `/api/v1/merchants/{merchantID}/payouts/export`
-
-#### Metadata
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/v1/metadata/problemnotification`
-
-#### NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage
-
-| Field | Description |
-| --- | --- |
-| `"approved_at"` |  |
-| `"currency"` |  |
-| `"customer_account_number"` |  |
-| `"customer_city"` |  |
-| `"customer_country_code"` |  |
-| `"customer_country_name"` |  |
+| `"card_type"` |  |
 | `"customer_email_address"` |  |
-| `"customer_first_name"` |  |
-| `"customer_iban"` |  |
-| `"customer_last_name"` |  |
-| `"customer_sort_code"` |  |
+| `"expiry_month"` |  |
+| `"expiry_year"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
-| `"is_recurring"` |  |
+| `"last_four_digit"` |  |
 | `"last_updated"` |  |
+| `"masked_card_number"` |  |
 | `"merchant_id"` |  |
-| `"reference"` |  |
-| `"status"` |  |
-| `"supplier_bank_account_id"` |  |
-| `"supplier_customer_id"` |  |
-| `"supplier_mandate_id"` |  |
-| `"supplier_name"` |  |
-| `"supplier_status"` |  |
+| `"payment_request_id"` |  |
 
-Operations: List.
+Operations: List, Load, Remove.
 
-API path: `/api/v1/mandates`
+API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}`
 
-#### NoFrixionBizBizModelsPagingPaymentRequestPage
-
-| Field | Description |
-| --- | --- |
-| `"address"` |  |
-| `"amount"` |  |
-| `"amount_pending"` |  |
-| `"amount_received"` |  |
-| `"amount_refunded"` |  |
-| `"auto_send_receipt"` |  |
-| `"base_origin_url"` |  |
-| `"callback_url"` |  |
-| `"card_authorize_only"` |  |
-| `"card_create_token"` |  |
-| `"card_create_token_mode"` |  |
-| `"card_ignore_cvn"` |  |
-| `"card_processor_merchant_id"` |  |
-| `"card_stripe_payment_intent_id"` |  |
-| `"card_stripe_payment_intent_secret"` |  |
-| `"created_by_user"` |  |
-| `"currency"` |  |
-| `"custom_field"` |  |
-| `"customer_email_address"` |  |
-| `"customer_id"` |  |
-| `"customer_name"` |  |
-| `"description"` |  |
-| `"destination_account"` |  |
-| `"direct_debit_payment"` |  |
-| `"due_date"` |  |
-| `"event"` |  |
-| `"failure_callback_url"` |  |
-| `"field_display_setting"` |  |
-| `"formatted_amount"` |  |
-| `"hosted_pay_checkout_url"` |  |
-| `"id"` |  |
-| `"ignore_address_verification"` |  |
-| `"inserted"` |  |
-| `"inserted_sortable"` |  |
-| `"is_archived"` |  |
-| `"jwk"` |  |
-| `"last_updated"` |  |
-| `"lightning_invoice"` |  |
-| `"lightning_invoice_expires_at"` |  |
-| `"merchant_direct_debit_mandate_id"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"notification_email_address"` |  |
-| `"notification_role_i_d"` |  |
-| `"order_id"` |  |
-| `"partial_payment_method"` |  |
-| `"partial_payment_step"` |  |
-| `"payment_attempt"` |  |
-| `"payment_method"` |  |
-| `"payment_processor"` |  |
-| `"payrun_id"` |  |
-| `"pisp_account_id"` |  |
-| `"priority_bank_id"` |  |
-| `"result"` |  |
-| `"sandbox_settle_delay_in_second"` |  |
-| `"shipping_address"` |  |
-| `"status"` |  |
-| `"success_web_hook_url"` |  |
-| `"tag"` |  |
-| `"title"` |  |
-| `"tokenised_card"` |  |
-| `"transaction"` |  |
-| `"use_hosted_payment_page"` |  |
-
-Operations: List.
-
-API path: `/api/v1/paymentrequests`
-
-#### NoFrixionBizBizModelsPagingPayoutPage
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
-| `"status"` |  |
-| `"tag"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
-
-Operations: List.
-
-API path: `/api/v1/payouts`
-
-#### NoFrixionBizBizModelsPagingPayrunPage
-
-| Field | Description |
-| --- | --- |
-| `"authorisation"` |  |
-| `"authorisation_date"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"can_authorise"` |  |
-| `"can_delete"` |  |
-| `"can_edit"` |  |
-| `"event"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice"` |  |
-| `"invoices_minimal"` |  |
-| `"is_archived"` |  |
-| `"last_updated"` |  |
-| `"last_updated_by"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"nonce"` |  |
-| `"payment"` |  |
-| `"payout"` |  |
-| `"payouts_count"` |  |
-| `"schedule_date"` |  |
-| `"source_account"` |  |
-| `"status"` |  |
-| `"total_eur"` |  |
-| `"total_gbp"` |  |
-| `"total_usd"` |  |
-
-Operations: List.
-
-API path: `/api/v1/payruns`
-
-#### NoFrixionBizBizModelsPagingRuleEventsPage
-
-| Field | Description |
-| --- | --- |
-| `"error_message"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"is_authorise_to_enable"` |  |
-| `"message"` |  |
-| `"raw_response"` |  |
-| `"rule_event_type"` |  |
-| `"rule_id"` |  |
-| `"user"` |  |
-
-Operations: List.
-
-API path: `/api/v1/rules/{id}/events`
-
-#### NoFrixionBizBizModelsPagingRulesPage
-
-| Field | Description |
-| --- | --- |
-| `"account"` |  |
-| `"account_id"` |  |
-| `"approve_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"can_authorise"` |  |
-| `"created_by"` |  |
-| `"description"` |  |
-| `"end_at"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"is_disabled"` |  |
-| `"last_executed_at"` |  |
-| `"last_run_at_transaction_date"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"nonce"` |  |
-| `"on_approved_web_hook_url"` |  |
-| `"on_execution_error_web_hook_url"` |  |
-| `"on_execution_success_web_hook_url"` |  |
-| `"start_at"` |  |
-| `"status"` |  |
-| `"sweep_action"` |  |
-| `"time_zone_id"` |  |
-| `"trigger_cron_expression"` |  |
-| `"trigger_on_pay_in"` |  |
-| `"user_id"` |  |
-| `"web_hook_secret"` |  |
-
-Operations: List.
-
-API path: `/api/v1/rules`
-
-#### NoFrixionBizBizModelsPaymentsCardPayment
+#### CardPayment
 
 | Field | Description |
 | --- | --- |
@@ -937,7 +552,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}`
 
-#### NoFrixionBizBizModelsPaymentsCardPublicKey
+#### CardPublicKey
 
 | Field | Description |
 | --- | --- |
@@ -947,150 +562,30 @@ Operations: Load.
 
 API path: `/api/v1/paymentrequests/{id}/card/publickey`
 
-#### NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries
+#### Consent
 
 | Field | Description |
 | --- | --- |
-| `"beneficiary"` |  |
-| `"failed_beneficiary"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/beneficiaries/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment
-
-| Field | Description |
-| --- | --- |
-| `"failed_payment_request"` |  |
-| `"payment_request"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/paymentrequests/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate
-
-| Field | Description |
-| --- | --- |
-| `"failed_role"` |  |
-| `"role"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesUserInvitesCreate
-
-| Field | Description |
-| --- | --- |
-| `"failed_user_invite"` |  |
-| `"user_invite"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/userinvites/batchcreate`
-
-#### NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant
-
-| Field | Description |
-| --- | --- |
-| `"amount_lower"` |  |
-| `"amount_upper"` |  |
-| `"authorisation_type"` |  |
-| `"beneficiaries_only"` |  |
+| `"authorisation_url"` |  |
+| `"callback_url"` |  |
+| `"consent_id"` |  |
+| `"email_address"` |  |
+| `"expiry_date"` |  |
+| `"failure_callback_url"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
-| `"last_editor_cant_authorise"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"number_of_authoriser"` |  |
-| `"role_setting"` |  |
-
-Operations: List.
-
-API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
-
-#### NoFrixionMoneyMoovModelsBatchPayout
-
-| Field | Description |
-| --- | --- |
-| `"approve_url"` |  |
-| `"id"` |  |
-| `"payout"` |  |
-
-Operations: Create, Load.
-
-API path: `/api/v1/payouts/batch`
-
-#### NoFrixionMoneyMoovModelsBeneficiaryGroupPage
-
-| Field | Description |
-| --- | --- |
-| `"group_member"` |  |
-| `"group_name"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-
-Operations: List.
-
-API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
-
-#### NoFrixionMoneyMoovModelsBeneficiaryPage
-
-| Field | Description |
-| --- | --- |
-| `"approval_callback_url"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"beneficiary_event"` |  |
-| `"can_authorise"` |  |
-| `"can_update"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"destination"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
+| `"institution_id"` |  |
+| `"is_connected_account"` |  |
 | `"is_enabled"` |  |
-| `"last_authorised"` |  |
-| `"last_updated"` |  |
 | `"merchant_id"` |  |
-| `"name"` |  |
-| `"nonce"` |  |
-| `"source_account"` |  |
-| `"their_reference"` |  |
+| `"provider"` |  |
+| `"success_web_hook_url"` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/beneficiaries`
+API path: `/api/v1/openbanking/consents`
 
-#### NoFrixionMoneyMoovModelsCardCustomerToken
-
-| Field | Description |
-| --- | --- |
-| `"card_type"` |  |
-| `"customer_email_address"` |  |
-| `"expiry_month"` |  |
-| `"expiry_year"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"last_four_digit"` |  |
-| `"last_updated"` |  |
-| `"masked_card_number"` |  |
-| `"merchant_id"` |  |
-| `"payment_request_id"` |  |
-
-Operations: List, Load, Remove.
-
-API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}`
-
-#### NoFrixionMoneyMoovModelsCurrencyCurrencyInfo
+#### Currency
 
 | Field | Description |
 | --- | --- |
@@ -1105,7 +600,7 @@ Operations: List.
 
 API path: `/api/v1/currencies`
 
-#### NoFrixionMoneyMoovModelsDirectDebitBatchSubmit
+#### DirectDebitBatchSubmit
 
 | Field | Description |
 | --- | --- |
@@ -1116,7 +611,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 
-#### NoFrixionMoneyMoovModelsFxRate
+#### FxRate
 
 | Field | Description |
 | --- | --- |
@@ -1130,7 +625,7 @@ Operations: List, Load.
 
 API path: `/api/v1/payouts/fxallheldrates/{source}/{destination}`
 
-#### NoFrixionMoneyMoovModelsIPayment
+#### IPayment
 
 | Field | Description |
 | --- | --- |
@@ -1141,7 +636,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/payondemand`
 
-#### NoFrixionMoneyMoovModelsMandatesMandate
+#### Mandate
 
 | Field | Description |
 | --- | --- |
@@ -1184,7 +679,7 @@ Operations: Create, Load.
 
 API path: `/api/v1/mandates`
 
-#### NoFrixionMoneyMoovModelsMerchant
+#### Merchant
 
 | Field | Description |
 | --- | --- |
@@ -1208,6 +703,7 @@ API path: `/api/v1/mandates`
 | `"parent_merchant"` |  |
 | `"payment_account"` |  |
 | `"payment_account_limit"` |  |
+| `"reason"` |  |
 | `"short_name"` |  |
 | `"supported_payment_methods_list"` |  |
 | `"suspension_reason"` |  |
@@ -1217,48 +713,63 @@ API path: `/api/v1/mandates`
 | `"web_hook_limit"` |  |
 | `"your_role_name"` |  |
 
-Operations: List, Load, Update.
+Operations: List, Load, Remove, Update.
 
-API path: `/api/v1/merchants`
+API path: `/api/v1/merchants/{merchantID}/childmerchants`
 
-#### NoFrixionMoneyMoovModelsMerchantPage
+#### MerchantAuthorisationSetting
 
 | Field | Description |
 | --- | --- |
-| `"account_currency"` |  |
-| `"can_have_trust_account"` |  |
-| `"card_payment_processor"` |  |
-| `"company_id"` |  |
-| `"display_qr_on_hosted_pay"` |  |
-| `"hosted_pay_version"` |  |
+| `"amount_lower"` |  |
+| `"amount_upper"` |  |
+| `"authorisation_type"` |  |
+| `"beneficiaries_only"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
-| `"is_blocked"` |  |
-| `"is_exited"` |  |
-| `"is_suspended"` |  |
-| `"jurisdiction"` |  |
-| `"logo_url_png"` |  |
-| `"logo_url_svg"` |  |
-| `"merchant_category_code"` |  |
-| `"name"` |  |
-| `"note"` |  |
-| `"parent_merchant"` |  |
-| `"payment_account"` |  |
-| `"payment_account_limit"` |  |
-| `"short_name"` |  |
-| `"supported_payment_methods_list"` |  |
-| `"suspension_reason"` |  |
-| `"tag"` |  |
-| `"time_zone_id"` |  |
-| `"trading_name"` |  |
-| `"web_hook_limit"` |  |
-| `"your_role_name"` |  |
+| `"last_editor_cant_authorise"` |  |
+| `"last_updated"` |  |
+| `"merchant_id"` |  |
+| `"number_of_authoriser"` |  |
+| `"role_setting"` |  |
 
 Operations: List.
 
-API path: `/api/v1/merchants/paged`
+API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### NoFrixionMoneyMoovModelsMerchantPayByBankSetting
+#### MerchantDirectDebitMandate
+
+| Field | Description |
+| --- | --- |
+| `"approved_at"` |  |
+| `"currency"` |  |
+| `"customer_account_number"` |  |
+| `"customer_city"` |  |
+| `"customer_country_code"` |  |
+| `"customer_country_name"` |  |
+| `"customer_email_address"` |  |
+| `"customer_first_name"` |  |
+| `"customer_iban"` |  |
+| `"customer_last_name"` |  |
+| `"customer_sort_code"` |  |
+| `"id"` |  |
+| `"inserted"` |  |
+| `"is_recurring"` |  |
+| `"last_updated"` |  |
+| `"merchant_id"` |  |
+| `"reference"` |  |
+| `"status"` |  |
+| `"supplier_bank_account_id"` |  |
+| `"supplier_customer_id"` |  |
+| `"supplier_mandate_id"` |  |
+| `"supplier_name"` |  |
+| `"supplier_status"` |  |
+
+Operations: List.
+
+API path: `/api/v1/mandates`
+
+#### MerchantPayByBankSetting
 
 | Field | Description |
 | --- | --- |
@@ -1280,7 +791,23 @@ Operations: List.
 
 API path: `/api/v1/merchants/{merchantID}/banksettings`
 
-#### NoFrixionMoneyMoovModelsMerchantToken
+#### MerchantPaymentRequestTemplate
+
+| Field | Description |
+| --- | --- |
+| `"description"` |  |
+| `"id"` |  |
+| `"inserted"` |  |
+| `"last_updated"` |  |
+| `"merchant_id"` |  |
+| `"name"` |  |
+| `"template"` |  |
+
+Operations: List, Load, Remove, Update.
+
+API path: `/api/v1/paymentrequests/{merchantID}/templates`
+
+#### MerchantToken
 
 | Field | Description |
 | --- | --- |
@@ -1308,42 +835,20 @@ API path: `/api/v1/merchants/{merchantID}/banksettings`
 | `"shared_secret_base64"` |  |
 | `"token"` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Update.
 
 API path: `/api/v1/tokens`
 
-#### NoFrixionMoneyMoovModelsMerchantTokenPage
+#### Metadata
 
 | Field | Description |
 | --- | --- |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"can_authorise"` |  |
-| `"description"` |  |
-| `"expires_at"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"ip_address_whitelist"` |  |
-| `"is_archived"` |  |
-| `"is_enabled"` |  |
-| `"last_authorised"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"nonce"` |  |
-| `"permission_type"` |  |
-| `"request_signature_version"` |  |
-| `"shared_secret_algorithm"` |  |
-| `"shared_secret_base64"` |  |
-| `"token"` |  |
 
-Operations: List.
+Operations: Load.
 
-API path: `/api/v1/merchants/{merchantID}/tokens`
+API path: `/api/v1/metadata/problemnotification`
 
-#### NoFrixionMoneyMoovModelsNoFrixionVersion
+#### NoFrixionVersion
 
 | Field | Description |
 | --- | --- |
@@ -1356,86 +861,32 @@ Operations: Load.
 
 API path: `/api/v1/metadata/version`
 
-#### NoFrixionMoneyMoovModelsOpenBankingAccount
+#### OpenBanking
 
 | Field | Description |
 | --- | --- |
-| `"account_balance"` |  |
-| `"account_identification"` |  |
+
+Operations: Create, Remove.
+
+API path: `/api/v1/openbanking/account/{accountID}/synchronise`
+
+#### Payeeverification
+
+| Field | Description |
+| --- | --- |
 | `"account_name"` |  |
-| `"account_type"` |  |
-| `"balance"` |  |
-| `"consolidated_account_information"` |  |
-| `"currency"` |  |
-| `"description"` |  |
-| `"detail"` |  |
-| `"id"` |  |
-| `"nickname"` |  |
-| `"type"` |  |
-| `"usage_type"` |  |
+| `"account_number"` |  |
+| `"iban"` |  |
+| `"payee_verified_account_name"` |  |
+| `"result"` |  |
+| `"secondary_identification"` |  |
+| `"sort_code"` |  |
 
-Operations: Load.
+Operations: Create.
 
-API path: `/api/v1/openbanking/accounts/{id}`
+API path: `/api/v1/openbanking/payeeverification`
 
-#### NoFrixionMoneyMoovModelsOpenBankingConsent
-
-| Field | Description |
-| --- | --- |
-| `"authorisation_url"` |  |
-| `"callback_url"` |  |
-| `"consent_id"` |  |
-| `"email_address"` |  |
-| `"expiry_date"` |  |
-| `"failure_callback_url"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"institution_id"` |  |
-| `"is_connected_account"` |  |
-| `"is_enabled"` |  |
-| `"merchant_id"` |  |
-| `"provider"` |  |
-| `"success_web_hook_url"` |  |
-
-Operations: Create, List, Load, Remove, Update.
-
-API path: `/api/v1/openbanking/consents`
-
-#### NoFrixionMoneyMoovModelsOpenBankingTransaction
-
-| Field | Description |
-| --- | --- |
-| `"address_detail"` |  |
-| `"amount"` |  |
-| `"balance"` |  |
-| `"booking_date_time"` |  |
-| `"charge_detail"` |  |
-| `"currency"` |  |
-| `"currency_exchange"` |  |
-| `"date"` |  |
-| `"description"` |  |
-| `"enrichment"` |  |
-| `"gross_amount"` |  |
-| `"id"` |  |
-| `"iso_bank_transaction_code"` |  |
-| `"merchant"` |  |
-| `"payee_detail"` |  |
-| `"payer_detail"` |  |
-| `"proprietary_bank_transaction_code"` |  |
-| `"reference"` |  |
-| `"statement_reference"` |  |
-| `"status"` |  |
-| `"supplementary_data"` |  |
-| `"transaction_amount"` |  |
-| `"transaction_information"` |  |
-| `"transaction_mutability"` |  |
-| `"value_date_time"` |  |
-
-Operations: List.
-
-API path: `/api/v1/openbanking/transactions/{id}/{accountID}`
-
-#### NoFrixionMoneyMoovModelsPayment
+#### Payment
 
 | Field | Description |
 | --- | --- |
@@ -1520,27 +971,7 @@ Operations: Create, Load, Update.
 
 API path: `/api/v1/paymentrequests`
 
-#### NoFrixionMoneyMoovModelsPaymentAccountMinimalPage
-
-| Field | Description |
-| --- | --- |
-| `"account_name"` |  |
-| `"available_balance"` |  |
-| `"balance"` |  |
-| `"balance_minor_unit"` |  |
-| `"currency"` |  |
-| `"id"` |  |
-| `"identifier"` |  |
-| `"is_archived"` |  |
-| `"is_connected_account"` |  |
-| `"merchant_id"` |  |
-| `"submitted_payouts_balance"` |  |
-
-Operations: List.
-
-API path: `/api/v1/accounts/minimal`
-
-#### NoFrixionMoneyMoovModelsPaymentAccountPage
+#### PaymentAccount
 
 | Field | Description |
 | --- | --- |
@@ -1588,7 +1019,27 @@ Operations: List.
 
 API path: `/api/v1/accounts/paged`
 
-#### NoFrixionMoneyMoovModelsPaymentInitiation
+#### PaymentAccountMinimal
+
+| Field | Description |
+| --- | --- |
+| `"account_name"` |  |
+| `"available_balance"` |  |
+| `"balance"` |  |
+| `"balance_minor_unit"` |  |
+| `"currency"` |  |
+| `"id"` |  |
+| `"identifier"` |  |
+| `"is_archived"` |  |
+| `"is_connected_account"` |  |
+| `"merchant_id"` |  |
+| `"submitted_payouts_balance"` |  |
+
+Operations: List.
+
+API path: `/api/v1/accounts/minimal`
+
+#### PaymentInitiation
 
 | Field | Description |
 | --- | --- |
@@ -1603,7 +1054,83 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/{id}/pisp`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestEvent
+#### PaymentRequest
+
+| Field | Description |
+| --- | --- |
+| `"address"` |  |
+| `"amount"` |  |
+| `"amount_pending"` |  |
+| `"amount_received"` |  |
+| `"amount_refunded"` |  |
+| `"auto_send_receipt"` |  |
+| `"base_origin_url"` |  |
+| `"callback_url"` |  |
+| `"card_authorize_only"` |  |
+| `"card_create_token"` |  |
+| `"card_create_token_mode"` |  |
+| `"card_ignore_cvn"` |  |
+| `"card_processor_merchant_id"` |  |
+| `"card_stripe_payment_intent_id"` |  |
+| `"card_stripe_payment_intent_secret"` |  |
+| `"created_by_user"` |  |
+| `"currency"` |  |
+| `"custom_field"` |  |
+| `"customer_email_address"` |  |
+| `"customer_id"` |  |
+| `"customer_name"` |  |
+| `"description"` |  |
+| `"destination_account"` |  |
+| `"direct_debit_payment"` |  |
+| `"do_simulate_settlement_failure"` |  |
+| `"due_date"` |  |
+| `"error_description"` |  |
+| `"event"` |  |
+| `"failure_callback_url"` |  |
+| `"field_display_setting"` |  |
+| `"formatted_amount"` |  |
+| `"hosted_pay_checkout_url"` |  |
+| `"id"` |  |
+| `"ignore_address_verification"` |  |
+| `"inserted"` |  |
+| `"inserted_sortable"` |  |
+| `"institution"` |  |
+| `"is_archived"` |  |
+| `"jwk"` |  |
+| `"last_updated"` |  |
+| `"lightning_invoice"` |  |
+| `"lightning_invoice_expires_at"` |  |
+| `"merchant_direct_debit_mandate_id"` |  |
+| `"merchant_id"` |  |
+| `"merchant_token_description"` |  |
+| `"notification_email_address"` |  |
+| `"notification_role_i_d"` |  |
+| `"order_id"` |  |
+| `"partial_payment_method"` |  |
+| `"partial_payment_step"` |  |
+| `"payment_attempt"` |  |
+| `"payment_initiation_id"` |  |
+| `"payment_method"` |  |
+| `"payment_processor"` |  |
+| `"payrun_id"` |  |
+| `"pisp_account_id"` |  |
+| `"priority_bank_id"` |  |
+| `"result"` |  |
+| `"sandbox_settle_delay_in_second"` |  |
+| `"shipping_address"` |  |
+| `"status"` |  |
+| `"success_web_hook_url"` |  |
+| `"tag"` |  |
+| `"title"` |  |
+| `"tokenised_card"` |  |
+| `"transaction"` |  |
+| `"use_hosted_payment_page"` |  |
+
+Operations: Create, List, Load, Remove, Update.
+
+API path: `/api/v1/paymentrequests/{id}/directdebit`
+
+#### PaymentRequestEvent
 
 | Field | Description |
 | --- | --- |
@@ -1648,7 +1175,7 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/events`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestMetric
+#### PaymentRequestMetric
 
 | Field | Description |
 | --- | --- |
@@ -1663,7 +1190,7 @@ Operations: Load.
 
 API path: `/api/v1/paymentrequests/metrics`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestMinimal
+#### PaymentRequestMinimal
 
 | Field | Description |
 | --- | --- |
@@ -1702,7 +1229,7 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/minimal`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestResult
+#### PaymentRequestResult
 
 | Field | Description |
 | --- | --- |
@@ -1722,64 +1249,104 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/result`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment
+#### PaymentRequestsCreate
 
 | Field | Description |
 | --- | --- |
+| `"failed_payment_request"` |  |
+| `"payment_request"` |  |
+
+Operations: Create.
+
+API path: `/api/v1/paymentrequests/batchcreate`
+
+#### Payout
+
+| Field | Description |
+| --- | --- |
+| `"account_id"` |  |
+| `"allow_incomplete"` |  |
+| `"amount"` |  |
+| `"amount_minor_unit"` |  |
+| `"approve_payout_url"` |  |
+| `"approver_id"` |  |
+| `"authentication_method"` |  |
+| `"authorisation"` |  |
+| `"authorisers_completed_count"` |  |
+| `"authorisers_required_count"` |  |
+| `"batch_payout_id"` |  |
+| `"beneficiary"` |  |
+| `"beneficiary_id"` |  |
+| `"can_authorise"` |  |
+| `"can_process"` |  |
+| `"can_update"` |  |
+| `"charge_bearer"` |  |
+| `"created_by"` |  |
+| `"created_by_email_address"` |  |
+| `"currency"` |  |
+| `"current_user_id"` |  |
 | `"description"` |  |
+| `"destination"` |  |
+| `"document"` |  |
+| `"event"` |  |
+| `"formatted_amount"` |  |
+| `"formatted_fx_destination_amount"` |  |
+| `"formatted_schedule"` |  |
+| `"formatted_schedule_day_only"` |  |
+| `"formatted_source_account_available_balance"` |  |
+| `"fx_destination_amount"` |  |
+| `"fx_destination_amount_minor_unit"` |  |
+| `"fx_destination_currency"` |  |
+| `"fx_quote_expires_at"` |  |
+| `"fx_quote_id"` |  |
+| `"fx_rate"` |  |
+| `"fx_use_destination_amount"` |  |
+| `"has_current_user_authorised"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
+| `"invoice_id"` |  |
+| `"is_archived"` |  |
+| `"is_failed"` |  |
+| `"is_settled"` |  |
+| `"is_submitted"` |  |
 | `"last_updated"` |  |
 | `"merchant_id"` |  |
-| `"name"` |  |
-| `"template"` |  |
+| `"merchant_token_description"` |  |
+| `"nonce"` |  |
+| `"payment_processor"` |  |
+| `"payment_rail"` |  |
+| `"payrun_id"` |  |
+| `"payrun_name"` |  |
+| `"reason"` |  |
+| `"rule"` |  |
+| `"schedule_date"` |  |
+| `"scheduled"` |  |
+| `"source_account_available_balance"` |  |
+| `"source_account_available_balance_minor_unit"` |  |
+| `"source_account_bic"` |  |
+| `"source_account_currency"` |  |
+| `"source_account_iban"` |  |
+| `"source_account_identifier"` |  |
+| `"source_account_name"` |  |
+| `"source_account_number"` |  |
+| `"source_account_sortcode"` |  |
+| `"status"` |  |
+| `"tag"` |  |
+| `"tag_id"` |  |
+| `"their_reference"` |  |
+| `"topup_payrun_id"` |  |
+| `"transacted_amount"` |  |
+| `"transacted_fx_amount"` |  |
+| `"transacted_fx_rate"` |  |
+| `"type"` |  |
+| `"user_id"` |  |
+| `"your_reference"` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/paymentrequests/{merchantID}/templates`
+API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2
-
-| Field | Description |
-| --- | --- |
-| `"description"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"template"` |  |
-
-Operations: Load.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3
-
-| Field | Description |
-| --- | --- |
-| `"description"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"name"` |  |
-| `"template"` |  |
-
-Operations: Update.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Remove.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPayoutKeysetPage
+#### PayoutKeyset
 
 | Field | Description |
 | --- | --- |
@@ -1861,7 +1428,7 @@ Operations: List.
 
 API path: `/api/v1/accounts/{accountID}/payouts/failed`
 
-#### NoFrixionMoneyMoovModelsPayoutMetric
+#### PayoutMetric
 
 | Field | Description |
 | --- | --- |
@@ -1877,7 +1444,7 @@ Operations: Load.
 
 API path: `/api/v1/payouts/metrics`
 
-#### NoFrixionMoneyMoovModelsPayoutsPayoutsCreate
+#### PayoutsCreate
 
 | Field | Description |
 | --- | --- |
@@ -1888,7 +1455,7 @@ Operations: Create.
 
 API path: `/api/v1/payouts/batchcreate`
 
-#### NoFrixionMoneyMoovModelsPayrun
+#### Payrun
 
 | Field | Description |
 | --- | --- |
@@ -1912,6 +1479,7 @@ API path: `/api/v1/payouts/batchcreate`
 | `"merchant_id"` |  |
 | `"name"` |  |
 | `"nonce"` |  |
+| `"note"` |  |
 | `"payment"` |  |
 | `"payout"` |  |
 | `"payouts_count"` |  |
@@ -1924,11 +1492,20 @@ API path: `/api/v1/payouts/batchcreate`
 | `"total_gbp"` |  |
 | `"total_usd"` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/payruns/{merchantID}`
+API path: `/api/v1/payruns/{id}/request-authorisation`
 
-#### NoFrixionMoneyMoovModelsReportResult
+#### Report
+
+| Field | Description |
+| --- | --- |
+
+Operations: Update.
+
+API path: `/api/v1/reports/{id}/initiate`
+
+#### ReportResult
 
 | Field | Description |
 | --- | --- |
@@ -1944,7 +1521,18 @@ Operations: Load.
 
 API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
-#### NoFrixionMoneyMoovModelsRule
+#### RolesCreate
+
+| Field | Description |
+| --- | --- |
+| `"failed_role"` |  |
+| `"role"` |  |
+
+Operations: Create.
+
+API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
+
+#### Rule
 
 | Field | Description |
 | --- | --- |
@@ -1982,590 +1570,27 @@ API path: `/api/v1/reports/{id}/result/{statementNumber}`
 | `"user_id"` |  |
 | `"web_hook_secret"` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/rules`
 
-#### NoFrixionMoneyMoovModelsTransaction
+#### RuleEvent
 
 | Field | Description |
 | --- | --- |
-| `"account_id"` |  |
-| `"account_name"` |  |
-| `"account_sequence_number"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"balance"` |  |
-| `"balance_minor_unit"` |  |
-| `"counterparty"` |  |
-| `"counterparty_summary"` |  |
-| `"currency"` |  |
-| `"description"` |  |
-| `"fx_amount"` |  |
-| `"fx_currency"` |  |
-| `"fx_rate"` |  |
+| `"error_message"` |  |
 | `"id"` |  |
 | `"inserted"` |  |
-| `"merchant_id"` |  |
-| `"payment_request_custom_field"` |  |
-| `"payment_request_id"` |  |
-| `"payout_id"` |  |
-| `"raw_reference"` |  |
-| `"rule_id"` |  |
-| `"tag"` |  |
-| `"their_reference"` |  |
-| `"transaction_date"` |  |
-| `"type"` |  |
-| `"virtual_iban"` |  |
-| `"your_reference"` |  |
-
-Operations: Load.
-
-API path: `/api/v1/accounts/{accountID}/transactions/{id}`
-
-#### NoFrixionMoneyMoovModelsTransactionPage
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"account_name"` |  |
-| `"account_sequence_number"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"balance"` |  |
-| `"balance_minor_unit"` |  |
-| `"content"` |  |
-| `"counterparty"` |  |
-| `"counterparty_summary"` |  |
-| `"currency"` |  |
-| `"description"` |  |
-| `"fx_amount"` |  |
-| `"fx_currency"` |  |
-| `"fx_rate"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"merchant_id"` |  |
-| `"page_number"` |  |
-| `"page_size"` |  |
-| `"payment_request_custom_field"` |  |
-| `"payment_request_id"` |  |
-| `"payout_id"` |  |
-| `"raw_reference"` |  |
-| `"rule_id"` |  |
-| `"tag"` |  |
-| `"their_reference"` |  |
-| `"total_page"` |  |
-| `"total_size"` |  |
-| `"transaction_date"` |  |
-| `"type"` |  |
-| `"virtual_iban"` |  |
-| `"your_reference"` |  |
-
-Operations: List, Load.
-
-API path: `/api/v1/accounts/{accountID}/transactions`
-
-#### NoFrixionMoneyMoovModelsUserInvite
-
-| Field | Description |
-| --- | --- |
-| `"authorisation_status"` |  |
-| `"id"` |  |
-| `"initial_role_id"` |  |
-| `"invitee_email_address"` |  |
-| `"invitee_first_name"` |  |
-| `"invitee_last_name"` |  |
-| `"inviter_email_address"` |  |
-| `"inviter_first_name"` |  |
-| `"inviter_last_name"` |  |
-| `"is_authorised"` |  |
-| `"is_invitee_registered"` |  |
-| `"last_invited"` |  |
-| `"merchant_id"` |  |
-| `"merchant_name"` |  |
+| `"is_authorise_to_enable"` |  |
 | `"message"` |  |
-| `"registration_url"` |  |
-| `"send_invite_email"` |  |
-| `"status"` |  |
+| `"raw_response"` |  |
+| `"rule_event_type"` |  |
+| `"rule_id"` |  |
 | `"user"` |  |
-| `"user_id"` |  |
-
-Operations: Create, Load.
-
-API path: `/api/v1/userinvites`
-
-#### NoFrixionMoneyMoovModelsUserInvitePage
-
-| Field | Description |
-| --- | --- |
-| `"authorisation_status"` |  |
-| `"id"` |  |
-| `"initial_role_id"` |  |
-| `"invitee_email_address"` |  |
-| `"invitee_first_name"` |  |
-| `"invitee_last_name"` |  |
-| `"inviter_email_address"` |  |
-| `"inviter_first_name"` |  |
-| `"inviter_last_name"` |  |
-| `"is_authorised"` |  |
-| `"is_invitee_registered"` |  |
-| `"last_invited"` |  |
-| `"merchant_id"` |  |
-| `"merchant_name"` |  |
-| `"message"` |  |
-| `"registration_url"` |  |
-| `"status"` |  |
-| `"user"` |  |
-| `"user_id"` |  |
 
 Operations: List.
 
-API path: `/api/v1/merchants/{merchantID}/userinvitespaged`
-
-#### NoFrixionMoneyMoovModelsUserPage
-
-| Field | Description |
-| --- | --- |
-| `"client_session_timeout"` |  |
-| `"email_address"` |  |
-| `"first_name"` |  |
-| `"id"` |  |
-| `"last_name"` |  |
-| `"passkey_added"` |  |
-| `"permission"` |  |
-| `"roles_with_scope"` |  |
-| `"two_factor_enabled"` |  |
-
-Operations: List.
-
-API path: `/api/v1/user/{merchantID}/userspaged`
-
-#### NoFrixionMoneyMoovModelsWebhook
-
-| Field | Description |
-| --- | --- |
-| `"destination_url"` |  |
-| `"email_address"` |  |
-| `"failed_notification_email_address"` |  |
-| `"id"` |  |
-| `"is_active"` |  |
-| `"merchant_id"` |  |
-| `"notification_method"` |  |
-| `"resource_type"` |  |
-| `"retry"` |  |
-| `"secret"` |  |
-| `"version"` |  |
-
-Operations: Create, List, Load, Update.
-
-API path: `/api/v1/webhooks`
-
-#### OpenBanking
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create, Remove.
-
-API path: `/api/v1/openbanking/account/{accountID}/synchronise`
-
-#### Payeeverification
-
-| Field | Description |
-| --- | --- |
-| `"account_name"` |  |
-| `"account_number"` |  |
-| `"iban"` |  |
-| `"payee_verified_account_name"` |  |
-| `"result"` |  |
-| `"secondary_identification"` |  |
-| `"sort_code"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/openbanking/payeeverification`
-
-#### PaymentRequest
-
-| Field | Description |
-| --- | --- |
-| `"amount"` |  |
-| `"do_simulate_settlement_failure"` |  |
-| `"error_description"` |  |
-| `"institution"` |  |
-| `"payment_initiation_id"` |  |
-
-Operations: Create, Load, Remove, Update.
-
-API path: `/api/v1/paymentrequests/{id}/directdebit`
-
-#### Payout
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"allow_incomplete"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"beneficiary_id"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
-| `"status"` |  |
-| `"tag"` |  |
-| `"tag_id"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
-
-Operations: Create, Load, Remove, Update.
-
-API path: `/api/v1/payouts/batch/submit/{id}`
-
-#### Payrun
-
-| Field | Description |
-| --- | --- |
-| `"id"` |  |
-| `"note"` |  |
-| `"scheduled_date"` |  |
-
-Operations: Create, Remove, Update.
-
-API path: `/api/v1/payruns/{id}/request-authorisation`
-
-#### Reject
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"reason"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
-| `"status"` |  |
-| `"tag"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
-
-Operations: Update.
-
-API path: `/api/v1/payouts/reject/{id}`
-
-#### Report
-
-| Field | Description |
-| --- | --- |
-
-Operations: Update.
-
-API path: `/api/v1/reports/{id}/initiate`
-
-#### Rule
-
-| Field | Description |
-| --- | --- |
-
-Operations: Remove, Update.
-
-API path: `/api/v1/rules/{id}`
-
-#### Send
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"allow_incomplete"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"beneficiary_id"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
-| `"status"` |  |
-| `"tag"` |  |
-| `"tag_id"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/send`
-
-#### Sendbeneficiary
-
-| Field | Description |
-| --- | --- |
-| `"account_id"` |  |
-| `"allow_incomplete"` |  |
-| `"amount"` |  |
-| `"amount_minor_unit"` |  |
-| `"approve_payout_url"` |  |
-| `"approver_id"` |  |
-| `"authentication_method"` |  |
-| `"authorisation"` |  |
-| `"authorisers_completed_count"` |  |
-| `"authorisers_required_count"` |  |
-| `"batch_payout_id"` |  |
-| `"beneficiary"` |  |
-| `"beneficiary_id"` |  |
-| `"can_authorise"` |  |
-| `"can_process"` |  |
-| `"can_update"` |  |
-| `"charge_bearer"` |  |
-| `"created_by"` |  |
-| `"created_by_email_address"` |  |
-| `"currency"` |  |
-| `"current_user_id"` |  |
-| `"description"` |  |
-| `"destination"` |  |
-| `"document"` |  |
-| `"event"` |  |
-| `"formatted_amount"` |  |
-| `"formatted_fx_destination_amount"` |  |
-| `"formatted_schedule"` |  |
-| `"formatted_schedule_day_only"` |  |
-| `"formatted_source_account_available_balance"` |  |
-| `"fx_destination_amount"` |  |
-| `"fx_destination_amount_minor_unit"` |  |
-| `"fx_destination_currency"` |  |
-| `"fx_quote_expires_at"` |  |
-| `"fx_quote_id"` |  |
-| `"fx_rate"` |  |
-| `"fx_use_destination_amount"` |  |
-| `"has_current_user_authorised"` |  |
-| `"id"` |  |
-| `"inserted"` |  |
-| `"invoice_id"` |  |
-| `"is_archived"` |  |
-| `"is_failed"` |  |
-| `"is_settled"` |  |
-| `"is_submitted"` |  |
-| `"last_updated"` |  |
-| `"merchant_id"` |  |
-| `"merchant_token_description"` |  |
-| `"nonce"` |  |
-| `"payment_processor"` |  |
-| `"payment_rail"` |  |
-| `"payrun_id"` |  |
-| `"payrun_name"` |  |
-| `"rule"` |  |
-| `"schedule_date"` |  |
-| `"scheduled"` |  |
-| `"source_account_available_balance"` |  |
-| `"source_account_available_balance_minor_unit"` |  |
-| `"source_account_bic"` |  |
-| `"source_account_currency"` |  |
-| `"source_account_iban"` |  |
-| `"source_account_identifier"` |  |
-| `"source_account_name"` |  |
-| `"source_account_number"` |  |
-| `"source_account_sortcode"` |  |
-| `"status"` |  |
-| `"tag"` |  |
-| `"tag_id"` |  |
-| `"their_reference"` |  |
-| `"topup_payrun_id"` |  |
-| `"transacted_amount"` |  |
-| `"transacted_fx_amount"` |  |
-| `"transacted_fx_rate"` |  |
-| `"type"` |  |
-| `"user_id"` |  |
-| `"your_reference"` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/sendbeneficiary`
+API path: `/api/v1/rules/{id}/events`
 
 #### Tag
 
@@ -2594,8 +1619,61 @@ API path: `/api/v1/tokens/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
+| `"account_id"` |  |
+| `"account_name"` |  |
+| `"account_sequence_number"` |  |
+| `"address_detail"` |  |
+| `"amount"` |  |
+| `"amount_minor_unit"` |  |
+| `"balance"` |  |
+| `"balance_minor_unit"` |  |
+| `"booking_date_time"` |  |
+| `"charge_detail"` |  |
+| `"content"` |  |
+| `"counterparty"` |  |
+| `"counterparty_summary"` |  |
+| `"currency"` |  |
+| `"currency_exchange"` |  |
+| `"date"` |  |
+| `"description"` |  |
+| `"enrichment"` |  |
+| `"fx_amount"` |  |
+| `"fx_currency"` |  |
+| `"fx_rate"` |  |
+| `"gross_amount"` |  |
+| `"id"` |  |
+| `"inserted"` |  |
+| `"iso_bank_transaction_code"` |  |
+| `"merchant"` |  |
+| `"merchant_id"` |  |
+| `"page_number"` |  |
+| `"page_size"` |  |
+| `"payee_detail"` |  |
+| `"payer_detail"` |  |
+| `"payment_request_custom_field"` |  |
+| `"payment_request_id"` |  |
+| `"payout_id"` |  |
+| `"proprietary_bank_transaction_code"` |  |
+| `"raw_reference"` |  |
+| `"reference"` |  |
+| `"rule_id"` |  |
+| `"statement_reference"` |  |
+| `"status"` |  |
+| `"supplementary_data"` |  |
+| `"tag"` |  |
+| `"their_reference"` |  |
+| `"total_page"` |  |
+| `"total_size"` |  |
+| `"transaction_amount"` |  |
+| `"transaction_date"` |  |
+| `"transaction_information"` |  |
+| `"transaction_mutability"` |  |
+| `"type"` |  |
+| `"value_date_time"` |  |
+| `"virtual_iban"` |  |
+| `"your_reference"` |  |
 
-Operations: Create, Load, Remove.
+Operations: Create, List, Load, Remove.
 
 API path: `/api/v1/transactions/{id}/tags`
 
@@ -2617,16 +1695,47 @@ API path: `/api/v1/transactions/{id}/tags`
 
 Operations: List, Update.
 
-API path: `/api/v1/merchants/{merchantID}/users`
+API path: `/api/v1/user/{merchantID}/userspaged`
 
 #### UserInvite
 
 | Field | Description |
 | --- | --- |
+| `"authorisation_status"` |  |
+| `"id"` |  |
+| `"initial_role_id"` |  |
+| `"invitee_email_address"` |  |
+| `"invitee_first_name"` |  |
+| `"invitee_last_name"` |  |
+| `"inviter_email_address"` |  |
+| `"inviter_first_name"` |  |
+| `"inviter_last_name"` |  |
+| `"is_authorised"` |  |
+| `"is_invitee_registered"` |  |
+| `"last_invited"` |  |
+| `"merchant_id"` |  |
+| `"merchant_name"` |  |
+| `"message"` |  |
+| `"registration_url"` |  |
+| `"send_invite_email"` |  |
+| `"status"` |  |
+| `"user"` |  |
+| `"user_id"` |  |
 
-Operations: Create, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/userinvites/authorise/{id}`
+
+#### UserInvitesCreate
+
+| Field | Description |
+| --- | --- |
+| `"failed_user_invite"` |  |
+| `"user_invite"` |  |
+
+Operations: Create.
+
+API path: `/api/v1/userinvites/batchcreate`
 
 #### Virtual
 
@@ -2681,46 +1790,21 @@ API path: `/api/v1/accounts/{accountID}/virtual`
 
 | Field | Description |
 | --- | --- |
-
-Operations: Remove.
-
-API path: `/api/v1/webhooks/{id}`
-
-#### Whoami
-
-| Field | Description |
-| --- | --- |
-| `"client_session_timeout"` |  |
+| `"destination_url"` |  |
 | `"email_address"` |  |
-| `"first_name"` |  |
+| `"failed_notification_email_address"` |  |
 | `"id"` |  |
-| `"last_name"` |  |
-| `"passkey_added"` |  |
-| `"permission"` |  |
-| `"roles_with_scope"` |  |
-| `"two_factor_enabled"` |  |
+| `"is_active"` |  |
+| `"merchant_id"` |  |
+| `"notification_method"` |  |
+| `"resource_type"` |  |
+| `"retry"` |  |
+| `"secret"` |  |
+| `"version"` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/metadata/whoami`
-
-#### Whoamitrustedapp
-
-| Field | Description |
-| --- | --- |
-| `"client_session_timeout"` |  |
-| `"email_address"` |  |
-| `"first_name"` |  |
-| `"id"` |  |
-| `"last_name"` |  |
-| `"passkey_added"` |  |
-| `"permission"` |  |
-| `"roles_with_scope"` |  |
-| `"two_factor_enabled"` |  |
-
-Operations: List.
-
-API path: `/api/v1/metadata/whoamitrustedapp`
+API path: `/api/v1/webhooks`
 
 
 
@@ -2745,7 +1829,9 @@ Create an instance: `account := client.Account(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `account_balance` | `[]any` |  |
 | `account_id` | `string` |  |
+| `account_identification` | `[]any` |  |
 | `account_name` | `string` |  |
 | `account_supplier_name` | `string` |  |
 | `account_type` | `string` |  |
@@ -2755,10 +1841,13 @@ Create an instance: `account := client.Account(nil)`
 | `balance_minor_unit` | `int` |  |
 | `bank_name` | `string` |  |
 | `consent_id` | `string` |  |
+| `consolidated_account_information` | `map[string]any` |  |
 | `created_by` | `map[string]any` |  |
 | `created_by_display_name` | `string` |  |
 | `currency` | `string` |  |
 | `default_payment_rail` | `string` |  |
+| `description` | `string` |  |
+| `detail` | `string` |  |
 | `display_name` | `string` |  |
 | `expiry_date` | `string` |  |
 | `external_account_icon` | `string` |  |
@@ -2776,6 +1865,7 @@ Create an instance: `account := client.Account(nil)`
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
 | `merchant_name` | `string` |  |
+| `nickname` | `string` |  |
 | `physical_account_id` | `string` |  |
 | `role_i_d` | `[]any` |  |
 | `rule` | `[]any` |  |
@@ -2785,6 +1875,8 @@ Create an instance: `account := client.Account(nil)`
 | `supplier_physical_account_id` | `string` |  |
 | `supplier_sepa_instant_status` | `string` |  |
 | `to_date` | `string` |  |
+| `type` | `string` |  |
+| `usage_type` | `string` |  |
 | `xero_bank_feed_connection_status` | `string` |  |
 | `xero_bank_feed_last_synced_at` | `string` |  |
 | `xero_bank_feed_sync_last_failed_at` | `string` |  |
@@ -2824,6 +1916,76 @@ fmt.Println(result)
 ```
 
 
+### Batch
+
+Create an instance: `batch := client.Batch(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `approve_url` | `string` |  |
+| `id` | `string` |  |
+| `payout` | `[]any` |  |
+
+#### Example: Load
+
+```go
+batch, err := client.Batch(nil).Load(map[string]any{"id": "batch_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(batch) // the loaded record
+```
+
+#### Example: Create
+
+```go
+result, err := client.Batch(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### BeneficiariesCreate
+
+Create an instance: `beneficiariesCreate := client.BeneficiariesCreate(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `beneficiary` | `[]any` |  |
+| `failed_beneficiary` | `map[string]any` |  |
+
+#### Example: Create
+
+```go
+result, err := client.BeneficiariesCreate(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
 ### Beneficiary
 
 Create an instance: `beneficiary := client.Beneficiary(nil)`
@@ -2832,6 +1994,7 @@ Create an instance: `beneficiary := client.Beneficiary(nil)`
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
@@ -2876,6 +2039,16 @@ if err != nil {
 fmt.Println(beneficiary) // the loaded record
 ```
 
+#### Example: List
+
+```go
+beneficiarys, err := client.Beneficiary(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(beneficiarys) // the array of records
+```
+
 #### Example: Create
 
 ```go
@@ -2888,226 +2061,9 @@ fmt.Println(result)
 ```
 
 
-### Cancel
+### BeneficiaryGroup
 
-Create an instance: `cancel := client.Cancel(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-
-### Disable
-
-Create an instance: `disable := client.Disable(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `[]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `map[string]any` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `[]any` |  |
-| `their_reference` | `string` |  |
-
-
-### Enable
-
-Create an instance: `enable := client.Enable(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `[]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `map[string]any` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `[]any` |  |
-| `their_reference` | `string` |  |
-
-
-### Merchant
-
-Create an instance: `merchant := client.Merchant(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Update(data, ctrl)` | Update an existing entity. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `reason` | `string` |  |
-
-#### Example: Load
-
-```go
-merchant, err := client.Merchant(nil).Load(map[string]any{"merchant_id": "merchant_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(merchant) // the loaded record
-```
-
-
-### Metadata
-
-Create an instance: `metadata := client.Metadata(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-metadata, err := client.Metadata(nil).Load(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(metadata) // the loaded record
-```
-
-
-### NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage
-
-Create an instance: `noFrixionBizBizModelsPagingMerchantDirectDebitMandatePage := client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(nil)`
+Create an instance: `beneficiaryGroup := client.BeneficiaryGroup(nil)`
 
 #### Operations
 
@@ -3119,381 +2075,27 @@ Create an instance: `noFrixionBizBizModelsPagingMerchantDirectDebitMandatePage :
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approved_at` | `string` |  |
-| `currency` | `string` |  |
-| `customer_account_number` | `string` |  |
-| `customer_city` | `string` |  |
-| `customer_country_code` | `string` |  |
-| `customer_country_name` | `string` |  |
-| `customer_email_address` | `string` |  |
-| `customer_first_name` | `string` |  |
-| `customer_iban` | `string` |  |
-| `customer_last_name` | `string` |  |
-| `customer_sort_code` | `string` |  |
+| `group_member` | `[]any` |  |
+| `group_name` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_recurring` | `bool` |  |
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
-| `reference` | `string` |  |
-| `status` | `string` |  |
-| `supplier_bank_account_id` | `string` |  |
-| `supplier_customer_id` | `string` |  |
-| `supplier_mandate_id` | `string` |  |
-| `supplier_name` | `string` |  |
-| `supplier_status` | `string` |  |
 
 #### Example: List
 
 ```go
-noFrixionBizBizModelsPagingMerchantDirectDebitMandatePages, err := client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(nil).List(nil, nil)
+beneficiaryGroups, err := client.BeneficiaryGroup(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionBizBizModelsPagingMerchantDirectDebitMandatePages) // the array of records
+fmt.Println(beneficiaryGroups) // the array of records
 ```
 
 
-### NoFrixionBizBizModelsPagingPaymentRequestPage
+### Card
 
-Create an instance: `noFrixionBizBizModelsPagingPaymentRequestPage := client.NoFrixionBizBizModelsPagingPaymentRequestPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `address` | `[]any` |  |
-| `amount` | `float64` |  |
-| `amount_pending` | `float64` |  |
-| `amount_received` | `float64` |  |
-| `amount_refunded` | `float64` |  |
-| `auto_send_receipt` | `bool` |  |
-| `base_origin_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `card_authorize_only` | `bool` |  |
-| `card_create_token` | `bool` |  |
-| `card_create_token_mode` | `string` |  |
-| `card_ignore_cvn` | `bool` |  |
-| `card_processor_merchant_id` | `string` |  |
-| `card_stripe_payment_intent_id` | `string` |  |
-| `card_stripe_payment_intent_secret` | `string` |  |
-| `created_by_user` | `map[string]any` |  |
-| `currency` | `string` |  |
-| `custom_field` | `[]any` |  |
-| `customer_email_address` | `string` |  |
-| `customer_id` | `string` |  |
-| `customer_name` | `string` |  |
-| `description` | `string` |  |
-| `destination_account` | `map[string]any` |  |
-| `direct_debit_payment` | `map[string]any` |  |
-| `due_date` | `string` |  |
-| `event` | `[]any` |  |
-| `failure_callback_url` | `string` |  |
-| `field_display_setting` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `hosted_pay_checkout_url` | `string` |  |
-| `id` | `string` |  |
-| `ignore_address_verification` | `bool` |  |
-| `inserted` | `string` |  |
-| `inserted_sortable` | `string` |  |
-| `is_archived` | `bool` |  |
-| `jwk` | `string` |  |
-| `last_updated` | `string` |  |
-| `lightning_invoice` | `string` |  |
-| `lightning_invoice_expires_at` | `string` |  |
-| `merchant_direct_debit_mandate_id` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `notification_email_address` | `string` |  |
-| `notification_role_i_d` | `[]any` |  |
-| `order_id` | `string` |  |
-| `partial_payment_method` | `string` |  |
-| `partial_payment_step` | `string` |  |
-| `payment_attempt` | `[]any` |  |
-| `payment_method` | `[]any` |  |
-| `payment_processor` | `string` |  |
-| `payrun_id` | `string` |  |
-| `pisp_account_id` | `string` |  |
-| `priority_bank_id` | `string` |  |
-| `result` | `map[string]any` |  |
-| `sandbox_settle_delay_in_second` | `int` |  |
-| `shipping_address` | `map[string]any` |  |
-| `status` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-| `tag` | `[]any` |  |
-| `title` | `string` |  |
-| `tokenised_card` | `[]any` |  |
-| `transaction` | `[]any` |  |
-| `use_hosted_payment_page` | `bool` |  |
-
-#### Example: List
-
-```go
-noFrixionBizBizModelsPagingPaymentRequestPages, err := client.NoFrixionBizBizModelsPagingPaymentRequestPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPagingPaymentRequestPages) // the array of records
-```
-
-
-### NoFrixionBizBizModelsPagingPayoutPage
-
-Create an instance: `noFrixionBizBizModelsPagingPayoutPage := client.NoFrixionBizBizModelsPagingPayoutPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: List
-
-```go
-noFrixionBizBizModelsPagingPayoutPages, err := client.NoFrixionBizBizModelsPagingPayoutPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPagingPayoutPages) // the array of records
-```
-
-
-### NoFrixionBizBizModelsPagingPayrunPage
-
-Create an instance: `noFrixionBizBizModelsPagingPayrunPage := client.NoFrixionBizBizModelsPagingPayrunPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation` | `[]any` |  |
-| `authorisation_date` | `string` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_delete` | `bool` |  |
-| `can_edit` | `bool` |  |
-| `event` | `[]any` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice` | `[]any` |  |
-| `invoices_minimal` | `[]any` |  |
-| `is_archived` | `bool` |  |
-| `last_updated` | `string` |  |
-| `last_updated_by` | `map[string]any` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `payment` | `[]any` |  |
-| `payout` | `[]any` |  |
-| `payouts_count` | `int` |  |
-| `schedule_date` | `string` |  |
-| `source_account` | `[]any` |  |
-| `status` | `string` |  |
-| `total_eur` | `float64` |  |
-| `total_gbp` | `float64` |  |
-| `total_usd` | `float64` |  |
-
-#### Example: List
-
-```go
-noFrixionBizBizModelsPagingPayrunPages, err := client.NoFrixionBizBizModelsPagingPayrunPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPagingPayrunPages) // the array of records
-```
-
-
-### NoFrixionBizBizModelsPagingRuleEventsPage
-
-Create an instance: `noFrixionBizBizModelsPagingRuleEventsPage := client.NoFrixionBizBizModelsPagingRuleEventsPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `error_message` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_authorise_to_enable` | `bool` |  |
-| `message` | `string` |  |
-| `raw_response` | `string` |  |
-| `rule_event_type` | `string` |  |
-| `rule_id` | `string` |  |
-| `user` | `map[string]any` |  |
-
-#### Example: List
-
-```go
-noFrixionBizBizModelsPagingRuleEventsPages, err := client.NoFrixionBizBizModelsPagingRuleEventsPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPagingRuleEventsPages) // the array of records
-```
-
-
-### NoFrixionBizBizModelsPagingRulesPage
-
-Create an instance: `noFrixionBizBizModelsPagingRulesPage := client.NoFrixionBizBizModelsPagingRulesPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account` | `map[string]any` |  |
-| `account_id` | `string` |  |
-| `approve_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `can_authorise` | `bool` |  |
-| `created_by` | `map[string]any` |  |
-| `description` | `string` |  |
-| `end_at` | `string` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_disabled` | `bool` |  |
-| `last_executed_at` | `string` |  |
-| `last_run_at_transaction_date` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `on_approved_web_hook_url` | `string` |  |
-| `on_execution_error_web_hook_url` | `string` |  |
-| `on_execution_success_web_hook_url` | `string` |  |
-| `start_at` | `string` |  |
-| `status` | `string` |  |
-| `sweep_action` | `map[string]any` |  |
-| `time_zone_id` | `string` |  |
-| `trigger_cron_expression` | `string` |  |
-| `trigger_on_pay_in` | `bool` |  |
-| `user_id` | `string` |  |
-| `web_hook_secret` | `string` |  |
-
-#### Example: List
-
-```go
-noFrixionBizBizModelsPagingRulesPages, err := client.NoFrixionBizBizModelsPagingRulesPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPagingRulesPages) // the array of records
-```
-
-
-### NoFrixionBizBizModelsPaymentsCardPayment
-
-Create an instance: `noFrixionBizBizModelsPaymentsCardPayment := client.NoFrixionBizBizModelsPaymentsCardPayment(nil)`
+Create an instance: `card := client.Card(nil)`
 
 #### Operations
 
@@ -3526,7 +2128,7 @@ Create an instance: `noFrixionBizBizModelsPaymentsCardPayment := client.NoFrixio
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionBizBizModelsPaymentsCardPayment(nil).Create(map[string]any{
+result, err := client.Card(nil).Create(map[string]any{
     "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
@@ -3536,312 +2138,9 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionBizBizModelsPaymentsCardPublicKey
+### CardCustomerToken
 
-Create an instance: `noFrixionBizBizModelsPaymentsCardPublicKey := client.NoFrixionBizBizModelsPaymentsCardPublicKey(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `jwt` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionBizBizModelsPaymentsCardPublicKey, err := client.NoFrixionBizBizModelsPaymentsCardPublicKey(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionBizBizModelsPaymentsCardPublicKey) // the loaded record
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries
-
-Create an instance: `noFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries := client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `beneficiary` | `[]any` |  |
-| `failed_beneficiary` | `map[string]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment
-
-Create an instance: `noFrixionMoneyMoovApiFeaturesPaymentRequestsPayment := client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payment_request` | `map[string]any` |  |
-| `payment_request` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate
-
-Create an instance: `noFrixionMoneyMoovApiFeaturesPermissionsRolesCreate := client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_role` | `map[string]any` |  |
-| `role` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil).Create(map[string]any{
-    "merchant_id": "example_merchant_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesUserInvitesCreate
-
-Create an instance: `noFrixionMoneyMoovApiFeaturesUserInvitesCreate := client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_user_invite` | `map[string]any` |  |
-| `user_invite` | `[]any` |  |
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant
-
-Create an instance: `noFrixionMoneyMoovModelsAuthorisationSettingsMerchant := client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `amount_lower` | `float64` |  |
-| `amount_upper` | `float64` |  |
-| `authorisation_type` | `string` |  |
-| `beneficiaries_only` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_editor_cant_authorise` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `number_of_authoriser` | `int` |  |
-| `role_setting` | `[]any` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsAuthorisationSettingsMerchants, err := client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsAuthorisationSettingsMerchants) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsBatchPayout
-
-Create an instance: `noFrixionMoneyMoovModelsBatchPayout := client.NoFrixionMoneyMoovModelsBatchPayout(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approve_url` | `string` |  |
-| `id` | `string` |  |
-| `payout` | `[]any` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsBatchPayout, err := client.NoFrixionMoneyMoovModelsBatchPayout(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_batch_payout_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsBatchPayout) // the loaded record
-```
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsBatchPayout(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovModelsBeneficiaryGroupPage
-
-Create an instance: `noFrixionMoneyMoovModelsBeneficiaryGroupPage := client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `group_member` | `[]any` |  |
-| `group_name` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsBeneficiaryGroupPages, err := client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsBeneficiaryGroupPages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsBeneficiaryPage
-
-Create an instance: `noFrixionMoneyMoovModelsBeneficiaryPage := client.NoFrixionMoneyMoovModelsBeneficiaryPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `[]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `map[string]any` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `[]any` |  |
-| `their_reference` | `string` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsBeneficiaryPages, err := client.NoFrixionMoneyMoovModelsBeneficiaryPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsBeneficiaryPages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsCardCustomerToken
-
-Create an instance: `noFrixionMoneyMoovModelsCardCustomerToken := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil)`
+Create an instance: `cardCustomerToken := client.CardCustomerToken(nil)`
 
 #### Operations
 
@@ -3870,27 +2169,164 @@ Create an instance: `noFrixionMoneyMoovModelsCardCustomerToken := client.NoFrixi
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsCardCustomerToken, err := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil).Load(map[string]any{"customer_email_address": "customer_email_address"}, nil)
+cardCustomerToken, err := client.CardCustomerToken(nil).Load(map[string]any{"customer_email_address": "customer_email_address"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsCardCustomerToken) // the loaded record
+fmt.Println(cardCustomerToken) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsCardCustomerTokens, err := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil).List(nil, nil)
+cardCustomerTokens, err := client.CardCustomerToken(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsCardCustomerTokens) // the array of records
+fmt.Println(cardCustomerTokens) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsCurrencyCurrencyInfo
+### CardPayment
 
-Create an instance: `noFrixionMoneyMoovModelsCurrencyCurrencyInfo := client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(nil)`
+Create an instance: `cardPayment := client.CardPayment(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorized_amount` | `string` |  |
+| `currency_code` | `string` |  |
+| `is_payer_authentication_required` | `bool` |  |
+| `is_soft_decline` | `bool` |  |
+| `payer_authentication_access_token` | `string` |  |
+| `payer_authentication_merchant_data` | `string` |  |
+| `payer_authentication_url` | `string` |  |
+| `payer_authentication_window_height` | `int` |  |
+| `payer_authentication_window_width` | `int` |  |
+| `payment_request_callback_url` | `string` |  |
+| `payment_request_id` | `string` |  |
+| `request_id` | `string` |  |
+| `response_code` | `string` |  |
+| `response_type` | `string` |  |
+| `status` | `string` |  |
+| `three_ds_redirect_url` | `string` |  |
+| `transaction_id` | `string` |  |
+
+#### Example: Create
+
+```go
+result, err := client.CardPayment(nil).Create(map[string]any{
+    "paymentrequest_id": "example_paymentrequest_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### CardPublicKey
+
+Create an instance: `cardPublicKey := client.CardPublicKey(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `jwt` | `string` |  |
+
+#### Example: Load
+
+```go
+cardPublicKey, err := client.CardPublicKey(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(cardPublicKey) // the loaded record
+```
+
+
+### Consent
+
+Create an instance: `consent := client.Consent(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorisation_url` | `string` |  |
+| `callback_url` | `string` |  |
+| `consent_id` | `string` |  |
+| `email_address` | `string` |  |
+| `expiry_date` | `string` |  |
+| `failure_callback_url` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `institution_id` | `string` |  |
+| `is_connected_account` | `bool` |  |
+| `is_enabled` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `provider` | `string` |  |
+| `success_web_hook_url` | `string` |  |
+
+#### Example: Load
+
+```go
+consent, err := client.Consent(nil).Load(map[string]any{"id": "consent_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(consent) // the loaded record
+```
+
+#### Example: List
+
+```go
+consents, err := client.Consent(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(consents) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Consent(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### Currency
+
+Create an instance: `currency := client.Currency(nil)`
 
 #### Operations
 
@@ -3912,17 +2348,17 @@ Create an instance: `noFrixionMoneyMoovModelsCurrencyCurrencyInfo := client.NoFr
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsCurrencyCurrencyInfos, err := client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(nil).List(nil, nil)
+currencys, err := client.Currency(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsCurrencyCurrencyInfos) // the array of records
+fmt.Println(currencys) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsDirectDebitBatchSubmit
+### DirectDebitBatchSubmit
 
-Create an instance: `noFrixionMoneyMoovModelsDirectDebitBatchSubmit := client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(nil)`
+Create an instance: `directDebitBatchSubmit := client.DirectDebitBatchSubmit(nil)`
 
 #### Operations
 
@@ -3940,7 +2376,7 @@ Create an instance: `noFrixionMoneyMoovModelsDirectDebitBatchSubmit := client.No
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(nil).Create(map[string]any{
+result, err := client.DirectDebitBatchSubmit(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -3949,9 +2385,9 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsFxRate
+### FxRate
 
-Create an instance: `noFrixionMoneyMoovModelsFxRate := client.NoFrixionMoneyMoovModelsFxRate(nil)`
+Create an instance: `fxRate := client.FxRate(nil)`
 
 #### Operations
 
@@ -3973,27 +2409,27 @@ Create an instance: `noFrixionMoneyMoovModelsFxRate := client.NoFrixionMoneyMoov
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsFxRate, err := client.NoFrixionMoneyMoovModelsFxRate(nil).Load(map[string]any{"destination": "destination", "source": "source", "valid_for_minute": 1}, nil)
+fxRate, err := client.FxRate(nil).Load(map[string]any{"destination": "destination", "source": "source", "valid_for_minute": 1}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsFxRate) // the loaded record
+fmt.Println(fxRate) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsFxRates, err := client.NoFrixionMoneyMoovModelsFxRate(nil).List(nil, nil)
+fxRates, err := client.FxRate(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsFxRates) // the array of records
+fmt.Println(fxRates) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsIPayment
+### IPayment
 
-Create an instance: `noFrixionMoneyMoovModelsIPayment := client.NoFrixionMoneyMoovModelsIPayment(nil)`
+Create an instance: `iPayment := client.IPayment(nil)`
 
 #### Operations
 
@@ -4011,7 +2447,7 @@ Create an instance: `noFrixionMoneyMoovModelsIPayment := client.NoFrixionMoneyMo
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsIPayment(nil).Create(map[string]any{
+result, err := client.IPayment(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -4020,9 +2456,9 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsMandatesMandate
+### Mandate
 
-Create an instance: `noFrixionMoneyMoovModelsMandatesMandate := client.NoFrixionMoneyMoovModelsMandatesMandate(nil)`
+Create an instance: `mandate := client.Mandate(nil)`
 
 #### Operations
 
@@ -4073,17 +2509,17 @@ Create an instance: `noFrixionMoneyMoovModelsMandatesMandate := client.NoFrixion
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsMandatesMandate, err := client.NoFrixionMoneyMoovModelsMandatesMandate(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_mandates_mandate_id"}, nil)
+mandate, err := client.Mandate(nil).Load(map[string]any{"id": "mandate_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMandatesMandate) // the loaded record
+fmt.Println(mandate) // the loaded record
 ```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMandatesMandate(nil).Create(map[string]any{
+result, err := client.Mandate(nil).Create(map[string]any{
     "address_line1": "example_address_line1",
     "city": "example_city",
     "country_code": "example_country_code",
@@ -4099,9 +2535,9 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchant
+### Merchant
 
-Create an instance: `noFrixionMoneyMoovModelsMerchant := client.NoFrixionMoneyMoovModelsMerchant(nil)`
+Create an instance: `merchant := client.Merchant(nil)`
 
 #### Operations
 
@@ -4110,6 +2546,7 @@ Create an instance: `noFrixionMoneyMoovModelsMerchant := client.NoFrixionMoneyMo
 | `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
 
 #### Fields
 
@@ -4135,6 +2572,7 @@ Create an instance: `noFrixionMoneyMoovModelsMerchant := client.NoFrixionMoneyMo
 | `parent_merchant` | `map[string]any` |  |
 | `payment_account` | `[]any` |  |
 | `payment_account_limit` | `int` |  |
+| `reason` | `string` |  |
 | `short_name` | `string` |  |
 | `supported_payment_methods_list` | `[]any` |  |
 | `suspension_reason` | `string` |  |
@@ -4147,27 +2585,27 @@ Create an instance: `noFrixionMoneyMoovModelsMerchant := client.NoFrixionMoneyMo
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsMerchant, err := client.NoFrixionMoneyMoovModelsMerchant(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_merchant_id"}, nil)
+merchant, err := client.Merchant(nil).Load(map[string]any{"id": "merchant_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchant) // the loaded record
+fmt.Println(merchant) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsMerchants, err := client.NoFrixionMoneyMoovModelsMerchant(nil).List(nil, nil)
+merchants, err := client.Merchant(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchants) // the array of records
+fmt.Println(merchants) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantPage
+### MerchantAuthorisationSetting
 
-Create an instance: `noFrixionMoneyMoovModelsMerchantPage := client.NoFrixionMoneyMoovModelsMerchantPage(nil)`
+Create an instance: `merchantAuthorisationSetting := client.MerchantAuthorisationSetting(nil)`
 
 #### Operations
 
@@ -4179,49 +2617,81 @@ Create an instance: `noFrixionMoneyMoovModelsMerchantPage := client.NoFrixionMon
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_currency` | `[]any` |  |
-| `can_have_trust_account` | `bool` |  |
-| `card_payment_processor` | `string` |  |
-| `company_id` | `string` |  |
-| `display_qr_on_hosted_pay` | `bool` |  |
-| `hosted_pay_version` | `int` |  |
+| `amount_lower` | `float64` |  |
+| `amount_upper` | `float64` |  |
+| `authorisation_type` | `string` |  |
+| `beneficiaries_only` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_blocked` | `bool` |  |
-| `is_exited` | `bool` |  |
-| `is_suspended` | `bool` |  |
-| `jurisdiction` | `string` |  |
-| `logo_url_png` | `string` |  |
-| `logo_url_svg` | `string` |  |
-| `merchant_category_code` | `string` |  |
-| `name` | `string` |  |
-| `note` | `string` |  |
-| `parent_merchant` | `map[string]any` |  |
-| `payment_account` | `[]any` |  |
-| `payment_account_limit` | `int` |  |
-| `short_name` | `string` |  |
-| `supported_payment_methods_list` | `[]any` |  |
-| `suspension_reason` | `string` |  |
-| `tag` | `[]any` |  |
-| `time_zone_id` | `string` |  |
-| `trading_name` | `string` |  |
-| `web_hook_limit` | `int` |  |
-| `your_role_name` | `string` |  |
+| `last_editor_cant_authorise` | `bool` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `number_of_authoriser` | `int` |  |
+| `role_setting` | `[]any` |  |
 
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsMerchantPages, err := client.NoFrixionMoneyMoovModelsMerchantPage(nil).List(nil, nil)
+merchantAuthorisationSettings, err := client.MerchantAuthorisationSetting(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchantPages) // the array of records
+fmt.Println(merchantAuthorisationSettings) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantPayByBankSetting
+### MerchantDirectDebitMandate
 
-Create an instance: `noFrixionMoneyMoovModelsMerchantPayByBankSetting := client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting(nil)`
+Create an instance: `merchantDirectDebitMandate := client.MerchantDirectDebitMandate(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `approved_at` | `string` |  |
+| `currency` | `string` |  |
+| `customer_account_number` | `string` |  |
+| `customer_city` | `string` |  |
+| `customer_country_code` | `string` |  |
+| `customer_country_name` | `string` |  |
+| `customer_email_address` | `string` |  |
+| `customer_first_name` | `string` |  |
+| `customer_iban` | `string` |  |
+| `customer_last_name` | `string` |  |
+| `customer_sort_code` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `is_recurring` | `bool` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `reference` | `string` |  |
+| `status` | `string` |  |
+| `supplier_bank_account_id` | `string` |  |
+| `supplier_customer_id` | `string` |  |
+| `supplier_mandate_id` | `string` |  |
+| `supplier_name` | `string` |  |
+| `supplier_status` | `string` |  |
+
+#### Example: List
+
+```go
+merchantDirectDebitMandates, err := client.MerchantDirectDebitMandate(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(merchantDirectDebitMandates) // the array of records
+```
+
+
+### MerchantPayByBankSetting
+
+Create an instance: `merchantPayByBankSetting := client.MerchantPayByBankSetting(nil)`
 
 #### Operations
 
@@ -4250,22 +2720,69 @@ Create an instance: `noFrixionMoneyMoovModelsMerchantPayByBankSetting := client.
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsMerchantPayByBankSettings, err := client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting(nil).List(nil, nil)
+merchantPayByBankSettings, err := client.MerchantPayByBankSetting(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchantPayByBankSettings) // the array of records
+fmt.Println(merchantPayByBankSettings) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantToken
+### MerchantPaymentRequestTemplate
 
-Create an instance: `noFrixionMoneyMoovModelsMerchantToken := client.NoFrixionMoneyMoovModelsMerchantToken(nil)`
+Create an instance: `merchantPaymentRequestTemplate := client.MerchantPaymentRequestTemplate(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `description` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `name` | `string` |  |
+| `template` | `map[string]any` |  |
+
+#### Example: Load
+
+```go
+merchantPaymentRequestTemplate, err := client.MerchantPaymentRequestTemplate(nil).Load(map[string]any{"id": "merchant_payment_request_template_id", "paymentrequest_id": "paymentrequest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(merchantPaymentRequestTemplate) // the loaded record
+```
+
+#### Example: List
+
+```go
+merchantPaymentRequestTemplates, err := client.MerchantPaymentRequestTemplate(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(merchantPaymentRequestTemplates) // the array of records
+```
+
+
+### MerchantToken
+
+Create an instance: `merchantToken := client.MerchantToken(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
@@ -4301,17 +2818,27 @@ Create an instance: `noFrixionMoneyMoovModelsMerchantToken := client.NoFrixionMo
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsMerchantToken, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_merchant_token_id"}, nil)
+merchantToken, err := client.MerchantToken(nil).Load(map[string]any{"id": "merchant_token_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchantToken) // the loaded record
+fmt.Println(merchantToken) // the loaded record
+```
+
+#### Example: List
+
+```go
+merchantTokens, err := client.MerchantToken(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(merchantTokens) // the array of records
 ```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Create(map[string]any{
+result, err := client.MerchantToken(nil).Create(map[string]any{
     "nonce": "example_nonce",
 }, nil)
 if err != nil {
@@ -4321,57 +2848,30 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantTokenPage
+### Metadata
 
-Create an instance: `noFrixionMoneyMoovModelsMerchantTokenPage := client.NoFrixionMoneyMoovModelsMerchantTokenPage(nil)`
+Create an instance: `metadata := client.Metadata(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `can_authorise` | `bool` |  |
-| `description` | `string` |  |
-| `expires_at` | `string` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `ip_address_whitelist` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `nonce` | `string` |  |
-| `permission_type` | `[]any` |  |
-| `request_signature_version` | `int` |  |
-| `shared_secret_algorithm` | `string` |  |
-| `shared_secret_base64` | `string` |  |
-| `token` | `string` |  |
-
-#### Example: List
+#### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsMerchantTokenPages, err := client.NoFrixionMoneyMoovModelsMerchantTokenPage(nil).List(nil, nil)
+metadata, err := client.Metadata(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsMerchantTokenPages) // the array of records
+fmt.Println(metadata) // the loaded record
 ```
 
 
-### NoFrixionMoneyMoovModelsNoFrixionVersion
+### NoFrixionVersion
 
-Create an instance: `noFrixionMoneyMoovModelsNoFrixionVersion := client.NoFrixionMoneyMoovModelsNoFrixionVersion(nil)`
+Create an instance: `noFrixionVersion := client.NoFrixionVersion(nil)`
 
 #### Operations
 
@@ -4391,110 +2891,30 @@ Create an instance: `noFrixionMoneyMoovModelsNoFrixionVersion := client.NoFrixio
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsNoFrixionVersion, err := client.NoFrixionMoneyMoovModelsNoFrixionVersion(nil).Load(nil, nil)
+noFrixionVersion, err := client.NoFrixionVersion(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsNoFrixionVersion) // the loaded record
+fmt.Println(noFrixionVersion) // the loaded record
 ```
 
 
-### NoFrixionMoneyMoovModelsOpenBankingAccount
+### OpenBanking
 
-Create an instance: `noFrixionMoneyMoovModelsOpenBankingAccount := client.NoFrixionMoneyMoovModelsOpenBankingAccount(nil)`
+Create an instance: `openBanking := client.OpenBanking(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_balance` | `[]any` |  |
-| `account_identification` | `[]any` |  |
-| `account_name` | `[]any` |  |
-| `account_type` | `string` |  |
-| `balance` | `float64` |  |
-| `consolidated_account_information` | `map[string]any` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `detail` | `string` |  |
-| `id` | `string` |  |
-| `nickname` | `string` |  |
-| `type` | `string` |  |
-| `usage_type` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsOpenBankingAccount, err := client.NoFrixionMoneyMoovModelsOpenBankingAccount(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_open_banking_account_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingAccount) // the loaded record
-```
-
-
-### NoFrixionMoneyMoovModelsOpenBankingConsent
-
-Create an instance: `noFrixionMoneyMoovModelsOpenBankingConsent := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Update(data, ctrl)` | Update an existing entity. |
 | `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `consent_id` | `string` |  |
-| `email_address` | `string` |  |
-| `expiry_date` | `string` |  |
-| `failure_callback_url` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `institution_id` | `string` |  |
-| `is_connected_account` | `bool` |  |
-| `is_enabled` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `provider` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsOpenBankingConsent, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_open_banking_consent_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingConsent) // the loaded record
-```
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsOpenBankingConsents, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingConsents) // the array of records
-```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Create(map[string]any{
+result, err := client.OpenBanking(nil).Create(map[string]any{
+    "account_id": "example_account_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -4503,60 +2923,45 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsOpenBankingTransaction
+### Payeeverification
 
-Create an instance: `noFrixionMoneyMoovModelsOpenBankingTransaction := client.NoFrixionMoneyMoovModelsOpenBankingTransaction(nil)`
+Create an instance: `payeeverification := client.Payeeverification(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address_detail` | `map[string]any` |  |
-| `amount` | `float64` |  |
-| `balance` | `map[string]any` |  |
-| `booking_date_time` | `string` |  |
-| `charge_detail` | `map[string]any` |  |
-| `currency` | `string` |  |
-| `currency_exchange` | `map[string]any` |  |
-| `date` | `string` |  |
-| `description` | `string` |  |
-| `enrichment` | `map[string]any` |  |
-| `gross_amount` | `map[string]any` |  |
-| `id` | `string` |  |
-| `iso_bank_transaction_code` | `map[string]any` |  |
-| `merchant` | `map[string]any` |  |
-| `payee_detail` | `map[string]any` |  |
-| `payer_detail` | `map[string]any` |  |
-| `proprietary_bank_transaction_code` | `map[string]any` |  |
-| `reference` | `string` |  |
-| `statement_reference` | `[]any` |  |
-| `status` | `string` |  |
-| `supplementary_data` | `any` |  |
-| `transaction_amount` | `map[string]any` |  |
-| `transaction_information` | `[]any` |  |
-| `transaction_mutability` | `string` |  |
-| `value_date_time` | `string` |  |
+| `account_name` | `string` |  |
+| `account_number` | `string` |  |
+| `iban` | `string` |  |
+| `payee_verified_account_name` | `string` |  |
+| `result` | `string` |  |
+| `secondary_identification` | `string` |  |
+| `sort_code` | `string` |  |
 
-#### Example: List
+#### Example: Create
 
 ```go
-noFrixionMoneyMoovModelsOpenBankingTransactions, err := client.NoFrixionMoneyMoovModelsOpenBankingTransaction(nil).List(nil, nil)
+result, err := client.Payeeverification(nil).Create(map[string]any{
+    "account_name": "example_account_name",
+    "iban": "example_iban",
+}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingTransactions) // the array of records
+fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsPayment
+### Payment
 
-Create an instance: `noFrixionMoneyMoovModelsPayment := client.NoFrixionMoneyMoovModelsPayment(nil)`
+Create an instance: `payment := client.Payment(nil)`
 
 #### Operations
 
@@ -4650,17 +3055,17 @@ Create an instance: `noFrixionMoneyMoovModelsPayment := client.NoFrixionMoneyMoo
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsPayment, err := client.NoFrixionMoneyMoovModelsPayment(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_payment_id"}, nil)
+payment, err := client.Payment(nil).Load(map[string]any{"id": "payment_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPayment) // the loaded record
+fmt.Println(payment) // the loaded record
 ```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayment(nil).Create(map[string]any{
+result, err := client.Payment(nil).Create(map[string]any{
     "created_by_user": map[string]any{},
 }, nil)
 if err != nil {
@@ -4670,46 +3075,9 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentAccountMinimalPage
+### PaymentAccount
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentAccountMinimalPage := client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_name` | `string` |  |
-| `available_balance` | `float64` |  |
-| `balance` | `float64` |  |
-| `balance_minor_unit` | `int` |  |
-| `currency` | `string` |  |
-| `id` | `string` |  |
-| `identifier` | `map[string]any` |  |
-| `is_archived` | `bool` |  |
-| `is_connected_account` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `submitted_payouts_balance` | `float64` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsPaymentAccountMinimalPages, err := client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsPaymentAccountMinimalPages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsPaymentAccountPage
-
-Create an instance: `noFrixionMoneyMoovModelsPaymentAccountPage := client.NoFrixionMoneyMoovModelsPaymentAccountPage(nil)`
+Create an instance: `paymentAccount := client.PaymentAccount(nil)`
 
 #### Operations
 
@@ -4764,17 +3132,54 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentAccountPage := client.NoFrix
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsPaymentAccountPages, err := client.NoFrixionMoneyMoovModelsPaymentAccountPage(nil).List(nil, nil)
+paymentAccounts, err := client.PaymentAccount(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentAccountPages) // the array of records
+fmt.Println(paymentAccounts) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentInitiation
+### PaymentAccountMinimal
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentInitiation := client.NoFrixionMoneyMoovModelsPaymentInitiation(nil)`
+Create an instance: `paymentAccountMinimal := client.PaymentAccountMinimal(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `account_name` | `string` |  |
+| `available_balance` | `float64` |  |
+| `balance` | `float64` |  |
+| `balance_minor_unit` | `int` |  |
+| `currency` | `string` |  |
+| `id` | `string` |  |
+| `identifier` | `map[string]any` |  |
+| `is_archived` | `bool` |  |
+| `is_connected_account` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `submitted_payouts_balance` | `float64` |  |
+
+#### Example: List
+
+```go
+paymentAccountMinimals, err := client.PaymentAccountMinimal(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(paymentAccountMinimals) // the array of records
+```
+
+
+### PaymentInitiation
+
+Create an instance: `paymentInitiation := client.PaymentInitiation(nil)`
 
 #### Operations
 
@@ -4796,7 +3201,7 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentInitiation := client.NoFrixi
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentInitiation(nil).Create(map[string]any{
+result, err := client.PaymentInitiation(nil).Create(map[string]any{
     "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
@@ -4806,9 +3211,128 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestEvent
+### PaymentRequest
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestEvent := client.NoFrixionMoneyMoovModelsPaymentRequestEvent(nil)`
+Create an instance: `paymentRequest := client.PaymentRequest(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `address` | `[]any` |  |
+| `amount` | `float64` |  |
+| `amount_pending` | `float64` |  |
+| `amount_received` | `float64` |  |
+| `amount_refunded` | `float64` |  |
+| `auto_send_receipt` | `bool` |  |
+| `base_origin_url` | `string` |  |
+| `callback_url` | `string` |  |
+| `card_authorize_only` | `bool` |  |
+| `card_create_token` | `bool` |  |
+| `card_create_token_mode` | `string` |  |
+| `card_ignore_cvn` | `bool` |  |
+| `card_processor_merchant_id` | `string` |  |
+| `card_stripe_payment_intent_id` | `string` |  |
+| `card_stripe_payment_intent_secret` | `string` |  |
+| `created_by_user` | `map[string]any` |  |
+| `currency` | `string` |  |
+| `custom_field` | `[]any` |  |
+| `customer_email_address` | `string` |  |
+| `customer_id` | `string` |  |
+| `customer_name` | `string` |  |
+| `description` | `string` |  |
+| `destination_account` | `map[string]any` |  |
+| `direct_debit_payment` | `map[string]any` |  |
+| `do_simulate_settlement_failure` | `bool` |  |
+| `due_date` | `string` |  |
+| `error_description` | `string` |  |
+| `event` | `[]any` |  |
+| `failure_callback_url` | `string` |  |
+| `field_display_setting` | `[]any` |  |
+| `formatted_amount` | `string` |  |
+| `hosted_pay_checkout_url` | `string` |  |
+| `id` | `string` |  |
+| `ignore_address_verification` | `bool` |  |
+| `inserted` | `string` |  |
+| `inserted_sortable` | `string` |  |
+| `institution` | `string` |  |
+| `is_archived` | `bool` |  |
+| `jwk` | `string` |  |
+| `last_updated` | `string` |  |
+| `lightning_invoice` | `string` |  |
+| `lightning_invoice_expires_at` | `string` |  |
+| `merchant_direct_debit_mandate_id` | `string` |  |
+| `merchant_id` | `string` |  |
+| `merchant_token_description` | `string` |  |
+| `notification_email_address` | `string` |  |
+| `notification_role_i_d` | `[]any` |  |
+| `order_id` | `string` |  |
+| `partial_payment_method` | `string` |  |
+| `partial_payment_step` | `string` |  |
+| `payment_attempt` | `[]any` |  |
+| `payment_initiation_id` | `string` |  |
+| `payment_method` | `[]any` |  |
+| `payment_processor` | `string` |  |
+| `payrun_id` | `string` |  |
+| `pisp_account_id` | `string` |  |
+| `priority_bank_id` | `string` |  |
+| `result` | `map[string]any` |  |
+| `sandbox_settle_delay_in_second` | `int` |  |
+| `shipping_address` | `map[string]any` |  |
+| `status` | `string` |  |
+| `success_web_hook_url` | `string` |  |
+| `tag` | `[]any` |  |
+| `title` | `string` |  |
+| `tokenised_card` | `[]any` |  |
+| `transaction` | `[]any` |  |
+| `use_hosted_payment_page` | `bool` |  |
+
+#### Example: Load
+
+```go
+paymentRequest, err := client.PaymentRequest(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(paymentRequest) // the loaded record
+```
+
+#### Example: List
+
+```go
+paymentRequests, err := client.PaymentRequest(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(paymentRequests) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.PaymentRequest(nil).Create(map[string]any{
+    "paymentrequest_id": "example_paymentrequest_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### PaymentRequestEvent
+
+Create an instance: `paymentRequestEvent := client.PaymentRequestEvent(nil)`
 
 #### Operations
 
@@ -4860,17 +3384,17 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentRequestEvent := client.NoFri
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsPaymentRequestEvents, err := client.NoFrixionMoneyMoovModelsPaymentRequestEvent(nil).List(nil, nil)
+paymentRequestEvents, err := client.PaymentRequestEvent(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestEvents) // the array of records
+fmt.Println(paymentRequestEvents) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestMetric
+### PaymentRequestMetric
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestMetric := client.NoFrixionMoneyMoovModelsPaymentRequestMetric(nil)`
+Create an instance: `paymentRequestMetric := client.PaymentRequestMetric(nil)`
 
 #### Operations
 
@@ -4892,17 +3416,17 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentRequestMetric := client.NoFr
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsPaymentRequestMetric, err := client.NoFrixionMoneyMoovModelsPaymentRequestMetric(nil).Load(nil, nil)
+paymentRequestMetric, err := client.PaymentRequestMetric(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestMetric) // the loaded record
+fmt.Println(paymentRequestMetric) // the loaded record
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestMinimal
+### PaymentRequestMinimal
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestMinimal := client.NoFrixionMoneyMoovModelsPaymentRequestMinimal(nil)`
+Create an instance: `paymentRequestMinimal := client.PaymentRequestMinimal(nil)`
 
 #### Operations
 
@@ -4948,17 +3472,17 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentRequestMinimal := client.NoF
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsPaymentRequestMinimals, err := client.NoFrixionMoneyMoovModelsPaymentRequestMinimal(nil).List(nil, nil)
+paymentRequestMinimals, err := client.PaymentRequestMinimal(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestMinimals) // the array of records
+fmt.Println(paymentRequestMinimals) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestResult
+### PaymentRequestResult
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestResult := client.NoFrixionMoneyMoovModelsPaymentRequestResult(nil)`
+Create an instance: `paymentRequestResult := client.PaymentRequestResult(nil)`
 
 #### Operations
 
@@ -4985,117 +3509,174 @@ Create an instance: `noFrixionMoneyMoovModelsPaymentRequestResult := client.NoFr
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsPaymentRequestResults, err := client.NoFrixionMoneyMoovModelsPaymentRequestResult(nil).List(nil, nil)
+paymentRequestResults, err := client.PaymentRequestResult(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestResults) // the array of records
+fmt.Println(paymentRequestResults) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment
+### PaymentRequestsCreate
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(nil)`
+Create an instance: `paymentRequestsCreate := client.PaymentRequestsCreate(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_payment_request` | `map[string]any` |  |
+| `payment_request` | `[]any` |  |
+
+#### Example: Create
+
+```go
+result, err := client.PaymentRequestsCreate(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### Payout
+
+Create an instance: `payout := client.Payout(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `map[string]any` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayments, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayments) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2
-
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `account_id` | `string` |  |
+| `allow_incomplete` | `bool` |  |
+| `amount` | `float64` |  |
+| `amount_minor_unit` | `int` |  |
+| `approve_payout_url` | `string` |  |
+| `approver_id` | `string` |  |
+| `authentication_method` | `[]any` |  |
+| `authorisation` | `[]any` |  |
+| `authorisers_completed_count` | `int` |  |
+| `authorisers_required_count` | `int` |  |
+| `batch_payout_id` | `string` |  |
+| `beneficiary` | `map[string]any` |  |
+| `beneficiary_id` | `string` |  |
+| `can_authorise` | `bool` |  |
+| `can_process` | `bool` |  |
+| `can_update` | `bool` |  |
+| `charge_bearer` | `string` |  |
+| `created_by` | `string` |  |
+| `created_by_email_address` | `string` |  |
+| `currency` | `string` |  |
+| `current_user_id` | `string` |  |
 | `description` | `string` |  |
+| `destination` | `map[string]any` |  |
+| `document` | `[]any` |  |
+| `event` | `[]any` |  |
+| `formatted_amount` | `string` |  |
+| `formatted_fx_destination_amount` | `string` |  |
+| `formatted_schedule` | `string` |  |
+| `formatted_schedule_day_only` | `string` |  |
+| `formatted_source_account_available_balance` | `string` |  |
+| `fx_destination_amount` | `float64` |  |
+| `fx_destination_amount_minor_unit` | `int` |  |
+| `fx_destination_currency` | `string` |  |
+| `fx_quote_expires_at` | `string` |  |
+| `fx_quote_id` | `string` |  |
+| `fx_rate` | `float64` |  |
+| `fx_use_destination_amount` | `bool` |  |
+| `has_current_user_authorised` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
+| `invoice_id` | `string` |  |
+| `is_archived` | `bool` |  |
+| `is_failed` | `bool` |  |
+| `is_settled` | `bool` |  |
+| `is_submitted` | `bool` |  |
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `map[string]any` |  |
+| `merchant_token_description` | `string` |  |
+| `nonce` | `string` |  |
+| `payment_processor` | `string` |  |
+| `payment_rail` | `string` |  |
+| `payrun_id` | `string` |  |
+| `payrun_name` | `string` |  |
+| `reason` | `string` |  |
+| `rule` | `map[string]any` |  |
+| `schedule_date` | `string` |  |
+| `scheduled` | `bool` |  |
+| `source_account_available_balance` | `float64` |  |
+| `source_account_available_balance_minor_unit` | `int` |  |
+| `source_account_bic` | `string` |  |
+| `source_account_currency` | `string` |  |
+| `source_account_iban` | `string` |  |
+| `source_account_identifier` | `map[string]any` |  |
+| `source_account_name` | `string` |  |
+| `source_account_number` | `string` |  |
+| `source_account_sortcode` | `string` |  |
+| `status` | `string` |  |
+| `tag` | `[]any` |  |
+| `tag_id` | `[]any` |  |
+| `their_reference` | `string` |  |
+| `topup_payrun_id` | `string` |  |
+| `transacted_amount` | `float64` |  |
+| `transacted_fx_amount` | `float64` |  |
+| `transacted_fx_rate` | `float64` |  |
+| `type` | `string` |  |
+| `user_id` | `string` |  |
+| `your_reference` | `string` |  |
 
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id", "template_id": "template_id"}, nil)
+payout, err := client.Payout(nil).Load(map[string]any{"id": "payout_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2) // the loaded record
+fmt.Println(payout) // the loaded record
+```
+
+#### Example: List
+
+```go
+payouts, err := client.Payout(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(payouts) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Payout(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3
+### PayoutKeyset
 
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `map[string]any` |  |
-
-
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4
-
-Create an instance: `noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-
-### NoFrixionMoneyMoovModelsPayoutKeysetPage
-
-Create an instance: `noFrixionMoneyMoovModelsPayoutKeysetPage := client.NoFrixionMoneyMoovModelsPayoutKeysetPage(nil)`
+Create an instance: `payoutKeyset := client.PayoutKeyset(nil)`
 
 #### Operations
 
@@ -5184,17 +3765,17 @@ Create an instance: `noFrixionMoneyMoovModelsPayoutKeysetPage := client.NoFrixio
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsPayoutKeysetPages, err := client.NoFrixionMoneyMoovModelsPayoutKeysetPage(nil).List(nil, nil)
+payoutKeysets, err := client.PayoutKeyset(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPayoutKeysetPages) // the array of records
+fmt.Println(payoutKeysets) // the array of records
 ```
 
 
-### NoFrixionMoneyMoovModelsPayoutMetric
+### PayoutMetric
 
-Create an instance: `noFrixionMoneyMoovModelsPayoutMetric := client.NoFrixionMoneyMoovModelsPayoutMetric(nil)`
+Create an instance: `payoutMetric := client.PayoutMetric(nil)`
 
 #### Operations
 
@@ -5217,17 +3798,17 @@ Create an instance: `noFrixionMoneyMoovModelsPayoutMetric := client.NoFrixionMon
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsPayoutMetric, err := client.NoFrixionMoneyMoovModelsPayoutMetric(nil).Load(nil, nil)
+payoutMetric, err := client.PayoutMetric(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPayoutMetric) // the loaded record
+fmt.Println(payoutMetric) // the loaded record
 ```
 
 
-### NoFrixionMoneyMoovModelsPayoutsPayoutsCreate
+### PayoutsCreate
 
-Create an instance: `noFrixionMoneyMoovModelsPayoutsPayoutsCreate := client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(nil)`
+Create an instance: `payoutsCreate := client.PayoutsCreate(nil)`
 
 #### Operations
 
@@ -5245,7 +3826,7 @@ Create an instance: `noFrixionMoneyMoovModelsPayoutsPayoutsCreate := client.NoFr
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(nil).Create(map[string]any{
+result, err := client.PayoutsCreate(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -5254,17 +3835,19 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsPayrun
+### Payrun
 
-Create an instance: `noFrixionMoneyMoovModelsPayrun := client.NoFrixionMoneyMoovModelsPayrun(nil)`
+Create an instance: `payrun := client.Payrun(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
 
 #### Fields
 
@@ -5290,6 +3873,7 @@ Create an instance: `noFrixionMoneyMoovModelsPayrun := client.NoFrixionMoneyMoov
 | `merchant_id` | `string` |  |
 | `name` | `string` |  |
 | `nonce` | `string` |  |
+| `note` | `string` |  |
 | `payment` | `[]any` |  |
 | `payout` | `[]any` |  |
 | `payouts_count` | `int` |  |
@@ -5305,17 +3889,27 @@ Create an instance: `noFrixionMoneyMoovModelsPayrun := client.NoFrixionMoneyMoov
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsPayrun, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_payrun_id"}, nil)
+payrun, err := client.Payrun(nil).Load(map[string]any{"id": "payrun_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsPayrun) // the loaded record
+fmt.Println(payrun) // the loaded record
+```
+
+#### Example: List
+
+```go
+payruns, err := client.Payrun(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(payruns) // the array of records
 ```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Create(map[string]any{
+result, err := client.Payrun(nil).Create(map[string]any{
     "id": "example_id",
 }, nil)
 if err != nil {
@@ -5325,9 +3919,20 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsReportResult
+### Report
 
-Create an instance: `noFrixionMoneyMoovModelsReportResult := client.NoFrixionMoneyMoovModelsReportResult(nil)`
+Create an instance: `report := client.Report(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Update(data, ctrl)` | Update an existing entity. |
+
+
+### ReportResult
+
+Create an instance: `reportResult := client.ReportResult(nil)`
 
 #### Operations
 
@@ -5350,25 +3955,57 @@ Create an instance: `noFrixionMoneyMoovModelsReportResult := client.NoFrixionMon
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsReportResult, err := client.NoFrixionMoneyMoovModelsReportResult(nil).Load(map[string]any{"id": 1, "report_id": "report_id"}, nil)
+reportResult, err := client.ReportResult(nil).Load(map[string]any{"id": 1, "report_id": "report_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsReportResult) // the loaded record
+fmt.Println(reportResult) // the loaded record
 ```
 
 
-### NoFrixionMoneyMoovModelsRule
+### RolesCreate
 
-Create an instance: `noFrixionMoneyMoovModelsRule := client.NoFrixionMoneyMoovModelsRule(nil)`
+Create an instance: `rolesCreate := client.RolesCreate(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_role` | `map[string]any` |  |
+| `role` | `[]any` |  |
+
+#### Example: Create
+
+```go
+result, err := client.RolesCreate(nil).Create(map[string]any{
+    "merchant_id": "example_merchant_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### Rule
+
+Create an instance: `rule := client.Rule(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
 
 #### Fields
 
@@ -5411,17 +4048,27 @@ Create an instance: `noFrixionMoneyMoovModelsRule := client.NoFrixionMoneyMoovMo
 #### Example: Load
 
 ```go
-noFrixionMoneyMoovModelsRule, err := client.NoFrixionMoneyMoovModelsRule(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_rule_id"}, nil)
+rule, err := client.Rule(nil).Load(map[string]any{"id": "rule_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsRule) // the loaded record
+fmt.Println(rule) // the loaded record
+```
+
+#### Example: List
+
+```go
+rules, err := client.Rule(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(rules) // the array of records
 ```
 
 #### Example: Create
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsRule(nil).Create(map[string]any{
+result, err := client.Rule(nil).Create(map[string]any{
     "created_by": map[string]any{},
     "nonce": "example_nonce",
 }, nil)
@@ -5432,905 +4079,38 @@ fmt.Println(result)
 ```
 
 
-### NoFrixionMoneyMoovModelsTransaction
+### RuleEvent
 
-Create an instance: `noFrixionMoneyMoovModelsTransaction := client.NoFrixionMoneyMoovModelsTransaction(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `account_name` | `string` |  |
-| `account_sequence_number` | `int` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `balance` | `float64` |  |
-| `balance_minor_unit` | `int` |  |
-| `counterparty` | `map[string]any` |  |
-| `counterparty_summary` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `fx_amount` | `float64` |  |
-| `fx_currency` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `merchant_id` | `string` |  |
-| `payment_request_custom_field` | `map[string]any` |  |
-| `payment_request_id` | `string` |  |
-| `payout_id` | `string` |  |
-| `raw_reference` | `string` |  |
-| `rule_id` | `string` |  |
-| `tag` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `transaction_date` | `string` |  |
-| `type` | `string` |  |
-| `virtual_iban` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsTransaction, err := client.NoFrixionMoneyMoovModelsTransaction(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_transaction_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsTransaction) // the loaded record
-```
-
-
-### NoFrixionMoneyMoovModelsTransactionPage
-
-Create an instance: `noFrixionMoneyMoovModelsTransactionPage := client.NoFrixionMoneyMoovModelsTransactionPage(nil)`
+Create an instance: `ruleEvent := client.RuleEvent(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `List(match, ctrl)` | List entities matching the criteria. |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_id` | `string` |  |
-| `account_name` | `string` |  |
-| `account_sequence_number` | `int` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `balance` | `float64` |  |
-| `balance_minor_unit` | `int` |  |
-| `content` | `[]any` |  |
-| `counterparty` | `map[string]any` |  |
-| `counterparty_summary` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `fx_amount` | `float64` |  |
-| `fx_currency` | `string` |  |
-| `fx_rate` | `float64` |  |
+| `error_message` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `merchant_id` | `string` |  |
-| `page_number` | `int` |  |
-| `page_size` | `int` |  |
-| `payment_request_custom_field` | `map[string]any` |  |
-| `payment_request_id` | `string` |  |
-| `payout_id` | `string` |  |
-| `raw_reference` | `string` |  |
-| `rule_id` | `string` |  |
-| `tag` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `total_page` | `int` |  |
-| `total_size` | `int` |  |
-| `transaction_date` | `string` |  |
-| `type` | `string` |  |
-| `virtual_iban` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsTransactionPage, err := client.NoFrixionMoneyMoovModelsTransactionPage(nil).Load(map[string]any{"account_id": "account_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsTransactionPage) // the loaded record
-```
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsTransactionPages, err := client.NoFrixionMoneyMoovModelsTransactionPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsTransactionPages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsUserInvite
-
-Create an instance: `noFrixionMoneyMoovModelsUserInvite := client.NoFrixionMoneyMoovModelsUserInvite(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_status` | `map[string]any` |  |
-| `id` | `string` |  |
-| `initial_role_id` | `string` |  |
-| `invitee_email_address` | `string` |  |
-| `invitee_first_name` | `string` |  |
-| `invitee_last_name` | `string` |  |
-| `inviter_email_address` | `string` |  |
-| `inviter_first_name` | `string` |  |
-| `inviter_last_name` | `string` |  |
-| `is_authorised` | `bool` |  |
-| `is_invitee_registered` | `bool` |  |
-| `last_invited` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
+| `is_authorise_to_enable` | `bool` |  |
 | `message` | `string` |  |
-| `registration_url` | `string` |  |
-| `send_invite_email` | `bool` |  |
-| `status` | `string` |  |
+| `raw_response` | `string` |  |
+| `rule_event_type` | `string` |  |
+| `rule_id` | `string` |  |
 | `user` | `map[string]any` |  |
-| `user_id` | `string` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsUserInvite, err := client.NoFrixionMoneyMoovModelsUserInvite(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_user_invite_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsUserInvite) // the loaded record
-```
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsUserInvite(nil).Create(map[string]any{
-    "user": map[string]any{},
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### NoFrixionMoneyMoovModelsUserInvitePage
-
-Create an instance: `noFrixionMoneyMoovModelsUserInvitePage := client.NoFrixionMoneyMoovModelsUserInvitePage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_status` | `map[string]any` |  |
-| `id` | `string` |  |
-| `initial_role_id` | `string` |  |
-| `invitee_email_address` | `string` |  |
-| `invitee_first_name` | `string` |  |
-| `invitee_last_name` | `string` |  |
-| `inviter_email_address` | `string` |  |
-| `inviter_first_name` | `string` |  |
-| `inviter_last_name` | `string` |  |
-| `is_authorised` | `bool` |  |
-| `is_invitee_registered` | `bool` |  |
-| `last_invited` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
-| `message` | `string` |  |
-| `registration_url` | `string` |  |
-| `status` | `string` |  |
-| `user` | `map[string]any` |  |
-| `user_id` | `string` |  |
 
 #### Example: List
 
 ```go
-noFrixionMoneyMoovModelsUserInvitePages, err := client.NoFrixionMoneyMoovModelsUserInvitePage(nil).List(nil, nil)
+ruleEvents, err := client.RuleEvent(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(noFrixionMoneyMoovModelsUserInvitePages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsUserPage
-
-Create an instance: `noFrixionMoneyMoovModelsUserPage := client.NoFrixionMoneyMoovModelsUserPage(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `client_session_timeout` | `[]any` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
-| `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `map[string]any` |  |
-| `roles_with_scope` | `[]any` |  |
-| `two_factor_enabled` | `bool` |  |
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsUserPages, err := client.NoFrixionMoneyMoovModelsUserPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsUserPages) // the array of records
-```
-
-
-### NoFrixionMoneyMoovModelsWebhook
-
-Create an instance: `noFrixionMoneyMoovModelsWebhook := client.NoFrixionMoneyMoovModelsWebhook(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `destination_url` | `string` |  |
-| `email_address` | `string` |  |
-| `failed_notification_email_address` | `string` |  |
-| `id` | `string` |  |
-| `is_active` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `notification_method` | `string` |  |
-| `resource_type` | `[]any` |  |
-| `retry` | `bool` |  |
-| `secret` | `string` |  |
-| `version` | `int` |  |
-
-#### Example: Load
-
-```go
-noFrixionMoneyMoovModelsWebhook, err := client.NoFrixionMoneyMoovModelsWebhook(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_webhook_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsWebhook) // the loaded record
-```
-
-#### Example: List
-
-```go
-noFrixionMoneyMoovModelsWebhooks, err := client.NoFrixionMoneyMoovModelsWebhook(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(noFrixionMoneyMoovModelsWebhooks) // the array of records
-```
-
-#### Example: Create
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsWebhook(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### OpenBanking
-
-Create an instance: `openBanking := client.OpenBanking(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Example: Create
-
-```go
-result, err := client.OpenBanking(nil).Create(map[string]any{
-    "account_id": "example_account_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Payeeverification
-
-Create an instance: `payeeverification := client.Payeeverification(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_name` | `string` |  |
-| `account_number` | `string` |  |
-| `iban` | `string` |  |
-| `payee_verified_account_name` | `string` |  |
-| `result` | `string` |  |
-| `secondary_identification` | `string` |  |
-| `sort_code` | `string` |  |
-
-#### Example: Create
-
-```go
-result, err := client.Payeeverification(nil).Create(map[string]any{
-    "account_name": "example_account_name",
-    "iban": "example_iban",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### PaymentRequest
-
-Create an instance: `paymentRequest := client.PaymentRequest(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Update(data, ctrl)` | Update an existing entity. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `amount` | `float64` |  |
-| `do_simulate_settlement_failure` | `bool` |  |
-| `error_description` | `string` |  |
-| `institution` | `string` |  |
-| `payment_initiation_id` | `string` |  |
-
-#### Example: Load
-
-```go
-paymentRequest, err := client.PaymentRequest(nil).Load(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(paymentRequest) // the loaded record
-```
-
-#### Example: Create
-
-```go
-result, err := client.PaymentRequest(nil).Create(map[string]any{
-    "paymentrequest_id": "example_paymentrequest_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Payout
-
-Create an instance: `payout := client.Payout(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Update(data, ctrl)` | Update an existing entity. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `tag_id` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```go
-payout, err := client.Payout(nil).Load(map[string]any{"id": "payout_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(payout) // the loaded record
-```
-
-#### Example: Create
-
-```go
-result, err := client.Payout(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Payrun
-
-Create an instance: `payrun := client.Payrun(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-| `Update(data, ctrl)` | Update an existing entity. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `id` | `string` |  |
-| `note` | `string` |  |
-| `scheduled_date` | `string` |  |
-
-#### Example: Create
-
-```go
-result, err := client.Payrun(nil).Create(map[string]any{
-    "id": "example_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Reject
-
-Create an instance: `reject := client.Reject(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `reason` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-
-### Report
-
-Create an instance: `report := client.Report(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-
-
-### Rule
-
-Create an instance: `rule := client.Rule(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Update(data, ctrl)` | Update an existing entity. |
-| `Remove(match, ctrl)` | Remove the matching entity. |
-
-
-### Send
-
-Create an instance: `send := client.Send(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `tag_id` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Create
-
-```go
-result, err := client.Send(nil).Create(map[string]any{
-    "beneficiary": map[string]any{},
-    "source_account_identifier": map[string]any{},
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-
-### Sendbeneficiary
-
-Create an instance: `sendbeneficiary := client.Sendbeneficiary(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float64` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `[]any` |  |
-| `authorisation` | `[]any` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `map[string]any` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `map[string]any` |  |
-| `document` | `[]any` |  |
-| `event` | `[]any` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float64` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float64` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `map[string]any` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float64` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `map[string]any` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `[]any` |  |
-| `tag_id` | `[]any` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float64` |  |
-| `transacted_fx_amount` | `float64` |  |
-| `transacted_fx_rate` | `float64` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Create
-
-```go
-result, err := client.Sendbeneficiary(nil).Create(map[string]any{
-    "beneficiary": map[string]any{},
-    "source_account_identifier": map[string]any{},
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
+fmt.Println(ruleEvents) // the array of records
 ```
 
 
@@ -6410,18 +4190,87 @@ Create an instance: `transaction := client.Transaction(nil)`
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Remove(match, ctrl)` | Remove the matching entity. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `account_id` | `string` |  |
+| `account_name` | `string` |  |
+| `account_sequence_number` | `int` |  |
+| `address_detail` | `map[string]any` |  |
+| `amount` | `float64` |  |
+| `amount_minor_unit` | `int` |  |
+| `balance` | `float64` |  |
+| `balance_minor_unit` | `int` |  |
+| `booking_date_time` | `string` |  |
+| `charge_detail` | `map[string]any` |  |
+| `content` | `[]any` |  |
+| `counterparty` | `map[string]any` |  |
+| `counterparty_summary` | `string` |  |
+| `currency` | `string` |  |
+| `currency_exchange` | `map[string]any` |  |
+| `date` | `string` |  |
+| `description` | `string` |  |
+| `enrichment` | `map[string]any` |  |
+| `fx_amount` | `float64` |  |
+| `fx_currency` | `string` |  |
+| `fx_rate` | `float64` |  |
+| `gross_amount` | `map[string]any` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `iso_bank_transaction_code` | `map[string]any` |  |
+| `merchant` | `map[string]any` |  |
+| `merchant_id` | `string` |  |
+| `page_number` | `int` |  |
+| `page_size` | `int` |  |
+| `payee_detail` | `map[string]any` |  |
+| `payer_detail` | `map[string]any` |  |
+| `payment_request_custom_field` | `map[string]any` |  |
+| `payment_request_id` | `string` |  |
+| `payout_id` | `string` |  |
+| `proprietary_bank_transaction_code` | `map[string]any` |  |
+| `raw_reference` | `string` |  |
+| `reference` | `string` |  |
+| `rule_id` | `string` |  |
+| `statement_reference` | `[]any` |  |
+| `status` | `string` |  |
+| `supplementary_data` | `any` |  |
+| `tag` | `[]any` |  |
+| `their_reference` | `string` |  |
+| `total_page` | `int` |  |
+| `total_size` | `int` |  |
+| `transaction_amount` | `map[string]any` |  |
+| `transaction_date` | `string` |  |
+| `transaction_information` | `[]any` |  |
+| `transaction_mutability` | `string` |  |
+| `type` | `string` |  |
+| `value_date_time` | `string` |  |
+| `virtual_iban` | `string` |  |
+| `your_reference` | `string` |  |
+
 #### Example: Load
 
 ```go
-transaction, err := client.Transaction(nil).Load(map[string]any{"sequence_number": 1, "transaction_id": "transaction_id"}, nil)
+transaction, err := client.Transaction(nil).Load(map[string]any{"id": "transaction_id"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(transaction) // the loaded record
+```
+
+#### Example: List
+
+```go
+transactions, err := client.Transaction(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(transactions) // the array of records
 ```
 
 #### Example: Create
@@ -6483,15 +4332,90 @@ Create an instance: `userInvite := client.UserInvite(nil)`
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
 | `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorisation_status` | `map[string]any` |  |
+| `id` | `string` |  |
+| `initial_role_id` | `string` |  |
+| `invitee_email_address` | `string` |  |
+| `invitee_first_name` | `string` |  |
+| `invitee_last_name` | `string` |  |
+| `inviter_email_address` | `string` |  |
+| `inviter_first_name` | `string` |  |
+| `inviter_last_name` | `string` |  |
+| `is_authorised` | `bool` |  |
+| `is_invitee_registered` | `bool` |  |
+| `last_invited` | `string` |  |
+| `merchant_id` | `string` |  |
+| `merchant_name` | `string` |  |
+| `message` | `string` |  |
+| `registration_url` | `string` |  |
+| `send_invite_email` | `bool` |  |
+| `status` | `string` |  |
+| `user` | `map[string]any` |  |
+| `user_id` | `string` |  |
+
+#### Example: Load
+
+```go
+userInvite, err := client.UserInvite(nil).Load(map[string]any{"id": "user_invite_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(userInvite) // the loaded record
+```
+
+#### Example: List
+
+```go
+userInvites, err := client.UserInvite(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(userInvites) // the array of records
+```
 
 #### Example: Create
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
-    "id": "example_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### UserInvitesCreate
+
+Create an instance: `userInvitesCreate := client.UserInvitesCreate(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_user_invite` | `map[string]any` |  |
+| `user_invite` | `[]any` |  |
+
+#### Example: Create
+
+```go
+result, err := client.UserInvitesCreate(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -6577,76 +4501,57 @@ Create an instance: `webhook := client.Webhook(nil)`
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
 | `Remove(match, ctrl)` | Remove the matching entity. |
 
-
-### Whoami
-
-Create an instance: `whoami := client.Whoami(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client_session_timeout` | `[]any` |  |
+| `destination_url` | `string` |  |
 | `email_address` | `string` |  |
-| `first_name` | `string` |  |
+| `failed_notification_email_address` | `string` |  |
 | `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `map[string]any` |  |
-| `roles_with_scope` | `[]any` |  |
-| `two_factor_enabled` | `bool` |  |
+| `is_active` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `notification_method` | `string` |  |
+| `resource_type` | `[]any` |  |
+| `retry` | `bool` |  |
+| `secret` | `string` |  |
+| `version` | `int` |  |
 
-#### Example: List
+#### Example: Load
 
 ```go
-whoamis, err := client.Whoami(nil).List(nil, nil)
+webhook, err := client.Webhook(nil).Load(map[string]any{"id": "webhook_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(whoamis) // the array of records
+fmt.Println(webhook) // the loaded record
 ```
 
-
-### Whoamitrustedapp
-
-Create an instance: `whoamitrustedapp := client.Whoamitrustedapp(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `client_session_timeout` | `[]any` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
-| `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `map[string]any` |  |
-| `roles_with_scope` | `[]any` |  |
-| `two_factor_enabled` | `bool` |  |
-
 #### Example: List
 
 ```go
-whoamitrustedapps, err := client.Whoamitrustedapp(nil).List(nil, nil)
+webhooks, err := client.Webhook(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(whoamitrustedapps) // the array of records
+fmt.Println(webhooks) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Webhook(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 

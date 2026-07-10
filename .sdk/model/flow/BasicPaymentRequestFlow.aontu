@@ -19,11 +19,23 @@ main: kit: flow: BasicPaymentRequestFlow:
     }
 
     {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payment_request_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       input: {
         ref: "payment_request_ref01",
         srcdatavar: "payment_request_ref01_data",
         suffix: "_up0",
-        textfield: "error_description"
+        textfield: "base_origin_url"
       }
 
       op: "update",
@@ -70,6 +82,22 @@ main: kit: flow: BasicPaymentRequestFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "payment_request_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicPaymentRequestFlow"

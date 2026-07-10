@@ -16,7 +16,7 @@ class TransactionEntityTest < Minitest::Test
     setup = transaction_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "load", "remove"].each do |_op|
+    ["create", "list", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "transaction." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -35,22 +35,51 @@ class TransactionEntityTest < Minitest::Test
     transaction_ref01_ent = client.Transaction(nil)
     transaction_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.transaction"), "transaction_ref01"))
+    transaction_ref01_data["account_id"] = setup[:idmap]["account01"]
+    transaction_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
     transaction_ref01_data["transaction_id"] = setup[:idmap]["transaction01"]
 
     transaction_ref01_data_result = transaction_ref01_ent.create(transaction_ref01_data, nil)
     transaction_ref01_data = Helpers.to_map(transaction_ref01_data_result)
     assert !transaction_ref01_data.nil?
+    assert !transaction_ref01_data["id"].nil?
+
+    # LIST
+    transaction_ref01_match = {}
+
+    transaction_ref01_list_result = transaction_ref01_ent.list(transaction_ref01_match, nil)
+    assert transaction_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(transaction_ref01_list_result),
+      { "id" => transaction_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
     # LOAD
-    transaction_ref01_match_dt0 = {}
+    transaction_ref01_match_dt0 = {
+      "id" => transaction_ref01_data["id"],
+    }
     transaction_ref01_data_dt0_loaded = transaction_ref01_ent.load(transaction_ref01_match_dt0, nil)
-    assert !transaction_ref01_data_dt0_loaded.nil?
+    transaction_ref01_data_dt0_load_result = Helpers.to_map(transaction_ref01_data_dt0_loaded)
+    assert !transaction_ref01_data_dt0_load_result.nil?
+    assert_equal transaction_ref01_data_dt0_load_result["id"], transaction_ref01_data["id"]
 
     # REMOVE
     transaction_ref01_match_rm0 = {
       "id" => transaction_ref01_data["id"],
     }
     transaction_ref01_ent.remove(transaction_ref01_match_rm0, nil)
+
+    # LIST
+    transaction_ref01_match_rt0 = {}
+
+    transaction_ref01_list_rt0_result = transaction_ref01_ent.list(transaction_ref01_match_rt0, nil)
+    assert transaction_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(transaction_ref01_list_rt0_result),
+      { "id" => transaction_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end
@@ -69,7 +98,7 @@ def transaction_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["transaction01", "transaction02", "transaction03", "from01", "from02", "from03"],
+    ["transaction01", "transaction02", "transaction03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "from01", "from02", "from03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

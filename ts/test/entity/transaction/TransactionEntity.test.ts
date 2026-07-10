@@ -39,7 +39,7 @@ describe('TransactionEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'load', 'remove']) {
+    for (const op of ['create', 'list', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'transaction.' + op, live)) return
     }
 
@@ -61,17 +61,41 @@ describe('TransactionEntity', async () => {
     // CREATE
     const transaction_ref01_ent = client.Transaction()
     let transaction_ref01_data = setup.data.new.transaction['transaction_ref01']
+    transaction_ref01_data['account_id'] = setup.idmap['account01']
+    transaction_ref01_data['merchant_id'] = setup.idmap['merchant01']
     transaction_ref01_data['transaction_id'] = setup.idmap['transaction01']
 
     transaction_ref01_data = await transaction_ref01_ent.create(transaction_ref01_data)
-    assert(null != transaction_ref01_data)
+    assert(null != transaction_ref01_data.id)
 
+
+    // LIST
+    const transaction_ref01_match: any = {}
+
+    const transaction_ref01_list = await transaction_ref01_ent.list(transaction_ref01_match)
+
+    assert(!isempty(select(transaction_ref01_list, { id: transaction_ref01_data.id })))
+
+
+    // LOAD
+    const transaction_ref01_match_dt0: any = {}
+    transaction_ref01_match_dt0.id = transaction_ref01_data.id
+    const transaction_ref01_data_dt0 = await transaction_ref01_ent.load(transaction_ref01_match_dt0)
+    assert(transaction_ref01_data_dt0.id === transaction_ref01_data.id)
 
 
     // REMOVE
     const transaction_ref01_match_rm0: any = { id: transaction_ref01_data.id }
     await transaction_ref01_ent.remove(transaction_ref01_match_rm0)
   
+
+    // LIST
+    const transaction_ref01_match_rt0: any = {}
+
+    const transaction_ref01_list_rt0 = await transaction_ref01_ent.list(transaction_ref01_match_rt0)
+
+    assert(isempty(select(transaction_ref01_list_rt0, { id: transaction_ref01_data.id })))
+
 
   })
 })
@@ -101,7 +125,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['transaction01','transaction02','transaction03','transaction01','transaction02','transaction03','transaction01','transaction02','transaction03','from01','from02','from03'],
+    ['transaction01','transaction02','transaction03','account01','account02','account03','merchant01','merchant02','merchant03','transaction01','transaction02','transaction03','transaction01','transaction02','transaction03','from01','from02','from03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

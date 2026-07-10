@@ -23,7 +23,7 @@ class RuleEntityTest extends TestCase
         $setup = rule_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["update", "remove"] as $_op) {
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "rule." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -38,28 +38,67 @@ class RuleEntityTest extends TestCase
         }
         $client = $setup["client"];
 
-        // Bootstrap entity data from existing test data.
-        $rule_ref01_data_raw = Vs::items(Helpers::to_map(
-            Vs::getpath($setup["data"], "existing.rule")));
-        $rule_ref01_data = null;
-        if (count($rule_ref01_data_raw) > 0) {
-            $rule_ref01_data = Helpers::to_map($rule_ref01_data_raw[0][1]);
-        }
+        // CREATE
+        $rule_ref01_ent = $client->Rule(null);
+        $rule_ref01_data = Helpers::to_map(Vs::getprop(
+            Vs::getpath($setup["data"], "new.rule"), "rule_ref01"));
+
+        $rule_ref01_data_result = $rule_ref01_ent->create($rule_ref01_data, null);
+        $rule_ref01_data = Helpers::to_map($rule_ref01_data_result);
+        $this->assertNotNull($rule_ref01_data);
+        $this->assertNotNull($rule_ref01_data["id"]);
+
+        // LIST
+        $rule_ref01_match = [];
+
+        $rule_ref01_list_result = $rule_ref01_ent->list($rule_ref01_match, null);
+        $this->assertIsArray($rule_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($rule_ref01_list_result),
+            ["id" => $rule_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
         // UPDATE
-        $rule_ref01_ent = $client->Rule(null);
         $rule_ref01_data_up0_up = [
+            "id" => $rule_ref01_data["id"],
         ];
+
+        $rule_ref01_markdef_up0_name = "account_id";
+        $rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" . $setup["now"];
+        $rule_ref01_data_up0_up[$rule_ref01_markdef_up0_name] = $rule_ref01_markdef_up0_value;
 
         $rule_ref01_resdata_up0_result = $rule_ref01_ent->update($rule_ref01_data_up0_up, null);
         $rule_ref01_resdata_up0 = Helpers::to_map($rule_ref01_resdata_up0_result);
         $this->assertNotNull($rule_ref01_resdata_up0);
+        $this->assertEquals($rule_ref01_resdata_up0["id"], $rule_ref01_data_up0_up["id"]);
+        $this->assertEquals($rule_ref01_resdata_up0[$rule_ref01_markdef_up0_name], $rule_ref01_markdef_up0_value);
+
+        // LOAD
+        $rule_ref01_match_dt0 = [
+            "id" => $rule_ref01_data["id"],
+        ];
+        $rule_ref01_data_dt0_loaded = $rule_ref01_ent->load($rule_ref01_match_dt0, null);
+        $rule_ref01_data_dt0_load_result = Helpers::to_map($rule_ref01_data_dt0_loaded);
+        $this->assertNotNull($rule_ref01_data_dt0_load_result);
+        $this->assertEquals($rule_ref01_data_dt0_load_result["id"], $rule_ref01_data["id"]);
 
         // REMOVE
         $rule_ref01_match_rm0 = [
             "id" => $rule_ref01_data["id"],
         ];
         $rule_ref01_ent->remove($rule_ref01_match_rm0, null);
+
+        // LIST
+        $rule_ref01_match_rt0 = [];
+
+        $rule_ref01_list_rt0_result = $rule_ref01_ent->list($rule_ref01_match_rt0, null);
+        $this->assertIsArray($rule_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($rule_ref01_list_rt0_result),
+            ["id" => $rule_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }

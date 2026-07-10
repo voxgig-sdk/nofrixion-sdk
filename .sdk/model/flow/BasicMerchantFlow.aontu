@@ -7,11 +7,23 @@ main: kit: flow: BasicMerchantFlow:
   name: "BasicMerchantFlow",
   step: [
     {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "merchant_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       input: {
         ref: "merchant_ref01",
         srcdatavar: "merchant_ref01_data",
         suffix: "_up0",
-        textfield: "reason"
+        textfield: "card_payment_processor"
       }
 
       op: "update",
@@ -59,6 +71,22 @@ main: kit: flow: BasicMerchantFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "merchant_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicMerchantFlow"

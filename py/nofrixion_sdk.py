@@ -226,28 +226,88 @@ class NofrixionSDK:
         return AccountEntity(self, data)
 
 
+    def Batch(self, data=None) -> "BatchEntity":
+        """Entity factory: client.Batch().list() / client.Batch().load({"id": ...})."""
+        from entity.batch_entity import BatchEntity
+        return BatchEntity(self, data)
+
+
+    def BeneficiariesCreate(self, data=None) -> "BeneficiariesCreateEntity":
+        """Entity factory: client.BeneficiariesCreate().list() / client.BeneficiariesCreate().load({"id": ...})."""
+        from entity.beneficiaries_create_entity import BeneficiariesCreateEntity
+        return BeneficiariesCreateEntity(self, data)
+
+
     def Beneficiary(self, data=None) -> "BeneficiaryEntity":
         """Entity factory: client.Beneficiary().list() / client.Beneficiary().load({"id": ...})."""
         from entity.beneficiary_entity import BeneficiaryEntity
         return BeneficiaryEntity(self, data)
 
 
-    def Cancel(self, data=None) -> "CancelEntity":
-        """Entity factory: client.Cancel().list() / client.Cancel().load({"id": ...})."""
-        from entity.cancel_entity import CancelEntity
-        return CancelEntity(self, data)
+    def BeneficiaryGroup(self, data=None) -> "BeneficiaryGroupEntity":
+        """Entity factory: client.BeneficiaryGroup().list() / client.BeneficiaryGroup().load({"id": ...})."""
+        from entity.beneficiary_group_entity import BeneficiaryGroupEntity
+        return BeneficiaryGroupEntity(self, data)
 
 
-    def Disable(self, data=None) -> "DisableEntity":
-        """Entity factory: client.Disable().list() / client.Disable().load({"id": ...})."""
-        from entity.disable_entity import DisableEntity
-        return DisableEntity(self, data)
+    def Card(self, data=None) -> "CardEntity":
+        """Entity factory: client.Card().list() / client.Card().load({"id": ...})."""
+        from entity.card_entity import CardEntity
+        return CardEntity(self, data)
 
 
-    def Enable(self, data=None) -> "EnableEntity":
-        """Entity factory: client.Enable().list() / client.Enable().load({"id": ...})."""
-        from entity.enable_entity import EnableEntity
-        return EnableEntity(self, data)
+    def CardCustomerToken(self, data=None) -> "CardCustomerTokenEntity":
+        """Entity factory: client.CardCustomerToken().list() / client.CardCustomerToken().load({"id": ...})."""
+        from entity.card_customer_token_entity import CardCustomerTokenEntity
+        return CardCustomerTokenEntity(self, data)
+
+
+    def CardPayment(self, data=None) -> "CardPaymentEntity":
+        """Entity factory: client.CardPayment().list() / client.CardPayment().load({"id": ...})."""
+        from entity.card_payment_entity import CardPaymentEntity
+        return CardPaymentEntity(self, data)
+
+
+    def CardPublicKey(self, data=None) -> "CardPublicKeyEntity":
+        """Entity factory: client.CardPublicKey().list() / client.CardPublicKey().load({"id": ...})."""
+        from entity.card_public_key_entity import CardPublicKeyEntity
+        return CardPublicKeyEntity(self, data)
+
+
+    def Consent(self, data=None) -> "ConsentEntity":
+        """Entity factory: client.Consent().list() / client.Consent().load({"id": ...})."""
+        from entity.consent_entity import ConsentEntity
+        return ConsentEntity(self, data)
+
+
+    def Currency(self, data=None) -> "CurrencyEntity":
+        """Entity factory: client.Currency().list() / client.Currency().load({"id": ...})."""
+        from entity.currency_entity import CurrencyEntity
+        return CurrencyEntity(self, data)
+
+
+    def DirectDebitBatchSubmit(self, data=None) -> "DirectDebitBatchSubmitEntity":
+        """Entity factory: client.DirectDebitBatchSubmit().list() / client.DirectDebitBatchSubmit().load({"id": ...})."""
+        from entity.direct_debit_batch_submit_entity import DirectDebitBatchSubmitEntity
+        return DirectDebitBatchSubmitEntity(self, data)
+
+
+    def FxRate(self, data=None) -> "FxRateEntity":
+        """Entity factory: client.FxRate().list() / client.FxRate().load({"id": ...})."""
+        from entity.fx_rate_entity import FxRateEntity
+        return FxRateEntity(self, data)
+
+
+    def IPayment(self, data=None) -> "IPaymentEntity":
+        """Entity factory: client.IPayment().list() / client.IPayment().load({"id": ...})."""
+        from entity.i_payment_entity import IPaymentEntity
+        return IPaymentEntity(self, data)
+
+
+    def Mandate(self, data=None) -> "MandateEntity":
+        """Entity factory: client.Mandate().list() / client.Mandate().load({"id": ...})."""
+        from entity.mandate_entity import MandateEntity
+        return MandateEntity(self, data)
 
 
     def Merchant(self, data=None) -> "MerchantEntity":
@@ -256,340 +316,46 @@ class NofrixionSDK:
         return MerchantEntity(self, data)
 
 
+    def MerchantAuthorisationSetting(self, data=None) -> "MerchantAuthorisationSettingEntity":
+        """Entity factory: client.MerchantAuthorisationSetting().list() / client.MerchantAuthorisationSetting().load({"id": ...})."""
+        from entity.merchant_authorisation_setting_entity import MerchantAuthorisationSettingEntity
+        return MerchantAuthorisationSettingEntity(self, data)
+
+
+    def MerchantDirectDebitMandate(self, data=None) -> "MerchantDirectDebitMandateEntity":
+        """Entity factory: client.MerchantDirectDebitMandate().list() / client.MerchantDirectDebitMandate().load({"id": ...})."""
+        from entity.merchant_direct_debit_mandate_entity import MerchantDirectDebitMandateEntity
+        return MerchantDirectDebitMandateEntity(self, data)
+
+
+    def MerchantPayByBankSetting(self, data=None) -> "MerchantPayByBankSettingEntity":
+        """Entity factory: client.MerchantPayByBankSetting().list() / client.MerchantPayByBankSetting().load({"id": ...})."""
+        from entity.merchant_pay_by_bank_setting_entity import MerchantPayByBankSettingEntity
+        return MerchantPayByBankSettingEntity(self, data)
+
+
+    def MerchantPaymentRequestTemplate(self, data=None) -> "MerchantPaymentRequestTemplateEntity":
+        """Entity factory: client.MerchantPaymentRequestTemplate().list() / client.MerchantPaymentRequestTemplate().load({"id": ...})."""
+        from entity.merchant_payment_request_template_entity import MerchantPaymentRequestTemplateEntity
+        return MerchantPaymentRequestTemplateEntity(self, data)
+
+
+    def MerchantToken(self, data=None) -> "MerchantTokenEntity":
+        """Entity factory: client.MerchantToken().list() / client.MerchantToken().load({"id": ...})."""
+        from entity.merchant_token_entity import MerchantTokenEntity
+        return MerchantTokenEntity(self, data)
+
+
     def Metadata(self, data=None) -> "MetadataEntity":
         """Entity factory: client.Metadata().list() / client.Metadata().load({"id": ...})."""
         from entity.metadata_entity import MetadataEntity
         return MetadataEntity(self, data)
 
 
-    def NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(self, data=None) -> "NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage().list() / client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page_entity import NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity
-        return NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPagingPaymentRequestPage(self, data=None) -> "NoFrixionBizBizModelsPagingPaymentRequestPageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingPaymentRequestPage().list() / client.NoFrixionBizBizModelsPagingPaymentRequestPage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_payment_request_page_entity import NoFrixionBizBizModelsPagingPaymentRequestPageEntity
-        return NoFrixionBizBizModelsPagingPaymentRequestPageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPagingPayoutPage(self, data=None) -> "NoFrixionBizBizModelsPagingPayoutPageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingPayoutPage().list() / client.NoFrixionBizBizModelsPagingPayoutPage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_payout_page_entity import NoFrixionBizBizModelsPagingPayoutPageEntity
-        return NoFrixionBizBizModelsPagingPayoutPageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPagingPayrunPage(self, data=None) -> "NoFrixionBizBizModelsPagingPayrunPageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingPayrunPage().list() / client.NoFrixionBizBizModelsPagingPayrunPage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_payrun_page_entity import NoFrixionBizBizModelsPagingPayrunPageEntity
-        return NoFrixionBizBizModelsPagingPayrunPageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPagingRuleEventsPage(self, data=None) -> "NoFrixionBizBizModelsPagingRuleEventsPageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingRuleEventsPage().list() / client.NoFrixionBizBizModelsPagingRuleEventsPage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_rule_events_page_entity import NoFrixionBizBizModelsPagingRuleEventsPageEntity
-        return NoFrixionBizBizModelsPagingRuleEventsPageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPagingRulesPage(self, data=None) -> "NoFrixionBizBizModelsPagingRulesPageEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPagingRulesPage().list() / client.NoFrixionBizBizModelsPagingRulesPage().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_paging_rules_page_entity import NoFrixionBizBizModelsPagingRulesPageEntity
-        return NoFrixionBizBizModelsPagingRulesPageEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPaymentsCardPayment(self, data=None) -> "NoFrixionBizBizModelsPaymentsCardPaymentEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPaymentsCardPayment().list() / client.NoFrixionBizBizModelsPaymentsCardPayment().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_payments_card_payment_entity import NoFrixionBizBizModelsPaymentsCardPaymentEntity
-        return NoFrixionBizBizModelsPaymentsCardPaymentEntity(self, data)
-
-
-    def NoFrixionBizBizModelsPaymentsCardPublicKey(self, data=None) -> "NoFrixionBizBizModelsPaymentsCardPublicKeyEntity":
-        """Entity factory: client.NoFrixionBizBizModelsPaymentsCardPublicKey().list() / client.NoFrixionBizBizModelsPaymentsCardPublicKey().load({"id": ...})."""
-        from entity.no_frixion_biz_biz_models_payments_card_public_key_entity import NoFrixionBizBizModelsPaymentsCardPublicKeyEntity
-        return NoFrixionBizBizModelsPaymentsCardPublicKeyEntity(self, data)
-
-
-    def NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(self, data=None) -> "NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity":
-        """Entity factory: client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries().list() / client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries().load({"id": ...})."""
-        from entity.no_frixion_money_moov_api_features_beneficiaries_beneficiaries_entity import NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity
-        return NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity(self, data)
-
-
-    def NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(self, data=None) -> "NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity":
-        """Entity factory: client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment().list() / client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment().load({"id": ...})."""
-        from entity.no_frixion_money_moov_api_features_payment_requests_payment_entity import NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity
-        return NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity(self, data)
-
-
-    def NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(self, data=None) -> "NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity":
-        """Entity factory: client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().list() / client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().load({"id": ...})."""
-        from entity.no_frixion_money_moov_api_features_permissions_roles_create_entity import NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity
-        return NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity(self, data)
-
-
-    def NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(self, data=None) -> "NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity":
-        """Entity factory: client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate().list() / client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate().load({"id": ...})."""
-        from entity.no_frixion_money_moov_api_features_user_invites_create_entity import NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity
-        return NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(self, data=None) -> "NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant().list() / client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_authorisation_settings_merchant_entity import NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity
-        return NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsBatchPayout(self, data=None) -> "NoFrixionMoneyMoovModelsBatchPayoutEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsBatchPayout().list() / client.NoFrixionMoneyMoovModelsBatchPayout().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_batch_payout_entity import NoFrixionMoneyMoovModelsBatchPayoutEntity
-        return NoFrixionMoneyMoovModelsBatchPayoutEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsBeneficiaryGroupPage(self, data=None) -> "NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage().list() / client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_beneficiary_group_page_entity import NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity
-        return NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsBeneficiaryPage(self, data=None) -> "NoFrixionMoneyMoovModelsBeneficiaryPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsBeneficiaryPage().list() / client.NoFrixionMoneyMoovModelsBeneficiaryPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_beneficiary_page_entity import NoFrixionMoneyMoovModelsBeneficiaryPageEntity
-        return NoFrixionMoneyMoovModelsBeneficiaryPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsCardCustomerToken(self, data=None) -> "NoFrixionMoneyMoovModelsCardCustomerTokenEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsCardCustomerToken().list() / client.NoFrixionMoneyMoovModelsCardCustomerToken().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_card_customer_token_entity import NoFrixionMoneyMoovModelsCardCustomerTokenEntity
-        return NoFrixionMoneyMoovModelsCardCustomerTokenEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(self, data=None) -> "NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo().list() / client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_currency_currency_info_entity import NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity
-        return NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(self, data=None) -> "NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit().list() / client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_direct_debit_batch_submit_entity import NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity
-        return NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsFxRate(self, data=None) -> "NoFrixionMoneyMoovModelsFxRateEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsFxRate().list() / client.NoFrixionMoneyMoovModelsFxRate().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_fx_rate_entity import NoFrixionMoneyMoovModelsFxRateEntity
-        return NoFrixionMoneyMoovModelsFxRateEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsIPayment(self, data=None) -> "NoFrixionMoneyMoovModelsIPaymentEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsIPayment().list() / client.NoFrixionMoneyMoovModelsIPayment().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_i_payment_entity import NoFrixionMoneyMoovModelsIPaymentEntity
-        return NoFrixionMoneyMoovModelsIPaymentEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMandatesMandate(self, data=None) -> "NoFrixionMoneyMoovModelsMandatesMandateEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMandatesMandate().list() / client.NoFrixionMoneyMoovModelsMandatesMandate().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_mandates_mandate_entity import NoFrixionMoneyMoovModelsMandatesMandateEntity
-        return NoFrixionMoneyMoovModelsMandatesMandateEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMerchant(self, data=None) -> "NoFrixionMoneyMoovModelsMerchantEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMerchant().list() / client.NoFrixionMoneyMoovModelsMerchant().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_merchant_entity import NoFrixionMoneyMoovModelsMerchantEntity
-        return NoFrixionMoneyMoovModelsMerchantEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMerchantPage(self, data=None) -> "NoFrixionMoneyMoovModelsMerchantPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMerchantPage().list() / client.NoFrixionMoneyMoovModelsMerchantPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_merchant_page_entity import NoFrixionMoneyMoovModelsMerchantPageEntity
-        return NoFrixionMoneyMoovModelsMerchantPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMerchantPayByBankSetting(self, data=None) -> "NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting().list() / client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_merchant_pay_by_bank_setting_entity import NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity
-        return NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMerchantToken(self, data=None) -> "NoFrixionMoneyMoovModelsMerchantTokenEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMerchantToken().list() / client.NoFrixionMoneyMoovModelsMerchantToken().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_merchant_token_entity import NoFrixionMoneyMoovModelsMerchantTokenEntity
-        return NoFrixionMoneyMoovModelsMerchantTokenEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsMerchantTokenPage(self, data=None) -> "NoFrixionMoneyMoovModelsMerchantTokenPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsMerchantTokenPage().list() / client.NoFrixionMoneyMoovModelsMerchantTokenPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_merchant_token_page_entity import NoFrixionMoneyMoovModelsMerchantTokenPageEntity
-        return NoFrixionMoneyMoovModelsMerchantTokenPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsNoFrixionVersion(self, data=None) -> "NoFrixionMoneyMoovModelsNoFrixionVersionEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsNoFrixionVersion().list() / client.NoFrixionMoneyMoovModelsNoFrixionVersion().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_no_frixion_version_entity import NoFrixionMoneyMoovModelsNoFrixionVersionEntity
-        return NoFrixionMoneyMoovModelsNoFrixionVersionEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsOpenBankingAccount(self, data=None) -> "NoFrixionMoneyMoovModelsOpenBankingAccountEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsOpenBankingAccount().list() / client.NoFrixionMoneyMoovModelsOpenBankingAccount().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_open_banking_account_entity import NoFrixionMoneyMoovModelsOpenBankingAccountEntity
-        return NoFrixionMoneyMoovModelsOpenBankingAccountEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsOpenBankingConsent(self, data=None) -> "NoFrixionMoneyMoovModelsOpenBankingConsentEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsOpenBankingConsent().list() / client.NoFrixionMoneyMoovModelsOpenBankingConsent().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_open_banking_consent_entity import NoFrixionMoneyMoovModelsOpenBankingConsentEntity
-        return NoFrixionMoneyMoovModelsOpenBankingConsentEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsOpenBankingTransaction(self, data=None) -> "NoFrixionMoneyMoovModelsOpenBankingTransactionEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsOpenBankingTransaction().list() / client.NoFrixionMoneyMoovModelsOpenBankingTransaction().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_open_banking_transaction_entity import NoFrixionMoneyMoovModelsOpenBankingTransactionEntity
-        return NoFrixionMoneyMoovModelsOpenBankingTransactionEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPayment(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPayment().list() / client.NoFrixionMoneyMoovModelsPayment().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_entity import NoFrixionMoneyMoovModelsPaymentEntity
-        return NoFrixionMoneyMoovModelsPaymentEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage().list() / client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_account_minimal_page_entity import NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity
-        return NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentAccountPage(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentAccountPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentAccountPage().list() / client.NoFrixionMoneyMoovModelsPaymentAccountPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_account_page_entity import NoFrixionMoneyMoovModelsPaymentAccountPageEntity
-        return NoFrixionMoneyMoovModelsPaymentAccountPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentInitiation(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentInitiationEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentInitiation().list() / client.NoFrixionMoneyMoovModelsPaymentInitiation().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_initiation_entity import NoFrixionMoneyMoovModelsPaymentInitiationEntity
-        return NoFrixionMoneyMoovModelsPaymentInitiationEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestEvent(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestEventEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestEvent().list() / client.NoFrixionMoneyMoovModelsPaymentRequestEvent().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_request_event_entity import NoFrixionMoneyMoovModelsPaymentRequestEventEntity
-        return NoFrixionMoneyMoovModelsPaymentRequestEventEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestMetric(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestMetricEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestMetric().list() / client.NoFrixionMoneyMoovModelsPaymentRequestMetric().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_request_metric_entity import NoFrixionMoneyMoovModelsPaymentRequestMetricEntity
-        return NoFrixionMoneyMoovModelsPaymentRequestMetricEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestMinimal(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestMinimal().list() / client.NoFrixionMoneyMoovModelsPaymentRequestMinimal().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_request_minimal_entity import NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity
-        return NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestResult(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestResultEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestResult().list() / client.NoFrixionMoneyMoovModelsPaymentRequestResult().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_request_result_entity import NoFrixionMoneyMoovModelsPaymentRequestResultEntity
-        return NoFrixionMoneyMoovModelsPaymentRequestResultEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment().list() / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_requests_merchant_payment_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity
-        return NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2().list() / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_requests_merchant_payment2_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity
-        return NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3().list() / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_requests_merchant_payment3_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity
-        return NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(self, data=None) -> "NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4().list() / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payment_requests_merchant_payment4_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity
-        return NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPayoutKeysetPage(self, data=None) -> "NoFrixionMoneyMoovModelsPayoutKeysetPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPayoutKeysetPage().list() / client.NoFrixionMoneyMoovModelsPayoutKeysetPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payout_keyset_page_entity import NoFrixionMoneyMoovModelsPayoutKeysetPageEntity
-        return NoFrixionMoneyMoovModelsPayoutKeysetPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPayoutMetric(self, data=None) -> "NoFrixionMoneyMoovModelsPayoutMetricEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPayoutMetric().list() / client.NoFrixionMoneyMoovModelsPayoutMetric().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payout_metric_entity import NoFrixionMoneyMoovModelsPayoutMetricEntity
-        return NoFrixionMoneyMoovModelsPayoutMetricEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(self, data=None) -> "NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate().list() / client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payouts_payouts_create_entity import NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity
-        return NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsPayrun(self, data=None) -> "NoFrixionMoneyMoovModelsPayrunEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsPayrun().list() / client.NoFrixionMoneyMoovModelsPayrun().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_payrun_entity import NoFrixionMoneyMoovModelsPayrunEntity
-        return NoFrixionMoneyMoovModelsPayrunEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsReportResult(self, data=None) -> "NoFrixionMoneyMoovModelsReportResultEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsReportResult().list() / client.NoFrixionMoneyMoovModelsReportResult().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_report_result_entity import NoFrixionMoneyMoovModelsReportResultEntity
-        return NoFrixionMoneyMoovModelsReportResultEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsRule(self, data=None) -> "NoFrixionMoneyMoovModelsRuleEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsRule().list() / client.NoFrixionMoneyMoovModelsRule().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_rule_entity import NoFrixionMoneyMoovModelsRuleEntity
-        return NoFrixionMoneyMoovModelsRuleEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsTransaction(self, data=None) -> "NoFrixionMoneyMoovModelsTransactionEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsTransaction().list() / client.NoFrixionMoneyMoovModelsTransaction().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_transaction_entity import NoFrixionMoneyMoovModelsTransactionEntity
-        return NoFrixionMoneyMoovModelsTransactionEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsTransactionPage(self, data=None) -> "NoFrixionMoneyMoovModelsTransactionPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsTransactionPage().list() / client.NoFrixionMoneyMoovModelsTransactionPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_transaction_page_entity import NoFrixionMoneyMoovModelsTransactionPageEntity
-        return NoFrixionMoneyMoovModelsTransactionPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsUserInvite(self, data=None) -> "NoFrixionMoneyMoovModelsUserInviteEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsUserInvite().list() / client.NoFrixionMoneyMoovModelsUserInvite().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_user_invite_entity import NoFrixionMoneyMoovModelsUserInviteEntity
-        return NoFrixionMoneyMoovModelsUserInviteEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsUserInvitePage(self, data=None) -> "NoFrixionMoneyMoovModelsUserInvitePageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsUserInvitePage().list() / client.NoFrixionMoneyMoovModelsUserInvitePage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_user_invite_page_entity import NoFrixionMoneyMoovModelsUserInvitePageEntity
-        return NoFrixionMoneyMoovModelsUserInvitePageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsUserPage(self, data=None) -> "NoFrixionMoneyMoovModelsUserPageEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsUserPage().list() / client.NoFrixionMoneyMoovModelsUserPage().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_user_page_entity import NoFrixionMoneyMoovModelsUserPageEntity
-        return NoFrixionMoneyMoovModelsUserPageEntity(self, data)
-
-
-    def NoFrixionMoneyMoovModelsWebhook(self, data=None) -> "NoFrixionMoneyMoovModelsWebhookEntity":
-        """Entity factory: client.NoFrixionMoneyMoovModelsWebhook().list() / client.NoFrixionMoneyMoovModelsWebhook().load({"id": ...})."""
-        from entity.no_frixion_money_moov_models_webhook_entity import NoFrixionMoneyMoovModelsWebhookEntity
-        return NoFrixionMoneyMoovModelsWebhookEntity(self, data)
+    def NoFrixionVersion(self, data=None) -> "NoFrixionVersionEntity":
+        """Entity factory: client.NoFrixionVersion().list() / client.NoFrixionVersion().load({"id": ...})."""
+        from entity.no_frixion_version_entity import NoFrixionVersionEntity
+        return NoFrixionVersionEntity(self, data)
 
 
     def OpenBanking(self, data=None) -> "OpenBankingEntity":
@@ -604,10 +370,64 @@ class NofrixionSDK:
         return PayeeverificationEntity(self, data)
 
 
+    def Payment(self, data=None) -> "PaymentEntity":
+        """Entity factory: client.Payment().list() / client.Payment().load({"id": ...})."""
+        from entity.payment_entity import PaymentEntity
+        return PaymentEntity(self, data)
+
+
+    def PaymentAccount(self, data=None) -> "PaymentAccountEntity":
+        """Entity factory: client.PaymentAccount().list() / client.PaymentAccount().load({"id": ...})."""
+        from entity.payment_account_entity import PaymentAccountEntity
+        return PaymentAccountEntity(self, data)
+
+
+    def PaymentAccountMinimal(self, data=None) -> "PaymentAccountMinimalEntity":
+        """Entity factory: client.PaymentAccountMinimal().list() / client.PaymentAccountMinimal().load({"id": ...})."""
+        from entity.payment_account_minimal_entity import PaymentAccountMinimalEntity
+        return PaymentAccountMinimalEntity(self, data)
+
+
+    def PaymentInitiation(self, data=None) -> "PaymentInitiationEntity":
+        """Entity factory: client.PaymentInitiation().list() / client.PaymentInitiation().load({"id": ...})."""
+        from entity.payment_initiation_entity import PaymentInitiationEntity
+        return PaymentInitiationEntity(self, data)
+
+
     def PaymentRequest(self, data=None) -> "PaymentRequestEntity":
         """Entity factory: client.PaymentRequest().list() / client.PaymentRequest().load({"id": ...})."""
         from entity.payment_request_entity import PaymentRequestEntity
         return PaymentRequestEntity(self, data)
+
+
+    def PaymentRequestEvent(self, data=None) -> "PaymentRequestEventEntity":
+        """Entity factory: client.PaymentRequestEvent().list() / client.PaymentRequestEvent().load({"id": ...})."""
+        from entity.payment_request_event_entity import PaymentRequestEventEntity
+        return PaymentRequestEventEntity(self, data)
+
+
+    def PaymentRequestMetric(self, data=None) -> "PaymentRequestMetricEntity":
+        """Entity factory: client.PaymentRequestMetric().list() / client.PaymentRequestMetric().load({"id": ...})."""
+        from entity.payment_request_metric_entity import PaymentRequestMetricEntity
+        return PaymentRequestMetricEntity(self, data)
+
+
+    def PaymentRequestMinimal(self, data=None) -> "PaymentRequestMinimalEntity":
+        """Entity factory: client.PaymentRequestMinimal().list() / client.PaymentRequestMinimal().load({"id": ...})."""
+        from entity.payment_request_minimal_entity import PaymentRequestMinimalEntity
+        return PaymentRequestMinimalEntity(self, data)
+
+
+    def PaymentRequestResult(self, data=None) -> "PaymentRequestResultEntity":
+        """Entity factory: client.PaymentRequestResult().list() / client.PaymentRequestResult().load({"id": ...})."""
+        from entity.payment_request_result_entity import PaymentRequestResultEntity
+        return PaymentRequestResultEntity(self, data)
+
+
+    def PaymentRequestsCreate(self, data=None) -> "PaymentRequestsCreateEntity":
+        """Entity factory: client.PaymentRequestsCreate().list() / client.PaymentRequestsCreate().load({"id": ...})."""
+        from entity.payment_requests_create_entity import PaymentRequestsCreateEntity
+        return PaymentRequestsCreateEntity(self, data)
 
 
     def Payout(self, data=None) -> "PayoutEntity":
@@ -616,16 +436,28 @@ class NofrixionSDK:
         return PayoutEntity(self, data)
 
 
+    def PayoutKeyset(self, data=None) -> "PayoutKeysetEntity":
+        """Entity factory: client.PayoutKeyset().list() / client.PayoutKeyset().load({"id": ...})."""
+        from entity.payout_keyset_entity import PayoutKeysetEntity
+        return PayoutKeysetEntity(self, data)
+
+
+    def PayoutMetric(self, data=None) -> "PayoutMetricEntity":
+        """Entity factory: client.PayoutMetric().list() / client.PayoutMetric().load({"id": ...})."""
+        from entity.payout_metric_entity import PayoutMetricEntity
+        return PayoutMetricEntity(self, data)
+
+
+    def PayoutsCreate(self, data=None) -> "PayoutsCreateEntity":
+        """Entity factory: client.PayoutsCreate().list() / client.PayoutsCreate().load({"id": ...})."""
+        from entity.payouts_create_entity import PayoutsCreateEntity
+        return PayoutsCreateEntity(self, data)
+
+
     def Payrun(self, data=None) -> "PayrunEntity":
         """Entity factory: client.Payrun().list() / client.Payrun().load({"id": ...})."""
         from entity.payrun_entity import PayrunEntity
         return PayrunEntity(self, data)
-
-
-    def Reject(self, data=None) -> "RejectEntity":
-        """Entity factory: client.Reject().list() / client.Reject().load({"id": ...})."""
-        from entity.reject_entity import RejectEntity
-        return RejectEntity(self, data)
 
 
     def Report(self, data=None) -> "ReportEntity":
@@ -634,22 +466,28 @@ class NofrixionSDK:
         return ReportEntity(self, data)
 
 
+    def ReportResult(self, data=None) -> "ReportResultEntity":
+        """Entity factory: client.ReportResult().list() / client.ReportResult().load({"id": ...})."""
+        from entity.report_result_entity import ReportResultEntity
+        return ReportResultEntity(self, data)
+
+
+    def RolesCreate(self, data=None) -> "RolesCreateEntity":
+        """Entity factory: client.RolesCreate().list() / client.RolesCreate().load({"id": ...})."""
+        from entity.roles_create_entity import RolesCreateEntity
+        return RolesCreateEntity(self, data)
+
+
     def Rule(self, data=None) -> "RuleEntity":
         """Entity factory: client.Rule().list() / client.Rule().load({"id": ...})."""
         from entity.rule_entity import RuleEntity
         return RuleEntity(self, data)
 
 
-    def Send(self, data=None) -> "SendEntity":
-        """Entity factory: client.Send().list() / client.Send().load({"id": ...})."""
-        from entity.send_entity import SendEntity
-        return SendEntity(self, data)
-
-
-    def Sendbeneficiary(self, data=None) -> "SendbeneficiaryEntity":
-        """Entity factory: client.Sendbeneficiary().list() / client.Sendbeneficiary().load({"id": ...})."""
-        from entity.sendbeneficiary_entity import SendbeneficiaryEntity
-        return SendbeneficiaryEntity(self, data)
+    def RuleEvent(self, data=None) -> "RuleEventEntity":
+        """Entity factory: client.RuleEvent().list() / client.RuleEvent().load({"id": ...})."""
+        from entity.rule_event_entity import RuleEventEntity
+        return RuleEventEntity(self, data)
 
 
     def Tag(self, data=None) -> "TagEntity":
@@ -682,6 +520,12 @@ class NofrixionSDK:
         return UserInviteEntity(self, data)
 
 
+    def UserInvitesCreate(self, data=None) -> "UserInvitesCreateEntity":
+        """Entity factory: client.UserInvitesCreate().list() / client.UserInvitesCreate().load({"id": ...})."""
+        from entity.user_invites_create_entity import UserInvitesCreateEntity
+        return UserInvitesCreateEntity(self, data)
+
+
     def Virtual(self, data=None) -> "VirtualEntity":
         """Entity factory: client.Virtual().list() / client.Virtual().load({"id": ...})."""
         from entity.virtual_entity import VirtualEntity
@@ -692,18 +536,6 @@ class NofrixionSDK:
         """Entity factory: client.Webhook().list() / client.Webhook().load({"id": ...})."""
         from entity.webhook_entity import WebhookEntity
         return WebhookEntity(self, data)
-
-
-    def Whoami(self, data=None) -> "WhoamiEntity":
-        """Entity factory: client.Whoami().list() / client.Whoami().load({"id": ...})."""
-        from entity.whoami_entity import WhoamiEntity
-        return WhoamiEntity(self, data)
-
-
-    def Whoamitrustedapp(self, data=None) -> "WhoamitrustedappEntity":
-        """Entity factory: client.Whoamitrustedapp().list() / client.Whoamitrustedapp().load({"id": ...})."""
-        from entity.whoamitrustedapp_entity import WhoamitrustedappEntity
-        return WhoamitrustedappEntity(self, data)
 
 
 
@@ -734,83 +566,55 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from entity.account_entity import AccountEntity
+    from entity.batch_entity import BatchEntity
+    from entity.beneficiaries_create_entity import BeneficiariesCreateEntity
     from entity.beneficiary_entity import BeneficiaryEntity
-    from entity.cancel_entity import CancelEntity
-    from entity.disable_entity import DisableEntity
-    from entity.enable_entity import EnableEntity
+    from entity.beneficiary_group_entity import BeneficiaryGroupEntity
+    from entity.card_entity import CardEntity
+    from entity.card_customer_token_entity import CardCustomerTokenEntity
+    from entity.card_payment_entity import CardPaymentEntity
+    from entity.card_public_key_entity import CardPublicKeyEntity
+    from entity.consent_entity import ConsentEntity
+    from entity.currency_entity import CurrencyEntity
+    from entity.direct_debit_batch_submit_entity import DirectDebitBatchSubmitEntity
+    from entity.fx_rate_entity import FxRateEntity
+    from entity.i_payment_entity import IPaymentEntity
+    from entity.mandate_entity import MandateEntity
     from entity.merchant_entity import MerchantEntity
+    from entity.merchant_authorisation_setting_entity import MerchantAuthorisationSettingEntity
+    from entity.merchant_direct_debit_mandate_entity import MerchantDirectDebitMandateEntity
+    from entity.merchant_pay_by_bank_setting_entity import MerchantPayByBankSettingEntity
+    from entity.merchant_payment_request_template_entity import MerchantPaymentRequestTemplateEntity
+    from entity.merchant_token_entity import MerchantTokenEntity
     from entity.metadata_entity import MetadataEntity
-    from entity.no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page_entity import NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity
-    from entity.no_frixion_biz_biz_models_paging_payment_request_page_entity import NoFrixionBizBizModelsPagingPaymentRequestPageEntity
-    from entity.no_frixion_biz_biz_models_paging_payout_page_entity import NoFrixionBizBizModelsPagingPayoutPageEntity
-    from entity.no_frixion_biz_biz_models_paging_payrun_page_entity import NoFrixionBizBizModelsPagingPayrunPageEntity
-    from entity.no_frixion_biz_biz_models_paging_rule_events_page_entity import NoFrixionBizBizModelsPagingRuleEventsPageEntity
-    from entity.no_frixion_biz_biz_models_paging_rules_page_entity import NoFrixionBizBizModelsPagingRulesPageEntity
-    from entity.no_frixion_biz_biz_models_payments_card_payment_entity import NoFrixionBizBizModelsPaymentsCardPaymentEntity
-    from entity.no_frixion_biz_biz_models_payments_card_public_key_entity import NoFrixionBizBizModelsPaymentsCardPublicKeyEntity
-    from entity.no_frixion_money_moov_api_features_beneficiaries_beneficiaries_entity import NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity
-    from entity.no_frixion_money_moov_api_features_payment_requests_payment_entity import NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity
-    from entity.no_frixion_money_moov_api_features_permissions_roles_create_entity import NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity
-    from entity.no_frixion_money_moov_api_features_user_invites_create_entity import NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity
-    from entity.no_frixion_money_moov_models_authorisation_settings_merchant_entity import NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity
-    from entity.no_frixion_money_moov_models_batch_payout_entity import NoFrixionMoneyMoovModelsBatchPayoutEntity
-    from entity.no_frixion_money_moov_models_beneficiary_group_page_entity import NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity
-    from entity.no_frixion_money_moov_models_beneficiary_page_entity import NoFrixionMoneyMoovModelsBeneficiaryPageEntity
-    from entity.no_frixion_money_moov_models_card_customer_token_entity import NoFrixionMoneyMoovModelsCardCustomerTokenEntity
-    from entity.no_frixion_money_moov_models_currency_currency_info_entity import NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity
-    from entity.no_frixion_money_moov_models_direct_debit_batch_submit_entity import NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity
-    from entity.no_frixion_money_moov_models_fx_rate_entity import NoFrixionMoneyMoovModelsFxRateEntity
-    from entity.no_frixion_money_moov_models_i_payment_entity import NoFrixionMoneyMoovModelsIPaymentEntity
-    from entity.no_frixion_money_moov_models_mandates_mandate_entity import NoFrixionMoneyMoovModelsMandatesMandateEntity
-    from entity.no_frixion_money_moov_models_merchant_entity import NoFrixionMoneyMoovModelsMerchantEntity
-    from entity.no_frixion_money_moov_models_merchant_page_entity import NoFrixionMoneyMoovModelsMerchantPageEntity
-    from entity.no_frixion_money_moov_models_merchant_pay_by_bank_setting_entity import NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity
-    from entity.no_frixion_money_moov_models_merchant_token_entity import NoFrixionMoneyMoovModelsMerchantTokenEntity
-    from entity.no_frixion_money_moov_models_merchant_token_page_entity import NoFrixionMoneyMoovModelsMerchantTokenPageEntity
-    from entity.no_frixion_money_moov_models_no_frixion_version_entity import NoFrixionMoneyMoovModelsNoFrixionVersionEntity
-    from entity.no_frixion_money_moov_models_open_banking_account_entity import NoFrixionMoneyMoovModelsOpenBankingAccountEntity
-    from entity.no_frixion_money_moov_models_open_banking_consent_entity import NoFrixionMoneyMoovModelsOpenBankingConsentEntity
-    from entity.no_frixion_money_moov_models_open_banking_transaction_entity import NoFrixionMoneyMoovModelsOpenBankingTransactionEntity
-    from entity.no_frixion_money_moov_models_payment_entity import NoFrixionMoneyMoovModelsPaymentEntity
-    from entity.no_frixion_money_moov_models_payment_account_minimal_page_entity import NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity
-    from entity.no_frixion_money_moov_models_payment_account_page_entity import NoFrixionMoneyMoovModelsPaymentAccountPageEntity
-    from entity.no_frixion_money_moov_models_payment_initiation_entity import NoFrixionMoneyMoovModelsPaymentInitiationEntity
-    from entity.no_frixion_money_moov_models_payment_request_event_entity import NoFrixionMoneyMoovModelsPaymentRequestEventEntity
-    from entity.no_frixion_money_moov_models_payment_request_metric_entity import NoFrixionMoneyMoovModelsPaymentRequestMetricEntity
-    from entity.no_frixion_money_moov_models_payment_request_minimal_entity import NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity
-    from entity.no_frixion_money_moov_models_payment_request_result_entity import NoFrixionMoneyMoovModelsPaymentRequestResultEntity
-    from entity.no_frixion_money_moov_models_payment_requests_merchant_payment_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity
-    from entity.no_frixion_money_moov_models_payment_requests_merchant_payment2_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity
-    from entity.no_frixion_money_moov_models_payment_requests_merchant_payment3_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity
-    from entity.no_frixion_money_moov_models_payment_requests_merchant_payment4_entity import NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity
-    from entity.no_frixion_money_moov_models_payout_keyset_page_entity import NoFrixionMoneyMoovModelsPayoutKeysetPageEntity
-    from entity.no_frixion_money_moov_models_payout_metric_entity import NoFrixionMoneyMoovModelsPayoutMetricEntity
-    from entity.no_frixion_money_moov_models_payouts_payouts_create_entity import NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity
-    from entity.no_frixion_money_moov_models_payrun_entity import NoFrixionMoneyMoovModelsPayrunEntity
-    from entity.no_frixion_money_moov_models_report_result_entity import NoFrixionMoneyMoovModelsReportResultEntity
-    from entity.no_frixion_money_moov_models_rule_entity import NoFrixionMoneyMoovModelsRuleEntity
-    from entity.no_frixion_money_moov_models_transaction_entity import NoFrixionMoneyMoovModelsTransactionEntity
-    from entity.no_frixion_money_moov_models_transaction_page_entity import NoFrixionMoneyMoovModelsTransactionPageEntity
-    from entity.no_frixion_money_moov_models_user_invite_entity import NoFrixionMoneyMoovModelsUserInviteEntity
-    from entity.no_frixion_money_moov_models_user_invite_page_entity import NoFrixionMoneyMoovModelsUserInvitePageEntity
-    from entity.no_frixion_money_moov_models_user_page_entity import NoFrixionMoneyMoovModelsUserPageEntity
-    from entity.no_frixion_money_moov_models_webhook_entity import NoFrixionMoneyMoovModelsWebhookEntity
+    from entity.no_frixion_version_entity import NoFrixionVersionEntity
     from entity.open_banking_entity import OpenBankingEntity
     from entity.payeeverification_entity import PayeeverificationEntity
+    from entity.payment_entity import PaymentEntity
+    from entity.payment_account_entity import PaymentAccountEntity
+    from entity.payment_account_minimal_entity import PaymentAccountMinimalEntity
+    from entity.payment_initiation_entity import PaymentInitiationEntity
     from entity.payment_request_entity import PaymentRequestEntity
+    from entity.payment_request_event_entity import PaymentRequestEventEntity
+    from entity.payment_request_metric_entity import PaymentRequestMetricEntity
+    from entity.payment_request_minimal_entity import PaymentRequestMinimalEntity
+    from entity.payment_request_result_entity import PaymentRequestResultEntity
+    from entity.payment_requests_create_entity import PaymentRequestsCreateEntity
     from entity.payout_entity import PayoutEntity
+    from entity.payout_keyset_entity import PayoutKeysetEntity
+    from entity.payout_metric_entity import PayoutMetricEntity
+    from entity.payouts_create_entity import PayoutsCreateEntity
     from entity.payrun_entity import PayrunEntity
-    from entity.reject_entity import RejectEntity
     from entity.report_entity import ReportEntity
+    from entity.report_result_entity import ReportResultEntity
+    from entity.roles_create_entity import RolesCreateEntity
     from entity.rule_entity import RuleEntity
-    from entity.send_entity import SendEntity
-    from entity.sendbeneficiary_entity import SendbeneficiaryEntity
+    from entity.rule_event_entity import RuleEventEntity
     from entity.tag_entity import TagEntity
     from entity.token_entity import TokenEntity
     from entity.transaction_entity import TransactionEntity
     from entity.user_entity import UserEntity
     from entity.user_invite_entity import UserInviteEntity
+    from entity.user_invites_create_entity import UserInvitesCreateEntity
     from entity.virtual_entity import VirtualEntity
     from entity.webhook_entity import WebhookEntity
-    from entity.whoami_entity import WhoamiEntity
-    from entity.whoamitrustedapp_entity import WhoamitrustedappEntity

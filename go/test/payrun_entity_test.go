@@ -33,7 +33,7 @@ func TestPayrunEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "payrun." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -54,6 +54,7 @@ func TestPayrunEntity(t *testing.T) {
 		payrunRef01Ent := client.Payrun(nil)
 		payrunRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath([]any{"new", "payrun"}, setup.data), "payrun_ref01"))
+		payrunRef01Data["merchant_i_d"] = setup.idmap["merchant_i_d01"]
 
 		payrunRef01DataResult, err := payrunRef01Ent.Create(payrunRef01Data, nil)
 		if err != nil {
@@ -67,12 +68,29 @@ func TestPayrunEntity(t *testing.T) {
 			t.Fatal("expected created entity to have an id")
 		}
 
+		// LIST
+		payrunRef01Match := map[string]any{}
+
+		payrunRef01ListResult, err := payrunRef01Ent.List(payrunRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		payrunRef01List, payrunRef01ListOk := payrunRef01ListResult.([]any)
+		if !payrunRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", payrunRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(payrunRef01List), map[string]any{"id": payrunRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		payrunRef01DataUp0Up := map[string]any{
 			"id": payrunRef01Data["id"],
 		}
 
-		payrunRef01MarkdefUp0Name := "note"
+		payrunRef01MarkdefUp0Name := "authorisation_date"
 		payrunRef01MarkdefUp0Value := fmt.Sprintf("Mark01-payrun_ref01_%d", setup.now)
 		payrunRef01DataUp0Up[payrunRef01MarkdefUp0Name] = payrunRef01MarkdefUp0Value
 
@@ -91,6 +109,22 @@ func TestPayrunEntity(t *testing.T) {
 			t.Fatalf("expected %s to be updated, got %v", payrunRef01MarkdefUp0Name, payrunRef01ResdataUp0[payrunRef01MarkdefUp0Name])
 		}
 
+		// LOAD
+		payrunRef01MatchDt0 := map[string]any{
+			"id": payrunRef01Data["id"],
+		}
+		payrunRef01DataDt0Loaded, err := payrunRef01Ent.Load(payrunRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		payrunRef01DataDt0LoadResult := core.ToMapAny(payrunRef01DataDt0Loaded)
+		if payrunRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if payrunRef01DataDt0LoadResult["id"] != payrunRef01Data["id"] {
+			t.Fatal("expected load result id to match")
+		}
+
 		// REMOVE
 		payrunRef01MatchRm0 := map[string]any{
 			"id": payrunRef01Data["id"],
@@ -98,6 +132,23 @@ func TestPayrunEntity(t *testing.T) {
 		_, err = payrunRef01Ent.Remove(payrunRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		payrunRef01MatchRt0 := map[string]any{}
+
+		payrunRef01ListRt0Result, err := payrunRef01Ent.List(payrunRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		payrunRef01ListRt0, payrunRef01ListRt0Ok := payrunRef01ListRt0Result.([]any)
+		if !payrunRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", payrunRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(payrunRef01ListRt0), map[string]any{"id": payrunRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})
@@ -128,7 +179,7 @@ func payrunBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"payrun01", "payrun02", "payrun03"},
+		[]any{"payrun01", "payrun02", "payrun03", "merchant_i_d01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

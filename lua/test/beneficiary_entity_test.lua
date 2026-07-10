@@ -19,7 +19,7 @@ describe("BeneficiaryEntity", function()
     local setup = beneficiary_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "beneficiary." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -45,6 +45,20 @@ describe("BeneficiaryEntity", function()
     beneficiary_ref01_data = helpers.to_map(beneficiary_ref01_data_result)
     assert.is_not_nil(beneficiary_ref01_data)
     assert.is_not_nil(beneficiary_ref01_data["id"])
+
+    -- LIST
+    local beneficiary_ref01_match = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local beneficiary_ref01_list_result, err = beneficiary_ref01_ent:list(beneficiary_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(beneficiary_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(beneficiary_ref01_list_result),
+      { id = beneficiary_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local beneficiary_ref01_data_up0_up = {
@@ -78,6 +92,20 @@ describe("BeneficiaryEntity", function()
     }
     local _, err = beneficiary_ref01_ent:remove(beneficiary_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local beneficiary_ref01_match_rt0 = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local beneficiary_ref01_list_rt0_result, err = beneficiary_ref01_ent:list(beneficiary_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(beneficiary_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(beneficiary_ref01_list_rt0_result),
+      { id = beneficiary_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

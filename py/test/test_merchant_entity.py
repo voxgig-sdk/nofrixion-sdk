@@ -27,7 +27,7 @@ class TestMerchantEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["update", "load", "remove"]:
+        for _op in ["list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "merchant." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -46,29 +46,47 @@ class TestMerchantEntity:
         if len(merchant_ref01_data_raw) > 0:
             merchant_ref01_data = helpers.to_map(merchant_ref01_data_raw[0][1])
 
-        # UPDATE
+        # LIST
         merchant_ref01_ent = client.Merchant(None)
+        merchant_ref01_match = {}
+
+        merchant_ref01_list_result = merchant_ref01_ent.list(merchant_ref01_match, None)
+        assert isinstance(merchant_ref01_list_result, list)
+
+        # UPDATE
         merchant_ref01_data_up0_up = {
+            "id": merchant_ref01_data["id"],
         }
 
-        merchant_ref01_markdef_up0_name = "reason"
+        merchant_ref01_markdef_up0_name = "card_payment_processor"
         merchant_ref01_markdef_up0_value = "Mark01-merchant_ref01_" + str(setup["now"])
         merchant_ref01_data_up0_up[merchant_ref01_markdef_up0_name] = merchant_ref01_markdef_up0_value
 
         merchant_ref01_resdata_up0 = helpers.to_map(merchant_ref01_ent.update(merchant_ref01_data_up0_up, None))
         assert merchant_ref01_resdata_up0 is not None
+        assert merchant_ref01_resdata_up0["id"] == merchant_ref01_data_up0_up["id"]
         assert merchant_ref01_resdata_up0[merchant_ref01_markdef_up0_name] == merchant_ref01_markdef_up0_value
 
         # LOAD
-        merchant_ref01_match_dt0 = {}
+        merchant_ref01_match_dt0 = {
+            "id": merchant_ref01_data["id"],
+        }
         merchant_ref01_data_dt0_loaded = merchant_ref01_ent.load(merchant_ref01_match_dt0, None)
-        assert merchant_ref01_data_dt0_loaded is not None
+        merchant_ref01_data_dt0_load_result = helpers.to_map(merchant_ref01_data_dt0_loaded)
+        assert merchant_ref01_data_dt0_load_result is not None
+        assert merchant_ref01_data_dt0_load_result["id"] == merchant_ref01_data["id"]
 
         # REMOVE
         merchant_ref01_match_rm0 = {
             "id": merchant_ref01_data["id"],
         }
         merchant_ref01_ent.remove(merchant_ref01_match_rm0, None)
+
+        # LIST
+        merchant_ref01_match_rt0 = {}
+
+        merchant_ref01_list_rt0_result = merchant_ref01_ent.list(merchant_ref01_match_rt0, None)
+        assert isinstance(merchant_ref01_list_rt0_result, list)
 
 
 

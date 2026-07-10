@@ -23,7 +23,7 @@ class PaymentRequestEntityTest extends TestCase
         $setup = payment_request_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "update", "load", "remove"] as $_op) {
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "payment_request." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -47,30 +47,59 @@ class PaymentRequestEntityTest extends TestCase
         $payment_request_ref01_data_result = $payment_request_ref01_ent->create($payment_request_ref01_data, null);
         $payment_request_ref01_data = Helpers::to_map($payment_request_ref01_data_result);
         $this->assertNotNull($payment_request_ref01_data);
+        $this->assertNotNull($payment_request_ref01_data["id"]);
+
+        // LIST
+        $payment_request_ref01_match = [];
+
+        $payment_request_ref01_list_result = $payment_request_ref01_ent->list($payment_request_ref01_match, null);
+        $this->assertIsArray($payment_request_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($payment_request_ref01_list_result),
+            ["id" => $payment_request_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $payment_request_ref01_data_up0_up = [
+            "id" => $payment_request_ref01_data["id"],
         ];
 
-        $payment_request_ref01_markdef_up0_name = "error_description";
+        $payment_request_ref01_markdef_up0_name = "base_origin_url";
         $payment_request_ref01_markdef_up0_value = "Mark01-payment_request_ref01_" . $setup["now"];
         $payment_request_ref01_data_up0_up[$payment_request_ref01_markdef_up0_name] = $payment_request_ref01_markdef_up0_value;
 
         $payment_request_ref01_resdata_up0_result = $payment_request_ref01_ent->update($payment_request_ref01_data_up0_up, null);
         $payment_request_ref01_resdata_up0 = Helpers::to_map($payment_request_ref01_resdata_up0_result);
         $this->assertNotNull($payment_request_ref01_resdata_up0);
+        $this->assertEquals($payment_request_ref01_resdata_up0["id"], $payment_request_ref01_data_up0_up["id"]);
         $this->assertEquals($payment_request_ref01_resdata_up0[$payment_request_ref01_markdef_up0_name], $payment_request_ref01_markdef_up0_value);
 
         // LOAD
-        $payment_request_ref01_match_dt0 = [];
+        $payment_request_ref01_match_dt0 = [
+            "id" => $payment_request_ref01_data["id"],
+        ];
         $payment_request_ref01_data_dt0_loaded = $payment_request_ref01_ent->load($payment_request_ref01_match_dt0, null);
-        $this->assertNotNull($payment_request_ref01_data_dt0_loaded);
+        $payment_request_ref01_data_dt0_load_result = Helpers::to_map($payment_request_ref01_data_dt0_loaded);
+        $this->assertNotNull($payment_request_ref01_data_dt0_load_result);
+        $this->assertEquals($payment_request_ref01_data_dt0_load_result["id"], $payment_request_ref01_data["id"]);
 
         // REMOVE
         $payment_request_ref01_match_rm0 = [
             "id" => $payment_request_ref01_data["id"],
         ];
         $payment_request_ref01_ent->remove($payment_request_ref01_match_rm0, null);
+
+        // LIST
+        $payment_request_ref01_match_rt0 = [];
+
+        $payment_request_ref01_list_rt0_result = $payment_request_ref01_ent->list($payment_request_ref01_match_rt0, null);
+        $this->assertIsArray($payment_request_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($payment_request_ref01_list_rt0_result),
+            ["id" => $payment_request_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }

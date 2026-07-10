@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "payout_metric": {
+      "PAYOUT_METRIC00": {
+        "all": 70,
+        "failed": 71,
+        "in_progress": 72,
+        "paid": 73,
+        "pending_approval": 74,
+        "scheduled": 75,
+        "total_amounts_by_currency": {},
+        "id": "PAYOUT_METRIC00"
+      },
+      "PAYOUT_METRIC01": {
+        "all": 140,
+        "failed": 141,
+        "in_progress": 142,
+        "paid": 143,
+        "pending_approval": 144,
+        "scheduled": 145,
+        "total_amounts_by_currency": {},
+        "id": "PAYOUT_METRIC01"
+      },
+      "PAYOUT_METRIC02": {
+        "all": 210,
+        "failed": 211,
+        "in_progress": 212,
+        "paid": 213,
+        "pending_approval": 214,
+        "scheduled": 215,
+        "total_amounts_by_currency": {},
+        "id": "PAYOUT_METRIC02"
+      }
+    }
+  },
+  "new": {
+    "payout_metric": {
+      "payout_metric_ref01": {
+        "all": 280,
+        "failed": 281,
+        "in_progress": 282,
+        "paid": 283,
+        "pending_approval": 284,
+        "scheduled": 285,
+        "total_amounts_by_currency": {}
+      }
+    }
+  }
+}

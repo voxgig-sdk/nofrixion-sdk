@@ -1,0 +1,22 @@
+# BasicPaymentInitiationFlow
+
+main: kit: flow: BasicPaymentInitiationFlow:
+{
+  entity: "payment_initiation",
+  kind: "basic",
+  name: "BasicPaymentInitiationFlow",
+  step: [
+    {
+      input: {
+        ref: "payment_initiation_ref01"
+      }
+
+      match: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPaymentInitiationFlow"
+}

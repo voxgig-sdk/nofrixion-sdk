@@ -19,7 +19,7 @@ describe("PayoutEntity", function()
     local setup = payout_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "payout." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -38,7 +38,9 @@ describe("PayoutEntity", function()
     local payout_ref01_ent = client:Payout(nil)
     local payout_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.payout"), "payout_ref01"))
+    payout_ref01_data["account_id"] = setup.idmap["account01"]
     payout_ref01_data["destination"] = setup.idmap["destination01"]
+    payout_ref01_data["merchant_id"] = setup.idmap["merchant01"]
     payout_ref01_data["source"] = setup.idmap["source01"]
 
     local payout_ref01_data_result, err = payout_ref01_ent:create(payout_ref01_data, nil)
@@ -46,6 +48,20 @@ describe("PayoutEntity", function()
     payout_ref01_data = helpers.to_map(payout_ref01_data_result)
     assert.is_not_nil(payout_ref01_data)
     assert.is_not_nil(payout_ref01_data["id"])
+
+    -- LIST
+    local payout_ref01_match = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local payout_ref01_list_result, err = payout_ref01_ent:list(payout_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(payout_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(payout_ref01_list_result),
+      { id = payout_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local payout_ref01_data_up0_up = {
@@ -80,6 +96,20 @@ describe("PayoutEntity", function()
     local _, err = payout_ref01_ent:remove(payout_ref01_match_rm0, nil)
     assert.is_nil(err)
 
+    -- LIST
+    local payout_ref01_match_rt0 = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local payout_ref01_list_rt0_result, err = payout_ref01_ent:list(payout_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(payout_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(payout_ref01_list_rt0_result),
+      { id = payout_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
+
   end)
 end)
 
@@ -103,7 +133,7 @@ function payout_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "payout01", "payout02", "payout03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01" },
+    { "payout01", "payout02", "payout03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

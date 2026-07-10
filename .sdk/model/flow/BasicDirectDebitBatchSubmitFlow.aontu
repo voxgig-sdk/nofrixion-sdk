@@ -1,0 +1,18 @@
+# BasicDirectDebitBatchSubmitFlow
+
+main: kit: flow: BasicDirectDebitBatchSubmitFlow:
+{
+  entity: "direct_debit_batch_submit",
+  kind: "basic",
+  name: "BasicDirectDebitBatchSubmitFlow",
+  step: [
+    {
+      input: {
+        ref: "direct_debit_batch_submit_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicDirectDebitBatchSubmitFlow"
+}

@@ -19,7 +19,7 @@ describe("MerchantEntity", function()
     local setup = merchant_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"update", "load", "remove"}) do
+    for _, _op in ipairs({"list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "merchant." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -42,12 +42,20 @@ describe("MerchantEntity", function()
       merchant_ref01_data = helpers.to_map(merchant_ref01_data_raw[1][2])
     end
 
-    -- UPDATE
+    -- LIST
     local merchant_ref01_ent = client:Merchant(nil)
+    local merchant_ref01_match = {}
+
+    local merchant_ref01_list_result, err = merchant_ref01_ent:list(merchant_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(merchant_ref01_list_result)
+
+    -- UPDATE
     local merchant_ref01_data_up0_up = {
+      id = merchant_ref01_data["id"],
     }
 
-    local merchant_ref01_markdef_up0_name = "reason"
+    local merchant_ref01_markdef_up0_name = "card_payment_processor"
     local merchant_ref01_markdef_up0_value = "Mark01-merchant_ref01_" .. tostring(setup.now)
     merchant_ref01_data_up0_up[merchant_ref01_markdef_up0_name] = merchant_ref01_markdef_up0_value
 
@@ -55,13 +63,18 @@ describe("MerchantEntity", function()
     assert.is_nil(err)
     local merchant_ref01_resdata_up0 = helpers.to_map(merchant_ref01_resdata_up0_result)
     assert.is_not_nil(merchant_ref01_resdata_up0)
+    assert.are.equal(merchant_ref01_resdata_up0["id"], merchant_ref01_data_up0_up["id"])
     assert.are.equal(merchant_ref01_resdata_up0[merchant_ref01_markdef_up0_name], merchant_ref01_markdef_up0_value)
 
     -- LOAD
-    local merchant_ref01_match_dt0 = {}
+    local merchant_ref01_match_dt0 = {
+      id = merchant_ref01_data["id"],
+    }
     local merchant_ref01_data_dt0_loaded, err = merchant_ref01_ent:load(merchant_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(merchant_ref01_data_dt0_loaded)
+    local merchant_ref01_data_dt0_load_result = helpers.to_map(merchant_ref01_data_dt0_loaded)
+    assert.is_not_nil(merchant_ref01_data_dt0_load_result)
+    assert.are.equal(merchant_ref01_data_dt0_load_result["id"], merchant_ref01_data["id"])
 
     -- REMOVE
     local merchant_ref01_match_rm0 = {
@@ -69,6 +82,13 @@ describe("MerchantEntity", function()
     }
     local _, err = merchant_ref01_ent:remove(merchant_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local merchant_ref01_match_rt0 = {}
+
+    local merchant_ref01_list_rt0_result, err = merchant_ref01_ent:list(merchant_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(merchant_ref01_list_rt0_result)
 
   end)
 end)

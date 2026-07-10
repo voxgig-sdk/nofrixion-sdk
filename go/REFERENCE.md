@@ -52,249 +52,93 @@ client := sdk.TestSDK(testopts, sdkopts)
 
 Create a new `Account` entity instance. Pass `nil` for no initial data.
 
+#### `Batch(data map[string]any) NofrixionEntity`
+
+Create a new `Batch` entity instance. Pass `nil` for no initial data.
+
+#### `BeneficiariesCreate(data map[string]any) NofrixionEntity`
+
+Create a new `BeneficiariesCreate` entity instance. Pass `nil` for no initial data.
+
 #### `Beneficiary(data map[string]any) NofrixionEntity`
 
 Create a new `Beneficiary` entity instance. Pass `nil` for no initial data.
 
-#### `Cancel(data map[string]any) NofrixionEntity`
+#### `BeneficiaryGroup(data map[string]any) NofrixionEntity`
 
-Create a new `Cancel` entity instance. Pass `nil` for no initial data.
+Create a new `BeneficiaryGroup` entity instance. Pass `nil` for no initial data.
 
-#### `Disable(data map[string]any) NofrixionEntity`
+#### `Card(data map[string]any) NofrixionEntity`
 
-Create a new `Disable` entity instance. Pass `nil` for no initial data.
+Create a new `Card` entity instance. Pass `nil` for no initial data.
 
-#### `Enable(data map[string]any) NofrixionEntity`
+#### `CardCustomerToken(data map[string]any) NofrixionEntity`
 
-Create a new `Enable` entity instance. Pass `nil` for no initial data.
+Create a new `CardCustomerToken` entity instance. Pass `nil` for no initial data.
+
+#### `CardPayment(data map[string]any) NofrixionEntity`
+
+Create a new `CardPayment` entity instance. Pass `nil` for no initial data.
+
+#### `CardPublicKey(data map[string]any) NofrixionEntity`
+
+Create a new `CardPublicKey` entity instance. Pass `nil` for no initial data.
+
+#### `Consent(data map[string]any) NofrixionEntity`
+
+Create a new `Consent` entity instance. Pass `nil` for no initial data.
+
+#### `Currency(data map[string]any) NofrixionEntity`
+
+Create a new `Currency` entity instance. Pass `nil` for no initial data.
+
+#### `DirectDebitBatchSubmit(data map[string]any) NofrixionEntity`
+
+Create a new `DirectDebitBatchSubmit` entity instance. Pass `nil` for no initial data.
+
+#### `FxRate(data map[string]any) NofrixionEntity`
+
+Create a new `FxRate` entity instance. Pass `nil` for no initial data.
+
+#### `IPayment(data map[string]any) NofrixionEntity`
+
+Create a new `IPayment` entity instance. Pass `nil` for no initial data.
+
+#### `Mandate(data map[string]any) NofrixionEntity`
+
+Create a new `Mandate` entity instance. Pass `nil` for no initial data.
 
 #### `Merchant(data map[string]any) NofrixionEntity`
 
 Create a new `Merchant` entity instance. Pass `nil` for no initial data.
 
+#### `MerchantAuthorisationSetting(data map[string]any) NofrixionEntity`
+
+Create a new `MerchantAuthorisationSetting` entity instance. Pass `nil` for no initial data.
+
+#### `MerchantDirectDebitMandate(data map[string]any) NofrixionEntity`
+
+Create a new `MerchantDirectDebitMandate` entity instance. Pass `nil` for no initial data.
+
+#### `MerchantPayByBankSetting(data map[string]any) NofrixionEntity`
+
+Create a new `MerchantPayByBankSetting` entity instance. Pass `nil` for no initial data.
+
+#### `MerchantPaymentRequestTemplate(data map[string]any) NofrixionEntity`
+
+Create a new `MerchantPaymentRequestTemplate` entity instance. Pass `nil` for no initial data.
+
+#### `MerchantToken(data map[string]any) NofrixionEntity`
+
+Create a new `MerchantToken` entity instance. Pass `nil` for no initial data.
+
 #### `Metadata(data map[string]any) NofrixionEntity`
 
 Create a new `Metadata` entity instance. Pass `nil` for no initial data.
 
-#### `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(data map[string]any) NofrixionEntity`
+#### `NoFrixionVersion(data map[string]any) NofrixionEntity`
 
-Create a new `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPaymentRequestPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPaymentRequestPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPayoutPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPayoutPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPayrunPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPayrunPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingRuleEventsPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPagingRuleEventsPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingRulesPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPagingRulesPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPaymentsCardPayment(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPayment` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionBizBizModelsPaymentsCardPublicKey(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPublicKey` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesUserInvitesCreate` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBatchPayout(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBatchPayout` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBeneficiaryGroupPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryGroupPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBeneficiaryPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsCardCustomerToken(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsCardCustomerToken` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsCurrencyCurrencyInfo` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsDirectDebitBatchSubmit` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsFxRate(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsFxRate` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsIPayment(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsIPayment` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMandatesMandate(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMandatesMandate` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchant(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMerchant` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantPayByBankSetting(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantPayByBankSetting` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantToken(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantToken` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantTokenPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsNoFrixionVersion(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsNoFrixionVersion` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingAccount(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingAccount` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingConsent(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingConsent` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingTransaction(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingTransaction` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayment(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayment` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountMinimalPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentAccountPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentInitiation(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentInitiation` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestEvent(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestEvent` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestMetric(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMetric` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestMinimal(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMinimal` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestResult(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestResult` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutKeysetPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutKeysetPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutMetric(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutMetric` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutsPayoutsCreate` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayrun(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayrun` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsReportResult(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsReportResult` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsRule(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsRule` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsTransaction(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsTransaction` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsTransactionPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserInvite(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInvite` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserInvitePage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInvitePage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserPage(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserPage` entity instance. Pass `nil` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsWebhook(data map[string]any) NofrixionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsWebhook` entity instance. Pass `nil` for no initial data.
+Create a new `NoFrixionVersion` entity instance. Pass `nil` for no initial data.
 
 #### `OpenBanking(data map[string]any) NofrixionEntity`
 
@@ -304,37 +148,85 @@ Create a new `OpenBanking` entity instance. Pass `nil` for no initial data.
 
 Create a new `Payeeverification` entity instance. Pass `nil` for no initial data.
 
+#### `Payment(data map[string]any) NofrixionEntity`
+
+Create a new `Payment` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentAccount(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentAccount` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentAccountMinimal(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentAccountMinimal` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentInitiation(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentInitiation` entity instance. Pass `nil` for no initial data.
+
 #### `PaymentRequest(data map[string]any) NofrixionEntity`
 
 Create a new `PaymentRequest` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentRequestEvent(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentRequestEvent` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentRequestMetric(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentRequestMetric` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentRequestMinimal(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentRequestMinimal` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentRequestResult(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentRequestResult` entity instance. Pass `nil` for no initial data.
+
+#### `PaymentRequestsCreate(data map[string]any) NofrixionEntity`
+
+Create a new `PaymentRequestsCreate` entity instance. Pass `nil` for no initial data.
 
 #### `Payout(data map[string]any) NofrixionEntity`
 
 Create a new `Payout` entity instance. Pass `nil` for no initial data.
 
+#### `PayoutKeyset(data map[string]any) NofrixionEntity`
+
+Create a new `PayoutKeyset` entity instance. Pass `nil` for no initial data.
+
+#### `PayoutMetric(data map[string]any) NofrixionEntity`
+
+Create a new `PayoutMetric` entity instance. Pass `nil` for no initial data.
+
+#### `PayoutsCreate(data map[string]any) NofrixionEntity`
+
+Create a new `PayoutsCreate` entity instance. Pass `nil` for no initial data.
+
 #### `Payrun(data map[string]any) NofrixionEntity`
 
 Create a new `Payrun` entity instance. Pass `nil` for no initial data.
-
-#### `Reject(data map[string]any) NofrixionEntity`
-
-Create a new `Reject` entity instance. Pass `nil` for no initial data.
 
 #### `Report(data map[string]any) NofrixionEntity`
 
 Create a new `Report` entity instance. Pass `nil` for no initial data.
 
+#### `ReportResult(data map[string]any) NofrixionEntity`
+
+Create a new `ReportResult` entity instance. Pass `nil` for no initial data.
+
+#### `RolesCreate(data map[string]any) NofrixionEntity`
+
+Create a new `RolesCreate` entity instance. Pass `nil` for no initial data.
+
 #### `Rule(data map[string]any) NofrixionEntity`
 
 Create a new `Rule` entity instance. Pass `nil` for no initial data.
 
-#### `Send(data map[string]any) NofrixionEntity`
+#### `RuleEvent(data map[string]any) NofrixionEntity`
 
-Create a new `Send` entity instance. Pass `nil` for no initial data.
-
-#### `Sendbeneficiary(data map[string]any) NofrixionEntity`
-
-Create a new `Sendbeneficiary` entity instance. Pass `nil` for no initial data.
+Create a new `RuleEvent` entity instance. Pass `nil` for no initial data.
 
 #### `Tag(data map[string]any) NofrixionEntity`
 
@@ -356,6 +248,10 @@ Create a new `User` entity instance. Pass `nil` for no initial data.
 
 Create a new `UserInvite` entity instance. Pass `nil` for no initial data.
 
+#### `UserInvitesCreate(data map[string]any) NofrixionEntity`
+
+Create a new `UserInvitesCreate` entity instance. Pass `nil` for no initial data.
+
 #### `Virtual(data map[string]any) NofrixionEntity`
 
 Create a new `Virtual` entity instance. Pass `nil` for no initial data.
@@ -363,14 +259,6 @@ Create a new `Virtual` entity instance. Pass `nil` for no initial data.
 #### `Webhook(data map[string]any) NofrixionEntity`
 
 Create a new `Webhook` entity instance. Pass `nil` for no initial data.
-
-#### `Whoami(data map[string]any) NofrixionEntity`
-
-Create a new `Whoami` entity instance. Pass `nil` for no initial data.
-
-#### `Whoamitrustedapp(data map[string]any) NofrixionEntity`
-
-Create a new `Whoamitrustedapp` entity instance. Pass `nil` for no initial data.
 
 #### `OptionsMap() map[string]any`
 
@@ -419,7 +307,9 @@ fmt.Println(account.GetName()) // "account"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `account_balance` | `[]any` | No |  |
 | `account_id` | `string` | No |  |
+| `account_identification` | `[]any` | No |  |
 | `account_name` | `string` | No |  |
 | `account_supplier_name` | `string` | No |  |
 | `account_type` | `string` | No |  |
@@ -429,10 +319,13 @@ fmt.Println(account.GetName()) // "account"
 | `balance_minor_unit` | `int` | No |  |
 | `bank_name` | `string` | No |  |
 | `consent_id` | `string` | No |  |
+| `consolidated_account_information` | `map[string]any` | No |  |
 | `created_by` | `map[string]any` | Yes |  |
 | `created_by_display_name` | `string` | No |  |
 | `currency` | `string` | No |  |
 | `default_payment_rail` | `string` | No |  |
+| `description` | `string` | No |  |
+| `detail` | `string` | No |  |
 | `display_name` | `string` | No |  |
 | `expiry_date` | `string` | No |  |
 | `external_account_icon` | `string` | No |  |
@@ -450,6 +343,7 @@ fmt.Println(account.GetName()) // "account"
 | `last_updated` | `string` | No |  |
 | `merchant_id` | `string` | No |  |
 | `merchant_name` | `string` | No |  |
+| `nickname` | `string` | No |  |
 | `physical_account_id` | `string` | No |  |
 | `role_i_d` | `[]any` | No |  |
 | `rule` | `[]any` | No |  |
@@ -459,6 +353,8 @@ fmt.Println(account.GetName()) // "account"
 | `supplier_physical_account_id` | `string` | No |  |
 | `supplier_sepa_instant_status` | `string` | No |  |
 | `to_date` | `string` | No |  |
+| `type` | `string` | No |  |
+| `usage_type` | `string` | No |  |
 | `xero_bank_feed_connection_status` | `string` | No |  |
 | `xero_bank_feed_last_synced_at` | `string` | No |  |
 | `xero_bank_feed_sync_last_failed_at` | `string` | No |  |
@@ -556,6 +452,125 @@ Return the entity name.
 
 ---
 
+## BatchEntity
+
+```go
+batch := client.Batch(nil)
+fmt.Println(batch.GetName()) // "batch"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `approve_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `payout` | `[]any` | No |  |
+
+### Operations
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Batch(nil).Load(map[string]any{"id": "batch_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Batch(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `BatchEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## BeneficiariesCreateEntity
+
+```go
+beneficiariesCreate := client.BeneficiariesCreate(nil)
+fmt.Println(beneficiariesCreate.GetName()) // "beneficiaries_create"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `beneficiary` | `[]any` | No |  |
+| `failed_beneficiary` | `map[string]any` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.BeneficiariesCreate(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `BeneficiariesCreateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
 ## BeneficiaryEntity
 
 ```go
@@ -594,34 +609,46 @@ fmt.Println(beneficiary.GetName()) // "beneficiary"
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `approval_callback_url` | - | - | - | - |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `beneficiary_event` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
-| `can_update` | - | - | - | - |
-| `created_by` | - | - | - | - |
-| `created_by_email_address` | - | - | - | - |
-| `currency` | - | - | Yes | - |
-| `destination` | - | Yes | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `id` | - | - | - | - |
-| `inserted` | - | - | - | - |
-| `is_enabled` | - | - | - | - |
-| `last_authorised` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | Yes | - | - |
-| `name` | - | - | Yes | - |
-| `nonce` | - | - | - | - |
-| `source_account` | - | - | - | - |
-| `source_account_i_d` | - | - | - | - |
-| `their_reference` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `approval_callback_url` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary_event` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `can_update` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `created_by_email_address` | - | - | - | - | - |
+| `currency` | - | - | - | Yes | - |
+| `destination` | - | - | Yes | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `is_enabled` | - | - | - | - | - |
+| `last_authorised` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | - | - |
+| `name` | - | - | - | Yes | - |
+| `nonce` | - | - | - | - | - |
+| `source_account` | - | - | - | - | - |
+| `source_account_i_d` | - | - | - | - | - |
+| `their_reference` | - | - | - | - | - |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Beneficiary(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
@@ -699,441 +726,23 @@ Return the entity name.
 
 ---
 
-## CancelEntity
+## BeneficiaryGroupEntity
 
 ```go
-cancel := client.Cancel(nil)
-fmt.Println(cancel.GetName()) // "cancel"
+beneficiaryGroup := client.BeneficiaryGroup(nil)
+fmt.Println(beneficiaryGroup.GetName()) // "beneficiary_group"
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `map[string]any` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `map[string]any` | No |  |
-| `document` | `[]any` | No |  |
-| `event` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float64` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `group_member` | `[]any` | No |  |
+| `group_name` | `string` | Yes |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
 | `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `map[string]any` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float64` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `map[string]any` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float64` | No |  |
-| `transacted_fx_amount` | `float64` | No |  |
-| `transacted_fx_rate` | `float64` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Cancel(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `CancelEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```go
-disable := client.Disable(nil)
-fmt.Println(disable.GetName()) // "disable"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `[]any` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `map[string]any` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `map[string]any` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Disable(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```go
-enable := client.Enable(nil)
-fmt.Println(enable.GetName()) // "enable"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `[]any` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `map[string]any` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `map[string]any` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Enable(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## MerchantEntity
-
-```go
-merchant := client.Merchant(nil)
-fmt.Println(merchant.GetName()) // "merchant"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Merchant(nil).Load(map[string]any{"merchant_id": "merchant_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Merchant(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
-
-Remove the entity matching the given criteria.
-
-```go
-result, err := client.Merchant(nil).Remove(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `MerchantEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## MetadataEntity
-
-```go
-metadata := client.Metadata(nil)
-fmt.Println(metadata.GetName()) // "metadata"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Metadata(nil).Load(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `MetadataEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity
-
-```go
-noFrixionBizBizModelsPagingMerchantDirectDebitMandatePage := client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(nil)
-fmt.Println(noFrixionBizBizModelsPagingMerchantDirectDebitMandatePage.GetName()) // "no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approved_at` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `customer_account_number` | `string` | No |  |
-| `customer_city` | `string` | No |  |
-| `customer_country_code` | `string` | No |  |
-| `customer_country_name` | `string` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_first_name` | `string` | No |  |
-| `customer_iban` | `string` | No |  |
-| `customer_last_name` | `string` | No |  |
-| `customer_sort_code` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_recurring` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `reference` | `string` | No |  |
-| `status` | `string` | No |  |
-| `supplier_bank_account_id` | `string` | No |  |
-| `supplier_customer_id` | `string` | No |  |
-| `supplier_mandate_id` | `string` | No |  |
-| `supplier_name` | `string` | No |  |
-| `supplier_status` | `string` | No |  |
+| `merchant_id` | `string` | Yes |  |
 
 ### Operations
 
@@ -1142,7 +751,7 @@ fmt.Println(noFrixionBizBizModelsPagingMerchantDirectDebitMandatePage.GetName())
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(nil).List(nil, nil)
+results, err := client.BeneficiaryGroup(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1163,7 +772,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity` instance with the same client and
+Create a new `BeneficiaryGroupEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -1173,468 +782,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionBizBizModelsPagingPaymentRequestPageEntity
+## CardEntity
 
 ```go
-noFrixionBizBizModelsPagingPaymentRequestPage := client.NoFrixionBizBizModelsPagingPaymentRequestPage(nil)
-fmt.Println(noFrixionBizBizModelsPagingPaymentRequestPage.GetName()) // "no_frixion_biz_biz_models_paging_payment_request_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `[]any` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_pending` | `float64` | No |  |
-| `amount_received` | `float64` | No |  |
-| `amount_refunded` | `float64` | No |  |
-| `auto_send_receipt` | `bool` | No |  |
-| `base_origin_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_authorize_only` | `bool` | No |  |
-| `card_create_token` | `bool` | No |  |
-| `card_create_token_mode` | `string` | No |  |
-| `card_ignore_cvn` | `bool` | No |  |
-| `card_processor_merchant_id` | `string` | No |  |
-| `card_stripe_payment_intent_id` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `created_by_user` | `map[string]any` | Yes |  |
-| `currency` | `string` | No |  |
-| `custom_field` | `[]any` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `customer_name` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination_account` | `map[string]any` | No |  |
-| `direct_debit_payment` | `map[string]any` | No |  |
-| `due_date` | `string` | No |  |
-| `event` | `[]any` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `field_display_setting` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `hosted_pay_checkout_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `ignore_address_verification` | `bool` | No |  |
-| `inserted` | `string` | No |  |
-| `inserted_sortable` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `jwk` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_invoice_expires_at` | `string` | No |  |
-| `merchant_direct_debit_mandate_id` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `notification_email_address` | `string` | No |  |
-| `notification_role_i_d` | `[]any` | No |  |
-| `order_id` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `partial_payment_step` | `string` | No |  |
-| `payment_attempt` | `[]any` | No |  |
-| `payment_method` | `[]any` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `pisp_account_id` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
-| `result` | `map[string]any` | No |  |
-| `sandbox_settle_delay_in_second` | `int` | No |  |
-| `shipping_address` | `map[string]any` | No |  |
-| `status` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `title` | `string` | No |  |
-| `tokenised_card` | `[]any` | No |  |
-| `transaction` | `[]any` | No |  |
-| `use_hosted_payment_page` | `bool` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionBizBizModelsPagingPaymentRequestPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPagingPaymentRequestPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingPayoutPageEntity
-
-```go
-noFrixionBizBizModelsPagingPayoutPage := client.NoFrixionBizBizModelsPagingPayoutPage(nil)
-fmt.Println(noFrixionBizBizModelsPagingPayoutPage.GetName()) // "no_frixion_biz_biz_models_paging_payout_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `map[string]any` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `map[string]any` | No |  |
-| `document` | `[]any` | No |  |
-| `event` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float64` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `map[string]any` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float64` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `map[string]any` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float64` | No |  |
-| `transacted_fx_amount` | `float64` | No |  |
-| `transacted_fx_rate` | `float64` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionBizBizModelsPagingPayoutPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPagingPayoutPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingPayrunPageEntity
-
-```go
-noFrixionBizBizModelsPagingPayrunPage := client.NoFrixionBizBizModelsPagingPayrunPage(nil)
-fmt.Println(noFrixionBizBizModelsPagingPayrunPage.GetName()) // "no_frixion_biz_biz_models_paging_payrun_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation` | `[]any` | No |  |
-| `authorisation_date` | `string` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_delete` | `bool` | No |  |
-| `can_edit` | `bool` | No |  |
-| `event` | `[]any` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice` | `[]any` | No |  |
-| `invoices_minimal` | `[]any` | No |  |
-| `is_archived` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `last_updated_by` | `map[string]any` | Yes |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment` | `[]any` | No |  |
-| `payout` | `[]any` | No |  |
-| `payouts_count` | `int` | No |  |
-| `schedule_date` | `string` | No |  |
-| `source_account` | `[]any` | No |  |
-| `status` | `string` | No |  |
-| `total_eur` | `float64` | No |  |
-| `total_gbp` | `float64` | No |  |
-| `total_usd` | `float64` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionBizBizModelsPagingPayrunPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPagingPayrunPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingRuleEventsPageEntity
-
-```go
-noFrixionBizBizModelsPagingRuleEventsPage := client.NoFrixionBizBizModelsPagingRuleEventsPage(nil)
-fmt.Println(noFrixionBizBizModelsPagingRuleEventsPage.GetName()) // "no_frixion_biz_biz_models_paging_rule_events_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `error_message` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_authorise_to_enable` | `bool` | No |  |
-| `message` | `string` | No |  |
-| `raw_response` | `string` | No |  |
-| `rule_event_type` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `user` | `map[string]any` | Yes |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionBizBizModelsPagingRuleEventsPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPagingRuleEventsPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingRulesPageEntity
-
-```go
-noFrixionBizBizModelsPagingRulesPage := client.NoFrixionBizBizModelsPagingRulesPage(nil)
-fmt.Println(noFrixionBizBizModelsPagingRulesPage.GetName()) // "no_frixion_biz_biz_models_paging_rules_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account` | `map[string]any` | No |  |
-| `account_id` | `string` | No |  |
-| `approve_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `created_by` | `map[string]any` | Yes |  |
-| `description` | `string` | No |  |
-| `end_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_disabled` | `bool` | No |  |
-| `last_executed_at` | `string` | No |  |
-| `last_run_at_transaction_date` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `on_approved_web_hook_url` | `string` | No |  |
-| `on_execution_error_web_hook_url` | `string` | No |  |
-| `on_execution_success_web_hook_url` | `string` | No |  |
-| `start_at` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sweep_action` | `map[string]any` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trigger_cron_expression` | `string` | No |  |
-| `trigger_on_pay_in` | `bool` | No |  |
-| `user_id` | `string` | No |  |
-| `web_hook_secret` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionBizBizModelsPagingRulesPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPagingRulesPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPaymentsCardPaymentEntity
-
-```go
-noFrixionBizBizModelsPaymentsCardPayment := client.NoFrixionBizBizModelsPaymentsCardPayment(nil)
-fmt.Println(noFrixionBizBizModelsPaymentsCardPayment.GetName()) // "no_frixion_biz_biz_models_payments_card_payment"
+card := client.Card(nil)
+fmt.Println(card.GetName()) // "card"
 ```
 
 ### Fields
@@ -1666,7 +818,7 @@ fmt.Println(noFrixionBizBizModelsPaymentsCardPayment.GetName()) // "no_frixion_b
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionBizBizModelsPaymentsCardPayment(nil).Create(map[string]any{
+result, err := client.Card(nil).Create(map[string]any{
     "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
@@ -1689,7 +841,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionBizBizModelsPaymentsCardPaymentEntity` instance with the same client and
+Create a new `CardEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -1699,531 +851,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionBizBizModelsPaymentsCardPublicKeyEntity
+## CardCustomerTokenEntity
 
 ```go
-noFrixionBizBizModelsPaymentsCardPublicKey := client.NoFrixionBizBizModelsPaymentsCardPublicKey(nil)
-fmt.Println(noFrixionBizBizModelsPaymentsCardPublicKey.GetName()) // "no_frixion_biz_biz_models_payments_card_public_key"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `jwt` | `string` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionBizBizModelsPaymentsCardPublicKey(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPublicKeyEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity
-
-```go
-noFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries := client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(nil)
-fmt.Println(noFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries.GetName()) // "no_frixion_money_moov_api_features_beneficiaries_beneficiaries"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `[]any` | No |  |
-| `failed_beneficiary` | `map[string]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity
-
-```go
-noFrixionMoneyMoovApiFeaturesPaymentRequestsPayment := client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(nil)
-fmt.Println(noFrixionMoneyMoovApiFeaturesPaymentRequestsPayment.GetName()) // "no_frixion_money_moov_api_features_payment_requests_payment"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `map[string]any` | No |  |
-| `payment_request` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity
-
-```go
-noFrixionMoneyMoovApiFeaturesPermissionsRolesCreate := client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil)
-fmt.Println(noFrixionMoneyMoovApiFeaturesPermissionsRolesCreate.GetName()) // "no_frixion_money_moov_api_features_permissions_roles_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_role` | `map[string]any` | No |  |
-| `role` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil).Create(map[string]any{
-    "merchant_id": "example_merchant_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity
-
-```go
-noFrixionMoneyMoovApiFeaturesUserInvitesCreate := client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(nil)
-fmt.Println(noFrixionMoneyMoovApiFeaturesUserInvitesCreate.GetName()) // "no_frixion_money_moov_api_features_user_invites_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `map[string]any` | No |  |
-| `user_invite` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity
-
-```go
-noFrixionMoneyMoovModelsAuthorisationSettingsMerchant := client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(nil)
-fmt.Println(noFrixionMoneyMoovModelsAuthorisationSettingsMerchant.GetName()) // "no_frixion_money_moov_models_authorisation_settings_merchant"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount_lower` | `float64` | No |  |
-| `amount_upper` | `float64` | No |  |
-| `authorisation_type` | `string` | No |  |
-| `beneficiaries_only` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_editor_cant_authorise` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `number_of_authoriser` | `int` | No |  |
-| `role_setting` | `[]any` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBatchPayoutEntity
-
-```go
-noFrixionMoneyMoovModelsBatchPayout := client.NoFrixionMoneyMoovModelsBatchPayout(nil)
-fmt.Println(noFrixionMoneyMoovModelsBatchPayout.GetName()) // "no_frixion_money_moov_models_batch_payout"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approve_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `payout` | `[]any` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsBatchPayout(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_batch_payout_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsBatchPayout(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsBatchPayoutEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity
-
-```go
-noFrixionMoneyMoovModelsBeneficiaryGroupPage := client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsBeneficiaryGroupPage.GetName()) // "no_frixion_money_moov_models_beneficiary_group_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `group_member` | `[]any` | No |  |
-| `group_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | Yes |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBeneficiaryPageEntity
-
-```go
-noFrixionMoneyMoovModelsBeneficiaryPage := client.NoFrixionMoneyMoovModelsBeneficiaryPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsBeneficiaryPage.GetName()) // "no_frixion_money_moov_models_beneficiary_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `[]any` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `map[string]any` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `map[string]any` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsBeneficiaryPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsCardCustomerTokenEntity
-
-```go
-noFrixionMoneyMoovModelsCardCustomerToken := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil)
-fmt.Println(noFrixionMoneyMoovModelsCardCustomerToken.GetName()) // "no_frixion_money_moov_models_card_customer_token"
+cardCustomerToken := client.CardCustomerToken(nil)
+fmt.Println(cardCustomerToken.GetName()) // "card_customer_token"
 ```
 
 ### Fields
@@ -2249,7 +881,7 @@ fmt.Println(noFrixionMoneyMoovModelsCardCustomerToken.GetName()) // "no_frixion_
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil).List(nil, nil)
+results, err := client.CardCustomerToken(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2261,7 +893,7 @@ fmt.Println(results)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil).Load(map[string]any{"customer_email_address": "customer_email_address"}, nil)
+result, err := client.CardCustomerToken(nil).Load(map[string]any{"customer_email_address": "customer_email_address"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2273,7 +905,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsCardCustomerToken(nil).Remove(nil, nil)
+result, err := client.CardCustomerToken(nil).Remove(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2294,7 +926,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsCardCustomerTokenEntity` instance with the same client and
+Create a new `CardCustomerTokenEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2304,11 +936,266 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity
+## CardPaymentEntity
 
 ```go
-noFrixionMoneyMoovModelsCurrencyCurrencyInfo := client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(nil)
-fmt.Println(noFrixionMoneyMoovModelsCurrencyCurrencyInfo.GetName()) // "no_frixion_money_moov_models_currency_currency_info"
+cardPayment := client.CardPayment(nil)
+fmt.Println(cardPayment.GetName()) // "card_payment"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorized_amount` | `string` | No |  |
+| `currency_code` | `string` | No |  |
+| `is_payer_authentication_required` | `bool` | No |  |
+| `is_soft_decline` | `bool` | No |  |
+| `payer_authentication_access_token` | `string` | No |  |
+| `payer_authentication_merchant_data` | `string` | No |  |
+| `payer_authentication_url` | `string` | No |  |
+| `payer_authentication_window_height` | `int` | No |  |
+| `payer_authentication_window_width` | `int` | No |  |
+| `payment_request_callback_url` | `string` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `request_id` | `string` | No |  |
+| `response_code` | `string` | No |  |
+| `response_type` | `string` | No |  |
+| `status` | `string` | No |  |
+| `three_ds_redirect_url` | `string` | No |  |
+| `transaction_id` | `string` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.CardPayment(nil).Create(map[string]any{
+    "paymentrequest_id": "example_paymentrequest_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `CardPaymentEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## CardPublicKeyEntity
+
+```go
+cardPublicKey := client.CardPublicKey(nil)
+fmt.Println(cardPublicKey.GetName()) // "card_public_key"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `jwt` | `string` | No |  |
+
+### Operations
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.CardPublicKey(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `CardPublicKeyEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## ConsentEntity
+
+```go
+consent := client.Consent(nil)
+fmt.Println(consent.GetName()) // "consent"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation_url` | `string` | No |  |
+| `callback_url` | `string` | No |  |
+| `consent_id` | `string` | No |  |
+| `email_address` | `string` | No |  |
+| `expiry_date` | `string` | No |  |
+| `failure_callback_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `institution_id` | `string` | No |  |
+| `is_connected_account` | `bool` | No |  |
+| `is_enabled` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `provider` | `string` | No |  |
+| `success_web_hook_url` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `authorisation_url` | - | - | - | - | - |
+| `callback_url` | - | - | - | - | - |
+| `consent_id` | - | - | - | - | - |
+| `email_address` | - | - | - | - | - |
+| `expiry_date` | - | - | - | - | - |
+| `failure_callback_url` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `institution_id` | - | - | Yes | - | - |
+| `is_connected_account` | - | - | - | - | - |
+| `is_enabled` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | - | - |
+| `provider` | - | - | - | - | - |
+| `success_web_hook_url` | - | - | - | - | - |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Consent(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Consent(nil).Load(map[string]any{"id": "consent_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Consent(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Update(reqdata, ctrl map[string]any) (any, error)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```go
+result, err := client.Consent(nil).Update(map[string]any{
+    "id": "consent_id",
+    // Fields to update
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.Consent(nil).Remove(map[string]any{"id": "consent_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `ConsentEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## CurrencyEntity
+
+```go
+currency := client.Currency(nil)
+fmt.Println(currency.GetName()) // "currency"
 ```
 
 ### Fields
@@ -2329,7 +1216,7 @@ fmt.Println(noFrixionMoneyMoovModelsCurrencyCurrencyInfo.GetName()) // "no_frixi
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(nil).List(nil, nil)
+results, err := client.Currency(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2350,7 +1237,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity` instance with the same client and
+Create a new `CurrencyEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2360,11 +1247,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity
+## DirectDebitBatchSubmitEntity
 
 ```go
-noFrixionMoneyMoovModelsDirectDebitBatchSubmit := client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(nil)
-fmt.Println(noFrixionMoneyMoovModelsDirectDebitBatchSubmit.GetName()) // "no_frixion_money_moov_models_direct_debit_batch_submit"
+directDebitBatchSubmit := client.DirectDebitBatchSubmit(nil)
+fmt.Println(directDebitBatchSubmit.GetName()) // "direct_debit_batch_submit"
 ```
 
 ### Fields
@@ -2381,7 +1268,7 @@ fmt.Println(noFrixionMoneyMoovModelsDirectDebitBatchSubmit.GetName()) // "no_fri
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(nil).Create(map[string]any{
+result, err := client.DirectDebitBatchSubmit(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -2403,7 +1290,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity` instance with the same client and
+Create a new `DirectDebitBatchSubmitEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2413,11 +1300,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsFxRateEntity
+## FxRateEntity
 
 ```go
-noFrixionMoneyMoovModelsFxRate := client.NoFrixionMoneyMoovModelsFxRate(nil)
-fmt.Println(noFrixionMoneyMoovModelsFxRate.GetName()) // "no_frixion_money_moov_models_fx_rate"
+fxRate := client.FxRate(nil)
+fmt.Println(fxRate.GetName()) // "fx_rate"
 ```
 
 ### Fields
@@ -2437,7 +1324,7 @@ fmt.Println(noFrixionMoneyMoovModelsFxRate.GetName()) // "no_frixion_money_moov_
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsFxRate(nil).List(nil, nil)
+results, err := client.FxRate(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2449,7 +1336,7 @@ fmt.Println(results)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsFxRate(nil).Load(map[string]any{"destination": "destination", "source": "source", "valid_for_minute": 1}, nil)
+result, err := client.FxRate(nil).Load(map[string]any{"destination": "destination", "source": "source", "valid_for_minute": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -2470,7 +1357,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsFxRateEntity` instance with the same client and
+Create a new `FxRateEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2480,11 +1367,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsIPaymentEntity
+## IPaymentEntity
 
 ```go
-noFrixionMoneyMoovModelsIPayment := client.NoFrixionMoneyMoovModelsIPayment(nil)
-fmt.Println(noFrixionMoneyMoovModelsIPayment.GetName()) // "no_frixion_money_moov_models_i_payment"
+iPayment := client.IPayment(nil)
+fmt.Println(iPayment.GetName()) // "i_payment"
 ```
 
 ### Fields
@@ -2501,7 +1388,7 @@ fmt.Println(noFrixionMoneyMoovModelsIPayment.GetName()) // "no_frixion_money_moo
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsIPayment(nil).Create(map[string]any{
+result, err := client.IPayment(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -2523,7 +1410,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsIPaymentEntity` instance with the same client and
+Create a new `IPaymentEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2533,11 +1420,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMandatesMandateEntity
+## MandateEntity
 
 ```go
-noFrixionMoneyMoovModelsMandatesMandate := client.NoFrixionMoneyMoovModelsMandatesMandate(nil)
-fmt.Println(noFrixionMoneyMoovModelsMandatesMandate.GetName()) // "no_frixion_money_moov_models_mandates_mandate"
+mandate := client.Mandate(nil)
+fmt.Println(mandate.GetName()) // "mandate"
 ```
 
 ### Fields
@@ -2625,7 +1512,7 @@ fmt.Println(noFrixionMoneyMoovModelsMandatesMandate.GetName()) // "no_frixion_mo
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMandatesMandate(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_mandates_mandate_id"}, nil)
+result, err := client.Mandate(nil).Load(map[string]any{"id": "mandate_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2637,7 +1524,7 @@ fmt.Println(result)
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMandatesMandate(nil).Create(map[string]any{
+result, err := client.Mandate(nil).Create(map[string]any{
     "address_line1": "example_address_line1",
     "city": "example_city",
     "country_code": "example_country_code",
@@ -2666,7 +1553,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMandatesMandateEntity` instance with the same client and
+Create a new `MandateEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2676,11 +1563,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantEntity
+## MerchantEntity
 
 ```go
-noFrixionMoneyMoovModelsMerchant := client.NoFrixionMoneyMoovModelsMerchant(nil)
-fmt.Println(noFrixionMoneyMoovModelsMerchant.GetName()) // "no_frixion_money_moov_models_merchant"
+merchant := client.Merchant(nil)
+fmt.Println(merchant.GetName()) // "merchant"
 ```
 
 ### Fields
@@ -2707,6 +1594,7 @@ fmt.Println(noFrixionMoneyMoovModelsMerchant.GetName()) // "no_frixion_money_moo
 | `parent_merchant` | `map[string]any` | No |  |
 | `payment_account` | `[]any` | No |  |
 | `payment_account_limit` | `int` | No |  |
+| `reason` | `string` | No |  |
 | `short_name` | `string` | No |  |
 | `supported_payment_methods_list` | `[]any` | No |  |
 | `suspension_reason` | `string` | No |  |
@@ -2723,7 +1611,7 @@ fmt.Println(noFrixionMoneyMoovModelsMerchant.GetName()) // "no_frixion_money_moo
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsMerchant(nil).List(nil, nil)
+results, err := client.Merchant(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2735,7 +1623,7 @@ fmt.Println(results)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchant(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_merchant_id"}, nil)
+result, err := client.Merchant(nil).Load(map[string]any{"id": "merchant_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2747,10 +1635,22 @@ fmt.Println(result)
 Update an existing entity. The data must include the entity `id`.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchant(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_merchant_id",
+result, err := client.Merchant(nil).Update(map[string]any{
+    "id": "merchant_id",
     // Fields to update
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.Merchant(nil).Remove(map[string]any{"id": "merchant_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2771,7 +1671,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantEntity` instance with the same client and
+Create a new `MerchantEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2781,45 +1681,28 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantPageEntity
+## MerchantAuthorisationSettingEntity
 
 ```go
-noFrixionMoneyMoovModelsMerchantPage := client.NoFrixionMoneyMoovModelsMerchantPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsMerchantPage.GetName()) // "no_frixion_money_moov_models_merchant_page"
+merchantAuthorisationSetting := client.MerchantAuthorisationSetting(nil)
+fmt.Println(merchantAuthorisationSetting.GetName()) // "merchant_authorisation_setting"
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_currency` | `[]any` | No |  |
-| `can_have_trust_account` | `bool` | No |  |
-| `card_payment_processor` | `string` | No |  |
-| `company_id` | `string` | No |  |
-| `display_qr_on_hosted_pay` | `bool` | No |  |
-| `hosted_pay_version` | `int` | No |  |
+| `amount_lower` | `float64` | No |  |
+| `amount_upper` | `float64` | No |  |
+| `authorisation_type` | `string` | No |  |
+| `beneficiaries_only` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_blocked` | `bool` | No |  |
-| `is_exited` | `bool` | No |  |
-| `is_suspended` | `bool` | No |  |
-| `jurisdiction` | `string` | No |  |
-| `logo_url_png` | `string` | No |  |
-| `logo_url_svg` | `string` | No |  |
-| `merchant_category_code` | `string` | No |  |
-| `name` | `string` | No |  |
-| `note` | `string` | No |  |
-| `parent_merchant` | `map[string]any` | No |  |
-| `payment_account` | `[]any` | No |  |
-| `payment_account_limit` | `int` | No |  |
-| `short_name` | `string` | No |  |
-| `supported_payment_methods_list` | `[]any` | No |  |
-| `suspension_reason` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trading_name` | `string` | No |  |
-| `web_hook_limit` | `int` | No |  |
-| `your_role_name` | `string` | No |  |
+| `last_editor_cant_authorise` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `number_of_authoriser` | `int` | No |  |
+| `role_setting` | `[]any` | No |  |
 
 ### Operations
 
@@ -2828,7 +1711,7 @@ fmt.Println(noFrixionMoneyMoovModelsMerchantPage.GetName()) // "no_frixion_money
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsMerchantPage(nil).List(nil, nil)
+results, err := client.MerchantAuthorisationSetting(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2849,7 +1732,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantPageEntity` instance with the same client and
+Create a new `MerchantAuthorisationSettingEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2859,11 +1742,84 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity
+## MerchantDirectDebitMandateEntity
 
 ```go
-noFrixionMoneyMoovModelsMerchantPayByBankSetting := client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting(nil)
-fmt.Println(noFrixionMoneyMoovModelsMerchantPayByBankSetting.GetName()) // "no_frixion_money_moov_models_merchant_pay_by_bank_setting"
+merchantDirectDebitMandate := client.MerchantDirectDebitMandate(nil)
+fmt.Println(merchantDirectDebitMandate.GetName()) // "merchant_direct_debit_mandate"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `approved_at` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `customer_account_number` | `string` | No |  |
+| `customer_city` | `string` | No |  |
+| `customer_country_code` | `string` | No |  |
+| `customer_country_name` | `string` | No |  |
+| `customer_email_address` | `string` | No |  |
+| `customer_first_name` | `string` | No |  |
+| `customer_iban` | `string` | No |  |
+| `customer_last_name` | `string` | No |  |
+| `customer_sort_code` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `is_recurring` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `reference` | `string` | No |  |
+| `status` | `string` | No |  |
+| `supplier_bank_account_id` | `string` | No |  |
+| `supplier_customer_id` | `string` | No |  |
+| `supplier_mandate_id` | `string` | No |  |
+| `supplier_name` | `string` | No |  |
+| `supplier_status` | `string` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.MerchantDirectDebitMandate(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## MerchantPayByBankSettingEntity
+
+```go
+merchantPayByBankSetting := client.MerchantPayByBankSetting(nil)
+fmt.Println(merchantPayByBankSetting.GetName()) // "merchant_pay_by_bank_setting"
 ```
 
 ### Fields
@@ -2891,7 +1847,7 @@ fmt.Println(noFrixionMoneyMoovModelsMerchantPayByBankSetting.GetName()) // "no_f
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting(nil).List(nil, nil)
+results, err := client.MerchantPayByBankSetting(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2912,7 +1868,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity` instance with the same client and
+Create a new `MerchantPayByBankSettingEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -2922,11 +1878,108 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantTokenEntity
+## MerchantPaymentRequestTemplateEntity
 
 ```go
-noFrixionMoneyMoovModelsMerchantToken := client.NoFrixionMoneyMoovModelsMerchantToken(nil)
-fmt.Println(noFrixionMoneyMoovModelsMerchantToken.GetName()) // "no_frixion_money_moov_models_merchant_token"
+merchantPaymentRequestTemplate := client.MerchantPaymentRequestTemplate(nil)
+fmt.Println(merchantPaymentRequestTemplate.GetName()) // "merchant_payment_request_template"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `description` | `string` | Yes |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `template` | `map[string]any` | Yes |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.MerchantPaymentRequestTemplate(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.MerchantPaymentRequestTemplate(nil).Load(map[string]any{"id": "merchant_payment_request_template_id", "paymentrequest_id": "paymentrequest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Update(reqdata, ctrl map[string]any) (any, error)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```go
+result, err := client.MerchantPaymentRequestTemplate(nil).Update(map[string]any{
+    "id": "merchant_payment_request_template_id",
+    "paymentrequest_id": "paymentrequest_id",
+    // Fields to update
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.MerchantPaymentRequestTemplate(nil).Remove(map[string]any{"id": "merchant_payment_request_template_id", "paymentrequest_id": "paymentrequest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `MerchantPaymentRequestTemplateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## MerchantTokenEntity
+
+```go
+merchantToken := client.MerchantToken(nil)
+fmt.Println(merchantToken.GetName()) // "merchant_token"
 ```
 
 ### Fields
@@ -2959,40 +2012,52 @@ fmt.Println(noFrixionMoneyMoovModelsMerchantToken.GetName()) // "no_frixion_mone
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `authentication_method` | - | - | - |
-| `authorisation` | - | - | - |
-| `authorisers_completed_count` | - | - | - |
-| `authorisers_required_count` | - | - | - |
-| `can_authorise` | - | - | - |
-| `description` | - | Yes | - |
-| `expires_at` | - | - | - |
-| `has_current_user_authorised` | - | - | - |
-| `hmac_algorithm` | - | - | - |
-| `id` | - | - | - |
-| `inserted` | - | - | - |
-| `ip_address_whitelist` | - | - | - |
-| `is_archived` | - | - | - |
-| `is_enabled` | - | - | - |
-| `last_authorised` | - | - | - |
-| `last_updated` | - | - | - |
-| `merchant_id` | - | Yes | - |
-| `nonce` | - | - | - |
-| `permission_type` | - | - | - |
-| `request_signature_version` | - | - | - |
-| `shared_secret_algorithm` | - | - | - |
-| `shared_secret_base64` | - | - | - |
-| `token` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `authentication_method` | - | - | - | - |
+| `authorisation` | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - |
+| `can_authorise` | - | - | - | - |
+| `description` | - | - | Yes | - |
+| `expires_at` | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - |
+| `hmac_algorithm` | - | - | - | - |
+| `id` | - | - | - | - |
+| `inserted` | - | - | - | - |
+| `ip_address_whitelist` | - | - | - | - |
+| `is_archived` | - | - | - | - |
+| `is_enabled` | - | - | - | - |
+| `last_authorised` | - | - | - | - |
+| `last_updated` | - | - | - | - |
+| `merchant_id` | - | - | Yes | - |
+| `nonce` | - | - | - | - |
+| `permission_type` | - | - | - | - |
+| `request_signature_version` | - | - | - | - |
+| `shared_secret_algorithm` | - | - | - | - |
+| `shared_secret_base64` | - | - | - | - |
+| `token` | - | - | - | - |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.MerchantToken(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_merchant_token_id"}, nil)
+result, err := client.MerchantToken(nil).Load(map[string]any{"id": "merchant_token_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -3004,7 +2069,7 @@ fmt.Println(result)
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Create(map[string]any{
+result, err := client.MerchantToken(nil).Create(map[string]any{
     "nonce": "example_nonce",
 }, nil)
 if err != nil {
@@ -3018,8 +2083,8 @@ fmt.Println(result)
 Update an existing entity. The data must include the entity `id`.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsMerchantToken(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_merchant_token_id",
+result, err := client.MerchantToken(nil).Update(map[string]any{
+    "id": "merchant_token_id",
     // Fields to update
 }, nil)
 if err != nil {
@@ -3042,7 +2107,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenEntity` instance with the same client and
+Create a new `MerchantTokenEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3052,52 +2117,25 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantTokenPageEntity
+## MetadataEntity
 
 ```go
-noFrixionMoneyMoovModelsMerchantTokenPage := client.NoFrixionMoneyMoovModelsMerchantTokenPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsMerchantTokenPage.GetName()) // "no_frixion_money_moov_models_merchant_token_page"
+metadata := client.Metadata(nil)
+fmt.Println(metadata.GetName()) // "metadata"
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `description` | `string` | No |  |
-| `expires_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `ip_address_whitelist` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `permission_type` | `[]any` | No |  |
-| `request_signature_version` | `int` | No |  |
-| `shared_secret_algorithm` | `string` | No |  |
-| `shared_secret_base64` | `string` | No |  |
-| `token` | `string` | No |  |
 
 ### Operations
 
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
-List entities matching the given criteria. Returns an array.
+Load a single entity matching the given criteria.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsMerchantTokenPage(nil).List(nil, nil)
+result, err := client.Metadata(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(results)
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -3114,7 +2152,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenPageEntity` instance with the same client and
+Create a new `MetadataEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3124,11 +2162,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsNoFrixionVersionEntity
+## NoFrixionVersionEntity
 
 ```go
-noFrixionMoneyMoovModelsNoFrixionVersion := client.NoFrixionMoneyMoovModelsNoFrixionVersion(nil)
-fmt.Println(noFrixionMoneyMoovModelsNoFrixionVersion.GetName()) // "no_frixion_money_moov_models_no_frixion_version"
+noFrixionVersion := client.NoFrixionVersion(nil)
+fmt.Println(noFrixionVersion.GetName()) // "no_frixion_version"
 ```
 
 ### Fields
@@ -3147,7 +2185,7 @@ fmt.Println(noFrixionMoneyMoovModelsNoFrixionVersion.GetName()) // "no_frixion_m
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsNoFrixionVersion(nil).Load(nil, nil)
+result, err := client.NoFrixionVersion(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -3168,7 +2206,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsNoFrixionVersionEntity` instance with the same client and
+Create a new `NoFrixionVersionEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3178,161 +2216,22 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsOpenBankingAccountEntity
+## OpenBankingEntity
 
 ```go
-noFrixionMoneyMoovModelsOpenBankingAccount := client.NoFrixionMoneyMoovModelsOpenBankingAccount(nil)
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingAccount.GetName()) // "no_frixion_money_moov_models_open_banking_account"
+openBanking := client.OpenBanking(nil)
+fmt.Println(openBanking.GetName()) // "open_banking"
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_balance` | `[]any` | No |  |
-| `account_identification` | `[]any` | No |  |
-| `account_name` | `[]any` | No |  |
-| `account_type` | `string` | No |  |
-| `balance` | `float64` | No |  |
-| `consolidated_account_information` | `map[string]any` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `detail` | `string` | No |  |
-| `id` | `string` | No |  |
-| `nickname` | `string` | No |  |
-| `type` | `string` | No |  |
-| `usage_type` | `string` | No |  |
 
 ### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingAccount(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_open_banking_account_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingAccountEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsOpenBankingConsentEntity
-
-```go
-noFrixionMoneyMoovModelsOpenBankingConsent := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil)
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingConsent.GetName()) // "no_frixion_money_moov_models_open_banking_consent"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `institution_id` | `string` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `provider` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `authorisation_url` | - | - | - | - | - |
-| `callback_url` | - | - | - | - | - |
-| `consent_id` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `expiry_date` | - | - | - | - | - |
-| `failure_callback_url` | - | - | - | - | - |
-| `id` | - | - | - | - | - |
-| `inserted` | - | - | - | - | - |
-| `institution_id` | - | - | Yes | - | - |
-| `is_connected_account` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
-| `provider` | - | - | - | - | - |
-| `success_web_hook_url` | - | - | - | - | - |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_open_banking_consent_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
 
 #### `Create(reqdata, ctrl map[string]any) (any, error)`
 
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_open_banking_consent_id",
-    // Fields to update
+result, err := client.OpenBanking(nil).Create(map[string]any{
+    "account_id": "example_account_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -3345,7 +2244,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil).Remove(map[string]any{"id": "no_frixion_money_moov_models_open_banking_consent_id"}, nil)
+result, err := client.OpenBanking(nil).Remove(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -3366,7 +2265,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsOpenBankingConsentEntity` instance with the same client and
+Create a new `OpenBankingEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3376,55 +2275,40 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsOpenBankingTransactionEntity
+## PayeeverificationEntity
 
 ```go
-noFrixionMoneyMoovModelsOpenBankingTransaction := client.NoFrixionMoneyMoovModelsOpenBankingTransaction(nil)
-fmt.Println(noFrixionMoneyMoovModelsOpenBankingTransaction.GetName()) // "no_frixion_money_moov_models_open_banking_transaction"
+payeeverification := client.Payeeverification(nil)
+fmt.Println(payeeverification.GetName()) // "payeeverification"
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_detail` | `map[string]any` | No |  |
-| `amount` | `float64` | No |  |
-| `balance` | `map[string]any` | No |  |
-| `booking_date_time` | `string` | No |  |
-| `charge_detail` | `map[string]any` | No |  |
-| `currency` | `string` | No |  |
-| `currency_exchange` | `map[string]any` | No |  |
-| `date` | `string` | No |  |
-| `description` | `string` | No |  |
-| `enrichment` | `map[string]any` | No |  |
-| `gross_amount` | `map[string]any` | Yes |  |
-| `id` | `string` | No |  |
-| `iso_bank_transaction_code` | `map[string]any` | No |  |
-| `merchant` | `map[string]any` | No |  |
-| `payee_detail` | `map[string]any` | Yes |  |
-| `payer_detail` | `map[string]any` | Yes |  |
-| `proprietary_bank_transaction_code` | `map[string]any` | No |  |
-| `reference` | `string` | No |  |
-| `statement_reference` | `[]any` | No |  |
-| `status` | `string` | No |  |
-| `supplementary_data` | `any` | No |  |
-| `transaction_amount` | `map[string]any` | Yes |  |
-| `transaction_information` | `[]any` | No |  |
-| `transaction_mutability` | `string` | No |  |
-| `value_date_time` | `string` | No |  |
+| `account_name` | `string` | Yes |  |
+| `account_number` | `string` | No |  |
+| `iban` | `string` | Yes |  |
+| `payee_verified_account_name` | `string` | No |  |
+| `result` | `string` | No |  |
+| `secondary_identification` | `string` | No |  |
+| `sort_code` | `string` | No |  |
 
 ### Operations
 
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
 
-List entities matching the given criteria. Returns an array.
+Create a new entity with the given data.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsOpenBankingTransaction(nil).List(nil, nil)
+result, err := client.Payeeverification(nil).Create(map[string]any{
+    "account_name": "example_account_name",
+    "iban": "example_iban",
+}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(results)
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -3441,7 +2325,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsOpenBankingTransactionEntity` instance with the same client and
+Create a new `PayeeverificationEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3451,11 +2335,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsPaymentEntity
+## PaymentEntity
 
 ```go
-noFrixionMoneyMoovModelsPayment := client.NoFrixionMoneyMoovModelsPayment(nil)
-fmt.Println(noFrixionMoneyMoovModelsPayment.GetName()) // "no_frixion_money_moov_models_payment"
+payment := client.Payment(nil)
+fmt.Println(payment.GetName()) // "payment"
 ```
 
 ### Fields
@@ -3627,7 +2511,7 @@ fmt.Println(noFrixionMoneyMoovModelsPayment.GetName()) // "no_frixion_money_moov
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayment(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_payment_id"}, nil)
+result, err := client.Payment(nil).Load(map[string]any{"id": "payment_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -3639,7 +2523,7 @@ fmt.Println(result)
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayment(nil).Create(map[string]any{
+result, err := client.Payment(nil).Create(map[string]any{
     "created_by_user": map[string]any{},
 }, nil)
 if err != nil {
@@ -3653,8 +2537,8 @@ fmt.Println(result)
 Update an existing entity. The data must include the entity `id`.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPayment(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_payment_id",
+result, err := client.Payment(nil).Update(map[string]any{
+    "id": "payment_id",
     // Fields to update
 }, nil)
 if err != nil {
@@ -3677,7 +2561,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentEntity` instance with the same client and
+Create a new `PaymentEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3687,72 +2571,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity
+## PaymentAccountEntity
 
 ```go
-noFrixionMoneyMoovModelsPaymentAccountMinimalPage := client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentAccountMinimalPage.GetName()) // "no_frixion_money_moov_models_payment_account_minimal_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_name` | `string` | No |  |
-| `available_balance` | `float64` | No |  |
-| `balance` | `float64` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `currency` | `string` | No |  |
-| `id` | `string` | No |  |
-| `identifier` | `map[string]any` | Yes |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `submitted_payouts_balance` | `float64` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentAccountPageEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentAccountPage := client.NoFrixionMoneyMoovModelsPaymentAccountPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentAccountPage.GetName()) // "no_frixion_money_moov_models_payment_account_page"
+paymentAccount := client.PaymentAccount(nil)
+fmt.Println(paymentAccount.GetName()) // "payment_account"
 ```
 
 ### Fields
@@ -3806,7 +2629,7 @@ fmt.Println(noFrixionMoneyMoovModelsPaymentAccountPage.GetName()) // "no_frixion
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentAccountPage(nil).List(nil, nil)
+results, err := client.PaymentAccount(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -3827,7 +2650,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountPageEntity` instance with the same client and
+Create a new `PaymentAccountEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -3837,11 +2660,72 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsPaymentInitiationEntity
+## PaymentAccountMinimalEntity
 
 ```go
-noFrixionMoneyMoovModelsPaymentInitiation := client.NoFrixionMoneyMoovModelsPaymentInitiation(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentInitiation.GetName()) // "no_frixion_money_moov_models_payment_initiation"
+paymentAccountMinimal := client.PaymentAccountMinimal(nil)
+fmt.Println(paymentAccountMinimal.GetName()) // "payment_account_minimal"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account_name` | `string` | No |  |
+| `available_balance` | `float64` | No |  |
+| `balance` | `float64` | No |  |
+| `balance_minor_unit` | `int` | No |  |
+| `currency` | `string` | No |  |
+| `id` | `string` | No |  |
+| `identifier` | `map[string]any` | Yes |  |
+| `is_archived` | `bool` | No |  |
+| `is_connected_account` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `submitted_payouts_balance` | `float64` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.PaymentAccountMinimal(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentAccountMinimalEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PaymentInitiationEntity
+
+```go
+paymentInitiation := client.PaymentInitiation(nil)
+fmt.Println(paymentInitiation.GetName()) // "payment_initiation"
 ```
 
 ### Fields
@@ -3862,7 +2746,7 @@ fmt.Println(noFrixionMoneyMoovModelsPaymentInitiation.GetName()) // "no_frixion_
 Create a new entity with the given data.
 
 ```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentInitiation(nil).Create(map[string]any{
+result, err := client.PaymentInitiation(nil).Create(map[string]any{
     "paymentrequest_id": "example_paymentrequest_id",
 }, nil)
 if err != nil {
@@ -3885,1707 +2769,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentInitiationEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestEventEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestEvent := client.NoFrixionMoneyMoovModelsPaymentRequestEvent(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestEvent.GetName()) // "no_frixion_money_moov_models_payment_request_event"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float64` | Yes |  |
-| `apple_pay_transaction_id` | `string` | No |  |
-| `card_authorization_response_id` | `string` | No |  |
-| `card_expiry_month` | `int` | No |  |
-| `card_expiry_year` | `int` | No |  |
-| `card_issuer` | `string` | No |  |
-| `card_issuer_country` | `string` | No |  |
-| `card_last_four_digit` | `string` | No |  |
-| `card_request_id` | `string` | No |  |
-| `card_scheme` | `string` | No |  |
-| `card_token_customer_id` | `string` | No |  |
-| `card_transaction_id` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `direct_debit_payment_id` | `string` | No |  |
-| `direct_debit_payment_reference` | `string` | No |  |
-| `drirect_debit_mandate_id` | `string` | No |  |
-| `error_message` | `string` | No |  |
-| `error_reason` | `string` | No |  |
-| `event_type` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_r_hash` | `string` | No |  |
-| `origin_url` | `string` | No |  |
-| `payment_method_type` | `string` | No |  |
-| `payment_processor_name` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_bank_status` | `string` | No |  |
-| `pisp_payment_initiation_id` | `string` | No |  |
-| `pisp_payment_institution_name` | `string` | No |  |
-| `pisp_payment_service_provider_id` | `string` | No |  |
-| `pisp_redirect_url` | `string` | No |  |
-| `reconciled_transaction_id` | `string` | No |  |
-| `refund_payout_id` | `string` | No |  |
-| `status` | `string` | No |  |
-| `wallet_name` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentRequestEvent(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestEventEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestMetricEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestMetric := client.NoFrixionMoneyMoovModelsPaymentRequestMetric(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestMetric.GetName()) // "no_frixion_money_moov_models_payment_request_metric"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `int` | No |  |
-| `authorized` | `int` | No |  |
-| `paid` | `int` | No |  |
-| `partially_paid` | `int` | No |  |
-| `total_amounts_by_currency` | `map[string]any` | No |  |
-| `unpaid` | `int` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentRequestMetric(nil).Load(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMetricEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestMinimal := client.NoFrixionMoneyMoovModelsPaymentRequestMinimal(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestMinimal.GetName()) // "no_frixion_money_moov_models_payment_request_minimal"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float64` | No |  |
-| `amount_pending` | `float64` | No |  |
-| `amount_received` | `float64` | No |  |
-| `amount_refunded` | `float64` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `country_code` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `custom_fields_to_display` | `[]any` | No |  |
-| `description` | `string` | No |  |
-| `due_date` | `string` | No |  |
-| `field_display_setting` | `[]any` | No |  |
-| `google_pay_merchant_id` | `string` | No |  |
-| `id` | `string` | No |  |
-| `jwk` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_logo_url_png` | `string` | No |  |
-| `merchant_logo_url_svg` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `merchant_short_name` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `payment_attempt` | `[]any` | No |  |
-| `payment_methods_list` | `[]any` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_processor_key` | `string` | No |  |
-| `pisp_error` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
-| `status` | `string` | No |  |
-| `stripe_account_id` | `string` | No |  |
-| `title` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentRequestMinimal(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestResultEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestResult := client.NoFrixionMoneyMoovModelsPaymentRequestResult(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestResult.GetName()) // "no_frixion_money_moov_models_payment_request_result"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float64` | No |  |
-| `amount_pending` | `float64` | No |  |
-| `amount_received` | `float64` | No |  |
-| `amount_refunded` | `float64` | No |  |
-| `currency` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `payment` | `[]any` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_authorization` | `[]any` | No |  |
-| `requested_amount` | `float64` | No |  |
-| `result` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentRequestResult(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestResultEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment.GetName()) // "no_frixion_money_moov_models_payment_requests_merchant_payment"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `map[string]any` | Yes |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2.GetName()) // "no_frixion_money_moov_models_payment_requests_merchant_payment2"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `map[string]any` | Yes |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(nil).Load(map[string]any{"paymentrequest_id": "paymentrequest_id", "template_id": "template_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3.GetName()) // "no_frixion_money_moov_models_payment_requests_merchant_payment3"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `map[string]any` | Yes |  |
-
-### Operations
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(nil).Update(map[string]any{
-    "paymentrequest_id": "paymentrequest_id",
-    "template_id": "template_id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity
-
-```go
-noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4 := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(nil)
-fmt.Println(noFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4.GetName()) // "no_frixion_money_moov_models_payment_requests_merchant_payment4"
-```
-
-### Operations
-
-#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
-
-Remove the entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(nil).Remove(map[string]any{"paymentrequest_id": "paymentrequest_id", "template_id": "template_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutKeysetPageEntity
-
-```go
-noFrixionMoneyMoovModelsPayoutKeysetPage := client.NoFrixionMoneyMoovModelsPayoutKeysetPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsPayoutKeysetPage.GetName()) // "no_frixion_money_moov_models_payout_keyset_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `map[string]any` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `map[string]any` | No |  |
-| `document` | `[]any` | No |  |
-| `event` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float64` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `map[string]any` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float64` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `map[string]any` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float64` | No |  |
-| `transacted_fx_amount` | `float64` | No |  |
-| `transacted_fx_rate` | `float64` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsPayoutKeysetPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutKeysetPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutMetricEntity
-
-```go
-noFrixionMoneyMoovModelsPayoutMetric := client.NoFrixionMoneyMoovModelsPayoutMetric(nil)
-fmt.Println(noFrixionMoneyMoovModelsPayoutMetric.GetName()) // "no_frixion_money_moov_models_payout_metric"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `float64` | No |  |
-| `failed` | `float64` | No |  |
-| `in_progress` | `float64` | No |  |
-| `paid` | `float64` | No |  |
-| `pending_approval` | `float64` | No |  |
-| `scheduled` | `float64` | No |  |
-| `total_amounts_by_currency` | `map[string]any` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPayoutMetric(nil).Load(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutMetricEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity
-
-```go
-noFrixionMoneyMoovModelsPayoutsPayoutsCreate := client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(nil)
-fmt.Println(noFrixionMoneyMoovModelsPayoutsPayoutsCreate.GetName()) // "no_frixion_money_moov_models_payouts_payouts_create"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `map[string]any` | No |  |
-| `payout` | `[]any` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayrunEntity
-
-```go
-noFrixionMoneyMoovModelsPayrun := client.NoFrixionMoneyMoovModelsPayrun(nil)
-fmt.Println(noFrixionMoneyMoovModelsPayrun.GetName()) // "no_frixion_money_moov_models_payrun"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation` | `[]any` | No |  |
-| `authorisation_date` | `string` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_delete` | `bool` | No |  |
-| `can_edit` | `bool` | No |  |
-| `event` | `[]any` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice` | `[]any` | No |  |
-| `invoices_minimal` | `[]any` | No |  |
-| `is_archived` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `last_updated_by` | `map[string]any` | Yes |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment` | `[]any` | No |  |
-| `payout` | `[]any` | No |  |
-| `payouts_count` | `int` | No |  |
-| `reason` | `string` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled_date` | `string` | No |  |
-| `source_account` | `[]any` | No |  |
-| `status` | `string` | No |  |
-| `total_eur` | `float64` | No |  |
-| `total_gbp` | `float64` | No |  |
-| `total_usd` | `float64` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_payrun_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Create(map[string]any{
-    "id": "example_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsPayrun(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_payrun_id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPayrunEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsReportResultEntity
-
-```go
-noFrixionMoneyMoovModelsReportResult := client.NoFrixionMoneyMoovModelsReportResult(nil)
-fmt.Println(noFrixionMoneyMoovModelsReportResult.GetName()) // "no_frixion_money_moov_models_report_result"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content` | `string` | No |  |
-| `content_type` | `string` | No |  |
-| `last_completed_at` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `report_name` | `string` | No |  |
-| `report_type` | `string` | No |  |
-| `statement_number` | `int` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsReportResult(nil).Load(map[string]any{"id": 1, "report_id": "report_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsReportResultEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsRuleEntity
-
-```go
-noFrixionMoneyMoovModelsRule := client.NoFrixionMoneyMoovModelsRule(nil)
-fmt.Println(noFrixionMoneyMoovModelsRule.GetName()) // "no_frixion_money_moov_models_rule"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account` | `map[string]any` | No |  |
-| `account_id` | `string` | No |  |
-| `approve_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `created_by` | `map[string]any` | Yes |  |
-| `description` | `string` | No |  |
-| `end_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_disabled` | `bool` | No |  |
-| `last_executed_at` | `string` | No |  |
-| `last_run_at_transaction_date` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `on_approved_web_hook_url` | `string` | No |  |
-| `on_execution_error_web_hook_url` | `string` | No |  |
-| `on_execution_success_web_hook_url` | `string` | No |  |
-| `start_at` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sweep_action` | `map[string]any` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trigger_cron_expression` | `string` | No |  |
-| `trigger_on_pay_in` | `bool` | No |  |
-| `user_id` | `string` | No |  |
-| `web_hook_secret` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `account` | - | - | - |
-| `account_id` | - | - | - |
-| `approve_url` | - | - | - |
-| `approver_id` | - | - | - |
-| `authentication_method` | - | - | - |
-| `authorisation` | - | - | - |
-| `authorisers_completed_count` | - | - | - |
-| `authorisers_required_count` | - | - | - |
-| `can_authorise` | - | - | - |
-| `created_by` | - | - | - |
-| `description` | - | - | - |
-| `end_at` | - | - | - |
-| `has_current_user_authorised` | - | - | - |
-| `id` | - | - | - |
-| `inserted` | - | - | - |
-| `is_disabled` | - | - | - |
-| `last_executed_at` | - | - | - |
-| `last_run_at_transaction_date` | - | - | - |
-| `last_updated` | - | - | - |
-| `merchant_id` | - | - | - |
-| `name` | - | Yes | - |
-| `nonce` | - | - | - |
-| `on_approved_web_hook_url` | - | - | - |
-| `on_execution_error_web_hook_url` | - | - | - |
-| `on_execution_success_web_hook_url` | - | - | - |
-| `start_at` | - | - | - |
-| `status` | - | - | - |
-| `sweep_action` | - | Yes | - |
-| `time_zone_id` | - | - | - |
-| `trigger_cron_expression` | - | - | - |
-| `trigger_on_pay_in` | - | - | - |
-| `user_id` | - | - | - |
-| `web_hook_secret` | - | - | - |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsRule(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_rule_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsRule(nil).Create(map[string]any{
-    "created_by": map[string]any{},
-    "nonce": "example_nonce",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsRule(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_rule_id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsRuleEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsTransactionEntity
-
-```go
-noFrixionMoneyMoovModelsTransaction := client.NoFrixionMoneyMoovModelsTransaction(nil)
-fmt.Println(noFrixionMoneyMoovModelsTransaction.GetName()) // "no_frixion_money_moov_models_transaction"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `account_name` | `string` | No |  |
-| `account_sequence_number` | `int` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `balance` | `float64` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `counterparty` | `map[string]any` | No |  |
-| `counterparty_summary` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `fx_amount` | `float64` | No |  |
-| `fx_currency` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `payment_request_custom_field` | `map[string]any` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `payout_id` | `string` | No |  |
-| `raw_reference` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `transaction_date` | `string` | No |  |
-| `type` | `string` | No |  |
-| `virtual_iban` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsTransaction(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_transaction_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsTransactionPageEntity
-
-```go
-noFrixionMoneyMoovModelsTransactionPage := client.NoFrixionMoneyMoovModelsTransactionPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsTransactionPage.GetName()) // "no_frixion_money_moov_models_transaction_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `account_name` | `string` | No |  |
-| `account_sequence_number` | `int` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `balance` | `float64` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `content` | `[]any` | No |  |
-| `counterparty` | `map[string]any` | No |  |
-| `counterparty_summary` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `fx_amount` | `float64` | No |  |
-| `fx_currency` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `page_number` | `int` | No |  |
-| `page_size` | `int` | No |  |
-| `payment_request_custom_field` | `map[string]any` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `payout_id` | `string` | No |  |
-| `raw_reference` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `total_page` | `int` | No |  |
-| `total_size` | `int` | No |  |
-| `transaction_date` | `string` | No |  |
-| `type` | `string` | No |  |
-| `virtual_iban` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsTransactionPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsTransactionPage(nil).Load(map[string]any{"account_id": "account_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserInviteEntity
-
-```go
-noFrixionMoneyMoovModelsUserInvite := client.NoFrixionMoneyMoovModelsUserInvite(nil)
-fmt.Println(noFrixionMoneyMoovModelsUserInvite.GetName()) // "no_frixion_money_moov_models_user_invite"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_status` | `map[string]any` | No |  |
-| `id` | `string` | No |  |
-| `initial_role_id` | `string` | No |  |
-| `invitee_email_address` | `string` | No |  |
-| `invitee_first_name` | `string` | No |  |
-| `invitee_last_name` | `string` | No |  |
-| `inviter_email_address` | `string` | No |  |
-| `inviter_first_name` | `string` | No |  |
-| `inviter_last_name` | `string` | No |  |
-| `is_authorised` | `bool` | No |  |
-| `is_invitee_registered` | `bool` | No |  |
-| `last_invited` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `message` | `string` | No |  |
-| `registration_url` | `string` | No |  |
-| `send_invite_email` | `bool` | No |  |
-| `status` | `string` | No |  |
-| `user` | `map[string]any` | Yes |  |
-| `user_id` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | create |
-| --- | --- | --- |
-| `authorisation_status` | - | - |
-| `id` | - | - |
-| `initial_role_id` | - | - |
-| `invitee_email_address` | - | Yes |
-| `invitee_first_name` | - | - |
-| `invitee_last_name` | - | - |
-| `inviter_email_address` | - | - |
-| `inviter_first_name` | - | - |
-| `inviter_last_name` | - | - |
-| `is_authorised` | - | - |
-| `is_invitee_registered` | - | - |
-| `last_invited` | - | - |
-| `merchant_id` | - | - |
-| `merchant_name` | - | - |
-| `message` | - | - |
-| `registration_url` | - | - |
-| `send_invite_email` | - | - |
-| `status` | - | - |
-| `user` | - | - |
-| `user_id` | - | - |
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsUserInvite(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_user_invite_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsUserInvite(nil).Create(map[string]any{
-    "user": map[string]any{},
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInviteEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserInvitePageEntity
-
-```go
-noFrixionMoneyMoovModelsUserInvitePage := client.NoFrixionMoneyMoovModelsUserInvitePage(nil)
-fmt.Println(noFrixionMoneyMoovModelsUserInvitePage.GetName()) // "no_frixion_money_moov_models_user_invite_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_status` | `map[string]any` | No |  |
-| `id` | `string` | No |  |
-| `initial_role_id` | `string` | No |  |
-| `invitee_email_address` | `string` | No |  |
-| `invitee_first_name` | `string` | No |  |
-| `invitee_last_name` | `string` | No |  |
-| `inviter_email_address` | `string` | No |  |
-| `inviter_first_name` | `string` | No |  |
-| `inviter_last_name` | `string` | No |  |
-| `is_authorised` | `bool` | No |  |
-| `is_invitee_registered` | `bool` | No |  |
-| `last_invited` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `message` | `string` | No |  |
-| `registration_url` | `string` | No |  |
-| `status` | `string` | No |  |
-| `user` | `map[string]any` | Yes |  |
-| `user_id` | `string` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsUserInvitePage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInvitePageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserPageEntity
-
-```go
-noFrixionMoneyMoovModelsUserPage := client.NoFrixionMoneyMoovModelsUserPage(nil)
-fmt.Println(noFrixionMoneyMoovModelsUserPage.GetName()) // "no_frixion_money_moov_models_user_page"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `[]any` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `map[string]any` | No |  |
-| `roles_with_scope` | `[]any` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsUserPage(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsUserPageEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsWebhookEntity
-
-```go
-noFrixionMoneyMoovModelsWebhook := client.NoFrixionMoneyMoovModelsWebhook(nil)
-fmt.Println(noFrixionMoneyMoovModelsWebhook.GetName()) // "no_frixion_money_moov_models_webhook"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `destination_url` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `failed_notification_email_address` | `string` | No |  |
-| `id` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `notification_method` | `string` | No |  |
-| `resource_type` | `[]any` | No |  |
-| `retry` | `bool` | No |  |
-| `secret` | `string` | No |  |
-| `version` | `int` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update |
-| --- | --- | --- | --- | --- |
-| `destination_url` | - | - | - | - |
-| `email_address` | - | - | - | - |
-| `failed_notification_email_address` | - | - | - | - |
-| `id` | - | - | - | - |
-| `is_active` | - | - | - | - |
-| `merchant_id` | - | - | Yes | Yes |
-| `notification_method` | - | - | Yes | Yes |
-| `resource_type` | - | - | - | - |
-| `retry` | - | - | - | - |
-| `secret` | - | - | - | - |
-| `version` | - | - | - | - |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.NoFrixionMoneyMoovModelsWebhook(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsWebhook(nil).Load(map[string]any{"id": "no_frixion_money_moov_models_webhook_id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsWebhook(nil).Create(map[string]any{
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.NoFrixionMoneyMoovModelsWebhook(nil).Update(map[string]any{
-    "id": "no_frixion_money_moov_models_webhook_id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `NoFrixionMoneyMoovModelsWebhookEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## OpenBankingEntity
-
-```go
-openBanking := client.OpenBanking(nil)
-fmt.Println(openBanking.GetName()) // "open_banking"
-```
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.OpenBanking(nil).Create(map[string]any{
-    "account_id": "example_account_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
-
-Remove the entity matching the given criteria.
-
-```go
-result, err := client.OpenBanking(nil).Remove(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `OpenBankingEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## PayeeverificationEntity
-
-```go
-payeeverification := client.Payeeverification(nil)
-fmt.Println(payeeverification.GetName()) // "payeeverification"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_name` | `string` | Yes |  |
-| `account_number` | `string` | No |  |
-| `iban` | `string` | Yes |  |
-| `payee_verified_account_name` | `string` | No |  |
-| `result` | `string` | No |  |
-| `secondary_identification` | `string` | No |  |
-| `sort_code` | `string` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.Payeeverification(nil).Create(map[string]any{
-    "account_name": "example_account_name",
-    "iban": "example_iban",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `PayeeverificationEntity` instance with the same client and
+Create a new `PaymentInitiationEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -5606,13 +2790,87 @@ fmt.Println(paymentRequest.GetName()) // "payment_request"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `address` | `[]any` | No |  |
 | `amount` | `float64` | No |  |
+| `amount_pending` | `float64` | No |  |
+| `amount_received` | `float64` | No |  |
+| `amount_refunded` | `float64` | No |  |
+| `auto_send_receipt` | `bool` | No |  |
+| `base_origin_url` | `string` | No |  |
+| `callback_url` | `string` | No |  |
+| `card_authorize_only` | `bool` | No |  |
+| `card_create_token` | `bool` | No |  |
+| `card_create_token_mode` | `string` | No |  |
+| `card_ignore_cvn` | `bool` | No |  |
+| `card_processor_merchant_id` | `string` | No |  |
+| `card_stripe_payment_intent_id` | `string` | No |  |
+| `card_stripe_payment_intent_secret` | `string` | No |  |
+| `created_by_user` | `map[string]any` | Yes |  |
+| `currency` | `string` | No |  |
+| `custom_field` | `[]any` | No |  |
+| `customer_email_address` | `string` | No |  |
+| `customer_id` | `string` | No |  |
+| `customer_name` | `string` | No |  |
+| `description` | `string` | No |  |
+| `destination_account` | `map[string]any` | No |  |
+| `direct_debit_payment` | `map[string]any` | No |  |
 | `do_simulate_settlement_failure` | `bool` | No |  |
+| `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
+| `event` | `[]any` | No |  |
+| `failure_callback_url` | `string` | No |  |
+| `field_display_setting` | `[]any` | No |  |
+| `formatted_amount` | `string` | No |  |
+| `hosted_pay_checkout_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `ignore_address_verification` | `bool` | No |  |
+| `inserted` | `string` | No |  |
+| `inserted_sortable` | `string` | No |  |
 | `institution` | `string` | No |  |
+| `is_archived` | `bool` | No |  |
+| `jwk` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `lightning_invoice` | `string` | No |  |
+| `lightning_invoice_expires_at` | `string` | No |  |
+| `merchant_direct_debit_mandate_id` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_token_description` | `string` | No |  |
+| `notification_email_address` | `string` | No |  |
+| `notification_role_i_d` | `[]any` | No |  |
+| `order_id` | `string` | No |  |
+| `partial_payment_method` | `string` | No |  |
+| `partial_payment_step` | `string` | No |  |
+| `payment_attempt` | `[]any` | No |  |
 | `payment_initiation_id` | `string` | No |  |
+| `payment_method` | `[]any` | No |  |
+| `payment_processor` | `string` | No |  |
+| `payrun_id` | `string` | No |  |
+| `pisp_account_id` | `string` | No |  |
+| `priority_bank_id` | `string` | No |  |
+| `result` | `map[string]any` | No |  |
+| `sandbox_settle_delay_in_second` | `int` | No |  |
+| `shipping_address` | `map[string]any` | No |  |
+| `status` | `string` | No |  |
+| `success_web_hook_url` | `string` | No |  |
+| `tag` | `[]any` | No |  |
+| `title` | `string` | No |  |
+| `tokenised_card` | `[]any` | No |  |
+| `transaction` | `[]any` | No |  |
+| `use_hosted_payment_page` | `bool` | No |  |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.PaymentRequest(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
@@ -5691,6 +2949,342 @@ Return the entity name.
 
 ---
 
+## PaymentRequestEventEntity
+
+```go
+paymentRequestEvent := client.PaymentRequestEvent(nil)
+fmt.Println(paymentRequestEvent.GetName()) // "payment_request_event"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float64` | Yes |  |
+| `apple_pay_transaction_id` | `string` | No |  |
+| `card_authorization_response_id` | `string` | No |  |
+| `card_expiry_month` | `int` | No |  |
+| `card_expiry_year` | `int` | No |  |
+| `card_issuer` | `string` | No |  |
+| `card_issuer_country` | `string` | No |  |
+| `card_last_four_digit` | `string` | No |  |
+| `card_request_id` | `string` | No |  |
+| `card_scheme` | `string` | No |  |
+| `card_token_customer_id` | `string` | No |  |
+| `card_transaction_id` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `direct_debit_payment_id` | `string` | No |  |
+| `direct_debit_payment_reference` | `string` | No |  |
+| `drirect_debit_mandate_id` | `string` | No |  |
+| `error_message` | `string` | No |  |
+| `error_reason` | `string` | No |  |
+| `event_type` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `lightning_invoice` | `string` | No |  |
+| `lightning_r_hash` | `string` | No |  |
+| `origin_url` | `string` | No |  |
+| `payment_method_type` | `string` | No |  |
+| `payment_processor_name` | `string` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `pisp_bank_status` | `string` | No |  |
+| `pisp_payment_initiation_id` | `string` | No |  |
+| `pisp_payment_institution_name` | `string` | No |  |
+| `pisp_payment_service_provider_id` | `string` | No |  |
+| `pisp_redirect_url` | `string` | No |  |
+| `reconciled_transaction_id` | `string` | No |  |
+| `refund_payout_id` | `string` | No |  |
+| `status` | `string` | No |  |
+| `wallet_name` | `string` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.PaymentRequestEvent(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentRequestEventEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestMetricEntity
+
+```go
+paymentRequestMetric := client.PaymentRequestMetric(nil)
+fmt.Println(paymentRequestMetric.GetName()) // "payment_request_metric"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `all` | `int` | No |  |
+| `authorized` | `int` | No |  |
+| `paid` | `int` | No |  |
+| `partially_paid` | `int` | No |  |
+| `total_amounts_by_currency` | `map[string]any` | No |  |
+| `unpaid` | `int` | No |  |
+
+### Operations
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.PaymentRequestMetric(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentRequestMetricEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestMinimalEntity
+
+```go
+paymentRequestMinimal := client.PaymentRequestMinimal(nil)
+fmt.Println(paymentRequestMinimal.GetName()) // "payment_request_minimal"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float64` | No |  |
+| `amount_pending` | `float64` | No |  |
+| `amount_received` | `float64` | No |  |
+| `amount_refunded` | `float64` | No |  |
+| `callback_url` | `string` | No |  |
+| `card_stripe_payment_intent_secret` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `custom_fields_to_display` | `[]any` | No |  |
+| `description` | `string` | No |  |
+| `due_date` | `string` | No |  |
+| `field_display_setting` | `[]any` | No |  |
+| `google_pay_merchant_id` | `string` | No |  |
+| `id` | `string` | No |  |
+| `jwk` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_logo_url_png` | `string` | No |  |
+| `merchant_logo_url_svg` | `string` | No |  |
+| `merchant_name` | `string` | No |  |
+| `merchant_short_name` | `string` | No |  |
+| `partial_payment_method` | `string` | No |  |
+| `payment_attempt` | `[]any` | No |  |
+| `payment_methods_list` | `[]any` | No |  |
+| `payment_processor` | `string` | No |  |
+| `payment_processor_key` | `string` | No |  |
+| `pisp_error` | `string` | No |  |
+| `priority_bank_id` | `string` | No |  |
+| `status` | `string` | No |  |
+| `stripe_account_id` | `string` | No |  |
+| `title` | `string` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.PaymentRequestMinimal(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentRequestMinimalEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestResultEntity
+
+```go
+paymentRequestResult := client.PaymentRequestResult(nil)
+fmt.Println(paymentRequestResult.GetName()) // "payment_request_result"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float64` | No |  |
+| `amount_pending` | `float64` | No |  |
+| `amount_received` | `float64` | No |  |
+| `amount_refunded` | `float64` | No |  |
+| `currency` | `string` | No |  |
+| `customer_id` | `string` | No |  |
+| `payment` | `[]any` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `pisp_authorization` | `[]any` | No |  |
+| `requested_amount` | `float64` | No |  |
+| `result` | `string` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.PaymentRequestResult(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentRequestResultEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestsCreateEntity
+
+```go
+paymentRequestsCreate := client.PaymentRequestsCreate(nil)
+fmt.Println(paymentRequestsCreate.GetName()) // "payment_requests_create"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_payment_request` | `map[string]any` | No |  |
+| `payment_request` | `[]any` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.PaymentRequestsCreate(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PaymentRequestsCreateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
 ## PayoutEntity
 
 ```go
@@ -5755,6 +3349,7 @@ fmt.Println(payout.GetName()) // "payout"
 | `payment_rail` | `string` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
+| `reason` | `string` | No |  |
 | `rule` | `map[string]any` | No |  |
 | `schedule_date` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
@@ -5781,86 +3376,99 @@ fmt.Println(payout.GetName()) // "payout"
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `account_id` | - | Yes | - | - |
-| `allow_incomplete` | - | - | - | - |
-| `amount` | - | - | - | - |
-| `amount_minor_unit` | - | - | - | - |
-| `approve_payout_url` | - | - | - | - |
-| `approver_id` | - | - | - | - |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `batch_payout_id` | - | - | - | - |
-| `beneficiary` | - | - | - | - |
-| `beneficiary_id` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
-| `can_process` | - | - | - | - |
-| `can_update` | - | - | - | - |
-| `charge_bearer` | - | - | - | - |
-| `created_by` | - | - | - | - |
-| `created_by_email_address` | - | - | - | - |
-| `currency` | - | Yes | - | - |
-| `current_user_id` | - | - | - | - |
-| `description` | - | - | - | - |
-| `destination` | - | - | - | - |
-| `document` | - | - | - | - |
-| `event` | - | - | - | - |
-| `formatted_amount` | - | - | - | - |
-| `formatted_fx_destination_amount` | - | - | - | - |
-| `formatted_schedule` | - | - | - | - |
-| `formatted_schedule_day_only` | - | - | - | - |
-| `formatted_source_account_available_balance` | - | - | - | - |
-| `fx_destination_amount` | - | - | - | - |
-| `fx_destination_amount_minor_unit` | - | - | - | - |
-| `fx_destination_currency` | - | - | - | - |
-| `fx_quote_expires_at` | - | - | - | - |
-| `fx_quote_id` | - | - | - | - |
-| `fx_rate` | - | - | - | - |
-| `fx_use_destination_amount` | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `id` | - | - | - | - |
-| `inserted` | - | - | - | - |
-| `invoice_id` | - | - | - | - |
-| `is_archived` | - | - | - | - |
-| `is_failed` | - | - | - | - |
-| `is_settled` | - | - | - | - |
-| `is_submitted` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | - | - | - |
-| `merchant_token_description` | - | - | - | - |
-| `nonce` | - | - | - | - |
-| `payment_processor` | - | - | - | - |
-| `payment_rail` | - | - | - | - |
-| `payrun_id` | - | - | - | - |
-| `payrun_name` | - | - | - | - |
-| `rule` | - | - | - | - |
-| `schedule_date` | - | - | - | - |
-| `scheduled` | - | - | - | - |
-| `source_account_available_balance` | - | - | - | - |
-| `source_account_available_balance_minor_unit` | - | - | - | - |
-| `source_account_bic` | - | - | - | - |
-| `source_account_currency` | - | - | - | - |
-| `source_account_iban` | - | - | - | - |
-| `source_account_identifier` | - | - | - | - |
-| `source_account_name` | - | - | - | - |
-| `source_account_number` | - | - | - | - |
-| `source_account_sortcode` | - | - | - | - |
-| `status` | - | - | - | - |
-| `tag` | - | - | - | - |
-| `tag_id` | - | - | - | - |
-| `their_reference` | - | - | - | - |
-| `topup_payrun_id` | - | - | - | - |
-| `transacted_amount` | - | - | - | - |
-| `transacted_fx_amount` | - | - | - | - |
-| `transacted_fx_rate` | - | - | - | - |
-| `type` | - | Yes | - | - |
-| `user_id` | - | - | - | - |
-| `your_reference` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | - | - | Yes | - | - |
+| `allow_incomplete` | - | - | - | - | - |
+| `amount` | - | - | - | - | - |
+| `amount_minor_unit` | - | - | - | - | - |
+| `approve_payout_url` | - | - | - | - | - |
+| `approver_id` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `batch_payout_id` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
+| `beneficiary_id` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `can_process` | - | - | - | - | - |
+| `can_update` | - | - | - | - | - |
+| `charge_bearer` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `created_by_email_address` | - | - | - | - | - |
+| `currency` | - | - | Yes | - | - |
+| `current_user_id` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `destination` | - | - | - | - | - |
+| `document` | - | - | - | - | - |
+| `event` | - | - | - | - | - |
+| `formatted_amount` | - | - | - | - | - |
+| `formatted_fx_destination_amount` | - | - | - | - | - |
+| `formatted_schedule` | - | - | - | - | - |
+| `formatted_schedule_day_only` | - | - | - | - | - |
+| `formatted_source_account_available_balance` | - | - | - | - | - |
+| `fx_destination_amount` | - | - | - | - | - |
+| `fx_destination_amount_minor_unit` | - | - | - | - | - |
+| `fx_destination_currency` | - | - | - | - | - |
+| `fx_quote_expires_at` | - | - | - | - | - |
+| `fx_quote_id` | - | - | - | - | - |
+| `fx_rate` | - | - | - | - | - |
+| `fx_use_destination_amount` | - | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `invoice_id` | - | - | - | - | - |
+| `is_archived` | - | - | - | - | - |
+| `is_failed` | - | - | - | - | - |
+| `is_settled` | - | - | - | - | - |
+| `is_submitted` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `merchant_token_description` | - | - | - | - | - |
+| `nonce` | - | - | - | - | - |
+| `payment_processor` | - | - | - | - | - |
+| `payment_rail` | - | - | - | - | - |
+| `payrun_id` | - | - | - | - | - |
+| `payrun_name` | - | - | - | - | - |
+| `reason` | - | - | - | - | - |
+| `rule` | - | - | - | - | - |
+| `schedule_date` | - | - | - | - | - |
+| `scheduled` | - | - | - | - | - |
+| `source_account_available_balance` | - | - | - | - | - |
+| `source_account_available_balance_minor_unit` | - | - | - | - | - |
+| `source_account_bic` | - | - | - | - | - |
+| `source_account_currency` | - | - | - | - | - |
+| `source_account_iban` | - | - | - | - | - |
+| `source_account_identifier` | - | - | - | - | - |
+| `source_account_name` | - | - | - | - | - |
+| `source_account_number` | - | - | - | - | - |
+| `source_account_sortcode` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `tag` | - | - | - | - | - |
+| `tag_id` | - | - | - | - | - |
+| `their_reference` | - | - | - | - | - |
+| `topup_payrun_id` | - | - | - | - | - |
+| `transacted_amount` | - | - | - | - | - |
+| `transacted_fx_amount` | - | - | - | - | - |
+| `transacted_fx_rate` | - | - | - | - | - |
+| `type` | - | - | Yes | - | - |
+| `user_id` | - | - | - | - | - |
+| `your_reference` | - | - | - | - | - |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Payout(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
@@ -5938,93 +3546,11 @@ Return the entity name.
 
 ---
 
-## PayrunEntity
+## PayoutKeysetEntity
 
 ```go
-payrun := client.Payrun(nil)
-fmt.Println(payrun.GetName()) // "payrun"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `note` | `string` | No |  |
-| `scheduled_date` | `string` | No |  |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.Payrun(nil).Create(map[string]any{
-    "id": "example_id",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
-
-Update an existing entity. The data must include the entity `id`.
-
-```go
-result, err := client.Payrun(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
-
-Remove the entity matching the given criteria.
-
-```go
-result, err := client.Payrun(nil).Remove(map[string]any{"id": "id"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `PayrunEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## RejectEntity
-
-```go
-reject := client.Reject(nil)
-fmt.Println(reject.GetName()) // "reject"
+payoutKeyset := client.PayoutKeyset(nil)
+fmt.Println(payoutKeyset.GetName()) // "payout_keyset"
 ```
 
 ### Fields
@@ -6082,7 +3608,6 @@ fmt.Println(reject.GetName()) // "reject"
 | `payment_rail` | `string` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
-| `reason` | `string` | No |  |
 | `rule` | `map[string]any` | No |  |
 | `schedule_date` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
@@ -6108,14 +3633,121 @@ fmt.Println(reject.GetName()) // "reject"
 
 ### Operations
 
-#### `Update(reqdata, ctrl map[string]any) (any, error)`
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
 
-Update an existing entity. The data must include the entity `id`.
+List entities matching the given criteria. Returns an array.
 
 ```go
-result, err := client.Reject(nil).Update(map[string]any{
-    "id": "id",
-    // Fields to update
+results, err := client.PayoutKeyset(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PayoutKeysetEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PayoutMetricEntity
+
+```go
+payoutMetric := client.PayoutMetric(nil)
+fmt.Println(payoutMetric.GetName()) // "payout_metric"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `all` | `float64` | No |  |
+| `failed` | `float64` | No |  |
+| `in_progress` | `float64` | No |  |
+| `paid` | `float64` | No |  |
+| `pending_approval` | `float64` | No |  |
+| `scheduled` | `float64` | No |  |
+| `total_amounts_by_currency` | `map[string]any` | No |  |
+
+### Operations
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.PayoutMetric(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PayoutMetricEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PayoutsCreateEntity
+
+```go
+payoutsCreate := client.PayoutsCreate(nil)
+fmt.Println(payoutsCreate.GetName()) // "payouts_create"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_payout` | `map[string]any` | No |  |
+| `payout` | `[]any` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.PayoutsCreate(nil).Create(map[string]any{
 }, nil)
 if err != nil {
     panic(err)
@@ -6137,7 +3769,142 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `RejectEntity` instance with the same client and
+Create a new `PayoutsCreateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## PayrunEntity
+
+```go
+payrun := client.Payrun(nil)
+fmt.Println(payrun.GetName()) // "payrun"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation` | `[]any` | No |  |
+| `authorisation_date` | `string` | No |  |
+| `authorisers_completed_count` | `int` | No |  |
+| `authorisers_required_count` | `int` | No |  |
+| `batch_payout_id` | `string` | No |  |
+| `can_authorise` | `bool` | No |  |
+| `can_delete` | `bool` | No |  |
+| `can_edit` | `bool` | No |  |
+| `event` | `[]any` | No |  |
+| `has_current_user_authorised` | `bool` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `invoice` | `[]any` | No |  |
+| `invoices_minimal` | `[]any` | No |  |
+| `is_archived` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `last_updated_by` | `map[string]any` | Yes |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nonce` | `string` | No |  |
+| `note` | `string` | No |  |
+| `payment` | `[]any` | No |  |
+| `payout` | `[]any` | No |  |
+| `payouts_count` | `int` | No |  |
+| `reason` | `string` | No |  |
+| `schedule_date` | `string` | No |  |
+| `scheduled_date` | `string` | No |  |
+| `source_account` | `[]any` | No |  |
+| `status` | `string` | No |  |
+| `total_eur` | `float64` | No |  |
+| `total_gbp` | `float64` | No |  |
+| `total_usd` | `float64` | No |  |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Payrun(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Payrun(nil).Load(map[string]any{"id": "payrun_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Payrun(nil).Create(map[string]any{
+    "id": "example_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Update(reqdata, ctrl map[string]any) (any, error)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```go
+result, err := client.Payrun(nil).Update(map[string]any{
+    "id": "payrun_id",
+    // Fields to update
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.Payrun(nil).Remove(map[string]any{"id": "payrun_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PayrunEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -6195,6 +3962,117 @@ Return the entity name.
 
 ---
 
+## ReportResultEntity
+
+```go
+reportResult := client.ReportResult(nil)
+fmt.Println(reportResult.GetName()) // "report_result"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | No |  |
+| `content_type` | `string` | No |  |
+| `last_completed_at` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `report_name` | `string` | No |  |
+| `report_type` | `string` | No |  |
+| `statement_number` | `int` | No |  |
+
+### Operations
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.ReportResult(nil).Load(map[string]any{"id": 1, "report_id": "report_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `ReportResultEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## RolesCreateEntity
+
+```go
+rolesCreate := client.RolesCreate(nil)
+fmt.Println(rolesCreate.GetName()) // "roles_create"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_role` | `map[string]any` | No |  |
+| `role` | `[]any` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.RolesCreate(nil).Create(map[string]any{
+    "merchant_id": "example_merchant_id",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `RolesCreateEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
 ## RuleEntity
 
 ```go
@@ -6202,7 +4080,122 @@ rule := client.Rule(nil)
 fmt.Println(rule.GetName()) // "rule"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account` | `map[string]any` | No |  |
+| `account_id` | `string` | No |  |
+| `approve_url` | `string` | No |  |
+| `approver_id` | `string` | No |  |
+| `authentication_method` | `[]any` | No |  |
+| `authorisation` | `[]any` | No |  |
+| `authorisers_completed_count` | `int` | No |  |
+| `authorisers_required_count` | `int` | No |  |
+| `can_authorise` | `bool` | No |  |
+| `created_by` | `map[string]any` | Yes |  |
+| `description` | `string` | No |  |
+| `end_at` | `string` | No |  |
+| `has_current_user_authorised` | `bool` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `is_disabled` | `bool` | No |  |
+| `last_executed_at` | `string` | No |  |
+| `last_run_at_transaction_date` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nonce` | `string` | Yes |  |
+| `on_approved_web_hook_url` | `string` | No |  |
+| `on_execution_error_web_hook_url` | `string` | No |  |
+| `on_execution_success_web_hook_url` | `string` | No |  |
+| `start_at` | `string` | No |  |
+| `status` | `string` | No |  |
+| `sweep_action` | `map[string]any` | No |  |
+| `time_zone_id` | `string` | No |  |
+| `trigger_cron_expression` | `string` | No |  |
+| `trigger_on_pay_in` | `bool` | No |  |
+| `user_id` | `string` | No |  |
+| `web_hook_secret` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `account` | - | - | - | - | - |
+| `account_id` | - | - | - | - | - |
+| `approve_url` | - | - | - | - | - |
+| `approver_id` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `end_at` | - | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `is_disabled` | - | - | - | - | - |
+| `last_executed_at` | - | - | - | - | - |
+| `last_run_at_transaction_date` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `name` | - | - | Yes | - | - |
+| `nonce` | - | - | - | - | - |
+| `on_approved_web_hook_url` | - | - | - | - | - |
+| `on_execution_error_web_hook_url` | - | - | - | - | - |
+| `on_execution_success_web_hook_url` | - | - | - | - | - |
+| `start_at` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `sweep_action` | - | - | Yes | - | - |
+| `time_zone_id` | - | - | - | - | - |
+| `trigger_cron_expression` | - | - | - | - | - |
+| `trigger_on_pay_in` | - | - | - | - | - |
+| `user_id` | - | - | - | - | - |
+| `web_hook_secret` | - | - | - | - | - |
+
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Rule(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Rule(nil).Load(map[string]any{"id": "rule_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Rule(nil).Create(map[string]any{
+    "created_by": map[string]any{},
+    "nonce": "example_nonce",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
 
 #### `Update(reqdata, ctrl map[string]any) (any, error)`
 
@@ -6210,7 +4203,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```go
 result, err := client.Rule(nil).Update(map[string]any{
-    "id": "id",
+    "id": "rule_id",
     // Fields to update
 }, nil)
 if err != nil {
@@ -6224,7 +4217,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.Rule(nil).Remove(map[string]any{"id": "id"}, nil)
+result, err := client.Rule(nil).Remove(map[string]any{"id": "rule_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -6255,190 +4248,39 @@ Return the entity name.
 
 ---
 
-## SendEntity
+## RuleEventEntity
 
 ```go
-send := client.Send(nil)
-fmt.Println(send.GetName()) // "send"
+ruleEvent := client.RuleEvent(nil)
+fmt.Println(ruleEvent.GetName()) // "rule_event"
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `allow_incomplete` | `bool` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `map[string]any` | Yes |  |
-| `beneficiary_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `map[string]any` | No |  |
-| `document` | `[]any` | No |  |
-| `event` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float64` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `error_message` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `map[string]any` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float64` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `map[string]any` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `tag_id` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float64` | No |  |
-| `transacted_fx_amount` | `float64` | No |  |
-| `transacted_fx_rate` | `float64` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | create |
-| --- | --- |
-| `account_id` | Yes |
-| `allow_incomplete` | - |
-| `amount` | - |
-| `amount_minor_unit` | - |
-| `approve_payout_url` | - |
-| `approver_id` | - |
-| `authentication_method` | - |
-| `authorisation` | - |
-| `authorisers_completed_count` | - |
-| `authorisers_required_count` | - |
-| `batch_payout_id` | - |
-| `beneficiary` | - |
-| `beneficiary_id` | - |
-| `can_authorise` | - |
-| `can_process` | - |
-| `can_update` | - |
-| `charge_bearer` | - |
-| `created_by` | - |
-| `created_by_email_address` | - |
-| `currency` | Yes |
-| `current_user_id` | - |
-| `description` | - |
-| `destination` | - |
-| `document` | - |
-| `event` | - |
-| `formatted_amount` | - |
-| `formatted_fx_destination_amount` | - |
-| `formatted_schedule` | - |
-| `formatted_schedule_day_only` | - |
-| `formatted_source_account_available_balance` | - |
-| `fx_destination_amount` | - |
-| `fx_destination_amount_minor_unit` | - |
-| `fx_destination_currency` | - |
-| `fx_quote_expires_at` | - |
-| `fx_quote_id` | - |
-| `fx_rate` | - |
-| `fx_use_destination_amount` | - |
-| `has_current_user_authorised` | - |
-| `id` | - |
-| `inserted` | - |
-| `invoice_id` | - |
-| `is_archived` | - |
-| `is_failed` | - |
-| `is_settled` | - |
-| `is_submitted` | - |
-| `last_updated` | - |
-| `merchant_id` | - |
-| `merchant_token_description` | - |
-| `nonce` | - |
-| `payment_processor` | - |
-| `payment_rail` | - |
-| `payrun_id` | - |
-| `payrun_name` | - |
-| `rule` | - |
-| `schedule_date` | - |
-| `scheduled` | - |
-| `source_account_available_balance` | - |
-| `source_account_available_balance_minor_unit` | - |
-| `source_account_bic` | - |
-| `source_account_currency` | - |
-| `source_account_iban` | - |
-| `source_account_identifier` | - |
-| `source_account_name` | - |
-| `source_account_number` | - |
-| `source_account_sortcode` | - |
-| `status` | - |
-| `tag` | - |
-| `tag_id` | - |
-| `their_reference` | - |
-| `topup_payrun_id` | - |
-| `transacted_amount` | - |
-| `transacted_fx_amount` | - |
-| `transacted_fx_rate` | - |
-| `type` | Yes |
-| `user_id` | - |
-| `your_reference` | - |
+| `is_authorise_to_enable` | `bool` | No |  |
+| `message` | `string` | No |  |
+| `raw_response` | `string` | No |  |
+| `rule_event_type` | `string` | No |  |
+| `rule_id` | `string` | No |  |
+| `user` | `map[string]any` | Yes |  |
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
 
-Create a new entity with the given data.
+List entities matching the given criteria. Returns an array.
 
 ```go
-result, err := client.Send(nil).Create(map[string]any{
-    "beneficiary": map[string]any{},
-    "source_account_identifier": map[string]any{},
-}, nil)
+results, err := client.RuleEvent(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(result)
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -6455,217 +4297,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `SendEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## SendbeneficiaryEntity
-
-```go
-sendbeneficiary := client.Sendbeneficiary(nil)
-fmt.Println(sendbeneficiary.GetName()) // "sendbeneficiary"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `allow_incomplete` | `bool` | No |  |
-| `amount` | `float64` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `[]any` | No |  |
-| `authorisation` | `[]any` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `map[string]any` | Yes |  |
-| `beneficiary_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `map[string]any` | No |  |
-| `document` | `[]any` | No |  |
-| `event` | `[]any` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float64` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float64` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `map[string]any` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float64` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `map[string]any` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `[]any` | No |  |
-| `tag_id` | `[]any` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float64` | No |  |
-| `transacted_fx_amount` | `float64` | No |  |
-| `transacted_fx_rate` | `float64` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | create |
-| --- | --- |
-| `account_id` | Yes |
-| `allow_incomplete` | - |
-| `amount` | - |
-| `amount_minor_unit` | - |
-| `approve_payout_url` | - |
-| `approver_id` | - |
-| `authentication_method` | - |
-| `authorisation` | - |
-| `authorisers_completed_count` | - |
-| `authorisers_required_count` | - |
-| `batch_payout_id` | - |
-| `beneficiary` | - |
-| `beneficiary_id` | - |
-| `can_authorise` | - |
-| `can_process` | - |
-| `can_update` | - |
-| `charge_bearer` | - |
-| `created_by` | - |
-| `created_by_email_address` | - |
-| `currency` | Yes |
-| `current_user_id` | - |
-| `description` | - |
-| `destination` | - |
-| `document` | - |
-| `event` | - |
-| `formatted_amount` | - |
-| `formatted_fx_destination_amount` | - |
-| `formatted_schedule` | - |
-| `formatted_schedule_day_only` | - |
-| `formatted_source_account_available_balance` | - |
-| `fx_destination_amount` | - |
-| `fx_destination_amount_minor_unit` | - |
-| `fx_destination_currency` | - |
-| `fx_quote_expires_at` | - |
-| `fx_quote_id` | - |
-| `fx_rate` | - |
-| `fx_use_destination_amount` | - |
-| `has_current_user_authorised` | - |
-| `id` | - |
-| `inserted` | - |
-| `invoice_id` | - |
-| `is_archived` | - |
-| `is_failed` | - |
-| `is_settled` | - |
-| `is_submitted` | - |
-| `last_updated` | - |
-| `merchant_id` | - |
-| `merchant_token_description` | - |
-| `nonce` | - |
-| `payment_processor` | - |
-| `payment_rail` | - |
-| `payrun_id` | - |
-| `payrun_name` | - |
-| `rule` | - |
-| `schedule_date` | - |
-| `scheduled` | - |
-| `source_account_available_balance` | - |
-| `source_account_available_balance_minor_unit` | - |
-| `source_account_bic` | - |
-| `source_account_currency` | - |
-| `source_account_iban` | - |
-| `source_account_identifier` | - |
-| `source_account_name` | - |
-| `source_account_number` | - |
-| `source_account_sortcode` | - |
-| `status` | - |
-| `tag` | - |
-| `tag_id` | - |
-| `their_reference` | - |
-| `topup_payrun_id` | - |
-| `transacted_amount` | - |
-| `transacted_fx_amount` | - |
-| `transacted_fx_rate` | - |
-| `type` | Yes |
-| `user_id` | - |
-| `your_reference` | - |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.Sendbeneficiary(nil).Create(map[string]any{
-    "beneficiary": map[string]any{},
-    "source_account_identifier": map[string]any{},
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `SendbeneficiaryEntity` instance with the same client and
+Create a new `RuleEventEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -6810,14 +4442,84 @@ transaction := client.Transaction(nil)
 fmt.Println(transaction.GetName()) // "transaction"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account_id` | `string` | No |  |
+| `account_name` | `string` | No |  |
+| `account_sequence_number` | `int` | No |  |
+| `address_detail` | `map[string]any` | No |  |
+| `amount` | `float64` | No |  |
+| `amount_minor_unit` | `int` | No |  |
+| `balance` | `float64` | No |  |
+| `balance_minor_unit` | `int` | No |  |
+| `booking_date_time` | `string` | No |  |
+| `charge_detail` | `map[string]any` | No |  |
+| `content` | `[]any` | No |  |
+| `counterparty` | `map[string]any` | No |  |
+| `counterparty_summary` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `currency_exchange` | `map[string]any` | No |  |
+| `date` | `string` | No |  |
+| `description` | `string` | No |  |
+| `enrichment` | `map[string]any` | No |  |
+| `fx_amount` | `float64` | No |  |
+| `fx_currency` | `string` | No |  |
+| `fx_rate` | `float64` | No |  |
+| `gross_amount` | `map[string]any` | Yes |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `iso_bank_transaction_code` | `map[string]any` | No |  |
+| `merchant` | `map[string]any` | No |  |
+| `merchant_id` | `string` | No |  |
+| `page_number` | `int` | No |  |
+| `page_size` | `int` | No |  |
+| `payee_detail` | `map[string]any` | Yes |  |
+| `payer_detail` | `map[string]any` | Yes |  |
+| `payment_request_custom_field` | `map[string]any` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `payout_id` | `string` | No |  |
+| `proprietary_bank_transaction_code` | `map[string]any` | No |  |
+| `raw_reference` | `string` | No |  |
+| `reference` | `string` | No |  |
+| `rule_id` | `string` | No |  |
+| `statement_reference` | `[]any` | No |  |
+| `status` | `string` | No |  |
+| `supplementary_data` | `any` | No |  |
+| `tag` | `[]any` | No |  |
+| `their_reference` | `string` | No |  |
+| `total_page` | `int` | No |  |
+| `total_size` | `int` | No |  |
+| `transaction_amount` | `map[string]any` | Yes |  |
+| `transaction_date` | `string` | No |  |
+| `transaction_information` | `[]any` | No |  |
+| `transaction_mutability` | `string` | No |  |
+| `type` | `string` | No |  |
+| `value_date_time` | `string` | No |  |
+| `virtual_iban` | `string` | No |  |
+| `your_reference` | `string` | No |  |
+
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Transaction(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Transaction(nil).Load(map[string]any{"sequence_number": 1, "transaction_id": "transaction_id"}, nil)
+result, err := client.Transaction(nil).Load(map[string]any{"id": "transaction_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -6843,7 +4545,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.Transaction(nil).Remove(map[string]any{"id": "id"}, nil)
+result, err := client.Transaction(nil).Remove(map[string]any{"id": "transaction_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -6973,7 +4675,81 @@ userInvite := client.UserInvite(nil)
 fmt.Println(userInvite.GetName()) // "user_invite"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation_status` | `map[string]any` | No |  |
+| `id` | `string` | No |  |
+| `initial_role_id` | `string` | No |  |
+| `invitee_email_address` | `string` | No |  |
+| `invitee_first_name` | `string` | No |  |
+| `invitee_last_name` | `string` | No |  |
+| `inviter_email_address` | `string` | No |  |
+| `inviter_first_name` | `string` | No |  |
+| `inviter_last_name` | `string` | No |  |
+| `is_authorised` | `bool` | No |  |
+| `is_invitee_registered` | `bool` | No |  |
+| `last_invited` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_name` | `string` | No |  |
+| `message` | `string` | No |  |
+| `registration_url` | `string` | No |  |
+| `send_invite_email` | `bool` | No |  |
+| `status` | `string` | No |  |
+| `user` | `map[string]any` | Yes |  |
+| `user_id` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `authorisation_status` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `initial_role_id` | - | - | - | - | - |
+| `invitee_email_address` | - | - | Yes | - | - |
+| `invitee_first_name` | - | - | - | - | - |
+| `invitee_last_name` | - | - | - | - | - |
+| `inviter_email_address` | - | - | - | - | - |
+| `inviter_first_name` | - | - | - | - | - |
+| `inviter_last_name` | - | - | - | - | - |
+| `is_authorised` | - | - | - | - | - |
+| `is_invitee_registered` | - | - | - | - | - |
+| `last_invited` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `merchant_name` | - | - | - | - | - |
+| `message` | - | - | - | - | - |
+| `registration_url` | - | - | - | - | - |
+| `send_invite_email` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `user` | - | - | - | - | - |
+| `user_id` | - | - | - | - | - |
+
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.UserInvite(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.UserInvite(nil).Load(map[string]any{"id": "user_invite_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
 
 #### `Create(reqdata, ctrl map[string]any) (any, error)`
 
@@ -6981,7 +4757,6 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
-    "id": "example_id",
 }, nil)
 if err != nil {
     panic(err)
@@ -6995,7 +4770,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```go
 result, err := client.UserInvite(nil).Update(map[string]any{
-    "id": "id",
+    "id": "user_invite_id",
     // Fields to update
 }, nil)
 if err != nil {
@@ -7009,7 +4784,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.UserInvite(nil).Remove(map[string]any{"id": "id"}, nil)
+result, err := client.UserInvite(nil).Remove(map[string]any{"id": "user_invite_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -7031,6 +4806,59 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `UserInviteEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## UserInvitesCreateEntity
+
+```go
+userInvitesCreate := client.UserInvitesCreate(nil)
+fmt.Println(userInvitesCreate.GetName()) // "user_invites_create"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_user_invite` | `map[string]any` | No |  |
+| `user_invite` | `[]any` | No |  |
+
+### Operations
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.UserInvitesCreate(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -7155,14 +4983,98 @@ webhook := client.Webhook(nil)
 fmt.Println(webhook.GetName()) // "webhook"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `destination_url` | `string` | No |  |
+| `email_address` | `string` | No |  |
+| `failed_notification_email_address` | `string` | No |  |
+| `id` | `string` | No |  |
+| `is_active` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `notification_method` | `string` | No |  |
+| `resource_type` | `[]any` | No |  |
+| `retry` | `bool` | No |  |
+| `secret` | `string` | No |  |
+| `version` | `int` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `destination_url` | - | - | - | - | - |
+| `email_address` | - | - | - | - | - |
+| `failed_notification_email_address` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `is_active` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | Yes | - |
+| `notification_method` | - | - | Yes | Yes | - |
+| `resource_type` | - | - | - | - | - |
+| `retry` | - | - | - | - | - |
+| `secret` | - | - | - | - | - |
+| `version` | - | - | - | - | - |
+
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Webhook(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Webhook(nil).Load(map[string]any{"id": "webhook_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Webhook(nil).Create(map[string]any{
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Update(reqdata, ctrl map[string]any) (any, error)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```go
+result, err := client.Webhook(nil).Update(map[string]any{
+    "id": "webhook_id",
+    // Fields to update
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
 
 #### `Remove(reqmatch, ctrl map[string]any) (any, error)`
 
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.Webhook(nil).Remove(map[string]any{"id": "id"}, nil)
+result, err := client.Webhook(nil).Remove(map[string]any{"id": "webhook_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -7184,124 +5096,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `WebhookEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## WhoamiEntity
-
-```go
-whoami := client.Whoami(nil)
-fmt.Println(whoami.GetName()) // "whoami"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `[]any` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `map[string]any` | No |  |
-| `roles_with_scope` | `[]any` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.Whoami(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `WhoamiEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## WhoamitrustedappEntity
-
-```go
-whoamitrustedapp := client.Whoamitrustedapp(nil)
-fmt.Println(whoamitrustedapp.GetName()) // "whoamitrustedapp"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `[]any` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `map[string]any` | No |  |
-| `roles_with_scope` | `[]any` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.Whoamitrustedapp(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `WhoamitrustedappEntity` instance with the same client and
 options.
 
 #### `GetName() string`

@@ -33,7 +33,7 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "load", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "payment_request." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -64,12 +64,33 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if paymentRequestRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if paymentRequestRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		paymentRequestRef01Match := map[string]any{}
+
+		paymentRequestRef01ListResult, err := paymentRequestRef01Ent.List(paymentRequestRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		paymentRequestRef01List, paymentRequestRef01ListOk := paymentRequestRef01ListResult.([]any)
+		if !paymentRequestRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", paymentRequestRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(paymentRequestRef01List), map[string]any{"id": paymentRequestRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
 
 		// UPDATE
 		paymentRequestRef01DataUp0Up := map[string]any{
+			"id": paymentRequestRef01Data["id"],
 		}
 
-		paymentRequestRef01MarkdefUp0Name := "error_description"
+		paymentRequestRef01MarkdefUp0Name := "base_origin_url"
 		paymentRequestRef01MarkdefUp0Value := fmt.Sprintf("Mark01-payment_request_ref01_%d", setup.now)
 		paymentRequestRef01DataUp0Up[paymentRequestRef01MarkdefUp0Name] = paymentRequestRef01MarkdefUp0Value
 
@@ -81,18 +102,27 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if paymentRequestRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if paymentRequestRef01ResdataUp0["id"] != paymentRequestRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if paymentRequestRef01ResdataUp0[paymentRequestRef01MarkdefUp0Name] != paymentRequestRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", paymentRequestRef01MarkdefUp0Name, paymentRequestRef01ResdataUp0[paymentRequestRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		paymentRequestRef01MatchDt0 := map[string]any{}
+		paymentRequestRef01MatchDt0 := map[string]any{
+			"id": paymentRequestRef01Data["id"],
+		}
 		paymentRequestRef01DataDt0Loaded, err := paymentRequestRef01Ent.Load(paymentRequestRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if paymentRequestRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		paymentRequestRef01DataDt0LoadResult := core.ToMapAny(paymentRequestRef01DataDt0Loaded)
+		if paymentRequestRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if paymentRequestRef01DataDt0LoadResult["id"] != paymentRequestRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 		// REMOVE
@@ -102,6 +132,23 @@ func TestPaymentRequestEntity(t *testing.T) {
 		_, err = paymentRequestRef01Ent.Remove(paymentRequestRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		paymentRequestRef01MatchRt0 := map[string]any{}
+
+		paymentRequestRef01ListRt0Result, err := paymentRequestRef01Ent.List(paymentRequestRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		paymentRequestRef01ListRt0, paymentRequestRef01ListRt0Ok := paymentRequestRef01ListRt0Result.([]any)
+		if !paymentRequestRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", paymentRequestRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(paymentRequestRef01ListRt0), map[string]any{"id": paymentRequestRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

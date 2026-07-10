@@ -33,7 +33,7 @@ func TestBeneficiaryEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "load", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "beneficiary." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -66,6 +66,25 @@ func TestBeneficiaryEntity(t *testing.T) {
 		}
 		if beneficiaryRef01Data["id"] == nil {
 			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		beneficiaryRef01Match := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		beneficiaryRef01ListResult, err := beneficiaryRef01Ent.List(beneficiaryRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		beneficiaryRef01List, beneficiaryRef01ListOk := beneficiaryRef01ListResult.([]any)
+		if !beneficiaryRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", beneficiaryRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(beneficiaryRef01List), map[string]any{"id": beneficiaryRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -115,6 +134,25 @@ func TestBeneficiaryEntity(t *testing.T) {
 		_, err = beneficiaryRef01Ent.Remove(beneficiaryRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		beneficiaryRef01MatchRt0 := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		beneficiaryRef01ListRt0Result, err := beneficiaryRef01Ent.List(beneficiaryRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		beneficiaryRef01ListRt0, beneficiaryRef01ListRt0Ok := beneficiaryRef01ListRt0Result.([]any)
+		if !beneficiaryRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", beneficiaryRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(beneficiaryRef01ListRt0), map[string]any{"id": beneficiaryRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

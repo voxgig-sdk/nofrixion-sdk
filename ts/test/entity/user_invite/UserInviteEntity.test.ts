@@ -39,7 +39,7 @@ describe('UserInviteEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'update', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'user_invite.' + op, live)) return
     }
 
@@ -61,22 +61,54 @@ describe('UserInviteEntity', async () => {
     // CREATE
     const user_invite_ref01_ent = client.UserInvite()
     let user_invite_ref01_data = setup.data.new.user_invite['user_invite_ref01']
+    user_invite_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
     user_invite_ref01_data = await user_invite_ref01_ent.create(user_invite_ref01_data)
-    assert(null != user_invite_ref01_data)
+    assert(null != user_invite_ref01_data.id)
+
+
+    // LIST
+    const user_invite_ref01_match: any = {}
+    user_invite_ref01_match['merchant_id'] = setup.idmap['merchant01']
+
+    const user_invite_ref01_list = await user_invite_ref01_ent.list(user_invite_ref01_match)
+
+    assert(!isempty(select(user_invite_ref01_list, { id: user_invite_ref01_data.id })))
 
 
     // UPDATE
     const user_invite_ref01_data_up0: any = {}
+    user_invite_ref01_data_up0.id = user_invite_ref01_data.id
+
+    const user_invite_ref01_markdef_up0 = { name: 'initial_role_id', value: 'Mark01-user_invite_ref01_' + setup.now }
+    ;(user_invite_ref01_data_up0 as any)[user_invite_ref01_markdef_up0.name] = user_invite_ref01_markdef_up0.value
 
     const user_invite_ref01_resdata_up0 = await user_invite_ref01_ent.update(user_invite_ref01_data_up0)
-    assert(null != user_invite_ref01_resdata_up0)
+    assert(user_invite_ref01_resdata_up0.id === user_invite_ref01_data_up0.id)
+
+    assert((user_invite_ref01_resdata_up0 as any)[user_invite_ref01_markdef_up0.name] === user_invite_ref01_markdef_up0.value)
+
+
+    // LOAD
+    const user_invite_ref01_match_dt0: any = {}
+    user_invite_ref01_match_dt0.id = user_invite_ref01_data.id
+    const user_invite_ref01_data_dt0 = await user_invite_ref01_ent.load(user_invite_ref01_match_dt0)
+    assert(user_invite_ref01_data_dt0.id === user_invite_ref01_data.id)
 
 
     // REMOVE
     const user_invite_ref01_match_rm0: any = { id: user_invite_ref01_data.id }
     await user_invite_ref01_ent.remove(user_invite_ref01_match_rm0)
   
+
+    // LIST
+    const user_invite_ref01_match_rt0: any = {}
+    user_invite_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
+
+    const user_invite_ref01_list_rt0 = await user_invite_ref01_ent.list(user_invite_ref01_match_rt0)
+
+    assert(isempty(select(user_invite_ref01_list_rt0, { id: user_invite_ref01_data.id })))
+
 
   })
 })
@@ -106,7 +138,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['user_invite01','user_invite02','user_invite03'],
+    ['user_invite01','user_invite02','user_invite03','merchant01','merchant02','merchant03','userinvite01','userinvite02','userinvite03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

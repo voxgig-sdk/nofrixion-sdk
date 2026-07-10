@@ -1,0 +1,22 @@
+# BasicRuleEventFlow
+
+main: kit: flow: BasicRuleEventFlow:
+{
+  entity: "rule_event",
+  kind: "basic",
+  name: "BasicRuleEventFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "rule_event_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRuleEventFlow"
+}

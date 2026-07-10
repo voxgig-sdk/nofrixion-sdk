@@ -1,0 +1,79 @@
+# BasicMerchantTokenFlow
+
+main: kit: flow: BasicMerchantTokenFlow:
+{
+  entity: "merchant_token",
+  kind: "basic",
+  name: "BasicMerchantTokenFlow",
+  step: [
+    {
+      input: {
+        ref: "merchant_token_ref01"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "merchant_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_token_ref01",
+        srcdatavar: "merchant_token_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_token_ref01",
+        srcdatavar: "merchant_token_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "merchant_token01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMerchantTokenFlow"
+}

@@ -1,0 +1,51 @@
+# BasicFxRateFlow
+
+main: kit: flow: BasicFxRateFlow:
+{
+  entity: "fx_rate",
+  kind: "basic",
+  name: "BasicFxRateFlow",
+  step: [
+    {
+      match: {
+        destination: "destination01",
+        source: "source01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "fx_rate_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "fx_rate_ref01",
+        srcdatavar: "fx_rate_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        destination: "destination01",
+        id: "fx_rate01",
+        source: "source01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-fx_rate_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFxRateFlow"
+}

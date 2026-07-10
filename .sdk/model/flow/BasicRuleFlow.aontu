@@ -8,13 +8,56 @@ main: kit: flow: BasicRuleFlow:
   step: [
     {
       input: {
+        ref: "rule_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
         ref: "rule_ref01",
         srcdatavar: "rule_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "account_id"
       }
 
       op: "update",
       spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "rule_ref01",
+        srcdatavar: "rule_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "rule01"
+      }
+
+      op: "load",
+      valid: [
         {
           apply: "TextFieldMark",
           def: {
@@ -35,6 +78,22 @@ main: kit: flow: BasicRuleFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "rule_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicRuleFlow"

@@ -6,7 +6,102 @@ main: kit: entity: payrun: {
 
   fields: [
     {
+      name: "authorisation"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "authorisation_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "authorisers_completed_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "authorisers_required_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "batch_payout_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "can_authorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_delete"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_edit"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "event"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "has_current_user_authorised"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
       name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "invoice"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "invoices_minimal"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated_by"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nonce"
       req: false
       type: "`$STRING`"
     }
@@ -16,9 +111,59 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
+      name: "payment"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "payout"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "payouts_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "schedule_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "scheduled_date"
       req: false
       type: "`$STRING`"
+    }
+    {
+      name: "source_account"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_eur"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "total_gbp"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "total_usd"
+      req: false
+      type: "`$NUMBER`"
     }
   ]
 
@@ -87,6 +232,175 @@ main: kit: entity: payrun: {
           ]
           select: {
             "$action": "submit"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v1/payruns/{merchantID}"
+          parts: [
+            "api"
+            "v1"
+            "payruns"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "from_date"
+                orig: "from_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_archived"
+                orig: "only_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "to_date"
+                orig: "to_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payruns"
+          parts: [
+            "api"
+            "v1"
+            "payruns"
+          ]
+          select: {
+            exist: [
+              "from_date"
+              "merchant_id"
+              "only_archived"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+              "status"
+              "to_date"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/payruns/{id}"
+          parts: [
+            "api"
+            "v1"
+            "payruns"
+            "{id}"
+          ]
+          select: {
             exist: [
               "id"
             ]
@@ -181,6 +495,36 @@ main: kit: entity: payrun: {
             ]
           }
           method: "PUT"
+          orig: "/api/v1/payruns/{id}"
+          parts: [
+            "api"
+            "v1"
+            "payruns"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
           orig: "/api/v1/payruns/{id}/cancel"
           parts: [
             "api"
@@ -191,6 +535,38 @@ main: kit: entity: payrun: {
           ]
           select: {
             "$action": "cancel"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/payruns/{id}/reject"
+          parts: [
+            "api"
+            "v1"
+            "payruns"
+            "{id}"
+            "reject"
+          ]
+          select: {
+            "$action": "reject"
             exist: [
               "id"
             ]

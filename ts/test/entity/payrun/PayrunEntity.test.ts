@@ -39,7 +39,7 @@ describe('PayrunEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'update', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'payrun.' + op, live)) return
     }
 
@@ -61,16 +61,25 @@ describe('PayrunEntity', async () => {
     // CREATE
     const payrun_ref01_ent = client.Payrun()
     let payrun_ref01_data = setup.data.new.payrun['payrun_ref01']
+    payrun_ref01_data['merchant_i_d'] = setup.idmap['merchant_i_d01']
 
     payrun_ref01_data = await payrun_ref01_ent.create(payrun_ref01_data)
     assert(null != payrun_ref01_data.id)
+
+
+    // LIST
+    const payrun_ref01_match: any = {}
+
+    const payrun_ref01_list = await payrun_ref01_ent.list(payrun_ref01_match)
+
+    assert(!isempty(select(payrun_ref01_list, { id: payrun_ref01_data.id })))
 
 
     // UPDATE
     const payrun_ref01_data_up0: any = {}
     payrun_ref01_data_up0.id = payrun_ref01_data.id
 
-    const payrun_ref01_markdef_up0 = { name: 'note', value: 'Mark01-payrun_ref01_' + setup.now }
+    const payrun_ref01_markdef_up0 = { name: 'authorisation_date', value: 'Mark01-payrun_ref01_' + setup.now }
     ;(payrun_ref01_data_up0 as any)[payrun_ref01_markdef_up0.name] = payrun_ref01_markdef_up0.value
 
     const payrun_ref01_resdata_up0 = await payrun_ref01_ent.update(payrun_ref01_data_up0)
@@ -79,10 +88,25 @@ describe('PayrunEntity', async () => {
     assert((payrun_ref01_resdata_up0 as any)[payrun_ref01_markdef_up0.name] === payrun_ref01_markdef_up0.value)
 
 
+    // LOAD
+    const payrun_ref01_match_dt0: any = {}
+    payrun_ref01_match_dt0.id = payrun_ref01_data.id
+    const payrun_ref01_data_dt0 = await payrun_ref01_ent.load(payrun_ref01_match_dt0)
+    assert(payrun_ref01_data_dt0.id === payrun_ref01_data.id)
+
+
     // REMOVE
     const payrun_ref01_match_rm0: any = { id: payrun_ref01_data.id }
     await payrun_ref01_ent.remove(payrun_ref01_match_rm0)
   
+
+    // LIST
+    const payrun_ref01_match_rt0: any = {}
+
+    const payrun_ref01_list_rt0 = await payrun_ref01_ent.list(payrun_ref01_match_rt0)
+
+    assert(isempty(select(payrun_ref01_list_rt0, { id: payrun_ref01_data.id })))
+
 
   })
 })

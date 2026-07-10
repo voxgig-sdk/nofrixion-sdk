@@ -1,0 +1,40 @@
+# BasicMandateFlow
+
+main: kit: flow: BasicMandateFlow:
+{
+  entity: "mandate",
+  kind: "basic",
+  name: "BasicMandateFlow",
+  step: [
+    {
+      input: {
+        ref: "mandate_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "mandate_ref01",
+        srcdatavar: "mandate_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "mandate01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-mandate_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMandateFlow"
+}

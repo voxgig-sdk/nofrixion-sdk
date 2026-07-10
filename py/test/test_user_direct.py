@@ -37,7 +37,7 @@ class TestUserDirect:
             params["merchant_id"] = "direct01"
 
         result = client.direct({
-            "path": "api/v1/merchants/{merchant_id}/users",
+            "path": "api/v1/user/{merchant_id}/userspaged",
             "method": "GET",
             "params": params,
         })

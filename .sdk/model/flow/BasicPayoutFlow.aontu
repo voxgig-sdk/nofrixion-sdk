@@ -12,11 +12,29 @@ main: kit: flow: BasicPayoutFlow:
       }
 
       match: {
+        account_id: "account01",
         destination: "destination01",
+        merchant_id: "merchant01",
         source: "source01"
       }
 
       op: "create"
+    }
+
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payout_ref01"
+          }
+        }
+      ]
     }
 
     {
@@ -67,6 +85,26 @@ main: kit: flow: BasicPayoutFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "payout_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicPayoutFlow"

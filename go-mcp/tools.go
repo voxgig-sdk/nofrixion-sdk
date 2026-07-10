@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"account | beneficiary | cancel | disable | enable | merchant | metadata | no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page | no_frixion_biz_biz_models_paging_payment_request_page | no_frixion_biz_biz_models_paging_payout_page | no_frixion_biz_biz_models_paging_payrun_page | no_frixion_biz_biz_models_paging_rule_events_page | no_frixion_biz_biz_models_paging_rules_page | no_frixion_biz_biz_models_payments_card_payment | no_frixion_biz_biz_models_payments_card_public_key | no_frixion_money_moov_api_features_beneficiaries_beneficiaries | no_frixion_money_moov_api_features_payment_requests_payment | no_frixion_money_moov_api_features_permissions_roles_create | no_frixion_money_moov_api_features_user_invites_create | no_frixion_money_moov_models_authorisation_settings_merchant | no_frixion_money_moov_models_batch_payout | no_frixion_money_moov_models_beneficiary_group_page | no_frixion_money_moov_models_beneficiary_page | no_frixion_money_moov_models_card_customer_token | no_frixion_money_moov_models_currency_currency_info | no_frixion_money_moov_models_direct_debit_batch_submit | no_frixion_money_moov_models_fx_rate | no_frixion_money_moov_models_i_payment | no_frixion_money_moov_models_mandates_mandate | no_frixion_money_moov_models_merchant | no_frixion_money_moov_models_merchant_page | no_frixion_money_moov_models_merchant_pay_by_bank_setting | no_frixion_money_moov_models_merchant_token | no_frixion_money_moov_models_merchant_token_page | no_frixion_money_moov_models_no_frixion_version | no_frixion_money_moov_models_open_banking_account | no_frixion_money_moov_models_open_banking_consent | no_frixion_money_moov_models_open_banking_transaction | no_frixion_money_moov_models_payment | no_frixion_money_moov_models_payment_account_minimal_page | no_frixion_money_moov_models_payment_account_page | no_frixion_money_moov_models_payment_initiation | no_frixion_money_moov_models_payment_request_event | no_frixion_money_moov_models_payment_request_metric | no_frixion_money_moov_models_payment_request_minimal | no_frixion_money_moov_models_payment_request_result | no_frixion_money_moov_models_payment_requests_merchant_payment | no_frixion_money_moov_models_payment_requests_merchant_payment2 | no_frixion_money_moov_models_payment_requests_merchant_payment3 | no_frixion_money_moov_models_payment_requests_merchant_payment4 | no_frixion_money_moov_models_payout_keyset_page | no_frixion_money_moov_models_payout_metric | no_frixion_money_moov_models_payouts_payouts_create | no_frixion_money_moov_models_payrun | no_frixion_money_moov_models_report_result | no_frixion_money_moov_models_rule | no_frixion_money_moov_models_transaction | no_frixion_money_moov_models_transaction_page | no_frixion_money_moov_models_user_invite | no_frixion_money_moov_models_user_invite_page | no_frixion_money_moov_models_user_page | no_frixion_money_moov_models_webhook | open_banking | payeeverification | payment_request | payout | payrun | reject | report | rule | send | sendbeneficiary | tag | token | transaction | user | user_invite | virtual | webhook | whoami | whoamitrustedapp"`
+	Entity string         `json:"entity" jsonschema:"account | batch | beneficiaries_create | beneficiary | beneficiary_group | card | card_customer_token | card_payment | card_public_key | consent | currency | direct_debit_batch_submit | fx_rate | i_payment | mandate | merchant | merchant_authorisation_setting | merchant_direct_debit_mandate | merchant_pay_by_bank_setting | merchant_payment_request_template | merchant_token | metadata | no_frixion_version | open_banking | payeeverification | payment | payment_account | payment_account_minimal | payment_initiation | payment_request | payment_request_event | payment_request_metric | payment_request_minimal | payment_request_result | payment_requests_create | payout | payout_keyset | payout_metric | payouts_create | payrun | report | report_result | roles_create | rule | rule_event | tag | token | transaction | user | user_invite | user_invites_create | virtual | webhook"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -79,148 +79,94 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 	switch strings.ToLower(name) {
 	case "account":
 		return client.Account(nil), nil
+	case "batch":
+		return client.Batch(nil), nil
+	case "beneficiaries_create":
+		return client.BeneficiariesCreate(nil), nil
 	case "beneficiary":
 		return client.Beneficiary(nil), nil
-	case "cancel":
-		return client.Cancel(nil), nil
-	case "disable":
-		return client.Disable(nil), nil
-	case "enable":
-		return client.Enable(nil), nil
+	case "beneficiary_group":
+		return client.BeneficiaryGroup(nil), nil
+	case "card":
+		return client.Card(nil), nil
+	case "card_customer_token":
+		return client.CardCustomerToken(nil), nil
+	case "card_payment":
+		return client.CardPayment(nil), nil
+	case "card_public_key":
+		return client.CardPublicKey(nil), nil
+	case "consent":
+		return client.Consent(nil), nil
+	case "currency":
+		return client.Currency(nil), nil
+	case "direct_debit_batch_submit":
+		return client.DirectDebitBatchSubmit(nil), nil
+	case "fx_rate":
+		return client.FxRate(nil), nil
+	case "i_payment":
+		return client.IPayment(nil), nil
+	case "mandate":
+		return client.Mandate(nil), nil
 	case "merchant":
 		return client.Merchant(nil), nil
+	case "merchant_authorisation_setting":
+		return client.MerchantAuthorisationSetting(nil), nil
+	case "merchant_direct_debit_mandate":
+		return client.MerchantDirectDebitMandate(nil), nil
+	case "merchant_pay_by_bank_setting":
+		return client.MerchantPayByBankSetting(nil), nil
+	case "merchant_payment_request_template":
+		return client.MerchantPaymentRequestTemplate(nil), nil
+	case "merchant_token":
+		return client.MerchantToken(nil), nil
 	case "metadata":
 		return client.Metadata(nil), nil
-	case "no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page":
-		return client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(nil), nil
-	case "no_frixion_biz_biz_models_paging_payment_request_page":
-		return client.NoFrixionBizBizModelsPagingPaymentRequestPage(nil), nil
-	case "no_frixion_biz_biz_models_paging_payout_page":
-		return client.NoFrixionBizBizModelsPagingPayoutPage(nil), nil
-	case "no_frixion_biz_biz_models_paging_payrun_page":
-		return client.NoFrixionBizBizModelsPagingPayrunPage(nil), nil
-	case "no_frixion_biz_biz_models_paging_rule_events_page":
-		return client.NoFrixionBizBizModelsPagingRuleEventsPage(nil), nil
-	case "no_frixion_biz_biz_models_paging_rules_page":
-		return client.NoFrixionBizBizModelsPagingRulesPage(nil), nil
-	case "no_frixion_biz_biz_models_payments_card_payment":
-		return client.NoFrixionBizBizModelsPaymentsCardPayment(nil), nil
-	case "no_frixion_biz_biz_models_payments_card_public_key":
-		return client.NoFrixionBizBizModelsPaymentsCardPublicKey(nil), nil
-	case "no_frixion_money_moov_api_features_beneficiaries_beneficiaries":
-		return client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(nil), nil
-	case "no_frixion_money_moov_api_features_payment_requests_payment":
-		return client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(nil), nil
-	case "no_frixion_money_moov_api_features_permissions_roles_create":
-		return client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(nil), nil
-	case "no_frixion_money_moov_api_features_user_invites_create":
-		return client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(nil), nil
-	case "no_frixion_money_moov_models_authorisation_settings_merchant":
-		return client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(nil), nil
-	case "no_frixion_money_moov_models_batch_payout":
-		return client.NoFrixionMoneyMoovModelsBatchPayout(nil), nil
-	case "no_frixion_money_moov_models_beneficiary_group_page":
-		return client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage(nil), nil
-	case "no_frixion_money_moov_models_beneficiary_page":
-		return client.NoFrixionMoneyMoovModelsBeneficiaryPage(nil), nil
-	case "no_frixion_money_moov_models_card_customer_token":
-		return client.NoFrixionMoneyMoovModelsCardCustomerToken(nil), nil
-	case "no_frixion_money_moov_models_currency_currency_info":
-		return client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(nil), nil
-	case "no_frixion_money_moov_models_direct_debit_batch_submit":
-		return client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(nil), nil
-	case "no_frixion_money_moov_models_fx_rate":
-		return client.NoFrixionMoneyMoovModelsFxRate(nil), nil
-	case "no_frixion_money_moov_models_i_payment":
-		return client.NoFrixionMoneyMoovModelsIPayment(nil), nil
-	case "no_frixion_money_moov_models_mandates_mandate":
-		return client.NoFrixionMoneyMoovModelsMandatesMandate(nil), nil
-	case "no_frixion_money_moov_models_merchant":
-		return client.NoFrixionMoneyMoovModelsMerchant(nil), nil
-	case "no_frixion_money_moov_models_merchant_page":
-		return client.NoFrixionMoneyMoovModelsMerchantPage(nil), nil
-	case "no_frixion_money_moov_models_merchant_pay_by_bank_setting":
-		return client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting(nil), nil
-	case "no_frixion_money_moov_models_merchant_token":
-		return client.NoFrixionMoneyMoovModelsMerchantToken(nil), nil
-	case "no_frixion_money_moov_models_merchant_token_page":
-		return client.NoFrixionMoneyMoovModelsMerchantTokenPage(nil), nil
-	case "no_frixion_money_moov_models_no_frixion_version":
-		return client.NoFrixionMoneyMoovModelsNoFrixionVersion(nil), nil
-	case "no_frixion_money_moov_models_open_banking_account":
-		return client.NoFrixionMoneyMoovModelsOpenBankingAccount(nil), nil
-	case "no_frixion_money_moov_models_open_banking_consent":
-		return client.NoFrixionMoneyMoovModelsOpenBankingConsent(nil), nil
-	case "no_frixion_money_moov_models_open_banking_transaction":
-		return client.NoFrixionMoneyMoovModelsOpenBankingTransaction(nil), nil
-	case "no_frixion_money_moov_models_payment":
-		return client.NoFrixionMoneyMoovModelsPayment(nil), nil
-	case "no_frixion_money_moov_models_payment_account_minimal_page":
-		return client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(nil), nil
-	case "no_frixion_money_moov_models_payment_account_page":
-		return client.NoFrixionMoneyMoovModelsPaymentAccountPage(nil), nil
-	case "no_frixion_money_moov_models_payment_initiation":
-		return client.NoFrixionMoneyMoovModelsPaymentInitiation(nil), nil
-	case "no_frixion_money_moov_models_payment_request_event":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestEvent(nil), nil
-	case "no_frixion_money_moov_models_payment_request_metric":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestMetric(nil), nil
-	case "no_frixion_money_moov_models_payment_request_minimal":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestMinimal(nil), nil
-	case "no_frixion_money_moov_models_payment_request_result":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestResult(nil), nil
-	case "no_frixion_money_moov_models_payment_requests_merchant_payment":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(nil), nil
-	case "no_frixion_money_moov_models_payment_requests_merchant_payment2":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(nil), nil
-	case "no_frixion_money_moov_models_payment_requests_merchant_payment3":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(nil), nil
-	case "no_frixion_money_moov_models_payment_requests_merchant_payment4":
-		return client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(nil), nil
-	case "no_frixion_money_moov_models_payout_keyset_page":
-		return client.NoFrixionMoneyMoovModelsPayoutKeysetPage(nil), nil
-	case "no_frixion_money_moov_models_payout_metric":
-		return client.NoFrixionMoneyMoovModelsPayoutMetric(nil), nil
-	case "no_frixion_money_moov_models_payouts_payouts_create":
-		return client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(nil), nil
-	case "no_frixion_money_moov_models_payrun":
-		return client.NoFrixionMoneyMoovModelsPayrun(nil), nil
-	case "no_frixion_money_moov_models_report_result":
-		return client.NoFrixionMoneyMoovModelsReportResult(nil), nil
-	case "no_frixion_money_moov_models_rule":
-		return client.NoFrixionMoneyMoovModelsRule(nil), nil
-	case "no_frixion_money_moov_models_transaction":
-		return client.NoFrixionMoneyMoovModelsTransaction(nil), nil
-	case "no_frixion_money_moov_models_transaction_page":
-		return client.NoFrixionMoneyMoovModelsTransactionPage(nil), nil
-	case "no_frixion_money_moov_models_user_invite":
-		return client.NoFrixionMoneyMoovModelsUserInvite(nil), nil
-	case "no_frixion_money_moov_models_user_invite_page":
-		return client.NoFrixionMoneyMoovModelsUserInvitePage(nil), nil
-	case "no_frixion_money_moov_models_user_page":
-		return client.NoFrixionMoneyMoovModelsUserPage(nil), nil
-	case "no_frixion_money_moov_models_webhook":
-		return client.NoFrixionMoneyMoovModelsWebhook(nil), nil
+	case "no_frixion_version":
+		return client.NoFrixionVersion(nil), nil
 	case "open_banking":
 		return client.OpenBanking(nil), nil
 	case "payeeverification":
 		return client.Payeeverification(nil), nil
+	case "payment":
+		return client.Payment(nil), nil
+	case "payment_account":
+		return client.PaymentAccount(nil), nil
+	case "payment_account_minimal":
+		return client.PaymentAccountMinimal(nil), nil
+	case "payment_initiation":
+		return client.PaymentInitiation(nil), nil
 	case "payment_request":
 		return client.PaymentRequest(nil), nil
+	case "payment_request_event":
+		return client.PaymentRequestEvent(nil), nil
+	case "payment_request_metric":
+		return client.PaymentRequestMetric(nil), nil
+	case "payment_request_minimal":
+		return client.PaymentRequestMinimal(nil), nil
+	case "payment_request_result":
+		return client.PaymentRequestResult(nil), nil
+	case "payment_requests_create":
+		return client.PaymentRequestsCreate(nil), nil
 	case "payout":
 		return client.Payout(nil), nil
+	case "payout_keyset":
+		return client.PayoutKeyset(nil), nil
+	case "payout_metric":
+		return client.PayoutMetric(nil), nil
+	case "payouts_create":
+		return client.PayoutsCreate(nil), nil
 	case "payrun":
 		return client.Payrun(nil), nil
-	case "reject":
-		return client.Reject(nil), nil
 	case "report":
 		return client.Report(nil), nil
+	case "report_result":
+		return client.ReportResult(nil), nil
+	case "roles_create":
+		return client.RolesCreate(nil), nil
 	case "rule":
 		return client.Rule(nil), nil
-	case "send":
-		return client.Send(nil), nil
-	case "sendbeneficiary":
-		return client.Sendbeneficiary(nil), nil
+	case "rule_event":
+		return client.RuleEvent(nil), nil
 	case "tag":
 		return client.Tag(nil), nil
 	case "token":
@@ -231,14 +177,12 @@ func entityFor(client *sdk.NofrixionSDK, name string) (sdk.NofrixionEntity, erro
 		return client.User(nil), nil
 	case "user_invite":
 		return client.UserInvite(nil), nil
+	case "user_invites_create":
+		return client.UserInvitesCreate(nil), nil
 	case "virtual":
 		return client.Virtual(nil), nil
 	case "webhook":
 		return client.Webhook(nil), nil
-	case "whoami":
-		return client.Whoami(nil), nil
-	case "whoamitrustedapp":
-		return client.Whoamitrustedapp(nil), nil
 
 	}
 	return nil, fmt.Errorf("unknown entity %q", name)

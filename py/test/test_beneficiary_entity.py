@@ -27,7 +27,7 @@ class TestBeneficiaryEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "load", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "beneficiary." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -48,6 +48,19 @@ class TestBeneficiaryEntity:
         beneficiary_ref01_data = helpers.to_map(beneficiary_ref01_ent.create(beneficiary_ref01_data, None))
         assert beneficiary_ref01_data is not None
         assert beneficiary_ref01_data["id"] is not None
+
+        # LIST
+        beneficiary_ref01_match = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        beneficiary_ref01_list_result = beneficiary_ref01_ent.list(beneficiary_ref01_match, None)
+        assert isinstance(beneficiary_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(beneficiary_ref01_list_result),
+            {"id": beneficiary_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         beneficiary_ref01_data_up0_up = {
@@ -77,6 +90,19 @@ class TestBeneficiaryEntity:
             "id": beneficiary_ref01_data["id"],
         }
         beneficiary_ref01_ent.remove(beneficiary_ref01_match_rm0, None)
+
+        # LIST
+        beneficiary_ref01_match_rt0 = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        beneficiary_ref01_list_rt0_result = beneficiary_ref01_ent.list(beneficiary_ref01_match_rt0, None)
+        assert isinstance(beneficiary_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(beneficiary_ref01_list_rt0_result),
+            {"id": beneficiary_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

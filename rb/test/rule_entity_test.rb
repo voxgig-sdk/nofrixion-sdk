@@ -16,7 +16,7 @@ class RuleEntityTest < Minitest::Test
     setup = rule_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["update", "remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "rule." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -31,28 +31,67 @@ class RuleEntityTest < Minitest::Test
     end
     client = setup[:client]
 
-    # Bootstrap entity data from existing test data.
-    rule_ref01_data_raw = Vs.items(Helpers.to_map(
-      Vs.getpath(setup[:data], "existing.rule")))
-    rule_ref01_data = nil
-    if rule_ref01_data_raw.length > 0
-      rule_ref01_data = Helpers.to_map(rule_ref01_data_raw[0][1])
-    end
+    # CREATE
+    rule_ref01_ent = client.Rule(nil)
+    rule_ref01_data = Helpers.to_map(Vs.getprop(
+      Vs.getpath(setup[:data], "new.rule"), "rule_ref01"))
+
+    rule_ref01_data_result = rule_ref01_ent.create(rule_ref01_data, nil)
+    rule_ref01_data = Helpers.to_map(rule_ref01_data_result)
+    assert !rule_ref01_data.nil?
+    assert !rule_ref01_data["id"].nil?
+
+    # LIST
+    rule_ref01_match = {}
+
+    rule_ref01_list_result = rule_ref01_ent.list(rule_ref01_match, nil)
+    assert rule_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(rule_ref01_list_result),
+      { "id" => rule_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
     # UPDATE
-    rule_ref01_ent = client.Rule(nil)
     rule_ref01_data_up0_up = {
+      "id" => rule_ref01_data["id"],
     }
+
+    rule_ref01_markdef_up0_name = "account_id"
+    rule_ref01_markdef_up0_value = "Mark01-rule_ref01_#{setup[:now]}"
+    rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
     rule_ref01_resdata_up0_result = rule_ref01_ent.update(rule_ref01_data_up0_up, nil)
     rule_ref01_resdata_up0 = Helpers.to_map(rule_ref01_resdata_up0_result)
     assert !rule_ref01_resdata_up0.nil?
+    assert_equal rule_ref01_resdata_up0["id"], rule_ref01_data_up0_up["id"]
+    assert_equal rule_ref01_resdata_up0[rule_ref01_markdef_up0_name], rule_ref01_markdef_up0_value
+
+    # LOAD
+    rule_ref01_match_dt0 = {
+      "id" => rule_ref01_data["id"],
+    }
+    rule_ref01_data_dt0_loaded = rule_ref01_ent.load(rule_ref01_match_dt0, nil)
+    rule_ref01_data_dt0_load_result = Helpers.to_map(rule_ref01_data_dt0_loaded)
+    assert !rule_ref01_data_dt0_load_result.nil?
+    assert_equal rule_ref01_data_dt0_load_result["id"], rule_ref01_data["id"]
 
     # REMOVE
     rule_ref01_match_rm0 = {
       "id" => rule_ref01_data["id"],
     }
     rule_ref01_ent.remove(rule_ref01_match_rm0, nil)
+
+    # LIST
+    rule_ref01_match_rt0 = {}
+
+    rule_ref01_list_rt0_result = rule_ref01_ent.list(rule_ref01_match_rt0, nil)
+    assert rule_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(rule_ref01_list_rt0_result),
+      { "id" => rule_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end

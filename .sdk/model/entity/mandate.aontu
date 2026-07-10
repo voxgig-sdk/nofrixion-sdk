@@ -1,0 +1,256 @@
+# Entity: mandate
+
+main: kit: entity: mandate: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "address_line1"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "address_line2"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "approved_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "city"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "country_code"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_country_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_country_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_email_address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_first_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_iban"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_last_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer_sort_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "email_address"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "first_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "iban"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_recurring"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "postal_code"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "reference"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sort_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_bank_account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_customer_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_mandate_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "mandate"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v1/mandates"
+          parts: [
+            "api"
+            "v1"
+            "mandates"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/mandates/{id}"
+          parts: [
+            "api"
+            "v1"
+            "mandates"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

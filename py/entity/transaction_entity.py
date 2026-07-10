@@ -7,6 +7,7 @@ from core import helpers
 from nofrixion_types import (
     Transaction,
     TransactionLoadMatch,
+    TransactionListMatch,
     TransactionCreateData,
     TransactionRemoveMatch,
 )
@@ -93,6 +94,28 @@ class TransactionEntity:
 
 
     
+    def list(self, reqmatch=None, ctrl=None) -> list[Transaction]:
+        utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Transaction().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
+        ctx = utility.make_context({
+            "opname": "list",
+            "ctrl": ctrl,
+            "match": self._match,
+            "data": self._data,
+            "reqmatch": reqmatch,
+        }, self._entctx)
+
+        def post_done():
+            if ctx.result is not None:
+                if ctx.result.resmatch is not None:
+                    self._match = ctx.result.resmatch
+
+        return self._run_op(ctx, post_done)
+
+
 
     
     def create(self, reqdata: TransactionCreateData, ctrl=None) -> Transaction:

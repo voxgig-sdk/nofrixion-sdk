@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "batch": {
+      "BATCH00": {
+        "approve_url": "s1e",
+        "id": "BATCH00",
+        "payout": []
+      },
+      "BATCH01": {
+        "approve_url": "s3c",
+        "id": "BATCH01",
+        "payout": []
+      },
+      "BATCH02": {
+        "approve_url": "s5a",
+        "id": "BATCH02",
+        "payout": []
+      }
+    }
+  },
+  "new": {
+    "batch": {
+      "batch_ref01": {
+        "approve_url": "s78",
+        "payout": []
+      }
+    }
+  }
+}

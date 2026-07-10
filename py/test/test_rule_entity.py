@@ -27,7 +27,7 @@ class TestRuleEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["update", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "rule." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -39,26 +39,65 @@ class TestRuleEntity:
                         "set NOFRIXION_TEST_RULE_ENTID JSON to run live")
         client = setup["client"]
 
-        # Bootstrap entity data from existing test data.
-        rule_ref01_data_raw = vs.items(helpers.to_map(
-            vs.getpath(setup["data"], "existing.rule")))
-        rule_ref01_data = None
-        if len(rule_ref01_data_raw) > 0:
-            rule_ref01_data = helpers.to_map(rule_ref01_data_raw[0][1])
+        # CREATE
+        rule_ref01_ent = client.Rule(None)
+        rule_ref01_data = helpers.to_map(vs.getprop(
+            vs.getpath(setup["data"], "new.rule"), "rule_ref01"))
+
+        rule_ref01_data = helpers.to_map(rule_ref01_ent.create(rule_ref01_data, None))
+        assert rule_ref01_data is not None
+        assert rule_ref01_data["id"] is not None
+
+        # LIST
+        rule_ref01_match = {}
+
+        rule_ref01_list_result = rule_ref01_ent.list(rule_ref01_match, None)
+        assert isinstance(rule_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(rule_ref01_list_result),
+            {"id": rule_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
-        rule_ref01_ent = client.Rule(None)
         rule_ref01_data_up0_up = {
+            "id": rule_ref01_data["id"],
         }
+
+        rule_ref01_markdef_up0_name = "account_id"
+        rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" + str(setup["now"])
+        rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
         rule_ref01_resdata_up0 = helpers.to_map(rule_ref01_ent.update(rule_ref01_data_up0_up, None))
         assert rule_ref01_resdata_up0 is not None
+        assert rule_ref01_resdata_up0["id"] == rule_ref01_data_up0_up["id"]
+        assert rule_ref01_resdata_up0[rule_ref01_markdef_up0_name] == rule_ref01_markdef_up0_value
+
+        # LOAD
+        rule_ref01_match_dt0 = {
+            "id": rule_ref01_data["id"],
+        }
+        rule_ref01_data_dt0_loaded = rule_ref01_ent.load(rule_ref01_match_dt0, None)
+        rule_ref01_data_dt0_load_result = helpers.to_map(rule_ref01_data_dt0_loaded)
+        assert rule_ref01_data_dt0_load_result is not None
+        assert rule_ref01_data_dt0_load_result["id"] == rule_ref01_data["id"]
 
         # REMOVE
         rule_ref01_match_rm0 = {
             "id": rule_ref01_data["id"],
         }
         rule_ref01_ent.remove(rule_ref01_match_rm0, None)
+
+        # LIST
+        rule_ref01_match_rt0 = {}
+
+        rule_ref01_list_rt0_result = rule_ref01_ent.list(rule_ref01_match_rt0, None)
+        assert isinstance(rule_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(rule_ref01_list_rt0_result),
+            {"id": rule_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

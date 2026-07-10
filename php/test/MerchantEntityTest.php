@@ -23,7 +23,7 @@ class MerchantEntityTest extends TestCase
         $setup = merchant_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["update", "load", "remove"] as $_op) {
+        foreach (["list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "merchant." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -46,30 +46,48 @@ class MerchantEntityTest extends TestCase
             $merchant_ref01_data = Helpers::to_map($merchant_ref01_data_raw[0][1]);
         }
 
-        // UPDATE
+        // LIST
         $merchant_ref01_ent = $client->Merchant(null);
+        $merchant_ref01_match = [];
+
+        $merchant_ref01_list_result = $merchant_ref01_ent->list($merchant_ref01_match, null);
+        $this->assertIsArray($merchant_ref01_list_result);
+
+        // UPDATE
         $merchant_ref01_data_up0_up = [
+            "id" => $merchant_ref01_data["id"],
         ];
 
-        $merchant_ref01_markdef_up0_name = "reason";
+        $merchant_ref01_markdef_up0_name = "card_payment_processor";
         $merchant_ref01_markdef_up0_value = "Mark01-merchant_ref01_" . $setup["now"];
         $merchant_ref01_data_up0_up[$merchant_ref01_markdef_up0_name] = $merchant_ref01_markdef_up0_value;
 
         $merchant_ref01_resdata_up0_result = $merchant_ref01_ent->update($merchant_ref01_data_up0_up, null);
         $merchant_ref01_resdata_up0 = Helpers::to_map($merchant_ref01_resdata_up0_result);
         $this->assertNotNull($merchant_ref01_resdata_up0);
+        $this->assertEquals($merchant_ref01_resdata_up0["id"], $merchant_ref01_data_up0_up["id"]);
         $this->assertEquals($merchant_ref01_resdata_up0[$merchant_ref01_markdef_up0_name], $merchant_ref01_markdef_up0_value);
 
         // LOAD
-        $merchant_ref01_match_dt0 = [];
+        $merchant_ref01_match_dt0 = [
+            "id" => $merchant_ref01_data["id"],
+        ];
         $merchant_ref01_data_dt0_loaded = $merchant_ref01_ent->load($merchant_ref01_match_dt0, null);
-        $this->assertNotNull($merchant_ref01_data_dt0_loaded);
+        $merchant_ref01_data_dt0_load_result = Helpers::to_map($merchant_ref01_data_dt0_loaded);
+        $this->assertNotNull($merchant_ref01_data_dt0_load_result);
+        $this->assertEquals($merchant_ref01_data_dt0_load_result["id"], $merchant_ref01_data["id"]);
 
         // REMOVE
         $merchant_ref01_match_rm0 = [
             "id" => $merchant_ref01_data["id"],
         ];
         $merchant_ref01_ent->remove($merchant_ref01_match_rm0, null);
+
+        // LIST
+        $merchant_ref01_match_rt0 = [];
+
+        $merchant_ref01_list_rt0_result = $merchant_ref01_ent->list($merchant_ref01_match_rt0, null);
+        $this->assertIsArray($merchant_ref01_list_rt0_result);
 
     }
 }

@@ -19,7 +19,7 @@ describe("UserInviteEntity", function()
     local setup = user_invite_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "user_invite." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -38,20 +38,53 @@ describe("UserInviteEntity", function()
     local user_invite_ref01_ent = client:UserInvite(nil)
     local user_invite_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.user_invite"), "user_invite_ref01"))
+    user_invite_ref01_data["merchant_id"] = setup.idmap["merchant01"]
 
     local user_invite_ref01_data_result, err = user_invite_ref01_ent:create(user_invite_ref01_data, nil)
     assert.is_nil(err)
     user_invite_ref01_data = helpers.to_map(user_invite_ref01_data_result)
     assert.is_not_nil(user_invite_ref01_data)
+    assert.is_not_nil(user_invite_ref01_data["id"])
+
+    -- LIST
+    local user_invite_ref01_match = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local user_invite_ref01_list_result, err = user_invite_ref01_ent:list(user_invite_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(user_invite_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(user_invite_ref01_list_result),
+      { id = user_invite_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local user_invite_ref01_data_up0_up = {
+      id = user_invite_ref01_data["id"],
     }
+
+    local user_invite_ref01_markdef_up0_name = "initial_role_id"
+    local user_invite_ref01_markdef_up0_value = "Mark01-user_invite_ref01_" .. tostring(setup.now)
+    user_invite_ref01_data_up0_up[user_invite_ref01_markdef_up0_name] = user_invite_ref01_markdef_up0_value
 
     local user_invite_ref01_resdata_up0_result, err = user_invite_ref01_ent:update(user_invite_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local user_invite_ref01_resdata_up0 = helpers.to_map(user_invite_ref01_resdata_up0_result)
     assert.is_not_nil(user_invite_ref01_resdata_up0)
+    assert.are.equal(user_invite_ref01_resdata_up0["id"], user_invite_ref01_data_up0_up["id"])
+    assert.are.equal(user_invite_ref01_resdata_up0[user_invite_ref01_markdef_up0_name], user_invite_ref01_markdef_up0_value)
+
+    -- LOAD
+    local user_invite_ref01_match_dt0 = {
+      id = user_invite_ref01_data["id"],
+    }
+    local user_invite_ref01_data_dt0_loaded, err = user_invite_ref01_ent:load(user_invite_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    local user_invite_ref01_data_dt0_load_result = helpers.to_map(user_invite_ref01_data_dt0_loaded)
+    assert.is_not_nil(user_invite_ref01_data_dt0_load_result)
+    assert.are.equal(user_invite_ref01_data_dt0_load_result["id"], user_invite_ref01_data["id"])
 
     -- REMOVE
     local user_invite_ref01_match_rm0 = {
@@ -59,6 +92,20 @@ describe("UserInviteEntity", function()
     }
     local _, err = user_invite_ref01_ent:remove(user_invite_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local user_invite_ref01_match_rt0 = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local user_invite_ref01_list_rt0_result, err = user_invite_ref01_ent:list(user_invite_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(user_invite_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(user_invite_ref01_list_rt0_result),
+      { id = user_invite_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)
@@ -83,7 +130,7 @@ function user_invite_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "user_invite01", "user_invite02", "user_invite03" },
+    { "user_invite01", "user_invite02", "user_invite03", "merchant01", "merchant02", "merchant03", "userinvite01", "userinvite02", "userinvite03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

@@ -23,7 +23,7 @@ class PayoutEntityTest extends TestCase
         $setup = payout_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "update", "load", "remove"] as $_op) {
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "payout." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -42,13 +42,28 @@ class PayoutEntityTest extends TestCase
         $payout_ref01_ent = $client->Payout(null);
         $payout_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.payout"), "payout_ref01"));
+        $payout_ref01_data["account_id"] = $setup["idmap"]["account01"];
         $payout_ref01_data["destination"] = $setup["idmap"]["destination01"];
+        $payout_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
         $payout_ref01_data["source"] = $setup["idmap"]["source01"];
 
         $payout_ref01_data_result = $payout_ref01_ent->create($payout_ref01_data, null);
         $payout_ref01_data = Helpers::to_map($payout_ref01_data_result);
         $this->assertNotNull($payout_ref01_data);
         $this->assertNotNull($payout_ref01_data["id"]);
+
+        // LIST
+        $payout_ref01_match = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $payout_ref01_list_result = $payout_ref01_ent->list($payout_ref01_match, null);
+        $this->assertIsArray($payout_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($payout_ref01_list_result),
+            ["id" => $payout_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
         // UPDATE
         $payout_ref01_data_up0_up = [
@@ -80,6 +95,19 @@ class PayoutEntityTest extends TestCase
         ];
         $payout_ref01_ent->remove($payout_ref01_match_rm0, null);
 
+        // LIST
+        $payout_ref01_match_rt0 = [
+            "merchant_id" => $setup["idmap"]["merchant01"],
+        ];
+
+        $payout_ref01_list_rt0_result = $payout_ref01_ent->list($payout_ref01_match_rt0, null);
+        $this->assertIsArray($payout_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($payout_ref01_list_rt0_result),
+            ["id" => $payout_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
+
     }
 }
 
@@ -98,7 +126,7 @@ function payout_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["payout01", "payout02", "payout03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"] as $k) {
+    foreach (["payout01", "payout02", "payout03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

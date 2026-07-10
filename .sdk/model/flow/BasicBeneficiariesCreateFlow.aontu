@@ -1,0 +1,18 @@
+# BasicBeneficiariesCreateFlow
+
+main: kit: flow: BasicBeneficiariesCreateFlow:
+{
+  entity: "beneficiaries_create",
+  kind: "basic",
+  name: "BasicBeneficiariesCreateFlow",
+  step: [
+    {
+      input: {
+        ref: "beneficiaries_create_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicBeneficiariesCreateFlow"
+}

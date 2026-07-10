@@ -1,0 +1,26 @@
+# BasicBeneficiaryGroupFlow
+
+main: kit: flow: BasicBeneficiaryGroupFlow:
+{
+  entity: "beneficiary_group",
+  kind: "basic",
+  name: "BasicBeneficiaryGroupFlow",
+  step: [
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "beneficiary_group_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBeneficiaryGroupFlow"
+}

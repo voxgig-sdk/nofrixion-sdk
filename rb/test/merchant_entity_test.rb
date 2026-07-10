@@ -16,7 +16,7 @@ class MerchantEntityTest < Minitest::Test
     setup = merchant_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["update", "load", "remove"].each do |_op|
+    ["list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "merchant." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -39,30 +39,48 @@ class MerchantEntityTest < Minitest::Test
       merchant_ref01_data = Helpers.to_map(merchant_ref01_data_raw[0][1])
     end
 
-    # UPDATE
+    # LIST
     merchant_ref01_ent = client.Merchant(nil)
+    merchant_ref01_match = {}
+
+    merchant_ref01_list_result = merchant_ref01_ent.list(merchant_ref01_match, nil)
+    assert merchant_ref01_list_result.is_a?(Array)
+
+    # UPDATE
     merchant_ref01_data_up0_up = {
+      "id" => merchant_ref01_data["id"],
     }
 
-    merchant_ref01_markdef_up0_name = "reason"
+    merchant_ref01_markdef_up0_name = "card_payment_processor"
     merchant_ref01_markdef_up0_value = "Mark01-merchant_ref01_#{setup[:now]}"
     merchant_ref01_data_up0_up[merchant_ref01_markdef_up0_name] = merchant_ref01_markdef_up0_value
 
     merchant_ref01_resdata_up0_result = merchant_ref01_ent.update(merchant_ref01_data_up0_up, nil)
     merchant_ref01_resdata_up0 = Helpers.to_map(merchant_ref01_resdata_up0_result)
     assert !merchant_ref01_resdata_up0.nil?
+    assert_equal merchant_ref01_resdata_up0["id"], merchant_ref01_data_up0_up["id"]
     assert_equal merchant_ref01_resdata_up0[merchant_ref01_markdef_up0_name], merchant_ref01_markdef_up0_value
 
     # LOAD
-    merchant_ref01_match_dt0 = {}
+    merchant_ref01_match_dt0 = {
+      "id" => merchant_ref01_data["id"],
+    }
     merchant_ref01_data_dt0_loaded = merchant_ref01_ent.load(merchant_ref01_match_dt0, nil)
-    assert !merchant_ref01_data_dt0_loaded.nil?
+    merchant_ref01_data_dt0_load_result = Helpers.to_map(merchant_ref01_data_dt0_loaded)
+    assert !merchant_ref01_data_dt0_load_result.nil?
+    assert_equal merchant_ref01_data_dt0_load_result["id"], merchant_ref01_data["id"]
 
     # REMOVE
     merchant_ref01_match_rm0 = {
       "id" => merchant_ref01_data["id"],
     }
     merchant_ref01_ent.remove(merchant_ref01_match_rm0, nil)
+
+    # LIST
+    merchant_ref01_match_rt0 = {}
+
+    merchant_ref01_list_rt0_result = merchant_ref01_ent.list(merchant_ref01_match_rt0, nil)
+    assert merchant_ref01_list_rt0_result.is_a?(Array)
 
   end
 end

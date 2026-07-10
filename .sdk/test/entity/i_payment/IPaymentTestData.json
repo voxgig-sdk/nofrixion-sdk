@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "i_payment": {
+      "I_PAYMENT00": {
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "response_type": "s15",
+        "id": "I_PAYMENT00"
+      },
+      "I_PAYMENT01": {
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "response_type": "s29",
+        "id": "I_PAYMENT01"
+      },
+      "I_PAYMENT02": {
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "response_type": "s3d",
+        "id": "I_PAYMENT02"
+      }
+    }
+  },
+  "new": {
+    "i_payment": {
+      "i_payment_ref01": {
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "response_type": "s51"
+      }
+    }
+  }
+}

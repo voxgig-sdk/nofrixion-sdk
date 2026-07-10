@@ -23,7 +23,7 @@ class TransactionEntityTest extends TestCase
         $setup = transaction_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "load", "remove"] as $_op) {
+        foreach (["create", "list", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "transaction." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -42,22 +42,51 @@ class TransactionEntityTest extends TestCase
         $transaction_ref01_ent = $client->Transaction(null);
         $transaction_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.transaction"), "transaction_ref01"));
+        $transaction_ref01_data["account_id"] = $setup["idmap"]["account01"];
+        $transaction_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
         $transaction_ref01_data["transaction_id"] = $setup["idmap"]["transaction01"];
 
         $transaction_ref01_data_result = $transaction_ref01_ent->create($transaction_ref01_data, null);
         $transaction_ref01_data = Helpers::to_map($transaction_ref01_data_result);
         $this->assertNotNull($transaction_ref01_data);
+        $this->assertNotNull($transaction_ref01_data["id"]);
+
+        // LIST
+        $transaction_ref01_match = [];
+
+        $transaction_ref01_list_result = $transaction_ref01_ent->list($transaction_ref01_match, null);
+        $this->assertIsArray($transaction_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($transaction_ref01_list_result),
+            ["id" => $transaction_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
 
         // LOAD
-        $transaction_ref01_match_dt0 = [];
+        $transaction_ref01_match_dt0 = [
+            "id" => $transaction_ref01_data["id"],
+        ];
         $transaction_ref01_data_dt0_loaded = $transaction_ref01_ent->load($transaction_ref01_match_dt0, null);
-        $this->assertNotNull($transaction_ref01_data_dt0_loaded);
+        $transaction_ref01_data_dt0_load_result = Helpers::to_map($transaction_ref01_data_dt0_loaded);
+        $this->assertNotNull($transaction_ref01_data_dt0_load_result);
+        $this->assertEquals($transaction_ref01_data_dt0_load_result["id"], $transaction_ref01_data["id"]);
 
         // REMOVE
         $transaction_ref01_match_rm0 = [
             "id" => $transaction_ref01_data["id"],
         ];
         $transaction_ref01_ent->remove($transaction_ref01_match_rm0, null);
+
+        // LIST
+        $transaction_ref01_match_rt0 = [];
+
+        $transaction_ref01_list_rt0_result = $transaction_ref01_ent->list($transaction_ref01_match_rt0, null);
+        $this->assertIsArray($transaction_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($transaction_ref01_list_rt0_result),
+            ["id" => $transaction_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }
@@ -77,7 +106,7 @@ function transaction_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["transaction01", "transaction02", "transaction03", "from01", "from02", "from03"] as $k) {
+    foreach (["transaction01", "transaction02", "transaction03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "from01", "from02", "from03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

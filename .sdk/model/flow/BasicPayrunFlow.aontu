@@ -11,7 +11,23 @@ main: kit: flow: BasicPayrunFlow:
         ref: "payrun_ref01"
       }
 
+      match: {
+        merchant_i_d: "merchant_i_d01"
+      }
+
       op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payrun_ref01"
+          }
+        }
+      ]
     }
 
     {
@@ -19,11 +35,33 @@ main: kit: flow: BasicPayrunFlow:
         ref: "payrun_ref01",
         srcdatavar: "payrun_ref01_data",
         suffix: "_up0",
-        textfield: "note"
+        textfield: "authorisation_date"
       }
 
       op: "update",
       spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payrun_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "payrun_ref01",
+        srcdatavar: "payrun_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "payrun01"
+      }
+
+      op: "load",
+      valid: [
         {
           apply: "TextFieldMark",
           def: {
@@ -44,6 +82,22 @@ main: kit: flow: BasicPayrunFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "payrun_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicPayrunFlow"

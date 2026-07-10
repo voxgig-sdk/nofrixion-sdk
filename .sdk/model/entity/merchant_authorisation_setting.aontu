@@ -1,0 +1,125 @@
+# Entity: merchant_authorisation_setting
+
+main: kit: entity: merchant_authorisation_setting: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amount_lower"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "amount_upper"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "authorisation_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "beneficiaries_only"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_editor_cant_authorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "number_of_authoriser"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "role_setting"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "merchant_authorisation_setting"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}/authorisationsettings"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "authorisationsettings"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "merchant"
+      ]
+    ]
+  }
+
+
+
+}

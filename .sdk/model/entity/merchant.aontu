@@ -6,14 +6,358 @@ main: kit: entity: merchant: {
 
   fields: [
     {
+      name: "account_currency"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "can_have_trust_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "card_payment_processor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "company_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "display_qr_on_hosted_pay"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "hosted_pay_version"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_blocked"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_exited"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_suspended"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "jurisdiction"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "logo_url_png"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "logo_url_svg"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_category_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "note"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "parent_merchant"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "payment_account"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "payment_account_limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
       name: "reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "short_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supported_payment_methods_list"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "suspension_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tag"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "time_zone_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trading_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "web_hook_limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "your_role_name"
       req: false
       type: "`$STRING`"
     }
   ]
 
+  id: {
+    field: "id"
+    name: "id"
+  }
+
   name: "merchant"
   op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}/childmerchants"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{merchant_id}"
+            "childmerchants"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            "$action": "childmerchant"
+            exist: [
+              "merchant_id"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "include_suspended"
+                orig: "include_suspended"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/paged"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "paged"
+          ]
+          select: {
+            "$action": "paged"
+            exist: [
+              "include_suspended"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/merchants"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoamimerchant"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoamimerchant"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoamimerchantsigned"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoamimerchantsigned"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/v1/metadata/whoamimerchantwhitelist"
+          parts: [
+            "api"
+            "v1"
+            "metadata"
+            "whoamimerchantwhitelist"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -234,6 +578,41 @@ main: kit: entity: merchant: {
             res: "`body`"
           }
         }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/merchants/{merchantID}"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
       ]
     }
     remove: {
@@ -336,6 +715,41 @@ main: kit: entity: merchant: {
     update: {
       name: "update"
       points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/merchants/{merchantID}"
+          parts: [
+            "api"
+            "v1"
+            "merchants"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
         {
           args: {
             params: [

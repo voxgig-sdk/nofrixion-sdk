@@ -12,8 +12,8 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — Account, Beneficiary, Cancel, Disable, Enable, Merchant, Metadata, NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage, NoFrixionBizBizModelsPagingPaymentRequestPage, NoFrixionBizBizModelsPagingPayoutPage, NoFrixionBizBizModelsPagingPayrunPage, NoFrixionBizBizModelsPagingRuleEventsPage, NoFrixionBizBizModelsPagingRulesPage, NoFrixionBizBizModelsPaymentsCardPayment, NoFrixionBizBizModelsPaymentsCardPublicKey, NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries, NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment, NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate, NoFrixionMoneyMoovApiFeaturesUserInvitesCreate, NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant, NoFrixionMoneyMoovModelsBatchPayout, NoFrixionMoneyMoovModelsBeneficiaryGroupPage, NoFrixionMoneyMoovModelsBeneficiaryPage, NoFrixionMoneyMoovModelsCardCustomerToken, NoFrixionMoneyMoovModelsCurrencyCurrencyInfo, NoFrixionMoneyMoovModelsDirectDebitBatchSubmit, NoFrixionMoneyMoovModelsFxRate, NoFrixionMoneyMoovModelsIPayment, NoFrixionMoneyMoovModelsMandatesMandate, NoFrixionMoneyMoovModelsMerchant, NoFrixionMoneyMoovModelsMerchantPage, NoFrixionMoneyMoovModelsMerchantPayByBankSetting, NoFrixionMoneyMoovModelsMerchantToken, NoFrixionMoneyMoovModelsMerchantTokenPage, NoFrixionMoneyMoovModelsNoFrixionVersion, NoFrixionMoneyMoovModelsOpenBankingAccount, NoFrixionMoneyMoovModelsOpenBankingConsent, NoFrixionMoneyMoovModelsOpenBankingTransaction, NoFrixionMoneyMoovModelsPayment, NoFrixionMoneyMoovModelsPaymentAccountMinimalPage, NoFrixionMoneyMoovModelsPaymentAccountPage, NoFrixionMoneyMoovModelsPaymentInitiation, NoFrixionMoneyMoovModelsPaymentRequestEvent, NoFrixionMoneyMoovModelsPaymentRequestMetric, NoFrixionMoneyMoovModelsPaymentRequestMinimal, NoFrixionMoneyMoovModelsPaymentRequestResult, NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment, NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2, NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3, NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4, NoFrixionMoneyMoovModelsPayoutKeysetPage, NoFrixionMoneyMoovModelsPayoutMetric, NoFrixionMoneyMoovModelsPayoutsPayoutsCreate, NoFrixionMoneyMoovModelsPayrun, NoFrixionMoneyMoovModelsReportResult, NoFrixionMoneyMoovModelsRule, NoFrixionMoneyMoovModelsTransaction, NoFrixionMoneyMoovModelsTransactionPage, NoFrixionMoneyMoovModelsUserInvite, NoFrixionMoneyMoovModelsUserInvitePage, NoFrixionMoneyMoovModelsUserPage, NoFrixionMoneyMoovModelsWebhook, OpenBanking, Payeeverification, PaymentRequest, Payout, Payrun, Reject, Report, Rule, Send, Sendbeneficiary, Tag, Token, Transaction, User, UserInvite, Virtual, Webhook, Whoami and Whoamitrustedapp — that you
-call directly, instead of assembling URL paths and query strings. Entities are
+This SDK exposes the API as **53 semantic entities** that you
+call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`):
 
@@ -114,11 +114,11 @@ for (const account of accounts) {
   console.log(account)
 }
 
-// Load a specific merchant (returns a Merchant)
-const merchant = await client.Merchant().load({
-  merchant_id: 'example_merchant_id',
+// Load a specific cardcustomertoken (returns a CardCustomerToken)
+const cardcustomertoken = await client.CardCustomerToken().load({
+  customer_email_address: 'example_customer_email_address',
 })
-console.log(merchant)
+console.log(cardcustomertoken)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -155,91 +155,63 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 81 entities:
+The API exposes 53 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
 | **Account** | The Account entity (create, list, load, remove, update). | `/api/v1/accounts/{accountID}/{currency}` |
-| **Beneficiary** | The Beneficiary entity (create, load, remove, update). | `/api/v1/beneficiaries/authorise/{id}` |
-| **Cancel** | The Cancel entity (update). | `/api/v1/payouts/cancel/{id}` |
-| **Disable** | The Disable entity (update). | `/api/v1/beneficiaries/disable/{id}` |
-| **Enable** | The Enable entity (update). | `/api/v1/beneficiaries/enable/{id}` |
-| **Merchant** | The Merchant entity (load, remove, update). | `/api/v1/merchants/{merchantID}/payouts/export` |
+| **Batch** | The Batch entity (create, load). | `/api/v1/payouts/batch` |
+| **BeneficiariesCreate** | The BeneficiariesCreate entity (create). | `/api/v1/beneficiaries/batchcreate` |
+| **Beneficiary** | The Beneficiary entity (create, list, load, remove, update). | `/api/v1/beneficiaries/authorise/{id}` |
+| **BeneficiaryGroup** | The BeneficiaryGroup entity (list). | `/api/v1/merchants/{merchantID}/beneficiarygroups` |
+| **Card** | The Card entity (create). | `/api/v1/paymentrequests/{id}/card` |
+| **CardCustomerToken** | The CardCustomerToken entity (list, load, remove). | `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}` |
+| **CardPayment** | The CardPayment entity (create). | `/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}` |
+| **CardPublicKey** | The CardPublicKey entity (load). | `/api/v1/paymentrequests/{id}/card/publickey` |
+| **Consent** | The Consent entity (create, list, load, remove, update). | `/api/v1/openbanking/consents` |
+| **Currency** | The Currency entity (list). | `/api/v1/currencies` |
+| **DirectDebitBatchSubmit** | The DirectDebitBatchSubmit entity (create). | `/api/v1/paymentrequests/directdebit/batchsubmit` |
+| **FxRate** | The FxRate entity (list, load). | `/api/v1/payouts/fxallheldrates/{source}/{destination}` |
+| **IPayment** | The IPayment entity (create). | `/api/v1/paymentrequests/payondemand` |
+| **Mandate** | The Mandate entity (create, load). | `/api/v1/mandates` |
+| **Merchant** | The Merchant entity (list, load, remove, update). | `/api/v1/merchants/{merchantID}/childmerchants` |
+| **MerchantAuthorisationSetting** | The MerchantAuthorisationSetting entity (list). | `/api/v1/merchants/{merchantID}/authorisationsettings` |
+| **MerchantDirectDebitMandate** | The MerchantDirectDebitMandate entity (list). | `/api/v1/mandates` |
+| **MerchantPayByBankSetting** | The MerchantPayByBankSetting entity (list). | `/api/v1/merchants/{merchantID}/banksettings` |
+| **MerchantPaymentRequestTemplate** | The MerchantPaymentRequestTemplate entity (list, load, remove, update). | `/api/v1/paymentrequests/{merchantID}/templates` |
+| **MerchantToken** | The MerchantToken entity (create, list, load, update). | `/api/v1/tokens` |
 | **Metadata** | The Metadata entity (load). | `/api/v1/metadata/problemnotification` |
-| **NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage** | The NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage entity (list). | `/api/v1/mandates` |
-| **NoFrixionBizBizModelsPagingPaymentRequestPage** | The NoFrixionBizBizModelsPagingPaymentRequestPage entity (list). | `/api/v1/paymentrequests` |
-| **NoFrixionBizBizModelsPagingPayoutPage** | The NoFrixionBizBizModelsPagingPayoutPage entity (list). | `/api/v1/payouts` |
-| **NoFrixionBizBizModelsPagingPayrunPage** | The NoFrixionBizBizModelsPagingPayrunPage entity (list). | `/api/v1/payruns` |
-| **NoFrixionBizBizModelsPagingRuleEventsPage** | The NoFrixionBizBizModelsPagingRuleEventsPage entity (list). | `/api/v1/rules/{id}/events` |
-| **NoFrixionBizBizModelsPagingRulesPage** | The NoFrixionBizBizModelsPagingRulesPage entity (list). | `/api/v1/rules` |
-| **NoFrixionBizBizModelsPaymentsCardPayment** | The NoFrixionBizBizModelsPaymentsCardPayment entity (create). | `/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}` |
-| **NoFrixionBizBizModelsPaymentsCardPublicKey** | The NoFrixionBizBizModelsPaymentsCardPublicKey entity (load). | `/api/v1/paymentrequests/{id}/card/publickey` |
-| **NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries** | The NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries entity (create). | `/api/v1/beneficiaries/batchcreate` |
-| **NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment** | The NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment entity (create). | `/api/v1/paymentrequests/batchcreate` |
-| **NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate** | The NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate entity (create). | `/api/v1/merchants/{merchantID}/roles/batchcreate` |
-| **NoFrixionMoneyMoovApiFeaturesUserInvitesCreate** | The NoFrixionMoneyMoovApiFeaturesUserInvitesCreate entity (create). | `/api/v1/userinvites/batchcreate` |
-| **NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant** | The NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant entity (list). | `/api/v1/merchants/{merchantID}/authorisationsettings` |
-| **NoFrixionMoneyMoovModelsBatchPayout** | The NoFrixionMoneyMoovModelsBatchPayout entity (create, load). | `/api/v1/payouts/batch` |
-| **NoFrixionMoneyMoovModelsBeneficiaryGroupPage** | The NoFrixionMoneyMoovModelsBeneficiaryGroupPage entity (list). | `/api/v1/merchants/{merchantID}/beneficiarygroups` |
-| **NoFrixionMoneyMoovModelsBeneficiaryPage** | The NoFrixionMoneyMoovModelsBeneficiaryPage entity (list). | `/api/v1/beneficiaries` |
-| **NoFrixionMoneyMoovModelsCardCustomerToken** | The NoFrixionMoneyMoovModelsCardCustomerToken entity (list, load, remove). | `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}` |
-| **NoFrixionMoneyMoovModelsCurrencyCurrencyInfo** | The NoFrixionMoneyMoovModelsCurrencyCurrencyInfo entity (list). | `/api/v1/currencies` |
-| **NoFrixionMoneyMoovModelsDirectDebitBatchSubmit** | The NoFrixionMoneyMoovModelsDirectDebitBatchSubmit entity (create). | `/api/v1/paymentrequests/directdebit/batchsubmit` |
-| **NoFrixionMoneyMoovModelsFxRate** | The NoFrixionMoneyMoovModelsFxRate entity (list, load). | `/api/v1/payouts/fxallheldrates/{source}/{destination}` |
-| **NoFrixionMoneyMoovModelsIPayment** | The NoFrixionMoneyMoovModelsIPayment entity (create). | `/api/v1/paymentrequests/payondemand` |
-| **NoFrixionMoneyMoovModelsMandatesMandate** | The NoFrixionMoneyMoovModelsMandatesMandate entity (create, load). | `/api/v1/mandates` |
-| **NoFrixionMoneyMoovModelsMerchant** | The NoFrixionMoneyMoovModelsMerchant entity (list, load, update). | `/api/v1/merchants` |
-| **NoFrixionMoneyMoovModelsMerchantPage** | The NoFrixionMoneyMoovModelsMerchantPage entity (list). | `/api/v1/merchants/paged` |
-| **NoFrixionMoneyMoovModelsMerchantPayByBankSetting** | The NoFrixionMoneyMoovModelsMerchantPayByBankSetting entity (list). | `/api/v1/merchants/{merchantID}/banksettings` |
-| **NoFrixionMoneyMoovModelsMerchantToken** | The NoFrixionMoneyMoovModelsMerchantToken entity (create, load, update). | `/api/v1/tokens` |
-| **NoFrixionMoneyMoovModelsMerchantTokenPage** | The NoFrixionMoneyMoovModelsMerchantTokenPage entity (list). | `/api/v1/merchants/{merchantID}/tokens` |
-| **NoFrixionMoneyMoovModelsNoFrixionVersion** | The NoFrixionMoneyMoovModelsNoFrixionVersion entity (load). | `/api/v1/metadata/version` |
-| **NoFrixionMoneyMoovModelsOpenBankingAccount** | The NoFrixionMoneyMoovModelsOpenBankingAccount entity (load). | `/api/v1/openbanking/accounts/{id}` |
-| **NoFrixionMoneyMoovModelsOpenBankingConsent** | The NoFrixionMoneyMoovModelsOpenBankingConsent entity (create, list, load, remove, update). | `/api/v1/openbanking/consents` |
-| **NoFrixionMoneyMoovModelsOpenBankingTransaction** | The NoFrixionMoneyMoovModelsOpenBankingTransaction entity (list). | `/api/v1/openbanking/transactions/{id}/{accountID}` |
-| **NoFrixionMoneyMoovModelsPayment** | The NoFrixionMoneyMoovModelsPayment entity (create, load, update). | `/api/v1/paymentrequests` |
-| **NoFrixionMoneyMoovModelsPaymentAccountMinimalPage** | The NoFrixionMoneyMoovModelsPaymentAccountMinimalPage entity (list). | `/api/v1/accounts/minimal` |
-| **NoFrixionMoneyMoovModelsPaymentAccountPage** | The NoFrixionMoneyMoovModelsPaymentAccountPage entity (list). | `/api/v1/accounts/paged` |
-| **NoFrixionMoneyMoovModelsPaymentInitiation** | The NoFrixionMoneyMoovModelsPaymentInitiation entity (create). | `/api/v1/paymentrequests/{id}/pisp` |
-| **NoFrixionMoneyMoovModelsPaymentRequestEvent** | The NoFrixionMoneyMoovModelsPaymentRequestEvent entity (list). | `/api/v1/paymentrequests/{id}/events` |
-| **NoFrixionMoneyMoovModelsPaymentRequestMetric** | The NoFrixionMoneyMoovModelsPaymentRequestMetric entity (load). | `/api/v1/paymentrequests/metrics` |
-| **NoFrixionMoneyMoovModelsPaymentRequestMinimal** | The NoFrixionMoneyMoovModelsPaymentRequestMinimal entity (list). | `/api/v1/paymentrequests/{id}/minimal` |
-| **NoFrixionMoneyMoovModelsPaymentRequestResult** | The NoFrixionMoneyMoovModelsPaymentRequestResult entity (list). | `/api/v1/paymentrequests/{id}/result` |
-| **NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment** | The NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment entity (list). | `/api/v1/paymentrequests/{merchantID}/templates` |
-| **NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2** | The NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 entity (load). | `/api/v1/paymentrequests/{merchantID}/templates/{templateID}` |
-| **NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3** | The NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3 entity (update). | `/api/v1/paymentrequests/{merchantID}/templates/{templateID}` |
-| **NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4** | The NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4 entity (remove). | `/api/v1/paymentrequests/{merchantID}/templates/{templateID}` |
-| **NoFrixionMoneyMoovModelsPayoutKeysetPage** | The NoFrixionMoneyMoovModelsPayoutKeysetPage entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
-| **NoFrixionMoneyMoovModelsPayoutMetric** | The NoFrixionMoneyMoovModelsPayoutMetric entity (load). | `/api/v1/payouts/metrics` |
-| **NoFrixionMoneyMoovModelsPayoutsPayoutsCreate** | The NoFrixionMoneyMoovModelsPayoutsPayoutsCreate entity (create). | `/api/v1/payouts/batchcreate` |
-| **NoFrixionMoneyMoovModelsPayrun** | The NoFrixionMoneyMoovModelsPayrun entity (create, load, update). | `/api/v1/payruns/{merchantID}` |
-| **NoFrixionMoneyMoovModelsReportResult** | The NoFrixionMoneyMoovModelsReportResult entity (load). | `/api/v1/reports/{id}/result/{statementNumber}` |
-| **NoFrixionMoneyMoovModelsRule** | The NoFrixionMoneyMoovModelsRule entity (create, load, update). | `/api/v1/rules` |
-| **NoFrixionMoneyMoovModelsTransaction** | The NoFrixionMoneyMoovModelsTransaction entity (load). | `/api/v1/accounts/{accountID}/transactions/{id}` |
-| **NoFrixionMoneyMoovModelsTransactionPage** | The NoFrixionMoneyMoovModelsTransactionPage entity (list, load). | `/api/v1/accounts/{accountID}/transactions` |
-| **NoFrixionMoneyMoovModelsUserInvite** | The NoFrixionMoneyMoovModelsUserInvite entity (create, load). | `/api/v1/userinvites` |
-| **NoFrixionMoneyMoovModelsUserInvitePage** | The NoFrixionMoneyMoovModelsUserInvitePage entity (list). | `/api/v1/merchants/{merchantID}/userinvitespaged` |
-| **NoFrixionMoneyMoovModelsUserPage** | The NoFrixionMoneyMoovModelsUserPage entity (list). | `/api/v1/user/{merchantID}/userspaged` |
-| **NoFrixionMoneyMoovModelsWebhook** | The NoFrixionMoneyMoovModelsWebhook entity (create, list, load, update). | `/api/v1/webhooks` |
+| **NoFrixionVersion** | The NoFrixionVersion entity (load). | `/api/v1/metadata/version` |
 | **OpenBanking** | The OpenBanking entity (create, remove). | `/api/v1/openbanking/account/{accountID}/synchronise` |
 | **Payeeverification** | The Payeeverification entity (create). | `/api/v1/openbanking/payeeverification` |
-| **PaymentRequest** | The PaymentRequest entity (create, load, remove, update). | `/api/v1/paymentrequests/{id}/directdebit` |
-| **Payout** | The Payout entity (create, load, remove, update). | `/api/v1/payouts/batch/submit/{id}` |
-| **Payrun** | The Payrun entity (create, remove, update). | `/api/v1/payruns/{id}/request-authorisation` |
-| **Reject** | The Reject entity (update). | `/api/v1/payouts/reject/{id}` |
+| **Payment** | The Payment entity (create, load, update). | `/api/v1/paymentrequests` |
+| **PaymentAccount** | The PaymentAccount entity (list). | `/api/v1/accounts/paged` |
+| **PaymentAccountMinimal** | The PaymentAccountMinimal entity (list). | `/api/v1/accounts/minimal` |
+| **PaymentInitiation** | The PaymentInitiation entity (create). | `/api/v1/paymentrequests/{id}/pisp` |
+| **PaymentRequest** | The PaymentRequest entity (create, list, load, remove, update). | `/api/v1/paymentrequests/{id}/directdebit` |
+| **PaymentRequestEvent** | The PaymentRequestEvent entity (list). | `/api/v1/paymentrequests/{id}/events` |
+| **PaymentRequestMetric** | The PaymentRequestMetric entity (load). | `/api/v1/paymentrequests/metrics` |
+| **PaymentRequestMinimal** | The PaymentRequestMinimal entity (list). | `/api/v1/paymentrequests/{id}/minimal` |
+| **PaymentRequestResult** | The PaymentRequestResult entity (list). | `/api/v1/paymentrequests/{id}/result` |
+| **PaymentRequestsCreate** | The PaymentRequestsCreate entity (create). | `/api/v1/paymentrequests/batchcreate` |
+| **Payout** | The Payout entity (create, list, load, remove, update). | `/api/v1/payouts/batch/submit/{id}` |
+| **PayoutKeyset** | The PayoutKeyset entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
+| **PayoutMetric** | The PayoutMetric entity (load). | `/api/v1/payouts/metrics` |
+| **PayoutsCreate** | The PayoutsCreate entity (create). | `/api/v1/payouts/batchcreate` |
+| **Payrun** | The Payrun entity (create, list, load, remove, update). | `/api/v1/payruns/{id}/request-authorisation` |
 | **Report** | The Report entity (update). | `/api/v1/reports/{id}/initiate` |
-| **Rule** | The Rule entity (remove, update). | `/api/v1/rules/{id}` |
-| **Send** | The Send entity (create). | `/api/v1/payouts/send` |
-| **Sendbeneficiary** | The Sendbeneficiary entity (create). | `/api/v1/payouts/sendbeneficiary` |
+| **ReportResult** | The ReportResult entity (load). | `/api/v1/reports/{id}/result/{statementNumber}` |
+| **RolesCreate** | The RolesCreate entity (create). | `/api/v1/merchants/{merchantID}/roles/batchcreate` |
+| **Rule** | The Rule entity (create, list, load, remove, update). | `/api/v1/rules` |
+| **RuleEvent** | The RuleEvent entity (list). | `/api/v1/rules/{id}/events` |
 | **Tag** | The Tag entity (create, list). | `/api/v1/merchants/{merchantID}/tags` |
 | **Token** | The Token entity (create, remove). | `/api/v1/tokens/authorise/{id}` |
-| **Transaction** | The Transaction entity (create, load, remove). | `/api/v1/transactions/{id}/tags` |
-| **User** | The User entity (list, update). | `/api/v1/merchants/{merchantID}/users` |
-| **UserInvite** | The UserInvite entity (create, remove, update). | `/api/v1/userinvites/authorise/{id}` |
+| **Transaction** | The Transaction entity (create, list, load, remove). | `/api/v1/transactions/{id}/tags` |
+| **User** | The User entity (list, update). | `/api/v1/user/{merchantID}/userspaged` |
+| **UserInvite** | The UserInvite entity (create, list, load, remove, update). | `/api/v1/userinvites/authorise/{id}` |
+| **UserInvitesCreate** | The UserInvitesCreate entity (create). | `/api/v1/userinvites/batchcreate` |
 | **Virtual** | The Virtual entity (create, update). | `/api/v1/accounts/{accountID}/virtual` |
-| **Webhook** | The Webhook entity (remove). | `/api/v1/webhooks/{id}` |
-| **Whoami** | The Whoami entity (list). | `/api/v1/metadata/whoami` |
-| **Whoamitrustedapp** | The Whoamitrustedapp entity (list). | `/api/v1/metadata/whoamitrustedapp` |
+| **Webhook** | The Webhook entity (create, list, load, remove, update). | `/api/v1/webhooks` |
 
 The operations available across these entities are **load**, **list**, **create**, **update**, **remove** — see each entity's
 own list above for exactly which it supports.
@@ -301,14 +273,14 @@ if err != nil {
 }
 fmt.Println(accounts)
 
-// Load a specific merchant
-merchant, err := client.Merchant(nil).Load(
-    map[string]any{"merchant_id": "example_merchant_id"}, nil,
+// Load a specific cardcustomertoken
+cardCustomerToken, err := client.CardCustomerToken(nil).Load(
+    map[string]any{"customer_email_address": "example_customer_email_address"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(merchant)
+fmt.Println(cardCustomerToken)
 ```
 
 ### Ruby

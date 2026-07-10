@@ -27,7 +27,7 @@ class TestTransactionEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "load", "remove"]:
+        for _op in ["create", "list", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "transaction." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -43,21 +43,50 @@ class TestTransactionEntity:
         transaction_ref01_ent = client.Transaction(None)
         transaction_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.transaction"), "transaction_ref01"))
+        transaction_ref01_data["account_id"] = setup["idmap"]["account01"]
+        transaction_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
         transaction_ref01_data["transaction_id"] = setup["idmap"]["transaction01"]
 
         transaction_ref01_data = helpers.to_map(transaction_ref01_ent.create(transaction_ref01_data, None))
         assert transaction_ref01_data is not None
+        assert transaction_ref01_data["id"] is not None
+
+        # LIST
+        transaction_ref01_match = {}
+
+        transaction_ref01_list_result = transaction_ref01_ent.list(transaction_ref01_match, None)
+        assert isinstance(transaction_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(transaction_ref01_list_result),
+            {"id": transaction_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # LOAD
-        transaction_ref01_match_dt0 = {}
+        transaction_ref01_match_dt0 = {
+            "id": transaction_ref01_data["id"],
+        }
         transaction_ref01_data_dt0_loaded = transaction_ref01_ent.load(transaction_ref01_match_dt0, None)
-        assert transaction_ref01_data_dt0_loaded is not None
+        transaction_ref01_data_dt0_load_result = helpers.to_map(transaction_ref01_data_dt0_loaded)
+        assert transaction_ref01_data_dt0_load_result is not None
+        assert transaction_ref01_data_dt0_load_result["id"] == transaction_ref01_data["id"]
 
         # REMOVE
         transaction_ref01_match_rm0 = {
             "id": transaction_ref01_data["id"],
         }
         transaction_ref01_ent.remove(transaction_ref01_match_rm0, None)
+
+        # LIST
+        transaction_ref01_match_rt0 = {}
+
+        transaction_ref01_list_rt0_result = transaction_ref01_ent.list(transaction_ref01_match_rt0, None)
+        assert isinstance(transaction_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(transaction_ref01_list_rt0_result),
+            {"id": transaction_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 
@@ -77,7 +106,7 @@ def _transaction_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["transaction01", "transaction02", "transaction03", "from01", "from02", "from03"],
+        ["transaction01", "transaction02", "transaction03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "from01", "from02", "from03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

@@ -27,7 +27,7 @@ class TestPayrunEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "payrun." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -43,17 +43,29 @@ class TestPayrunEntity:
         payrun_ref01_ent = client.Payrun(None)
         payrun_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.payrun"), "payrun_ref01"))
+        payrun_ref01_data["merchant_i_d"] = setup["idmap"]["merchant_i_d01"]
 
         payrun_ref01_data = helpers.to_map(payrun_ref01_ent.create(payrun_ref01_data, None))
         assert payrun_ref01_data is not None
         assert payrun_ref01_data["id"] is not None
+
+        # LIST
+        payrun_ref01_match = {}
+
+        payrun_ref01_list_result = payrun_ref01_ent.list(payrun_ref01_match, None)
+        assert isinstance(payrun_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(payrun_ref01_list_result),
+            {"id": payrun_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         payrun_ref01_data_up0_up = {
             "id": payrun_ref01_data["id"],
         }
 
-        payrun_ref01_markdef_up0_name = "note"
+        payrun_ref01_markdef_up0_name = "authorisation_date"
         payrun_ref01_markdef_up0_value = "Mark01-payrun_ref01_" + str(setup["now"])
         payrun_ref01_data_up0_up[payrun_ref01_markdef_up0_name] = payrun_ref01_markdef_up0_value
 
@@ -62,11 +74,31 @@ class TestPayrunEntity:
         assert payrun_ref01_resdata_up0["id"] == payrun_ref01_data_up0_up["id"]
         assert payrun_ref01_resdata_up0[payrun_ref01_markdef_up0_name] == payrun_ref01_markdef_up0_value
 
+        # LOAD
+        payrun_ref01_match_dt0 = {
+            "id": payrun_ref01_data["id"],
+        }
+        payrun_ref01_data_dt0_loaded = payrun_ref01_ent.load(payrun_ref01_match_dt0, None)
+        payrun_ref01_data_dt0_load_result = helpers.to_map(payrun_ref01_data_dt0_loaded)
+        assert payrun_ref01_data_dt0_load_result is not None
+        assert payrun_ref01_data_dt0_load_result["id"] == payrun_ref01_data["id"]
+
         # REMOVE
         payrun_ref01_match_rm0 = {
             "id": payrun_ref01_data["id"],
         }
         payrun_ref01_ent.remove(payrun_ref01_match_rm0, None)
+
+        # LIST
+        payrun_ref01_match_rt0 = {}
+
+        payrun_ref01_list_rt0_result = payrun_ref01_ent.list(payrun_ref01_match_rt0, None)
+        assert isinstance(payrun_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(payrun_ref01_list_rt0_result),
+            {"id": payrun_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 
@@ -86,7 +118,7 @@ def _payrun_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["payrun01", "payrun02", "payrun03"],
+        ["payrun01", "payrun02", "payrun03", "merchant_i_d01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

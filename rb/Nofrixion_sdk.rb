@@ -222,6 +222,20 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.Batch.list / client.Batch.load({ "id" => ... })
+  def Batch(data = nil)
+    require_relative 'entity/batch_entity'
+    BatchEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.BeneficiariesCreate.list / client.BeneficiariesCreate.load({ "id" => ... })
+  def BeneficiariesCreate(data = nil)
+    require_relative 'entity/beneficiaries_create_entity'
+    BeneficiariesCreateEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Beneficiary.list / client.Beneficiary.load({ "id" => ... })
   def Beneficiary(data = nil)
     require_relative 'entity/beneficiary_entity'
@@ -229,24 +243,80 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.Cancel.list / client.Cancel.load({ "id" => ... })
-  def Cancel(data = nil)
-    require_relative 'entity/cancel_entity'
-    CancelEntity.new(self, data)
+  # Canonical facade: client.BeneficiaryGroup.list / client.BeneficiaryGroup.load({ "id" => ... })
+  def BeneficiaryGroup(data = nil)
+    require_relative 'entity/beneficiary_group_entity'
+    BeneficiaryGroupEntity.new(self, data)
   end
 
 
-  # Canonical facade: client.Disable.list / client.Disable.load({ "id" => ... })
-  def Disable(data = nil)
-    require_relative 'entity/disable_entity'
-    DisableEntity.new(self, data)
+  # Canonical facade: client.Card.list / client.Card.load({ "id" => ... })
+  def Card(data = nil)
+    require_relative 'entity/card_entity'
+    CardEntity.new(self, data)
   end
 
 
-  # Canonical facade: client.Enable.list / client.Enable.load({ "id" => ... })
-  def Enable(data = nil)
-    require_relative 'entity/enable_entity'
-    EnableEntity.new(self, data)
+  # Canonical facade: client.CardCustomerToken.list / client.CardCustomerToken.load({ "id" => ... })
+  def CardCustomerToken(data = nil)
+    require_relative 'entity/card_customer_token_entity'
+    CardCustomerTokenEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.CardPayment.list / client.CardPayment.load({ "id" => ... })
+  def CardPayment(data = nil)
+    require_relative 'entity/card_payment_entity'
+    CardPaymentEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.CardPublicKey.list / client.CardPublicKey.load({ "id" => ... })
+  def CardPublicKey(data = nil)
+    require_relative 'entity/card_public_key_entity'
+    CardPublicKeyEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.Consent.list / client.Consent.load({ "id" => ... })
+  def Consent(data = nil)
+    require_relative 'entity/consent_entity'
+    ConsentEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.Currency.list / client.Currency.load({ "id" => ... })
+  def Currency(data = nil)
+    require_relative 'entity/currency_entity'
+    CurrencyEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.DirectDebitBatchSubmit.list / client.DirectDebitBatchSubmit.load({ "id" => ... })
+  def DirectDebitBatchSubmit(data = nil)
+    require_relative 'entity/direct_debit_batch_submit_entity'
+    DirectDebitBatchSubmitEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.FxRate.list / client.FxRate.load({ "id" => ... })
+  def FxRate(data = nil)
+    require_relative 'entity/fx_rate_entity'
+    FxRateEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.IPayment.list / client.IPayment.load({ "id" => ... })
+  def IPayment(data = nil)
+    require_relative 'entity/i_payment_entity'
+    IPaymentEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.Mandate.list / client.Mandate.load({ "id" => ... })
+  def Mandate(data = nil)
+    require_relative 'entity/mandate_entity'
+    MandateEntity.new(self, data)
   end
 
 
@@ -257,6 +327,41 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.MerchantAuthorisationSetting.list / client.MerchantAuthorisationSetting.load({ "id" => ... })
+  def MerchantAuthorisationSetting(data = nil)
+    require_relative 'entity/merchant_authorisation_setting_entity'
+    MerchantAuthorisationSettingEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.MerchantDirectDebitMandate.list / client.MerchantDirectDebitMandate.load({ "id" => ... })
+  def MerchantDirectDebitMandate(data = nil)
+    require_relative 'entity/merchant_direct_debit_mandate_entity'
+    MerchantDirectDebitMandateEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.MerchantPayByBankSetting.list / client.MerchantPayByBankSetting.load({ "id" => ... })
+  def MerchantPayByBankSetting(data = nil)
+    require_relative 'entity/merchant_pay_by_bank_setting_entity'
+    MerchantPayByBankSettingEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.MerchantPaymentRequestTemplate.list / client.MerchantPaymentRequestTemplate.load({ "id" => ... })
+  def MerchantPaymentRequestTemplate(data = nil)
+    require_relative 'entity/merchant_payment_request_template_entity'
+    MerchantPaymentRequestTemplateEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.MerchantToken.list / client.MerchantToken.load({ "id" => ... })
+  def MerchantToken(data = nil)
+    require_relative 'entity/merchant_token_entity'
+    MerchantTokenEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Metadata.list / client.Metadata.load({ "id" => ... })
   def Metadata(data = nil)
     require_relative 'entity/metadata_entity'
@@ -264,388 +369,10 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage.list / client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page_entity'
-    NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPagingPaymentRequestPage.list / client.NoFrixionBizBizModelsPagingPaymentRequestPage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingPaymentRequestPage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_payment_request_page_entity'
-    NoFrixionBizBizModelsPagingPaymentRequestPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPagingPayoutPage.list / client.NoFrixionBizBizModelsPagingPayoutPage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingPayoutPage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_payout_page_entity'
-    NoFrixionBizBizModelsPagingPayoutPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPagingPayrunPage.list / client.NoFrixionBizBizModelsPagingPayrunPage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingPayrunPage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_payrun_page_entity'
-    NoFrixionBizBizModelsPagingPayrunPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPagingRuleEventsPage.list / client.NoFrixionBizBizModelsPagingRuleEventsPage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingRuleEventsPage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_rule_events_page_entity'
-    NoFrixionBizBizModelsPagingRuleEventsPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPagingRulesPage.list / client.NoFrixionBizBizModelsPagingRulesPage.load({ "id" => ... })
-  def NoFrixionBizBizModelsPagingRulesPage(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_paging_rules_page_entity'
-    NoFrixionBizBizModelsPagingRulesPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPaymentsCardPayment.list / client.NoFrixionBizBizModelsPaymentsCardPayment.load({ "id" => ... })
-  def NoFrixionBizBizModelsPaymentsCardPayment(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_payments_card_payment_entity'
-    NoFrixionBizBizModelsPaymentsCardPaymentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionBizBizModelsPaymentsCardPublicKey.list / client.NoFrixionBizBizModelsPaymentsCardPublicKey.load({ "id" => ... })
-  def NoFrixionBizBizModelsPaymentsCardPublicKey(data = nil)
-    require_relative 'entity/no_frixion_biz_biz_models_payments_card_public_key_entity'
-    NoFrixionBizBizModelsPaymentsCardPublicKeyEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries.list / client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries.load({ "id" => ... })
-  def NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(data = nil)
-    require_relative 'entity/no_frixion_money_moov_api_features_beneficiaries_beneficiaries_entity'
-    NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment.list / client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment.load({ "id" => ... })
-  def NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(data = nil)
-    require_relative 'entity/no_frixion_money_moov_api_features_payment_requests_payment_entity'
-    NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate.list / client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate.load({ "id" => ... })
-  def NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(data = nil)
-    require_relative 'entity/no_frixion_money_moov_api_features_permissions_roles_create_entity'
-    NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate.list / client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate.load({ "id" => ... })
-  def NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(data = nil)
-    require_relative 'entity/no_frixion_money_moov_api_features_user_invites_create_entity'
-    NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant.list / client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_authorisation_settings_merchant_entity'
-    NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsBatchPayout.list / client.NoFrixionMoneyMoovModelsBatchPayout.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsBatchPayout(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_batch_payout_entity'
-    NoFrixionMoneyMoovModelsBatchPayoutEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage.list / client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsBeneficiaryGroupPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_beneficiary_group_page_entity'
-    NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsBeneficiaryPage.list / client.NoFrixionMoneyMoovModelsBeneficiaryPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsBeneficiaryPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_beneficiary_page_entity'
-    NoFrixionMoneyMoovModelsBeneficiaryPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsCardCustomerToken.list / client.NoFrixionMoneyMoovModelsCardCustomerToken.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsCardCustomerToken(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_card_customer_token_entity'
-    NoFrixionMoneyMoovModelsCardCustomerTokenEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo.list / client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_currency_currency_info_entity'
-    NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit.list / client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_direct_debit_batch_submit_entity'
-    NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsFxRate.list / client.NoFrixionMoneyMoovModelsFxRate.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsFxRate(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_fx_rate_entity'
-    NoFrixionMoneyMoovModelsFxRateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsIPayment.list / client.NoFrixionMoneyMoovModelsIPayment.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsIPayment(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_i_payment_entity'
-    NoFrixionMoneyMoovModelsIPaymentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMandatesMandate.list / client.NoFrixionMoneyMoovModelsMandatesMandate.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMandatesMandate(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_mandates_mandate_entity'
-    NoFrixionMoneyMoovModelsMandatesMandateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMerchant.list / client.NoFrixionMoneyMoovModelsMerchant.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMerchant(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_merchant_entity'
-    NoFrixionMoneyMoovModelsMerchantEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMerchantPage.list / client.NoFrixionMoneyMoovModelsMerchantPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMerchantPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_merchant_page_entity'
-    NoFrixionMoneyMoovModelsMerchantPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting.list / client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMerchantPayByBankSetting(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_merchant_pay_by_bank_setting_entity'
-    NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMerchantToken.list / client.NoFrixionMoneyMoovModelsMerchantToken.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMerchantToken(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_merchant_token_entity'
-    NoFrixionMoneyMoovModelsMerchantTokenEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsMerchantTokenPage.list / client.NoFrixionMoneyMoovModelsMerchantTokenPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsMerchantTokenPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_merchant_token_page_entity'
-    NoFrixionMoneyMoovModelsMerchantTokenPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsNoFrixionVersion.list / client.NoFrixionMoneyMoovModelsNoFrixionVersion.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsNoFrixionVersion(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_no_frixion_version_entity'
-    NoFrixionMoneyMoovModelsNoFrixionVersionEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsOpenBankingAccount.list / client.NoFrixionMoneyMoovModelsOpenBankingAccount.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsOpenBankingAccount(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_open_banking_account_entity'
-    NoFrixionMoneyMoovModelsOpenBankingAccountEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsOpenBankingConsent.list / client.NoFrixionMoneyMoovModelsOpenBankingConsent.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsOpenBankingConsent(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_open_banking_consent_entity'
-    NoFrixionMoneyMoovModelsOpenBankingConsentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsOpenBankingTransaction.list / client.NoFrixionMoneyMoovModelsOpenBankingTransaction.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsOpenBankingTransaction(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_open_banking_transaction_entity'
-    NoFrixionMoneyMoovModelsOpenBankingTransactionEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPayment.list / client.NoFrixionMoneyMoovModelsPayment.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPayment(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_entity'
-    NoFrixionMoneyMoovModelsPaymentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage.list / client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_account_minimal_page_entity'
-    NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentAccountPage.list / client.NoFrixionMoneyMoovModelsPaymentAccountPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentAccountPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_account_page_entity'
-    NoFrixionMoneyMoovModelsPaymentAccountPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentInitiation.list / client.NoFrixionMoneyMoovModelsPaymentInitiation.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentInitiation(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_initiation_entity'
-    NoFrixionMoneyMoovModelsPaymentInitiationEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestEvent.list / client.NoFrixionMoneyMoovModelsPaymentRequestEvent.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestEvent(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_request_event_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestEventEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestMetric.list / client.NoFrixionMoneyMoovModelsPaymentRequestMetric.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestMetric(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_request_metric_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestMetricEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestMinimal.list / client.NoFrixionMoneyMoovModelsPaymentRequestMinimal.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestMinimal(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_request_minimal_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestResult.list / client.NoFrixionMoneyMoovModelsPaymentRequestResult.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestResult(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_request_result_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestResultEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment.list / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_requests_merchant_payment_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2.list / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_requests_merchant_payment2_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3.list / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_requests_merchant_payment3_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4.list / client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payment_requests_merchant_payment4_entity'
-    NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPayoutKeysetPage.list / client.NoFrixionMoneyMoovModelsPayoutKeysetPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPayoutKeysetPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payout_keyset_page_entity'
-    NoFrixionMoneyMoovModelsPayoutKeysetPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPayoutMetric.list / client.NoFrixionMoneyMoovModelsPayoutMetric.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPayoutMetric(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payout_metric_entity'
-    NoFrixionMoneyMoovModelsPayoutMetricEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate.list / client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payouts_payouts_create_entity'
-    NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsPayrun.list / client.NoFrixionMoneyMoovModelsPayrun.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsPayrun(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_payrun_entity'
-    NoFrixionMoneyMoovModelsPayrunEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsReportResult.list / client.NoFrixionMoneyMoovModelsReportResult.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsReportResult(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_report_result_entity'
-    NoFrixionMoneyMoovModelsReportResultEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsRule.list / client.NoFrixionMoneyMoovModelsRule.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsRule(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_rule_entity'
-    NoFrixionMoneyMoovModelsRuleEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsTransaction.list / client.NoFrixionMoneyMoovModelsTransaction.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsTransaction(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_transaction_entity'
-    NoFrixionMoneyMoovModelsTransactionEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsTransactionPage.list / client.NoFrixionMoneyMoovModelsTransactionPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsTransactionPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_transaction_page_entity'
-    NoFrixionMoneyMoovModelsTransactionPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsUserInvite.list / client.NoFrixionMoneyMoovModelsUserInvite.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsUserInvite(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_user_invite_entity'
-    NoFrixionMoneyMoovModelsUserInviteEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsUserInvitePage.list / client.NoFrixionMoneyMoovModelsUserInvitePage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsUserInvitePage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_user_invite_page_entity'
-    NoFrixionMoneyMoovModelsUserInvitePageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsUserPage.list / client.NoFrixionMoneyMoovModelsUserPage.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsUserPage(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_user_page_entity'
-    NoFrixionMoneyMoovModelsUserPageEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.NoFrixionMoneyMoovModelsWebhook.list / client.NoFrixionMoneyMoovModelsWebhook.load({ "id" => ... })
-  def NoFrixionMoneyMoovModelsWebhook(data = nil)
-    require_relative 'entity/no_frixion_money_moov_models_webhook_entity'
-    NoFrixionMoneyMoovModelsWebhookEntity.new(self, data)
+  # Canonical facade: client.NoFrixionVersion.list / client.NoFrixionVersion.load({ "id" => ... })
+  def NoFrixionVersion(data = nil)
+    require_relative 'entity/no_frixion_version_entity'
+    NoFrixionVersionEntity.new(self, data)
   end
 
 
@@ -663,10 +390,73 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.Payment.list / client.Payment.load({ "id" => ... })
+  def Payment(data = nil)
+    require_relative 'entity/payment_entity'
+    PaymentEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentAccount.list / client.PaymentAccount.load({ "id" => ... })
+  def PaymentAccount(data = nil)
+    require_relative 'entity/payment_account_entity'
+    PaymentAccountEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentAccountMinimal.list / client.PaymentAccountMinimal.load({ "id" => ... })
+  def PaymentAccountMinimal(data = nil)
+    require_relative 'entity/payment_account_minimal_entity'
+    PaymentAccountMinimalEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentInitiation.list / client.PaymentInitiation.load({ "id" => ... })
+  def PaymentInitiation(data = nil)
+    require_relative 'entity/payment_initiation_entity'
+    PaymentInitiationEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.PaymentRequest.list / client.PaymentRequest.load({ "id" => ... })
   def PaymentRequest(data = nil)
     require_relative 'entity/payment_request_entity'
     PaymentRequestEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentRequestEvent.list / client.PaymentRequestEvent.load({ "id" => ... })
+  def PaymentRequestEvent(data = nil)
+    require_relative 'entity/payment_request_event_entity'
+    PaymentRequestEventEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentRequestMetric.list / client.PaymentRequestMetric.load({ "id" => ... })
+  def PaymentRequestMetric(data = nil)
+    require_relative 'entity/payment_request_metric_entity'
+    PaymentRequestMetricEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentRequestMinimal.list / client.PaymentRequestMinimal.load({ "id" => ... })
+  def PaymentRequestMinimal(data = nil)
+    require_relative 'entity/payment_request_minimal_entity'
+    PaymentRequestMinimalEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentRequestResult.list / client.PaymentRequestResult.load({ "id" => ... })
+  def PaymentRequestResult(data = nil)
+    require_relative 'entity/payment_request_result_entity'
+    PaymentRequestResultEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PaymentRequestsCreate.list / client.PaymentRequestsCreate.load({ "id" => ... })
+  def PaymentRequestsCreate(data = nil)
+    require_relative 'entity/payment_requests_create_entity'
+    PaymentRequestsCreateEntity.new(self, data)
   end
 
 
@@ -677,17 +467,31 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.PayoutKeyset.list / client.PayoutKeyset.load({ "id" => ... })
+  def PayoutKeyset(data = nil)
+    require_relative 'entity/payout_keyset_entity'
+    PayoutKeysetEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PayoutMetric.list / client.PayoutMetric.load({ "id" => ... })
+  def PayoutMetric(data = nil)
+    require_relative 'entity/payout_metric_entity'
+    PayoutMetricEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.PayoutsCreate.list / client.PayoutsCreate.load({ "id" => ... })
+  def PayoutsCreate(data = nil)
+    require_relative 'entity/payouts_create_entity'
+    PayoutsCreateEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Payrun.list / client.Payrun.load({ "id" => ... })
   def Payrun(data = nil)
     require_relative 'entity/payrun_entity'
     PayrunEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Reject.list / client.Reject.load({ "id" => ... })
-  def Reject(data = nil)
-    require_relative 'entity/reject_entity'
-    RejectEntity.new(self, data)
   end
 
 
@@ -698,6 +502,20 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.ReportResult.list / client.ReportResult.load({ "id" => ... })
+  def ReportResult(data = nil)
+    require_relative 'entity/report_result_entity'
+    ReportResultEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.RolesCreate.list / client.RolesCreate.load({ "id" => ... })
+  def RolesCreate(data = nil)
+    require_relative 'entity/roles_create_entity'
+    RolesCreateEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Rule.list / client.Rule.load({ "id" => ... })
   def Rule(data = nil)
     require_relative 'entity/rule_entity'
@@ -705,17 +523,10 @@ class NofrixionSDK
   end
 
 
-  # Canonical facade: client.Send.list / client.Send.load({ "id" => ... })
-  def Send(data = nil)
-    require_relative 'entity/send_entity'
-    SendEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Sendbeneficiary.list / client.Sendbeneficiary.load({ "id" => ... })
-  def Sendbeneficiary(data = nil)
-    require_relative 'entity/sendbeneficiary_entity'
-    SendbeneficiaryEntity.new(self, data)
+  # Canonical facade: client.RuleEvent.list / client.RuleEvent.load({ "id" => ... })
+  def RuleEvent(data = nil)
+    require_relative 'entity/rule_event_entity'
+    RuleEventEntity.new(self, data)
   end
 
 
@@ -754,6 +565,13 @@ class NofrixionSDK
   end
 
 
+  # Canonical facade: client.UserInvitesCreate.list / client.UserInvitesCreate.load({ "id" => ... })
+  def UserInvitesCreate(data = nil)
+    require_relative 'entity/user_invites_create_entity'
+    UserInvitesCreateEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Virtual.list / client.Virtual.load({ "id" => ... })
   def Virtual(data = nil)
     require_relative 'entity/virtual_entity'
@@ -765,20 +583,6 @@ class NofrixionSDK
   def Webhook(data = nil)
     require_relative 'entity/webhook_entity'
     WebhookEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Whoami.list / client.Whoami.load({ "id" => ... })
-  def Whoami(data = nil)
-    require_relative 'entity/whoami_entity'
-    WhoamiEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Whoamitrustedapp.list / client.Whoamitrustedapp.load({ "id" => ... })
-  def Whoamitrustedapp(data = nil)
-    require_relative 'entity/whoamitrustedapp_entity'
-    WhoamitrustedappEntity.new(self, data)
   end
 
 

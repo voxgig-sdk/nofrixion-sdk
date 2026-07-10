@@ -6,9 +6,19 @@ main: kit: entity: account: {
 
   fields: [
     {
+      name: "account_balance"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "account_id"
       req: false
       type: "`$STRING`"
+    }
+    {
+      name: "account_identification"
+      req: false
+      type: "`$ARRAY`"
     }
     {
       name: "account_name"
@@ -56,6 +66,11 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
+      name: "consolidated_account_information"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
       name: "created_by"
       req: true
       type: "`$OBJECT`"
@@ -72,6 +87,16 @@ main: kit: entity: account: {
     }
     {
       name: "default_payment_rail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "detail"
       req: false
       type: "`$STRING`"
     }
@@ -161,6 +186,11 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
+      name: "nickname"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "physical_account_id"
       req: false
       type: "`$STRING`"
@@ -202,6 +232,16 @@ main: kit: entity: account: {
     }
     {
       name: "to_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "usage_type"
       req: false
       type: "`$STRING`"
     }
@@ -799,6 +839,37 @@ main: kit: entity: account: {
               accountID: "id"
             }
           }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/openbanking/accounts/{id}"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "accounts"
+            "{id}"
+          ]
           select: {
             exist: [
               "id"

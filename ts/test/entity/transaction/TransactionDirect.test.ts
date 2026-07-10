@@ -34,13 +34,32 @@ describe('TransactionDirect', async () => {
   test('direct-load-transaction', async (t: any) => {
     const setup = directSetup({ id: 'direct01' })
     if (maybeSkipControl(t, 'direct', 'direct-load-transaction', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["account_id01"])) return
+    if (skipIfMissingIds(t, setup, ["account01"])) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
     if (setup.live) {
-
+      const listResult: any = await client.direct({
+        path: 'api/v1/accounts/{account_id}/transactions',
+        method: 'GET',
+        params: {
+        account_id: setup.idmap['account01'],
+        },
+      })
+      if (!listResult.ok) {
+        return // skip: list call failed (likely synthetic IDs against live API)
+      }
+      const listArr = unwrapListData(listResult.data)
+      if (null == listArr || listArr.length === 0) {
+        return // skip: no entities to load in live mode
+      }
+      const candidateId = listArr[0]?.account_id ?? listArr[0]?.id
+      if (null == candidateId) {
+        return // skip: list response shape does not expose load identifier
+      }
+      params.account_id = candidateId
+      params.account_id = setup.idmap['account01']
     } else {
       params.account_id = 'direct01'
     }
@@ -64,6 +83,51 @@ describe('TransactionDirect', async () => {
       assert(result.status === 200)
       assert(null != result.data)
       assert(result.data.id === 'direct01')
+      assert(calls.length === 1)
+      assert(calls[0].init.method === 'GET')
+      assert(calls[0].url.includes('direct01'))
+    }
+  })
+
+  test('direct-list-transaction', async (t: any) => {
+    const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
+    if (maybeSkipControl(t, 'direct', 'direct-list-transaction', setup.live)) return
+    if (skipIfMissingIds(t, setup, ["account01"])) return
+    const { client, calls } = setup
+
+    const params: any = {}
+    const query: any = {}
+    if (setup.live) {
+      params.account_id = setup.idmap['account01']
+    } else {
+      params.account_id = 'direct01'
+    }
+
+    const result: any = await client.direct({
+      path: 'api/v1/accounts/{account_id}/transactions',
+      method: 'GET',
+      params,
+      query,
+    })
+
+    if (setup.live) {
+      // Live mode is lenient: synthetic IDs frequently 4xx and the list-
+      // response shape varies wildly across public APIs. Skip rather than
+      // fail when the call doesn't return a usable list.
+      if (!result.ok || result.status < 200 || result.status >= 300) {
+        return
+      }
+      const listArr = unwrapListData(result.data)
+      if (!Array.isArray(listArr)) {
+        return
+      }
+    } else {
+      assert(result.ok === true)
+      assert(result.status === 200)
+      assert(null != result.data)
+      const listArr = unwrapListData(result.data)
+      assert(Array.isArray(listArr))
+      assert(listArr!.length === 2)
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
       assert(calls[0].url.includes('direct01'))

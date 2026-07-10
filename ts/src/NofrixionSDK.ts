@@ -1,86 +1,58 @@
 // Nofrixion Ts SDK
 
 import { AccountEntity } from './entity/AccountEntity'
+import { BatchEntity } from './entity/BatchEntity'
+import { BeneficiariesCreateEntity } from './entity/BeneficiariesCreateEntity'
 import { BeneficiaryEntity } from './entity/BeneficiaryEntity'
-import { CancelEntity } from './entity/CancelEntity'
-import { DisableEntity } from './entity/DisableEntity'
-import { EnableEntity } from './entity/EnableEntity'
+import { BeneficiaryGroupEntity } from './entity/BeneficiaryGroupEntity'
+import { CardEntity } from './entity/CardEntity'
+import { CardCustomerTokenEntity } from './entity/CardCustomerTokenEntity'
+import { CardPaymentEntity } from './entity/CardPaymentEntity'
+import { CardPublicKeyEntity } from './entity/CardPublicKeyEntity'
+import { ConsentEntity } from './entity/ConsentEntity'
+import { CurrencyEntity } from './entity/CurrencyEntity'
+import { DirectDebitBatchSubmitEntity } from './entity/DirectDebitBatchSubmitEntity'
+import { FxRateEntity } from './entity/FxRateEntity'
+import { IPaymentEntity } from './entity/IPaymentEntity'
+import { MandateEntity } from './entity/MandateEntity'
 import { MerchantEntity } from './entity/MerchantEntity'
+import { MerchantAuthorisationSettingEntity } from './entity/MerchantAuthorisationSettingEntity'
+import { MerchantDirectDebitMandateEntity } from './entity/MerchantDirectDebitMandateEntity'
+import { MerchantPayByBankSettingEntity } from './entity/MerchantPayByBankSettingEntity'
+import { MerchantPaymentRequestTemplateEntity } from './entity/MerchantPaymentRequestTemplateEntity'
+import { MerchantTokenEntity } from './entity/MerchantTokenEntity'
 import { MetadataEntity } from './entity/MetadataEntity'
-import { NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity } from './entity/NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity'
-import { NoFrixionBizBizModelsPagingPaymentRequestPageEntity } from './entity/NoFrixionBizBizModelsPagingPaymentRequestPageEntity'
-import { NoFrixionBizBizModelsPagingPayoutPageEntity } from './entity/NoFrixionBizBizModelsPagingPayoutPageEntity'
-import { NoFrixionBizBizModelsPagingPayrunPageEntity } from './entity/NoFrixionBizBizModelsPagingPayrunPageEntity'
-import { NoFrixionBizBizModelsPagingRuleEventsPageEntity } from './entity/NoFrixionBizBizModelsPagingRuleEventsPageEntity'
-import { NoFrixionBizBizModelsPagingRulesPageEntity } from './entity/NoFrixionBizBizModelsPagingRulesPageEntity'
-import { NoFrixionBizBizModelsPaymentsCardPaymentEntity } from './entity/NoFrixionBizBizModelsPaymentsCardPaymentEntity'
-import { NoFrixionBizBizModelsPaymentsCardPublicKeyEntity } from './entity/NoFrixionBizBizModelsPaymentsCardPublicKeyEntity'
-import { NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity } from './entity/NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity'
-import { NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity } from './entity/NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity'
-import { NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity } from './entity/NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity'
-import { NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity } from './entity/NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity'
-import { NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity } from './entity/NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity'
-import { NoFrixionMoneyMoovModelsBatchPayoutEntity } from './entity/NoFrixionMoneyMoovModelsBatchPayoutEntity'
-import { NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity } from './entity/NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity'
-import { NoFrixionMoneyMoovModelsBeneficiaryPageEntity } from './entity/NoFrixionMoneyMoovModelsBeneficiaryPageEntity'
-import { NoFrixionMoneyMoovModelsCardCustomerTokenEntity } from './entity/NoFrixionMoneyMoovModelsCardCustomerTokenEntity'
-import { NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity } from './entity/NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity'
-import { NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity } from './entity/NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity'
-import { NoFrixionMoneyMoovModelsFxRateEntity } from './entity/NoFrixionMoneyMoovModelsFxRateEntity'
-import { NoFrixionMoneyMoovModelsIPaymentEntity } from './entity/NoFrixionMoneyMoovModelsIPaymentEntity'
-import { NoFrixionMoneyMoovModelsMandatesMandateEntity } from './entity/NoFrixionMoneyMoovModelsMandatesMandateEntity'
-import { NoFrixionMoneyMoovModelsMerchantEntity } from './entity/NoFrixionMoneyMoovModelsMerchantEntity'
-import { NoFrixionMoneyMoovModelsMerchantPageEntity } from './entity/NoFrixionMoneyMoovModelsMerchantPageEntity'
-import { NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity } from './entity/NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity'
-import { NoFrixionMoneyMoovModelsMerchantTokenEntity } from './entity/NoFrixionMoneyMoovModelsMerchantTokenEntity'
-import { NoFrixionMoneyMoovModelsMerchantTokenPageEntity } from './entity/NoFrixionMoneyMoovModelsMerchantTokenPageEntity'
-import { NoFrixionMoneyMoovModelsNoFrixionVersionEntity } from './entity/NoFrixionMoneyMoovModelsNoFrixionVersionEntity'
-import { NoFrixionMoneyMoovModelsOpenBankingAccountEntity } from './entity/NoFrixionMoneyMoovModelsOpenBankingAccountEntity'
-import { NoFrixionMoneyMoovModelsOpenBankingConsentEntity } from './entity/NoFrixionMoneyMoovModelsOpenBankingConsentEntity'
-import { NoFrixionMoneyMoovModelsOpenBankingTransactionEntity } from './entity/NoFrixionMoneyMoovModelsOpenBankingTransactionEntity'
-import { NoFrixionMoneyMoovModelsPaymentEntity } from './entity/NoFrixionMoneyMoovModelsPaymentEntity'
-import { NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity } from './entity/NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity'
-import { NoFrixionMoneyMoovModelsPaymentAccountPageEntity } from './entity/NoFrixionMoneyMoovModelsPaymentAccountPageEntity'
-import { NoFrixionMoneyMoovModelsPaymentInitiationEntity } from './entity/NoFrixionMoneyMoovModelsPaymentInitiationEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestEventEntity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestEventEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestMetricEntity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestMetricEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestResultEntity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestResultEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity'
-import { NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity'
-import { NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity'
-import { NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity } from './entity/NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity'
-import { NoFrixionMoneyMoovModelsPayoutKeysetPageEntity } from './entity/NoFrixionMoneyMoovModelsPayoutKeysetPageEntity'
-import { NoFrixionMoneyMoovModelsPayoutMetricEntity } from './entity/NoFrixionMoneyMoovModelsPayoutMetricEntity'
-import { NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity } from './entity/NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity'
-import { NoFrixionMoneyMoovModelsPayrunEntity } from './entity/NoFrixionMoneyMoovModelsPayrunEntity'
-import { NoFrixionMoneyMoovModelsReportResultEntity } from './entity/NoFrixionMoneyMoovModelsReportResultEntity'
-import { NoFrixionMoneyMoovModelsRuleEntity } from './entity/NoFrixionMoneyMoovModelsRuleEntity'
-import { NoFrixionMoneyMoovModelsTransactionEntity } from './entity/NoFrixionMoneyMoovModelsTransactionEntity'
-import { NoFrixionMoneyMoovModelsTransactionPageEntity } from './entity/NoFrixionMoneyMoovModelsTransactionPageEntity'
-import { NoFrixionMoneyMoovModelsUserInviteEntity } from './entity/NoFrixionMoneyMoovModelsUserInviteEntity'
-import { NoFrixionMoneyMoovModelsUserInvitePageEntity } from './entity/NoFrixionMoneyMoovModelsUserInvitePageEntity'
-import { NoFrixionMoneyMoovModelsUserPageEntity } from './entity/NoFrixionMoneyMoovModelsUserPageEntity'
-import { NoFrixionMoneyMoovModelsWebhookEntity } from './entity/NoFrixionMoneyMoovModelsWebhookEntity'
+import { NoFrixionVersionEntity } from './entity/NoFrixionVersionEntity'
 import { OpenBankingEntity } from './entity/OpenBankingEntity'
 import { PayeeverificationEntity } from './entity/PayeeverificationEntity'
+import { PaymentEntity } from './entity/PaymentEntity'
+import { PaymentAccountEntity } from './entity/PaymentAccountEntity'
+import { PaymentAccountMinimalEntity } from './entity/PaymentAccountMinimalEntity'
+import { PaymentInitiationEntity } from './entity/PaymentInitiationEntity'
 import { PaymentRequestEntity } from './entity/PaymentRequestEntity'
+import { PaymentRequestEventEntity } from './entity/PaymentRequestEventEntity'
+import { PaymentRequestMetricEntity } from './entity/PaymentRequestMetricEntity'
+import { PaymentRequestMinimalEntity } from './entity/PaymentRequestMinimalEntity'
+import { PaymentRequestResultEntity } from './entity/PaymentRequestResultEntity'
+import { PaymentRequestsCreateEntity } from './entity/PaymentRequestsCreateEntity'
 import { PayoutEntity } from './entity/PayoutEntity'
+import { PayoutKeysetEntity } from './entity/PayoutKeysetEntity'
+import { PayoutMetricEntity } from './entity/PayoutMetricEntity'
+import { PayoutsCreateEntity } from './entity/PayoutsCreateEntity'
 import { PayrunEntity } from './entity/PayrunEntity'
-import { RejectEntity } from './entity/RejectEntity'
 import { ReportEntity } from './entity/ReportEntity'
+import { ReportResultEntity } from './entity/ReportResultEntity'
+import { RolesCreateEntity } from './entity/RolesCreateEntity'
 import { RuleEntity } from './entity/RuleEntity'
-import { SendEntity } from './entity/SendEntity'
-import { SendbeneficiaryEntity } from './entity/SendbeneficiaryEntity'
+import { RuleEventEntity } from './entity/RuleEventEntity'
 import { TagEntity } from './entity/TagEntity'
 import { TokenEntity } from './entity/TokenEntity'
 import { TransactionEntity } from './entity/TransactionEntity'
 import { UserEntity } from './entity/UserEntity'
 import { UserInviteEntity } from './entity/UserInviteEntity'
+import { UserInvitesCreateEntity } from './entity/UserInvitesCreateEntity'
 import { VirtualEntity } from './entity/VirtualEntity'
 import { WebhookEntity } from './entity/WebhookEntity'
-import { WhoamiEntity } from './entity/WhoamiEntity'
-import { WhoamitrustedappEntity } from './entity/WhoamitrustedappEntity'
 
 export type * from './NofrixionTypes'
 
@@ -291,6 +263,20 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.Batch().list()` / `client.Batch().load({ id })`.
+  Batch(data?: any) {
+    const self = this
+    return new BatchEntity(self,data)
+  }
+
+
+  // Entity access: `client.BeneficiariesCreate().list()` / `client.BeneficiariesCreate().load({ id })`.
+  BeneficiariesCreate(data?: any) {
+    const self = this
+    return new BeneficiariesCreateEntity(self,data)
+  }
+
+
   // Entity access: `client.Beneficiary().list()` / `client.Beneficiary().load({ id })`.
   Beneficiary(data?: any) {
     const self = this
@@ -298,24 +284,80 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.Cancel().list()` / `client.Cancel().load({ id })`.
-  Cancel(data?: any) {
+  // Entity access: `client.BeneficiaryGroup().list()` / `client.BeneficiaryGroup().load({ id })`.
+  BeneficiaryGroup(data?: any) {
     const self = this
-    return new CancelEntity(self,data)
+    return new BeneficiaryGroupEntity(self,data)
   }
 
 
-  // Entity access: `client.Disable().list()` / `client.Disable().load({ id })`.
-  Disable(data?: any) {
+  // Entity access: `client.Card().list()` / `client.Card().load({ id })`.
+  Card(data?: any) {
     const self = this
-    return new DisableEntity(self,data)
+    return new CardEntity(self,data)
   }
 
 
-  // Entity access: `client.Enable().list()` / `client.Enable().load({ id })`.
-  Enable(data?: any) {
+  // Entity access: `client.CardCustomerToken().list()` / `client.CardCustomerToken().load({ id })`.
+  CardCustomerToken(data?: any) {
     const self = this
-    return new EnableEntity(self,data)
+    return new CardCustomerTokenEntity(self,data)
+  }
+
+
+  // Entity access: `client.CardPayment().list()` / `client.CardPayment().load({ id })`.
+  CardPayment(data?: any) {
+    const self = this
+    return new CardPaymentEntity(self,data)
+  }
+
+
+  // Entity access: `client.CardPublicKey().list()` / `client.CardPublicKey().load({ id })`.
+  CardPublicKey(data?: any) {
+    const self = this
+    return new CardPublicKeyEntity(self,data)
+  }
+
+
+  // Entity access: `client.Consent().list()` / `client.Consent().load({ id })`.
+  Consent(data?: any) {
+    const self = this
+    return new ConsentEntity(self,data)
+  }
+
+
+  // Entity access: `client.Currency().list()` / `client.Currency().load({ id })`.
+  Currency(data?: any) {
+    const self = this
+    return new CurrencyEntity(self,data)
+  }
+
+
+  // Entity access: `client.DirectDebitBatchSubmit().list()` / `client.DirectDebitBatchSubmit().load({ id })`.
+  DirectDebitBatchSubmit(data?: any) {
+    const self = this
+    return new DirectDebitBatchSubmitEntity(self,data)
+  }
+
+
+  // Entity access: `client.FxRate().list()` / `client.FxRate().load({ id })`.
+  FxRate(data?: any) {
+    const self = this
+    return new FxRateEntity(self,data)
+  }
+
+
+  // Entity access: `client.IPayment().list()` / `client.IPayment().load({ id })`.
+  IPayment(data?: any) {
+    const self = this
+    return new IPaymentEntity(self,data)
+  }
+
+
+  // Entity access: `client.Mandate().list()` / `client.Mandate().load({ id })`.
+  Mandate(data?: any) {
+    const self = this
+    return new MandateEntity(self,data)
   }
 
 
@@ -326,6 +368,41 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.MerchantAuthorisationSetting().list()` / `client.MerchantAuthorisationSetting().load({ id })`.
+  MerchantAuthorisationSetting(data?: any) {
+    const self = this
+    return new MerchantAuthorisationSettingEntity(self,data)
+  }
+
+
+  // Entity access: `client.MerchantDirectDebitMandate().list()` / `client.MerchantDirectDebitMandate().load({ id })`.
+  MerchantDirectDebitMandate(data?: any) {
+    const self = this
+    return new MerchantDirectDebitMandateEntity(self,data)
+  }
+
+
+  // Entity access: `client.MerchantPayByBankSetting().list()` / `client.MerchantPayByBankSetting().load({ id })`.
+  MerchantPayByBankSetting(data?: any) {
+    const self = this
+    return new MerchantPayByBankSettingEntity(self,data)
+  }
+
+
+  // Entity access: `client.MerchantPaymentRequestTemplate().list()` / `client.MerchantPaymentRequestTemplate().load({ id })`.
+  MerchantPaymentRequestTemplate(data?: any) {
+    const self = this
+    return new MerchantPaymentRequestTemplateEntity(self,data)
+  }
+
+
+  // Entity access: `client.MerchantToken().list()` / `client.MerchantToken().load({ id })`.
+  MerchantToken(data?: any) {
+    const self = this
+    return new MerchantTokenEntity(self,data)
+  }
+
+
   // Entity access: `client.Metadata().list()` / `client.Metadata().load({ id })`.
   Metadata(data?: any) {
     const self = this
@@ -333,388 +410,10 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage().list()` / `client.NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage().load({ id })`.
-  NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(data?: any) {
+  // Entity access: `client.NoFrixionVersion().list()` / `client.NoFrixionVersion().load({ id })`.
+  NoFrixionVersion(data?: any) {
     const self = this
-    return new NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPagingPaymentRequestPage().list()` / `client.NoFrixionBizBizModelsPagingPaymentRequestPage().load({ id })`.
-  NoFrixionBizBizModelsPagingPaymentRequestPage(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPagingPaymentRequestPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPagingPayoutPage().list()` / `client.NoFrixionBizBizModelsPagingPayoutPage().load({ id })`.
-  NoFrixionBizBizModelsPagingPayoutPage(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPagingPayoutPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPagingPayrunPage().list()` / `client.NoFrixionBizBizModelsPagingPayrunPage().load({ id })`.
-  NoFrixionBizBizModelsPagingPayrunPage(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPagingPayrunPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPagingRuleEventsPage().list()` / `client.NoFrixionBizBizModelsPagingRuleEventsPage().load({ id })`.
-  NoFrixionBizBizModelsPagingRuleEventsPage(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPagingRuleEventsPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPagingRulesPage().list()` / `client.NoFrixionBizBizModelsPagingRulesPage().load({ id })`.
-  NoFrixionBizBizModelsPagingRulesPage(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPagingRulesPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPaymentsCardPayment().list()` / `client.NoFrixionBizBizModelsPaymentsCardPayment().load({ id })`.
-  NoFrixionBizBizModelsPaymentsCardPayment(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPaymentsCardPaymentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionBizBizModelsPaymentsCardPublicKey().list()` / `client.NoFrixionBizBizModelsPaymentsCardPublicKey().load({ id })`.
-  NoFrixionBizBizModelsPaymentsCardPublicKey(data?: any) {
-    const self = this
-    return new NoFrixionBizBizModelsPaymentsCardPublicKeyEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries().list()` / `client.NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries().load({ id })`.
-  NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment().list()` / `client.NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment().load({ id })`.
-  NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().list()` / `client.NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate().load({ id })`.
-  NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate().list()` / `client.NoFrixionMoneyMoovApiFeaturesUserInvitesCreate().load({ id })`.
-  NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant().list()` / `client.NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant().load({ id })`.
-  NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsBatchPayout().list()` / `client.NoFrixionMoneyMoovModelsBatchPayout().load({ id })`.
-  NoFrixionMoneyMoovModelsBatchPayout(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsBatchPayoutEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage().list()` / `client.NoFrixionMoneyMoovModelsBeneficiaryGroupPage().load({ id })`.
-  NoFrixionMoneyMoovModelsBeneficiaryGroupPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsBeneficiaryPage().list()` / `client.NoFrixionMoneyMoovModelsBeneficiaryPage().load({ id })`.
-  NoFrixionMoneyMoovModelsBeneficiaryPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsBeneficiaryPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsCardCustomerToken().list()` / `client.NoFrixionMoneyMoovModelsCardCustomerToken().load({ id })`.
-  NoFrixionMoneyMoovModelsCardCustomerToken(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsCardCustomerTokenEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo().list()` / `client.NoFrixionMoneyMoovModelsCurrencyCurrencyInfo().load({ id })`.
-  NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit().list()` / `client.NoFrixionMoneyMoovModelsDirectDebitBatchSubmit().load({ id })`.
-  NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsFxRate().list()` / `client.NoFrixionMoneyMoovModelsFxRate().load({ id })`.
-  NoFrixionMoneyMoovModelsFxRate(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsFxRateEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsIPayment().list()` / `client.NoFrixionMoneyMoovModelsIPayment().load({ id })`.
-  NoFrixionMoneyMoovModelsIPayment(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsIPaymentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMandatesMandate().list()` / `client.NoFrixionMoneyMoovModelsMandatesMandate().load({ id })`.
-  NoFrixionMoneyMoovModelsMandatesMandate(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMandatesMandateEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMerchant().list()` / `client.NoFrixionMoneyMoovModelsMerchant().load({ id })`.
-  NoFrixionMoneyMoovModelsMerchant(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMerchantEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMerchantPage().list()` / `client.NoFrixionMoneyMoovModelsMerchantPage().load({ id })`.
-  NoFrixionMoneyMoovModelsMerchantPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMerchantPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting().list()` / `client.NoFrixionMoneyMoovModelsMerchantPayByBankSetting().load({ id })`.
-  NoFrixionMoneyMoovModelsMerchantPayByBankSetting(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMerchantToken().list()` / `client.NoFrixionMoneyMoovModelsMerchantToken().load({ id })`.
-  NoFrixionMoneyMoovModelsMerchantToken(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMerchantTokenEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsMerchantTokenPage().list()` / `client.NoFrixionMoneyMoovModelsMerchantTokenPage().load({ id })`.
-  NoFrixionMoneyMoovModelsMerchantTokenPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsMerchantTokenPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsNoFrixionVersion().list()` / `client.NoFrixionMoneyMoovModelsNoFrixionVersion().load({ id })`.
-  NoFrixionMoneyMoovModelsNoFrixionVersion(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsNoFrixionVersionEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsOpenBankingAccount().list()` / `client.NoFrixionMoneyMoovModelsOpenBankingAccount().load({ id })`.
-  NoFrixionMoneyMoovModelsOpenBankingAccount(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsOpenBankingAccountEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsOpenBankingConsent().list()` / `client.NoFrixionMoneyMoovModelsOpenBankingConsent().load({ id })`.
-  NoFrixionMoneyMoovModelsOpenBankingConsent(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsOpenBankingConsentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsOpenBankingTransaction().list()` / `client.NoFrixionMoneyMoovModelsOpenBankingTransaction().load({ id })`.
-  NoFrixionMoneyMoovModelsOpenBankingTransaction(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsOpenBankingTransactionEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPayment().list()` / `client.NoFrixionMoneyMoovModelsPayment().load({ id })`.
-  NoFrixionMoneyMoovModelsPayment(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage().list()` / `client.NoFrixionMoneyMoovModelsPaymentAccountMinimalPage().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentAccountPage().list()` / `client.NoFrixionMoneyMoovModelsPaymentAccountPage().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentAccountPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentAccountPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentInitiation().list()` / `client.NoFrixionMoneyMoovModelsPaymentInitiation().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentInitiation(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentInitiationEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestEvent().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestEvent().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestEvent(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestEventEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestMetric().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestMetric().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestMetric(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestMetricEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestMinimal().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestMinimal().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestMinimal(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestResult().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestResult().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestResult(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestResultEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4().list()` / `client.NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4().load({ id })`.
-  NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPayoutKeysetPage().list()` / `client.NoFrixionMoneyMoovModelsPayoutKeysetPage().load({ id })`.
-  NoFrixionMoneyMoovModelsPayoutKeysetPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPayoutKeysetPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPayoutMetric().list()` / `client.NoFrixionMoneyMoovModelsPayoutMetric().load({ id })`.
-  NoFrixionMoneyMoovModelsPayoutMetric(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPayoutMetricEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate().list()` / `client.NoFrixionMoneyMoovModelsPayoutsPayoutsCreate().load({ id })`.
-  NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsPayrun().list()` / `client.NoFrixionMoneyMoovModelsPayrun().load({ id })`.
-  NoFrixionMoneyMoovModelsPayrun(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsPayrunEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsReportResult().list()` / `client.NoFrixionMoneyMoovModelsReportResult().load({ id })`.
-  NoFrixionMoneyMoovModelsReportResult(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsReportResultEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsRule().list()` / `client.NoFrixionMoneyMoovModelsRule().load({ id })`.
-  NoFrixionMoneyMoovModelsRule(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsRuleEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsTransaction().list()` / `client.NoFrixionMoneyMoovModelsTransaction().load({ id })`.
-  NoFrixionMoneyMoovModelsTransaction(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsTransactionEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsTransactionPage().list()` / `client.NoFrixionMoneyMoovModelsTransactionPage().load({ id })`.
-  NoFrixionMoneyMoovModelsTransactionPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsTransactionPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsUserInvite().list()` / `client.NoFrixionMoneyMoovModelsUserInvite().load({ id })`.
-  NoFrixionMoneyMoovModelsUserInvite(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsUserInviteEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsUserInvitePage().list()` / `client.NoFrixionMoneyMoovModelsUserInvitePage().load({ id })`.
-  NoFrixionMoneyMoovModelsUserInvitePage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsUserInvitePageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsUserPage().list()` / `client.NoFrixionMoneyMoovModelsUserPage().load({ id })`.
-  NoFrixionMoneyMoovModelsUserPage(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsUserPageEntity(self,data)
-  }
-
-
-  // Entity access: `client.NoFrixionMoneyMoovModelsWebhook().list()` / `client.NoFrixionMoneyMoovModelsWebhook().load({ id })`.
-  NoFrixionMoneyMoovModelsWebhook(data?: any) {
-    const self = this
-    return new NoFrixionMoneyMoovModelsWebhookEntity(self,data)
+    return new NoFrixionVersionEntity(self,data)
   }
 
 
@@ -732,10 +431,73 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.Payment().list()` / `client.Payment().load({ id })`.
+  Payment(data?: any) {
+    const self = this
+    return new PaymentEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentAccount().list()` / `client.PaymentAccount().load({ id })`.
+  PaymentAccount(data?: any) {
+    const self = this
+    return new PaymentAccountEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentAccountMinimal().list()` / `client.PaymentAccountMinimal().load({ id })`.
+  PaymentAccountMinimal(data?: any) {
+    const self = this
+    return new PaymentAccountMinimalEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentInitiation().list()` / `client.PaymentInitiation().load({ id })`.
+  PaymentInitiation(data?: any) {
+    const self = this
+    return new PaymentInitiationEntity(self,data)
+  }
+
+
   // Entity access: `client.PaymentRequest().list()` / `client.PaymentRequest().load({ id })`.
   PaymentRequest(data?: any) {
     const self = this
     return new PaymentRequestEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentRequestEvent().list()` / `client.PaymentRequestEvent().load({ id })`.
+  PaymentRequestEvent(data?: any) {
+    const self = this
+    return new PaymentRequestEventEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentRequestMetric().list()` / `client.PaymentRequestMetric().load({ id })`.
+  PaymentRequestMetric(data?: any) {
+    const self = this
+    return new PaymentRequestMetricEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentRequestMinimal().list()` / `client.PaymentRequestMinimal().load({ id })`.
+  PaymentRequestMinimal(data?: any) {
+    const self = this
+    return new PaymentRequestMinimalEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentRequestResult().list()` / `client.PaymentRequestResult().load({ id })`.
+  PaymentRequestResult(data?: any) {
+    const self = this
+    return new PaymentRequestResultEntity(self,data)
+  }
+
+
+  // Entity access: `client.PaymentRequestsCreate().list()` / `client.PaymentRequestsCreate().load({ id })`.
+  PaymentRequestsCreate(data?: any) {
+    const self = this
+    return new PaymentRequestsCreateEntity(self,data)
   }
 
 
@@ -746,17 +508,31 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.PayoutKeyset().list()` / `client.PayoutKeyset().load({ id })`.
+  PayoutKeyset(data?: any) {
+    const self = this
+    return new PayoutKeysetEntity(self,data)
+  }
+
+
+  // Entity access: `client.PayoutMetric().list()` / `client.PayoutMetric().load({ id })`.
+  PayoutMetric(data?: any) {
+    const self = this
+    return new PayoutMetricEntity(self,data)
+  }
+
+
+  // Entity access: `client.PayoutsCreate().list()` / `client.PayoutsCreate().load({ id })`.
+  PayoutsCreate(data?: any) {
+    const self = this
+    return new PayoutsCreateEntity(self,data)
+  }
+
+
   // Entity access: `client.Payrun().list()` / `client.Payrun().load({ id })`.
   Payrun(data?: any) {
     const self = this
     return new PayrunEntity(self,data)
-  }
-
-
-  // Entity access: `client.Reject().list()` / `client.Reject().load({ id })`.
-  Reject(data?: any) {
-    const self = this
-    return new RejectEntity(self,data)
   }
 
 
@@ -767,6 +543,20 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.ReportResult().list()` / `client.ReportResult().load({ id })`.
+  ReportResult(data?: any) {
+    const self = this
+    return new ReportResultEntity(self,data)
+  }
+
+
+  // Entity access: `client.RolesCreate().list()` / `client.RolesCreate().load({ id })`.
+  RolesCreate(data?: any) {
+    const self = this
+    return new RolesCreateEntity(self,data)
+  }
+
+
   // Entity access: `client.Rule().list()` / `client.Rule().load({ id })`.
   Rule(data?: any) {
     const self = this
@@ -774,17 +564,10 @@ class NofrixionSDK {
   }
 
 
-  // Entity access: `client.Send().list()` / `client.Send().load({ id })`.
-  Send(data?: any) {
+  // Entity access: `client.RuleEvent().list()` / `client.RuleEvent().load({ id })`.
+  RuleEvent(data?: any) {
     const self = this
-    return new SendEntity(self,data)
-  }
-
-
-  // Entity access: `client.Sendbeneficiary().list()` / `client.Sendbeneficiary().load({ id })`.
-  Sendbeneficiary(data?: any) {
-    const self = this
-    return new SendbeneficiaryEntity(self,data)
+    return new RuleEventEntity(self,data)
   }
 
 
@@ -823,6 +606,13 @@ class NofrixionSDK {
   }
 
 
+  // Entity access: `client.UserInvitesCreate().list()` / `client.UserInvitesCreate().load({ id })`.
+  UserInvitesCreate(data?: any) {
+    const self = this
+    return new UserInvitesCreateEntity(self,data)
+  }
+
+
   // Entity access: `client.Virtual().list()` / `client.Virtual().load({ id })`.
   Virtual(data?: any) {
     const self = this
@@ -834,20 +624,6 @@ class NofrixionSDK {
   Webhook(data?: any) {
     const self = this
     return new WebhookEntity(self,data)
-  }
-
-
-  // Entity access: `client.Whoami().list()` / `client.Whoami().load({ id })`.
-  Whoami(data?: any) {
-    const self = this
-    return new WhoamiEntity(self,data)
-  }
-
-
-  // Entity access: `client.Whoamitrustedapp().list()` / `client.Whoamitrustedapp().load({ id })`.
-  Whoamitrustedapp(data?: any) {
-    const self = this
-    return new WhoamitrustedappEntity(self,data)
   }
 
 

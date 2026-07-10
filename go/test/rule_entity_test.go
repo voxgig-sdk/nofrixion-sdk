@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -32,7 +33,7 @@ func TestRuleEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"update", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "rule." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -49,20 +50,48 @@ func TestRuleEntity(t *testing.T) {
 		}
 		client := setup.client
 
-		// Bootstrap entity data from existing test data (no create step in flow).
-		ruleRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.rule", setup.data)))
-		var ruleRef01Data map[string]any
-		if len(ruleRef01DataRaw) > 0 {
-			ruleRef01Data = core.ToMapAny(ruleRef01DataRaw[0][1])
+		// CREATE
+		ruleRef01Ent := client.Rule(nil)
+		ruleRef01Data := core.ToMapAny(vs.GetProp(
+			vs.GetPath([]any{"new", "rule"}, setup.data), "rule_ref01"))
+
+		ruleRef01DataResult, err := ruleRef01Ent.Create(ruleRef01Data, nil)
+		if err != nil {
+			t.Fatalf("create failed: %v", err)
 		}
-		// Discard guards against Go's unused-var check when the flow's steps
-		// happen not to consume the bootstrap data (e.g. list-only flows).
-		_ = ruleRef01Data
+		ruleRef01Data = core.ToMapAny(ruleRef01DataResult)
+		if ruleRef01Data == nil {
+			t.Fatal("expected create result to be a map")
+		}
+		if ruleRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		ruleRef01Match := map[string]any{}
+
+		ruleRef01ListResult, err := ruleRef01Ent.List(ruleRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		ruleRef01List, ruleRef01ListOk := ruleRef01ListResult.([]any)
+		if !ruleRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", ruleRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(ruleRef01List), map[string]any{"id": ruleRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
 
 		// UPDATE
-		ruleRef01Ent := client.Rule(nil)
 		ruleRef01DataUp0Up := map[string]any{
+			"id": ruleRef01Data["id"],
 		}
+
+		ruleRef01MarkdefUp0Name := "account_id"
+		ruleRef01MarkdefUp0Value := fmt.Sprintf("Mark01-rule_ref01_%d", setup.now)
+		ruleRef01DataUp0Up[ruleRef01MarkdefUp0Name] = ruleRef01MarkdefUp0Value
 
 		ruleRef01ResdataUp0Result, err := ruleRef01Ent.Update(ruleRef01DataUp0Up, nil)
 		if err != nil {
@@ -72,6 +101,28 @@ func TestRuleEntity(t *testing.T) {
 		if ruleRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if ruleRef01ResdataUp0["id"] != ruleRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if ruleRef01ResdataUp0[ruleRef01MarkdefUp0Name] != ruleRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", ruleRef01MarkdefUp0Name, ruleRef01ResdataUp0[ruleRef01MarkdefUp0Name])
+		}
+
+		// LOAD
+		ruleRef01MatchDt0 := map[string]any{
+			"id": ruleRef01Data["id"],
+		}
+		ruleRef01DataDt0Loaded, err := ruleRef01Ent.Load(ruleRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		ruleRef01DataDt0LoadResult := core.ToMapAny(ruleRef01DataDt0Loaded)
+		if ruleRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if ruleRef01DataDt0LoadResult["id"] != ruleRef01Data["id"] {
+			t.Fatal("expected load result id to match")
+		}
 
 		// REMOVE
 		ruleRef01MatchRm0 := map[string]any{
@@ -80,6 +131,23 @@ func TestRuleEntity(t *testing.T) {
 		_, err = ruleRef01Ent.Remove(ruleRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		ruleRef01MatchRt0 := map[string]any{}
+
+		ruleRef01ListRt0Result, err := ruleRef01Ent.List(ruleRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		ruleRef01ListRt0, ruleRef01ListRt0Ok := ruleRef01ListRt0Result.([]any)
+		if !ruleRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", ruleRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(ruleRef01ListRt0), map[string]any{"id": ruleRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

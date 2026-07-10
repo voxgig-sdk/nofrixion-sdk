@@ -1,0 +1,83 @@
+# BasicCardCustomerTokenFlow
+
+main: kit: flow: BasicCardCustomerTokenFlow:
+{
+  entity: "card_customer_token",
+  kind: "basic",
+  name: "BasicCardCustomerTokenFlow",
+  step: [
+    {
+      match: {
+        customer_email_address: "customer_email_address01",
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "card_customer_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "card_customer_token_ref01",
+        srcdatavar: "card_customer_token_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "card_customer_token01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-card_customer_token_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "card_customer_token_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "card_customer_token01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        customer_email_address: "customer_email_address01",
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "card_customer_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCardCustomerTokenFlow"
+}

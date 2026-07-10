@@ -1,0 +1,95 @@
+{
+  "existing": {
+    "card_payment": {
+      "CARD_PAYMENT00": {
+        "authorized_amount": "saa",
+        "currency_code": "sab",
+        "is_payer_authentication_required": true,
+        "is_soft_decline": false,
+        "payer_authentication_access_token": "sae",
+        "payer_authentication_merchant_data": "saf",
+        "payer_authentication_url": "sb0",
+        "payer_authentication_window_height": "sb1",
+        "payer_authentication_window_width": "sb2",
+        "payment_request_callback_url": "sb3",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "request_id": "REQUEST01",
+        "response_code": "sb6",
+        "response_type": "sb7",
+        "status": "sb8",
+        "three_ds_redirect_url": "sb9",
+        "transaction_id": "TRANSACTION01",
+        "partial_refund_amount": "PARTIAL_REFUND_AMOUNT01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PAYMENT00"
+      },
+      "CARD_PAYMENT01": {
+        "authorized_amount": "s154",
+        "currency_code": "s155",
+        "is_payer_authentication_required": true,
+        "is_soft_decline": false,
+        "payer_authentication_access_token": "s158",
+        "payer_authentication_merchant_data": "s159",
+        "payer_authentication_url": "s15a",
+        "payer_authentication_window_height": "s15b",
+        "payer_authentication_window_width": "s15c",
+        "payment_request_callback_url": "s15d",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "request_id": "REQUEST01",
+        "response_code": "s160",
+        "response_type": "s161",
+        "status": "s162",
+        "three_ds_redirect_url": "s163",
+        "transaction_id": "TRANSACTION01",
+        "partial_refund_amount": "PARTIAL_REFUND_AMOUNT01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PAYMENT01"
+      },
+      "CARD_PAYMENT02": {
+        "authorized_amount": "s1fe",
+        "currency_code": "s1ff",
+        "is_payer_authentication_required": true,
+        "is_soft_decline": false,
+        "payer_authentication_access_token": "s202",
+        "payer_authentication_merchant_data": "s203",
+        "payer_authentication_url": "s204",
+        "payer_authentication_window_height": "s205",
+        "payer_authentication_window_width": "s206",
+        "payment_request_callback_url": "s207",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "request_id": "REQUEST01",
+        "response_code": "s20a",
+        "response_type": "s20b",
+        "status": "s20c",
+        "three_ds_redirect_url": "s20d",
+        "transaction_id": "TRANSACTION01",
+        "partial_refund_amount": "PARTIAL_REFUND_AMOUNT01",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PAYMENT02"
+      }
+    }
+  },
+  "new": {
+    "card_payment": {
+      "card_payment_ref01": {
+        "authorized_amount": "s2a8",
+        "currency_code": "s2a9",
+        "is_payer_authentication_required": true,
+        "is_soft_decline": false,
+        "payer_authentication_access_token": "s2ac",
+        "payer_authentication_merchant_data": "s2ad",
+        "payer_authentication_url": "s2ae",
+        "payer_authentication_window_height": "s2af",
+        "payer_authentication_window_width": "s2b0",
+        "payment_request_callback_url": "s2b1",
+        "payment_request_id": "PAYMENT_REQUEST01",
+        "request_id": "REQUEST01",
+        "response_code": "s2b4",
+        "response_type": "s2b5",
+        "status": "s2b6",
+        "three_ds_redirect_url": "s2b7",
+        "transaction_id": "TRANSACTION01"
+      }
+    }
+  }
+}

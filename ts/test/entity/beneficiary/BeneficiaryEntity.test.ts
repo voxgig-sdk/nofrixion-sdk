@@ -39,7 +39,7 @@ describe('BeneficiaryEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'update', 'load', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'beneficiary.' + op, live)) return
     }
 
@@ -67,6 +67,15 @@ describe('BeneficiaryEntity', async () => {
     assert(null != beneficiary_ref01_data.id)
 
 
+    // LIST
+    const beneficiary_ref01_match: any = {}
+    beneficiary_ref01_match['merchant_id'] = setup.idmap['merchant01']
+
+    const beneficiary_ref01_list = await beneficiary_ref01_ent.list(beneficiary_ref01_match)
+
+    assert(!isempty(select(beneficiary_ref01_list, { id: beneficiary_ref01_data.id })))
+
+
     // UPDATE
     const beneficiary_ref01_data_up0: any = {}
     beneficiary_ref01_data_up0.id = beneficiary_ref01_data.id
@@ -91,6 +100,15 @@ describe('BeneficiaryEntity', async () => {
     const beneficiary_ref01_match_rm0: any = { id: beneficiary_ref01_data.id }
     await beneficiary_ref01_ent.remove(beneficiary_ref01_match_rm0)
   
+
+    // LIST
+    const beneficiary_ref01_match_rt0: any = {}
+    beneficiary_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
+
+    const beneficiary_ref01_list_rt0 = await beneficiary_ref01_ent.list(beneficiary_ref01_match_rt0)
+
+    assert(isempty(select(beneficiary_ref01_list_rt0, { id: beneficiary_ref01_data.id })))
+
 
   })
 })

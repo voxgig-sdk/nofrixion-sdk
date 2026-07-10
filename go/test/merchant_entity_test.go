@@ -33,7 +33,7 @@ func TestMerchantEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"update", "load", "remove"} {
+		for _, _op := range []string{"list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "merchant." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -60,12 +60,25 @@ func TestMerchantEntity(t *testing.T) {
 		// happen not to consume the bootstrap data (e.g. list-only flows).
 		_ = merchantRef01Data
 
-		// UPDATE
+		// LIST
 		merchantRef01Ent := client.Merchant(nil)
-		merchantRef01DataUp0Up := map[string]any{
+		merchantRef01Match := map[string]any{}
+
+		merchantRef01ListResult, err := merchantRef01Ent.List(merchantRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, merchantRef01ListOk := merchantRef01ListResult.([]any)
+		if !merchantRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", merchantRef01ListResult)
 		}
 
-		merchantRef01MarkdefUp0Name := "reason"
+		// UPDATE
+		merchantRef01DataUp0Up := map[string]any{
+			"id": merchantRef01Data["id"],
+		}
+
+		merchantRef01MarkdefUp0Name := "card_payment_processor"
 		merchantRef01MarkdefUp0Value := fmt.Sprintf("Mark01-merchant_ref01_%d", setup.now)
 		merchantRef01DataUp0Up[merchantRef01MarkdefUp0Name] = merchantRef01MarkdefUp0Value
 
@@ -77,18 +90,27 @@ func TestMerchantEntity(t *testing.T) {
 		if merchantRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if merchantRef01ResdataUp0["id"] != merchantRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
 		if merchantRef01ResdataUp0[merchantRef01MarkdefUp0Name] != merchantRef01MarkdefUp0Value {
 			t.Fatalf("expected %s to be updated, got %v", merchantRef01MarkdefUp0Name, merchantRef01ResdataUp0[merchantRef01MarkdefUp0Name])
 		}
 
 		// LOAD
-		merchantRef01MatchDt0 := map[string]any{}
+		merchantRef01MatchDt0 := map[string]any{
+			"id": merchantRef01Data["id"],
+		}
 		merchantRef01DataDt0Loaded, err := merchantRef01Ent.Load(merchantRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if merchantRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		merchantRef01DataDt0LoadResult := core.ToMapAny(merchantRef01DataDt0Loaded)
+		if merchantRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if merchantRef01DataDt0LoadResult["id"] != merchantRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 		// REMOVE
@@ -98,6 +120,18 @@ func TestMerchantEntity(t *testing.T) {
 		_, err = merchantRef01Ent.Remove(merchantRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		merchantRef01MatchRt0 := map[string]any{}
+
+		merchantRef01ListRt0Result, err := merchantRef01Ent.List(merchantRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, merchantRef01ListRt0Ok := merchantRef01ListRt0Result.([]any)
+		if !merchantRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", merchantRef01ListRt0Result)
 		}
 
 	})

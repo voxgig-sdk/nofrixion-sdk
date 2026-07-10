@@ -96,8 +96,71 @@ class UserInviteEntity
     }
 
     
+    /**
+     * Load a single UserInvite.
+     *
+     * @param UserInviteLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed UserInviteLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return UserInvite|array The loaded UserInvite as an assoc-array at the
+     *   SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "load",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqmatch" => $reqmatch,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+                if ($ctx->result->resdata) {
+                    $this->_data = NofrixionHelpers::to_map(Struct::clone($ctx->result->resdata)) ?? [];
+                }
+            }
+        });
+    }
+
+
 
     
+    /**
+     * List UserInvite items matching the given filter.
+     *
+     * @param UserInviteListMatch|array|null $reqmatch Match filter (any subset
+     *   of UserInvite fields) as an assoc-array; UserInviteListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return UserInvite[]|array A list of UserInvite items as assoc-arrays at
+     *   the SDK boundary; throws NofrixionError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
+    {
+        $utility = $this->_utility;
+        $ctx = ($utility->make_context)([
+            "opname" => "list",
+            "ctrl" => $ctrl,
+            "match" => $this->_match,
+            "data" => $this->_data,
+            "reqmatch" => $reqmatch,
+        ], $this->_entctx);
+
+        return $this->_run_op($ctx, function () use ($ctx) {
+            if ($ctx->result) {
+                if ($ctx->result->resmatch) {
+                    $this->_match = $ctx->result->resmatch;
+                }
+            }
+        });
+    }
+
+
 
     
     /**

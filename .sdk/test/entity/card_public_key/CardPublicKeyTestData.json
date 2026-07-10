@@ -1,0 +1,28 @@
+{
+  "existing": {
+    "card_public_key": {
+      "CARD_PUBLIC_KEY00": {
+        "jwt": "sa",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PUBLIC_KEY00"
+      },
+      "CARD_PUBLIC_KEY01": {
+        "jwt": "s14",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PUBLIC_KEY01"
+      },
+      "CARD_PUBLIC_KEY02": {
+        "jwt": "s1e",
+        "paymentrequest_id": "PAYMENTREQUEST01",
+        "id": "CARD_PUBLIC_KEY02"
+      }
+    }
+  },
+  "new": {
+    "card_public_key": {
+      "card_public_key_ref01": {
+        "jwt": "s28"
+      }
+    }
+  }
+}

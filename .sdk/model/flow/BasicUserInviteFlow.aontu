@@ -11,18 +11,61 @@ main: kit: flow: BasicUserInviteFlow:
         ref: "user_invite_ref01"
       }
 
+      match: {
+        merchant_id: "merchant01"
+      }
+
       op: "create"
+    }
+
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "user_invite_ref01"
+          }
+        }
+      ]
     }
 
     {
       input: {
         ref: "user_invite_ref01",
         srcdatavar: "user_invite_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "initial_role_id"
       }
 
       op: "update",
       spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_invite_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "user_invite_ref01",
+        srcdatavar: "user_invite_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "user_invite01"
+      }
+
+      op: "load",
+      valid: [
         {
           apply: "TextFieldMark",
           def: {
@@ -43,6 +86,26 @@ main: kit: flow: BasicUserInviteFlow:
       }
 
       op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "user_invite_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicUserInviteFlow"

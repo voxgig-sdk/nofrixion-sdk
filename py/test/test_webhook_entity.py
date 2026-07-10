@@ -27,7 +27,7 @@ class TestWebhookEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "webhook." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -39,19 +39,70 @@ class TestWebhookEntity:
                         "set NOFRIXION_TEST_WEBHOOK_ENTID JSON to run live")
         client = setup["client"]
 
-        # Bootstrap entity data from existing test data.
-        webhook_ref01_data_raw = vs.items(helpers.to_map(
-            vs.getpath(setup["data"], "existing.webhook")))
-        webhook_ref01_data = None
-        if len(webhook_ref01_data_raw) > 0:
-            webhook_ref01_data = helpers.to_map(webhook_ref01_data_raw[0][1])
+        # CREATE
+        webhook_ref01_ent = client.Webhook(None)
+        webhook_ref01_data = helpers.to_map(vs.getprop(
+            vs.getpath(setup["data"], "new.webhook"), "webhook_ref01"))
+        webhook_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
+
+        webhook_ref01_data = helpers.to_map(webhook_ref01_ent.create(webhook_ref01_data, None))
+        assert webhook_ref01_data is not None
+        assert webhook_ref01_data["id"] is not None
+
+        # LIST
+        webhook_ref01_match = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        webhook_ref01_list_result = webhook_ref01_ent.list(webhook_ref01_match, None)
+        assert isinstance(webhook_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(webhook_ref01_list_result),
+            {"id": webhook_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
+        # UPDATE
+        webhook_ref01_data_up0_up = {
+            "id": webhook_ref01_data["id"],
+        }
+
+        webhook_ref01_markdef_up0_name = "destination_url"
+        webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" + str(setup["now"])
+        webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
+
+        webhook_ref01_resdata_up0 = helpers.to_map(webhook_ref01_ent.update(webhook_ref01_data_up0_up, None))
+        assert webhook_ref01_resdata_up0 is not None
+        assert webhook_ref01_resdata_up0["id"] == webhook_ref01_data_up0_up["id"]
+        assert webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name] == webhook_ref01_markdef_up0_value
+
+        # LOAD
+        webhook_ref01_match_dt0 = {
+            "id": webhook_ref01_data["id"],
+        }
+        webhook_ref01_data_dt0_loaded = webhook_ref01_ent.load(webhook_ref01_match_dt0, None)
+        webhook_ref01_data_dt0_load_result = helpers.to_map(webhook_ref01_data_dt0_loaded)
+        assert webhook_ref01_data_dt0_load_result is not None
+        assert webhook_ref01_data_dt0_load_result["id"] == webhook_ref01_data["id"]
 
         # REMOVE
-        webhook_ref01_ent = client.Webhook(None)
         webhook_ref01_match_rm0 = {
             "id": webhook_ref01_data["id"],
         }
         webhook_ref01_ent.remove(webhook_ref01_match_rm0, None)
+
+        # LIST
+        webhook_ref01_match_rt0 = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        webhook_ref01_list_rt0_result = webhook_ref01_ent.list(webhook_ref01_match_rt0, None)
+        assert isinstance(webhook_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(webhook_ref01_list_rt0_result),
+            {"id": webhook_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 
@@ -71,7 +122,7 @@ def _webhook_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["webhook01", "webhook02", "webhook03"],
+        ["webhook01", "webhook02", "webhook03", "merchant01", "merchant02", "merchant03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

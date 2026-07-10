@@ -40,22 +40,22 @@ try {
     // list() returns an array of Account records — iterate directly.
     $accounts = $client->Account()->list();
     foreach ($accounts as $item) {
-        echo $item["id"] . " " . $item["account_id"] . "\n";
+        echo $item["id"] . " " . $item["account_balance"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
 
-### 3. Load a merchant
+### 3. Load a cardcustomertoken
 
-Merchant is nested under merchant, so provide the `merchant_id`.
+CardCustomerToken is nested under customer_email_address, so provide the `customer_email_address`.
 
 ```php
 try {
-    // load() returns the bare Merchant record (throws on error).
-    $merchant = $client->Merchant()->load(["merchant_id" => "example_merchant_id"]);
-    print_r($merchant);
+    // load() returns the bare CardCustomerToken record (throws on error).
+    $cardcustomertoken = $client->CardCustomerToken()->load(["customer_email_address" => "example_customer_email_address"]);
+    print_r($cardcustomertoken);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -241,86 +241,58 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
 | `Account` | `($data): AccountEntity` | Create an Account entity instance. |
+| `Batch` | `($data): BatchEntity` | Create a Batch entity instance. |
+| `BeneficiariesCreate` | `($data): BeneficiariesCreateEntity` | Create a BeneficiariesCreate entity instance. |
 | `Beneficiary` | `($data): BeneficiaryEntity` | Create a Beneficiary entity instance. |
-| `Cancel` | `($data): CancelEntity` | Create a Cancel entity instance. |
-| `Disable` | `($data): DisableEntity` | Create a Disable entity instance. |
-| `Enable` | `($data): EnableEntity` | Create an Enable entity instance. |
+| `BeneficiaryGroup` | `($data): BeneficiaryGroupEntity` | Create a BeneficiaryGroup entity instance. |
+| `Card` | `($data): CardEntity` | Create a Card entity instance. |
+| `CardCustomerToken` | `($data): CardCustomerTokenEntity` | Create a CardCustomerToken entity instance. |
+| `CardPayment` | `($data): CardPaymentEntity` | Create a CardPayment entity instance. |
+| `CardPublicKey` | `($data): CardPublicKeyEntity` | Create a CardPublicKey entity instance. |
+| `Consent` | `($data): ConsentEntity` | Create a Consent entity instance. |
+| `Currency` | `($data): CurrencyEntity` | Create a Currency entity instance. |
+| `DirectDebitBatchSubmit` | `($data): DirectDebitBatchSubmitEntity` | Create a DirectDebitBatchSubmit entity instance. |
+| `FxRate` | `($data): FxRateEntity` | Create a FxRate entity instance. |
+| `IPayment` | `($data): IPaymentEntity` | Create an IPayment entity instance. |
+| `Mandate` | `($data): MandateEntity` | Create a Mandate entity instance. |
 | `Merchant` | `($data): MerchantEntity` | Create a Merchant entity instance. |
+| `MerchantAuthorisationSetting` | `($data): MerchantAuthorisationSettingEntity` | Create a MerchantAuthorisationSetting entity instance. |
+| `MerchantDirectDebitMandate` | `($data): MerchantDirectDebitMandateEntity` | Create a MerchantDirectDebitMandate entity instance. |
+| `MerchantPayByBankSetting` | `($data): MerchantPayByBankSettingEntity` | Create a MerchantPayByBankSetting entity instance. |
+| `MerchantPaymentRequestTemplate` | `($data): MerchantPaymentRequestTemplateEntity` | Create a MerchantPaymentRequestTemplate entity instance. |
+| `MerchantToken` | `($data): MerchantTokenEntity` | Create a MerchantToken entity instance. |
 | `Metadata` | `($data): MetadataEntity` | Create a Metadata entity instance. |
-| `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage` | `($data): NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity` | Create a NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage entity instance. |
-| `NoFrixionBizBizModelsPagingPaymentRequestPage` | `($data): NoFrixionBizBizModelsPagingPaymentRequestPageEntity` | Create a NoFrixionBizBizModelsPagingPaymentRequestPage entity instance. |
-| `NoFrixionBizBizModelsPagingPayoutPage` | `($data): NoFrixionBizBizModelsPagingPayoutPageEntity` | Create a NoFrixionBizBizModelsPagingPayoutPage entity instance. |
-| `NoFrixionBizBizModelsPagingPayrunPage` | `($data): NoFrixionBizBizModelsPagingPayrunPageEntity` | Create a NoFrixionBizBizModelsPagingPayrunPage entity instance. |
-| `NoFrixionBizBizModelsPagingRuleEventsPage` | `($data): NoFrixionBizBizModelsPagingRuleEventsPageEntity` | Create a NoFrixionBizBizModelsPagingRuleEventsPage entity instance. |
-| `NoFrixionBizBizModelsPagingRulesPage` | `($data): NoFrixionBizBizModelsPagingRulesPageEntity` | Create a NoFrixionBizBizModelsPagingRulesPage entity instance. |
-| `NoFrixionBizBizModelsPaymentsCardPayment` | `($data): NoFrixionBizBizModelsPaymentsCardPaymentEntity` | Create a NoFrixionBizBizModelsPaymentsCardPayment entity instance. |
-| `NoFrixionBizBizModelsPaymentsCardPublicKey` | `($data): NoFrixionBizBizModelsPaymentsCardPublicKeyEntity` | Create a NoFrixionBizBizModelsPaymentsCardPublicKey entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries` | `($data): NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity` | Create a NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment` | `($data): NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity` | Create a NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate` | `($data): NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity` | Create a NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate entity instance. |
-| `NoFrixionMoneyMoovApiFeaturesUserInvitesCreate` | `($data): NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity` | Create a NoFrixionMoneyMoovApiFeaturesUserInvitesCreate entity instance. |
-| `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant` | `($data): NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity` | Create a NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant entity instance. |
-| `NoFrixionMoneyMoovModelsBatchPayout` | `($data): NoFrixionMoneyMoovModelsBatchPayoutEntity` | Create a NoFrixionMoneyMoovModelsBatchPayout entity instance. |
-| `NoFrixionMoneyMoovModelsBeneficiaryGroupPage` | `($data): NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity` | Create a NoFrixionMoneyMoovModelsBeneficiaryGroupPage entity instance. |
-| `NoFrixionMoneyMoovModelsBeneficiaryPage` | `($data): NoFrixionMoneyMoovModelsBeneficiaryPageEntity` | Create a NoFrixionMoneyMoovModelsBeneficiaryPage entity instance. |
-| `NoFrixionMoneyMoovModelsCardCustomerToken` | `($data): NoFrixionMoneyMoovModelsCardCustomerTokenEntity` | Create a NoFrixionMoneyMoovModelsCardCustomerToken entity instance. |
-| `NoFrixionMoneyMoovModelsCurrencyCurrencyInfo` | `($data): NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity` | Create a NoFrixionMoneyMoovModelsCurrencyCurrencyInfo entity instance. |
-| `NoFrixionMoneyMoovModelsDirectDebitBatchSubmit` | `($data): NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity` | Create a NoFrixionMoneyMoovModelsDirectDebitBatchSubmit entity instance. |
-| `NoFrixionMoneyMoovModelsFxRate` | `($data): NoFrixionMoneyMoovModelsFxRateEntity` | Create a NoFrixionMoneyMoovModelsFxRate entity instance. |
-| `NoFrixionMoneyMoovModelsIPayment` | `($data): NoFrixionMoneyMoovModelsIPaymentEntity` | Create a NoFrixionMoneyMoovModelsIPayment entity instance. |
-| `NoFrixionMoneyMoovModelsMandatesMandate` | `($data): NoFrixionMoneyMoovModelsMandatesMandateEntity` | Create a NoFrixionMoneyMoovModelsMandatesMandate entity instance. |
-| `NoFrixionMoneyMoovModelsMerchant` | `($data): NoFrixionMoneyMoovModelsMerchantEntity` | Create a NoFrixionMoneyMoovModelsMerchant entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantPage` | `($data): NoFrixionMoneyMoovModelsMerchantPageEntity` | Create a NoFrixionMoneyMoovModelsMerchantPage entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantPayByBankSetting` | `($data): NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity` | Create a NoFrixionMoneyMoovModelsMerchantPayByBankSetting entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantToken` | `($data): NoFrixionMoneyMoovModelsMerchantTokenEntity` | Create a NoFrixionMoneyMoovModelsMerchantToken entity instance. |
-| `NoFrixionMoneyMoovModelsMerchantTokenPage` | `($data): NoFrixionMoneyMoovModelsMerchantTokenPageEntity` | Create a NoFrixionMoneyMoovModelsMerchantTokenPage entity instance. |
-| `NoFrixionMoneyMoovModelsNoFrixionVersion` | `($data): NoFrixionMoneyMoovModelsNoFrixionVersionEntity` | Create a NoFrixionMoneyMoovModelsNoFrixionVersion entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingAccount` | `($data): NoFrixionMoneyMoovModelsOpenBankingAccountEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingAccount entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingConsent` | `($data): NoFrixionMoneyMoovModelsOpenBankingConsentEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingConsent entity instance. |
-| `NoFrixionMoneyMoovModelsOpenBankingTransaction` | `($data): NoFrixionMoneyMoovModelsOpenBankingTransactionEntity` | Create a NoFrixionMoneyMoovModelsOpenBankingTransaction entity instance. |
-| `NoFrixionMoneyMoovModelsPayment` | `($data): NoFrixionMoneyMoovModelsPaymentEntity` | Create a NoFrixionMoneyMoovModelsPayment entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentAccountMinimalPage` | `($data): NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity` | Create a NoFrixionMoneyMoovModelsPaymentAccountMinimalPage entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentAccountPage` | `($data): NoFrixionMoneyMoovModelsPaymentAccountPageEntity` | Create a NoFrixionMoneyMoovModelsPaymentAccountPage entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentInitiation` | `($data): NoFrixionMoneyMoovModelsPaymentInitiationEntity` | Create a NoFrixionMoneyMoovModelsPaymentInitiation entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestEvent` | `($data): NoFrixionMoneyMoovModelsPaymentRequestEventEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestEvent entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestMetric` | `($data): NoFrixionMoneyMoovModelsPaymentRequestMetricEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestMetric entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestMinimal` | `($data): NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestMinimal entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestResult` | `($data): NoFrixionMoneyMoovModelsPaymentRequestResultEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestResult entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment` | `($data): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2` | `($data): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3` | `($data): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3 entity instance. |
-| `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4` | `($data): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity` | Create a NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4 entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutKeysetPage` | `($data): NoFrixionMoneyMoovModelsPayoutKeysetPageEntity` | Create a NoFrixionMoneyMoovModelsPayoutKeysetPage entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutMetric` | `($data): NoFrixionMoneyMoovModelsPayoutMetricEntity` | Create a NoFrixionMoneyMoovModelsPayoutMetric entity instance. |
-| `NoFrixionMoneyMoovModelsPayoutsPayoutsCreate` | `($data): NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity` | Create a NoFrixionMoneyMoovModelsPayoutsPayoutsCreate entity instance. |
-| `NoFrixionMoneyMoovModelsPayrun` | `($data): NoFrixionMoneyMoovModelsPayrunEntity` | Create a NoFrixionMoneyMoovModelsPayrun entity instance. |
-| `NoFrixionMoneyMoovModelsReportResult` | `($data): NoFrixionMoneyMoovModelsReportResultEntity` | Create a NoFrixionMoneyMoovModelsReportResult entity instance. |
-| `NoFrixionMoneyMoovModelsRule` | `($data): NoFrixionMoneyMoovModelsRuleEntity` | Create a NoFrixionMoneyMoovModelsRule entity instance. |
-| `NoFrixionMoneyMoovModelsTransaction` | `($data): NoFrixionMoneyMoovModelsTransactionEntity` | Create a NoFrixionMoneyMoovModelsTransaction entity instance. |
-| `NoFrixionMoneyMoovModelsTransactionPage` | `($data): NoFrixionMoneyMoovModelsTransactionPageEntity` | Create a NoFrixionMoneyMoovModelsTransactionPage entity instance. |
-| `NoFrixionMoneyMoovModelsUserInvite` | `($data): NoFrixionMoneyMoovModelsUserInviteEntity` | Create a NoFrixionMoneyMoovModelsUserInvite entity instance. |
-| `NoFrixionMoneyMoovModelsUserInvitePage` | `($data): NoFrixionMoneyMoovModelsUserInvitePageEntity` | Create a NoFrixionMoneyMoovModelsUserInvitePage entity instance. |
-| `NoFrixionMoneyMoovModelsUserPage` | `($data): NoFrixionMoneyMoovModelsUserPageEntity` | Create a NoFrixionMoneyMoovModelsUserPage entity instance. |
-| `NoFrixionMoneyMoovModelsWebhook` | `($data): NoFrixionMoneyMoovModelsWebhookEntity` | Create a NoFrixionMoneyMoovModelsWebhook entity instance. |
+| `NoFrixionVersion` | `($data): NoFrixionVersionEntity` | Create a NoFrixionVersion entity instance. |
 | `OpenBanking` | `($data): OpenBankingEntity` | Create an OpenBanking entity instance. |
 | `Payeeverification` | `($data): PayeeverificationEntity` | Create a Payeeverification entity instance. |
+| `Payment` | `($data): PaymentEntity` | Create a Payment entity instance. |
+| `PaymentAccount` | `($data): PaymentAccountEntity` | Create a PaymentAccount entity instance. |
+| `PaymentAccountMinimal` | `($data): PaymentAccountMinimalEntity` | Create a PaymentAccountMinimal entity instance. |
+| `PaymentInitiation` | `($data): PaymentInitiationEntity` | Create a PaymentInitiation entity instance. |
 | `PaymentRequest` | `($data): PaymentRequestEntity` | Create a PaymentRequest entity instance. |
+| `PaymentRequestEvent` | `($data): PaymentRequestEventEntity` | Create a PaymentRequestEvent entity instance. |
+| `PaymentRequestMetric` | `($data): PaymentRequestMetricEntity` | Create a PaymentRequestMetric entity instance. |
+| `PaymentRequestMinimal` | `($data): PaymentRequestMinimalEntity` | Create a PaymentRequestMinimal entity instance. |
+| `PaymentRequestResult` | `($data): PaymentRequestResultEntity` | Create a PaymentRequestResult entity instance. |
+| `PaymentRequestsCreate` | `($data): PaymentRequestsCreateEntity` | Create a PaymentRequestsCreate entity instance. |
 | `Payout` | `($data): PayoutEntity` | Create a Payout entity instance. |
+| `PayoutKeyset` | `($data): PayoutKeysetEntity` | Create a PayoutKeyset entity instance. |
+| `PayoutMetric` | `($data): PayoutMetricEntity` | Create a PayoutMetric entity instance. |
+| `PayoutsCreate` | `($data): PayoutsCreateEntity` | Create a PayoutsCreate entity instance. |
 | `Payrun` | `($data): PayrunEntity` | Create a Payrun entity instance. |
-| `Reject` | `($data): RejectEntity` | Create a Reject entity instance. |
 | `Report` | `($data): ReportEntity` | Create a Report entity instance. |
+| `ReportResult` | `($data): ReportResultEntity` | Create a ReportResult entity instance. |
+| `RolesCreate` | `($data): RolesCreateEntity` | Create a RolesCreate entity instance. |
 | `Rule` | `($data): RuleEntity` | Create a Rule entity instance. |
-| `Send` | `($data): SendEntity` | Create a Send entity instance. |
-| `Sendbeneficiary` | `($data): SendbeneficiaryEntity` | Create a Sendbeneficiary entity instance. |
+| `RuleEvent` | `($data): RuleEventEntity` | Create a RuleEvent entity instance. |
 | `Tag` | `($data): TagEntity` | Create a Tag entity instance. |
 | `Token` | `($data): TokenEntity` | Create a Token entity instance. |
 | `Transaction` | `($data): TransactionEntity` | Create a Transaction entity instance. |
 | `User` | `($data): UserEntity` | Create an User entity instance. |
 | `UserInvite` | `($data): UserInviteEntity` | Create an UserInvite entity instance. |
+| `UserInvitesCreate` | `($data): UserInvitesCreateEntity` | Create an UserInvitesCreate entity instance. |
 | `Virtual` | `($data): VirtualEntity` | Create a Virtual entity instance. |
 | `Webhook` | `($data): WebhookEntity` | Create a Webhook entity instance. |
-| `Whoami` | `($data): WhoamiEntity` | Create a Whoami entity instance. |
-| `Whoamitrustedapp` | `($data): WhoamitrustedappEntity` | Create a Whoamitrustedapp entity instance. |
 
 ### Entity interface
 
@@ -364,7 +336,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
+| `account_balance` |  |
 | `account_id` |  |
+| `account_identification` |  |
 | `account_name` |  |
 | `account_supplier_name` |  |
 | `account_type` |  |
@@ -374,10 +348,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `balance_minor_unit` |  |
 | `bank_name` |  |
 | `consent_id` |  |
+| `consolidated_account_information` |  |
 | `created_by` |  |
 | `created_by_display_name` |  |
 | `currency` |  |
 | `default_payment_rail` |  |
+| `description` |  |
+| `detail` |  |
 | `display_name` |  |
 | `expiry_date` |  |
 | `external_account_icon` |  |
@@ -395,6 +372,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `last_updated` |  |
 | `merchant_id` |  |
 | `merchant_name` |  |
+| `nickname` |  |
 | `physical_account_id` |  |
 | `role_i_d` |  |
 | `rule` |  |
@@ -404,6 +382,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `supplier_physical_account_id` |  |
 | `supplier_sepa_instant_status` |  |
 | `to_date` |  |
+| `type` |  |
+| `usage_type` |  |
 | `xero_bank_feed_connection_status` |  |
 | `xero_bank_feed_last_synced_at` |  |
 | `xero_bank_feed_sync_last_failed_at` |  |
@@ -414,6 +394,29 @@ On error, `ok` is `false` and `$err` contains the error value.
 Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/accounts/{accountID}/{currency}`
+
+#### Batch
+
+| Field | Description |
+| --- | --- |
+| `approve_url` |  |
+| `id` |  |
+| `payout` |  |
+
+Operations: Create, Load.
+
+API path: `/api/v1/payouts/batch`
+
+#### BeneficiariesCreate
+
+| Field | Description |
+| --- | --- |
+| `beneficiary` |  |
+| `failed_beneficiary` |  |
+
+Operations: Create.
+
+API path: `/api/v1/beneficiaries/batchcreate`
 
 #### Beneficiary
 
@@ -444,460 +447,72 @@ API path: `/api/v1/accounts/{accountID}/{currency}`
 | `source_account_i_d` |  |
 | `their_reference` |  |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/beneficiaries/authorise/{id}`
 
-#### Cancel
+#### BeneficiaryGroup
 
 | Field | Description |
 | --- | --- |
-| `account_id` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
+| `group_member` |  |
+| `group_name` |  |
 | `id` |  |
 | `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
 | `last_updated` |  |
 | `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
+
+Operations: List.
+
+API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
+
+#### Card
+
+| Field | Description |
+| --- | --- |
+| `authorized_amount` |  |
+| `currency_code` |  |
+| `is_payer_authentication_required` |  |
+| `is_soft_decline` |  |
+| `payer_authentication_access_token` |  |
+| `payer_authentication_merchant_data` |  |
+| `payer_authentication_url` |  |
+| `payer_authentication_window_height` |  |
+| `payer_authentication_window_width` |  |
+| `payment_request_callback_url` |  |
+| `payment_request_id` |  |
+| `request_id` |  |
+| `response_code` |  |
+| `response_type` |  |
 | `status` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
+| `three_ds_redirect_url` |  |
+| `transaction_id` |  |
 
-Operations: Update.
+Operations: Create.
 
-API path: `/api/v1/payouts/cancel/{id}`
+API path: `/api/v1/paymentrequests/{id}/card`
 
-#### Disable
+#### CardCustomerToken
 
 | Field | Description |
 | --- | --- |
-| `approval_callback_url` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `beneficiary_event` |  |
-| `can_authorise` |  |
-| `can_update` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `destination` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `nonce` |  |
-| `source_account` |  |
-| `their_reference` |  |
-
-Operations: Update.
-
-API path: `/api/v1/beneficiaries/disable/{id}`
-
-#### Enable
-
-| Field | Description |
-| --- | --- |
-| `approval_callback_url` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `beneficiary_event` |  |
-| `can_authorise` |  |
-| `can_update` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `destination` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `nonce` |  |
-| `source_account` |  |
-| `their_reference` |  |
-
-Operations: Update.
-
-API path: `/api/v1/beneficiaries/enable/{id}`
-
-#### Merchant
-
-| Field | Description |
-| --- | --- |
-| `reason` |  |
-
-Operations: Load, Remove, Update.
-
-API path: `/api/v1/merchants/{merchantID}/payouts/export`
-
-#### Metadata
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/v1/metadata/problemnotification`
-
-#### NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage
-
-| Field | Description |
-| --- | --- |
-| `approved_at` |  |
-| `currency` |  |
-| `customer_account_number` |  |
-| `customer_city` |  |
-| `customer_country_code` |  |
-| `customer_country_name` |  |
+| `card_type` |  |
 | `customer_email_address` |  |
-| `customer_first_name` |  |
-| `customer_iban` |  |
-| `customer_last_name` |  |
-| `customer_sort_code` |  |
+| `expiry_month` |  |
+| `expiry_year` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_recurring` |  |
+| `last_four_digit` |  |
 | `last_updated` |  |
+| `masked_card_number` |  |
 | `merchant_id` |  |
-| `reference` |  |
-| `status` |  |
-| `supplier_bank_account_id` |  |
-| `supplier_customer_id` |  |
-| `supplier_mandate_id` |  |
-| `supplier_name` |  |
-| `supplier_status` |  |
+| `payment_request_id` |  |
 
-Operations: List.
+Operations: List, Load, Remove.
 
-API path: `/api/v1/mandates`
+API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}`
 
-#### NoFrixionBizBizModelsPagingPaymentRequestPage
-
-| Field | Description |
-| --- | --- |
-| `address` |  |
-| `amount` |  |
-| `amount_pending` |  |
-| `amount_received` |  |
-| `amount_refunded` |  |
-| `auto_send_receipt` |  |
-| `base_origin_url` |  |
-| `callback_url` |  |
-| `card_authorize_only` |  |
-| `card_create_token` |  |
-| `card_create_token_mode` |  |
-| `card_ignore_cvn` |  |
-| `card_processor_merchant_id` |  |
-| `card_stripe_payment_intent_id` |  |
-| `card_stripe_payment_intent_secret` |  |
-| `created_by_user` |  |
-| `currency` |  |
-| `custom_field` |  |
-| `customer_email_address` |  |
-| `customer_id` |  |
-| `customer_name` |  |
-| `description` |  |
-| `destination_account` |  |
-| `direct_debit_payment` |  |
-| `due_date` |  |
-| `event` |  |
-| `failure_callback_url` |  |
-| `field_display_setting` |  |
-| `formatted_amount` |  |
-| `hosted_pay_checkout_url` |  |
-| `id` |  |
-| `ignore_address_verification` |  |
-| `inserted` |  |
-| `inserted_sortable` |  |
-| `is_archived` |  |
-| `jwk` |  |
-| `last_updated` |  |
-| `lightning_invoice` |  |
-| `lightning_invoice_expires_at` |  |
-| `merchant_direct_debit_mandate_id` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `notification_email_address` |  |
-| `notification_role_i_d` |  |
-| `order_id` |  |
-| `partial_payment_method` |  |
-| `partial_payment_step` |  |
-| `payment_attempt` |  |
-| `payment_method` |  |
-| `payment_processor` |  |
-| `payrun_id` |  |
-| `pisp_account_id` |  |
-| `priority_bank_id` |  |
-| `result` |  |
-| `sandbox_settle_delay_in_second` |  |
-| `shipping_address` |  |
-| `status` |  |
-| `success_web_hook_url` |  |
-| `tag` |  |
-| `title` |  |
-| `tokenised_card` |  |
-| `transaction` |  |
-| `use_hosted_payment_page` |  |
-
-Operations: List.
-
-API path: `/api/v1/paymentrequests`
-
-#### NoFrixionBizBizModelsPagingPayoutPage
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
-| `status` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
-
-Operations: List.
-
-API path: `/api/v1/payouts`
-
-#### NoFrixionBizBizModelsPagingPayrunPage
-
-| Field | Description |
-| --- | --- |
-| `authorisation` |  |
-| `authorisation_date` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `can_authorise` |  |
-| `can_delete` |  |
-| `can_edit` |  |
-| `event` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice` |  |
-| `invoices_minimal` |  |
-| `is_archived` |  |
-| `last_updated` |  |
-| `last_updated_by` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `nonce` |  |
-| `payment` |  |
-| `payout` |  |
-| `payouts_count` |  |
-| `schedule_date` |  |
-| `source_account` |  |
-| `status` |  |
-| `total_eur` |  |
-| `total_gbp` |  |
-| `total_usd` |  |
-
-Operations: List.
-
-API path: `/api/v1/payruns`
-
-#### NoFrixionBizBizModelsPagingRuleEventsPage
-
-| Field | Description |
-| --- | --- |
-| `error_message` |  |
-| `id` |  |
-| `inserted` |  |
-| `is_authorise_to_enable` |  |
-| `message` |  |
-| `raw_response` |  |
-| `rule_event_type` |  |
-| `rule_id` |  |
-| `user` |  |
-
-Operations: List.
-
-API path: `/api/v1/rules/{id}/events`
-
-#### NoFrixionBizBizModelsPagingRulesPage
-
-| Field | Description |
-| --- | --- |
-| `account` |  |
-| `account_id` |  |
-| `approve_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `can_authorise` |  |
-| `created_by` |  |
-| `description` |  |
-| `end_at` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `is_disabled` |  |
-| `last_executed_at` |  |
-| `last_run_at_transaction_date` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `nonce` |  |
-| `on_approved_web_hook_url` |  |
-| `on_execution_error_web_hook_url` |  |
-| `on_execution_success_web_hook_url` |  |
-| `start_at` |  |
-| `status` |  |
-| `sweep_action` |  |
-| `time_zone_id` |  |
-| `trigger_cron_expression` |  |
-| `trigger_on_pay_in` |  |
-| `user_id` |  |
-| `web_hook_secret` |  |
-
-Operations: List.
-
-API path: `/api/v1/rules`
-
-#### NoFrixionBizBizModelsPaymentsCardPayment
+#### CardPayment
 
 | Field | Description |
 | --- | --- |
@@ -923,7 +538,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}`
 
-#### NoFrixionBizBizModelsPaymentsCardPublicKey
+#### CardPublicKey
 
 | Field | Description |
 | --- | --- |
@@ -933,150 +548,30 @@ Operations: Load.
 
 API path: `/api/v1/paymentrequests/{id}/card/publickey`
 
-#### NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries
+#### Consent
 
 | Field | Description |
 | --- | --- |
-| `beneficiary` |  |
-| `failed_beneficiary` |  |
-
-Operations: Create.
-
-API path: `/api/v1/beneficiaries/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment
-
-| Field | Description |
-| --- | --- |
-| `failed_payment_request` |  |
-| `payment_request` |  |
-
-Operations: Create.
-
-API path: `/api/v1/paymentrequests/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_role` |  |
-| `role` |  |
-
-Operations: Create.
-
-API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
-
-#### NoFrixionMoneyMoovApiFeaturesUserInvitesCreate
-
-| Field | Description |
-| --- | --- |
-| `failed_user_invite` |  |
-| `user_invite` |  |
-
-Operations: Create.
-
-API path: `/api/v1/userinvites/batchcreate`
-
-#### NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant
-
-| Field | Description |
-| --- | --- |
-| `amount_lower` |  |
-| `amount_upper` |  |
-| `authorisation_type` |  |
-| `beneficiaries_only` |  |
+| `authorisation_url` |  |
+| `callback_url` |  |
+| `consent_id` |  |
+| `email_address` |  |
+| `expiry_date` |  |
+| `failure_callback_url` |  |
 | `id` |  |
 | `inserted` |  |
-| `last_editor_cant_authorise` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `number_of_authoriser` |  |
-| `role_setting` |  |
-
-Operations: List.
-
-API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
-
-#### NoFrixionMoneyMoovModelsBatchPayout
-
-| Field | Description |
-| --- | --- |
-| `approve_url` |  |
-| `id` |  |
-| `payout` |  |
-
-Operations: Create, Load.
-
-API path: `/api/v1/payouts/batch`
-
-#### NoFrixionMoneyMoovModelsBeneficiaryGroupPage
-
-| Field | Description |
-| --- | --- |
-| `group_member` |  |
-| `group_name` |  |
-| `id` |  |
-| `inserted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-
-Operations: List.
-
-API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
-
-#### NoFrixionMoneyMoovModelsBeneficiaryPage
-
-| Field | Description |
-| --- | --- |
-| `approval_callback_url` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `beneficiary_event` |  |
-| `can_authorise` |  |
-| `can_update` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `destination` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
+| `institution_id` |  |
+| `is_connected_account` |  |
 | `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
 | `merchant_id` |  |
-| `name` |  |
-| `nonce` |  |
-| `source_account` |  |
-| `their_reference` |  |
+| `provider` |  |
+| `success_web_hook_url` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/beneficiaries`
+API path: `/api/v1/openbanking/consents`
 
-#### NoFrixionMoneyMoovModelsCardCustomerToken
-
-| Field | Description |
-| --- | --- |
-| `card_type` |  |
-| `customer_email_address` |  |
-| `expiry_month` |  |
-| `expiry_year` |  |
-| `id` |  |
-| `inserted` |  |
-| `last_four_digit` |  |
-| `last_updated` |  |
-| `masked_card_number` |  |
-| `merchant_id` |  |
-| `payment_request_id` |  |
-
-Operations: List, Load, Remove.
-
-API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}`
-
-#### NoFrixionMoneyMoovModelsCurrencyCurrencyInfo
+#### Currency
 
 | Field | Description |
 | --- | --- |
@@ -1091,7 +586,7 @@ Operations: List.
 
 API path: `/api/v1/currencies`
 
-#### NoFrixionMoneyMoovModelsDirectDebitBatchSubmit
+#### DirectDebitBatchSubmit
 
 | Field | Description |
 | --- | --- |
@@ -1102,7 +597,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 
-#### NoFrixionMoneyMoovModelsFxRate
+#### FxRate
 
 | Field | Description |
 | --- | --- |
@@ -1116,7 +611,7 @@ Operations: List, Load.
 
 API path: `/api/v1/payouts/fxallheldrates/{source}/{destination}`
 
-#### NoFrixionMoneyMoovModelsIPayment
+#### IPayment
 
 | Field | Description |
 | --- | --- |
@@ -1127,7 +622,7 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/payondemand`
 
-#### NoFrixionMoneyMoovModelsMandatesMandate
+#### Mandate
 
 | Field | Description |
 | --- | --- |
@@ -1170,7 +665,7 @@ Operations: Create, Load.
 
 API path: `/api/v1/mandates`
 
-#### NoFrixionMoneyMoovModelsMerchant
+#### Merchant
 
 | Field | Description |
 | --- | --- |
@@ -1194,6 +689,7 @@ API path: `/api/v1/mandates`
 | `parent_merchant` |  |
 | `payment_account` |  |
 | `payment_account_limit` |  |
+| `reason` |  |
 | `short_name` |  |
 | `supported_payment_methods_list` |  |
 | `suspension_reason` |  |
@@ -1203,48 +699,63 @@ API path: `/api/v1/mandates`
 | `web_hook_limit` |  |
 | `your_role_name` |  |
 
-Operations: List, Load, Update.
+Operations: List, Load, Remove, Update.
 
-API path: `/api/v1/merchants`
+API path: `/api/v1/merchants/{merchantID}/childmerchants`
 
-#### NoFrixionMoneyMoovModelsMerchantPage
+#### MerchantAuthorisationSetting
 
 | Field | Description |
 | --- | --- |
-| `account_currency` |  |
-| `can_have_trust_account` |  |
-| `card_payment_processor` |  |
-| `company_id` |  |
-| `display_qr_on_hosted_pay` |  |
-| `hosted_pay_version` |  |
+| `amount_lower` |  |
+| `amount_upper` |  |
+| `authorisation_type` |  |
+| `beneficiaries_only` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_blocked` |  |
-| `is_exited` |  |
-| `is_suspended` |  |
-| `jurisdiction` |  |
-| `logo_url_png` |  |
-| `logo_url_svg` |  |
-| `merchant_category_code` |  |
-| `name` |  |
-| `note` |  |
-| `parent_merchant` |  |
-| `payment_account` |  |
-| `payment_account_limit` |  |
-| `short_name` |  |
-| `supported_payment_methods_list` |  |
-| `suspension_reason` |  |
-| `tag` |  |
-| `time_zone_id` |  |
-| `trading_name` |  |
-| `web_hook_limit` |  |
-| `your_role_name` |  |
+| `last_editor_cant_authorise` |  |
+| `last_updated` |  |
+| `merchant_id` |  |
+| `number_of_authoriser` |  |
+| `role_setting` |  |
 
 Operations: List.
 
-API path: `/api/v1/merchants/paged`
+API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
-#### NoFrixionMoneyMoovModelsMerchantPayByBankSetting
+#### MerchantDirectDebitMandate
+
+| Field | Description |
+| --- | --- |
+| `approved_at` |  |
+| `currency` |  |
+| `customer_account_number` |  |
+| `customer_city` |  |
+| `customer_country_code` |  |
+| `customer_country_name` |  |
+| `customer_email_address` |  |
+| `customer_first_name` |  |
+| `customer_iban` |  |
+| `customer_last_name` |  |
+| `customer_sort_code` |  |
+| `id` |  |
+| `inserted` |  |
+| `is_recurring` |  |
+| `last_updated` |  |
+| `merchant_id` |  |
+| `reference` |  |
+| `status` |  |
+| `supplier_bank_account_id` |  |
+| `supplier_customer_id` |  |
+| `supplier_mandate_id` |  |
+| `supplier_name` |  |
+| `supplier_status` |  |
+
+Operations: List.
+
+API path: `/api/v1/mandates`
+
+#### MerchantPayByBankSetting
 
 | Field | Description |
 | --- | --- |
@@ -1266,7 +777,23 @@ Operations: List.
 
 API path: `/api/v1/merchants/{merchantID}/banksettings`
 
-#### NoFrixionMoneyMoovModelsMerchantToken
+#### MerchantPaymentRequestTemplate
+
+| Field | Description |
+| --- | --- |
+| `description` |  |
+| `id` |  |
+| `inserted` |  |
+| `last_updated` |  |
+| `merchant_id` |  |
+| `name` |  |
+| `template` |  |
+
+Operations: List, Load, Remove, Update.
+
+API path: `/api/v1/paymentrequests/{merchantID}/templates`
+
+#### MerchantToken
 
 | Field | Description |
 | --- | --- |
@@ -1294,42 +821,20 @@ API path: `/api/v1/merchants/{merchantID}/banksettings`
 | `shared_secret_base64` |  |
 | `token` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Update.
 
 API path: `/api/v1/tokens`
 
-#### NoFrixionMoneyMoovModelsMerchantTokenPage
+#### Metadata
 
 | Field | Description |
 | --- | --- |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `can_authorise` |  |
-| `description` |  |
-| `expires_at` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `ip_address_whitelist` |  |
-| `is_archived` |  |
-| `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `nonce` |  |
-| `permission_type` |  |
-| `request_signature_version` |  |
-| `shared_secret_algorithm` |  |
-| `shared_secret_base64` |  |
-| `token` |  |
 
-Operations: List.
+Operations: Load.
 
-API path: `/api/v1/merchants/{merchantID}/tokens`
+API path: `/api/v1/metadata/problemnotification`
 
-#### NoFrixionMoneyMoovModelsNoFrixionVersion
+#### NoFrixionVersion
 
 | Field | Description |
 | --- | --- |
@@ -1342,86 +847,32 @@ Operations: Load.
 
 API path: `/api/v1/metadata/version`
 
-#### NoFrixionMoneyMoovModelsOpenBankingAccount
+#### OpenBanking
 
 | Field | Description |
 | --- | --- |
-| `account_balance` |  |
-| `account_identification` |  |
+
+Operations: Create, Remove.
+
+API path: `/api/v1/openbanking/account/{accountID}/synchronise`
+
+#### Payeeverification
+
+| Field | Description |
+| --- | --- |
 | `account_name` |  |
-| `account_type` |  |
-| `balance` |  |
-| `consolidated_account_information` |  |
-| `currency` |  |
-| `description` |  |
-| `detail` |  |
-| `id` |  |
-| `nickname` |  |
-| `type` |  |
-| `usage_type` |  |
+| `account_number` |  |
+| `iban` |  |
+| `payee_verified_account_name` |  |
+| `result` |  |
+| `secondary_identification` |  |
+| `sort_code` |  |
 
-Operations: Load.
+Operations: Create.
 
-API path: `/api/v1/openbanking/accounts/{id}`
+API path: `/api/v1/openbanking/payeeverification`
 
-#### NoFrixionMoneyMoovModelsOpenBankingConsent
-
-| Field | Description |
-| --- | --- |
-| `authorisation_url` |  |
-| `callback_url` |  |
-| `consent_id` |  |
-| `email_address` |  |
-| `expiry_date` |  |
-| `failure_callback_url` |  |
-| `id` |  |
-| `inserted` |  |
-| `institution_id` |  |
-| `is_connected_account` |  |
-| `is_enabled` |  |
-| `merchant_id` |  |
-| `provider` |  |
-| `success_web_hook_url` |  |
-
-Operations: Create, List, Load, Remove, Update.
-
-API path: `/api/v1/openbanking/consents`
-
-#### NoFrixionMoneyMoovModelsOpenBankingTransaction
-
-| Field | Description |
-| --- | --- |
-| `address_detail` |  |
-| `amount` |  |
-| `balance` |  |
-| `booking_date_time` |  |
-| `charge_detail` |  |
-| `currency` |  |
-| `currency_exchange` |  |
-| `date` |  |
-| `description` |  |
-| `enrichment` |  |
-| `gross_amount` |  |
-| `id` |  |
-| `iso_bank_transaction_code` |  |
-| `merchant` |  |
-| `payee_detail` |  |
-| `payer_detail` |  |
-| `proprietary_bank_transaction_code` |  |
-| `reference` |  |
-| `statement_reference` |  |
-| `status` |  |
-| `supplementary_data` |  |
-| `transaction_amount` |  |
-| `transaction_information` |  |
-| `transaction_mutability` |  |
-| `value_date_time` |  |
-
-Operations: List.
-
-API path: `/api/v1/openbanking/transactions/{id}/{accountID}`
-
-#### NoFrixionMoneyMoovModelsPayment
+#### Payment
 
 | Field | Description |
 | --- | --- |
@@ -1506,27 +957,7 @@ Operations: Create, Load, Update.
 
 API path: `/api/v1/paymentrequests`
 
-#### NoFrixionMoneyMoovModelsPaymentAccountMinimalPage
-
-| Field | Description |
-| --- | --- |
-| `account_name` |  |
-| `available_balance` |  |
-| `balance` |  |
-| `balance_minor_unit` |  |
-| `currency` |  |
-| `id` |  |
-| `identifier` |  |
-| `is_archived` |  |
-| `is_connected_account` |  |
-| `merchant_id` |  |
-| `submitted_payouts_balance` |  |
-
-Operations: List.
-
-API path: `/api/v1/accounts/minimal`
-
-#### NoFrixionMoneyMoovModelsPaymentAccountPage
+#### PaymentAccount
 
 | Field | Description |
 | --- | --- |
@@ -1574,7 +1005,27 @@ Operations: List.
 
 API path: `/api/v1/accounts/paged`
 
-#### NoFrixionMoneyMoovModelsPaymentInitiation
+#### PaymentAccountMinimal
+
+| Field | Description |
+| --- | --- |
+| `account_name` |  |
+| `available_balance` |  |
+| `balance` |  |
+| `balance_minor_unit` |  |
+| `currency` |  |
+| `id` |  |
+| `identifier` |  |
+| `is_archived` |  |
+| `is_connected_account` |  |
+| `merchant_id` |  |
+| `submitted_payouts_balance` |  |
+
+Operations: List.
+
+API path: `/api/v1/accounts/minimal`
+
+#### PaymentInitiation
 
 | Field | Description |
 | --- | --- |
@@ -1589,7 +1040,83 @@ Operations: Create.
 
 API path: `/api/v1/paymentrequests/{id}/pisp`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestEvent
+#### PaymentRequest
+
+| Field | Description |
+| --- | --- |
+| `address` |  |
+| `amount` |  |
+| `amount_pending` |  |
+| `amount_received` |  |
+| `amount_refunded` |  |
+| `auto_send_receipt` |  |
+| `base_origin_url` |  |
+| `callback_url` |  |
+| `card_authorize_only` |  |
+| `card_create_token` |  |
+| `card_create_token_mode` |  |
+| `card_ignore_cvn` |  |
+| `card_processor_merchant_id` |  |
+| `card_stripe_payment_intent_id` |  |
+| `card_stripe_payment_intent_secret` |  |
+| `created_by_user` |  |
+| `currency` |  |
+| `custom_field` |  |
+| `customer_email_address` |  |
+| `customer_id` |  |
+| `customer_name` |  |
+| `description` |  |
+| `destination_account` |  |
+| `direct_debit_payment` |  |
+| `do_simulate_settlement_failure` |  |
+| `due_date` |  |
+| `error_description` |  |
+| `event` |  |
+| `failure_callback_url` |  |
+| `field_display_setting` |  |
+| `formatted_amount` |  |
+| `hosted_pay_checkout_url` |  |
+| `id` |  |
+| `ignore_address_verification` |  |
+| `inserted` |  |
+| `inserted_sortable` |  |
+| `institution` |  |
+| `is_archived` |  |
+| `jwk` |  |
+| `last_updated` |  |
+| `lightning_invoice` |  |
+| `lightning_invoice_expires_at` |  |
+| `merchant_direct_debit_mandate_id` |  |
+| `merchant_id` |  |
+| `merchant_token_description` |  |
+| `notification_email_address` |  |
+| `notification_role_i_d` |  |
+| `order_id` |  |
+| `partial_payment_method` |  |
+| `partial_payment_step` |  |
+| `payment_attempt` |  |
+| `payment_initiation_id` |  |
+| `payment_method` |  |
+| `payment_processor` |  |
+| `payrun_id` |  |
+| `pisp_account_id` |  |
+| `priority_bank_id` |  |
+| `result` |  |
+| `sandbox_settle_delay_in_second` |  |
+| `shipping_address` |  |
+| `status` |  |
+| `success_web_hook_url` |  |
+| `tag` |  |
+| `title` |  |
+| `tokenised_card` |  |
+| `transaction` |  |
+| `use_hosted_payment_page` |  |
+
+Operations: Create, List, Load, Remove, Update.
+
+API path: `/api/v1/paymentrequests/{id}/directdebit`
+
+#### PaymentRequestEvent
 
 | Field | Description |
 | --- | --- |
@@ -1634,7 +1161,7 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/events`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestMetric
+#### PaymentRequestMetric
 
 | Field | Description |
 | --- | --- |
@@ -1649,7 +1176,7 @@ Operations: Load.
 
 API path: `/api/v1/paymentrequests/metrics`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestMinimal
+#### PaymentRequestMinimal
 
 | Field | Description |
 | --- | --- |
@@ -1688,7 +1215,7 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/minimal`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestResult
+#### PaymentRequestResult
 
 | Field | Description |
 | --- | --- |
@@ -1708,64 +1235,104 @@ Operations: List.
 
 API path: `/api/v1/paymentrequests/{id}/result`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment
+#### PaymentRequestsCreate
 
 | Field | Description |
 | --- | --- |
+| `failed_payment_request` |  |
+| `payment_request` |  |
+
+Operations: Create.
+
+API path: `/api/v1/paymentrequests/batchcreate`
+
+#### Payout
+
+| Field | Description |
+| --- | --- |
+| `account_id` |  |
+| `allow_incomplete` |  |
+| `amount` |  |
+| `amount_minor_unit` |  |
+| `approve_payout_url` |  |
+| `approver_id` |  |
+| `authentication_method` |  |
+| `authorisation` |  |
+| `authorisers_completed_count` |  |
+| `authorisers_required_count` |  |
+| `batch_payout_id` |  |
+| `beneficiary` |  |
+| `beneficiary_id` |  |
+| `can_authorise` |  |
+| `can_process` |  |
+| `can_update` |  |
+| `charge_bearer` |  |
+| `created_by` |  |
+| `created_by_email_address` |  |
+| `currency` |  |
+| `current_user_id` |  |
 | `description` |  |
+| `destination` |  |
+| `document` |  |
+| `event` |  |
+| `formatted_amount` |  |
+| `formatted_fx_destination_amount` |  |
+| `formatted_schedule` |  |
+| `formatted_schedule_day_only` |  |
+| `formatted_source_account_available_balance` |  |
+| `fx_destination_amount` |  |
+| `fx_destination_amount_minor_unit` |  |
+| `fx_destination_currency` |  |
+| `fx_quote_expires_at` |  |
+| `fx_quote_id` |  |
+| `fx_rate` |  |
+| `fx_use_destination_amount` |  |
+| `has_current_user_authorised` |  |
 | `id` |  |
 | `inserted` |  |
+| `invoice_id` |  |
+| `is_archived` |  |
+| `is_failed` |  |
+| `is_settled` |  |
+| `is_submitted` |  |
 | `last_updated` |  |
 | `merchant_id` |  |
-| `name` |  |
-| `template` |  |
+| `merchant_token_description` |  |
+| `nonce` |  |
+| `payment_processor` |  |
+| `payment_rail` |  |
+| `payrun_id` |  |
+| `payrun_name` |  |
+| `reason` |  |
+| `rule` |  |
+| `schedule_date` |  |
+| `scheduled` |  |
+| `source_account_available_balance` |  |
+| `source_account_available_balance_minor_unit` |  |
+| `source_account_bic` |  |
+| `source_account_currency` |  |
+| `source_account_iban` |  |
+| `source_account_identifier` |  |
+| `source_account_name` |  |
+| `source_account_number` |  |
+| `source_account_sortcode` |  |
+| `status` |  |
+| `tag` |  |
+| `tag_id` |  |
+| `their_reference` |  |
+| `topup_payrun_id` |  |
+| `transacted_amount` |  |
+| `transacted_fx_amount` |  |
+| `transacted_fx_rate` |  |
+| `type` |  |
+| `user_id` |  |
+| `your_reference` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/paymentrequests/{merchantID}/templates`
+API path: `/api/v1/payouts/batch/submit/{id}`
 
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2
-
-| Field | Description |
-| --- | --- |
-| `description` |  |
-| `id` |  |
-| `inserted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `template` |  |
-
-Operations: Load.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3
-
-| Field | Description |
-| --- | --- |
-| `description` |  |
-| `id` |  |
-| `inserted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `name` |  |
-| `template` |  |
-
-Operations: Update.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Remove.
-
-API path: `/api/v1/paymentrequests/{merchantID}/templates/{templateID}`
-
-#### NoFrixionMoneyMoovModelsPayoutKeysetPage
+#### PayoutKeyset
 
 | Field | Description |
 | --- | --- |
@@ -1847,7 +1414,7 @@ Operations: List.
 
 API path: `/api/v1/accounts/{accountID}/payouts/failed`
 
-#### NoFrixionMoneyMoovModelsPayoutMetric
+#### PayoutMetric
 
 | Field | Description |
 | --- | --- |
@@ -1863,7 +1430,7 @@ Operations: Load.
 
 API path: `/api/v1/payouts/metrics`
 
-#### NoFrixionMoneyMoovModelsPayoutsPayoutsCreate
+#### PayoutsCreate
 
 | Field | Description |
 | --- | --- |
@@ -1874,7 +1441,7 @@ Operations: Create.
 
 API path: `/api/v1/payouts/batchcreate`
 
-#### NoFrixionMoneyMoovModelsPayrun
+#### Payrun
 
 | Field | Description |
 | --- | --- |
@@ -1898,6 +1465,7 @@ API path: `/api/v1/payouts/batchcreate`
 | `merchant_id` |  |
 | `name` |  |
 | `nonce` |  |
+| `note` |  |
 | `payment` |  |
 | `payout` |  |
 | `payouts_count` |  |
@@ -1910,11 +1478,20 @@ API path: `/api/v1/payouts/batchcreate`
 | `total_gbp` |  |
 | `total_usd` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/payruns/{merchantID}`
+API path: `/api/v1/payruns/{id}/request-authorisation`
 
-#### NoFrixionMoneyMoovModelsReportResult
+#### Report
+
+| Field | Description |
+| --- | --- |
+
+Operations: Update.
+
+API path: `/api/v1/reports/{id}/initiate`
+
+#### ReportResult
 
 | Field | Description |
 | --- | --- |
@@ -1930,7 +1507,18 @@ Operations: Load.
 
 API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
-#### NoFrixionMoneyMoovModelsRule
+#### RolesCreate
+
+| Field | Description |
+| --- | --- |
+| `failed_role` |  |
+| `role` |  |
+
+Operations: Create.
+
+API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
+
+#### Rule
 
 | Field | Description |
 | --- | --- |
@@ -1968,590 +1556,27 @@ API path: `/api/v1/reports/{id}/result/{statementNumber}`
 | `user_id` |  |
 | `web_hook_secret` |  |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/rules`
 
-#### NoFrixionMoneyMoovModelsTransaction
+#### RuleEvent
 
 | Field | Description |
 | --- | --- |
-| `account_id` |  |
-| `account_name` |  |
-| `account_sequence_number` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `balance` |  |
-| `balance_minor_unit` |  |
-| `counterparty` |  |
-| `counterparty_summary` |  |
-| `currency` |  |
-| `description` |  |
-| `fx_amount` |  |
-| `fx_currency` |  |
-| `fx_rate` |  |
+| `error_message` |  |
 | `id` |  |
 | `inserted` |  |
-| `merchant_id` |  |
-| `payment_request_custom_field` |  |
-| `payment_request_id` |  |
-| `payout_id` |  |
-| `raw_reference` |  |
-| `rule_id` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `transaction_date` |  |
-| `type` |  |
-| `virtual_iban` |  |
-| `your_reference` |  |
-
-Operations: Load.
-
-API path: `/api/v1/accounts/{accountID}/transactions/{id}`
-
-#### NoFrixionMoneyMoovModelsTransactionPage
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `account_name` |  |
-| `account_sequence_number` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `balance` |  |
-| `balance_minor_unit` |  |
-| `content` |  |
-| `counterparty` |  |
-| `counterparty_summary` |  |
-| `currency` |  |
-| `description` |  |
-| `fx_amount` |  |
-| `fx_currency` |  |
-| `fx_rate` |  |
-| `id` |  |
-| `inserted` |  |
-| `merchant_id` |  |
-| `page_number` |  |
-| `page_size` |  |
-| `payment_request_custom_field` |  |
-| `payment_request_id` |  |
-| `payout_id` |  |
-| `raw_reference` |  |
-| `rule_id` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `total_page` |  |
-| `total_size` |  |
-| `transaction_date` |  |
-| `type` |  |
-| `virtual_iban` |  |
-| `your_reference` |  |
-
-Operations: List, Load.
-
-API path: `/api/v1/accounts/{accountID}/transactions`
-
-#### NoFrixionMoneyMoovModelsUserInvite
-
-| Field | Description |
-| --- | --- |
-| `authorisation_status` |  |
-| `id` |  |
-| `initial_role_id` |  |
-| `invitee_email_address` |  |
-| `invitee_first_name` |  |
-| `invitee_last_name` |  |
-| `inviter_email_address` |  |
-| `inviter_first_name` |  |
-| `inviter_last_name` |  |
-| `is_authorised` |  |
-| `is_invitee_registered` |  |
-| `last_invited` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
+| `is_authorise_to_enable` |  |
 | `message` |  |
-| `registration_url` |  |
-| `send_invite_email` |  |
-| `status` |  |
+| `raw_response` |  |
+| `rule_event_type` |  |
+| `rule_id` |  |
 | `user` |  |
-| `user_id` |  |
-
-Operations: Create, Load.
-
-API path: `/api/v1/userinvites`
-
-#### NoFrixionMoneyMoovModelsUserInvitePage
-
-| Field | Description |
-| --- | --- |
-| `authorisation_status` |  |
-| `id` |  |
-| `initial_role_id` |  |
-| `invitee_email_address` |  |
-| `invitee_first_name` |  |
-| `invitee_last_name` |  |
-| `inviter_email_address` |  |
-| `inviter_first_name` |  |
-| `inviter_last_name` |  |
-| `is_authorised` |  |
-| `is_invitee_registered` |  |
-| `last_invited` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
-| `message` |  |
-| `registration_url` |  |
-| `status` |  |
-| `user` |  |
-| `user_id` |  |
 
 Operations: List.
 
-API path: `/api/v1/merchants/{merchantID}/userinvitespaged`
-
-#### NoFrixionMoneyMoovModelsUserPage
-
-| Field | Description |
-| --- | --- |
-| `client_session_timeout` |  |
-| `email_address` |  |
-| `first_name` |  |
-| `id` |  |
-| `last_name` |  |
-| `passkey_added` |  |
-| `permission` |  |
-| `roles_with_scope` |  |
-| `two_factor_enabled` |  |
-
-Operations: List.
-
-API path: `/api/v1/user/{merchantID}/userspaged`
-
-#### NoFrixionMoneyMoovModelsWebhook
-
-| Field | Description |
-| --- | --- |
-| `destination_url` |  |
-| `email_address` |  |
-| `failed_notification_email_address` |  |
-| `id` |  |
-| `is_active` |  |
-| `merchant_id` |  |
-| `notification_method` |  |
-| `resource_type` |  |
-| `retry` |  |
-| `secret` |  |
-| `version` |  |
-
-Operations: Create, List, Load, Update.
-
-API path: `/api/v1/webhooks`
-
-#### OpenBanking
-
-| Field | Description |
-| --- | --- |
-
-Operations: Create, Remove.
-
-API path: `/api/v1/openbanking/account/{accountID}/synchronise`
-
-#### Payeeverification
-
-| Field | Description |
-| --- | --- |
-| `account_name` |  |
-| `account_number` |  |
-| `iban` |  |
-| `payee_verified_account_name` |  |
-| `result` |  |
-| `secondary_identification` |  |
-| `sort_code` |  |
-
-Operations: Create.
-
-API path: `/api/v1/openbanking/payeeverification`
-
-#### PaymentRequest
-
-| Field | Description |
-| --- | --- |
-| `amount` |  |
-| `do_simulate_settlement_failure` |  |
-| `error_description` |  |
-| `institution` |  |
-| `payment_initiation_id` |  |
-
-Operations: Create, Load, Remove, Update.
-
-API path: `/api/v1/paymentrequests/{id}/directdebit`
-
-#### Payout
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `allow_incomplete` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `beneficiary_id` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
-| `status` |  |
-| `tag` |  |
-| `tag_id` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
-
-Operations: Create, Load, Remove, Update.
-
-API path: `/api/v1/payouts/batch/submit/{id}`
-
-#### Payrun
-
-| Field | Description |
-| --- | --- |
-| `id` |  |
-| `note` |  |
-| `scheduled_date` |  |
-
-Operations: Create, Remove, Update.
-
-API path: `/api/v1/payruns/{id}/request-authorisation`
-
-#### Reject
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `reason` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
-| `status` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
-
-Operations: Update.
-
-API path: `/api/v1/payouts/reject/{id}`
-
-#### Report
-
-| Field | Description |
-| --- | --- |
-
-Operations: Update.
-
-API path: `/api/v1/reports/{id}/initiate`
-
-#### Rule
-
-| Field | Description |
-| --- | --- |
-
-Operations: Remove, Update.
-
-API path: `/api/v1/rules/{id}`
-
-#### Send
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `allow_incomplete` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `beneficiary_id` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
-| `status` |  |
-| `tag` |  |
-| `tag_id` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/send`
-
-#### Sendbeneficiary
-
-| Field | Description |
-| --- | --- |
-| `account_id` |  |
-| `allow_incomplete` |  |
-| `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `beneficiary` |  |
-| `beneficiary_id` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
-| `currency` |  |
-| `current_user_id` |  |
-| `description` |  |
-| `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
-| `id` |  |
-| `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
-| `rule` |  |
-| `schedule_date` |  |
-| `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
-| `status` |  |
-| `tag` |  |
-| `tag_id` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
-| `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
-
-Operations: Create.
-
-API path: `/api/v1/payouts/sendbeneficiary`
+API path: `/api/v1/rules/{id}/events`
 
 #### Tag
 
@@ -2580,8 +1605,61 @@ API path: `/api/v1/tokens/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
+| `account_id` |  |
+| `account_name` |  |
+| `account_sequence_number` |  |
+| `address_detail` |  |
+| `amount` |  |
+| `amount_minor_unit` |  |
+| `balance` |  |
+| `balance_minor_unit` |  |
+| `booking_date_time` |  |
+| `charge_detail` |  |
+| `content` |  |
+| `counterparty` |  |
+| `counterparty_summary` |  |
+| `currency` |  |
+| `currency_exchange` |  |
+| `date` |  |
+| `description` |  |
+| `enrichment` |  |
+| `fx_amount` |  |
+| `fx_currency` |  |
+| `fx_rate` |  |
+| `gross_amount` |  |
+| `id` |  |
+| `inserted` |  |
+| `iso_bank_transaction_code` |  |
+| `merchant` |  |
+| `merchant_id` |  |
+| `page_number` |  |
+| `page_size` |  |
+| `payee_detail` |  |
+| `payer_detail` |  |
+| `payment_request_custom_field` |  |
+| `payment_request_id` |  |
+| `payout_id` |  |
+| `proprietary_bank_transaction_code` |  |
+| `raw_reference` |  |
+| `reference` |  |
+| `rule_id` |  |
+| `statement_reference` |  |
+| `status` |  |
+| `supplementary_data` |  |
+| `tag` |  |
+| `their_reference` |  |
+| `total_page` |  |
+| `total_size` |  |
+| `transaction_amount` |  |
+| `transaction_date` |  |
+| `transaction_information` |  |
+| `transaction_mutability` |  |
+| `type` |  |
+| `value_date_time` |  |
+| `virtual_iban` |  |
+| `your_reference` |  |
 
-Operations: Create, Load, Remove.
+Operations: Create, List, Load, Remove.
 
 API path: `/api/v1/transactions/{id}/tags`
 
@@ -2603,16 +1681,47 @@ API path: `/api/v1/transactions/{id}/tags`
 
 Operations: List, Update.
 
-API path: `/api/v1/merchants/{merchantID}/users`
+API path: `/api/v1/user/{merchantID}/userspaged`
 
 #### UserInvite
 
 | Field | Description |
 | --- | --- |
+| `authorisation_status` |  |
+| `id` |  |
+| `initial_role_id` |  |
+| `invitee_email_address` |  |
+| `invitee_first_name` |  |
+| `invitee_last_name` |  |
+| `inviter_email_address` |  |
+| `inviter_first_name` |  |
+| `inviter_last_name` |  |
+| `is_authorised` |  |
+| `is_invitee_registered` |  |
+| `last_invited` |  |
+| `merchant_id` |  |
+| `merchant_name` |  |
+| `message` |  |
+| `registration_url` |  |
+| `send_invite_email` |  |
+| `status` |  |
+| `user` |  |
+| `user_id` |  |
 
-Operations: Create, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/api/v1/userinvites/authorise/{id}`
+
+#### UserInvitesCreate
+
+| Field | Description |
+| --- | --- |
+| `failed_user_invite` |  |
+| `user_invite` |  |
+
+Operations: Create.
+
+API path: `/api/v1/userinvites/batchcreate`
 
 #### Virtual
 
@@ -2667,46 +1776,21 @@ API path: `/api/v1/accounts/{accountID}/virtual`
 
 | Field | Description |
 | --- | --- |
-
-Operations: Remove.
-
-API path: `/api/v1/webhooks/{id}`
-
-#### Whoami
-
-| Field | Description |
-| --- | --- |
-| `client_session_timeout` |  |
+| `destination_url` |  |
 | `email_address` |  |
-| `first_name` |  |
+| `failed_notification_email_address` |  |
 | `id` |  |
-| `last_name` |  |
-| `passkey_added` |  |
-| `permission` |  |
-| `roles_with_scope` |  |
-| `two_factor_enabled` |  |
+| `is_active` |  |
+| `merchant_id` |  |
+| `notification_method` |  |
+| `resource_type` |  |
+| `retry` |  |
+| `secret` |  |
+| `version` |  |
 
-Operations: List.
+Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/metadata/whoami`
-
-#### Whoamitrustedapp
-
-| Field | Description |
-| --- | --- |
-| `client_session_timeout` |  |
-| `email_address` |  |
-| `first_name` |  |
-| `id` |  |
-| `last_name` |  |
-| `passkey_added` |  |
-| `permission` |  |
-| `roles_with_scope` |  |
-| `two_factor_enabled` |  |
-
-Operations: List.
-
-API path: `/api/v1/metadata/whoamitrustedapp`
+API path: `/api/v1/webhooks`
 
 
 
@@ -2731,7 +1815,9 @@ Create an instance: `$account = $client->Account();`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `account_balance` | `array` |  |
 | `account_id` | `string` |  |
+| `account_identification` | `array` |  |
 | `account_name` | `string` |  |
 | `account_supplier_name` | `string` |  |
 | `account_type` | `string` |  |
@@ -2741,10 +1827,13 @@ Create an instance: `$account = $client->Account();`
 | `balance_minor_unit` | `int` |  |
 | `bank_name` | `string` |  |
 | `consent_id` | `string` |  |
+| `consolidated_account_information` | `array` |  |
 | `created_by` | `array` |  |
 | `created_by_display_name` | `string` |  |
 | `currency` | `string` |  |
 | `default_payment_rail` | `string` |  |
+| `description` | `string` |  |
+| `detail` | `string` |  |
 | `display_name` | `string` |  |
 | `expiry_date` | `string` |  |
 | `external_account_icon` | `string` |  |
@@ -2762,6 +1851,7 @@ Create an instance: `$account = $client->Account();`
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
 | `merchant_name` | `string` |  |
+| `nickname` | `string` |  |
 | `physical_account_id` | `string` |  |
 | `role_i_d` | `array` |  |
 | `rule` | `array` |  |
@@ -2771,6 +1861,8 @@ Create an instance: `$account = $client->Account();`
 | `supplier_physical_account_id` | `string` |  |
 | `supplier_sepa_instant_status` | `string` |  |
 | `to_date` | `string` |  |
+| `type` | `string` |  |
+| `usage_type` | `string` |  |
 | `xero_bank_feed_connection_status` | `string` |  |
 | `xero_bank_feed_last_synced_at` | `string` |  |
 | `xero_bank_feed_sync_last_failed_at` | `string` |  |
@@ -2800,6 +1892,65 @@ $account = $client->Account()->create([
 ```
 
 
+### Batch
+
+Create an instance: `$batch = $client->Batch();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `approve_url` | `string` |  |
+| `id` | `string` |  |
+| `payout` | `array` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare Batch record (throws on error).
+$batch = $client->Batch()->load(["id" => "batch_id"]);
+```
+
+#### Example: Create
+
+```php
+$batch = $client->Batch()->create([
+]);
+```
+
+
+### BeneficiariesCreate
+
+Create an instance: `$beneficiaries_create = $client->BeneficiariesCreate();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `beneficiary` | `array` |  |
+| `failed_beneficiary` | `array` |  |
+
+#### Example: Create
+
+```php
+$beneficiaries_create = $client->BeneficiariesCreate()->create([
+]);
+```
+
+
 ### Beneficiary
 
 Create an instance: `$beneficiary = $client->Beneficiary();`
@@ -2809,6 +1960,7 @@ Create an instance: `$beneficiary = $client->Beneficiary();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -2849,6 +2001,13 @@ Create an instance: `$beneficiary = $client->Beneficiary();`
 $beneficiary = $client->Beneficiary()->load(["id" => "beneficiary_id"]);
 ```
 
+#### Example: List
+
+```php
+// list() returns an array of Beneficiary records (throws on error).
+$beneficiarys = $client->Beneficiary()->list();
+```
+
 #### Example: Create
 
 ```php
@@ -2857,220 +2016,9 @@ $beneficiary = $client->Beneficiary()->create([
 ```
 
 
-### Cancel
+### BeneficiaryGroup
 
-Create an instance: `$cancel = $client->Cancel();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-
-### Disable
-
-Create an instance: `$disable = $client->Disable();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `array` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `array` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `array` |  |
-| `their_reference` | `string` |  |
-
-
-### Enable
-
-Create an instance: `$enable = $client->Enable();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `array` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `array` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `array` |  |
-| `their_reference` | `string` |  |
-
-
-### Merchant
-
-Create an instance: `$merchant = $client->Merchant();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-| `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `reason` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare Merchant record (throws on error).
-$merchant = $client->Merchant()->load(["merchant_id" => "merchant_id"]);
-```
-
-
-### Metadata
-
-Create an instance: `$metadata = $client->Metadata();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Metadata record (throws on error).
-$metadata = $client->Metadata()->load();
-```
-
-
-### NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage
-
-Create an instance: `$no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page = $client->NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage();`
+Create an instance: `$beneficiary_group = $client->BeneficiaryGroup();`
 
 #### Operations
 
@@ -3082,363 +2030,24 @@ Create an instance: `$no_frixion_biz_biz_models_paging_merchant_direct_debit_man
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approved_at` | `string` |  |
-| `currency` | `string` |  |
-| `customer_account_number` | `string` |  |
-| `customer_city` | `string` |  |
-| `customer_country_code` | `string` |  |
-| `customer_country_name` | `string` |  |
-| `customer_email_address` | `string` |  |
-| `customer_first_name` | `string` |  |
-| `customer_iban` | `string` |  |
-| `customer_last_name` | `string` |  |
-| `customer_sort_code` | `string` |  |
+| `group_member` | `array` |  |
+| `group_name` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_recurring` | `bool` |  |
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
-| `reference` | `string` |  |
-| `status` | `string` |  |
-| `supplier_bank_account_id` | `string` |  |
-| `supplier_customer_id` | `string` |  |
-| `supplier_mandate_id` | `string` |  |
-| `supplier_name` | `string` |  |
-| `supplier_status` | `string` |  |
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage records (throws on error).
-$no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_pages = $client->NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage()->list();
+// list() returns an array of BeneficiaryGroup records (throws on error).
+$beneficiary_groups = $client->BeneficiaryGroup()->list();
 ```
 
 
-### NoFrixionBizBizModelsPagingPaymentRequestPage
+### Card
 
-Create an instance: `$no_frixion_biz_biz_models_paging_payment_request_page = $client->NoFrixionBizBizModelsPagingPaymentRequestPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `address` | `array` |  |
-| `amount` | `float` |  |
-| `amount_pending` | `float` |  |
-| `amount_received` | `float` |  |
-| `amount_refunded` | `float` |  |
-| `auto_send_receipt` | `bool` |  |
-| `base_origin_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `card_authorize_only` | `bool` |  |
-| `card_create_token` | `bool` |  |
-| `card_create_token_mode` | `string` |  |
-| `card_ignore_cvn` | `bool` |  |
-| `card_processor_merchant_id` | `string` |  |
-| `card_stripe_payment_intent_id` | `string` |  |
-| `card_stripe_payment_intent_secret` | `string` |  |
-| `created_by_user` | `array` |  |
-| `currency` | `string` |  |
-| `custom_field` | `array` |  |
-| `customer_email_address` | `string` |  |
-| `customer_id` | `string` |  |
-| `customer_name` | `string` |  |
-| `description` | `string` |  |
-| `destination_account` | `array` |  |
-| `direct_debit_payment` | `array` |  |
-| `due_date` | `string` |  |
-| `event` | `array` |  |
-| `failure_callback_url` | `string` |  |
-| `field_display_setting` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `hosted_pay_checkout_url` | `string` |  |
-| `id` | `string` |  |
-| `ignore_address_verification` | `bool` |  |
-| `inserted` | `string` |  |
-| `inserted_sortable` | `string` |  |
-| `is_archived` | `bool` |  |
-| `jwk` | `string` |  |
-| `last_updated` | `string` |  |
-| `lightning_invoice` | `string` |  |
-| `lightning_invoice_expires_at` | `string` |  |
-| `merchant_direct_debit_mandate_id` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `notification_email_address` | `string` |  |
-| `notification_role_i_d` | `array` |  |
-| `order_id` | `string` |  |
-| `partial_payment_method` | `string` |  |
-| `partial_payment_step` | `string` |  |
-| `payment_attempt` | `array` |  |
-| `payment_method` | `array` |  |
-| `payment_processor` | `string` |  |
-| `payrun_id` | `string` |  |
-| `pisp_account_id` | `string` |  |
-| `priority_bank_id` | `string` |  |
-| `result` | `array` |  |
-| `sandbox_settle_delay_in_second` | `int` |  |
-| `shipping_address` | `array` |  |
-| `status` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-| `tag` | `array` |  |
-| `title` | `string` |  |
-| `tokenised_card` | `array` |  |
-| `transaction` | `array` |  |
-| `use_hosted_payment_page` | `bool` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionBizBizModelsPagingPaymentRequestPage records (throws on error).
-$no_frixion_biz_biz_models_paging_payment_request_pages = $client->NoFrixionBizBizModelsPagingPaymentRequestPage()->list();
-```
-
-
-### NoFrixionBizBizModelsPagingPayoutPage
-
-Create an instance: `$no_frixion_biz_biz_models_paging_payout_page = $client->NoFrixionBizBizModelsPagingPayoutPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionBizBizModelsPagingPayoutPage records (throws on error).
-$no_frixion_biz_biz_models_paging_payout_pages = $client->NoFrixionBizBizModelsPagingPayoutPage()->list();
-```
-
-
-### NoFrixionBizBizModelsPagingPayrunPage
-
-Create an instance: `$no_frixion_biz_biz_models_paging_payrun_page = $client->NoFrixionBizBizModelsPagingPayrunPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation` | `array` |  |
-| `authorisation_date` | `string` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_delete` | `bool` |  |
-| `can_edit` | `bool` |  |
-| `event` | `array` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice` | `array` |  |
-| `invoices_minimal` | `array` |  |
-| `is_archived` | `bool` |  |
-| `last_updated` | `string` |  |
-| `last_updated_by` | `array` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `payment` | `array` |  |
-| `payout` | `array` |  |
-| `payouts_count` | `int` |  |
-| `schedule_date` | `string` |  |
-| `source_account` | `array` |  |
-| `status` | `string` |  |
-| `total_eur` | `float` |  |
-| `total_gbp` | `float` |  |
-| `total_usd` | `float` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionBizBizModelsPagingPayrunPage records (throws on error).
-$no_frixion_biz_biz_models_paging_payrun_pages = $client->NoFrixionBizBizModelsPagingPayrunPage()->list();
-```
-
-
-### NoFrixionBizBizModelsPagingRuleEventsPage
-
-Create an instance: `$no_frixion_biz_biz_models_paging_rule_events_page = $client->NoFrixionBizBizModelsPagingRuleEventsPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `error_message` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_authorise_to_enable` | `bool` |  |
-| `message` | `string` |  |
-| `raw_response` | `string` |  |
-| `rule_event_type` | `string` |  |
-| `rule_id` | `string` |  |
-| `user` | `array` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionBizBizModelsPagingRuleEventsPage records (throws on error).
-$no_frixion_biz_biz_models_paging_rule_events_pages = $client->NoFrixionBizBizModelsPagingRuleEventsPage()->list();
-```
-
-
-### NoFrixionBizBizModelsPagingRulesPage
-
-Create an instance: `$no_frixion_biz_biz_models_paging_rules_page = $client->NoFrixionBizBizModelsPagingRulesPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account` | `array` |  |
-| `account_id` | `string` |  |
-| `approve_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `can_authorise` | `bool` |  |
-| `created_by` | `array` |  |
-| `description` | `string` |  |
-| `end_at` | `string` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_disabled` | `bool` |  |
-| `last_executed_at` | `string` |  |
-| `last_run_at_transaction_date` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `on_approved_web_hook_url` | `string` |  |
-| `on_execution_error_web_hook_url` | `string` |  |
-| `on_execution_success_web_hook_url` | `string` |  |
-| `start_at` | `string` |  |
-| `status` | `string` |  |
-| `sweep_action` | `array` |  |
-| `time_zone_id` | `string` |  |
-| `trigger_cron_expression` | `string` |  |
-| `trigger_on_pay_in` | `bool` |  |
-| `user_id` | `string` |  |
-| `web_hook_secret` | `string` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionBizBizModelsPagingRulesPage records (throws on error).
-$no_frixion_biz_biz_models_paging_rules_pages = $client->NoFrixionBizBizModelsPagingRulesPage()->list();
-```
-
-
-### NoFrixionBizBizModelsPaymentsCardPayment
-
-Create an instance: `$no_frixion_biz_biz_models_payments_card_payment = $client->NoFrixionBizBizModelsPaymentsCardPayment();`
+Create an instance: `$card = $client->Card();`
 
 #### Operations
 
@@ -3471,283 +2080,15 @@ Create an instance: `$no_frixion_biz_biz_models_payments_card_payment = $client-
 #### Example: Create
 
 ```php
-$no_frixion_biz_biz_models_payments_card_payment = $client->NoFrixionBizBizModelsPaymentsCardPayment()->create([
+$card = $client->Card()->create([
     "paymentrequest_id" => null, // string
 ]);
 ```
 
 
-### NoFrixionBizBizModelsPaymentsCardPublicKey
+### CardCustomerToken
 
-Create an instance: `$no_frixion_biz_biz_models_payments_card_public_key = $client->NoFrixionBizBizModelsPaymentsCardPublicKey();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `jwt` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionBizBizModelsPaymentsCardPublicKey record (throws on error).
-$no_frixion_biz_biz_models_payments_card_public_key = $client->NoFrixionBizBizModelsPaymentsCardPublicKey()->load(["paymentrequest_id" => "paymentrequest_id"]);
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries
-
-Create an instance: `$no_frixion_money_moov_api_features_beneficiaries_beneficiaries = $client->NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `beneficiary` | `array` |  |
-| `failed_beneficiary` | `array` |  |
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_api_features_beneficiaries_beneficiaries = $client->NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries()->create([
-]);
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment
-
-Create an instance: `$no_frixion_money_moov_api_features_payment_requests_payment = $client->NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_payment_request` | `array` |  |
-| `payment_request` | `array` |  |
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_api_features_payment_requests_payment = $client->NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment()->create([
-]);
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate
-
-Create an instance: `$no_frixion_money_moov_api_features_permissions_roles_create = $client->NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_role` | `array` |  |
-| `role` | `array` |  |
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_api_features_permissions_roles_create = $client->NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate()->create([
-    "merchant_id" => null, // string
-]);
-```
-
-
-### NoFrixionMoneyMoovApiFeaturesUserInvitesCreate
-
-Create an instance: `$no_frixion_money_moov_api_features_user_invites_create = $client->NoFrixionMoneyMoovApiFeaturesUserInvitesCreate();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `failed_user_invite` | `array` |  |
-| `user_invite` | `array` |  |
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_api_features_user_invites_create = $client->NoFrixionMoneyMoovApiFeaturesUserInvitesCreate()->create([
-]);
-```
-
-
-### NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant
-
-Create an instance: `$no_frixion_money_moov_models_authorisation_settings_merchant = $client->NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `amount_lower` | `float` |  |
-| `amount_upper` | `float` |  |
-| `authorisation_type` | `string` |  |
-| `beneficiaries_only` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_editor_cant_authorise` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `number_of_authoriser` | `int` |  |
-| `role_setting` | `array` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant records (throws on error).
-$no_frixion_money_moov_models_authorisation_settings_merchants = $client->NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsBatchPayout
-
-Create an instance: `$no_frixion_money_moov_models_batch_payout = $client->NoFrixionMoneyMoovModelsBatchPayout();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approve_url` | `string` |  |
-| `id` | `string` |  |
-| `payout` | `array` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsBatchPayout record (throws on error).
-$no_frixion_money_moov_models_batch_payout = $client->NoFrixionMoneyMoovModelsBatchPayout()->load(["id" => "no_frixion_money_moov_models_batch_payout_id"]);
-```
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_models_batch_payout = $client->NoFrixionMoneyMoovModelsBatchPayout()->create([
-]);
-```
-
-
-### NoFrixionMoneyMoovModelsBeneficiaryGroupPage
-
-Create an instance: `$no_frixion_money_moov_models_beneficiary_group_page = $client->NoFrixionMoneyMoovModelsBeneficiaryGroupPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `group_member` | `array` |  |
-| `group_name` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsBeneficiaryGroupPage records (throws on error).
-$no_frixion_money_moov_models_beneficiary_group_pages = $client->NoFrixionMoneyMoovModelsBeneficiaryGroupPage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsBeneficiaryPage
-
-Create an instance: `$no_frixion_money_moov_models_beneficiary_page = $client->NoFrixionMoneyMoovModelsBeneficiaryPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `beneficiary_event` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_update` | `bool` |  |
-| `created_by` | `array` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `destination` | `array` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `nonce` | `string` |  |
-| `source_account` | `array` |  |
-| `their_reference` | `string` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsBeneficiaryPage records (throws on error).
-$no_frixion_money_moov_models_beneficiary_pages = $client->NoFrixionMoneyMoovModelsBeneficiaryPage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsCardCustomerToken
-
-Create an instance: `$no_frixion_money_moov_models_card_customer_token = $client->NoFrixionMoneyMoovModelsCardCustomerToken();`
+Create an instance: `$card_customer_token = $client->CardCustomerToken();`
 
 #### Operations
 
@@ -3776,21 +2117,141 @@ Create an instance: `$no_frixion_money_moov_models_card_customer_token = $client
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsCardCustomerToken record (throws on error).
-$no_frixion_money_moov_models_card_customer_token = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->load(["customer_email_address" => "customer_email_address"]);
+// load() returns the bare CardCustomerToken record (throws on error).
+$card_customer_token = $client->CardCustomerToken()->load(["customer_email_address" => "customer_email_address"]);
 ```
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsCardCustomerToken records (throws on error).
-$no_frixion_money_moov_models_card_customer_tokens = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->list();
+// list() returns an array of CardCustomerToken records (throws on error).
+$card_customer_tokens = $client->CardCustomerToken()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsCurrencyCurrencyInfo
+### CardPayment
 
-Create an instance: `$no_frixion_money_moov_models_currency_currency_info = $client->NoFrixionMoneyMoovModelsCurrencyCurrencyInfo();`
+Create an instance: `$card_payment = $client->CardPayment();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorized_amount` | `string` |  |
+| `currency_code` | `string` |  |
+| `is_payer_authentication_required` | `bool` |  |
+| `is_soft_decline` | `bool` |  |
+| `payer_authentication_access_token` | `string` |  |
+| `payer_authentication_merchant_data` | `string` |  |
+| `payer_authentication_url` | `string` |  |
+| `payer_authentication_window_height` | `int` |  |
+| `payer_authentication_window_width` | `int` |  |
+| `payment_request_callback_url` | `string` |  |
+| `payment_request_id` | `string` |  |
+| `request_id` | `string` |  |
+| `response_code` | `string` |  |
+| `response_type` | `string` |  |
+| `status` | `string` |  |
+| `three_ds_redirect_url` | `string` |  |
+| `transaction_id` | `string` |  |
+
+#### Example: Create
+
+```php
+$card_payment = $client->CardPayment()->create([
+    "paymentrequest_id" => null, // string
+]);
+```
+
+
+### CardPublicKey
+
+Create an instance: `$card_public_key = $client->CardPublicKey();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `jwt` | `string` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare CardPublicKey record (throws on error).
+$card_public_key = $client->CardPublicKey()->load(["paymentrequest_id" => "paymentrequest_id"]);
+```
+
+
+### Consent
+
+Create an instance: `$consent = $client->Consent();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorisation_url` | `string` |  |
+| `callback_url` | `string` |  |
+| `consent_id` | `string` |  |
+| `email_address` | `string` |  |
+| `expiry_date` | `string` |  |
+| `failure_callback_url` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `institution_id` | `string` |  |
+| `is_connected_account` | `bool` |  |
+| `is_enabled` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `provider` | `string` |  |
+| `success_web_hook_url` | `string` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare Consent record (throws on error).
+$consent = $client->Consent()->load(["id" => "consent_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Consent records (throws on error).
+$consents = $client->Consent()->list();
+```
+
+#### Example: Create
+
+```php
+$consent = $client->Consent()->create([
+]);
+```
+
+
+### Currency
+
+Create an instance: `$currency = $client->Currency();`
 
 #### Operations
 
@@ -3812,14 +2273,14 @@ Create an instance: `$no_frixion_money_moov_models_currency_currency_info = $cli
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsCurrencyCurrencyInfo records (throws on error).
-$no_frixion_money_moov_models_currency_currency_infos = $client->NoFrixionMoneyMoovModelsCurrencyCurrencyInfo()->list();
+// list() returns an array of Currency records (throws on error).
+$currencys = $client->Currency()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsDirectDebitBatchSubmit
+### DirectDebitBatchSubmit
 
-Create an instance: `$no_frixion_money_moov_models_direct_debit_batch_submit = $client->NoFrixionMoneyMoovModelsDirectDebitBatchSubmit();`
+Create an instance: `$direct_debit_batch_submit = $client->DirectDebitBatchSubmit();`
 
 #### Operations
 
@@ -3837,14 +2298,14 @@ Create an instance: `$no_frixion_money_moov_models_direct_debit_batch_submit = $
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_direct_debit_batch_submit = $client->NoFrixionMoneyMoovModelsDirectDebitBatchSubmit()->create([
+$direct_debit_batch_submit = $client->DirectDebitBatchSubmit()->create([
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsFxRate
+### FxRate
 
-Create an instance: `$no_frixion_money_moov_models_fx_rate = $client->NoFrixionMoneyMoovModelsFxRate();`
+Create an instance: `$fx_rate = $client->FxRate();`
 
 #### Operations
 
@@ -3866,21 +2327,21 @@ Create an instance: `$no_frixion_money_moov_models_fx_rate = $client->NoFrixionM
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsFxRate record (throws on error).
-$no_frixion_money_moov_models_fx_rate = $client->NoFrixionMoneyMoovModelsFxRate()->load(["destination" => "destination", "source" => "source", "valid_for_minute" => 1]);
+// load() returns the bare FxRate record (throws on error).
+$fx_rate = $client->FxRate()->load(["destination" => "destination", "source" => "source", "valid_for_minute" => 1]);
 ```
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsFxRate records (throws on error).
-$no_frixion_money_moov_models_fx_rates = $client->NoFrixionMoneyMoovModelsFxRate()->list();
+// list() returns an array of FxRate records (throws on error).
+$fx_rates = $client->FxRate()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsIPayment
+### IPayment
 
-Create an instance: `$no_frixion_money_moov_models_i_payment = $client->NoFrixionMoneyMoovModelsIPayment();`
+Create an instance: `$i_payment = $client->IPayment();`
 
 #### Operations
 
@@ -3898,14 +2359,14 @@ Create an instance: `$no_frixion_money_moov_models_i_payment = $client->NoFrixio
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_i_payment = $client->NoFrixionMoneyMoovModelsIPayment()->create([
+$i_payment = $client->IPayment()->create([
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsMandatesMandate
+### Mandate
 
-Create an instance: `$no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovModelsMandatesMandate();`
+Create an instance: `$mandate = $client->Mandate();`
 
 #### Operations
 
@@ -3956,14 +2417,14 @@ Create an instance: `$no_frixion_money_moov_models_mandates_mandate = $client->N
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsMandatesMandate record (throws on error).
-$no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovModelsMandatesMandate()->load(["id" => "no_frixion_money_moov_models_mandates_mandate_id"]);
+// load() returns the bare Mandate record (throws on error).
+$mandate = $client->Mandate()->load(["id" => "mandate_id"]);
 ```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovModelsMandatesMandate()->create([
+$mandate = $client->Mandate()->create([
     "address_line1" => null, // string
     "city" => null, // string
     "country_code" => null, // string
@@ -3975,9 +2436,9 @@ $no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovMode
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchant
+### Merchant
 
-Create an instance: `$no_frixion_money_moov_models_merchant = $client->NoFrixionMoneyMoovModelsMerchant();`
+Create an instance: `$merchant = $client->Merchant();`
 
 #### Operations
 
@@ -3985,6 +2446,7 @@ Create an instance: `$no_frixion_money_moov_models_merchant = $client->NoFrixion
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
 
 #### Fields
@@ -4011,6 +2473,7 @@ Create an instance: `$no_frixion_money_moov_models_merchant = $client->NoFrixion
 | `parent_merchant` | `array` |  |
 | `payment_account` | `array` |  |
 | `payment_account_limit` | `int` |  |
+| `reason` | `string` |  |
 | `short_name` | `string` |  |
 | `supported_payment_methods_list` | `array` |  |
 | `suspension_reason` | `string` |  |
@@ -4023,21 +2486,21 @@ Create an instance: `$no_frixion_money_moov_models_merchant = $client->NoFrixion
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsMerchant record (throws on error).
-$no_frixion_money_moov_models_merchant = $client->NoFrixionMoneyMoovModelsMerchant()->load(["id" => "no_frixion_money_moov_models_merchant_id"]);
+// load() returns the bare Merchant record (throws on error).
+$merchant = $client->Merchant()->load(["id" => "merchant_id"]);
 ```
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsMerchant records (throws on error).
-$no_frixion_money_moov_models_merchants = $client->NoFrixionMoneyMoovModelsMerchant()->list();
+// list() returns an array of Merchant records (throws on error).
+$merchants = $client->Merchant()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantPage
+### MerchantAuthorisationSetting
 
-Create an instance: `$no_frixion_money_moov_models_merchant_page = $client->NoFrixionMoneyMoovModelsMerchantPage();`
+Create an instance: `$merchant_authorisation_setting = $client->MerchantAuthorisationSetting();`
 
 #### Operations
 
@@ -4049,46 +2512,75 @@ Create an instance: `$no_frixion_money_moov_models_merchant_page = $client->NoFr
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_currency` | `array` |  |
-| `can_have_trust_account` | `bool` |  |
-| `card_payment_processor` | `string` |  |
-| `company_id` | `string` |  |
-| `display_qr_on_hosted_pay` | `bool` |  |
-| `hosted_pay_version` | `int` |  |
+| `amount_lower` | `float` |  |
+| `amount_upper` | `float` |  |
+| `authorisation_type` | `string` |  |
+| `beneficiaries_only` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_blocked` | `bool` |  |
-| `is_exited` | `bool` |  |
-| `is_suspended` | `bool` |  |
-| `jurisdiction` | `string` |  |
-| `logo_url_png` | `string` |  |
-| `logo_url_svg` | `string` |  |
-| `merchant_category_code` | `string` |  |
-| `name` | `string` |  |
-| `note` | `string` |  |
-| `parent_merchant` | `array` |  |
-| `payment_account` | `array` |  |
-| `payment_account_limit` | `int` |  |
-| `short_name` | `string` |  |
-| `supported_payment_methods_list` | `array` |  |
-| `suspension_reason` | `string` |  |
-| `tag` | `array` |  |
-| `time_zone_id` | `string` |  |
-| `trading_name` | `string` |  |
-| `web_hook_limit` | `int` |  |
-| `your_role_name` | `string` |  |
+| `last_editor_cant_authorise` | `bool` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `number_of_authoriser` | `int` |  |
+| `role_setting` | `array` |  |
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsMerchantPage records (throws on error).
-$no_frixion_money_moov_models_merchant_pages = $client->NoFrixionMoneyMoovModelsMerchantPage()->list();
+// list() returns an array of MerchantAuthorisationSetting records (throws on error).
+$merchant_authorisation_settings = $client->MerchantAuthorisationSetting()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantPayByBankSetting
+### MerchantDirectDebitMandate
 
-Create an instance: `$no_frixion_money_moov_models_merchant_pay_by_bank_setting = $client->NoFrixionMoneyMoovModelsMerchantPayByBankSetting();`
+Create an instance: `$merchant_direct_debit_mandate = $client->MerchantDirectDebitMandate();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `approved_at` | `string` |  |
+| `currency` | `string` |  |
+| `customer_account_number` | `string` |  |
+| `customer_city` | `string` |  |
+| `customer_country_code` | `string` |  |
+| `customer_country_name` | `string` |  |
+| `customer_email_address` | `string` |  |
+| `customer_first_name` | `string` |  |
+| `customer_iban` | `string` |  |
+| `customer_last_name` | `string` |  |
+| `customer_sort_code` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `is_recurring` | `bool` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `reference` | `string` |  |
+| `status` | `string` |  |
+| `supplier_bank_account_id` | `string` |  |
+| `supplier_customer_id` | `string` |  |
+| `supplier_mandate_id` | `string` |  |
+| `supplier_name` | `string` |  |
+| `supplier_status` | `string` |  |
+
+#### Example: List
+
+```php
+// list() returns an array of MerchantDirectDebitMandate records (throws on error).
+$merchant_direct_debit_mandates = $client->MerchantDirectDebitMandate()->list();
+```
+
+
+### MerchantPayByBankSetting
+
+Create an instance: `$merchant_pay_by_bank_setting = $client->MerchantPayByBankSetting();`
 
 #### Operations
 
@@ -4117,20 +2609,61 @@ Create an instance: `$no_frixion_money_moov_models_merchant_pay_by_bank_setting 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsMerchantPayByBankSetting records (throws on error).
-$no_frixion_money_moov_models_merchant_pay_by_bank_settings = $client->NoFrixionMoneyMoovModelsMerchantPayByBankSetting()->list();
+// list() returns an array of MerchantPayByBankSetting records (throws on error).
+$merchant_pay_by_bank_settings = $client->MerchantPayByBankSetting()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantToken
+### MerchantPaymentRequestTemplate
 
-Create an instance: `$no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModelsMerchantToken();`
+Create an instance: `$merchant_payment_request_template = $client->MerchantPaymentRequestTemplate();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `description` | `string` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `last_updated` | `string` |  |
+| `merchant_id` | `string` |  |
+| `name` | `string` |  |
+| `template` | `array` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare MerchantPaymentRequestTemplate record (throws on error).
+$merchant_payment_request_template = $client->MerchantPaymentRequestTemplate()->load(["id" => "merchant_payment_request_template_id", "paymentrequest_id" => "paymentrequest_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of MerchantPaymentRequestTemplate records (throws on error).
+$merchant_payment_request_templates = $client->MerchantPaymentRequestTemplate()->list();
+```
+
+
+### MerchantToken
+
+Create an instance: `$merchant_token = $client->MerchantToken();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `update(data)` | Update an existing entity. |
 
@@ -4165,67 +2698,47 @@ Create an instance: `$no_frixion_money_moov_models_merchant_token = $client->NoF
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsMerchantToken record (throws on error).
-$no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModelsMerchantToken()->load(["id" => "no_frixion_money_moov_models_merchant_token_id"]);
+// load() returns the bare MerchantToken record (throws on error).
+$merchant_token = $client->MerchantToken()->load(["id" => "merchant_token_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of MerchantToken records (throws on error).
+$merchant_tokens = $client->MerchantToken()->list();
 ```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModelsMerchantToken()->create([
+$merchant_token = $client->MerchantToken()->create([
     "nonce" => null, // string
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsMerchantTokenPage
+### Metadata
 
-Create an instance: `$no_frixion_money_moov_models_merchant_token_page = $client->NoFrixionMoneyMoovModelsMerchantTokenPage();`
+Create an instance: `$metadata = $client->Metadata();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `can_authorise` | `bool` |  |
-| `description` | `string` |  |
-| `expires_at` | `string` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `ip_address_whitelist` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_enabled` | `bool` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `nonce` | `string` |  |
-| `permission_type` | `array` |  |
-| `request_signature_version` | `int` |  |
-| `shared_secret_algorithm` | `string` |  |
-| `shared_secret_base64` | `string` |  |
-| `token` | `string` |  |
-
-#### Example: List
+#### Example: Load
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsMerchantTokenPage records (throws on error).
-$no_frixion_money_moov_models_merchant_token_pages = $client->NoFrixionMoneyMoovModelsMerchantTokenPage()->list();
+// load() returns the bare Metadata record (throws on error).
+$metadata = $client->Metadata()->load();
 ```
 
 
-### NoFrixionMoneyMoovModelsNoFrixionVersion
+### NoFrixionVersion
 
-Create an instance: `$no_frixion_money_moov_models_no_frixion_version = $client->NoFrixionMoneyMoovModelsNoFrixionVersion();`
+Create an instance: `$no_frixion_version = $client->NoFrixionVersion();`
 
 #### Operations
 
@@ -4245,153 +2758,66 @@ Create an instance: `$no_frixion_money_moov_models_no_frixion_version = $client-
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsNoFrixionVersion record (throws on error).
-$no_frixion_money_moov_models_no_frixion_version = $client->NoFrixionMoneyMoovModelsNoFrixionVersion()->load();
+// load() returns the bare NoFrixionVersion record (throws on error).
+$no_frixion_version = $client->NoFrixionVersion()->load();
 ```
 
 
-### NoFrixionMoneyMoovModelsOpenBankingAccount
+### OpenBanking
 
-Create an instance: `$no_frixion_money_moov_models_open_banking_account = $client->NoFrixionMoneyMoovModelsOpenBankingAccount();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_balance` | `array` |  |
-| `account_identification` | `array` |  |
-| `account_name` | `array` |  |
-| `account_type` | `string` |  |
-| `balance` | `float` |  |
-| `consolidated_account_information` | `array` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `detail` | `string` |  |
-| `id` | `string` |  |
-| `nickname` | `string` |  |
-| `type` | `string` |  |
-| `usage_type` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsOpenBankingAccount record (throws on error).
-$no_frixion_money_moov_models_open_banking_account = $client->NoFrixionMoneyMoovModelsOpenBankingAccount()->load(["id" => "no_frixion_money_moov_models_open_banking_account_id"]);
-```
-
-
-### NoFrixionMoneyMoovModelsOpenBankingConsent
-
-Create an instance: `$no_frixion_money_moov_models_open_banking_consent = $client->NoFrixionMoneyMoovModelsOpenBankingConsent();`
+Create an instance: `$open_banking = $client->OpenBanking();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-| `list(match)` | List entities matching the criteria. |
-| `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `consent_id` | `string` |  |
-| `email_address` | `string` |  |
-| `expiry_date` | `string` |  |
-| `failure_callback_url` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `institution_id` | `string` |  |
-| `is_connected_account` | `bool` |  |
-| `is_enabled` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `provider` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsOpenBankingConsent record (throws on error).
-$no_frixion_money_moov_models_open_banking_consent = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->load(["id" => "no_frixion_money_moov_models_open_banking_consent_id"]);
-```
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsOpenBankingConsent records (throws on error).
-$no_frixion_money_moov_models_open_banking_consents = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->list();
-```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_open_banking_consent = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->create([
+$open_banking = $client->OpenBanking()->create([
+    "account_id" => null, // string
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsOpenBankingTransaction
+### Payeeverification
 
-Create an instance: `$no_frixion_money_moov_models_open_banking_transaction = $client->NoFrixionMoneyMoovModelsOpenBankingTransaction();`
+Create an instance: `$payeeverification = $client->Payeeverification();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `create(data)` | Create a new entity with the given data. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address_detail` | `array` |  |
-| `amount` | `float` |  |
-| `balance` | `array` |  |
-| `booking_date_time` | `string` |  |
-| `charge_detail` | `array` |  |
-| `currency` | `string` |  |
-| `currency_exchange` | `array` |  |
-| `date` | `string` |  |
-| `description` | `string` |  |
-| `enrichment` | `array` |  |
-| `gross_amount` | `array` |  |
-| `id` | `string` |  |
-| `iso_bank_transaction_code` | `array` |  |
-| `merchant` | `array` |  |
-| `payee_detail` | `array` |  |
-| `payer_detail` | `array` |  |
-| `proprietary_bank_transaction_code` | `array` |  |
-| `reference` | `string` |  |
-| `statement_reference` | `array` |  |
-| `status` | `string` |  |
-| `supplementary_data` | `mixed` |  |
-| `transaction_amount` | `array` |  |
-| `transaction_information` | `array` |  |
-| `transaction_mutability` | `string` |  |
-| `value_date_time` | `string` |  |
+| `account_name` | `string` |  |
+| `account_number` | `string` |  |
+| `iban` | `string` |  |
+| `payee_verified_account_name` | `string` |  |
+| `result` | `string` |  |
+| `secondary_identification` | `string` |  |
+| `sort_code` | `string` |  |
 
-#### Example: List
+#### Example: Create
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsOpenBankingTransaction records (throws on error).
-$no_frixion_money_moov_models_open_banking_transactions = $client->NoFrixionMoneyMoovModelsOpenBankingTransaction()->list();
+$payeeverification = $client->Payeeverification()->create([
+    "account_name" => null, // string
+    "iban" => null, // string
+]);
 ```
 
 
-### NoFrixionMoneyMoovModelsPayment
+### Payment
 
-Create an instance: `$no_frixion_money_moov_models_payment = $client->NoFrixionMoneyMoovModelsPayment();`
+Create an instance: `$payment = $client->Payment();`
 
 #### Operations
 
@@ -4485,56 +2911,22 @@ Create an instance: `$no_frixion_money_moov_models_payment = $client->NoFrixionM
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsPayment record (throws on error).
-$no_frixion_money_moov_models_payment = $client->NoFrixionMoneyMoovModelsPayment()->load(["id" => "no_frixion_money_moov_models_payment_id"]);
+// load() returns the bare Payment record (throws on error).
+$payment = $client->Payment()->load(["id" => "payment_id"]);
 ```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_payment = $client->NoFrixionMoneyMoovModelsPayment()->create([
+$payment = $client->Payment()->create([
     "created_by_user" => null, // array
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentAccountMinimalPage
+### PaymentAccount
 
-Create an instance: `$no_frixion_money_moov_models_payment_account_minimal_page = $client->NoFrixionMoneyMoovModelsPaymentAccountMinimalPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_name` | `string` |  |
-| `available_balance` | `float` |  |
-| `balance` | `float` |  |
-| `balance_minor_unit` | `int` |  |
-| `currency` | `string` |  |
-| `id` | `string` |  |
-| `identifier` | `array` |  |
-| `is_archived` | `bool` |  |
-| `is_connected_account` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `submitted_payouts_balance` | `float` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentAccountMinimalPage records (throws on error).
-$no_frixion_money_moov_models_payment_account_minimal_pages = $client->NoFrixionMoneyMoovModelsPaymentAccountMinimalPage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsPaymentAccountPage
-
-Create an instance: `$no_frixion_money_moov_models_payment_account_page = $client->NoFrixionMoneyMoovModelsPaymentAccountPage();`
+Create an instance: `$payment_account = $client->PaymentAccount();`
 
 #### Operations
 
@@ -4589,14 +2981,48 @@ Create an instance: `$no_frixion_money_moov_models_payment_account_page = $clien
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentAccountPage records (throws on error).
-$no_frixion_money_moov_models_payment_account_pages = $client->NoFrixionMoneyMoovModelsPaymentAccountPage()->list();
+// list() returns an array of PaymentAccount records (throws on error).
+$payment_accounts = $client->PaymentAccount()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentInitiation
+### PaymentAccountMinimal
 
-Create an instance: `$no_frixion_money_moov_models_payment_initiation = $client->NoFrixionMoneyMoovModelsPaymentInitiation();`
+Create an instance: `$payment_account_minimal = $client->PaymentAccountMinimal();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `account_name` | `string` |  |
+| `available_balance` | `float` |  |
+| `balance` | `float` |  |
+| `balance_minor_unit` | `int` |  |
+| `currency` | `string` |  |
+| `id` | `string` |  |
+| `identifier` | `array` |  |
+| `is_archived` | `bool` |  |
+| `is_connected_account` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `submitted_payouts_balance` | `float` |  |
+
+#### Example: List
+
+```php
+// list() returns an array of PaymentAccountMinimal records (throws on error).
+$payment_account_minimals = $client->PaymentAccountMinimal()->list();
+```
+
+
+### PaymentInitiation
+
+Create an instance: `$payment_initiation = $client->PaymentInitiation();`
 
 #### Operations
 
@@ -4618,15 +3044,124 @@ Create an instance: `$no_frixion_money_moov_models_payment_initiation = $client-
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_payment_initiation = $client->NoFrixionMoneyMoovModelsPaymentInitiation()->create([
+$payment_initiation = $client->PaymentInitiation()->create([
     "paymentrequest_id" => null, // string
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestEvent
+### PaymentRequest
 
-Create an instance: `$no_frixion_money_moov_models_payment_request_event = $client->NoFrixionMoneyMoovModelsPaymentRequestEvent();`
+Create an instance: `$payment_request = $client->PaymentRequest();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `address` | `array` |  |
+| `amount` | `float` |  |
+| `amount_pending` | `float` |  |
+| `amount_received` | `float` |  |
+| `amount_refunded` | `float` |  |
+| `auto_send_receipt` | `bool` |  |
+| `base_origin_url` | `string` |  |
+| `callback_url` | `string` |  |
+| `card_authorize_only` | `bool` |  |
+| `card_create_token` | `bool` |  |
+| `card_create_token_mode` | `string` |  |
+| `card_ignore_cvn` | `bool` |  |
+| `card_processor_merchant_id` | `string` |  |
+| `card_stripe_payment_intent_id` | `string` |  |
+| `card_stripe_payment_intent_secret` | `string` |  |
+| `created_by_user` | `array` |  |
+| `currency` | `string` |  |
+| `custom_field` | `array` |  |
+| `customer_email_address` | `string` |  |
+| `customer_id` | `string` |  |
+| `customer_name` | `string` |  |
+| `description` | `string` |  |
+| `destination_account` | `array` |  |
+| `direct_debit_payment` | `array` |  |
+| `do_simulate_settlement_failure` | `bool` |  |
+| `due_date` | `string` |  |
+| `error_description` | `string` |  |
+| `event` | `array` |  |
+| `failure_callback_url` | `string` |  |
+| `field_display_setting` | `array` |  |
+| `formatted_amount` | `string` |  |
+| `hosted_pay_checkout_url` | `string` |  |
+| `id` | `string` |  |
+| `ignore_address_verification` | `bool` |  |
+| `inserted` | `string` |  |
+| `inserted_sortable` | `string` |  |
+| `institution` | `string` |  |
+| `is_archived` | `bool` |  |
+| `jwk` | `string` |  |
+| `last_updated` | `string` |  |
+| `lightning_invoice` | `string` |  |
+| `lightning_invoice_expires_at` | `string` |  |
+| `merchant_direct_debit_mandate_id` | `string` |  |
+| `merchant_id` | `string` |  |
+| `merchant_token_description` | `string` |  |
+| `notification_email_address` | `string` |  |
+| `notification_role_i_d` | `array` |  |
+| `order_id` | `string` |  |
+| `partial_payment_method` | `string` |  |
+| `partial_payment_step` | `string` |  |
+| `payment_attempt` | `array` |  |
+| `payment_initiation_id` | `string` |  |
+| `payment_method` | `array` |  |
+| `payment_processor` | `string` |  |
+| `payrun_id` | `string` |  |
+| `pisp_account_id` | `string` |  |
+| `priority_bank_id` | `string` |  |
+| `result` | `array` |  |
+| `sandbox_settle_delay_in_second` | `int` |  |
+| `shipping_address` | `array` |  |
+| `status` | `string` |  |
+| `success_web_hook_url` | `string` |  |
+| `tag` | `array` |  |
+| `title` | `string` |  |
+| `tokenised_card` | `array` |  |
+| `transaction` | `array` |  |
+| `use_hosted_payment_page` | `bool` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare PaymentRequest record (throws on error).
+$payment_request = $client->PaymentRequest()->load();
+```
+
+#### Example: List
+
+```php
+// list() returns an array of PaymentRequest records (throws on error).
+$payment_requests = $client->PaymentRequest()->list();
+```
+
+#### Example: Create
+
+```php
+$payment_request = $client->PaymentRequest()->create([
+    "paymentrequest_id" => null, // string
+]);
+```
+
+
+### PaymentRequestEvent
+
+Create an instance: `$payment_request_event = $client->PaymentRequestEvent();`
 
 #### Operations
 
@@ -4678,14 +3213,14 @@ Create an instance: `$no_frixion_money_moov_models_payment_request_event = $clie
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentRequestEvent records (throws on error).
-$no_frixion_money_moov_models_payment_request_events = $client->NoFrixionMoneyMoovModelsPaymentRequestEvent()->list();
+// list() returns an array of PaymentRequestEvent records (throws on error).
+$payment_request_events = $client->PaymentRequestEvent()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestMetric
+### PaymentRequestMetric
 
-Create an instance: `$no_frixion_money_moov_models_payment_request_metric = $client->NoFrixionMoneyMoovModelsPaymentRequestMetric();`
+Create an instance: `$payment_request_metric = $client->PaymentRequestMetric();`
 
 #### Operations
 
@@ -4707,14 +3242,14 @@ Create an instance: `$no_frixion_money_moov_models_payment_request_metric = $cli
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsPaymentRequestMetric record (throws on error).
-$no_frixion_money_moov_models_payment_request_metric = $client->NoFrixionMoneyMoovModelsPaymentRequestMetric()->load();
+// load() returns the bare PaymentRequestMetric record (throws on error).
+$payment_request_metric = $client->PaymentRequestMetric()->load();
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestMinimal
+### PaymentRequestMinimal
 
-Create an instance: `$no_frixion_money_moov_models_payment_request_minimal = $client->NoFrixionMoneyMoovModelsPaymentRequestMinimal();`
+Create an instance: `$payment_request_minimal = $client->PaymentRequestMinimal();`
 
 #### Operations
 
@@ -4760,14 +3295,14 @@ Create an instance: `$no_frixion_money_moov_models_payment_request_minimal = $cl
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentRequestMinimal records (throws on error).
-$no_frixion_money_moov_models_payment_request_minimals = $client->NoFrixionMoneyMoovModelsPaymentRequestMinimal()->list();
+// list() returns an array of PaymentRequestMinimal records (throws on error).
+$payment_request_minimals = $client->PaymentRequestMinimal()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestResult
+### PaymentRequestResult
 
-Create an instance: `$no_frixion_money_moov_models_payment_request_result = $client->NoFrixionMoneyMoovModelsPaymentRequestResult();`
+Create an instance: `$payment_request_result = $client->PaymentRequestResult();`
 
 #### Operations
 
@@ -4794,108 +3329,157 @@ Create an instance: `$no_frixion_money_moov_models_payment_request_result = $cli
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentRequestResult records (throws on error).
-$no_frixion_money_moov_models_payment_request_results = $client->NoFrixionMoneyMoovModelsPaymentRequestResult()->list();
+// list() returns an array of PaymentRequestResult records (throws on error).
+$payment_request_results = $client->PaymentRequestResult()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment
+### PaymentRequestsCreate
 
-Create an instance: `$no_frixion_money_moov_models_payment_requests_merchant_payment = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment();`
+Create an instance: `$payment_requests_create = $client->PaymentRequestsCreate();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_payment_request` | `array` |  |
+| `payment_request` | `array` |  |
+
+#### Example: Create
+
+```php
+$payment_requests_create = $client->PaymentRequestsCreate()->create([
+]);
+```
+
+
+### Payout
+
+Create an instance: `$payout = $client->Payout();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
 | `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `array` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment records (throws on error).
-$no_frixion_money_moov_models_payment_requests_merchant_payments = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2
-
-Create an instance: `$no_frixion_money_moov_models_payment_requests_merchant_payment2 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `array` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2 record (throws on error).
-$no_frixion_money_moov_models_payment_requests_merchant_payment2 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2()->load(["paymentrequest_id" => "paymentrequest_id", "template_id" => "template_id"]);
-```
-
-
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3
-
-Create an instance: `$no_frixion_money_moov_models_payment_requests_merchant_payment3 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `account_id` | `string` |  |
+| `allow_incomplete` | `bool` |  |
+| `amount` | `float` |  |
+| `amount_minor_unit` | `int` |  |
+| `approve_payout_url` | `string` |  |
+| `approver_id` | `string` |  |
+| `authentication_method` | `array` |  |
+| `authorisation` | `array` |  |
+| `authorisers_completed_count` | `int` |  |
+| `authorisers_required_count` | `int` |  |
+| `batch_payout_id` | `string` |  |
+| `beneficiary` | `array` |  |
+| `beneficiary_id` | `string` |  |
+| `can_authorise` | `bool` |  |
+| `can_process` | `bool` |  |
+| `can_update` | `bool` |  |
+| `charge_bearer` | `string` |  |
+| `created_by` | `string` |  |
+| `created_by_email_address` | `string` |  |
+| `currency` | `string` |  |
+| `current_user_id` | `string` |  |
 | `description` | `string` |  |
+| `destination` | `array` |  |
+| `document` | `array` |  |
+| `event` | `array` |  |
+| `formatted_amount` | `string` |  |
+| `formatted_fx_destination_amount` | `string` |  |
+| `formatted_schedule` | `string` |  |
+| `formatted_schedule_day_only` | `string` |  |
+| `formatted_source_account_available_balance` | `string` |  |
+| `fx_destination_amount` | `float` |  |
+| `fx_destination_amount_minor_unit` | `int` |  |
+| `fx_destination_currency` | `string` |  |
+| `fx_quote_expires_at` | `string` |  |
+| `fx_quote_id` | `string` |  |
+| `fx_rate` | `float` |  |
+| `fx_use_destination_amount` | `bool` |  |
+| `has_current_user_authorised` | `bool` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
+| `invoice_id` | `string` |  |
+| `is_archived` | `bool` |  |
+| `is_failed` | `bool` |  |
+| `is_settled` | `bool` |  |
+| `is_submitted` | `bool` |  |
 | `last_updated` | `string` |  |
 | `merchant_id` | `string` |  |
-| `name` | `string` |  |
-| `template` | `array` |  |
+| `merchant_token_description` | `string` |  |
+| `nonce` | `string` |  |
+| `payment_processor` | `string` |  |
+| `payment_rail` | `string` |  |
+| `payrun_id` | `string` |  |
+| `payrun_name` | `string` |  |
+| `reason` | `string` |  |
+| `rule` | `array` |  |
+| `schedule_date` | `string` |  |
+| `scheduled` | `bool` |  |
+| `source_account_available_balance` | `float` |  |
+| `source_account_available_balance_minor_unit` | `int` |  |
+| `source_account_bic` | `string` |  |
+| `source_account_currency` | `string` |  |
+| `source_account_iban` | `string` |  |
+| `source_account_identifier` | `array` |  |
+| `source_account_name` | `string` |  |
+| `source_account_number` | `string` |  |
+| `source_account_sortcode` | `string` |  |
+| `status` | `string` |  |
+| `tag` | `array` |  |
+| `tag_id` | `array` |  |
+| `their_reference` | `string` |  |
+| `topup_payrun_id` | `string` |  |
+| `transacted_amount` | `float` |  |
+| `transacted_fx_amount` | `float` |  |
+| `transacted_fx_rate` | `float` |  |
+| `type` | `string` |  |
+| `user_id` | `string` |  |
+| `your_reference` | `string` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare Payout record (throws on error).
+$payout = $client->Payout()->load(["id" => "payout_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Payout records (throws on error).
+$payouts = $client->Payout()->list();
+```
+
+#### Example: Create
+
+```php
+$payout = $client->Payout()->create([
+]);
+```
 
 
-### NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4
+### PayoutKeyset
 
-Create an instance: `$no_frixion_money_moov_models_payment_requests_merchant_payment4 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `remove(match)` | Remove the matching entity. |
-
-
-### NoFrixionMoneyMoovModelsPayoutKeysetPage
-
-Create an instance: `$no_frixion_money_moov_models_payout_keyset_page = $client->NoFrixionMoneyMoovModelsPayoutKeysetPage();`
+Create an instance: `$payout_keyset = $client->PayoutKeyset();`
 
 #### Operations
 
@@ -4984,14 +3568,14 @@ Create an instance: `$no_frixion_money_moov_models_payout_keyset_page = $client-
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsPayoutKeysetPage records (throws on error).
-$no_frixion_money_moov_models_payout_keyset_pages = $client->NoFrixionMoneyMoovModelsPayoutKeysetPage()->list();
+// list() returns an array of PayoutKeyset records (throws on error).
+$payout_keysets = $client->PayoutKeyset()->list();
 ```
 
 
-### NoFrixionMoneyMoovModelsPayoutMetric
+### PayoutMetric
 
-Create an instance: `$no_frixion_money_moov_models_payout_metric = $client->NoFrixionMoneyMoovModelsPayoutMetric();`
+Create an instance: `$payout_metric = $client->PayoutMetric();`
 
 #### Operations
 
@@ -5014,14 +3598,14 @@ Create an instance: `$no_frixion_money_moov_models_payout_metric = $client->NoFr
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsPayoutMetric record (throws on error).
-$no_frixion_money_moov_models_payout_metric = $client->NoFrixionMoneyMoovModelsPayoutMetric()->load();
+// load() returns the bare PayoutMetric record (throws on error).
+$payout_metric = $client->PayoutMetric()->load();
 ```
 
 
-### NoFrixionMoneyMoovModelsPayoutsPayoutsCreate
+### PayoutsCreate
 
-Create an instance: `$no_frixion_money_moov_models_payouts_payouts_create = $client->NoFrixionMoneyMoovModelsPayoutsPayoutsCreate();`
+Create an instance: `$payouts_create = $client->PayoutsCreate();`
 
 #### Operations
 
@@ -5039,21 +3623,23 @@ Create an instance: `$no_frixion_money_moov_models_payouts_payouts_create = $cli
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_payouts_payouts_create = $client->NoFrixionMoneyMoovModelsPayoutsPayoutsCreate()->create([
+$payouts_create = $client->PayoutsCreate()->create([
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsPayrun
+### Payrun
 
-Create an instance: `$no_frixion_money_moov_models_payrun = $client->NoFrixionMoneyMoovModelsPayrun();`
+Create an instance: `$payrun = $client->Payrun();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
 
 #### Fields
@@ -5080,6 +3666,7 @@ Create an instance: `$no_frixion_money_moov_models_payrun = $client->NoFrixionMo
 | `merchant_id` | `string` |  |
 | `name` | `string` |  |
 | `nonce` | `string` |  |
+| `note` | `string` |  |
 | `payment` | `array` |  |
 | `payout` | `array` |  |
 | `payouts_count` | `int` |  |
@@ -5095,22 +3682,40 @@ Create an instance: `$no_frixion_money_moov_models_payrun = $client->NoFrixionMo
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsPayrun record (throws on error).
-$no_frixion_money_moov_models_payrun = $client->NoFrixionMoneyMoovModelsPayrun()->load(["id" => "no_frixion_money_moov_models_payrun_id"]);
+// load() returns the bare Payrun record (throws on error).
+$payrun = $client->Payrun()->load(["id" => "payrun_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Payrun records (throws on error).
+$payruns = $client->Payrun()->list();
 ```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_payrun = $client->NoFrixionMoneyMoovModelsPayrun()->create([
+$payrun = $client->Payrun()->create([
     "id" => null, // string
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsReportResult
+### Report
 
-Create an instance: `$no_frixion_money_moov_models_report_result = $client->NoFrixionMoneyMoovModelsReportResult();`
+Create an instance: `$report = $client->Report();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `update(data)` | Update an existing entity. |
+
+
+### ReportResult
+
+Create an instance: `$report_result = $client->ReportResult();`
 
 #### Operations
 
@@ -5133,21 +3738,49 @@ Create an instance: `$no_frixion_money_moov_models_report_result = $client->NoFr
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsReportResult record (throws on error).
-$no_frixion_money_moov_models_report_result = $client->NoFrixionMoneyMoovModelsReportResult()->load(["id" => 1, "report_id" => "report_id"]);
+// load() returns the bare ReportResult record (throws on error).
+$report_result = $client->ReportResult()->load(["id" => 1, "report_id" => "report_id"]);
 ```
 
 
-### NoFrixionMoneyMoovModelsRule
+### RolesCreate
 
-Create an instance: `$no_frixion_money_moov_models_rule = $client->NoFrixionMoneyMoovModelsRule();`
+Create an instance: `$roles_create = $client->RolesCreate();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_role` | `array` |  |
+| `role` | `array` |  |
+
+#### Example: Create
+
+```php
+$roles_create = $client->RolesCreate()->create([
+    "merchant_id" => null, // string
+]);
+```
+
+
+### Rule
+
+Create an instance: `$rule = $client->Rule();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
 
 #### Fields
@@ -5191,853 +3824,56 @@ Create an instance: `$no_frixion_money_moov_models_rule = $client->NoFrixionMone
 #### Example: Load
 
 ```php
-// load() returns the bare NoFrixionMoneyMoovModelsRule record (throws on error).
-$no_frixion_money_moov_models_rule = $client->NoFrixionMoneyMoovModelsRule()->load(["id" => "no_frixion_money_moov_models_rule_id"]);
+// load() returns the bare Rule record (throws on error).
+$rule = $client->Rule()->load(["id" => "rule_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Rule records (throws on error).
+$rules = $client->Rule()->list();
 ```
 
 #### Example: Create
 
 ```php
-$no_frixion_money_moov_models_rule = $client->NoFrixionMoneyMoovModelsRule()->create([
+$rule = $client->Rule()->create([
     "created_by" => null, // array
     "nonce" => null, // string
 ]);
 ```
 
 
-### NoFrixionMoneyMoovModelsTransaction
+### RuleEvent
 
-Create an instance: `$no_frixion_money_moov_models_transaction = $client->NoFrixionMoneyMoovModelsTransaction();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `account_name` | `string` |  |
-| `account_sequence_number` | `int` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `balance` | `float` |  |
-| `balance_minor_unit` | `int` |  |
-| `counterparty` | `array` |  |
-| `counterparty_summary` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `fx_amount` | `float` |  |
-| `fx_currency` | `string` |  |
-| `fx_rate` | `float` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `merchant_id` | `string` |  |
-| `payment_request_custom_field` | `array` |  |
-| `payment_request_id` | `string` |  |
-| `payout_id` | `string` |  |
-| `raw_reference` | `string` |  |
-| `rule_id` | `string` |  |
-| `tag` | `array` |  |
-| `their_reference` | `string` |  |
-| `transaction_date` | `string` |  |
-| `type` | `string` |  |
-| `virtual_iban` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsTransaction record (throws on error).
-$no_frixion_money_moov_models_transaction = $client->NoFrixionMoneyMoovModelsTransaction()->load(["id" => "no_frixion_money_moov_models_transaction_id"]);
-```
-
-
-### NoFrixionMoneyMoovModelsTransactionPage
-
-Create an instance: `$no_frixion_money_moov_models_transaction_page = $client->NoFrixionMoneyMoovModelsTransactionPage();`
+Create an instance: `$rule_event = $client->RuleEvent();`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
-| `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_id` | `string` |  |
-| `account_name` | `string` |  |
-| `account_sequence_number` | `int` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `balance` | `float` |  |
-| `balance_minor_unit` | `int` |  |
-| `content` | `array` |  |
-| `counterparty` | `array` |  |
-| `counterparty_summary` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `fx_amount` | `float` |  |
-| `fx_currency` | `string` |  |
-| `fx_rate` | `float` |  |
+| `error_message` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `merchant_id` | `string` |  |
-| `page_number` | `int` |  |
-| `page_size` | `int` |  |
-| `payment_request_custom_field` | `array` |  |
-| `payment_request_id` | `string` |  |
-| `payout_id` | `string` |  |
-| `raw_reference` | `string` |  |
-| `rule_id` | `string` |  |
-| `tag` | `array` |  |
-| `their_reference` | `string` |  |
-| `total_page` | `int` |  |
-| `total_size` | `int` |  |
-| `transaction_date` | `string` |  |
-| `type` | `string` |  |
-| `virtual_iban` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsTransactionPage record (throws on error).
-$no_frixion_money_moov_models_transaction_page = $client->NoFrixionMoneyMoovModelsTransactionPage()->load(["account_id" => "account_id"]);
-```
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsTransactionPage records (throws on error).
-$no_frixion_money_moov_models_transaction_pages = $client->NoFrixionMoneyMoovModelsTransactionPage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsUserInvite
-
-Create an instance: `$no_frixion_money_moov_models_user_invite = $client->NoFrixionMoneyMoovModelsUserInvite();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_status` | `array` |  |
-| `id` | `string` |  |
-| `initial_role_id` | `string` |  |
-| `invitee_email_address` | `string` |  |
-| `invitee_first_name` | `string` |  |
-| `invitee_last_name` | `string` |  |
-| `inviter_email_address` | `string` |  |
-| `inviter_first_name` | `string` |  |
-| `inviter_last_name` | `string` |  |
-| `is_authorised` | `bool` |  |
-| `is_invitee_registered` | `bool` |  |
-| `last_invited` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
+| `is_authorise_to_enable` | `bool` |  |
 | `message` | `string` |  |
-| `registration_url` | `string` |  |
-| `send_invite_email` | `bool` |  |
-| `status` | `string` |  |
+| `raw_response` | `string` |  |
+| `rule_event_type` | `string` |  |
+| `rule_id` | `string` |  |
 | `user` | `array` |  |
-| `user_id` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsUserInvite record (throws on error).
-$no_frixion_money_moov_models_user_invite = $client->NoFrixionMoneyMoovModelsUserInvite()->load(["id" => "no_frixion_money_moov_models_user_invite_id"]);
-```
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_models_user_invite = $client->NoFrixionMoneyMoovModelsUserInvite()->create([
-    "user" => null, // array
-]);
-```
-
-
-### NoFrixionMoneyMoovModelsUserInvitePage
-
-Create an instance: `$no_frixion_money_moov_models_user_invite_page = $client->NoFrixionMoneyMoovModelsUserInvitePage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `authorisation_status` | `array` |  |
-| `id` | `string` |  |
-| `initial_role_id` | `string` |  |
-| `invitee_email_address` | `string` |  |
-| `invitee_first_name` | `string` |  |
-| `invitee_last_name` | `string` |  |
-| `inviter_email_address` | `string` |  |
-| `inviter_first_name` | `string` |  |
-| `inviter_last_name` | `string` |  |
-| `is_authorised` | `bool` |  |
-| `is_invitee_registered` | `bool` |  |
-| `last_invited` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
-| `message` | `string` |  |
-| `registration_url` | `string` |  |
-| `status` | `string` |  |
-| `user` | `array` |  |
-| `user_id` | `string` |  |
 
 #### Example: List
 
 ```php
-// list() returns an array of NoFrixionMoneyMoovModelsUserInvitePage records (throws on error).
-$no_frixion_money_moov_models_user_invite_pages = $client->NoFrixionMoneyMoovModelsUserInvitePage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsUserPage
-
-Create an instance: `$no_frixion_money_moov_models_user_page = $client->NoFrixionMoneyMoovModelsUserPage();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `client_session_timeout` | `array` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
-| `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `array` |  |
-| `roles_with_scope` | `array` |  |
-| `two_factor_enabled` | `bool` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsUserPage records (throws on error).
-$no_frixion_money_moov_models_user_pages = $client->NoFrixionMoneyMoovModelsUserPage()->list();
-```
-
-
-### NoFrixionMoneyMoovModelsWebhook
-
-Create an instance: `$no_frixion_money_moov_models_webhook = $client->NoFrixionMoneyMoovModelsWebhook();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `list(match)` | List entities matching the criteria. |
-| `load(match)` | Load a single entity by match criteria. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `destination_url` | `string` |  |
-| `email_address` | `string` |  |
-| `failed_notification_email_address` | `string` |  |
-| `id` | `string` |  |
-| `is_active` | `bool` |  |
-| `merchant_id` | `string` |  |
-| `notification_method` | `string` |  |
-| `resource_type` | `array` |  |
-| `retry` | `bool` |  |
-| `secret` | `string` |  |
-| `version` | `int` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare NoFrixionMoneyMoovModelsWebhook record (throws on error).
-$no_frixion_money_moov_models_webhook = $client->NoFrixionMoneyMoovModelsWebhook()->load(["id" => "no_frixion_money_moov_models_webhook_id"]);
-```
-
-#### Example: List
-
-```php
-// list() returns an array of NoFrixionMoneyMoovModelsWebhook records (throws on error).
-$no_frixion_money_moov_models_webhooks = $client->NoFrixionMoneyMoovModelsWebhook()->list();
-```
-
-#### Example: Create
-
-```php
-$no_frixion_money_moov_models_webhook = $client->NoFrixionMoneyMoovModelsWebhook()->create([
-]);
-```
-
-
-### OpenBanking
-
-Create an instance: `$open_banking = $client->OpenBanking();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `remove(match)` | Remove the matching entity. |
-
-#### Example: Create
-
-```php
-$open_banking = $client->OpenBanking()->create([
-    "account_id" => null, // string
-]);
-```
-
-
-### Payeeverification
-
-Create an instance: `$payeeverification = $client->Payeeverification();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_name` | `string` |  |
-| `account_number` | `string` |  |
-| `iban` | `string` |  |
-| `payee_verified_account_name` | `string` |  |
-| `result` | `string` |  |
-| `secondary_identification` | `string` |  |
-| `sort_code` | `string` |  |
-
-#### Example: Create
-
-```php
-$payeeverification = $client->Payeeverification()->create([
-    "account_name" => null, // string
-    "iban" => null, // string
-]);
-```
-
-
-### PaymentRequest
-
-Create an instance: `$payment_request = $client->PaymentRequest();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
-| `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `amount` | `float` |  |
-| `do_simulate_settlement_failure` | `bool` |  |
-| `error_description` | `string` |  |
-| `institution` | `string` |  |
-| `payment_initiation_id` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare PaymentRequest record (throws on error).
-$payment_request = $client->PaymentRequest()->load();
-```
-
-#### Example: Create
-
-```php
-$payment_request = $client->PaymentRequest()->create([
-    "paymentrequest_id" => null, // string
-]);
-```
-
-
-### Payout
-
-Create an instance: `$payout = $client->Payout();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `load(match)` | Load a single entity by match criteria. |
-| `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `tag_id` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Load
-
-```php
-// load() returns the bare Payout record (throws on error).
-$payout = $client->Payout()->load(["id" => "payout_id"]);
-```
-
-#### Example: Create
-
-```php
-$payout = $client->Payout()->create([
-]);
-```
-
-
-### Payrun
-
-Create an instance: `$payrun = $client->Payrun();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-| `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `id` | `string` |  |
-| `note` | `string` |  |
-| `scheduled_date` | `string` |  |
-
-#### Example: Create
-
-```php
-$payrun = $client->Payrun()->create([
-    "id" => null, // string
-]);
-```
-
-
-### Reject
-
-Create an instance: `$reject = $client->Reject();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `reason` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-
-### Report
-
-Create an instance: `$report = $client->Report();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `update(data)` | Update an existing entity. |
-
-
-### Rule
-
-Create an instance: `$rule = $client->Rule();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `remove(match)` | Remove the matching entity. |
-| `update(data)` | Update an existing entity. |
-
-
-### Send
-
-Create an instance: `$send = $client->Send();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `tag_id` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Create
-
-```php
-$send = $client->Send()->create([
-    "beneficiary" => null, // array
-    "source_account_identifier" => null, // array
-]);
-```
-
-
-### Sendbeneficiary
-
-Create an instance: `$sendbeneficiary = $client->Sendbeneficiary();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `bool` |  |
-| `amount` | `float` |  |
-| `amount_minor_unit` | `int` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `array` |  |
-| `authorisation` | `array` |  |
-| `authorisers_completed_count` | `int` |  |
-| `authorisers_required_count` | `int` |  |
-| `batch_payout_id` | `string` |  |
-| `beneficiary` | `array` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `bool` |  |
-| `can_process` | `bool` |  |
-| `can_update` | `bool` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
-| `currency` | `string` |  |
-| `current_user_id` | `string` |  |
-| `description` | `string` |  |
-| `destination` | `array` |  |
-| `document` | `array` |  |
-| `event` | `array` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `float` |  |
-| `fx_destination_amount_minor_unit` | `int` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `float` |  |
-| `fx_use_destination_amount` | `bool` |  |
-| `has_current_user_authorised` | `bool` |  |
-| `id` | `string` |  |
-| `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `bool` |  |
-| `is_failed` | `bool` |  |
-| `is_settled` | `bool` |  |
-| `is_submitted` | `bool` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
-| `rule` | `array` |  |
-| `schedule_date` | `string` |  |
-| `scheduled` | `bool` |  |
-| `source_account_available_balance` | `float` |  |
-| `source_account_available_balance_minor_unit` | `int` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `array` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
-| `status` | `string` |  |
-| `tag` | `array` |  |
-| `tag_id` | `array` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `float` |  |
-| `transacted_fx_amount` | `float` |  |
-| `transacted_fx_rate` | `float` |  |
-| `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
-
-#### Example: Create
-
-```php
-$sendbeneficiary = $client->Sendbeneficiary()->create([
-    "beneficiary" => null, // array
-    "source_account_identifier" => null, // array
-]);
+// list() returns an array of RuleEvent records (throws on error).
+$rule_events = $client->RuleEvent()->list();
 ```
 
 
@@ -6107,14 +3943,80 @@ Create an instance: `$transaction = $client->Transaction();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `account_id` | `string` |  |
+| `account_name` | `string` |  |
+| `account_sequence_number` | `int` |  |
+| `address_detail` | `array` |  |
+| `amount` | `float` |  |
+| `amount_minor_unit` | `int` |  |
+| `balance` | `float` |  |
+| `balance_minor_unit` | `int` |  |
+| `booking_date_time` | `string` |  |
+| `charge_detail` | `array` |  |
+| `content` | `array` |  |
+| `counterparty` | `array` |  |
+| `counterparty_summary` | `string` |  |
+| `currency` | `string` |  |
+| `currency_exchange` | `array` |  |
+| `date` | `string` |  |
+| `description` | `string` |  |
+| `enrichment` | `array` |  |
+| `fx_amount` | `float` |  |
+| `fx_currency` | `string` |  |
+| `fx_rate` | `float` |  |
+| `gross_amount` | `array` |  |
+| `id` | `string` |  |
+| `inserted` | `string` |  |
+| `iso_bank_transaction_code` | `array` |  |
+| `merchant` | `array` |  |
+| `merchant_id` | `string` |  |
+| `page_number` | `int` |  |
+| `page_size` | `int` |  |
+| `payee_detail` | `array` |  |
+| `payer_detail` | `array` |  |
+| `payment_request_custom_field` | `array` |  |
+| `payment_request_id` | `string` |  |
+| `payout_id` | `string` |  |
+| `proprietary_bank_transaction_code` | `array` |  |
+| `raw_reference` | `string` |  |
+| `reference` | `string` |  |
+| `rule_id` | `string` |  |
+| `statement_reference` | `array` |  |
+| `status` | `string` |  |
+| `supplementary_data` | `mixed` |  |
+| `tag` | `array` |  |
+| `their_reference` | `string` |  |
+| `total_page` | `int` |  |
+| `total_size` | `int` |  |
+| `transaction_amount` | `array` |  |
+| `transaction_date` | `string` |  |
+| `transaction_information` | `array` |  |
+| `transaction_mutability` | `string` |  |
+| `type` | `string` |  |
+| `value_date_time` | `string` |  |
+| `virtual_iban` | `string` |  |
+| `your_reference` | `string` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Transaction record (throws on error).
-$transaction = $client->Transaction()->load(["sequence_number" => 1, "transaction_id" => "transaction_id"]);
+$transaction = $client->Transaction()->load(["id" => "transaction_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Transaction records (throws on error).
+$transactions = $client->Transaction()->list();
 ```
 
 #### Example: Create
@@ -6170,14 +4072,79 @@ Create an instance: `$user_invite = $client->UserInvite();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `authorisation_status` | `array` |  |
+| `id` | `string` |  |
+| `initial_role_id` | `string` |  |
+| `invitee_email_address` | `string` |  |
+| `invitee_first_name` | `string` |  |
+| `invitee_last_name` | `string` |  |
+| `inviter_email_address` | `string` |  |
+| `inviter_first_name` | `string` |  |
+| `inviter_last_name` | `string` |  |
+| `is_authorised` | `bool` |  |
+| `is_invitee_registered` | `bool` |  |
+| `last_invited` | `string` |  |
+| `merchant_id` | `string` |  |
+| `merchant_name` | `string` |  |
+| `message` | `string` |  |
+| `registration_url` | `string` |  |
+| `send_invite_email` | `bool` |  |
+| `status` | `string` |  |
+| `user` | `array` |  |
+| `user_id` | `string` |  |
+
+#### Example: Load
+
+```php
+// load() returns the bare UserInvite record (throws on error).
+$user_invite = $client->UserInvite()->load(["id" => "user_invite_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of UserInvite records (throws on error).
+$user_invites = $client->UserInvite()->list();
+```
 
 #### Example: Create
 
 ```php
 $user_invite = $client->UserInvite()->create([
-    "id" => null, // string
+]);
+```
+
+
+### UserInvitesCreate
+
+Create an instance: `$user_invites_create = $client->UserInvitesCreate();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `failed_user_invite` | `array` |  |
+| `user_invite` | `array` |  |
+
+#### Example: Create
+
+```php
+$user_invites_create = $client->UserInvitesCreate()->create([
 ]);
 ```
 
@@ -6255,70 +4222,47 @@ Create an instance: `$webhook = $client->Webhook();`
 
 | Method | Description |
 | --- | --- |
-| `remove(match)` | Remove the matching entity. |
-
-
-### Whoami
-
-Create an instance: `$whoami = $client->Whoami();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
 | `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+| `update(data)` | Update an existing entity. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client_session_timeout` | `array` |  |
+| `destination_url` | `string` |  |
 | `email_address` | `string` |  |
-| `first_name` | `string` |  |
+| `failed_notification_email_address` | `string` |  |
 | `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `array` |  |
-| `roles_with_scope` | `array` |  |
-| `two_factor_enabled` | `bool` |  |
+| `is_active` | `bool` |  |
+| `merchant_id` | `string` |  |
+| `notification_method` | `string` |  |
+| `resource_type` | `array` |  |
+| `retry` | `bool` |  |
+| `secret` | `string` |  |
+| `version` | `int` |  |
 
-#### Example: List
+#### Example: Load
 
 ```php
-// list() returns an array of Whoami records (throws on error).
-$whoamis = $client->Whoami()->list();
+// load() returns the bare Webhook record (throws on error).
+$webhook = $client->Webhook()->load(["id" => "webhook_id"]);
 ```
 
-
-### Whoamitrustedapp
-
-Create an instance: `$whoamitrustedapp = $client->Whoamitrustedapp();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `client_session_timeout` | `array` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
-| `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `bool` |  |
-| `permission` | `array` |  |
-| `roles_with_scope` | `array` |  |
-| `two_factor_enabled` | `bool` |  |
-
 #### Example: List
 
 ```php
-// list() returns an array of Whoamitrustedapp records (throws on error).
-$whoamitrustedapps = $client->Whoamitrustedapp()->list();
+// list() returns an array of Webhook records (throws on error).
+$webhooks = $client->Webhook()->list();
+```
+
+#### Example: Create
+
+```php
+$webhook = $client->Webhook()->create([
+]);
 ```
 
 

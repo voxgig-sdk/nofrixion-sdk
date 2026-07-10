@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "merchant_payment_request_template": {
+      "MERCHANT_PAYMENT_REQUEST_TEMPLATE00": {
+        "description": "s46",
+        "id": "MERCHANT_PAYMENT_REQUEST_TEMPLATE00",
+        "inserted": "s48",
+        "last_updated": "s49",
+        "merchant_id": "MERCHANT01",
+        "name": "s4b",
+        "template": {},
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      },
+      "MERCHANT_PAYMENT_REQUEST_TEMPLATE01": {
+        "description": "s8c",
+        "id": "MERCHANT_PAYMENT_REQUEST_TEMPLATE01",
+        "inserted": "s8e",
+        "last_updated": "s8f",
+        "merchant_id": "MERCHANT01",
+        "name": "s91",
+        "template": {},
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      },
+      "MERCHANT_PAYMENT_REQUEST_TEMPLATE02": {
+        "description": "sd2",
+        "id": "MERCHANT_PAYMENT_REQUEST_TEMPLATE02",
+        "inserted": "sd4",
+        "last_updated": "sd5",
+        "merchant_id": "MERCHANT01",
+        "name": "sd7",
+        "template": {},
+        "paymentrequest_id": "PAYMENTREQUEST01"
+      }
+    }
+  },
+  "new": {
+    "merchant_payment_request_template": {
+      "merchant_payment_request_template_ref01": {
+        "description": "s118",
+        "inserted": "s11a",
+        "last_updated": "s11b",
+        "merchant_id": "MERCHANT01",
+        "name": "s11d",
+        "template": {}
+      }
+    }
+  }
+}

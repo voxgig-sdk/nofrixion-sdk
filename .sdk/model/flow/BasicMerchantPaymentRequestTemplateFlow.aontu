@@ -1,0 +1,106 @@
+# BasicMerchantPaymentRequestTemplateFlow
+
+main: kit: flow: BasicMerchantPaymentRequestTemplateFlow:
+{
+  entity: "merchant_payment_request_template",
+  kind: "basic",
+  name: "BasicMerchantPaymentRequestTemplateFlow",
+  step: [
+    {
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "merchant_payment_request_template_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      input: {
+        ref: "merchant_payment_request_template_ref01",
+        srcdatavar: "merchant_payment_request_template_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_payment_request_template_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_payment_request_template_ref01",
+        srcdatavar: "merchant_payment_request_template_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "merchant_payment_request_template01",
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-merchant_payment_request_template_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "merchant_payment_request_template_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "merchant_payment_request_template01",
+        paymentrequest_id: "paymentrequest01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        merchant_id: "merchant01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "merchant_payment_request_template_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMerchantPaymentRequestTemplateFlow"
+}

@@ -1,0 +1,32 @@
+# BasicCardPublicKeyFlow
+
+main: kit: flow: BasicCardPublicKeyFlow:
+{
+  entity: "card_public_key",
+  kind: "basic",
+  name: "BasicCardPublicKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "card_public_key_ref01",
+        srcdatavar: "card_public_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "card_public_key01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-card_public_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCardPublicKeyFlow"
+}

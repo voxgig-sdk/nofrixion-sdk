@@ -1,7 +1,7 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 81
+  metrics: count: entity: 53
   metrics: count: path: 157
   metrics: count: method: 187
 
@@ -63,14 +63,39 @@ guide: {
       rename: param: "merchantID": *"merchant_id"
       op: load: method: *GET
     }
+    path: "/api/v1/openbanking/accounts/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: batch: {
+    path: "/api/v1/payouts/batch": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/batch/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: beneficiaries_create: {
+    path: "/api/v1/beneficiaries/batchcreate": {
+      op: create: method: *POST
+    }
   }
 
   entity: beneficiary: {
     path: "/api/v1/beneficiaries": {
       op: create: method: *POST
+      op: list: method: *GET
     }
     path: "/api/v1/beneficiaries/authorise/{id}": {
       op: create: method: *POST
+    }
+    path: "/api/v1/beneficiaries/disable/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/beneficiaries/enable/{id}": {
+      op: update: method: *PUT
     }
     path: "/api/v1/beneficiaries/export": {
       action: "export": {}
@@ -81,208 +106,31 @@ guide: {
       op: remove: method: *DELETE
       op: update: method: *PUT
     }
+    path: "/api/v1/merchants/{merchantID}/beneficiaries": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
     path: "/api/v1/merchants/{merchantID}/beneficiaries/{id}": {
       rename: param: "merchantID": *"merchant_id"
       op: load: method: *GET
     }
   }
 
-  entity: cancel: {
-    path: "/api/v1/payouts/cancel/{id}": {
-      op: update: method: *PUT
-    }
-  }
-
-  entity: disable: {
-    path: "/api/v1/beneficiaries/disable/{id}": {
-      op: update: method: *PUT
-    }
-  }
-
-  entity: enable: {
-    path: "/api/v1/beneficiaries/enable/{id}": {
-      op: update: method: *PUT
-    }
-  }
-
-  entity: merchant: {
-    path: "/api/v1/merchants/{merchantID}/beneficiaries/export": {
-      action: "beneficiary_export": {}
-      rename: param: "merchantID": *"merchant_id"
-      op: load: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/payouts/export": {
-      action: "payout_export": {}
-      rename: param: "merchantID": *"merchant_id"
-      op: load: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/tags/{tagID}": {
-      rename: param: "merchantID": *"merchant_id"
-      rename: param: "tagID": *"tag_id"
-      op: remove: method: *DELETE
-    }
-    path: "/api/v1/merchants/{merchantId}/suspend": {
-      action: "suspend": {}
-      rename: param: "merchantId": *"id"
-      op: update: method: *PUT
-    }
-    path: "/api/v1/merchants/{merchantId}/users/{userId}": {
-      rename: param: "merchantId": *"id"
-      rename: param: "userId": *"user_id"
-      op: remove: method: *DELETE
-    }
-  }
-
-  entity: metadata: {
-    path: "/api/v1/metadata/problem": {
-      action: "problem": {}
-      op: load: method: *GET
-    }
-    path: "/api/v1/metadata/problemnotification": {
-      action: "problemnotification": {}
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page: {
-    path: "/api/v1/mandates": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_payment_request_page: {
-    path: "/api/v1/paymentrequests": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_payout_page: {
-    path: "/api/v1/accounts/{accountID}/payouts": {
-      rename: param: "accountID": *"account_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/payouts": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/payouts": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_payrun_page: {
-    path: "/api/v1/payruns": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_rule_events_page: {
-    path: "/api/v1/rules/{id}/events": {
-      rename: param: "id": *"rule_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_paging_rules_page: {
-    path: "/api/v1/rules": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_payments_card_payment: {
-    path: "/api/v1/paymentrequests/{id}/card": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-    path: "/api/v1/paymentrequests/{id}/card/capture": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-    path: "/api/v1/paymentrequests/{id}/card/paywithtoken": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-    path: "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}": {
-      rename: param: "id": *"paymentrequest_id"
-      rename: param: "partialRefundAmount": *"partial_refund_amount"
-      op: create: method: *POST
-    }
-    path: "/api/v1/paymentrequests/{id}/card/void": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-    path: "/api/v1/paymentrequests/{id}/card/voidpaymentrequest": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_biz_biz_models_payments_card_public_key: {
-    path: "/api/v1/paymentrequests/{id}/card/publickey": {
-      rename: param: "id": *"paymentrequest_id"
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_api_features_beneficiaries_beneficiaries: {
-    path: "/api/v1/beneficiaries/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_api_features_payment_requests_payment: {
-    path: "/api/v1/paymentrequests/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_api_features_permissions_roles_create: {
-    path: "/api/v1/merchants/{merchantID}/roles/batchcreate": {
-      rename: param: "merchantID": *"merchant_id"
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_api_features_user_invites_create: {
-    path: "/api/v1/userinvites/batchcreate": {
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_models_authorisation_settings_merchant: {
-    path: "/api/v1/merchants/{merchantID}/authorisationsettings": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_batch_payout: {
-    path: "/api/v1/payouts/batch": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/payouts/batch/{id}": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_beneficiary_group_page: {
+  entity: beneficiary_group: {
     path: "/api/v1/merchants/{merchantID}/beneficiarygroups": {
       rename: param: "merchantID": *"merchant_id"
       op: list: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_beneficiary_page: {
-    path: "/api/v1/beneficiaries": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/beneficiaries": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
+  entity: card: {
+    path: "/api/v1/paymentrequests/{id}/card": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
     }
   }
 
-  entity: no_frixion_money_moov_models_card_customer_token: {
+  entity: card_customer_token: {
     path: "/api/v1/paymentrequests/card/customertokens/removeall/{customerEmailAddress}": {
       rename: param: "customerEmailAddress": *"customer_email_address"
       op: remove: method: *DELETE
@@ -306,110 +154,38 @@ guide: {
     }
   }
 
-  entity: no_frixion_money_moov_models_currency_currency_info: {
-    path: "/api/v1/currencies": {
-      op: list: method: *GET
+  entity: card_payment: {
+    path: "/api/v1/paymentrequests/{id}/card/capture": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
     }
-  }
-
-  entity: no_frixion_money_moov_models_direct_debit_batch_submit: {
-    path: "/api/v1/paymentrequests/directdebit/batchsubmit": {
+    path: "/api/v1/paymentrequests/{id}/card/paywithtoken": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}": {
+      rename: param: "id": *"paymentrequest_id"
+      rename: param: "partialRefundAmount": *"partial_refund_amount"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/void": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/voidpaymentrequest": {
+      rename: param: "id": *"paymentrequest_id"
       op: create: method: *POST
     }
   }
 
-  entity: no_frixion_money_moov_models_fx_rate: {
-    path: "/api/v1/payouts/fxallheldrates/{source}/{destination}": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}": {
-      rename: param: "validForMinutes": *"valid_for_minute"
+  entity: card_public_key: {
+    path: "/api/v1/paymentrequests/{id}/card/publickey": {
+      rename: param: "id": *"paymentrequest_id"
       op: load: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_i_payment: {
-    path: "/api/v1/paymentrequests/payondemand": {
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_models_mandates_mandate: {
-    path: "/api/v1/mandates": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/mandates/{id}": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_merchant: {
-    path: "/api/v1/merchants": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}": {
-      rename: param: "merchantID": *"id"
-      op: load: method: *GET
-      op: update: method: *PUT
-    }
-    path: "/api/v1/metadata/whoamimerchant": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/metadata/whoamimerchantsigned": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/metadata/whoamimerchantwhitelist": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_merchant_page: {
-    path: "/api/v1/merchants/paged": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/childmerchants": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_merchant_pay_by_bank_setting: {
-    path: "/api/v1/merchants/{merchantID}/banksettings": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_merchant_token: {
-    path: "/api/v1/tokens": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/tokens/{id}": {
-      op: load: method: *GET
-      op: update: method: *PUT
-    }
-  }
-
-  entity: no_frixion_money_moov_models_merchant_token_page: {
-    path: "/api/v1/merchants/{merchantID}/tokens": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_no_frixion_version: {
-    path: "/api/v1/metadata/version": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_open_banking_account: {
-    path: "/api/v1/openbanking/accounts/{id}": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_open_banking_consent: {
+  entity: consent: {
     path: "/api/v1/openbanking/consents": {
       op: create: method: *POST
     }
@@ -424,240 +200,158 @@ guide: {
     }
   }
 
-  entity: no_frixion_money_moov_models_open_banking_transaction: {
-    path: "/api/v1/openbanking/transactions/{id}/{accountID}": {
-      rename: param: "accountID": *"account_id"
+  entity: currency: {
+    path: "/api/v1/currencies": {
       op: list: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_payment: {
-    path: "/api/v1/paymentrequests": {
+  entity: direct_debit_batch_submit: {
+    path: "/api/v1/paymentrequests/directdebit/batchsubmit": {
       op: create: method: *POST
     }
-    path: "/api/v1/paymentrequests/getbyorderid/{orderID}": {
-      rename: param: "orderID": *"order_id"
+  }
+
+  entity: fx_rate: {
+    path: "/api/v1/payouts/fxallheldrates/{source}/{destination}": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}": {
+      rename: param: "validForMinutes": *"valid_for_minute"
       op: load: method: *GET
     }
-    path: "/api/v1/paymentrequests/{id}": {
+  }
+
+  entity: i_payment: {
+    path: "/api/v1/paymentrequests/payondemand": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: mandate: {
+    path: "/api/v1/mandates": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/mandates/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: merchant: {
+    path: "/api/v1/merchants": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/paged": {
+      action: "paged": {}
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}": {
+      rename: param: "merchantID": *"id"
       op: load: method: *GET
       op: update: method: *PUT
     }
-  }
-
-  entity: no_frixion_money_moov_models_payment_account_minimal_page: {
-    path: "/api/v1/accounts/minimal": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_account_page: {
-    path: "/api/v1/accounts/paged": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/accounts/{accountID}/virtual": {
-      rename: param: "accountID": *"account_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_initiation: {
-    path: "/api/v1/paymentrequests/{id}/pisp": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_request_event: {
-    path: "/api/v1/paymentrequests/{id}/events": {
-      rename: param: "id": *"paymentrequest_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_request_metric: {
-    path: "/api/v1/paymentrequests/metrics": {
+    path: "/api/v1/merchants/{merchantID}/beneficiaries/export": {
+      action: "beneficiary_export": {}
+      rename: param: "merchantID": *"merchant_id"
       op: load: method: *GET
     }
-  }
-
-  entity: no_frixion_money_moov_models_payment_request_minimal: {
-    path: "/api/v1/paymentrequests/{id}/minimal": {
-      rename: param: "id": *"paymentrequest_id"
+    path: "/api/v1/merchants/{merchantID}/childmerchants": {
+      action: "childmerchant": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts/export": {
+      action: "payout_export": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/tags/{tagID}": {
+      rename: param: "merchantID": *"merchant_id"
+      rename: param: "tagID": *"tag_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/merchants/{merchantId}/suspend": {
+      action: "suspend": {}
+      rename: param: "merchantId": *"id"
+      op: update: method: *PUT
+    }
+    path: "/api/v1/merchants/{merchantId}/users/{userId}": {
+      rename: param: "merchantId": *"id"
+      rename: param: "userId": *"user_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/metadata/whoamimerchant": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamimerchantsigned": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamimerchantwhitelist": {
       op: list: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_payment_request_result: {
-    path: "/api/v1/paymentrequests/{id}/result": {
-      rename: param: "id": *"paymentrequest_id"
+  entity: merchant_authorisation_setting: {
+    path: "/api/v1/merchants/{merchantID}/authorisationsettings": {
+      rename: param: "merchantID": *"merchant_id"
       op: list: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_payment_requests_merchant_payment: {
+  entity: merchant_direct_debit_mandate: {
+    path: "/api/v1/mandates": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: merchant_pay_by_bank_setting: {
+    path: "/api/v1/merchants/{merchantID}/banksettings": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: merchant_payment_request_template: {
     path: "/api/v1/paymentrequests/{merchantID}/templates": {
       rename: param: "merchantID": *"merchant_id"
       op: list: method: *GET
     }
-  }
-
-  entity: no_frixion_money_moov_models_payment_requests_merchant_payment2: {
     path: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}": {
       rename: param: "merchantID": *"paymentrequest_id"
-      rename: param: "templateID": *"template_id"
+      rename: param: "templateID": *"id"
       op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_requests_merchant_payment3: {
-    path: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}": {
-      rename: param: "merchantID": *"paymentrequest_id"
-      rename: param: "templateID": *"template_id"
-      op: update: method: *PUT
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payment_requests_merchant_payment4: {
-    path: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}": {
-      rename: param: "merchantID": *"paymentrequest_id"
-      rename: param: "templateID": *"template_id"
       op: remove: method: *DELETE
+      op: update: method: *PUT
     }
   }
 
-  entity: no_frixion_money_moov_models_payout_keyset_page: {
-    path: "/api/v1/accounts/{accountID}/payouts/failed": {
-      rename: param: "accountID": *"account_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/payouts/failed": {
+  entity: merchant_token: {
+    path: "/api/v1/merchants/{merchantID}/tokens": {
       rename: param: "merchantID": *"merchant_id"
       op: list: method: *GET
     }
-    path: "/api/v1/payouts/{merchantID}/failed": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payout_metric: {
-    path: "/api/v1/payouts/metrics": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_payouts_payouts_create: {
-    path: "/api/v1/payouts/batchcreate": {
+    path: "/api/v1/tokens": {
       op: create: method: *POST
     }
-  }
-
-  entity: no_frixion_money_moov_models_payrun: {
-    path: "/api/v1/payruns/{id}": {
-      op: load: method: *GET
-      op: update: method: *PUT
-    }
-    path: "/api/v1/payruns/{id}/reject": {
-      rename: param: "id": *"payrun_id"
-      op: update: method: *PUT
-    }
-    path: "/api/v1/payruns/{merchantID}": {
-      rename: param: "merchantID": *"id"
-      op: create: method: *POST
-    }
-  }
-
-  entity: no_frixion_money_moov_models_report_result: {
-    path: "/api/v1/reports/{id}/result/{statementNumber}": {
-      rename: param: "id": *"report_id"
-      rename: param: "statementNumber": *"id"
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_rule: {
-    path: "/api/v1/rules": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/rules/{id}": {
+    path: "/api/v1/tokens/{id}": {
       op: load: method: *GET
       op: update: method: *PUT
     }
   }
 
-  entity: no_frixion_money_moov_models_transaction: {
-    path: "/api/v1/accounts/{accountID}/transactions/{id}": {
-      rename: param: "accountID": *"account_id"
+  entity: metadata: {
+    path: "/api/v1/metadata/problem": {
+      action: "problem": {}
       op: load: method: *GET
     }
-    path: "/api/v1/transactions/detail/{id}": {
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_transaction_page: {
-    path: "/api/v1/accounts/{accountID}/transactions": {
-      rename: param: "accountID": *"account_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/transactions": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/transactions": {
-      op: list: method: *GET
-    }
-    path: "/api/v1/transactions/{accountID}": {
-      rename: param: "accountID": *"account_id"
+    path: "/api/v1/metadata/problemnotification": {
+      action: "problemnotification": {}
       op: load: method: *GET
     }
   }
 
-  entity: no_frixion_money_moov_models_user_invite: {
-    path: "/api/v1/userinvites": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/userinvites/{id}": {
-      op: load: method: *GET
-    }
-    path: "/api/v1/userinvites/{id}/details": {
-      rename: param: "id": *"userinvite_id"
-      op: load: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_user_invite_page: {
-    path: "/api/v1/merchants/{merchantID}/userinvitespaged": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_user_page: {
-    path: "/api/v1/user/{merchantID}/userspaged": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: no_frixion_money_moov_models_webhook: {
-    path: "/api/v1/merchants/{merchantID}/webhooks": {
-      rename: param: "merchantID": *"merchant_id"
-      op: list: method: *GET
-    }
-    path: "/api/v1/merchants/{merchantID}/webhooks/{id}": {
-      rename: param: "merchantID": *"merchant_id"
-      op: load: method: *GET
-    }
-    path: "/api/v1/webhooks": {
-      op: create: method: *POST
-    }
-    path: "/api/v1/webhooks/{id}": {
-      op: update: method: *PUT
-    }
-    path: "/api/v1/webhooks/{merchantID}": {
-      rename: param: "merchantID": *"id"
+  entity: no_frixion_version: {
+    path: "/api/v1/metadata/version": {
       op: load: method: *GET
     }
   }
@@ -683,7 +377,47 @@ guide: {
     }
   }
 
+  entity: payment: {
+    path: "/api/v1/paymentrequests": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/getbyorderid/{orderID}": {
+      rename: param: "orderID": *"order_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/paymentrequests/{id}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: payment_account: {
+    path: "/api/v1/accounts/paged": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/accounts/{accountID}/virtual": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_account_minimal: {
+    path: "/api/v1/accounts/minimal": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_initiation: {
+    path: "/api/v1/paymentrequests/{id}/pisp": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+  }
+
   entity: payment_request: {
+    path: "/api/v1/paymentrequests": {
+      op: list: method: *GET
+    }
     path: "/api/v1/paymentrequests/export": {
       op: load: method: *GET
     }
@@ -704,9 +438,51 @@ guide: {
     }
   }
 
+  entity: payment_request_event: {
+    path: "/api/v1/paymentrequests/{id}/events": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_request_metric: {
+    path: "/api/v1/paymentrequests/metrics": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: payment_request_minimal: {
+    path: "/api/v1/paymentrequests/{id}/minimal": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_request_result: {
+    path: "/api/v1/paymentrequests/{id}/result": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_requests_create: {
+    path: "/api/v1/paymentrequests/batchcreate": {
+      op: create: method: *POST
+    }
+  }
+
   entity: payout: {
+    path: "/api/v1/accounts/{accountID}/payouts": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
     path: "/api/v1/payouts": {
       op: create: method: *POST
+      op: list: method: *GET
     }
     path: "/api/v1/payouts/batch/submit/{id}": {
       op: create: method: *POST
@@ -715,12 +491,26 @@ guide: {
       action: "batchdelete": {}
       op: remove: method: *DELETE
     }
+    path: "/api/v1/payouts/cancel/{id}": {
+      op: update: method: *PUT
+    }
     path: "/api/v1/payouts/export": {
       action: "export": {}
       op: load: method: *GET
     }
     path: "/api/v1/payouts/fxquote/{source}/{destination}/{amount}": {
       op: load: method: *GET
+    }
+    path: "/api/v1/payouts/reject/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/payouts/send": {
+      action: "send": {}
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/sendbeneficiary": {
+      action: "sendbeneficiary": {}
+      op: create: method: *POST
     }
     path: "/api/v1/payouts/submit/{id}": {
       op: create: method: *POST
@@ -736,9 +526,41 @@ guide: {
     }
   }
 
+  entity: payout_keyset: {
+    path: "/api/v1/accounts/{accountID}/payouts/failed": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts/failed": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/payouts/{merchantID}/failed": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payout_metric: {
+    path: "/api/v1/payouts/metrics": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: payouts_create: {
+    path: "/api/v1/payouts/batchcreate": {
+      op: create: method: *POST
+    }
+  }
+
   entity: payrun: {
+    path: "/api/v1/payruns": {
+      op: list: method: *GET
+    }
     path: "/api/v1/payruns/{id}": {
+      op: load: method: *GET
       op: remove: method: *DELETE
+      op: update: method: *PUT
     }
     path: "/api/v1/payruns/{id}/archive": {
       action: "archive": {}
@@ -746,6 +568,10 @@ guide: {
     }
     path: "/api/v1/payruns/{id}/cancel": {
       action: "cancel": {}
+      op: update: method: *PUT
+    }
+    path: "/api/v1/payruns/{id}/reject": {
+      action: "reject": {}
       op: update: method: *PUT
     }
     path: "/api/v1/payruns/{id}/request-authorisation": {
@@ -760,11 +586,9 @@ guide: {
       action: "unarchive": {}
       op: update: method: *PUT
     }
-  }
-
-  entity: reject: {
-    path: "/api/v1/payouts/reject/{id}": {
-      op: update: method: *PUT
+    path: "/api/v1/payruns/{merchantID}": {
+      rename: param: "merchantID": *"id"
+      op: create: method: *POST
     }
   }
 
@@ -775,9 +599,30 @@ guide: {
     }
   }
 
+  entity: report_result: {
+    path: "/api/v1/reports/{id}/result/{statementNumber}": {
+      rename: param: "id": *"report_id"
+      rename: param: "statementNumber": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: roles_create: {
+    path: "/api/v1/merchants/{merchantID}/roles/batchcreate": {
+      rename: param: "merchantID": *"merchant_id"
+      op: create: method: *POST
+    }
+  }
+
   entity: rule: {
+    path: "/api/v1/rules": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
     path: "/api/v1/rules/{id}": {
+      op: load: method: *GET
       op: remove: method: *DELETE
+      op: update: method: *PUT
     }
     path: "/api/v1/rules/{id}/disable": {
       action: "disable": {}
@@ -785,15 +630,9 @@ guide: {
     }
   }
 
-  entity: send: {
-    path: "/api/v1/payouts/send": {
-      op: create: method: *POST
-    }
-  }
-
-  entity: sendbeneficiary: {
-    path: "/api/v1/payouts/sendbeneficiary": {
-      op: create: method: *POST
+  entity: rule_event: {
+    path: "/api/v1/rules/{id}/events": {
+      op: list: method: *GET
     }
   }
 
@@ -815,6 +654,32 @@ guide: {
   }
 
   entity: transaction: {
+    path: "/api/v1/accounts/{accountID}/transactions": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/accounts/{accountID}/transactions/{id}": {
+      rename: param: "accountID": *"account_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/transactions": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/openbanking/transactions/{id}/{accountID}": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/transactions": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/transactions/detail/{id}": {
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{accountID}": {
+      rename: param: "accountID": *"id"
+      op: load: method: *GET
+    }
     path: "/api/v1/transactions/{accountID}/export": {
       action: "export": {}
       rename: param: "accountID": *"account_id"
@@ -844,21 +709,50 @@ guide: {
       rename: param: "merchantID": *"merchant_id"
       op: list: method: *GET
     }
+    path: "/api/v1/metadata/whoami": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamitrustedapp": {
+      op: list: method: *GET
+    }
     path: "/api/v1/user": {
       op: list: method: *GET
     }
     path: "/api/v1/user/{id}": {
       op: update: method: *PUT
     }
+    path: "/api/v1/user/{merchantID}/userspaged": {
+      action: "userspaged": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
   }
 
   entity: user_invite: {
+    path: "/api/v1/merchants/{merchantID}/userinvitespaged": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/userinvites": {
+      op: create: method: *POST
+    }
     path: "/api/v1/userinvites/authorise/{id}": {
       op: create: method: *POST
     }
     path: "/api/v1/userinvites/{id}": {
+      op: load: method: *GET
       op: remove: method: *DELETE
       op: update: method: *PUT
+    }
+    path: "/api/v1/userinvites/{id}/details": {
+      rename: param: "id": *"userinvite_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: user_invites_create: {
+    path: "/api/v1/userinvites/batchcreate": {
+      op: create: method: *POST
     }
   }
 
@@ -875,20 +769,24 @@ guide: {
   }
 
   entity: webhook: {
+    path: "/api/v1/merchants/{merchantID}/webhooks": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/webhooks/{id}": {
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/webhooks": {
+      op: create: method: *POST
+    }
     path: "/api/v1/webhooks/{id}": {
       op: remove: method: *DELETE
+      op: update: method: *PUT
     }
-  }
-
-  entity: whoami: {
-    path: "/api/v1/metadata/whoami": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: whoamitrustedapp: {
-    path: "/api/v1/metadata/whoamitrustedapp": {
-      op: list: method: *GET
+    path: "/api/v1/webhooks/{merchantID}": {
+      rename: param: "merchantID": *"id"
+      op: load: method: *GET
     }
   }
 

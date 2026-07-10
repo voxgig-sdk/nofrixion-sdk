@@ -33,7 +33,7 @@ func TestPayoutEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "load", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "payout." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -54,7 +54,9 @@ func TestPayoutEntity(t *testing.T) {
 		payoutRef01Ent := client.Payout(nil)
 		payoutRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath([]any{"new", "payout"}, setup.data), "payout_ref01"))
+		payoutRef01Data["account_id"] = setup.idmap["account01"]
 		payoutRef01Data["destination"] = setup.idmap["destination01"]
+		payoutRef01Data["merchant_id"] = setup.idmap["merchant01"]
 		payoutRef01Data["source"] = setup.idmap["source01"]
 
 		payoutRef01DataResult, err := payoutRef01Ent.Create(payoutRef01Data, nil)
@@ -67,6 +69,25 @@ func TestPayoutEntity(t *testing.T) {
 		}
 		if payoutRef01Data["id"] == nil {
 			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		payoutRef01Match := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		payoutRef01ListResult, err := payoutRef01Ent.List(payoutRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		payoutRef01List, payoutRef01ListOk := payoutRef01ListResult.([]any)
+		if !payoutRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", payoutRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(payoutRef01List), map[string]any{"id": payoutRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -118,6 +139,25 @@ func TestPayoutEntity(t *testing.T) {
 			t.Fatalf("remove failed: %v", err)
 		}
 
+		// LIST
+		payoutRef01MatchRt0 := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		payoutRef01ListRt0Result, err := payoutRef01Ent.List(payoutRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		payoutRef01ListRt0, payoutRef01ListRt0Ok := payoutRef01ListRt0Result.([]any)
+		if !payoutRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", payoutRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(payoutRef01ListRt0), map[string]any{"id": payoutRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
+		}
+
 	})
 }
 
@@ -146,7 +186,7 @@ func payoutBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"payout01", "payout02", "payout03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"},
+		[]any{"payout01", "payout02", "payout03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "fxquote01", "fxquote02", "fxquote03", "destination01", "source01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

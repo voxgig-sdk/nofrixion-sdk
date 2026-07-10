@@ -39,7 +39,7 @@ describe('RuleEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['update', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'rule.' + op, live)) return
     }
 
@@ -57,20 +57,55 @@ describe('RuleEntity', async () => {
     const isempty = struct.isempty
     const select = struct.select
 
-    let rule_ref01_data = Object.values(setup.data.existing.rule)[0] as any
+
+    // CREATE
+    const rule_ref01_ent = client.Rule()
+    let rule_ref01_data = setup.data.new.rule['rule_ref01']
+
+    rule_ref01_data = await rule_ref01_ent.create(rule_ref01_data)
+    assert(null != rule_ref01_data.id)
+
+
+    // LIST
+    const rule_ref01_match: any = {}
+
+    const rule_ref01_list = await rule_ref01_ent.list(rule_ref01_match)
+
+    assert(!isempty(select(rule_ref01_list, { id: rule_ref01_data.id })))
+
 
     // UPDATE
-    const rule_ref01_ent = client.Rule()
     const rule_ref01_data_up0: any = {}
+    rule_ref01_data_up0.id = rule_ref01_data.id
+
+    const rule_ref01_markdef_up0 = { name: 'account_id', value: 'Mark01-rule_ref01_' + setup.now }
+    ;(rule_ref01_data_up0 as any)[rule_ref01_markdef_up0.name] = rule_ref01_markdef_up0.value
 
     const rule_ref01_resdata_up0 = await rule_ref01_ent.update(rule_ref01_data_up0)
-    assert(null != rule_ref01_resdata_up0)
+    assert(rule_ref01_resdata_up0.id === rule_ref01_data_up0.id)
+
+    assert((rule_ref01_resdata_up0 as any)[rule_ref01_markdef_up0.name] === rule_ref01_markdef_up0.value)
+
+
+    // LOAD
+    const rule_ref01_match_dt0: any = {}
+    rule_ref01_match_dt0.id = rule_ref01_data.id
+    const rule_ref01_data_dt0 = await rule_ref01_ent.load(rule_ref01_match_dt0)
+    assert(rule_ref01_data_dt0.id === rule_ref01_data.id)
 
 
     // REMOVE
     const rule_ref01_match_rm0: any = { id: rule_ref01_data.id }
     await rule_ref01_ent.remove(rule_ref01_match_rm0)
   
+
+    // LIST
+    const rule_ref01_match_rt0: any = {}
+
+    const rule_ref01_list_rt0 = await rule_ref01_ent.list(rule_ref01_match_rt0)
+
+    assert(isempty(select(rule_ref01_list_rt0, { id: rule_ref01_data.id })))
+
 
   })
 })

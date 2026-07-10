@@ -46,249 +46,93 @@ $client = NofrixionSDK::test();
 
 Create a new `AccountEntity` instance. Pass `null` for no initial data.
 
+#### `Batch($data = null)`
+
+Create a new `BatchEntity` instance. Pass `null` for no initial data.
+
+#### `BeneficiariesCreate($data = null)`
+
+Create a new `BeneficiariesCreateEntity` instance. Pass `null` for no initial data.
+
 #### `Beneficiary($data = null)`
 
 Create a new `BeneficiaryEntity` instance. Pass `null` for no initial data.
 
-#### `Cancel($data = null)`
+#### `BeneficiaryGroup($data = null)`
 
-Create a new `CancelEntity` instance. Pass `null` for no initial data.
+Create a new `BeneficiaryGroupEntity` instance. Pass `null` for no initial data.
 
-#### `Disable($data = null)`
+#### `Card($data = null)`
 
-Create a new `DisableEntity` instance. Pass `null` for no initial data.
+Create a new `CardEntity` instance. Pass `null` for no initial data.
 
-#### `Enable($data = null)`
+#### `CardCustomerToken($data = null)`
 
-Create a new `EnableEntity` instance. Pass `null` for no initial data.
+Create a new `CardCustomerTokenEntity` instance. Pass `null` for no initial data.
+
+#### `CardPayment($data = null)`
+
+Create a new `CardPaymentEntity` instance. Pass `null` for no initial data.
+
+#### `CardPublicKey($data = null)`
+
+Create a new `CardPublicKeyEntity` instance. Pass `null` for no initial data.
+
+#### `Consent($data = null)`
+
+Create a new `ConsentEntity` instance. Pass `null` for no initial data.
+
+#### `Currency($data = null)`
+
+Create a new `CurrencyEntity` instance. Pass `null` for no initial data.
+
+#### `DirectDebitBatchSubmit($data = null)`
+
+Create a new `DirectDebitBatchSubmitEntity` instance. Pass `null` for no initial data.
+
+#### `FxRate($data = null)`
+
+Create a new `FxRateEntity` instance. Pass `null` for no initial data.
+
+#### `IPayment($data = null)`
+
+Create a new `IPaymentEntity` instance. Pass `null` for no initial data.
+
+#### `Mandate($data = null)`
+
+Create a new `MandateEntity` instance. Pass `null` for no initial data.
 
 #### `Merchant($data = null)`
 
 Create a new `MerchantEntity` instance. Pass `null` for no initial data.
 
+#### `MerchantAuthorisationSetting($data = null)`
+
+Create a new `MerchantAuthorisationSettingEntity` instance. Pass `null` for no initial data.
+
+#### `MerchantDirectDebitMandate($data = null)`
+
+Create a new `MerchantDirectDebitMandateEntity` instance. Pass `null` for no initial data.
+
+#### `MerchantPayByBankSetting($data = null)`
+
+Create a new `MerchantPayByBankSettingEntity` instance. Pass `null` for no initial data.
+
+#### `MerchantPaymentRequestTemplate($data = null)`
+
+Create a new `MerchantPaymentRequestTemplateEntity` instance. Pass `null` for no initial data.
+
+#### `MerchantToken($data = null)`
+
+Create a new `MerchantTokenEntity` instance. Pass `null` for no initial data.
+
 #### `Metadata($data = null)`
 
 Create a new `MetadataEntity` instance. Pass `null` for no initial data.
 
-#### `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage($data = null)`
+#### `NoFrixionVersion($data = null)`
 
-Create a new `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPaymentRequestPage($data = null)`
-
-Create a new `NoFrixionBizBizModelsPagingPaymentRequestPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPayoutPage($data = null)`
-
-Create a new `NoFrixionBizBizModelsPagingPayoutPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingPayrunPage($data = null)`
-
-Create a new `NoFrixionBizBizModelsPagingPayrunPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingRuleEventsPage($data = null)`
-
-Create a new `NoFrixionBizBizModelsPagingRuleEventsPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPagingRulesPage($data = null)`
-
-Create a new `NoFrixionBizBizModelsPagingRulesPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPaymentsCardPayment($data = null)`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPaymentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionBizBizModelsPaymentsCardPublicKey($data = null)`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPublicKeyEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries($data = null)`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment($data = null)`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate($data = null)`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovApiFeaturesUserInvitesCreate($data = null)`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBatchPayout($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsBatchPayoutEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBeneficiaryGroupPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsBeneficiaryPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsCardCustomerToken($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsCardCustomerTokenEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsCurrencyCurrencyInfo($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsDirectDebitBatchSubmit($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsFxRate($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsFxRateEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsIPayment($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsIPaymentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMandatesMandate($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMandatesMandateEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchant($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantPayByBankSetting($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantToken($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsMerchantTokenPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsNoFrixionVersion($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsNoFrixionVersionEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingAccount($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingAccountEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingConsent($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingConsentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsOpenBankingTransaction($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingTransactionEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayment($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentAccountMinimalPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentAccountPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentInitiation($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentInitiationEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestEvent($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestEventEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestMetric($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMetricEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestMinimal($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestResult($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestResultEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutKeysetPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutKeysetPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutMetric($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutMetricEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayoutsPayoutsCreate($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsPayrun($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsPayrunEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsReportResult($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsReportResultEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsRule($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsRuleEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsTransaction($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsTransactionPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserInvite($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsUserInviteEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserInvitePage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsUserInvitePageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsUserPage($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsUserPageEntity` instance. Pass `null` for no initial data.
-
-#### `NoFrixionMoneyMoovModelsWebhook($data = null)`
-
-Create a new `NoFrixionMoneyMoovModelsWebhookEntity` instance. Pass `null` for no initial data.
+Create a new `NoFrixionVersionEntity` instance. Pass `null` for no initial data.
 
 #### `OpenBanking($data = null)`
 
@@ -298,37 +142,85 @@ Create a new `OpenBankingEntity` instance. Pass `null` for no initial data.
 
 Create a new `PayeeverificationEntity` instance. Pass `null` for no initial data.
 
+#### `Payment($data = null)`
+
+Create a new `PaymentEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentAccount($data = null)`
+
+Create a new `PaymentAccountEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentAccountMinimal($data = null)`
+
+Create a new `PaymentAccountMinimalEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentInitiation($data = null)`
+
+Create a new `PaymentInitiationEntity` instance. Pass `null` for no initial data.
+
 #### `PaymentRequest($data = null)`
 
 Create a new `PaymentRequestEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentRequestEvent($data = null)`
+
+Create a new `PaymentRequestEventEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentRequestMetric($data = null)`
+
+Create a new `PaymentRequestMetricEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentRequestMinimal($data = null)`
+
+Create a new `PaymentRequestMinimalEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentRequestResult($data = null)`
+
+Create a new `PaymentRequestResultEntity` instance. Pass `null` for no initial data.
+
+#### `PaymentRequestsCreate($data = null)`
+
+Create a new `PaymentRequestsCreateEntity` instance. Pass `null` for no initial data.
 
 #### `Payout($data = null)`
 
 Create a new `PayoutEntity` instance. Pass `null` for no initial data.
 
+#### `PayoutKeyset($data = null)`
+
+Create a new `PayoutKeysetEntity` instance. Pass `null` for no initial data.
+
+#### `PayoutMetric($data = null)`
+
+Create a new `PayoutMetricEntity` instance. Pass `null` for no initial data.
+
+#### `PayoutsCreate($data = null)`
+
+Create a new `PayoutsCreateEntity` instance. Pass `null` for no initial data.
+
 #### `Payrun($data = null)`
 
 Create a new `PayrunEntity` instance. Pass `null` for no initial data.
-
-#### `Reject($data = null)`
-
-Create a new `RejectEntity` instance. Pass `null` for no initial data.
 
 #### `Report($data = null)`
 
 Create a new `ReportEntity` instance. Pass `null` for no initial data.
 
+#### `ReportResult($data = null)`
+
+Create a new `ReportResultEntity` instance. Pass `null` for no initial data.
+
+#### `RolesCreate($data = null)`
+
+Create a new `RolesCreateEntity` instance. Pass `null` for no initial data.
+
 #### `Rule($data = null)`
 
 Create a new `RuleEntity` instance. Pass `null` for no initial data.
 
-#### `Send($data = null)`
+#### `RuleEvent($data = null)`
 
-Create a new `SendEntity` instance. Pass `null` for no initial data.
-
-#### `Sendbeneficiary($data = null)`
-
-Create a new `SendbeneficiaryEntity` instance. Pass `null` for no initial data.
+Create a new `RuleEventEntity` instance. Pass `null` for no initial data.
 
 #### `Tag($data = null)`
 
@@ -350,6 +242,10 @@ Create a new `UserEntity` instance. Pass `null` for no initial data.
 
 Create a new `UserInviteEntity` instance. Pass `null` for no initial data.
 
+#### `UserInvitesCreate($data = null)`
+
+Create a new `UserInvitesCreateEntity` instance. Pass `null` for no initial data.
+
 #### `Virtual($data = null)`
 
 Create a new `VirtualEntity` instance. Pass `null` for no initial data.
@@ -357,14 +253,6 @@ Create a new `VirtualEntity` instance. Pass `null` for no initial data.
 #### `Webhook($data = null)`
 
 Create a new `WebhookEntity` instance. Pass `null` for no initial data.
-
-#### `Whoami($data = null)`
-
-Create a new `WhoamiEntity` instance. Pass `null` for no initial data.
-
-#### `Whoamitrustedapp($data = null)`
-
-Create a new `WhoamitrustedappEntity` instance. Pass `null` for no initial data.
 
 #### `options_map(): array`
 
@@ -413,7 +301,9 @@ $account = $client->Account();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `account_balance` | `array` | No |  |
 | `account_id` | `string` | No |  |
+| `account_identification` | `array` | No |  |
 | `account_name` | `string` | No |  |
 | `account_supplier_name` | `string` | No |  |
 | `account_type` | `string` | No |  |
@@ -423,10 +313,13 @@ $account = $client->Account();
 | `balance_minor_unit` | `int` | No |  |
 | `bank_name` | `string` | No |  |
 | `consent_id` | `string` | No |  |
+| `consolidated_account_information` | `array` | No |  |
 | `created_by` | `array` | Yes |  |
 | `created_by_display_name` | `string` | No |  |
 | `currency` | `string` | No |  |
 | `default_payment_rail` | `string` | No |  |
+| `description` | `string` | No |  |
+| `detail` | `string` | No |  |
 | `display_name` | `string` | No |  |
 | `expiry_date` | `string` | No |  |
 | `external_account_icon` | `string` | No |  |
@@ -444,6 +337,7 @@ $account = $client->Account();
 | `last_updated` | `string` | No |  |
 | `merchant_id` | `string` | No |  |
 | `merchant_name` | `string` | No |  |
+| `nickname` | `string` | No |  |
 | `physical_account_id` | `string` | No |  |
 | `role_i_d` | `array` | No |  |
 | `rule` | `array` | No |  |
@@ -453,6 +347,8 @@ $account = $client->Account();
 | `supplier_physical_account_id` | `string` | No |  |
 | `supplier_sepa_instant_status` | `string` | No |  |
 | `to_date` | `string` | No |  |
+| `type` | `string` | No |  |
+| `usage_type` | `string` | No |  |
 | `xero_bank_feed_connection_status` | `string` | No |  |
 | `xero_bank_feed_last_synced_at` | `string` | No |  |
 | `xero_bank_feed_sync_last_failed_at` | `string` | No |  |
@@ -536,6 +432,123 @@ Return the entity name.
 
 ---
 
+## BatchEntity
+
+```php
+$batch = $client->Batch();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `approve_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `payout` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Batch()->create([
+]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Batch()->load(["id" => "batch_id"]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): BatchEntity`
+
+Create a new `BatchEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## BeneficiariesCreateEntity
+
+```php
+$beneficiaries_create = $client->BeneficiariesCreate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `beneficiary` | `array` | No |  |
+| `failed_beneficiary` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->BeneficiariesCreate()->create([
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): BeneficiariesCreateEntity`
+
+Create a new `BeneficiariesCreateEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
 ## BeneficiaryEntity
 
 ```php
@@ -573,32 +586,32 @@ $beneficiary = $client->Beneficiary();
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `approval_callback_url` | - | - | - | - |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `beneficiary_event` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
-| `can_update` | - | - | - | - |
-| `created_by` | - | - | - | - |
-| `created_by_email_address` | - | - | - | - |
-| `currency` | - | - | Yes | - |
-| `destination` | - | Yes | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `id` | - | - | - | - |
-| `inserted` | - | - | - | - |
-| `is_enabled` | - | - | - | - |
-| `last_authorised` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | Yes | - | - |
-| `name` | - | - | Yes | - |
-| `nonce` | - | - | - | - |
-| `source_account` | - | - | - | - |
-| `source_account_i_d` | - | - | - | - |
-| `their_reference` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `approval_callback_url` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `beneficiary_event` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `can_update` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `created_by_email_address` | - | - | - | - | - |
+| `currency` | - | - | - | Yes | - |
+| `destination` | - | - | Yes | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `is_enabled` | - | - | - | - | - |
+| `last_authorised` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | - | - |
+| `name` | - | - | - | Yes | - |
+| `nonce` | - | - | - | - | - |
+| `source_account` | - | - | - | - | - |
+| `source_account_i_d` | - | - | - | - | - |
+| `their_reference` | - | - | - | - | - |
 
 ### Operations
 
@@ -609,6 +622,14 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Beneficiary()->create([
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Beneficiary()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -668,437 +689,22 @@ Return the entity name.
 
 ---
 
-## CancelEntity
+## BeneficiaryGroupEntity
 
 ```php
-$cancel = $client->Cancel();
+$beneficiary_group = $client->BeneficiaryGroup();
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `array` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `group_member` | `array` | No |  |
+| `group_name` | `string` | Yes |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
 | `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Cancel()->update([
-  "id" => "id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): CancelEntity`
-
-Create a new `CancelEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## DisableEntity
-
-```php
-$disable = $client->Disable();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `array` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Disable()->update([
-  "id" => "id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DisableEntity`
-
-Create a new `DisableEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## EnableEntity
-
-```php
-$enable = $client->Enable();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `array` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Enable()->update([
-  "id" => "id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): EnableEntity`
-
-Create a new `EnableEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## MerchantEntity
-
-```php
-$merchant = $client->Merchant();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Merchant()->load(["merchant_id" => "merchant_id"]);
-```
-
-#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
-
-Remove the entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Merchant()->remove();
-```
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Merchant()->update([
-  "id" => "id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): MerchantEntity`
-
-Create a new `MerchantEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## MetadataEntity
-
-```php
-$metadata = $client->Metadata();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Metadata()->load();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): MetadataEntity`
-
-Create a new `MetadataEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity
-
-```php
-$no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page = $client->NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approved_at` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `customer_account_number` | `string` | No |  |
-| `customer_city` | `string` | No |  |
-| `customer_country_code` | `string` | No |  |
-| `customer_country_name` | `string` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_first_name` | `string` | No |  |
-| `customer_iban` | `string` | No |  |
-| `customer_last_name` | `string` | No |  |
-| `customer_sort_code` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_recurring` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `reference` | `string` | No |  |
-| `status` | `string` | No |  |
-| `supplier_bank_account_id` | `string` | No |  |
-| `supplier_customer_id` | `string` | No |  |
-| `supplier_mandate_id` | `string` | No |  |
-| `supplier_name` | `string` | No |  |
-| `supplier_status` | `string` | No |  |
+| `merchant_id` | `string` | Yes |  |
 
 ### Operations
 
@@ -1107,7 +713,7 @@ $no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page = $client->
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage()->list();
+$results = $client->BeneficiaryGroup()->list();
 ```
 
 ### Common Methods
@@ -1128,9 +734,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity`
+#### `make(): BeneficiaryGroupEntity`
 
-Create a new `NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePageEntity` instance with the same client and
+Create a new `BeneficiaryGroupEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -1140,472 +746,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionBizBizModelsPagingPaymentRequestPageEntity
+## CardEntity
 
 ```php
-$no_frixion_biz_biz_models_paging_payment_request_page = $client->NoFrixionBizBizModelsPagingPaymentRequestPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `array` | No |  |
-| `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `auto_send_receipt` | `bool` | No |  |
-| `base_origin_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_authorize_only` | `bool` | No |  |
-| `card_create_token` | `bool` | No |  |
-| `card_create_token_mode` | `string` | No |  |
-| `card_ignore_cvn` | `bool` | No |  |
-| `card_processor_merchant_id` | `string` | No |  |
-| `card_stripe_payment_intent_id` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `created_by_user` | `array` | Yes |  |
-| `currency` | `string` | No |  |
-| `custom_field` | `array` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `customer_name` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination_account` | `array` | No |  |
-| `direct_debit_payment` | `array` | No |  |
-| `due_date` | `string` | No |  |
-| `event` | `array` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `field_display_setting` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `hosted_pay_checkout_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `ignore_address_verification` | `bool` | No |  |
-| `inserted` | `string` | No |  |
-| `inserted_sortable` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `jwk` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_invoice_expires_at` | `string` | No |  |
-| `merchant_direct_debit_mandate_id` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `notification_email_address` | `string` | No |  |
-| `notification_role_i_d` | `array` | No |  |
-| `order_id` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `partial_payment_step` | `string` | No |  |
-| `payment_attempt` | `array` | No |  |
-| `payment_method` | `array` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `pisp_account_id` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
-| `result` | `array` | No |  |
-| `sandbox_settle_delay_in_second` | `int` | No |  |
-| `shipping_address` | `array` | No |  |
-| `status` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `title` | `string` | No |  |
-| `tokenised_card` | `array` | No |  |
-| `transaction` | `array` | No |  |
-| `use_hosted_payment_page` | `bool` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionBizBizModelsPagingPaymentRequestPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPagingPaymentRequestPageEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPaymentRequestPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingPayoutPageEntity
-
-```php
-$no_frixion_biz_biz_models_paging_payout_page = $client->NoFrixionBizBizModelsPagingPayoutPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `array` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionBizBizModelsPagingPayoutPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPagingPayoutPageEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPayoutPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingPayrunPageEntity
-
-```php
-$no_frixion_biz_biz_models_paging_payrun_page = $client->NoFrixionBizBizModelsPagingPayrunPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation` | `array` | No |  |
-| `authorisation_date` | `string` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_delete` | `bool` | No |  |
-| `can_edit` | `bool` | No |  |
-| `event` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice` | `array` | No |  |
-| `invoices_minimal` | `array` | No |  |
-| `is_archived` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `last_updated_by` | `array` | Yes |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment` | `array` | No |  |
-| `payout` | `array` | No |  |
-| `payouts_count` | `int` | No |  |
-| `schedule_date` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `status` | `string` | No |  |
-| `total_eur` | `float` | No |  |
-| `total_gbp` | `float` | No |  |
-| `total_usd` | `float` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionBizBizModelsPagingPayrunPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPagingPayrunPageEntity`
-
-Create a new `NoFrixionBizBizModelsPagingPayrunPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingRuleEventsPageEntity
-
-```php
-$no_frixion_biz_biz_models_paging_rule_events_page = $client->NoFrixionBizBizModelsPagingRuleEventsPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `error_message` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_authorise_to_enable` | `bool` | No |  |
-| `message` | `string` | No |  |
-| `raw_response` | `string` | No |  |
-| `rule_event_type` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `user` | `array` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionBizBizModelsPagingRuleEventsPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPagingRuleEventsPageEntity`
-
-Create a new `NoFrixionBizBizModelsPagingRuleEventsPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPagingRulesPageEntity
-
-```php
-$no_frixion_biz_biz_models_paging_rules_page = $client->NoFrixionBizBizModelsPagingRulesPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account` | `array` | No |  |
-| `account_id` | `string` | No |  |
-| `approve_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `description` | `string` | No |  |
-| `end_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_disabled` | `bool` | No |  |
-| `last_executed_at` | `string` | No |  |
-| `last_run_at_transaction_date` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `on_approved_web_hook_url` | `string` | No |  |
-| `on_execution_error_web_hook_url` | `string` | No |  |
-| `on_execution_success_web_hook_url` | `string` | No |  |
-| `start_at` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sweep_action` | `array` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trigger_cron_expression` | `string` | No |  |
-| `trigger_on_pay_in` | `bool` | No |  |
-| `user_id` | `string` | No |  |
-| `web_hook_secret` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionBizBizModelsPagingRulesPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPagingRulesPageEntity`
-
-Create a new `NoFrixionBizBizModelsPagingRulesPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionBizBizModelsPaymentsCardPaymentEntity
-
-```php
-$no_frixion_biz_biz_models_payments_card_payment = $client->NoFrixionBizBizModelsPaymentsCardPayment();
+$card = $client->Card();
 ```
 
 ### Fields
@@ -1637,7 +781,7 @@ $no_frixion_biz_biz_models_payments_card_payment = $client->NoFrixionBizBizModel
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionBizBizModelsPaymentsCardPayment()->create([
+$result = $client->Card()->create([
   "paymentrequest_id" => null, // string
 ]);
 ```
@@ -1660,9 +804,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionBizBizModelsPaymentsCardPaymentEntity`
+#### `make(): CardEntity`
 
-Create a new `NoFrixionBizBizModelsPaymentsCardPaymentEntity` instance with the same client and
+Create a new `CardEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -1672,535 +816,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionBizBizModelsPaymentsCardPublicKeyEntity
+## CardCustomerTokenEntity
 
 ```php
-$no_frixion_biz_biz_models_payments_card_public_key = $client->NoFrixionBizBizModelsPaymentsCardPublicKey();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `jwt` | `string` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionBizBizModelsPaymentsCardPublicKey()->load(["paymentrequest_id" => "paymentrequest_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionBizBizModelsPaymentsCardPublicKeyEntity`
-
-Create a new `NoFrixionBizBizModelsPaymentsCardPublicKeyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity
-
-```php
-$no_frixion_money_moov_api_features_beneficiaries_beneficiaries = $client->NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `beneficiary` | `array` | No |  |
-| `failed_beneficiary` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiariesEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity
-
-```php
-$no_frixion_money_moov_api_features_payment_requests_payment = $client->NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payment_request` | `array` | No |  |
-| `payment_request` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPaymentRequestsPaymentEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity
-
-```php
-$no_frixion_money_moov_api_features_permissions_roles_create = $client->NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_role` | `array` | No |  |
-| `role` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate()->create([
-  "merchant_id" => null, // string
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity
-
-```php
-$no_frixion_money_moov_api_features_user_invites_create = $client->NoFrixionMoneyMoovApiFeaturesUserInvitesCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_user_invite` | `array` | No |  |
-| `user_invite` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovApiFeaturesUserInvitesCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity`
-
-Create a new `NoFrixionMoneyMoovApiFeaturesUserInvitesCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity
-
-```php
-$no_frixion_money_moov_models_authorisation_settings_merchant = $client->NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount_lower` | `float` | No |  |
-| `amount_upper` | `float` | No |  |
-| `authorisation_type` | `string` | No |  |
-| `beneficiaries_only` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_editor_cant_authorise` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `number_of_authoriser` | `int` | No |  |
-| `role_setting` | `array` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity`
-
-Create a new `NoFrixionMoneyMoovModelsAuthorisationSettingsMerchantEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBatchPayoutEntity
-
-```php
-$no_frixion_money_moov_models_batch_payout = $client->NoFrixionMoneyMoovModelsBatchPayout();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approve_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `payout` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsBatchPayout()->create([
-]);
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsBatchPayout()->load(["id" => "no_frixion_money_moov_models_batch_payout_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsBatchPayoutEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBatchPayoutEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity
-
-```php
-$no_frixion_money_moov_models_beneficiary_group_page = $client->NoFrixionMoneyMoovModelsBeneficiaryGroupPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `group_member` | `array` | No |  |
-| `group_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsBeneficiaryGroupPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryGroupPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsBeneficiaryPageEntity
-
-```php
-$no_frixion_money_moov_models_beneficiary_page = $client->NoFrixionMoneyMoovModelsBeneficiaryPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary_event` | `array` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | Yes |  |
-| `destination` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nonce` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsBeneficiaryPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsBeneficiaryPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsBeneficiaryPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsCardCustomerTokenEntity
-
-```php
-$no_frixion_money_moov_models_card_customer_token = $client->NoFrixionMoneyMoovModelsCardCustomerToken();
+$card_customer_token = $client->CardCustomerToken();
 ```
 
 ### Fields
@@ -2226,7 +845,7 @@ $no_frixion_money_moov_models_card_customer_token = $client->NoFrixionMoneyMoovM
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->list();
+$results = $client->CardCustomerToken()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2234,7 +853,7 @@ $results = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->load(["customer_email_address" => "customer_email_address"]);
+$result = $client->CardCustomerToken()->load(["customer_email_address" => "customer_email_address"]);
 ```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2242,7 +861,7 @@ $result = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->load(["customer_
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsCardCustomerToken()->remove();
+$result = $client->CardCustomerToken()->remove();
 ```
 
 ### Common Methods
@@ -2263,9 +882,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsCardCustomerTokenEntity`
+#### `make(): CardCustomerTokenEntity`
 
-Create a new `NoFrixionMoneyMoovModelsCardCustomerTokenEntity` instance with the same client and
+Create a new `CardCustomerTokenEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2275,10 +894,252 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity
+## CardPaymentEntity
 
 ```php
-$no_frixion_money_moov_models_currency_currency_info = $client->NoFrixionMoneyMoovModelsCurrencyCurrencyInfo();
+$card_payment = $client->CardPayment();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorized_amount` | `string` | No |  |
+| `currency_code` | `string` | No |  |
+| `is_payer_authentication_required` | `bool` | No |  |
+| `is_soft_decline` | `bool` | No |  |
+| `payer_authentication_access_token` | `string` | No |  |
+| `payer_authentication_merchant_data` | `string` | No |  |
+| `payer_authentication_url` | `string` | No |  |
+| `payer_authentication_window_height` | `int` | No |  |
+| `payer_authentication_window_width` | `int` | No |  |
+| `payment_request_callback_url` | `string` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `request_id` | `string` | No |  |
+| `response_code` | `string` | No |  |
+| `response_type` | `string` | No |  |
+| `status` | `string` | No |  |
+| `three_ds_redirect_url` | `string` | No |  |
+| `transaction_id` | `string` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->CardPayment()->create([
+  "paymentrequest_id" => null, // string
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): CardPaymentEntity`
+
+Create a new `CardPaymentEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## CardPublicKeyEntity
+
+```php
+$card_public_key = $client->CardPublicKey();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `jwt` | `string` | No |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->CardPublicKey()->load(["paymentrequest_id" => "paymentrequest_id"]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): CardPublicKeyEntity`
+
+Create a new `CardPublicKeyEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## ConsentEntity
+
+```php
+$consent = $client->Consent();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation_url` | `string` | No |  |
+| `callback_url` | `string` | No |  |
+| `consent_id` | `string` | No |  |
+| `email_address` | `string` | No |  |
+| `expiry_date` | `string` | No |  |
+| `failure_callback_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `institution_id` | `string` | No |  |
+| `is_connected_account` | `bool` | No |  |
+| `is_enabled` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `provider` | `string` | No |  |
+| `success_web_hook_url` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `authorisation_url` | - | - | - | - | - |
+| `callback_url` | - | - | - | - | - |
+| `consent_id` | - | - | - | - | - |
+| `email_address` | - | - | - | - | - |
+| `expiry_date` | - | - | - | - | - |
+| `failure_callback_url` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `institution_id` | - | - | Yes | - | - |
+| `is_connected_account` | - | - | - | - | - |
+| `is_enabled` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | - | - |
+| `provider` | - | - | - | - | - |
+| `success_web_hook_url` | - | - | - | - | - |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Consent()->create([
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Consent()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Consent()->load(["id" => "consent_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Consent()->remove(["id" => "consent_id"]);
+```
+
+#### `update(array $reqdata, ?array $ctrl = null): mixed`
+
+Update an existing entity. The data must include the entity `id`. Throws on error.
+
+```php
+$result = $client->Consent()->update([
+  "id" => "consent_id",
+  // Fields to update
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): ConsentEntity`
+
+Create a new `ConsentEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## CurrencyEntity
+
+```php
+$currency = $client->Currency();
 ```
 
 ### Fields
@@ -2299,7 +1160,7 @@ $no_frixion_money_moov_models_currency_currency_info = $client->NoFrixionMoneyMo
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsCurrencyCurrencyInfo()->list();
+$results = $client->Currency()->list();
 ```
 
 ### Common Methods
@@ -2320,9 +1181,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity`
+#### `make(): CurrencyEntity`
 
-Create a new `NoFrixionMoneyMoovModelsCurrencyCurrencyInfoEntity` instance with the same client and
+Create a new `CurrencyEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2332,10 +1193,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity
+## DirectDebitBatchSubmitEntity
 
 ```php
-$no_frixion_money_moov_models_direct_debit_batch_submit = $client->NoFrixionMoneyMoovModelsDirectDebitBatchSubmit();
+$direct_debit_batch_submit = $client->DirectDebitBatchSubmit();
 ```
 
 ### Fields
@@ -2352,7 +1213,7 @@ $no_frixion_money_moov_models_direct_debit_batch_submit = $client->NoFrixionMone
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsDirectDebitBatchSubmit()->create([
+$result = $client->DirectDebitBatchSubmit()->create([
 ]);
 ```
 
@@ -2374,9 +1235,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity`
+#### `make(): DirectDebitBatchSubmitEntity`
 
-Create a new `NoFrixionMoneyMoovModelsDirectDebitBatchSubmitEntity` instance with the same client and
+Create a new `DirectDebitBatchSubmitEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2386,10 +1247,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsFxRateEntity
+## FxRateEntity
 
 ```php
-$no_frixion_money_moov_models_fx_rate = $client->NoFrixionMoneyMoovModelsFxRate();
+$fx_rate = $client->FxRate();
 ```
 
 ### Fields
@@ -2409,7 +1270,7 @@ $no_frixion_money_moov_models_fx_rate = $client->NoFrixionMoneyMoovModelsFxRate(
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsFxRate()->list();
+$results = $client->FxRate()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2417,7 +1278,7 @@ $results = $client->NoFrixionMoneyMoovModelsFxRate()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsFxRate()->load(["destination" => "destination", "source" => "source", "valid_for_minute" => 1]);
+$result = $client->FxRate()->load(["destination" => "destination", "source" => "source", "valid_for_minute" => 1]);
 ```
 
 ### Common Methods
@@ -2438,9 +1299,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsFxRateEntity`
+#### `make(): FxRateEntity`
 
-Create a new `NoFrixionMoneyMoovModelsFxRateEntity` instance with the same client and
+Create a new `FxRateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2450,10 +1311,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsIPaymentEntity
+## IPaymentEntity
 
 ```php
-$no_frixion_money_moov_models_i_payment = $client->NoFrixionMoneyMoovModelsIPayment();
+$i_payment = $client->IPayment();
 ```
 
 ### Fields
@@ -2470,7 +1331,7 @@ $no_frixion_money_moov_models_i_payment = $client->NoFrixionMoneyMoovModelsIPaym
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsIPayment()->create([
+$result = $client->IPayment()->create([
 ]);
 ```
 
@@ -2492,9 +1353,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsIPaymentEntity`
+#### `make(): IPaymentEntity`
 
-Create a new `NoFrixionMoneyMoovModelsIPaymentEntity` instance with the same client and
+Create a new `IPaymentEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2504,10 +1365,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMandatesMandateEntity
+## MandateEntity
 
 ```php
-$no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovModelsMandatesMandate();
+$mandate = $client->Mandate();
 ```
 
 ### Fields
@@ -2595,7 +1456,7 @@ $no_frixion_money_moov_models_mandates_mandate = $client->NoFrixionMoneyMoovMode
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMandatesMandate()->create([
+$result = $client->Mandate()->create([
   "address_line1" => null, // string
   "city" => null, // string
   "country_code" => null, // string
@@ -2611,7 +1472,7 @@ $result = $client->NoFrixionMoneyMoovModelsMandatesMandate()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMandatesMandate()->load(["id" => "no_frixion_money_moov_models_mandates_mandate_id"]);
+$result = $client->Mandate()->load(["id" => "mandate_id"]);
 ```
 
 ### Common Methods
@@ -2632,9 +1493,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMandatesMandateEntity`
+#### `make(): MandateEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMandatesMandateEntity` instance with the same client and
+Create a new `MandateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2644,10 +1505,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantEntity
+## MerchantEntity
 
 ```php
-$no_frixion_money_moov_models_merchant = $client->NoFrixionMoneyMoovModelsMerchant();
+$merchant = $client->Merchant();
 ```
 
 ### Fields
@@ -2674,6 +1535,7 @@ $no_frixion_money_moov_models_merchant = $client->NoFrixionMoneyMoovModelsMercha
 | `parent_merchant` | `array` | No |  |
 | `payment_account` | `array` | No |  |
 | `payment_account_limit` | `int` | No |  |
+| `reason` | `string` | No |  |
 | `short_name` | `string` | No |  |
 | `supported_payment_methods_list` | `array` | No |  |
 | `suspension_reason` | `string` | No |  |
@@ -2690,7 +1552,7 @@ $no_frixion_money_moov_models_merchant = $client->NoFrixionMoneyMoovModelsMercha
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsMerchant()->list();
+$results = $client->Merchant()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2698,7 +1560,15 @@ $results = $client->NoFrixionMoneyMoovModelsMerchant()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMerchant()->load(["id" => "no_frixion_money_moov_models_merchant_id"]);
+$result = $client->Merchant()->load(["id" => "merchant_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Merchant()->remove(["id" => "merchant_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -2706,8 +1576,8 @@ $result = $client->NoFrixionMoneyMoovModelsMerchant()->load(["id" => "no_frixion
 Update an existing entity. The data must include the entity `id`. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMerchant()->update([
-  "id" => "no_frixion_money_moov_models_merchant_id",
+$result = $client->Merchant()->update([
+  "id" => "merchant_id",
   // Fields to update
 ]);
 ```
@@ -2730,9 +1600,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMerchantEntity`
+#### `make(): MerchantEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantEntity` instance with the same client and
+Create a new `MerchantEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2742,44 +1612,27 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantPageEntity
+## MerchantAuthorisationSettingEntity
 
 ```php
-$no_frixion_money_moov_models_merchant_page = $client->NoFrixionMoneyMoovModelsMerchantPage();
+$merchant_authorisation_setting = $client->MerchantAuthorisationSetting();
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_currency` | `array` | No |  |
-| `can_have_trust_account` | `bool` | No |  |
-| `card_payment_processor` | `string` | No |  |
-| `company_id` | `string` | No |  |
-| `display_qr_on_hosted_pay` | `bool` | No |  |
-| `hosted_pay_version` | `int` | No |  |
+| `amount_lower` | `float` | No |  |
+| `amount_upper` | `float` | No |  |
+| `authorisation_type` | `string` | No |  |
+| `beneficiaries_only` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_blocked` | `bool` | No |  |
-| `is_exited` | `bool` | No |  |
-| `is_suspended` | `bool` | No |  |
-| `jurisdiction` | `string` | No |  |
-| `logo_url_png` | `string` | No |  |
-| `logo_url_svg` | `string` | No |  |
-| `merchant_category_code` | `string` | No |  |
-| `name` | `string` | No |  |
-| `note` | `string` | No |  |
-| `parent_merchant` | `array` | No |  |
-| `payment_account` | `array` | No |  |
-| `payment_account_limit` | `int` | No |  |
-| `short_name` | `string` | No |  |
-| `supported_payment_methods_list` | `array` | No |  |
-| `suspension_reason` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trading_name` | `string` | No |  |
-| `web_hook_limit` | `int` | No |  |
-| `your_role_name` | `string` | No |  |
+| `last_editor_cant_authorise` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `number_of_authoriser` | `int` | No |  |
+| `role_setting` | `array` | No |  |
 
 ### Operations
 
@@ -2788,7 +1641,7 @@ $no_frixion_money_moov_models_merchant_page = $client->NoFrixionMoneyMoovModelsM
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsMerchantPage()->list();
+$results = $client->MerchantAuthorisationSetting()->list();
 ```
 
 ### Common Methods
@@ -2809,9 +1662,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMerchantPageEntity`
+#### `make(): MerchantAuthorisationSettingEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantPageEntity` instance with the same client and
+Create a new `MerchantAuthorisationSettingEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2821,10 +1674,84 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity
+## MerchantDirectDebitMandateEntity
 
 ```php
-$no_frixion_money_moov_models_merchant_pay_by_bank_setting = $client->NoFrixionMoneyMoovModelsMerchantPayByBankSetting();
+$merchant_direct_debit_mandate = $client->MerchantDirectDebitMandate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `approved_at` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `customer_account_number` | `string` | No |  |
+| `customer_city` | `string` | No |  |
+| `customer_country_code` | `string` | No |  |
+| `customer_country_name` | `string` | No |  |
+| `customer_email_address` | `string` | No |  |
+| `customer_first_name` | `string` | No |  |
+| `customer_iban` | `string` | No |  |
+| `customer_last_name` | `string` | No |  |
+| `customer_sort_code` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `is_recurring` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `reference` | `string` | No |  |
+| `status` | `string` | No |  |
+| `supplier_bank_account_id` | `string` | No |  |
+| `supplier_customer_id` | `string` | No |  |
+| `supplier_mandate_id` | `string` | No |  |
+| `supplier_name` | `string` | No |  |
+| `supplier_status` | `string` | No |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->MerchantDirectDebitMandate()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MerchantDirectDebitMandateEntity`
+
+Create a new `MerchantDirectDebitMandateEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## MerchantPayByBankSettingEntity
+
+```php
+$merchant_pay_by_bank_setting = $client->MerchantPayByBankSetting();
 ```
 
 ### Fields
@@ -2852,7 +1779,7 @@ $no_frixion_money_moov_models_merchant_pay_by_bank_setting = $client->NoFrixionM
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsMerchantPayByBankSetting()->list();
+$results = $client->MerchantPayByBankSetting()->list();
 ```
 
 ### Common Methods
@@ -2873,9 +1800,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity`
+#### `make(): MerchantPayByBankSettingEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantPayByBankSettingEntity` instance with the same client and
+Create a new `MerchantPayByBankSettingEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2885,10 +1812,96 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantTokenEntity
+## MerchantPaymentRequestTemplateEntity
 
 ```php
-$no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModelsMerchantToken();
+$merchant_payment_request_template = $client->MerchantPaymentRequestTemplate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `description` | `string` | Yes |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `template` | `array` | Yes |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->MerchantPaymentRequestTemplate()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->MerchantPaymentRequestTemplate()->load(["id" => "merchant_payment_request_template_id", "paymentrequest_id" => "paymentrequest_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->MerchantPaymentRequestTemplate()->remove(["id" => "merchant_payment_request_template_id", "paymentrequest_id" => "paymentrequest_id"]);
+```
+
+#### `update(array $reqdata, ?array $ctrl = null): mixed`
+
+Update an existing entity. The data must include the entity `id`. Throws on error.
+
+```php
+$result = $client->MerchantPaymentRequestTemplate()->update([
+  "id" => "merchant_payment_request_template_id",
+  "paymentrequest_id" => "paymentrequest_id",
+  // Fields to update
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MerchantPaymentRequestTemplateEntity`
+
+Create a new `MerchantPaymentRequestTemplateEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## MerchantTokenEntity
+
+```php
+$merchant_token = $client->MerchantToken();
 ```
 
 ### Fields
@@ -2921,31 +1934,31 @@ $no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModels
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `authentication_method` | - | - | - |
-| `authorisation` | - | - | - |
-| `authorisers_completed_count` | - | - | - |
-| `authorisers_required_count` | - | - | - |
-| `can_authorise` | - | - | - |
-| `description` | - | Yes | - |
-| `expires_at` | - | - | - |
-| `has_current_user_authorised` | - | - | - |
-| `hmac_algorithm` | - | - | - |
-| `id` | - | - | - |
-| `inserted` | - | - | - |
-| `ip_address_whitelist` | - | - | - |
-| `is_archived` | - | - | - |
-| `is_enabled` | - | - | - |
-| `last_authorised` | - | - | - |
-| `last_updated` | - | - | - |
-| `merchant_id` | - | Yes | - |
-| `nonce` | - | - | - |
-| `permission_type` | - | - | - |
-| `request_signature_version` | - | - | - |
-| `shared_secret_algorithm` | - | - | - |
-| `shared_secret_base64` | - | - | - |
-| `token` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `authentication_method` | - | - | - | - |
+| `authorisation` | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - |
+| `can_authorise` | - | - | - | - |
+| `description` | - | - | Yes | - |
+| `expires_at` | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - |
+| `hmac_algorithm` | - | - | - | - |
+| `id` | - | - | - | - |
+| `inserted` | - | - | - | - |
+| `ip_address_whitelist` | - | - | - | - |
+| `is_archived` | - | - | - | - |
+| `is_enabled` | - | - | - | - |
+| `last_authorised` | - | - | - | - |
+| `last_updated` | - | - | - | - |
+| `merchant_id` | - | - | Yes | - |
+| `nonce` | - | - | - | - |
+| `permission_type` | - | - | - | - |
+| `request_signature_version` | - | - | - | - |
+| `shared_secret_algorithm` | - | - | - | - |
+| `shared_secret_base64` | - | - | - | - |
+| `token` | - | - | - | - |
 
 ### Operations
 
@@ -2954,9 +1967,17 @@ $no_frixion_money_moov_models_merchant_token = $client->NoFrixionMoneyMoovModels
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMerchantToken()->create([
+$result = $client->MerchantToken()->create([
   "nonce" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->MerchantToken()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2964,7 +1985,7 @@ $result = $client->NoFrixionMoneyMoovModelsMerchantToken()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMerchantToken()->load(["id" => "no_frixion_money_moov_models_merchant_token_id"]);
+$result = $client->MerchantToken()->load(["id" => "merchant_token_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -2972,8 +1993,8 @@ $result = $client->NoFrixionMoneyMoovModelsMerchantToken()->load(["id" => "no_fr
 Update an existing entity. The data must include the entity `id`. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsMerchantToken()->update([
-  "id" => "no_frixion_money_moov_models_merchant_token_id",
+$result = $client->MerchantToken()->update([
+  "id" => "merchant_token_id",
   // Fields to update
 ]);
 ```
@@ -2996,9 +2017,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMerchantTokenEntity`
+#### `make(): MerchantTokenEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenEntity` instance with the same client and
+Create a new `MerchantTokenEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3008,47 +2029,20 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsMerchantTokenPageEntity
+## MetadataEntity
 
 ```php
-$no_frixion_money_moov_models_merchant_token_page = $client->NoFrixionMoneyMoovModelsMerchantTokenPage();
+$metadata = $client->Metadata();
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `description` | `string` | No |  |
-| `expires_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `ip_address_whitelist` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `permission_type` | `array` | No |  |
-| `request_signature_version` | `int` | No |  |
-| `shared_secret_algorithm` | `string` | No |  |
-| `shared_secret_base64` | `string` | No |  |
-| `token` | `string` | No |  |
 
 ### Operations
 
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsMerchantTokenPage()->list();
+$result = $client->Metadata()->load();
 ```
 
 ### Common Methods
@@ -3069,9 +2063,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsMerchantTokenPageEntity`
+#### `make(): MetadataEntity`
 
-Create a new `NoFrixionMoneyMoovModelsMerchantTokenPageEntity` instance with the same client and
+Create a new `MetadataEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3081,10 +2075,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsNoFrixionVersionEntity
+## NoFrixionVersionEntity
 
 ```php
-$no_frixion_money_moov_models_no_frixion_version = $client->NoFrixionMoneyMoovModelsNoFrixionVersion();
+$no_frixion_version = $client->NoFrixionVersion();
 ```
 
 ### Fields
@@ -3103,7 +2097,7 @@ $no_frixion_money_moov_models_no_frixion_version = $client->NoFrixionMoneyMoovMo
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsNoFrixionVersion()->load();
+$result = $client->NoFrixionVersion()->load();
 ```
 
 ### Common Methods
@@ -3124,9 +2118,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsNoFrixionVersionEntity`
+#### `make(): NoFrixionVersionEntity`
 
-Create a new `NoFrixionMoneyMoovModelsNoFrixionVersionEntity` instance with the same client and
+Create a new `NoFrixionVersionEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3136,113 +2130,11 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsOpenBankingAccountEntity
+## OpenBankingEntity
 
 ```php
-$no_frixion_money_moov_models_open_banking_account = $client->NoFrixionMoneyMoovModelsOpenBankingAccount();
+$open_banking = $client->OpenBanking();
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_balance` | `array` | No |  |
-| `account_identification` | `array` | No |  |
-| `account_name` | `array` | No |  |
-| `account_type` | `string` | No |  |
-| `balance` | `float` | No |  |
-| `consolidated_account_information` | `array` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `detail` | `string` | No |  |
-| `id` | `string` | No |  |
-| `nickname` | `string` | No |  |
-| `type` | `string` | No |  |
-| `usage_type` | `string` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsOpenBankingAccount()->load(["id" => "no_frixion_money_moov_models_open_banking_account_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsOpenBankingAccountEntity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingAccountEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsOpenBankingConsentEntity
-
-```php
-$no_frixion_money_moov_models_open_banking_consent = $client->NoFrixionMoneyMoovModelsOpenBankingConsent();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `institution_id` | `string` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `provider` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `authorisation_url` | - | - | - | - | - |
-| `callback_url` | - | - | - | - | - |
-| `consent_id` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `expiry_date` | - | - | - | - | - |
-| `failure_callback_url` | - | - | - | - | - |
-| `id` | - | - | - | - | - |
-| `inserted` | - | - | - | - | - |
-| `institution_id` | - | - | Yes | - | - |
-| `is_connected_account` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
-| `provider` | - | - | - | - | - |
-| `success_web_hook_url` | - | - | - | - | - |
 
 ### Operations
 
@@ -3251,24 +2143,9 @@ $no_frixion_money_moov_models_open_banking_consent = $client->NoFrixionMoneyMoov
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->create([
+$result = $client->OpenBanking()->create([
+  "account_id" => null, // string
 ]);
-```
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->list();
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->load(["id" => "no_frixion_money_moov_models_open_banking_consent_id"]);
 ```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -3276,17 +2153,67 @@ $result = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->load(["id" => "
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->remove(["id" => "no_frixion_money_moov_models_open_banking_consent_id"]);
+$result = $client->OpenBanking()->remove();
 ```
 
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
+### Common Methods
 
-Update an existing entity. The data must include the entity `id`. Throws on error.
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): OpenBankingEntity`
+
+Create a new `OpenBankingEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PayeeverificationEntity
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsOpenBankingConsent()->update([
-  "id" => "no_frixion_money_moov_models_open_banking_consent_id",
-  // Fields to update
+$payeeverification = $client->Payeeverification();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account_name` | `string` | Yes |  |
+| `account_number` | `string` | No |  |
+| `iban` | `string` | Yes |  |
+| `payee_verified_account_name` | `string` | No |  |
+| `result` | `string` | No |  |
+| `secondary_identification` | `string` | No |  |
+| `sort_code` | `string` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Payeeverification()->create([
+  "account_name" => null, // string
+  "iban" => null, // string
 ]);
 ```
 
@@ -3308,9 +2235,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsOpenBankingConsentEntity`
+#### `make(): PayeeverificationEntity`
 
-Create a new `NoFrixionMoneyMoovModelsOpenBankingConsentEntity` instance with the same client and
+Create a new `PayeeverificationEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3320,86 +2247,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsOpenBankingTransactionEntity
+## PaymentEntity
 
 ```php
-$no_frixion_money_moov_models_open_banking_transaction = $client->NoFrixionMoneyMoovModelsOpenBankingTransaction();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address_detail` | `array` | No |  |
-| `amount` | `float` | No |  |
-| `balance` | `array` | No |  |
-| `booking_date_time` | `string` | No |  |
-| `charge_detail` | `array` | No |  |
-| `currency` | `string` | No |  |
-| `currency_exchange` | `array` | No |  |
-| `date` | `string` | No |  |
-| `description` | `string` | No |  |
-| `enrichment` | `array` | No |  |
-| `gross_amount` | `array` | Yes |  |
-| `id` | `string` | No |  |
-| `iso_bank_transaction_code` | `array` | No |  |
-| `merchant` | `array` | No |  |
-| `payee_detail` | `array` | Yes |  |
-| `payer_detail` | `array` | Yes |  |
-| `proprietary_bank_transaction_code` | `array` | No |  |
-| `reference` | `string` | No |  |
-| `statement_reference` | `array` | No |  |
-| `status` | `string` | No |  |
-| `supplementary_data` | `mixed` | No |  |
-| `transaction_amount` | `array` | Yes |  |
-| `transaction_information` | `array` | No |  |
-| `transaction_mutability` | `string` | No |  |
-| `value_date_time` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsOpenBankingTransaction()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsOpenBankingTransactionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsOpenBankingTransactionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentEntity
-
-```php
-$no_frixion_money_moov_models_payment = $client->NoFrixionMoneyMoovModelsPayment();
+$payment = $client->Payment();
 ```
 
 ### Fields
@@ -3571,7 +2422,7 @@ $no_frixion_money_moov_models_payment = $client->NoFrixionMoneyMoovModelsPayment
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsPayment()->create([
+$result = $client->Payment()->create([
   "created_by_user" => null, // array
 ]);
 ```
@@ -3581,7 +2432,7 @@ $result = $client->NoFrixionMoneyMoovModelsPayment()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsPayment()->load(["id" => "no_frixion_money_moov_models_payment_id"]);
+$result = $client->Payment()->load(["id" => "payment_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -3589,8 +2440,8 @@ $result = $client->NoFrixionMoneyMoovModelsPayment()->load(["id" => "no_frixion_
 Update an existing entity. The data must include the entity `id`. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsPayment()->update([
-  "id" => "no_frixion_money_moov_models_payment_id",
+$result = $client->Payment()->update([
+  "id" => "payment_id",
   // Fields to update
 ]);
 ```
@@ -3613,9 +2464,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsPaymentEntity`
+#### `make(): PaymentEntity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentEntity` instance with the same client and
+Create a new `PaymentEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3625,72 +2476,10 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity
+## PaymentAccountEntity
 
 ```php
-$no_frixion_money_moov_models_payment_account_minimal_page = $client->NoFrixionMoneyMoovModelsPaymentAccountMinimalPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_name` | `string` | No |  |
-| `available_balance` | `float` | No |  |
-| `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `currency` | `string` | No |  |
-| `id` | `string` | No |  |
-| `identifier` | `array` | Yes |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `submitted_payouts_balance` | `float` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentAccountMinimalPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountMinimalPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentAccountPageEntity
-
-```php
-$no_frixion_money_moov_models_payment_account_page = $client->NoFrixionMoneyMoovModelsPaymentAccountPage();
+$payment_account = $client->PaymentAccount();
 ```
 
 ### Fields
@@ -3744,7 +2533,7 @@ $no_frixion_money_moov_models_payment_account_page = $client->NoFrixionMoneyMoov
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentAccountPage()->list();
+$results = $client->PaymentAccount()->list();
 ```
 
 ### Common Methods
@@ -3765,9 +2554,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsPaymentAccountPageEntity`
+#### `make(): PaymentAccountEntity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentAccountPageEntity` instance with the same client and
+Create a new `PaymentAccountEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3777,10 +2566,72 @@ Return the entity name.
 
 ---
 
-## NoFrixionMoneyMoovModelsPaymentInitiationEntity
+## PaymentAccountMinimalEntity
 
 ```php
-$no_frixion_money_moov_models_payment_initiation = $client->NoFrixionMoneyMoovModelsPaymentInitiation();
+$payment_account_minimal = $client->PaymentAccountMinimal();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account_name` | `string` | No |  |
+| `available_balance` | `float` | No |  |
+| `balance` | `float` | No |  |
+| `balance_minor_unit` | `int` | No |  |
+| `currency` | `string` | No |  |
+| `id` | `string` | No |  |
+| `identifier` | `array` | Yes |  |
+| `is_archived` | `bool` | No |  |
+| `is_connected_account` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `submitted_payouts_balance` | `float` | No |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PaymentAccountMinimal()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentAccountMinimalEntity`
+
+Create a new `PaymentAccountMinimalEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentInitiationEntity
+
+```php
+$payment_initiation = $client->PaymentInitiation();
 ```
 
 ### Fields
@@ -3801,7 +2652,7 @@ $no_frixion_money_moov_models_payment_initiation = $client->NoFrixionMoneyMoovMo
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->NoFrixionMoneyMoovModelsPaymentInitiation()->create([
+$result = $client->PaymentInitiation()->create([
   "paymentrequest_id" => null, // string
 ]);
 ```
@@ -3824,1691 +2675,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): NoFrixionMoneyMoovModelsPaymentInitiationEntity`
+#### `make(): PaymentInitiationEntity`
 
-Create a new `NoFrixionMoneyMoovModelsPaymentInitiationEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestEventEntity
-
-```php
-$no_frixion_money_moov_models_payment_request_event = $client->NoFrixionMoneyMoovModelsPaymentRequestEvent();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float` | Yes |  |
-| `apple_pay_transaction_id` | `string` | No |  |
-| `card_authorization_response_id` | `string` | No |  |
-| `card_expiry_month` | `int` | No |  |
-| `card_expiry_year` | `int` | No |  |
-| `card_issuer` | `string` | No |  |
-| `card_issuer_country` | `string` | No |  |
-| `card_last_four_digit` | `string` | No |  |
-| `card_request_id` | `string` | No |  |
-| `card_scheme` | `string` | No |  |
-| `card_token_customer_id` | `string` | No |  |
-| `card_transaction_id` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `direct_debit_payment_id` | `string` | No |  |
-| `direct_debit_payment_reference` | `string` | No |  |
-| `drirect_debit_mandate_id` | `string` | No |  |
-| `error_message` | `string` | No |  |
-| `error_reason` | `string` | No |  |
-| `event_type` | `string` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_r_hash` | `string` | No |  |
-| `origin_url` | `string` | No |  |
-| `payment_method_type` | `string` | No |  |
-| `payment_processor_name` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_bank_status` | `string` | No |  |
-| `pisp_payment_initiation_id` | `string` | No |  |
-| `pisp_payment_institution_name` | `string` | No |  |
-| `pisp_payment_service_provider_id` | `string` | No |  |
-| `pisp_redirect_url` | `string` | No |  |
-| `reconciled_transaction_id` | `string` | No |  |
-| `refund_payout_id` | `string` | No |  |
-| `status` | `string` | No |  |
-| `wallet_name` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentRequestEvent()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestEventEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestEventEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestMetricEntity
-
-```php
-$no_frixion_money_moov_models_payment_request_metric = $client->NoFrixionMoneyMoovModelsPaymentRequestMetric();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `int` | No |  |
-| `authorized` | `int` | No |  |
-| `paid` | `int` | No |  |
-| `partially_paid` | `int` | No |  |
-| `total_amounts_by_currency` | `array` | No |  |
-| `unpaid` | `int` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPaymentRequestMetric()->load();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestMetricEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMetricEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity
-
-```php
-$no_frixion_money_moov_models_payment_request_minimal = $client->NoFrixionMoneyMoovModelsPaymentRequestMinimal();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `country_code` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `custom_fields_to_display` | `array` | No |  |
-| `description` | `string` | No |  |
-| `due_date` | `string` | No |  |
-| `field_display_setting` | `array` | No |  |
-| `google_pay_merchant_id` | `string` | No |  |
-| `id` | `string` | No |  |
-| `jwk` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_logo_url_png` | `string` | No |  |
-| `merchant_logo_url_svg` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `merchant_short_name` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `payment_attempt` | `array` | No |  |
-| `payment_methods_list` | `array` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_processor_key` | `string` | No |  |
-| `pisp_error` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
-| `status` | `string` | No |  |
-| `stripe_account_id` | `string` | No |  |
-| `title` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentRequestMinimal()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestMinimalEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestResultEntity
-
-```php
-$no_frixion_money_moov_models_payment_request_result = $client->NoFrixionMoneyMoovModelsPaymentRequestResult();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `currency` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `payment` | `array` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_authorization` | `array` | No |  |
-| `requested_amount` | `float` | No |  |
-| `result` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentRequestResult()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestResultEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestResultEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity
-
-```php
-$no_frixion_money_moov_models_payment_requests_merchant_payment = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `array` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPaymentEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity
-
-```php
-$no_frixion_money_moov_models_payment_requests_merchant_payment2 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `array` | Yes |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2()->load(["paymentrequest_id" => "paymentrequest_id", "template_id" => "template_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity
-
-```php
-$no_frixion_money_moov_models_payment_requests_merchant_payment3 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `template` | `array` | Yes |  |
-
-### Operations
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3()->update([
-  "paymentrequest_id" => "paymentrequest_id",
-  "template_id" => "template_id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity
-
-```php
-$no_frixion_money_moov_models_payment_requests_merchant_payment4 = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4();
-```
-
-### Operations
-
-#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
-
-Remove the entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4()->remove(["paymentrequest_id" => "paymentrequest_id", "template_id" => "template_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity`
-
-Create a new `NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutKeysetPageEntity
-
-```php
-$no_frixion_money_moov_models_payout_keyset_page = $client->NoFrixionMoneyMoovModelsPayoutKeysetPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `array` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsPayoutKeysetPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPayoutKeysetPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutKeysetPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutMetricEntity
-
-```php
-$no_frixion_money_moov_models_payout_metric = $client->NoFrixionMoneyMoovModelsPayoutMetric();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `float` | No |  |
-| `failed` | `float` | No |  |
-| `in_progress` | `float` | No |  |
-| `paid` | `float` | No |  |
-| `pending_approval` | `float` | No |  |
-| `scheduled` | `float` | No |  |
-| `total_amounts_by_currency` | `array` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPayoutMetric()->load();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPayoutMetricEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutMetricEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity
-
-```php
-$no_frixion_money_moov_models_payouts_payouts_create = $client->NoFrixionMoneyMoovModelsPayoutsPayoutsCreate();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `failed_payout` | `array` | No |  |
-| `payout` | `array` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPayoutsPayoutsCreate()->create([
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayoutsPayoutsCreateEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsPayrunEntity
-
-```php
-$no_frixion_money_moov_models_payrun = $client->NoFrixionMoneyMoovModelsPayrun();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation` | `array` | No |  |
-| `authorisation_date` | `string` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_delete` | `bool` | No |  |
-| `can_edit` | `bool` | No |  |
-| `event` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice` | `array` | No |  |
-| `invoices_minimal` | `array` | No |  |
-| `is_archived` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `last_updated_by` | `array` | Yes |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment` | `array` | No |  |
-| `payout` | `array` | No |  |
-| `payouts_count` | `int` | No |  |
-| `reason` | `string` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled_date` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `status` | `string` | No |  |
-| `total_eur` | `float` | No |  |
-| `total_gbp` | `float` | No |  |
-| `total_usd` | `float` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPayrun()->create([
-  "id" => null, // string
-]);
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPayrun()->load(["id" => "no_frixion_money_moov_models_payrun_id"]);
-```
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsPayrun()->update([
-  "id" => "no_frixion_money_moov_models_payrun_id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsPayrunEntity`
-
-Create a new `NoFrixionMoneyMoovModelsPayrunEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsReportResultEntity
-
-```php
-$no_frixion_money_moov_models_report_result = $client->NoFrixionMoneyMoovModelsReportResult();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content` | `string` | No |  |
-| `content_type` | `string` | No |  |
-| `last_completed_at` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `report_name` | `string` | No |  |
-| `report_type` | `string` | No |  |
-| `statement_number` | `int` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsReportResult()->load(["id" => 1, "report_id" => "report_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsReportResultEntity`
-
-Create a new `NoFrixionMoneyMoovModelsReportResultEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsRuleEntity
-
-```php
-$no_frixion_money_moov_models_rule = $client->NoFrixionMoneyMoovModelsRule();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account` | `array` | No |  |
-| `account_id` | `string` | No |  |
-| `approve_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `description` | `string` | No |  |
-| `end_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `is_disabled` | `bool` | No |  |
-| `last_executed_at` | `string` | No |  |
-| `last_run_at_transaction_date` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nonce` | `string` | Yes |  |
-| `on_approved_web_hook_url` | `string` | No |  |
-| `on_execution_error_web_hook_url` | `string` | No |  |
-| `on_execution_success_web_hook_url` | `string` | No |  |
-| `start_at` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sweep_action` | `array` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trigger_cron_expression` | `string` | No |  |
-| `trigger_on_pay_in` | `bool` | No |  |
-| `user_id` | `string` | No |  |
-| `web_hook_secret` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `account` | - | - | - |
-| `account_id` | - | - | - |
-| `approve_url` | - | - | - |
-| `approver_id` | - | - | - |
-| `authentication_method` | - | - | - |
-| `authorisation` | - | - | - |
-| `authorisers_completed_count` | - | - | - |
-| `authorisers_required_count` | - | - | - |
-| `can_authorise` | - | - | - |
-| `created_by` | - | - | - |
-| `description` | - | - | - |
-| `end_at` | - | - | - |
-| `has_current_user_authorised` | - | - | - |
-| `id` | - | - | - |
-| `inserted` | - | - | - |
-| `is_disabled` | - | - | - |
-| `last_executed_at` | - | - | - |
-| `last_run_at_transaction_date` | - | - | - |
-| `last_updated` | - | - | - |
-| `merchant_id` | - | - | - |
-| `name` | - | Yes | - |
-| `nonce` | - | - | - |
-| `on_approved_web_hook_url` | - | - | - |
-| `on_execution_error_web_hook_url` | - | - | - |
-| `on_execution_success_web_hook_url` | - | - | - |
-| `start_at` | - | - | - |
-| `status` | - | - | - |
-| `sweep_action` | - | Yes | - |
-| `time_zone_id` | - | - | - |
-| `trigger_cron_expression` | - | - | - |
-| `trigger_on_pay_in` | - | - | - |
-| `user_id` | - | - | - |
-| `web_hook_secret` | - | - | - |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsRule()->create([
-  "created_by" => null, // array
-  "nonce" => null, // string
-]);
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsRule()->load(["id" => "no_frixion_money_moov_models_rule_id"]);
-```
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsRule()->update([
-  "id" => "no_frixion_money_moov_models_rule_id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsRuleEntity`
-
-Create a new `NoFrixionMoneyMoovModelsRuleEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsTransactionEntity
-
-```php
-$no_frixion_money_moov_models_transaction = $client->NoFrixionMoneyMoovModelsTransaction();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `account_name` | `string` | No |  |
-| `account_sequence_number` | `int` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `counterparty` | `array` | No |  |
-| `counterparty_summary` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `fx_amount` | `float` | No |  |
-| `fx_currency` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `payment_request_custom_field` | `array` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `payout_id` | `string` | No |  |
-| `raw_reference` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `transaction_date` | `string` | No |  |
-| `type` | `string` | No |  |
-| `virtual_iban` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsTransaction()->load(["id" => "no_frixion_money_moov_models_transaction_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsTransactionEntity`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsTransactionPageEntity
-
-```php
-$no_frixion_money_moov_models_transaction_page = $client->NoFrixionMoneyMoovModelsTransactionPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `account_name` | `string` | No |  |
-| `account_sequence_number` | `int` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `content` | `array` | No |  |
-| `counterparty` | `array` | No |  |
-| `counterparty_summary` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `fx_amount` | `float` | No |  |
-| `fx_currency` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `page_number` | `int` | No |  |
-| `page_size` | `int` | No |  |
-| `payment_request_custom_field` | `array` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `payout_id` | `string` | No |  |
-| `raw_reference` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `total_page` | `int` | No |  |
-| `total_size` | `int` | No |  |
-| `transaction_date` | `string` | No |  |
-| `type` | `string` | No |  |
-| `virtual_iban` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsTransactionPage()->list();
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsTransactionPage()->load(["account_id" => "account_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsTransactionPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsTransactionPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserInviteEntity
-
-```php
-$no_frixion_money_moov_models_user_invite = $client->NoFrixionMoneyMoovModelsUserInvite();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_status` | `array` | No |  |
-| `id` | `string` | No |  |
-| `initial_role_id` | `string` | No |  |
-| `invitee_email_address` | `string` | No |  |
-| `invitee_first_name` | `string` | No |  |
-| `invitee_last_name` | `string` | No |  |
-| `inviter_email_address` | `string` | No |  |
-| `inviter_first_name` | `string` | No |  |
-| `inviter_last_name` | `string` | No |  |
-| `is_authorised` | `bool` | No |  |
-| `is_invitee_registered` | `bool` | No |  |
-| `last_invited` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `message` | `string` | No |  |
-| `registration_url` | `string` | No |  |
-| `send_invite_email` | `bool` | No |  |
-| `status` | `string` | No |  |
-| `user` | `array` | Yes |  |
-| `user_id` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | create |
-| --- | --- | --- |
-| `authorisation_status` | - | - |
-| `id` | - | - |
-| `initial_role_id` | - | - |
-| `invitee_email_address` | - | Yes |
-| `invitee_first_name` | - | - |
-| `invitee_last_name` | - | - |
-| `inviter_email_address` | - | - |
-| `inviter_first_name` | - | - |
-| `inviter_last_name` | - | - |
-| `is_authorised` | - | - |
-| `is_invitee_registered` | - | - |
-| `last_invited` | - | - |
-| `merchant_id` | - | - |
-| `merchant_name` | - | - |
-| `message` | - | - |
-| `registration_url` | - | - |
-| `send_invite_email` | - | - |
-| `status` | - | - |
-| `user` | - | - |
-| `user_id` | - | - |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsUserInvite()->create([
-  "user" => null, // array
-]);
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsUserInvite()->load(["id" => "no_frixion_money_moov_models_user_invite_id"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsUserInviteEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInviteEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserInvitePageEntity
-
-```php
-$no_frixion_money_moov_models_user_invite_page = $client->NoFrixionMoneyMoovModelsUserInvitePage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `authorisation_status` | `array` | No |  |
-| `id` | `string` | No |  |
-| `initial_role_id` | `string` | No |  |
-| `invitee_email_address` | `string` | No |  |
-| `invitee_first_name` | `string` | No |  |
-| `invitee_last_name` | `string` | No |  |
-| `inviter_email_address` | `string` | No |  |
-| `inviter_first_name` | `string` | No |  |
-| `inviter_last_name` | `string` | No |  |
-| `is_authorised` | `bool` | No |  |
-| `is_invitee_registered` | `bool` | No |  |
-| `last_invited` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `message` | `string` | No |  |
-| `registration_url` | `string` | No |  |
-| `status` | `string` | No |  |
-| `user` | `array` | Yes |  |
-| `user_id` | `string` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsUserInvitePage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsUserInvitePageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserInvitePageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsUserPageEntity
-
-```php
-$no_frixion_money_moov_models_user_page = $client->NoFrixionMoneyMoovModelsUserPage();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `array` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `array` | No |  |
-| `roles_with_scope` | `array` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsUserPage()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsUserPageEntity`
-
-Create a new `NoFrixionMoneyMoovModelsUserPageEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## NoFrixionMoneyMoovModelsWebhookEntity
-
-```php
-$no_frixion_money_moov_models_webhook = $client->NoFrixionMoneyMoovModelsWebhook();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `destination_url` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `failed_notification_email_address` | `string` | No |  |
-| `id` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `notification_method` | `string` | No |  |
-| `resource_type` | `array` | No |  |
-| `retry` | `bool` | No |  |
-| `secret` | `string` | No |  |
-| `version` | `int` | No |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update |
-| --- | --- | --- | --- | --- |
-| `destination_url` | - | - | - | - |
-| `email_address` | - | - | - | - |
-| `failed_notification_email_address` | - | - | - | - |
-| `id` | - | - | - | - |
-| `is_active` | - | - | - | - |
-| `merchant_id` | - | - | Yes | Yes |
-| `notification_method` | - | - | Yes | Yes |
-| `resource_type` | - | - | - | - |
-| `retry` | - | - | - | - |
-| `secret` | - | - | - | - |
-| `version` | - | - | - | - |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsWebhook()->create([
-]);
-```
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->NoFrixionMoneyMoovModelsWebhook()->list();
-```
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsWebhook()->load(["id" => "no_frixion_money_moov_models_webhook_id"]);
-```
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->NoFrixionMoneyMoovModelsWebhook()->update([
-  "id" => "no_frixion_money_moov_models_webhook_id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): NoFrixionMoneyMoovModelsWebhookEntity`
-
-Create a new `NoFrixionMoneyMoovModelsWebhookEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## OpenBankingEntity
-
-```php
-$open_banking = $client->OpenBanking();
-```
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->OpenBanking()->create([
-  "account_id" => null, // string
-]);
-```
-
-#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
-
-Remove the entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->OpenBanking()->remove();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): OpenBankingEntity`
-
-Create a new `OpenBankingEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## PayeeverificationEntity
-
-```php
-$payeeverification = $client->Payeeverification();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_name` | `string` | Yes |  |
-| `account_number` | `string` | No |  |
-| `iban` | `string` | Yes |  |
-| `payee_verified_account_name` | `string` | No |  |
-| `result` | `string` | No |  |
-| `secondary_identification` | `string` | No |  |
-| `sort_code` | `string` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->Payeeverification()->create([
-  "account_name" => null, // string
-  "iban" => null, // string
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): PayeeverificationEntity`
-
-Create a new `PayeeverificationEntity` instance with the same client and
+Create a new `PaymentInitiationEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -5528,11 +2697,73 @@ $payment_request = $client->PaymentRequest();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `address` | `array` | No |  |
 | `amount` | `float` | No |  |
+| `amount_pending` | `float` | No |  |
+| `amount_received` | `float` | No |  |
+| `amount_refunded` | `float` | No |  |
+| `auto_send_receipt` | `bool` | No |  |
+| `base_origin_url` | `string` | No |  |
+| `callback_url` | `string` | No |  |
+| `card_authorize_only` | `bool` | No |  |
+| `card_create_token` | `bool` | No |  |
+| `card_create_token_mode` | `string` | No |  |
+| `card_ignore_cvn` | `bool` | No |  |
+| `card_processor_merchant_id` | `string` | No |  |
+| `card_stripe_payment_intent_id` | `string` | No |  |
+| `card_stripe_payment_intent_secret` | `string` | No |  |
+| `created_by_user` | `array` | Yes |  |
+| `currency` | `string` | No |  |
+| `custom_field` | `array` | No |  |
+| `customer_email_address` | `string` | No |  |
+| `customer_id` | `string` | No |  |
+| `customer_name` | `string` | No |  |
+| `description` | `string` | No |  |
+| `destination_account` | `array` | No |  |
+| `direct_debit_payment` | `array` | No |  |
 | `do_simulate_settlement_failure` | `bool` | No |  |
+| `due_date` | `string` | No |  |
 | `error_description` | `string` | No |  |
+| `event` | `array` | No |  |
+| `failure_callback_url` | `string` | No |  |
+| `field_display_setting` | `array` | No |  |
+| `formatted_amount` | `string` | No |  |
+| `hosted_pay_checkout_url` | `string` | No |  |
+| `id` | `string` | No |  |
+| `ignore_address_verification` | `bool` | No |  |
+| `inserted` | `string` | No |  |
+| `inserted_sortable` | `string` | No |  |
 | `institution` | `string` | No |  |
+| `is_archived` | `bool` | No |  |
+| `jwk` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `lightning_invoice` | `string` | No |  |
+| `lightning_invoice_expires_at` | `string` | No |  |
+| `merchant_direct_debit_mandate_id` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_token_description` | `string` | No |  |
+| `notification_email_address` | `string` | No |  |
+| `notification_role_i_d` | `array` | No |  |
+| `order_id` | `string` | No |  |
+| `partial_payment_method` | `string` | No |  |
+| `partial_payment_step` | `string` | No |  |
+| `payment_attempt` | `array` | No |  |
 | `payment_initiation_id` | `string` | No |  |
+| `payment_method` | `array` | No |  |
+| `payment_processor` | `string` | No |  |
+| `payrun_id` | `string` | No |  |
+| `pisp_account_id` | `string` | No |  |
+| `priority_bank_id` | `string` | No |  |
+| `result` | `array` | No |  |
+| `sandbox_settle_delay_in_second` | `int` | No |  |
+| `shipping_address` | `array` | No |  |
+| `status` | `string` | No |  |
+| `success_web_hook_url` | `string` | No |  |
+| `tag` | `array` | No |  |
+| `title` | `string` | No |  |
+| `tokenised_card` | `array` | No |  |
+| `transaction` | `array` | No |  |
+| `use_hosted_payment_page` | `bool` | No |  |
 
 ### Operations
 
@@ -5544,6 +2775,14 @@ Create a new entity with the given data. Throws on error.
 $result = $client->PaymentRequest()->create([
   "paymentrequest_id" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PaymentRequest()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -5594,6 +2833,347 @@ Set the entity match criteria.
 #### `make(): PaymentRequestEntity`
 
 Create a new `PaymentRequestEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestEventEntity
+
+```php
+$payment_request_event = $client->PaymentRequestEvent();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float` | Yes |  |
+| `apple_pay_transaction_id` | `string` | No |  |
+| `card_authorization_response_id` | `string` | No |  |
+| `card_expiry_month` | `int` | No |  |
+| `card_expiry_year` | `int` | No |  |
+| `card_issuer` | `string` | No |  |
+| `card_issuer_country` | `string` | No |  |
+| `card_last_four_digit` | `string` | No |  |
+| `card_request_id` | `string` | No |  |
+| `card_scheme` | `string` | No |  |
+| `card_token_customer_id` | `string` | No |  |
+| `card_transaction_id` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `direct_debit_payment_id` | `string` | No |  |
+| `direct_debit_payment_reference` | `string` | No |  |
+| `drirect_debit_mandate_id` | `string` | No |  |
+| `error_message` | `string` | No |  |
+| `error_reason` | `string` | No |  |
+| `event_type` | `string` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `lightning_invoice` | `string` | No |  |
+| `lightning_r_hash` | `string` | No |  |
+| `origin_url` | `string` | No |  |
+| `payment_method_type` | `string` | No |  |
+| `payment_processor_name` | `string` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `pisp_bank_status` | `string` | No |  |
+| `pisp_payment_initiation_id` | `string` | No |  |
+| `pisp_payment_institution_name` | `string` | No |  |
+| `pisp_payment_service_provider_id` | `string` | No |  |
+| `pisp_redirect_url` | `string` | No |  |
+| `reconciled_transaction_id` | `string` | No |  |
+| `refund_payout_id` | `string` | No |  |
+| `status` | `string` | No |  |
+| `wallet_name` | `string` | No |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PaymentRequestEvent()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentRequestEventEntity`
+
+Create a new `PaymentRequestEventEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestMetricEntity
+
+```php
+$payment_request_metric = $client->PaymentRequestMetric();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `all` | `int` | No |  |
+| `authorized` | `int` | No |  |
+| `paid` | `int` | No |  |
+| `partially_paid` | `int` | No |  |
+| `total_amounts_by_currency` | `array` | No |  |
+| `unpaid` | `int` | No |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->PaymentRequestMetric()->load();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentRequestMetricEntity`
+
+Create a new `PaymentRequestMetricEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestMinimalEntity
+
+```php
+$payment_request_minimal = $client->PaymentRequestMinimal();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float` | No |  |
+| `amount_pending` | `float` | No |  |
+| `amount_received` | `float` | No |  |
+| `amount_refunded` | `float` | No |  |
+| `callback_url` | `string` | No |  |
+| `card_stripe_payment_intent_secret` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `custom_fields_to_display` | `array` | No |  |
+| `description` | `string` | No |  |
+| `due_date` | `string` | No |  |
+| `field_display_setting` | `array` | No |  |
+| `google_pay_merchant_id` | `string` | No |  |
+| `id` | `string` | No |  |
+| `jwk` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_logo_url_png` | `string` | No |  |
+| `merchant_logo_url_svg` | `string` | No |  |
+| `merchant_name` | `string` | No |  |
+| `merchant_short_name` | `string` | No |  |
+| `partial_payment_method` | `string` | No |  |
+| `payment_attempt` | `array` | No |  |
+| `payment_methods_list` | `array` | No |  |
+| `payment_processor` | `string` | No |  |
+| `payment_processor_key` | `string` | No |  |
+| `pisp_error` | `string` | No |  |
+| `priority_bank_id` | `string` | No |  |
+| `status` | `string` | No |  |
+| `stripe_account_id` | `string` | No |  |
+| `title` | `string` | No |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PaymentRequestMinimal()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentRequestMinimalEntity`
+
+Create a new `PaymentRequestMinimalEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestResultEntity
+
+```php
+$payment_request_result = $client->PaymentRequestResult();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `float` | No |  |
+| `amount_pending` | `float` | No |  |
+| `amount_received` | `float` | No |  |
+| `amount_refunded` | `float` | No |  |
+| `currency` | `string` | No |  |
+| `customer_id` | `string` | No |  |
+| `payment` | `array` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `pisp_authorization` | `array` | No |  |
+| `requested_amount` | `float` | No |  |
+| `result` | `string` | No |  |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PaymentRequestResult()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentRequestResultEntity`
+
+Create a new `PaymentRequestResultEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PaymentRequestsCreateEntity
+
+```php
+$payment_requests_create = $client->PaymentRequestsCreate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_payment_request` | `array` | No |  |
+| `payment_request` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->PaymentRequestsCreate()->create([
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PaymentRequestsCreateEntity`
+
+Create a new `PaymentRequestsCreateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -5666,6 +3246,7 @@ $payout = $client->Payout();
 | `payment_rail` | `string` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
+| `reason` | `string` | No |  |
 | `rule` | `array` | No |  |
 | `schedule_date` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
@@ -5692,84 +3273,85 @@ $payout = $client->Payout();
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `account_id` | - | Yes | - | - |
-| `allow_incomplete` | - | - | - | - |
-| `amount` | - | - | - | - |
-| `amount_minor_unit` | - | - | - | - |
-| `approve_payout_url` | - | - | - | - |
-| `approver_id` | - | - | - | - |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `batch_payout_id` | - | - | - | - |
-| `beneficiary` | - | - | - | - |
-| `beneficiary_id` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
-| `can_process` | - | - | - | - |
-| `can_update` | - | - | - | - |
-| `charge_bearer` | - | - | - | - |
-| `created_by` | - | - | - | - |
-| `created_by_email_address` | - | - | - | - |
-| `currency` | - | Yes | - | - |
-| `current_user_id` | - | - | - | - |
-| `description` | - | - | - | - |
-| `destination` | - | - | - | - |
-| `document` | - | - | - | - |
-| `event` | - | - | - | - |
-| `formatted_amount` | - | - | - | - |
-| `formatted_fx_destination_amount` | - | - | - | - |
-| `formatted_schedule` | - | - | - | - |
-| `formatted_schedule_day_only` | - | - | - | - |
-| `formatted_source_account_available_balance` | - | - | - | - |
-| `fx_destination_amount` | - | - | - | - |
-| `fx_destination_amount_minor_unit` | - | - | - | - |
-| `fx_destination_currency` | - | - | - | - |
-| `fx_quote_expires_at` | - | - | - | - |
-| `fx_quote_id` | - | - | - | - |
-| `fx_rate` | - | - | - | - |
-| `fx_use_destination_amount` | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `id` | - | - | - | - |
-| `inserted` | - | - | - | - |
-| `invoice_id` | - | - | - | - |
-| `is_archived` | - | - | - | - |
-| `is_failed` | - | - | - | - |
-| `is_settled` | - | - | - | - |
-| `is_submitted` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | - | - | - |
-| `merchant_token_description` | - | - | - | - |
-| `nonce` | - | - | - | - |
-| `payment_processor` | - | - | - | - |
-| `payment_rail` | - | - | - | - |
-| `payrun_id` | - | - | - | - |
-| `payrun_name` | - | - | - | - |
-| `rule` | - | - | - | - |
-| `schedule_date` | - | - | - | - |
-| `scheduled` | - | - | - | - |
-| `source_account_available_balance` | - | - | - | - |
-| `source_account_available_balance_minor_unit` | - | - | - | - |
-| `source_account_bic` | - | - | - | - |
-| `source_account_currency` | - | - | - | - |
-| `source_account_iban` | - | - | - | - |
-| `source_account_identifier` | - | - | - | - |
-| `source_account_name` | - | - | - | - |
-| `source_account_number` | - | - | - | - |
-| `source_account_sortcode` | - | - | - | - |
-| `status` | - | - | - | - |
-| `tag` | - | - | - | - |
-| `tag_id` | - | - | - | - |
-| `their_reference` | - | - | - | - |
-| `topup_payrun_id` | - | - | - | - |
-| `transacted_amount` | - | - | - | - |
-| `transacted_fx_amount` | - | - | - | - |
-| `transacted_fx_rate` | - | - | - | - |
-| `type` | - | Yes | - | - |
-| `user_id` | - | - | - | - |
-| `your_reference` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | - | - | Yes | - | - |
+| `allow_incomplete` | - | - | - | - | - |
+| `amount` | - | - | - | - | - |
+| `amount_minor_unit` | - | - | - | - | - |
+| `approve_payout_url` | - | - | - | - | - |
+| `approver_id` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `batch_payout_id` | - | - | - | - | - |
+| `beneficiary` | - | - | - | - | - |
+| `beneficiary_id` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `can_process` | - | - | - | - | - |
+| `can_update` | - | - | - | - | - |
+| `charge_bearer` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `created_by_email_address` | - | - | - | - | - |
+| `currency` | - | - | Yes | - | - |
+| `current_user_id` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `destination` | - | - | - | - | - |
+| `document` | - | - | - | - | - |
+| `event` | - | - | - | - | - |
+| `formatted_amount` | - | - | - | - | - |
+| `formatted_fx_destination_amount` | - | - | - | - | - |
+| `formatted_schedule` | - | - | - | - | - |
+| `formatted_schedule_day_only` | - | - | - | - | - |
+| `formatted_source_account_available_balance` | - | - | - | - | - |
+| `fx_destination_amount` | - | - | - | - | - |
+| `fx_destination_amount_minor_unit` | - | - | - | - | - |
+| `fx_destination_currency` | - | - | - | - | - |
+| `fx_quote_expires_at` | - | - | - | - | - |
+| `fx_quote_id` | - | - | - | - | - |
+| `fx_rate` | - | - | - | - | - |
+| `fx_use_destination_amount` | - | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `invoice_id` | - | - | - | - | - |
+| `is_archived` | - | - | - | - | - |
+| `is_failed` | - | - | - | - | - |
+| `is_settled` | - | - | - | - | - |
+| `is_submitted` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `merchant_token_description` | - | - | - | - | - |
+| `nonce` | - | - | - | - | - |
+| `payment_processor` | - | - | - | - | - |
+| `payment_rail` | - | - | - | - | - |
+| `payrun_id` | - | - | - | - | - |
+| `payrun_name` | - | - | - | - | - |
+| `reason` | - | - | - | - | - |
+| `rule` | - | - | - | - | - |
+| `schedule_date` | - | - | - | - | - |
+| `scheduled` | - | - | - | - | - |
+| `source_account_available_balance` | - | - | - | - | - |
+| `source_account_available_balance_minor_unit` | - | - | - | - | - |
+| `source_account_bic` | - | - | - | - | - |
+| `source_account_currency` | - | - | - | - | - |
+| `source_account_iban` | - | - | - | - | - |
+| `source_account_identifier` | - | - | - | - | - |
+| `source_account_name` | - | - | - | - | - |
+| `source_account_number` | - | - | - | - | - |
+| `source_account_sortcode` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `tag` | - | - | - | - | - |
+| `tag_id` | - | - | - | - | - |
+| `their_reference` | - | - | - | - | - |
+| `topup_payrun_id` | - | - | - | - | - |
+| `transacted_amount` | - | - | - | - | - |
+| `transacted_fx_amount` | - | - | - | - | - |
+| `transacted_fx_rate` | - | - | - | - | - |
+| `type` | - | - | Yes | - | - |
+| `user_id` | - | - | - | - | - |
+| `your_reference` | - | - | - | - | - |
 
 ### Operations
 
@@ -5780,6 +3362,14 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Payout()->create([
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Payout()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -5839,85 +3429,10 @@ Return the entity name.
 
 ---
 
-## PayrunEntity
+## PayoutKeysetEntity
 
 ```php
-$payrun = $client->Payrun();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `note` | `string` | No |  |
-| `scheduled_date` | `string` | No |  |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->Payrun()->create([
-  "id" => null, // string
-]);
-```
-
-#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
-
-Remove the entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Payrun()->remove(["id" => "id"]);
-```
-
-#### `update(array $reqdata, ?array $ctrl = null): mixed`
-
-Update an existing entity. The data must include the entity `id`. Throws on error.
-
-```php
-$result = $client->Payrun()->update([
-  "id" => "id",
-  // Fields to update
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): PayrunEntity`
-
-Create a new `PayrunEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## RejectEntity
-
-```php
-$reject = $client->Reject();
+$payout_keyset = $client->PayoutKeyset();
 ```
 
 ### Fields
@@ -5975,7 +3490,6 @@ $reject = $client->Reject();
 | `payment_rail` | `string` | No |  |
 | `payrun_id` | `string` | No |  |
 | `payrun_name` | `string` | No |  |
-| `reason` | `string` | No |  |
 | `rule` | `array` | No |  |
 | `schedule_date` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
@@ -6001,13 +3515,242 @@ $reject = $client->Reject();
 
 ### Operations
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PayoutKeyset()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PayoutKeysetEntity`
+
+Create a new `PayoutKeysetEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PayoutMetricEntity
+
+```php
+$payout_metric = $client->PayoutMetric();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `all` | `float` | No |  |
+| `failed` | `float` | No |  |
+| `in_progress` | `float` | No |  |
+| `paid` | `float` | No |  |
+| `pending_approval` | `float` | No |  |
+| `scheduled` | `float` | No |  |
+| `total_amounts_by_currency` | `array` | No |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->PayoutMetric()->load();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PayoutMetricEntity`
+
+Create a new `PayoutMetricEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PayoutsCreateEntity
+
+```php
+$payouts_create = $client->PayoutsCreate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_payout` | `array` | No |  |
+| `payout` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->PayoutsCreate()->create([
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PayoutsCreateEntity`
+
+Create a new `PayoutsCreateEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## PayrunEntity
+
+```php
+$payrun = $client->Payrun();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation` | `array` | No |  |
+| `authorisation_date` | `string` | No |  |
+| `authorisers_completed_count` | `int` | No |  |
+| `authorisers_required_count` | `int` | No |  |
+| `batch_payout_id` | `string` | No |  |
+| `can_authorise` | `bool` | No |  |
+| `can_delete` | `bool` | No |  |
+| `can_edit` | `bool` | No |  |
+| `event` | `array` | No |  |
+| `has_current_user_authorised` | `bool` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `invoice` | `array` | No |  |
+| `invoices_minimal` | `array` | No |  |
+| `is_archived` | `bool` | No |  |
+| `last_updated` | `string` | No |  |
+| `last_updated_by` | `array` | Yes |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nonce` | `string` | No |  |
+| `note` | `string` | No |  |
+| `payment` | `array` | No |  |
+| `payout` | `array` | No |  |
+| `payouts_count` | `int` | No |  |
+| `reason` | `string` | No |  |
+| `schedule_date` | `string` | No |  |
+| `scheduled_date` | `string` | No |  |
+| `source_account` | `array` | No |  |
+| `status` | `string` | No |  |
+| `total_eur` | `float` | No |  |
+| `total_gbp` | `float` | No |  |
+| `total_usd` | `float` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Payrun()->create([
+  "id" => null, // string
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Payrun()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Payrun()->load(["id" => "payrun_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Payrun()->remove(["id" => "payrun_id"]);
+```
+
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
 
 Update an existing entity. The data must include the entity `id`. Throws on error.
 
 ```php
-$result = $client->Reject()->update([
-  "id" => "id",
+$result = $client->Payrun()->update([
+  "id" => "payrun_id",
   // Fields to update
 ]);
 ```
@@ -6030,9 +3773,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): RejectEntity`
+#### `make(): PayrunEntity`
 
-Create a new `RejectEntity` instance with the same client and
+Create a new `PayrunEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -6091,20 +3834,236 @@ Return the entity name.
 
 ---
 
+## ReportResultEntity
+
+```php
+$report_result = $client->ReportResult();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | No |  |
+| `content_type` | `string` | No |  |
+| `last_completed_at` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `report_name` | `string` | No |  |
+| `report_type` | `string` | No |  |
+| `statement_number` | `int` | No |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->ReportResult()->load(["id" => 1, "report_id" => "report_id"]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): ReportResultEntity`
+
+Create a new `ReportResultEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## RolesCreateEntity
+
+```php
+$roles_create = $client->RolesCreate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_role` | `array` | No |  |
+| `role` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->RolesCreate()->create([
+  "merchant_id" => null, // string
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): RolesCreateEntity`
+
+Create a new `RolesCreateEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
 ## RuleEntity
 
 ```php
 $rule = $client->Rule();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account` | `array` | No |  |
+| `account_id` | `string` | No |  |
+| `approve_url` | `string` | No |  |
+| `approver_id` | `string` | No |  |
+| `authentication_method` | `array` | No |  |
+| `authorisation` | `array` | No |  |
+| `authorisers_completed_count` | `int` | No |  |
+| `authorisers_required_count` | `int` | No |  |
+| `can_authorise` | `bool` | No |  |
+| `created_by` | `array` | Yes |  |
+| `description` | `string` | No |  |
+| `end_at` | `string` | No |  |
+| `has_current_user_authorised` | `bool` | No |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `is_disabled` | `bool` | No |  |
+| `last_executed_at` | `string` | No |  |
+| `last_run_at_transaction_date` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nonce` | `string` | Yes |  |
+| `on_approved_web_hook_url` | `string` | No |  |
+| `on_execution_error_web_hook_url` | `string` | No |  |
+| `on_execution_success_web_hook_url` | `string` | No |  |
+| `start_at` | `string` | No |  |
+| `status` | `string` | No |  |
+| `sweep_action` | `array` | No |  |
+| `time_zone_id` | `string` | No |  |
+| `trigger_cron_expression` | `string` | No |  |
+| `trigger_on_pay_in` | `bool` | No |  |
+| `user_id` | `string` | No |  |
+| `web_hook_secret` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `account` | - | - | - | - | - |
+| `account_id` | - | - | - | - | - |
+| `approve_url` | - | - | - | - | - |
+| `approver_id` | - | - | - | - | - |
+| `authentication_method` | - | - | - | - | - |
+| `authorisation` | - | - | - | - | - |
+| `authorisers_completed_count` | - | - | - | - | - |
+| `authorisers_required_count` | - | - | - | - | - |
+| `can_authorise` | - | - | - | - | - |
+| `created_by` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `end_at` | - | - | - | - | - |
+| `has_current_user_authorised` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `inserted` | - | - | - | - | - |
+| `is_disabled` | - | - | - | - | - |
+| `last_executed_at` | - | - | - | - | - |
+| `last_run_at_transaction_date` | - | - | - | - | - |
+| `last_updated` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `name` | - | - | Yes | - | - |
+| `nonce` | - | - | - | - | - |
+| `on_approved_web_hook_url` | - | - | - | - | - |
+| `on_execution_error_web_hook_url` | - | - | - | - | - |
+| `on_execution_success_web_hook_url` | - | - | - | - | - |
+| `start_at` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `sweep_action` | - | - | Yes | - | - |
+| `time_zone_id` | - | - | - | - | - |
+| `trigger_cron_expression` | - | - | - | - | - |
+| `trigger_on_pay_in` | - | - | - | - | - |
+| `user_id` | - | - | - | - | - |
+| `web_hook_secret` | - | - | - | - | - |
+
 ### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Rule()->create([
+  "created_by" => null, // array
+  "nonce" => null, // string
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Rule()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Rule()->load(["id" => "rule_id"]);
+```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
 
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Rule()->remove(["id" => "id"]);
+$result = $client->Rule()->remove(["id" => "rule_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -6113,7 +4072,7 @@ Update an existing entity. The data must include the entity `id`. Throws on erro
 
 ```php
 $result = $client->Rule()->update([
-  "id" => "id",
+  "id" => "rule_id",
   // Fields to update
 ]);
 ```
@@ -6148,185 +4107,34 @@ Return the entity name.
 
 ---
 
-## SendEntity
+## RuleEventEntity
 
 ```php
-$send = $client->Send();
+$rule_event = $client->RuleEvent();
 ```
 
 ### Fields
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `allow_incomplete` | `bool` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `array` | Yes |  |
-| `beneficiary_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `error_message` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `tag_id` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | create |
-| --- | --- |
-| `account_id` | Yes |
-| `allow_incomplete` | - |
-| `amount` | - |
-| `amount_minor_unit` | - |
-| `approve_payout_url` | - |
-| `approver_id` | - |
-| `authentication_method` | - |
-| `authorisation` | - |
-| `authorisers_completed_count` | - |
-| `authorisers_required_count` | - |
-| `batch_payout_id` | - |
-| `beneficiary` | - |
-| `beneficiary_id` | - |
-| `can_authorise` | - |
-| `can_process` | - |
-| `can_update` | - |
-| `charge_bearer` | - |
-| `created_by` | - |
-| `created_by_email_address` | - |
-| `currency` | Yes |
-| `current_user_id` | - |
-| `description` | - |
-| `destination` | - |
-| `document` | - |
-| `event` | - |
-| `formatted_amount` | - |
-| `formatted_fx_destination_amount` | - |
-| `formatted_schedule` | - |
-| `formatted_schedule_day_only` | - |
-| `formatted_source_account_available_balance` | - |
-| `fx_destination_amount` | - |
-| `fx_destination_amount_minor_unit` | - |
-| `fx_destination_currency` | - |
-| `fx_quote_expires_at` | - |
-| `fx_quote_id` | - |
-| `fx_rate` | - |
-| `fx_use_destination_amount` | - |
-| `has_current_user_authorised` | - |
-| `id` | - |
-| `inserted` | - |
-| `invoice_id` | - |
-| `is_archived` | - |
-| `is_failed` | - |
-| `is_settled` | - |
-| `is_submitted` | - |
-| `last_updated` | - |
-| `merchant_id` | - |
-| `merchant_token_description` | - |
-| `nonce` | - |
-| `payment_processor` | - |
-| `payment_rail` | - |
-| `payrun_id` | - |
-| `payrun_name` | - |
-| `rule` | - |
-| `schedule_date` | - |
-| `scheduled` | - |
-| `source_account_available_balance` | - |
-| `source_account_available_balance_minor_unit` | - |
-| `source_account_bic` | - |
-| `source_account_currency` | - |
-| `source_account_iban` | - |
-| `source_account_identifier` | - |
-| `source_account_name` | - |
-| `source_account_number` | - |
-| `source_account_sortcode` | - |
-| `status` | - |
-| `tag` | - |
-| `tag_id` | - |
-| `their_reference` | - |
-| `topup_payrun_id` | - |
-| `transacted_amount` | - |
-| `transacted_fx_amount` | - |
-| `transacted_fx_rate` | - |
-| `type` | Yes |
-| `user_id` | - |
-| `your_reference` | - |
+| `is_authorise_to_enable` | `bool` | No |  |
+| `message` | `string` | No |  |
+| `raw_response` | `string` | No |  |
+| `rule_event_type` | `string` | No |  |
+| `rule_id` | `string` | No |  |
+| `user` | `array` | Yes |  |
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$result = $client->Send()->create([
-  "beneficiary" => null, // array
-  "source_account_identifier" => null, // array
-]);
+$results = $client->RuleEvent()->list();
 ```
 
 ### Common Methods
@@ -6347,220 +4155,9 @@ Get the entity match criteria.
 
 Set the entity match criteria.
 
-#### `make(): SendEntity`
+#### `make(): RuleEventEntity`
 
-Create a new `SendEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## SendbeneficiaryEntity
-
-```php
-$sendbeneficiary = $client->Sendbeneficiary();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `allow_incomplete` | `bool` | No |  |
-| `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `beneficiary` | `array` | Yes |  |
-| `beneficiary_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
-| `description` | `string` | No |  |
-| `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `id` | `string` | No |  |
-| `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
-| `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `tag_id` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
-| `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
-
-### Field Usage by Operation
-
-| Field | create |
-| --- | --- |
-| `account_id` | Yes |
-| `allow_incomplete` | - |
-| `amount` | - |
-| `amount_minor_unit` | - |
-| `approve_payout_url` | - |
-| `approver_id` | - |
-| `authentication_method` | - |
-| `authorisation` | - |
-| `authorisers_completed_count` | - |
-| `authorisers_required_count` | - |
-| `batch_payout_id` | - |
-| `beneficiary` | - |
-| `beneficiary_id` | - |
-| `can_authorise` | - |
-| `can_process` | - |
-| `can_update` | - |
-| `charge_bearer` | - |
-| `created_by` | - |
-| `created_by_email_address` | - |
-| `currency` | Yes |
-| `current_user_id` | - |
-| `description` | - |
-| `destination` | - |
-| `document` | - |
-| `event` | - |
-| `formatted_amount` | - |
-| `formatted_fx_destination_amount` | - |
-| `formatted_schedule` | - |
-| `formatted_schedule_day_only` | - |
-| `formatted_source_account_available_balance` | - |
-| `fx_destination_amount` | - |
-| `fx_destination_amount_minor_unit` | - |
-| `fx_destination_currency` | - |
-| `fx_quote_expires_at` | - |
-| `fx_quote_id` | - |
-| `fx_rate` | - |
-| `fx_use_destination_amount` | - |
-| `has_current_user_authorised` | - |
-| `id` | - |
-| `inserted` | - |
-| `invoice_id` | - |
-| `is_archived` | - |
-| `is_failed` | - |
-| `is_settled` | - |
-| `is_submitted` | - |
-| `last_updated` | - |
-| `merchant_id` | - |
-| `merchant_token_description` | - |
-| `nonce` | - |
-| `payment_processor` | - |
-| `payment_rail` | - |
-| `payrun_id` | - |
-| `payrun_name` | - |
-| `rule` | - |
-| `schedule_date` | - |
-| `scheduled` | - |
-| `source_account_available_balance` | - |
-| `source_account_available_balance_minor_unit` | - |
-| `source_account_bic` | - |
-| `source_account_currency` | - |
-| `source_account_iban` | - |
-| `source_account_identifier` | - |
-| `source_account_name` | - |
-| `source_account_number` | - |
-| `source_account_sortcode` | - |
-| `status` | - |
-| `tag` | - |
-| `tag_id` | - |
-| `their_reference` | - |
-| `topup_payrun_id` | - |
-| `transacted_amount` | - |
-| `transacted_fx_amount` | - |
-| `transacted_fx_rate` | - |
-| `type` | Yes |
-| `user_id` | - |
-| `your_reference` | - |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->Sendbeneficiary()->create([
-  "beneficiary" => null, // array
-  "source_account_identifier" => null, // array
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): SendbeneficiaryEntity`
-
-Create a new `SendbeneficiaryEntity` instance with the same client and
+Create a new `RuleEventEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -6698,6 +4295,64 @@ Return the entity name.
 $transaction = $client->Transaction();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `account_id` | `string` | No |  |
+| `account_name` | `string` | No |  |
+| `account_sequence_number` | `int` | No |  |
+| `address_detail` | `array` | No |  |
+| `amount` | `float` | No |  |
+| `amount_minor_unit` | `int` | No |  |
+| `balance` | `float` | No |  |
+| `balance_minor_unit` | `int` | No |  |
+| `booking_date_time` | `string` | No |  |
+| `charge_detail` | `array` | No |  |
+| `content` | `array` | No |  |
+| `counterparty` | `array` | No |  |
+| `counterparty_summary` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `currency_exchange` | `array` | No |  |
+| `date` | `string` | No |  |
+| `description` | `string` | No |  |
+| `enrichment` | `array` | No |  |
+| `fx_amount` | `float` | No |  |
+| `fx_currency` | `string` | No |  |
+| `fx_rate` | `float` | No |  |
+| `gross_amount` | `array` | Yes |  |
+| `id` | `string` | No |  |
+| `inserted` | `string` | No |  |
+| `iso_bank_transaction_code` | `array` | No |  |
+| `merchant` | `array` | No |  |
+| `merchant_id` | `string` | No |  |
+| `page_number` | `int` | No |  |
+| `page_size` | `int` | No |  |
+| `payee_detail` | `array` | Yes |  |
+| `payer_detail` | `array` | Yes |  |
+| `payment_request_custom_field` | `array` | No |  |
+| `payment_request_id` | `string` | No |  |
+| `payout_id` | `string` | No |  |
+| `proprietary_bank_transaction_code` | `array` | No |  |
+| `raw_reference` | `string` | No |  |
+| `reference` | `string` | No |  |
+| `rule_id` | `string` | No |  |
+| `statement_reference` | `array` | No |  |
+| `status` | `string` | No |  |
+| `supplementary_data` | `mixed` | No |  |
+| `tag` | `array` | No |  |
+| `their_reference` | `string` | No |  |
+| `total_page` | `int` | No |  |
+| `total_size` | `int` | No |  |
+| `transaction_amount` | `array` | Yes |  |
+| `transaction_date` | `string` | No |  |
+| `transaction_information` | `array` | No |  |
+| `transaction_mutability` | `string` | No |  |
+| `type` | `string` | No |  |
+| `value_date_time` | `string` | No |  |
+| `virtual_iban` | `string` | No |  |
+| `your_reference` | `string` | No |  |
+
 ### Operations
 
 #### `create(array $reqdata, ?array $ctrl = null): mixed`
@@ -6710,12 +4365,20 @@ $result = $client->Transaction()->create([
 ]);
 ```
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Transaction()->list();
+```
+
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Transaction()->load(["sequence_number" => 1, "transaction_id" => "transaction_id"]);
+$result = $client->Transaction()->load(["id" => "transaction_id"]);
 ```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -6723,7 +4386,7 @@ $result = $client->Transaction()->load(["sequence_number" => 1, "transaction_id"
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Transaction()->remove(["id" => "id"]);
+$result = $client->Transaction()->remove(["id" => "transaction_id"]);
 ```
 
 ### Common Methods
@@ -6851,6 +4514,56 @@ Return the entity name.
 $user_invite = $client->UserInvite();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `authorisation_status` | `array` | No |  |
+| `id` | `string` | No |  |
+| `initial_role_id` | `string` | No |  |
+| `invitee_email_address` | `string` | No |  |
+| `invitee_first_name` | `string` | No |  |
+| `invitee_last_name` | `string` | No |  |
+| `inviter_email_address` | `string` | No |  |
+| `inviter_first_name` | `string` | No |  |
+| `inviter_last_name` | `string` | No |  |
+| `is_authorised` | `bool` | No |  |
+| `is_invitee_registered` | `bool` | No |  |
+| `last_invited` | `string` | No |  |
+| `merchant_id` | `string` | No |  |
+| `merchant_name` | `string` | No |  |
+| `message` | `string` | No |  |
+| `registration_url` | `string` | No |  |
+| `send_invite_email` | `bool` | No |  |
+| `status` | `string` | No |  |
+| `user` | `array` | Yes |  |
+| `user_id` | `string` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `authorisation_status` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `initial_role_id` | - | - | - | - | - |
+| `invitee_email_address` | - | - | Yes | - | - |
+| `invitee_first_name` | - | - | - | - | - |
+| `invitee_last_name` | - | - | - | - | - |
+| `inviter_email_address` | - | - | - | - | - |
+| `inviter_first_name` | - | - | - | - | - |
+| `inviter_last_name` | - | - | - | - | - |
+| `is_authorised` | - | - | - | - | - |
+| `is_invitee_registered` | - | - | - | - | - |
+| `last_invited` | - | - | - | - | - |
+| `merchant_id` | - | - | - | - | - |
+| `merchant_name` | - | - | - | - | - |
+| `message` | - | - | - | - | - |
+| `registration_url` | - | - | - | - | - |
+| `send_invite_email` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `user` | - | - | - | - | - |
+| `user_id` | - | - | - | - | - |
+
 ### Operations
 
 #### `create(array $reqdata, ?array $ctrl = null): mixed`
@@ -6859,8 +4572,23 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->UserInvite()->create([
-  "id" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->UserInvite()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->UserInvite()->load(["id" => "user_invite_id"]);
 ```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -6868,7 +4596,7 @@ $result = $client->UserInvite()->create([
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->UserInvite()->remove(["id" => "id"]);
+$result = $client->UserInvite()->remove(["id" => "user_invite_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -6877,7 +4605,7 @@ Update an existing entity. The data must include the entity `id`. Throws on erro
 
 ```php
 $result = $client->UserInvite()->update([
-  "id" => "id",
+  "id" => "user_invite_id",
   // Fields to update
 ]);
 ```
@@ -6903,6 +4631,60 @@ Set the entity match criteria.
 #### `make(): UserInviteEntity`
 
 Create a new `UserInviteEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## UserInvitesCreateEntity
+
+```php
+$user_invites_create = $client->UserInvitesCreate();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `failed_user_invite` | `array` | No |  |
+| `user_invite` | `array` | No |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->UserInvitesCreate()->create([
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): UserInvitesCreateEntity`
+
+Create a new `UserInvitesCreateEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -7023,14 +4805,82 @@ Return the entity name.
 $webhook = $client->Webhook();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `destination_url` | `string` | No |  |
+| `email_address` | `string` | No |  |
+| `failed_notification_email_address` | `string` | No |  |
+| `id` | `string` | No |  |
+| `is_active` | `bool` | No |  |
+| `merchant_id` | `string` | No |  |
+| `notification_method` | `string` | No |  |
+| `resource_type` | `array` | No |  |
+| `retry` | `bool` | No |  |
+| `secret` | `string` | No |  |
+| `version` | `int` | No |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `destination_url` | - | - | - | - | - |
+| `email_address` | - | - | - | - | - |
+| `failed_notification_email_address` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `is_active` | - | - | - | - | - |
+| `merchant_id` | - | - | Yes | Yes | - |
+| `notification_method` | - | - | Yes | Yes | - |
+| `resource_type` | - | - | - | - | - |
+| `retry` | - | - | - | - | - |
+| `secret` | - | - | - | - | - |
+| `version` | - | - | - | - | - |
+
 ### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Webhook()->create([
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Webhook()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Webhook()->load(["id" => "webhook_id"]);
+```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
 
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Webhook()->remove(["id" => "id"]);
+$result = $client->Webhook()->remove(["id" => "webhook_id"]);
+```
+
+#### `update(array $reqdata, ?array $ctrl = null): mixed`
+
+Update an existing entity. The data must include the entity `id`. Throws on error.
+
+```php
+$result = $client->Webhook()->update([
+  "id" => "webhook_id",
+  // Fields to update
+]);
 ```
 
 ### Common Methods
@@ -7054,126 +4904,6 @@ Set the entity match criteria.
 #### `make(): WebhookEntity`
 
 Create a new `WebhookEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## WhoamiEntity
-
-```php
-$whoami = $client->Whoami();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `array` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `array` | No |  |
-| `roles_with_scope` | `array` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->Whoami()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): WhoamiEntity`
-
-Create a new `WhoamiEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## WhoamitrustedappEntity
-
-```php
-$whoamitrustedapp = $client->Whoamitrustedapp();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `client_session_timeout` | `array` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
-| `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `array` | No |  |
-| `roles_with_scope` | `array` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->Whoamitrustedapp()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): WhoamitrustedappEntity`
-
-Create a new `WhoamitrustedappEntity` instance with the same client and
 options.
 
 #### `get_name(): string`

@@ -19,7 +19,7 @@ describe("WebhookEntity", function()
     local setup = webhook_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "webhook." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -34,21 +34,78 @@ describe("WebhookEntity", function()
     end
     local client = setup.client
 
-    -- Bootstrap entity data from existing test data.
-    local webhook_ref01_data_raw = vs.items(helpers.to_map(
-      vs.getpath(setup.data, "existing.webhook")))
-    local webhook_ref01_data = nil
-    if #webhook_ref01_data_raw > 0 then
-      webhook_ref01_data = helpers.to_map(webhook_ref01_data_raw[1][2])
-    end
+    -- CREATE
+    local webhook_ref01_ent = client:Webhook(nil)
+    local webhook_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.webhook"), "webhook_ref01"))
+    webhook_ref01_data["merchant_id"] = setup.idmap["merchant01"]
+
+    local webhook_ref01_data_result, err = webhook_ref01_ent:create(webhook_ref01_data, nil)
+    assert.is_nil(err)
+    webhook_ref01_data = helpers.to_map(webhook_ref01_data_result)
+    assert.is_not_nil(webhook_ref01_data)
+    assert.is_not_nil(webhook_ref01_data["id"])
+
+    -- LIST
+    local webhook_ref01_match = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local webhook_ref01_list_result, err = webhook_ref01_ent:list(webhook_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(webhook_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(webhook_ref01_list_result),
+      { id = webhook_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
+    -- UPDATE
+    local webhook_ref01_data_up0_up = {
+      id = webhook_ref01_data["id"],
+    }
+
+    local webhook_ref01_markdef_up0_name = "destination_url"
+    local webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" .. tostring(setup.now)
+    webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
+
+    local webhook_ref01_resdata_up0_result, err = webhook_ref01_ent:update(webhook_ref01_data_up0_up, nil)
+    assert.is_nil(err)
+    local webhook_ref01_resdata_up0 = helpers.to_map(webhook_ref01_resdata_up0_result)
+    assert.is_not_nil(webhook_ref01_resdata_up0)
+    assert.are.equal(webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"])
+    assert.are.equal(webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value)
+
+    -- LOAD
+    local webhook_ref01_match_dt0 = {
+      id = webhook_ref01_data["id"],
+    }
+    local webhook_ref01_data_dt0_loaded, err = webhook_ref01_ent:load(webhook_ref01_match_dt0, nil)
+    assert.is_nil(err)
+    local webhook_ref01_data_dt0_load_result = helpers.to_map(webhook_ref01_data_dt0_loaded)
+    assert.is_not_nil(webhook_ref01_data_dt0_load_result)
+    assert.are.equal(webhook_ref01_data_dt0_load_result["id"], webhook_ref01_data["id"])
 
     -- REMOVE
-    local webhook_ref01_ent = client:Webhook(nil)
     local webhook_ref01_match_rm0 = {
       id = webhook_ref01_data["id"],
     }
     local _, err = webhook_ref01_ent:remove(webhook_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local webhook_ref01_match_rt0 = {
+      ["merchant_id"] = setup.idmap["merchant01"],
+    }
+
+    local webhook_ref01_list_rt0_result, err = webhook_ref01_ent:list(webhook_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(webhook_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(webhook_ref01_list_rt0_result),
+      { id = webhook_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)
@@ -73,7 +130,7 @@ function webhook_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhook01", "webhook02", "webhook03" },
+    { "webhook01", "webhook02", "webhook03", "merchant01", "merchant02", "merchant03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

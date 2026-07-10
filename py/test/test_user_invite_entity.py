@@ -27,7 +27,7 @@ class TestUserInviteEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "user_invite." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -43,22 +43,66 @@ class TestUserInviteEntity:
         user_invite_ref01_ent = client.UserInvite(None)
         user_invite_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.user_invite"), "user_invite_ref01"))
+        user_invite_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
         user_invite_ref01_data = helpers.to_map(user_invite_ref01_ent.create(user_invite_ref01_data, None))
         assert user_invite_ref01_data is not None
+        assert user_invite_ref01_data["id"] is not None
+
+        # LIST
+        user_invite_ref01_match = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        user_invite_ref01_list_result = user_invite_ref01_ent.list(user_invite_ref01_match, None)
+        assert isinstance(user_invite_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(user_invite_ref01_list_result),
+            {"id": user_invite_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         user_invite_ref01_data_up0_up = {
+            "id": user_invite_ref01_data["id"],
         }
+
+        user_invite_ref01_markdef_up0_name = "initial_role_id"
+        user_invite_ref01_markdef_up0_value = "Mark01-user_invite_ref01_" + str(setup["now"])
+        user_invite_ref01_data_up0_up[user_invite_ref01_markdef_up0_name] = user_invite_ref01_markdef_up0_value
 
         user_invite_ref01_resdata_up0 = helpers.to_map(user_invite_ref01_ent.update(user_invite_ref01_data_up0_up, None))
         assert user_invite_ref01_resdata_up0 is not None
+        assert user_invite_ref01_resdata_up0["id"] == user_invite_ref01_data_up0_up["id"]
+        assert user_invite_ref01_resdata_up0[user_invite_ref01_markdef_up0_name] == user_invite_ref01_markdef_up0_value
+
+        # LOAD
+        user_invite_ref01_match_dt0 = {
+            "id": user_invite_ref01_data["id"],
+        }
+        user_invite_ref01_data_dt0_loaded = user_invite_ref01_ent.load(user_invite_ref01_match_dt0, None)
+        user_invite_ref01_data_dt0_load_result = helpers.to_map(user_invite_ref01_data_dt0_loaded)
+        assert user_invite_ref01_data_dt0_load_result is not None
+        assert user_invite_ref01_data_dt0_load_result["id"] == user_invite_ref01_data["id"]
 
         # REMOVE
         user_invite_ref01_match_rm0 = {
             "id": user_invite_ref01_data["id"],
         }
         user_invite_ref01_ent.remove(user_invite_ref01_match_rm0, None)
+
+        # LIST
+        user_invite_ref01_match_rt0 = {
+            "merchant_id": setup["idmap"]["merchant01"],
+        }
+
+        user_invite_ref01_list_rt0_result = user_invite_ref01_ent.list(user_invite_ref01_match_rt0, None)
+        assert isinstance(user_invite_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(user_invite_ref01_list_rt0_result),
+            {"id": user_invite_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 
@@ -78,7 +122,7 @@ def _user_invite_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["user_invite01", "user_invite02", "user_invite03"],
+        ["user_invite01", "user_invite02", "user_invite03", "merchant01", "merchant02", "merchant03", "userinvite01", "userinvite02", "userinvite03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

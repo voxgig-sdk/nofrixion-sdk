@@ -39,7 +39,7 @@ describe('MerchantEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['update', 'load', 'remove']) {
+    for (const op of ['list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'merchant.' + op, live)) return
     }
 
@@ -59,24 +59,43 @@ describe('MerchantEntity', async () => {
 
     let merchant_ref01_data = Object.values(setup.data.existing.merchant)[0] as any
 
-    // UPDATE
+    // LIST
     const merchant_ref01_ent = client.Merchant()
-    const merchant_ref01_data_up0: any = {}
+    const merchant_ref01_match: any = {}
 
-    const merchant_ref01_markdef_up0 = { name: 'reason', value: 'Mark01-merchant_ref01_' + setup.now }
+    const merchant_ref01_list = await merchant_ref01_ent.list(merchant_ref01_match)
+
+
+    // UPDATE
+    const merchant_ref01_data_up0: any = {}
+    merchant_ref01_data_up0.id = merchant_ref01_data.id
+
+    const merchant_ref01_markdef_up0 = { name: 'card_payment_processor', value: 'Mark01-merchant_ref01_' + setup.now }
     ;(merchant_ref01_data_up0 as any)[merchant_ref01_markdef_up0.name] = merchant_ref01_markdef_up0.value
 
     const merchant_ref01_resdata_up0 = await merchant_ref01_ent.update(merchant_ref01_data_up0)
-    assert(null != merchant_ref01_resdata_up0)
+    assert(merchant_ref01_resdata_up0.id === merchant_ref01_data_up0.id)
 
     assert((merchant_ref01_resdata_up0 as any)[merchant_ref01_markdef_up0.name] === merchant_ref01_markdef_up0.value)
 
+
+    // LOAD
+    const merchant_ref01_match_dt0: any = {}
+    merchant_ref01_match_dt0.id = merchant_ref01_data.id
+    const merchant_ref01_data_dt0 = await merchant_ref01_ent.load(merchant_ref01_match_dt0)
+    assert(merchant_ref01_data_dt0.id === merchant_ref01_data.id)
 
 
     // REMOVE
     const merchant_ref01_match_rm0: any = { id: merchant_ref01_data.id }
     await merchant_ref01_ent.remove(merchant_ref01_match_rm0)
   
+
+    // LIST
+    const merchant_ref01_match_rt0: any = {}
+
+    const merchant_ref01_list_rt0 = await merchant_ref01_ent.list(merchant_ref01_match_rt0)
+
 
   })
 })

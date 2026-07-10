@@ -39,7 +39,7 @@ describe('PaymentRequestEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['create', 'update', 'load', 'remove']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'payment_request.' + op, live)) return
     }
 
@@ -64,31 +64,49 @@ describe('PaymentRequestEntity', async () => {
     payment_request_ref01_data['paymentrequest_id'] = setup.idmap['paymentrequest01']
 
     payment_request_ref01_data = await payment_request_ref01_ent.create(payment_request_ref01_data)
-    assert(null != payment_request_ref01_data)
+    assert(null != payment_request_ref01_data.id)
+
+
+    // LIST
+    const payment_request_ref01_match: any = {}
+
+    const payment_request_ref01_list = await payment_request_ref01_ent.list(payment_request_ref01_match)
+
+    assert(!isempty(select(payment_request_ref01_list, { id: payment_request_ref01_data.id })))
 
 
     // UPDATE
     const payment_request_ref01_data_up0: any = {}
+    payment_request_ref01_data_up0.id = payment_request_ref01_data.id
 
-    const payment_request_ref01_markdef_up0 = { name: 'error_description', value: 'Mark01-payment_request_ref01_' + setup.now }
+    const payment_request_ref01_markdef_up0 = { name: 'base_origin_url', value: 'Mark01-payment_request_ref01_' + setup.now }
     ;(payment_request_ref01_data_up0 as any)[payment_request_ref01_markdef_up0.name] = payment_request_ref01_markdef_up0.value
 
     const payment_request_ref01_resdata_up0 = await payment_request_ref01_ent.update(payment_request_ref01_data_up0)
-    assert(null != payment_request_ref01_resdata_up0)
+    assert(payment_request_ref01_resdata_up0.id === payment_request_ref01_data_up0.id)
 
     assert((payment_request_ref01_resdata_up0 as any)[payment_request_ref01_markdef_up0.name] === payment_request_ref01_markdef_up0.value)
 
 
     // LOAD
     const payment_request_ref01_match_dt0: any = {}
+    payment_request_ref01_match_dt0.id = payment_request_ref01_data.id
     const payment_request_ref01_data_dt0 = await payment_request_ref01_ent.load(payment_request_ref01_match_dt0)
-    assert(null != payment_request_ref01_data_dt0)
+    assert(payment_request_ref01_data_dt0.id === payment_request_ref01_data.id)
 
 
     // REMOVE
     const payment_request_ref01_match_rm0: any = { id: payment_request_ref01_data.id }
     await payment_request_ref01_ent.remove(payment_request_ref01_match_rm0)
   
+
+    // LIST
+    const payment_request_ref01_match_rt0: any = {}
+
+    const payment_request_ref01_list_rt0 = await payment_request_ref01_ent.list(payment_request_ref01_match_rt0)
+
+    assert(isempty(select(payment_request_ref01_list_rt0, { id: payment_request_ref01_data.id })))
+
 
   })
 })

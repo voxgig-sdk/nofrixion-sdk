@@ -45,7 +45,7 @@ func TestUserDirect(t *testing.T) {
 		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "api/v1/merchants/{merchant_id}/users",
+			"path":   "api/v1/user/{merchant_id}/userspaged",
 			"method": "GET",
 			"params": params,
 		})

@@ -1,0 +1,400 @@
+# Entity: payment_account
+
+main: kit: entity: payment_account: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "account_supplier_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "available_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "available_balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bank_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "consent_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "created_by_display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "default_payment_rail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expiry_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "external_account_icon"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_connected_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_default"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_trust_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_virtual"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_transaction"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "physical_account_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rule"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "submitted_payouts_balance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "submitted_payouts_balance_minor_unit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "summary"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "supplier_sepa_instant_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_connection_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_last_synced_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_last_failed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_last_failure_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_bank_feed_sync_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xero_unsynchronised_transactions_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "payment_account"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "connected_account"
+                orig: "connected_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_child_merchant"
+                orig: "include_child_merchant"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_archived"
+                orig: "only_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_connect_account"
+                orig: "only_connect_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/paged"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "paged"
+          ]
+          select: {
+            exist: [
+              "connected_account"
+              "currency"
+              "include_archived"
+              "include_child_merchant"
+              "merchant_id"
+              "only_archived"
+              "only_connect_account"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/{accountID}/virtual"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "{account_id}"
+            "virtual"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "page_number"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

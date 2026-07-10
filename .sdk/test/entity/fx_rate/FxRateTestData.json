@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "fx_rate": {
+      "FX_RATE00": {
+        "destination_currency": "s32",
+        "exchange_rate": 51,
+        "expiry_time": "s34",
+        "quote_id": "QUOTE01",
+        "source_currency": "s36",
+        "destination": "DESTINATION01",
+        "source": "SOURCE01",
+        "valid_for_minute": "VALID_FOR_MINUTE01",
+        "id": "FX_RATE00"
+      },
+      "FX_RATE01": {
+        "destination_currency": "s64",
+        "exchange_rate": 101,
+        "expiry_time": "s66",
+        "quote_id": "QUOTE01",
+        "source_currency": "s68",
+        "destination": "DESTINATION01",
+        "source": "SOURCE01",
+        "valid_for_minute": "VALID_FOR_MINUTE01",
+        "id": "FX_RATE01"
+      },
+      "FX_RATE02": {
+        "destination_currency": "s96",
+        "exchange_rate": 151,
+        "expiry_time": "s98",
+        "quote_id": "QUOTE01",
+        "source_currency": "s9a",
+        "destination": "DESTINATION01",
+        "source": "SOURCE01",
+        "valid_for_minute": "VALID_FOR_MINUTE01",
+        "id": "FX_RATE02"
+      }
+    }
+  },
+  "new": {
+    "fx_rate": {
+      "fx_rate_ref01": {
+        "destination_currency": "sc8",
+        "exchange_rate": 201,
+        "expiry_time": "sca",
+        "quote_id": "QUOTE01",
+        "source_currency": "scc"
+      }
+    }
+  }
+}

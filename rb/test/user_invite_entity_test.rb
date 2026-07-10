@@ -16,7 +16,7 @@ class UserInviteEntityTest < Minitest::Test
     setup = user_invite_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "update", "remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "user_invite." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -35,24 +35,68 @@ class UserInviteEntityTest < Minitest::Test
     user_invite_ref01_ent = client.UserInvite(nil)
     user_invite_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.user_invite"), "user_invite_ref01"))
+    user_invite_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     user_invite_ref01_data_result = user_invite_ref01_ent.create(user_invite_ref01_data, nil)
     user_invite_ref01_data = Helpers.to_map(user_invite_ref01_data_result)
     assert !user_invite_ref01_data.nil?
+    assert !user_invite_ref01_data["id"].nil?
+
+    # LIST
+    user_invite_ref01_match = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    user_invite_ref01_list_result = user_invite_ref01_ent.list(user_invite_ref01_match, nil)
+    assert user_invite_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(user_invite_ref01_list_result),
+      { "id" => user_invite_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
     # UPDATE
     user_invite_ref01_data_up0_up = {
+      "id" => user_invite_ref01_data["id"],
     }
+
+    user_invite_ref01_markdef_up0_name = "initial_role_id"
+    user_invite_ref01_markdef_up0_value = "Mark01-user_invite_ref01_#{setup[:now]}"
+    user_invite_ref01_data_up0_up[user_invite_ref01_markdef_up0_name] = user_invite_ref01_markdef_up0_value
 
     user_invite_ref01_resdata_up0_result = user_invite_ref01_ent.update(user_invite_ref01_data_up0_up, nil)
     user_invite_ref01_resdata_up0 = Helpers.to_map(user_invite_ref01_resdata_up0_result)
     assert !user_invite_ref01_resdata_up0.nil?
+    assert_equal user_invite_ref01_resdata_up0["id"], user_invite_ref01_data_up0_up["id"]
+    assert_equal user_invite_ref01_resdata_up0[user_invite_ref01_markdef_up0_name], user_invite_ref01_markdef_up0_value
+
+    # LOAD
+    user_invite_ref01_match_dt0 = {
+      "id" => user_invite_ref01_data["id"],
+    }
+    user_invite_ref01_data_dt0_loaded = user_invite_ref01_ent.load(user_invite_ref01_match_dt0, nil)
+    user_invite_ref01_data_dt0_load_result = Helpers.to_map(user_invite_ref01_data_dt0_loaded)
+    assert !user_invite_ref01_data_dt0_load_result.nil?
+    assert_equal user_invite_ref01_data_dt0_load_result["id"], user_invite_ref01_data["id"]
 
     # REMOVE
     user_invite_ref01_match_rm0 = {
       "id" => user_invite_ref01_data["id"],
     }
     user_invite_ref01_ent.remove(user_invite_ref01_match_rm0, nil)
+
+    # LIST
+    user_invite_ref01_match_rt0 = {
+      "merchant_id" => setup[:idmap]["merchant01"],
+    }
+
+    user_invite_ref01_list_rt0_result = user_invite_ref01_ent.list(user_invite_ref01_match_rt0, nil)
+    assert user_invite_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(user_invite_ref01_list_rt0_result),
+      { "id" => user_invite_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end
@@ -71,7 +115,7 @@ def user_invite_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["user_invite01", "user_invite02", "user_invite03"],
+    ["user_invite01", "user_invite02", "user_invite03", "merchant01", "merchant02", "merchant03", "userinvite01", "userinvite02", "userinvite03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

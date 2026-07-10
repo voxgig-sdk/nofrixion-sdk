@@ -19,7 +19,7 @@ describe("PaymentRequestEntity", function()
     local setup = payment_request_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "payment_request." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -44,12 +44,26 @@ describe("PaymentRequestEntity", function()
     assert.is_nil(err)
     payment_request_ref01_data = helpers.to_map(payment_request_ref01_data_result)
     assert.is_not_nil(payment_request_ref01_data)
+    assert.is_not_nil(payment_request_ref01_data["id"])
+
+    -- LIST
+    local payment_request_ref01_match = {}
+
+    local payment_request_ref01_list_result, err = payment_request_ref01_ent:list(payment_request_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(payment_request_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(payment_request_ref01_list_result),
+      { id = payment_request_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local payment_request_ref01_data_up0_up = {
+      id = payment_request_ref01_data["id"],
     }
 
-    local payment_request_ref01_markdef_up0_name = "error_description"
+    local payment_request_ref01_markdef_up0_name = "base_origin_url"
     local payment_request_ref01_markdef_up0_value = "Mark01-payment_request_ref01_" .. tostring(setup.now)
     payment_request_ref01_data_up0_up[payment_request_ref01_markdef_up0_name] = payment_request_ref01_markdef_up0_value
 
@@ -57,13 +71,18 @@ describe("PaymentRequestEntity", function()
     assert.is_nil(err)
     local payment_request_ref01_resdata_up0 = helpers.to_map(payment_request_ref01_resdata_up0_result)
     assert.is_not_nil(payment_request_ref01_resdata_up0)
+    assert.are.equal(payment_request_ref01_resdata_up0["id"], payment_request_ref01_data_up0_up["id"])
     assert.are.equal(payment_request_ref01_resdata_up0[payment_request_ref01_markdef_up0_name], payment_request_ref01_markdef_up0_value)
 
     -- LOAD
-    local payment_request_ref01_match_dt0 = {}
+    local payment_request_ref01_match_dt0 = {
+      id = payment_request_ref01_data["id"],
+    }
     local payment_request_ref01_data_dt0_loaded, err = payment_request_ref01_ent:load(payment_request_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(payment_request_ref01_data_dt0_loaded)
+    local payment_request_ref01_data_dt0_load_result = helpers.to_map(payment_request_ref01_data_dt0_loaded)
+    assert.is_not_nil(payment_request_ref01_data_dt0_load_result)
+    assert.are.equal(payment_request_ref01_data_dt0_load_result["id"], payment_request_ref01_data["id"])
 
     -- REMOVE
     local payment_request_ref01_match_rm0 = {
@@ -71,6 +90,18 @@ describe("PaymentRequestEntity", function()
     }
     local _, err = payment_request_ref01_ent:remove(payment_request_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local payment_request_ref01_match_rt0 = {}
+
+    local payment_request_ref01_list_rt0_result, err = payment_request_ref01_ent:list(payment_request_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(payment_request_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(payment_request_ref01_list_rt0_result),
+      { id = payment_request_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

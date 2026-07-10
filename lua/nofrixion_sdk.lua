@@ -258,6 +258,34 @@ function NofrixionSDK:Account(data)
 end
 
 
+-- Idiomatic facade: client:Batch():list() / client:Batch():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:Batch(data)
+  local EntityMod = require("entity.batch_entity")
+  if data == nil then
+    if self._batch == nil then
+      self._batch = EntityMod.new(self, nil)
+    end
+    return self._batch
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:BeneficiariesCreate():list() / client:BeneficiariesCreate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:BeneficiariesCreate(data)
+  local EntityMod = require("entity.beneficiaries_create_entity")
+  if data == nil then
+    if self._beneficiaries_create == nil then
+      self._beneficiaries_create = EntityMod.new(self, nil)
+    end
+    return self._beneficiaries_create
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Beneficiary():list() / client:Beneficiary():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Beneficiary(data)
@@ -272,43 +300,155 @@ function NofrixionSDK:Beneficiary(data)
 end
 
 
--- Idiomatic facade: client:Cancel():list() / client:Cancel():load({ id = ... })
+-- Idiomatic facade: client:BeneficiaryGroup():list() / client:BeneficiaryGroup():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Cancel(data)
-  local EntityMod = require("entity.cancel_entity")
+function NofrixionSDK:BeneficiaryGroup(data)
+  local EntityMod = require("entity.beneficiary_group_entity")
   if data == nil then
-    if self._cancel == nil then
-      self._cancel = EntityMod.new(self, nil)
+    if self._beneficiary_group == nil then
+      self._beneficiary_group = EntityMod.new(self, nil)
     end
-    return self._cancel
+    return self._beneficiary_group
   end
   return EntityMod.new(self, data)
 end
 
 
--- Idiomatic facade: client:Disable():list() / client:Disable():load({ id = ... })
+-- Idiomatic facade: client:Card():list() / client:Card():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Disable(data)
-  local EntityMod = require("entity.disable_entity")
+function NofrixionSDK:Card(data)
+  local EntityMod = require("entity.card_entity")
   if data == nil then
-    if self._disable == nil then
-      self._disable = EntityMod.new(self, nil)
+    if self._card == nil then
+      self._card = EntityMod.new(self, nil)
     end
-    return self._disable
+    return self._card
   end
   return EntityMod.new(self, data)
 end
 
 
--- Idiomatic facade: client:Enable():list() / client:Enable():load({ id = ... })
+-- Idiomatic facade: client:CardCustomerToken():list() / client:CardCustomerToken():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Enable(data)
-  local EntityMod = require("entity.enable_entity")
+function NofrixionSDK:CardCustomerToken(data)
+  local EntityMod = require("entity.card_customer_token_entity")
   if data == nil then
-    if self._enable == nil then
-      self._enable = EntityMod.new(self, nil)
+    if self._card_customer_token == nil then
+      self._card_customer_token = EntityMod.new(self, nil)
     end
-    return self._enable
+    return self._card_customer_token
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:CardPayment():list() / client:CardPayment():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:CardPayment(data)
+  local EntityMod = require("entity.card_payment_entity")
+  if data == nil then
+    if self._card_payment == nil then
+      self._card_payment = EntityMod.new(self, nil)
+    end
+    return self._card_payment
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:CardPublicKey():list() / client:CardPublicKey():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:CardPublicKey(data)
+  local EntityMod = require("entity.card_public_key_entity")
+  if data == nil then
+    if self._card_public_key == nil then
+      self._card_public_key = EntityMod.new(self, nil)
+    end
+    return self._card_public_key
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:Consent():list() / client:Consent():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:Consent(data)
+  local EntityMod = require("entity.consent_entity")
+  if data == nil then
+    if self._consent == nil then
+      self._consent = EntityMod.new(self, nil)
+    end
+    return self._consent
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:Currency():list() / client:Currency():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:Currency(data)
+  local EntityMod = require("entity.currency_entity")
+  if data == nil then
+    if self._currency == nil then
+      self._currency = EntityMod.new(self, nil)
+    end
+    return self._currency
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:DirectDebitBatchSubmit():list() / client:DirectDebitBatchSubmit():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:DirectDebitBatchSubmit(data)
+  local EntityMod = require("entity.direct_debit_batch_submit_entity")
+  if data == nil then
+    if self._direct_debit_batch_submit == nil then
+      self._direct_debit_batch_submit = EntityMod.new(self, nil)
+    end
+    return self._direct_debit_batch_submit
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:FxRate():list() / client:FxRate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:FxRate(data)
+  local EntityMod = require("entity.fx_rate_entity")
+  if data == nil then
+    if self._fx_rate == nil then
+      self._fx_rate = EntityMod.new(self, nil)
+    end
+    return self._fx_rate
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:IPayment():list() / client:IPayment():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:IPayment(data)
+  local EntityMod = require("entity.i_payment_entity")
+  if data == nil then
+    if self._i_payment == nil then
+      self._i_payment = EntityMod.new(self, nil)
+    end
+    return self._i_payment
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:Mandate():list() / client:Mandate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:Mandate(data)
+  local EntityMod = require("entity.mandate_entity")
+  if data == nil then
+    if self._mandate == nil then
+      self._mandate = EntityMod.new(self, nil)
+    end
+    return self._mandate
   end
   return EntityMod.new(self, data)
 end
@@ -328,6 +468,76 @@ function NofrixionSDK:Merchant(data)
 end
 
 
+-- Idiomatic facade: client:MerchantAuthorisationSetting():list() / client:MerchantAuthorisationSetting():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:MerchantAuthorisationSetting(data)
+  local EntityMod = require("entity.merchant_authorisation_setting_entity")
+  if data == nil then
+    if self._merchant_authorisation_setting == nil then
+      self._merchant_authorisation_setting = EntityMod.new(self, nil)
+    end
+    return self._merchant_authorisation_setting
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:MerchantDirectDebitMandate():list() / client:MerchantDirectDebitMandate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:MerchantDirectDebitMandate(data)
+  local EntityMod = require("entity.merchant_direct_debit_mandate_entity")
+  if data == nil then
+    if self._merchant_direct_debit_mandate == nil then
+      self._merchant_direct_debit_mandate = EntityMod.new(self, nil)
+    end
+    return self._merchant_direct_debit_mandate
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:MerchantPayByBankSetting():list() / client:MerchantPayByBankSetting():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:MerchantPayByBankSetting(data)
+  local EntityMod = require("entity.merchant_pay_by_bank_setting_entity")
+  if data == nil then
+    if self._merchant_pay_by_bank_setting == nil then
+      self._merchant_pay_by_bank_setting = EntityMod.new(self, nil)
+    end
+    return self._merchant_pay_by_bank_setting
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:MerchantPaymentRequestTemplate():list() / client:MerchantPaymentRequestTemplate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:MerchantPaymentRequestTemplate(data)
+  local EntityMod = require("entity.merchant_payment_request_template_entity")
+  if data == nil then
+    if self._merchant_payment_request_template == nil then
+      self._merchant_payment_request_template = EntityMod.new(self, nil)
+    end
+    return self._merchant_payment_request_template
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:MerchantToken():list() / client:MerchantToken():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:MerchantToken(data)
+  local EntityMod = require("entity.merchant_token_entity")
+  if data == nil then
+    if self._merchant_token == nil then
+      self._merchant_token = EntityMod.new(self, nil)
+    end
+    return self._merchant_token
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Metadata():list() / client:Metadata():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Metadata(data)
@@ -342,771 +552,15 @@ function NofrixionSDK:Metadata(data)
 end
 
 
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage():list() / client:NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage():load({ id = ... })
+-- Idiomatic facade: client:NoFrixionVersion():list() / client:NoFrixionVersion():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingMerchantDirectDebitMandatePage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page_entity")
+function NofrixionSDK:NoFrixionVersion(data)
+  local EntityMod = require("entity.no_frixion_version_entity")
   if data == nil then
-    if self._no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page == nil then
-      self._no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page = EntityMod.new(self, nil)
+    if self._no_frixion_version == nil then
+      self._no_frixion_version = EntityMod.new(self, nil)
     end
-    return self._no_frixion_biz_biz_models_paging_merchant_direct_debit_mandate_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingPaymentRequestPage():list() / client:NoFrixionBizBizModelsPagingPaymentRequestPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingPaymentRequestPage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_payment_request_page_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_paging_payment_request_page == nil then
-      self._no_frixion_biz_biz_models_paging_payment_request_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_paging_payment_request_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingPayoutPage():list() / client:NoFrixionBizBizModelsPagingPayoutPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingPayoutPage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_payout_page_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_paging_payout_page == nil then
-      self._no_frixion_biz_biz_models_paging_payout_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_paging_payout_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingPayrunPage():list() / client:NoFrixionBizBizModelsPagingPayrunPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingPayrunPage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_payrun_page_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_paging_payrun_page == nil then
-      self._no_frixion_biz_biz_models_paging_payrun_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_paging_payrun_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingRuleEventsPage():list() / client:NoFrixionBizBizModelsPagingRuleEventsPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingRuleEventsPage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_rule_events_page_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_paging_rule_events_page == nil then
-      self._no_frixion_biz_biz_models_paging_rule_events_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_paging_rule_events_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPagingRulesPage():list() / client:NoFrixionBizBizModelsPagingRulesPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPagingRulesPage(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_paging_rules_page_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_paging_rules_page == nil then
-      self._no_frixion_biz_biz_models_paging_rules_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_paging_rules_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPaymentsCardPayment():list() / client:NoFrixionBizBizModelsPaymentsCardPayment():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPaymentsCardPayment(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_payments_card_payment_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_payments_card_payment == nil then
-      self._no_frixion_biz_biz_models_payments_card_payment = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_payments_card_payment
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionBizBizModelsPaymentsCardPublicKey():list() / client:NoFrixionBizBizModelsPaymentsCardPublicKey():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionBizBizModelsPaymentsCardPublicKey(data)
-  local EntityMod = require("entity.no_frixion_biz_biz_models_payments_card_public_key_entity")
-  if data == nil then
-    if self._no_frixion_biz_biz_models_payments_card_public_key == nil then
-      self._no_frixion_biz_biz_models_payments_card_public_key = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_biz_biz_models_payments_card_public_key
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries():list() / client:NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovApiFeaturesBeneficiariesBeneficiaries(data)
-  local EntityMod = require("entity.no_frixion_money_moov_api_features_beneficiaries_beneficiaries_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_api_features_beneficiaries_beneficiaries == nil then
-      self._no_frixion_money_moov_api_features_beneficiaries_beneficiaries = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_api_features_beneficiaries_beneficiaries
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment():list() / client:NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovApiFeaturesPaymentRequestsPayment(data)
-  local EntityMod = require("entity.no_frixion_money_moov_api_features_payment_requests_payment_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_api_features_payment_requests_payment == nil then
-      self._no_frixion_money_moov_api_features_payment_requests_payment = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_api_features_payment_requests_payment
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate():list() / client:NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovApiFeaturesPermissionsRolesCreate(data)
-  local EntityMod = require("entity.no_frixion_money_moov_api_features_permissions_roles_create_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_api_features_permissions_roles_create == nil then
-      self._no_frixion_money_moov_api_features_permissions_roles_create = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_api_features_permissions_roles_create
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovApiFeaturesUserInvitesCreate():list() / client:NoFrixionMoneyMoovApiFeaturesUserInvitesCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovApiFeaturesUserInvitesCreate(data)
-  local EntityMod = require("entity.no_frixion_money_moov_api_features_user_invites_create_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_api_features_user_invites_create == nil then
-      self._no_frixion_money_moov_api_features_user_invites_create = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_api_features_user_invites_create
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant():list() / client:NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsAuthorisationSettingsMerchant(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_authorisation_settings_merchant_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_authorisation_settings_merchant == nil then
-      self._no_frixion_money_moov_models_authorisation_settings_merchant = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_authorisation_settings_merchant
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsBatchPayout():list() / client:NoFrixionMoneyMoovModelsBatchPayout():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsBatchPayout(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_batch_payout_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_batch_payout == nil then
-      self._no_frixion_money_moov_models_batch_payout = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_batch_payout
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsBeneficiaryGroupPage():list() / client:NoFrixionMoneyMoovModelsBeneficiaryGroupPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsBeneficiaryGroupPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_beneficiary_group_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_beneficiary_group_page == nil then
-      self._no_frixion_money_moov_models_beneficiary_group_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_beneficiary_group_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsBeneficiaryPage():list() / client:NoFrixionMoneyMoovModelsBeneficiaryPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsBeneficiaryPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_beneficiary_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_beneficiary_page == nil then
-      self._no_frixion_money_moov_models_beneficiary_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_beneficiary_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsCardCustomerToken():list() / client:NoFrixionMoneyMoovModelsCardCustomerToken():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsCardCustomerToken(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_card_customer_token_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_card_customer_token == nil then
-      self._no_frixion_money_moov_models_card_customer_token = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_card_customer_token
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsCurrencyCurrencyInfo():list() / client:NoFrixionMoneyMoovModelsCurrencyCurrencyInfo():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsCurrencyCurrencyInfo(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_currency_currency_info_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_currency_currency_info == nil then
-      self._no_frixion_money_moov_models_currency_currency_info = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_currency_currency_info
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsDirectDebitBatchSubmit():list() / client:NoFrixionMoneyMoovModelsDirectDebitBatchSubmit():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsDirectDebitBatchSubmit(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_direct_debit_batch_submit_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_direct_debit_batch_submit == nil then
-      self._no_frixion_money_moov_models_direct_debit_batch_submit = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_direct_debit_batch_submit
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsFxRate():list() / client:NoFrixionMoneyMoovModelsFxRate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsFxRate(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_fx_rate_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_fx_rate == nil then
-      self._no_frixion_money_moov_models_fx_rate = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_fx_rate
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsIPayment():list() / client:NoFrixionMoneyMoovModelsIPayment():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsIPayment(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_i_payment_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_i_payment == nil then
-      self._no_frixion_money_moov_models_i_payment = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_i_payment
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMandatesMandate():list() / client:NoFrixionMoneyMoovModelsMandatesMandate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMandatesMandate(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_mandates_mandate_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_mandates_mandate == nil then
-      self._no_frixion_money_moov_models_mandates_mandate = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_mandates_mandate
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMerchant():list() / client:NoFrixionMoneyMoovModelsMerchant():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMerchant(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_merchant_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_merchant == nil then
-      self._no_frixion_money_moov_models_merchant = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_merchant
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMerchantPage():list() / client:NoFrixionMoneyMoovModelsMerchantPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMerchantPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_merchant_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_merchant_page == nil then
-      self._no_frixion_money_moov_models_merchant_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_merchant_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMerchantPayByBankSetting():list() / client:NoFrixionMoneyMoovModelsMerchantPayByBankSetting():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMerchantPayByBankSetting(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_merchant_pay_by_bank_setting_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_merchant_pay_by_bank_setting == nil then
-      self._no_frixion_money_moov_models_merchant_pay_by_bank_setting = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_merchant_pay_by_bank_setting
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMerchantToken():list() / client:NoFrixionMoneyMoovModelsMerchantToken():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMerchantToken(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_merchant_token_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_merchant_token == nil then
-      self._no_frixion_money_moov_models_merchant_token = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_merchant_token
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsMerchantTokenPage():list() / client:NoFrixionMoneyMoovModelsMerchantTokenPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsMerchantTokenPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_merchant_token_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_merchant_token_page == nil then
-      self._no_frixion_money_moov_models_merchant_token_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_merchant_token_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsNoFrixionVersion():list() / client:NoFrixionMoneyMoovModelsNoFrixionVersion():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsNoFrixionVersion(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_no_frixion_version_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_no_frixion_version == nil then
-      self._no_frixion_money_moov_models_no_frixion_version = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_no_frixion_version
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsOpenBankingAccount():list() / client:NoFrixionMoneyMoovModelsOpenBankingAccount():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsOpenBankingAccount(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_open_banking_account_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_open_banking_account == nil then
-      self._no_frixion_money_moov_models_open_banking_account = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_open_banking_account
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsOpenBankingConsent():list() / client:NoFrixionMoneyMoovModelsOpenBankingConsent():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsOpenBankingConsent(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_open_banking_consent_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_open_banking_consent == nil then
-      self._no_frixion_money_moov_models_open_banking_consent = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_open_banking_consent
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsOpenBankingTransaction():list() / client:NoFrixionMoneyMoovModelsOpenBankingTransaction():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsOpenBankingTransaction(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_open_banking_transaction_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_open_banking_transaction == nil then
-      self._no_frixion_money_moov_models_open_banking_transaction = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_open_banking_transaction
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPayment():list() / client:NoFrixionMoneyMoovModelsPayment():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPayment(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment == nil then
-      self._no_frixion_money_moov_models_payment = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentAccountMinimalPage():list() / client:NoFrixionMoneyMoovModelsPaymentAccountMinimalPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentAccountMinimalPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_account_minimal_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_account_minimal_page == nil then
-      self._no_frixion_money_moov_models_payment_account_minimal_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_account_minimal_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentAccountPage():list() / client:NoFrixionMoneyMoovModelsPaymentAccountPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentAccountPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_account_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_account_page == nil then
-      self._no_frixion_money_moov_models_payment_account_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_account_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentInitiation():list() / client:NoFrixionMoneyMoovModelsPaymentInitiation():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentInitiation(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_initiation_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_initiation == nil then
-      self._no_frixion_money_moov_models_payment_initiation = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_initiation
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestEvent():list() / client:NoFrixionMoneyMoovModelsPaymentRequestEvent():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestEvent(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_request_event_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_request_event == nil then
-      self._no_frixion_money_moov_models_payment_request_event = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_request_event
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestMetric():list() / client:NoFrixionMoneyMoovModelsPaymentRequestMetric():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestMetric(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_request_metric_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_request_metric == nil then
-      self._no_frixion_money_moov_models_payment_request_metric = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_request_metric
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestMinimal():list() / client:NoFrixionMoneyMoovModelsPaymentRequestMinimal():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestMinimal(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_request_minimal_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_request_minimal == nil then
-      self._no_frixion_money_moov_models_payment_request_minimal = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_request_minimal
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestResult():list() / client:NoFrixionMoneyMoovModelsPaymentRequestResult():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestResult(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_request_result_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_request_result == nil then
-      self._no_frixion_money_moov_models_payment_request_result = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_request_result
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment():list() / client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_requests_merchant_payment_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_requests_merchant_payment == nil then
-      self._no_frixion_money_moov_models_payment_requests_merchant_payment = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_requests_merchant_payment
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2():list() / client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment2(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_requests_merchant_payment2_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_requests_merchant_payment2 == nil then
-      self._no_frixion_money_moov_models_payment_requests_merchant_payment2 = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_requests_merchant_payment2
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3():list() / client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment3(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_requests_merchant_payment3_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_requests_merchant_payment3 == nil then
-      self._no_frixion_money_moov_models_payment_requests_merchant_payment3 = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_requests_merchant_payment3
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4():list() / client:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPaymentRequestsMerchantPayment4(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payment_requests_merchant_payment4_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payment_requests_merchant_payment4 == nil then
-      self._no_frixion_money_moov_models_payment_requests_merchant_payment4 = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payment_requests_merchant_payment4
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPayoutKeysetPage():list() / client:NoFrixionMoneyMoovModelsPayoutKeysetPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPayoutKeysetPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payout_keyset_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payout_keyset_page == nil then
-      self._no_frixion_money_moov_models_payout_keyset_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payout_keyset_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPayoutMetric():list() / client:NoFrixionMoneyMoovModelsPayoutMetric():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPayoutMetric(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payout_metric_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payout_metric == nil then
-      self._no_frixion_money_moov_models_payout_metric = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payout_metric
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPayoutsPayoutsCreate():list() / client:NoFrixionMoneyMoovModelsPayoutsPayoutsCreate():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPayoutsPayoutsCreate(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payouts_payouts_create_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payouts_payouts_create == nil then
-      self._no_frixion_money_moov_models_payouts_payouts_create = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payouts_payouts_create
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsPayrun():list() / client:NoFrixionMoneyMoovModelsPayrun():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsPayrun(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_payrun_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_payrun == nil then
-      self._no_frixion_money_moov_models_payrun = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_payrun
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsReportResult():list() / client:NoFrixionMoneyMoovModelsReportResult():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsReportResult(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_report_result_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_report_result == nil then
-      self._no_frixion_money_moov_models_report_result = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_report_result
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsRule():list() / client:NoFrixionMoneyMoovModelsRule():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsRule(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_rule_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_rule == nil then
-      self._no_frixion_money_moov_models_rule = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_rule
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsTransaction():list() / client:NoFrixionMoneyMoovModelsTransaction():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsTransaction(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_transaction_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_transaction == nil then
-      self._no_frixion_money_moov_models_transaction = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_transaction
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsTransactionPage():list() / client:NoFrixionMoneyMoovModelsTransactionPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsTransactionPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_transaction_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_transaction_page == nil then
-      self._no_frixion_money_moov_models_transaction_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_transaction_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsUserInvite():list() / client:NoFrixionMoneyMoovModelsUserInvite():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsUserInvite(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_user_invite_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_user_invite == nil then
-      self._no_frixion_money_moov_models_user_invite = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_user_invite
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsUserInvitePage():list() / client:NoFrixionMoneyMoovModelsUserInvitePage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsUserInvitePage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_user_invite_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_user_invite_page == nil then
-      self._no_frixion_money_moov_models_user_invite_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_user_invite_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsUserPage():list() / client:NoFrixionMoneyMoovModelsUserPage():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsUserPage(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_user_page_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_user_page == nil then
-      self._no_frixion_money_moov_models_user_page = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_user_page
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:NoFrixionMoneyMoovModelsWebhook():list() / client:NoFrixionMoneyMoovModelsWebhook():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:NoFrixionMoneyMoovModelsWebhook(data)
-  local EntityMod = require("entity.no_frixion_money_moov_models_webhook_entity")
-  if data == nil then
-    if self._no_frixion_money_moov_models_webhook == nil then
-      self._no_frixion_money_moov_models_webhook = EntityMod.new(self, nil)
-    end
-    return self._no_frixion_money_moov_models_webhook
+    return self._no_frixion_version
   end
   return EntityMod.new(self, data)
 end
@@ -1140,6 +594,62 @@ function NofrixionSDK:Payeeverification(data)
 end
 
 
+-- Idiomatic facade: client:Payment():list() / client:Payment():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:Payment(data)
+  local EntityMod = require("entity.payment_entity")
+  if data == nil then
+    if self._payment == nil then
+      self._payment = EntityMod.new(self, nil)
+    end
+    return self._payment
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentAccount():list() / client:PaymentAccount():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentAccount(data)
+  local EntityMod = require("entity.payment_account_entity")
+  if data == nil then
+    if self._payment_account == nil then
+      self._payment_account = EntityMod.new(self, nil)
+    end
+    return self._payment_account
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentAccountMinimal():list() / client:PaymentAccountMinimal():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentAccountMinimal(data)
+  local EntityMod = require("entity.payment_account_minimal_entity")
+  if data == nil then
+    if self._payment_account_minimal == nil then
+      self._payment_account_minimal = EntityMod.new(self, nil)
+    end
+    return self._payment_account_minimal
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentInitiation():list() / client:PaymentInitiation():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentInitiation(data)
+  local EntityMod = require("entity.payment_initiation_entity")
+  if data == nil then
+    if self._payment_initiation == nil then
+      self._payment_initiation = EntityMod.new(self, nil)
+    end
+    return self._payment_initiation
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:PaymentRequest():list() / client:PaymentRequest():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:PaymentRequest(data)
@@ -1149,6 +659,76 @@ function NofrixionSDK:PaymentRequest(data)
       self._payment_request = EntityMod.new(self, nil)
     end
     return self._payment_request
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentRequestEvent():list() / client:PaymentRequestEvent():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentRequestEvent(data)
+  local EntityMod = require("entity.payment_request_event_entity")
+  if data == nil then
+    if self._payment_request_event == nil then
+      self._payment_request_event = EntityMod.new(self, nil)
+    end
+    return self._payment_request_event
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentRequestMetric():list() / client:PaymentRequestMetric():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentRequestMetric(data)
+  local EntityMod = require("entity.payment_request_metric_entity")
+  if data == nil then
+    if self._payment_request_metric == nil then
+      self._payment_request_metric = EntityMod.new(self, nil)
+    end
+    return self._payment_request_metric
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentRequestMinimal():list() / client:PaymentRequestMinimal():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentRequestMinimal(data)
+  local EntityMod = require("entity.payment_request_minimal_entity")
+  if data == nil then
+    if self._payment_request_minimal == nil then
+      self._payment_request_minimal = EntityMod.new(self, nil)
+    end
+    return self._payment_request_minimal
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentRequestResult():list() / client:PaymentRequestResult():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentRequestResult(data)
+  local EntityMod = require("entity.payment_request_result_entity")
+  if data == nil then
+    if self._payment_request_result == nil then
+      self._payment_request_result = EntityMod.new(self, nil)
+    end
+    return self._payment_request_result
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PaymentRequestsCreate():list() / client:PaymentRequestsCreate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PaymentRequestsCreate(data)
+  local EntityMod = require("entity.payment_requests_create_entity")
+  if data == nil then
+    if self._payment_requests_create == nil then
+      self._payment_requests_create = EntityMod.new(self, nil)
+    end
+    return self._payment_requests_create
   end
   return EntityMod.new(self, data)
 end
@@ -1168,6 +748,48 @@ function NofrixionSDK:Payout(data)
 end
 
 
+-- Idiomatic facade: client:PayoutKeyset():list() / client:PayoutKeyset():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PayoutKeyset(data)
+  local EntityMod = require("entity.payout_keyset_entity")
+  if data == nil then
+    if self._payout_keyset == nil then
+      self._payout_keyset = EntityMod.new(self, nil)
+    end
+    return self._payout_keyset
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PayoutMetric():list() / client:PayoutMetric():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PayoutMetric(data)
+  local EntityMod = require("entity.payout_metric_entity")
+  if data == nil then
+    if self._payout_metric == nil then
+      self._payout_metric = EntityMod.new(self, nil)
+    end
+    return self._payout_metric
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:PayoutsCreate():list() / client:PayoutsCreate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:PayoutsCreate(data)
+  local EntityMod = require("entity.payouts_create_entity")
+  if data == nil then
+    if self._payouts_create == nil then
+      self._payouts_create = EntityMod.new(self, nil)
+    end
+    return self._payouts_create
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Payrun():list() / client:Payrun():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Payrun(data)
@@ -1177,20 +799,6 @@ function NofrixionSDK:Payrun(data)
       self._payrun = EntityMod.new(self, nil)
     end
     return self._payrun
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Reject():list() / client:Reject():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Reject(data)
-  local EntityMod = require("entity.reject_entity")
-  if data == nil then
-    if self._reject == nil then
-      self._reject = EntityMod.new(self, nil)
-    end
-    return self._reject
   end
   return EntityMod.new(self, data)
 end
@@ -1210,6 +818,34 @@ function NofrixionSDK:Report(data)
 end
 
 
+-- Idiomatic facade: client:ReportResult():list() / client:ReportResult():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:ReportResult(data)
+  local EntityMod = require("entity.report_result_entity")
+  if data == nil then
+    if self._report_result == nil then
+      self._report_result = EntityMod.new(self, nil)
+    end
+    return self._report_result
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:RolesCreate():list() / client:RolesCreate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:RolesCreate(data)
+  local EntityMod = require("entity.roles_create_entity")
+  if data == nil then
+    if self._roles_create == nil then
+      self._roles_create = EntityMod.new(self, nil)
+    end
+    return self._roles_create
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Rule():list() / client:Rule():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Rule(data)
@@ -1224,29 +860,15 @@ function NofrixionSDK:Rule(data)
 end
 
 
--- Idiomatic facade: client:Send():list() / client:Send():load({ id = ... })
+-- Idiomatic facade: client:RuleEvent():list() / client:RuleEvent():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Send(data)
-  local EntityMod = require("entity.send_entity")
+function NofrixionSDK:RuleEvent(data)
+  local EntityMod = require("entity.rule_event_entity")
   if data == nil then
-    if self._send == nil then
-      self._send = EntityMod.new(self, nil)
+    if self._rule_event == nil then
+      self._rule_event = EntityMod.new(self, nil)
     end
-    return self._send
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Sendbeneficiary():list() / client:Sendbeneficiary():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Sendbeneficiary(data)
-  local EntityMod = require("entity.sendbeneficiary_entity")
-  if data == nil then
-    if self._sendbeneficiary == nil then
-      self._sendbeneficiary = EntityMod.new(self, nil)
-    end
-    return self._sendbeneficiary
+    return self._rule_event
   end
   return EntityMod.new(self, data)
 end
@@ -1322,6 +944,20 @@ function NofrixionSDK:UserInvite(data)
 end
 
 
+-- Idiomatic facade: client:UserInvitesCreate():list() / client:UserInvitesCreate():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NofrixionSDK:UserInvitesCreate(data)
+  local EntityMod = require("entity.user_invites_create_entity")
+  if data == nil then
+    if self._user_invites_create == nil then
+      self._user_invites_create = EntityMod.new(self, nil)
+    end
+    return self._user_invites_create
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Virtual():list() / client:Virtual():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function NofrixionSDK:Virtual(data)
@@ -1345,34 +981,6 @@ function NofrixionSDK:Webhook(data)
       self._webhook = EntityMod.new(self, nil)
     end
     return self._webhook
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Whoami():list() / client:Whoami():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Whoami(data)
-  local EntityMod = require("entity.whoami_entity")
-  if data == nil then
-    if self._whoami == nil then
-      self._whoami = EntityMod.new(self, nil)
-    end
-    return self._whoami
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:Whoamitrustedapp():list() / client:Whoamitrustedapp():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function NofrixionSDK:Whoamitrustedapp(data)
-  local EntityMod = require("entity.whoamitrustedapp_entity")
-  if data == nil then
-    if self._whoamitrustedapp == nil then
-      self._whoamitrustedapp = EntityMod.new(self, nil)
-    end
-    return self._whoamitrustedapp
   end
   return EntityMod.new(self, data)
 end

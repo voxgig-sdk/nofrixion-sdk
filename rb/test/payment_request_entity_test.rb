@@ -16,7 +16,7 @@ class PaymentRequestEntityTest < Minitest::Test
     setup = payment_request_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["create", "update", "load", "remove"].each do |_op|
+    ["create", "list", "update", "load", "remove"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "payment_request." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -40,30 +40,59 @@ class PaymentRequestEntityTest < Minitest::Test
     payment_request_ref01_data_result = payment_request_ref01_ent.create(payment_request_ref01_data, nil)
     payment_request_ref01_data = Helpers.to_map(payment_request_ref01_data_result)
     assert !payment_request_ref01_data.nil?
+    assert !payment_request_ref01_data["id"].nil?
+
+    # LIST
+    payment_request_ref01_match = {}
+
+    payment_request_ref01_list_result = payment_request_ref01_ent.list(payment_request_ref01_match, nil)
+    assert payment_request_ref01_list_result.is_a?(Array)
+
+    found_item = Vs.select(
+      Runner.entity_list_to_data(payment_request_ref01_list_result),
+      { "id" => payment_request_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
 
     # UPDATE
     payment_request_ref01_data_up0_up = {
+      "id" => payment_request_ref01_data["id"],
     }
 
-    payment_request_ref01_markdef_up0_name = "error_description"
+    payment_request_ref01_markdef_up0_name = "base_origin_url"
     payment_request_ref01_markdef_up0_value = "Mark01-payment_request_ref01_#{setup[:now]}"
     payment_request_ref01_data_up0_up[payment_request_ref01_markdef_up0_name] = payment_request_ref01_markdef_up0_value
 
     payment_request_ref01_resdata_up0_result = payment_request_ref01_ent.update(payment_request_ref01_data_up0_up, nil)
     payment_request_ref01_resdata_up0 = Helpers.to_map(payment_request_ref01_resdata_up0_result)
     assert !payment_request_ref01_resdata_up0.nil?
+    assert_equal payment_request_ref01_resdata_up0["id"], payment_request_ref01_data_up0_up["id"]
     assert_equal payment_request_ref01_resdata_up0[payment_request_ref01_markdef_up0_name], payment_request_ref01_markdef_up0_value
 
     # LOAD
-    payment_request_ref01_match_dt0 = {}
+    payment_request_ref01_match_dt0 = {
+      "id" => payment_request_ref01_data["id"],
+    }
     payment_request_ref01_data_dt0_loaded = payment_request_ref01_ent.load(payment_request_ref01_match_dt0, nil)
-    assert !payment_request_ref01_data_dt0_loaded.nil?
+    payment_request_ref01_data_dt0_load_result = Helpers.to_map(payment_request_ref01_data_dt0_loaded)
+    assert !payment_request_ref01_data_dt0_load_result.nil?
+    assert_equal payment_request_ref01_data_dt0_load_result["id"], payment_request_ref01_data["id"]
 
     # REMOVE
     payment_request_ref01_match_rm0 = {
       "id" => payment_request_ref01_data["id"],
     }
     payment_request_ref01_ent.remove(payment_request_ref01_match_rm0, nil)
+
+    # LIST
+    payment_request_ref01_match_rt0 = {}
+
+    payment_request_ref01_list_rt0_result = payment_request_ref01_ent.list(payment_request_ref01_match_rt0, nil)
+    assert payment_request_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(payment_request_ref01_list_rt0_result),
+      { "id" => payment_request_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end

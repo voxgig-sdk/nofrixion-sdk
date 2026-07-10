@@ -1,0 +1,18 @@
+# BasicIPaymentFlow
+
+main: kit: flow: BasicIPaymentFlow:
+{
+  entity: "i_payment",
+  kind: "basic",
+  name: "BasicIPaymentFlow",
+  step: [
+    {
+      input: {
+        ref: "i_payment_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicIPaymentFlow"
+}

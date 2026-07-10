@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "merchant_authorisation_setting": {
+      "MERCHANT_AUTHORISATION_SETTING00": {
+        "amount_lower": 110,
+        "amount_upper": 111,
+        "authorisation_type": "s70",
+        "beneficiaries_only": false,
+        "id": "MERCHANT_AUTHORISATION_SETTING00",
+        "inserted": "s73",
+        "last_editor_cant_authorise": true,
+        "last_updated": "s75",
+        "merchant_id": "MERCHANT01",
+        "number_of_authoriser": "s77",
+        "role_setting": []
+      },
+      "MERCHANT_AUTHORISATION_SETTING01": {
+        "amount_lower": 220,
+        "amount_upper": 221,
+        "authorisation_type": "sde",
+        "beneficiaries_only": false,
+        "id": "MERCHANT_AUTHORISATION_SETTING01",
+        "inserted": "se1",
+        "last_editor_cant_authorise": true,
+        "last_updated": "se3",
+        "merchant_id": "MERCHANT01",
+        "number_of_authoriser": "se5",
+        "role_setting": []
+      },
+      "MERCHANT_AUTHORISATION_SETTING02": {
+        "amount_lower": 330,
+        "amount_upper": 331,
+        "authorisation_type": "s14c",
+        "beneficiaries_only": false,
+        "id": "MERCHANT_AUTHORISATION_SETTING02",
+        "inserted": "s14f",
+        "last_editor_cant_authorise": true,
+        "last_updated": "s151",
+        "merchant_id": "MERCHANT01",
+        "number_of_authoriser": "s153",
+        "role_setting": []
+      }
+    }
+  },
+  "new": {
+    "merchant_authorisation_setting": {
+      "merchant_authorisation_setting_ref01": {
+        "amount_lower": 440,
+        "amount_upper": 441,
+        "authorisation_type": "s1ba",
+        "beneficiaries_only": false,
+        "inserted": "s1bd",
+        "last_editor_cant_authorise": true,
+        "last_updated": "s1bf",
+        "merchant_id": "MERCHANT01",
+        "number_of_authoriser": "s1c1",
+        "role_setting": []
+      }
+    }
+  }
+}

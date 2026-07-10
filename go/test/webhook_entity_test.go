@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -32,7 +33,7 @@ func TestWebhookEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "webhook." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -49,24 +50,109 @@ func TestWebhookEntity(t *testing.T) {
 		}
 		client := setup.client
 
-		// Bootstrap entity data from existing test data (no create step in flow).
-		webhookRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.webhook", setup.data)))
-		var webhookRef01Data map[string]any
-		if len(webhookRef01DataRaw) > 0 {
-			webhookRef01Data = core.ToMapAny(webhookRef01DataRaw[0][1])
+		// CREATE
+		webhookRef01Ent := client.Webhook(nil)
+		webhookRef01Data := core.ToMapAny(vs.GetProp(
+			vs.GetPath([]any{"new", "webhook"}, setup.data), "webhook_ref01"))
+		webhookRef01Data["merchant_id"] = setup.idmap["merchant01"]
+
+		webhookRef01DataResult, err := webhookRef01Ent.Create(webhookRef01Data, nil)
+		if err != nil {
+			t.Fatalf("create failed: %v", err)
 		}
-		// Discard guards against Go's unused-var check when the flow's steps
-		// happen not to consume the bootstrap data (e.g. list-only flows).
-		_ = webhookRef01Data
+		webhookRef01Data = core.ToMapAny(webhookRef01DataResult)
+		if webhookRef01Data == nil {
+			t.Fatal("expected create result to be a map")
+		}
+		if webhookRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		webhookRef01Match := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		webhookRef01ListResult, err := webhookRef01Ent.List(webhookRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		webhookRef01List, webhookRef01ListOk := webhookRef01ListResult.([]any)
+		if !webhookRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", webhookRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(webhookRef01List), map[string]any{"id": webhookRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
+		// UPDATE
+		webhookRef01DataUp0Up := map[string]any{
+			"id": webhookRef01Data["id"],
+		}
+
+		webhookRef01MarkdefUp0Name := "destination_url"
+		webhookRef01MarkdefUp0Value := fmt.Sprintf("Mark01-webhook_ref01_%d", setup.now)
+		webhookRef01DataUp0Up[webhookRef01MarkdefUp0Name] = webhookRef01MarkdefUp0Value
+
+		webhookRef01ResdataUp0Result, err := webhookRef01Ent.Update(webhookRef01DataUp0Up, nil)
+		if err != nil {
+			t.Fatalf("update failed: %v", err)
+		}
+		webhookRef01ResdataUp0 := core.ToMapAny(webhookRef01ResdataUp0Result)
+		if webhookRef01ResdataUp0 == nil {
+			t.Fatal("expected update result to be a map")
+		}
+		if webhookRef01ResdataUp0["id"] != webhookRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if webhookRef01ResdataUp0[webhookRef01MarkdefUp0Name] != webhookRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", webhookRef01MarkdefUp0Name, webhookRef01ResdataUp0[webhookRef01MarkdefUp0Name])
+		}
+
+		// LOAD
+		webhookRef01MatchDt0 := map[string]any{
+			"id": webhookRef01Data["id"],
+		}
+		webhookRef01DataDt0Loaded, err := webhookRef01Ent.Load(webhookRef01MatchDt0, nil)
+		if err != nil {
+			t.Fatalf("load failed: %v", err)
+		}
+		webhookRef01DataDt0LoadResult := core.ToMapAny(webhookRef01DataDt0Loaded)
+		if webhookRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if webhookRef01DataDt0LoadResult["id"] != webhookRef01Data["id"] {
+			t.Fatal("expected load result id to match")
+		}
 
 		// REMOVE
-		webhookRef01Ent := client.Webhook(nil)
 		webhookRef01MatchRm0 := map[string]any{
 			"id": webhookRef01Data["id"],
 		}
-		_, err := webhookRef01Ent.Remove(webhookRef01MatchRm0, nil)
+		_, err = webhookRef01Ent.Remove(webhookRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		webhookRef01MatchRt0 := map[string]any{
+			"merchant_id": setup.idmap["merchant01"],
+		}
+
+		webhookRef01ListRt0Result, err := webhookRef01Ent.List(webhookRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		webhookRef01ListRt0, webhookRef01ListRt0Ok := webhookRef01ListRt0Result.([]any)
+		if !webhookRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", webhookRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(webhookRef01ListRt0), map[string]any{"id": webhookRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})
@@ -97,7 +183,7 @@ func webhookBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"webhook01", "webhook02", "webhook03"},
+		[]any{"webhook01", "webhook02", "webhook03", "merchant01", "merchant02", "merchant03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

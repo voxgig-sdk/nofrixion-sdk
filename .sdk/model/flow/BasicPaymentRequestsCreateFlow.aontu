@@ -1,0 +1,18 @@
+# BasicPaymentRequestsCreateFlow
+
+main: kit: flow: BasicPaymentRequestsCreateFlow:
+{
+  entity: "payment_requests_create",
+  kind: "basic",
+  name: "BasicPaymentRequestsCreateFlow",
+  step: [
+    {
+      input: {
+        ref: "payment_requests_create_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPaymentRequestsCreateFlow"
+}
