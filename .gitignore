@@ -15,3 +15,7 @@ logs/
 # Editor
 *~
 *.swp
+
+# Compiled Go target binaries (built in-place by `go build ./...`)
+go-cli/go-cli
+go-mcp/go-mcp
