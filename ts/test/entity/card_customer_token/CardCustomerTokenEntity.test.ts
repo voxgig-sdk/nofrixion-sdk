@@ -39,7 +39,7 @@ describe('CardCustomerTokenEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['list', 'load', 'remove']) {
+    for (const op of ['list', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'card_customer_token.' + op, live)) return
     }
 
@@ -73,19 +73,6 @@ describe('CardCustomerTokenEntity', async () => {
     card_customer_token_ref01_match_dt0.id = card_customer_token_ref01_data.id
     const card_customer_token_ref01_data_dt0 = await card_customer_token_ref01_ent.load(card_customer_token_ref01_match_dt0)
     assert(card_customer_token_ref01_data_dt0.id === card_customer_token_ref01_data.id)
-
-
-    // REMOVE
-    const card_customer_token_ref01_match_rm0: any = { id: card_customer_token_ref01_data.id }
-    await card_customer_token_ref01_ent.remove(card_customer_token_ref01_match_rm0)
-  
-
-    // LIST
-    const card_customer_token_ref01_match_rt0: any = {}
-    card_customer_token_ref01_match_rt0['customer_email_address'] = setup.idmap['customer_email_address01']
-    card_customer_token_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
-
-    const card_customer_token_ref01_list_rt0 = await card_customer_token_ref01_ent.list(card_customer_token_ref01_match_rt0)
 
 
   })

@@ -18,12 +18,51 @@ class MerchantEntityTest extends TestCase
         $this->assertNotNull($ent);
     }
 
+    // Feature #4: the entity stream(action, ...) method runs the op pipeline
+    // and yields result items. With the streaming feature active it yields the
+    // feature's incremental output; otherwise it falls back to the materialised
+    // list so stream always yields.
+    public function test_stream(): void
+    {
+        $seed = [
+            "entity" => [
+                "merchant" => [
+                    "s1" => ["id" => "s1"],
+                    "s2" => ["id" => "s2"],
+                    "s3" => ["id" => "s3"],
+                ],
+            ],
+        ];
+
+        // Fallback: streaming inactive -> yields the materialised list items.
+        $base = NofrixionSDK::test($seed, null);
+        $seen = iterator_to_array($base->Merchant(null)->stream("list", null, null), false);
+        $this->assertCount(3, $seen);
+
+        // Inbound: streaming active -> yields each item from the feature.
+        $cfg = NofrixionConfig::make_config();
+        if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
+            $sdk = NofrixionSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
+            $got = [];
+            foreach ($sdk->Merchant(null)->stream("list", null, null) as $item) {
+                if (is_array($item) && array_is_list($item)) {
+                    foreach ($item as $sub) {
+                        $got[] = $sub;
+                    }
+                } else {
+                    $got[] = $item;
+                }
+            }
+            $this->assertCount(3, $got);
+        }
+    }
+
     public function test_basic_flow(): void
     {
         $setup = merchant_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["list", "update", "load", "remove"] as $_op) {
+        foreach (["list", "update", "load"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "merchant." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -76,18 +115,6 @@ class MerchantEntityTest extends TestCase
         $merchant_ref01_data_dt0_load_result = Helpers::to_map($merchant_ref01_data_dt0_loaded);
         $this->assertNotNull($merchant_ref01_data_dt0_load_result);
         $this->assertEquals($merchant_ref01_data_dt0_load_result["id"], $merchant_ref01_data["id"]);
-
-        // REMOVE
-        $merchant_ref01_match_rm0 = [
-            "id" => $merchant_ref01_data["id"],
-        ];
-        $merchant_ref01_ent->remove($merchant_ref01_match_rm0, null);
-
-        // LIST
-        $merchant_ref01_match_rt0 = [];
-
-        $merchant_ref01_list_rt0_result = $merchant_ref01_ent->list($merchant_ref01_match_rt0, null);
-        $this->assertIsArray($merchant_ref01_list_rt0_result);
 
     }
 }

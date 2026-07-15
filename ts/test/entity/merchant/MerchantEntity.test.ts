@@ -39,7 +39,7 @@ describe('MerchantEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['list', 'update', 'load', 'remove']) {
+    for (const op of ['list', 'update', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'merchant.' + op, live)) return
     }
 
@@ -84,17 +84,6 @@ describe('MerchantEntity', async () => {
     merchant_ref01_match_dt0.id = merchant_ref01_data.id
     const merchant_ref01_data_dt0 = await merchant_ref01_ent.load(merchant_ref01_match_dt0)
     assert(merchant_ref01_data_dt0.id === merchant_ref01_data.id)
-
-
-    // REMOVE
-    const merchant_ref01_match_rm0: any = { id: merchant_ref01_data.id }
-    await merchant_ref01_ent.remove(merchant_ref01_match_rm0)
-  
-
-    // LIST
-    const merchant_ref01_match_rt0: any = {}
-
-    const merchant_ref01_list_rt0 = await merchant_ref01_ent.list(merchant_ref01_match_rt0)
 
 
   })

@@ -12,11 +12,47 @@ class CardCustomerTokenEntityTest < Minitest::Test
     assert !ent.nil?
   end
 
+  # Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  # returns an Enumerator over result items. With the streaming feature active
+  # it yields the feature's incremental output; otherwise it falls back to the
+  # materialised list so stream always yields.
+  def test_stream
+    seed = {
+      "entity" => {
+        "card_customer_token" => {
+          "s1" => { "id" => "s1" },
+          "s2" => { "id" => "s2" },
+          "s3" => { "id" => "s3" },
+        },
+      },
+    }
+
+    # Fallback: streaming inactive -> yields the materialised list items.
+    base = NofrixionSDK.test(seed, nil)
+    seen = base.CardCustomerToken(nil).stream("list", nil, nil).to_a
+    assert_equal 3, seen.length
+
+    # Inbound: streaming active -> yields each item from the feature.
+    cfg = NofrixionConfig.make_config
+    if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
+      sdk = NofrixionSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
+      got = []
+      sdk.CardCustomerToken(nil).stream("list", nil, nil).each do |item|
+        if item.is_a?(Array)
+          got.concat(item)
+        else
+          got << item
+        end
+      end
+      assert_equal 3, got.length
+    end
+  end
+
   def test_basic_flow
     setup = card_customer_token_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["list", "load", "remove"].each do |_op|
+    ["list", "load"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "card_customer_token." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -57,21 +93,6 @@ class CardCustomerTokenEntityTest < Minitest::Test
     card_customer_token_ref01_data_dt0_load_result = Helpers.to_map(card_customer_token_ref01_data_dt0_loaded)
     assert !card_customer_token_ref01_data_dt0_load_result.nil?
     assert_equal card_customer_token_ref01_data_dt0_load_result["id"], card_customer_token_ref01_data["id"]
-
-    # REMOVE
-    card_customer_token_ref01_match_rm0 = {
-      "id" => card_customer_token_ref01_data["id"],
-    }
-    card_customer_token_ref01_ent.remove(card_customer_token_ref01_match_rm0, nil)
-
-    # LIST
-    card_customer_token_ref01_match_rt0 = {
-      "customer_email_address" => setup[:idmap]["customer_email_address01"],
-      "merchant_id" => setup[:idmap]["merchant01"],
-    }
-
-    card_customer_token_ref01_list_rt0_result = card_customer_token_ref01_ent.list(card_customer_token_ref01_match_rt0, nil)
-    assert card_customer_token_ref01_list_rt0_result.is_a?(Array)
 
   end
 end

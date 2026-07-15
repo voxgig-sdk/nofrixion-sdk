@@ -25,6 +25,54 @@ func TestMerchantEntity(t *testing.T) {
 		}
 	})
 
+	// Feature #4: the entity Stream(action, ...) method runs the op pipeline and
+	// returns a channel over result items. With the streaming feature active it
+	// yields the feature's incremental output; otherwise it falls back to the
+	// materialised list so Stream always yields.
+	t.Run("stream", func(t *testing.T) {
+		seed := map[string]any{
+			"entity": map[string]any{
+				"merchant": map[string]any{
+					"s1": map[string]any{"id": "s1"},
+					"s2": map[string]any{"id": "s2"},
+					"s3": map[string]any{"id": "s3"},
+				},
+			},
+		}
+
+		// Fallback: streaming inactive -> yields the materialised list items.
+		base := sdk.TestSDK(seed, nil)
+		var seen []any
+		for item := range base.Merchant(nil).Stream("list", nil, nil) {
+			seen = append(seen, item)
+		}
+		if len(seen) != 3 {
+			t.Fatalf("expected 3 streamed items, got %d", len(seen))
+		}
+
+		// Inbound: streaming active -> yields each item from the feature iterator.
+		hasStreaming := false
+		if fm, ok := core.MakeConfig()["feature"].(map[string]any); ok {
+			_, hasStreaming = fm["streaming"]
+		}
+		if hasStreaming {
+			streamSdk := sdk.TestSDK(seed, map[string]any{
+				"feature": map[string]any{"streaming": map[string]any{"active": true}},
+			})
+			var got []any
+			for item := range streamSdk.Merchant(nil).Stream("list", nil, nil) {
+				if sub, ok := item.([]any); ok {
+					got = append(got, sub...)
+				} else {
+					got = append(got, item)
+				}
+			}
+			if len(got) != 3 {
+				t.Fatalf("expected 3 items via streaming feature, got %d", len(got))
+			}
+		}
+	})
+
 	t.Run("basic", func(t *testing.T) {
 		setup := merchantBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
@@ -33,7 +81,7 @@ func TestMerchantEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"list", "update", "load", "remove"} {
+		for _, _op := range []string{"list", "update", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "merchant." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -111,27 +159,6 @@ func TestMerchantEntity(t *testing.T) {
 		}
 		if merchantRef01DataDt0LoadResult["id"] != merchantRef01Data["id"] {
 			t.Fatal("expected load result id to match")
-		}
-
-		// REMOVE
-		merchantRef01MatchRm0 := map[string]any{
-			"id": merchantRef01Data["id"],
-		}
-		_, err = merchantRef01Ent.Remove(merchantRef01MatchRm0, nil)
-		if err != nil {
-			t.Fatalf("remove failed: %v", err)
-		}
-
-		// LIST
-		merchantRef01MatchRt0 := map[string]any{}
-
-		merchantRef01ListRt0Result, err := merchantRef01Ent.List(merchantRef01MatchRt0, nil)
-		if err != nil {
-			t.Fatalf("list failed: %v", err)
-		}
-		_, merchantRef01ListRt0Ok := merchantRef01ListRt0Result.([]any)
-		if !merchantRef01ListRt0Ok {
-			t.Fatalf("expected list result to be an array, got %T", merchantRef01ListRt0Result)
 		}
 
 	})

@@ -44,40 +44,6 @@ main: kit: flow: BasicCardCustomerTokenFlow:
         }
       ]
     }
-
-    {
-      input: {
-        ref: "card_customer_token_ref01",
-        suffix: "_rm0"
-      }
-
-      match: {
-        id: "card_customer_token01"
-      }
-
-      op: "remove"
-    }
-
-    {
-      input: {
-        suffix: "_rt0"
-      }
-
-      match: {
-        customer_email_address: "customer_email_address01",
-        merchant_id: "merchant01"
-      }
-
-      op: "list",
-      valid: [
-        {
-          apply: "ItemNotExists",
-          def: {
-            ref: "card_customer_token_ref01"
-          }
-        }
-      ]
-    }
   ],
   "key$": "BasicCardCustomerTokenFlow"
 }

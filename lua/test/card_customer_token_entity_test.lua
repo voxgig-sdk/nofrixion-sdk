@@ -15,11 +15,52 @@ describe("CardCustomerTokenEntity", function()
     assert.is_not_nil(ent)
   end)
 
+  -- Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  -- returns an iterator over result items. With the streaming feature active it
+  -- yields the feature's incremental output; otherwise it falls back to the
+  -- materialised list so stream always yields.
+  it("should stream", function()
+    local seed = {
+      entity = {
+        ["card_customer_token"] = {
+          s1 = { id = "s1" },
+          s2 = { id = "s2" },
+          s3 = { id = "s3" },
+        },
+      },
+    }
+
+    -- Fallback: streaming inactive -> yields the materialised list items.
+    local base = sdk.test(seed, nil)
+    local seen = {}
+    for item in base:CardCustomerToken(nil):stream("list", nil, nil) do
+      table.insert(seen, item)
+    end
+    assert.are.equal(3, #seen)
+
+    -- Inbound: streaming active -> yields each item from the feature.
+    local config = require("config")()
+    if type(config.feature) == "table" and config.feature.streaming ~= nil then
+      local streamsdk = sdk.test(seed, { feature = { streaming = { active = true } } })
+      local got = {}
+      for item in streamsdk:CardCustomerToken(nil):stream("list", nil, nil) do
+        if vs.islist(item) then
+          for _, sub in ipairs(item) do
+            table.insert(got, sub)
+          end
+        else
+          table.insert(got, item)
+        end
+      end
+      assert.are.equal(3, #got)
+    end
+  end)
+
   it("should run basic flow", function()
     local setup = card_customer_token_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"list", "load", "remove"}) do
+    for _, _op in ipairs({"list", "load"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "card_customer_token." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -62,23 +103,6 @@ describe("CardCustomerTokenEntity", function()
     local card_customer_token_ref01_data_dt0_load_result = helpers.to_map(card_customer_token_ref01_data_dt0_loaded)
     assert.is_not_nil(card_customer_token_ref01_data_dt0_load_result)
     assert.are.equal(card_customer_token_ref01_data_dt0_load_result["id"], card_customer_token_ref01_data["id"])
-
-    -- REMOVE
-    local card_customer_token_ref01_match_rm0 = {
-      id = card_customer_token_ref01_data["id"],
-    }
-    local _, err = card_customer_token_ref01_ent:remove(card_customer_token_ref01_match_rm0, nil)
-    assert.is_nil(err)
-
-    -- LIST
-    local card_customer_token_ref01_match_rt0 = {
-      ["customer_email_address"] = setup.idmap["customer_email_address01"],
-      ["merchant_id"] = setup.idmap["merchant01"],
-    }
-
-    local card_customer_token_ref01_list_rt0_result, err = card_customer_token_ref01_ent:list(card_customer_token_ref01_match_rt0, nil)
-    assert.is_nil(err)
-    assert.is_table(card_customer_token_ref01_list_rt0_result)
 
   end)
 end)

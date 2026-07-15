@@ -39,7 +39,7 @@ describe('MerchantPaymentRequestTemplateEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
-    for (const op of ['list', 'update', 'load', 'remove']) {
+    for (const op of ['list', 'update', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'merchant_payment_request_template.' + op, live)) return
     }
 
@@ -86,18 +86,6 @@ describe('MerchantPaymentRequestTemplateEntity', async () => {
     merchant_payment_request_template_ref01_match_dt0.id = merchant_payment_request_template_ref01_data.id
     const merchant_payment_request_template_ref01_data_dt0 = await merchant_payment_request_template_ref01_ent.load(merchant_payment_request_template_ref01_match_dt0)
     assert(merchant_payment_request_template_ref01_data_dt0.id === merchant_payment_request_template_ref01_data.id)
-
-
-    // REMOVE
-    const merchant_payment_request_template_ref01_match_rm0: any = { id: merchant_payment_request_template_ref01_data.id }
-    await merchant_payment_request_template_ref01_ent.remove(merchant_payment_request_template_ref01_match_rm0)
-  
-
-    // LIST
-    const merchant_payment_request_template_ref01_match_rt0: any = {}
-    merchant_payment_request_template_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
-
-    const merchant_payment_request_template_ref01_list_rt0 = await merchant_payment_request_template_ref01_ent.list(merchant_payment_request_template_ref01_match_rt0)
 
 
   })

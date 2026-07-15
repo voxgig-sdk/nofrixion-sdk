@@ -10,6 +10,9 @@ dist/
 dist-test/
 *.tsbuildinfo
 
+# Generation cache (jostraca merge snapshots)
+.jostraca/
+
 # Generated logs
 log/
 *.log

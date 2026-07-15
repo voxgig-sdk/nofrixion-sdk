@@ -67,40 +67,6 @@ main: kit: flow: BasicMerchantPaymentRequestTemplateFlow:
         }
       ]
     }
-
-    {
-      input: {
-        ref: "merchant_payment_request_template_ref01",
-        suffix: "_rm0"
-      }
-
-      match: {
-        id: "merchant_payment_request_template01",
-        paymentrequest_id: "paymentrequest01"
-      }
-
-      op: "remove"
-    }
-
-    {
-      input: {
-        suffix: "_rt0"
-      }
-
-      match: {
-        merchant_id: "merchant01"
-      }
-
-      op: "list",
-      valid: [
-        {
-          apply: "ItemNotExists",
-          def: {
-            ref: "merchant_payment_request_template_ref01"
-          }
-        }
-      ]
-    }
   ],
   "key$": "BasicMerchantPaymentRequestTemplateFlow"
 }

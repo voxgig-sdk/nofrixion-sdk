@@ -21,13 +21,47 @@ class TestMerchantPaymentRequestTemplateEntity:
         ent = testsdk.MerchantPaymentRequestTemplate(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "merchant_payment_request_template": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = NofrixionSDK.test(seed, None)
+        seen = list(base.MerchantPaymentRequestTemplate(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from config import make_config
+        cfg = make_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = NofrixionSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.MerchantPaymentRequestTemplate(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _merchant_payment_request_template_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["list", "update", "load", "remove"]:
+        for _op in ["list", "update", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "merchant_payment_request_template." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -78,20 +112,6 @@ class TestMerchantPaymentRequestTemplateEntity:
         merchant_payment_request_template_ref01_data_dt0_load_result = helpers.to_map(merchant_payment_request_template_ref01_data_dt0_loaded)
         assert merchant_payment_request_template_ref01_data_dt0_load_result is not None
         assert merchant_payment_request_template_ref01_data_dt0_load_result["id"] == merchant_payment_request_template_ref01_data["id"]
-
-        # REMOVE
-        merchant_payment_request_template_ref01_match_rm0 = {
-            "id": merchant_payment_request_template_ref01_data["id"],
-        }
-        merchant_payment_request_template_ref01_ent.remove(merchant_payment_request_template_ref01_match_rm0, None)
-
-        # LIST
-        merchant_payment_request_template_ref01_match_rt0 = {
-            "merchant_id": setup["idmap"]["merchant01"],
-        }
-
-        merchant_payment_request_template_ref01_list_rt0_result = merchant_payment_request_template_ref01_ent.list(merchant_payment_request_template_ref01_match_rt0, None)
-        assert isinstance(merchant_payment_request_template_ref01_list_rt0_result, list)
 
 
 

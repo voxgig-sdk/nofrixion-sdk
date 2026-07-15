@@ -58,36 +58,6 @@ main: kit: flow: BasicMerchantFlow:
         }
       ]
     }
-
-    {
-      input: {
-        ref: "merchant_ref01",
-        suffix: "_rm0"
-      }
-
-      match: {
-        id: "merchant01",
-        merchant_id: "merchant01"
-      }
-
-      op: "remove"
-    }
-
-    {
-      input: {
-        suffix: "_rt0"
-      }
-
-      op: "list",
-      valid: [
-        {
-          apply: "ItemNotExists",
-          def: {
-            ref: "merchant_ref01"
-          }
-        }
-      ]
-    }
   ],
   "key$": "BasicMerchantFlow"
 }

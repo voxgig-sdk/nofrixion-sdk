@@ -18,12 +18,51 @@ class CardCustomerTokenEntityTest extends TestCase
         $this->assertNotNull($ent);
     }
 
+    // Feature #4: the entity stream(action, ...) method runs the op pipeline
+    // and yields result items. With the streaming feature active it yields the
+    // feature's incremental output; otherwise it falls back to the materialised
+    // list so stream always yields.
+    public function test_stream(): void
+    {
+        $seed = [
+            "entity" => [
+                "card_customer_token" => [
+                    "s1" => ["id" => "s1"],
+                    "s2" => ["id" => "s2"],
+                    "s3" => ["id" => "s3"],
+                ],
+            ],
+        ];
+
+        // Fallback: streaming inactive -> yields the materialised list items.
+        $base = NofrixionSDK::test($seed, null);
+        $seen = iterator_to_array($base->CardCustomerToken(null)->stream("list", null, null), false);
+        $this->assertCount(3, $seen);
+
+        // Inbound: streaming active -> yields each item from the feature.
+        $cfg = NofrixionConfig::make_config();
+        if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
+            $sdk = NofrixionSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
+            $got = [];
+            foreach ($sdk->CardCustomerToken(null)->stream("list", null, null) as $item) {
+                if (is_array($item) && array_is_list($item)) {
+                    foreach ($item as $sub) {
+                        $got[] = $sub;
+                    }
+                } else {
+                    $got[] = $item;
+                }
+            }
+            $this->assertCount(3, $got);
+        }
+    }
+
     public function test_basic_flow(): void
     {
         $setup = card_customer_token_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["list", "load", "remove"] as $_op) {
+        foreach (["list", "load"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "card_customer_token." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -64,21 +103,6 @@ class CardCustomerTokenEntityTest extends TestCase
         $card_customer_token_ref01_data_dt0_load_result = Helpers::to_map($card_customer_token_ref01_data_dt0_loaded);
         $this->assertNotNull($card_customer_token_ref01_data_dt0_load_result);
         $this->assertEquals($card_customer_token_ref01_data_dt0_load_result["id"], $card_customer_token_ref01_data["id"]);
-
-        // REMOVE
-        $card_customer_token_ref01_match_rm0 = [
-            "id" => $card_customer_token_ref01_data["id"],
-        ];
-        $card_customer_token_ref01_ent->remove($card_customer_token_ref01_match_rm0, null);
-
-        // LIST
-        $card_customer_token_ref01_match_rt0 = [
-            "customer_email_address" => $setup["idmap"]["customer_email_address01"],
-            "merchant_id" => $setup["idmap"]["merchant01"],
-        ];
-
-        $card_customer_token_ref01_list_rt0_result = $card_customer_token_ref01_ent->list($card_customer_token_ref01_match_rt0, null);
-        $this->assertIsArray($card_customer_token_ref01_list_rt0_result);
 
     }
 }

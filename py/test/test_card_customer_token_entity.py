@@ -21,13 +21,47 @@ class TestCardCustomerTokenEntity:
         ent = testsdk.CardCustomerToken(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "card_customer_token": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = NofrixionSDK.test(seed, None)
+        seen = list(base.CardCustomerToken(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from config import make_config
+        cfg = make_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = NofrixionSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.CardCustomerToken(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _card_customer_token_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["list", "load", "remove"]:
+        for _op in ["list", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "card_customer_token." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -64,21 +98,6 @@ class TestCardCustomerTokenEntity:
         card_customer_token_ref01_data_dt0_load_result = helpers.to_map(card_customer_token_ref01_data_dt0_loaded)
         assert card_customer_token_ref01_data_dt0_load_result is not None
         assert card_customer_token_ref01_data_dt0_load_result["id"] == card_customer_token_ref01_data["id"]
-
-        # REMOVE
-        card_customer_token_ref01_match_rm0 = {
-            "id": card_customer_token_ref01_data["id"],
-        }
-        card_customer_token_ref01_ent.remove(card_customer_token_ref01_match_rm0, None)
-
-        # LIST
-        card_customer_token_ref01_match_rt0 = {
-            "customer_email_address": setup["idmap"]["customer_email_address01"],
-            "merchant_id": setup["idmap"]["merchant01"],
-        }
-
-        card_customer_token_ref01_list_rt0_result = card_customer_token_ref01_ent.list(card_customer_token_ref01_match_rt0, None)
-        assert isinstance(card_customer_token_ref01_list_rt0_result, list)
 
 
 

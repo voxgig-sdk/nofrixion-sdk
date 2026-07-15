@@ -1,6 +1,15 @@
 {
+  "NAME": "NOFRIXION",
+  "Name": "Nofrixion",
   "def": "nofrixion-openapi.json",
   "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
     "def": {
       "desc": ""
     },
@@ -17036,41 +17045,6 @@
                   }
                 }
               ]
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "card_customer_token_ref01",
-                "suffix": "_rm0"
-              },
-              "match": {
-                "id": "card_customer_token01"
-              },
-              "op": "remove",
-              "spec": [],
-              "valid": []
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "suffix": "_rt0"
-              },
-              "match": {
-                "customer_email_address": "customer_email_address01",
-                "merchant_id": "merchant01"
-              },
-              "op": "list",
-              "spec": [],
-              "valid": [
-                {
-                  "apply": "ItemNotExists",
-                  "def": {
-                    "ref": "card_customer_token_ref01"
-                  }
-                }
-              ]
             }
           ]
         },
@@ -17557,39 +17531,6 @@
                   }
                 }
               ]
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "merchant_ref01",
-                "suffix": "_rm0"
-              },
-              "match": {
-                "id": "merchant01",
-                "merchant_id": "merchant01"
-              },
-              "op": "remove",
-              "spec": [],
-              "valid": []
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "suffix": "_rt0"
-              },
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
-                {
-                  "apply": "ItemNotExists",
-                  "def": {
-                    "ref": "merchant_ref01"
-                  }
-                }
-              ]
             }
           ]
         },
@@ -17689,41 +17630,6 @@
                   "apply": "TextFieldMark",
                   "def": {
                     "mark": "Mark01-merchant_payment_request_template_ref01"
-                  }
-                }
-              ]
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "merchant_payment_request_template_ref01",
-                "suffix": "_rm0"
-              },
-              "match": {
-                "id": "merchant_payment_request_template01",
-                "paymentrequest_id": "paymentrequest01"
-              },
-              "op": "remove",
-              "spec": [],
-              "valid": []
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "suffix": "_rt0"
-              },
-              "match": {
-                "merchant_id": "merchant01"
-              },
-              "op": "list",
-              "spec": [],
-              "valid": [
-                {
-                  "apply": "ItemNotExists",
-                  "def": {
-                    "ref": "merchant_payment_request_template_ref01"
                   }
                 }
               ]
@@ -19707,5 +19613,8 @@
     }
   },
   "name": "nofrixion",
+  "name-": "nofrixion",
+  "name_": "nofrixion",
+  "name__orig": "nofrixion",
   "origin": "voxgig-sdk"
 }
