@@ -1,15 +1,6 @@
 {
-  "NAME": "NOFRIXION",
-  "Name": "Nofrixion",
   "def": "nofrixion-openapi.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -19613,8 +19604,5 @@
     }
   },
   "name": "nofrixion",
-  "name-": "nofrixion",
-  "name_": "nofrixion",
-  "name__orig": "nofrixion",
   "origin": "voxgig-sdk"
 }

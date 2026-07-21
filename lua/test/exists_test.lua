@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Nofrixion SDK exists test
 
 local sdk = require("nofrixion_sdk")
 
