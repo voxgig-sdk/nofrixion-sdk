@@ -89,15 +89,122 @@ class AccountListMatch(TypedDict, total=False):
     merchant_id: str
 
 
-class AccountCreateData(TypedDict, total=False):
+class AccountCreateDataRequired(TypedDict):
+    created_by: dict
+    identifier: dict
+
+
+class AccountCreateData(AccountCreateDataRequired, total=False):
     account_id: str
     currency: str
+    account_balance: list
+    account_identification: list
+    account_name: str
+    account_supplier_name: str
+    account_type: str
+    available_balance: float
+    available_balance_minor_unit: int
+    balance: float
+    balance_minor_unit: int
+    bank_name: str
+    consent_id: str
+    consolidated_account_information: dict
+    created_by_display_name: str
+    default_payment_rail: str
+    description: str
+    detail: str
+    display_name: str
+    expiry_date: str
+    external_account_icon: str
+    format: str
+    from_date: str
+    id: str
+    inserted: str
+    is_archived: bool
+    is_connected_account: bool
+    is_default: bool
+    is_trust_account: bool
+    is_virtual: bool
+    last_transaction: dict
+    last_updated: str
+    merchant_id: str
+    merchant_name: str
+    nickname: str
+    physical_account_id: str
+    role_i_d: list
+    rule: list
+    submitted_payouts_balance: float
+    submitted_payouts_balance_minor_unit: int
+    summary: str
+    supplier_physical_account_id: str
+    supplier_sepa_instant_status: str
+    to_date: str
+    type: str
+    usage_type: str
+    xero_bank_feed_connection_status: str
+    xero_bank_feed_last_synced_at: str
+    xero_bank_feed_sync_last_failed_at: str
+    xero_bank_feed_sync_last_failure_reason: str
+    xero_bank_feed_sync_status: str
+    xero_unsynchronised_transactions_count: int
 
 
 class AccountUpdateData(TypedDict, total=False):
     account_id: str
     amount: float
     id: str
+    account_balance: list
+    account_identification: list
+    account_name: str
+    account_supplier_name: str
+    account_type: str
+    available_balance: float
+    available_balance_minor_unit: int
+    balance: float
+    balance_minor_unit: int
+    bank_name: str
+    consent_id: str
+    consolidated_account_information: dict
+    created_by: dict
+    created_by_display_name: str
+    currency: str
+    default_payment_rail: str
+    description: str
+    detail: str
+    display_name: str
+    expiry_date: str
+    external_account_icon: str
+    format: str
+    from_date: str
+    identifier: dict
+    inserted: str
+    is_archived: bool
+    is_connected_account: bool
+    is_default: bool
+    is_trust_account: bool
+    is_virtual: bool
+    last_transaction: dict
+    last_updated: str
+    merchant_id: str
+    merchant_name: str
+    nickname: str
+    physical_account_id: str
+    role_i_d: list
+    rule: list
+    submitted_payouts_balance: float
+    submitted_payouts_balance_minor_unit: int
+    summary: str
+    supplier_physical_account_id: str
+    supplier_sepa_instant_status: str
+    to_date: str
+    type: str
+    usage_type: str
+    xero_bank_feed_connection_status: str
+    xero_bank_feed_last_synced_at: str
+    xero_bank_feed_sync_last_failed_at: str
+    xero_bank_feed_sync_last_failure_reason: str
+    xero_bank_feed_sync_status: str
+    xero_unsynchronised_transactions_count: int
 
 
 class AccountRemoveMatch(TypedDict):
@@ -164,12 +271,68 @@ class BeneficiaryListMatch(TypedDict, total=False):
     merchant_id: str
 
 
-class BeneficiaryCreateData(TypedDict, total=False):
+class BeneficiaryCreateDataRequired(TypedDict):
+    created_by: dict
+    currency: str
+    name: str
+
+
+class BeneficiaryCreateData(BeneficiaryCreateDataRequired, total=False):
+    id: str
+    approval_callback_url: str
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    beneficiary: list
+    beneficiary_event: list
+    can_authorise: bool
+    can_update: bool
+    created_by_email_address: str
+    destination: dict
+    failed_beneficiary: dict
+    has_current_user_authorised: bool
+    inserted: str
+    is_enabled: bool
+    last_authorised: str
+    last_updated: str
+    merchant_id: str
+    nonce: str
+    source_account: list
+    source_account_i_d: list
+    their_reference: str
+
+
+class BeneficiaryUpdateDataRequired(TypedDict):
     id: str
 
 
-class BeneficiaryUpdateData(TypedDict):
-    id: str
+class BeneficiaryUpdateData(BeneficiaryUpdateDataRequired, total=False):
+    approval_callback_url: str
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    beneficiary: list
+    beneficiary_event: list
+    can_authorise: bool
+    can_update: bool
+    created_by: dict
+    created_by_email_address: str
+    currency: str
+    destination: dict
+    failed_beneficiary: dict
+    has_current_user_authorised: bool
+    inserted: str
+    is_enabled: bool
+    last_authorised: str
+    last_updated: str
+    merchant_id: str
+    name: str
+    nonce: str
+    source_account: list
+    source_account_i_d: list
+    their_reference: str
 
 
 class BeneficiaryRemoveMatch(TypedDict):
@@ -212,8 +375,28 @@ class Card(TypedDict, total=False):
     transaction_id: str
 
 
-class CardCreateData(TypedDict):
+class CardCreateDataRequired(TypedDict):
     paymentrequest_id: str
+
+
+class CardCreateData(CardCreateDataRequired, total=False):
+    authorized_amount: str
+    currency_code: str
+    is_payer_authentication_required: bool
+    is_soft_decline: bool
+    payer_authentication_access_token: str
+    payer_authentication_merchant_data: str
+    payer_authentication_url: str
+    payer_authentication_window_height: int
+    payer_authentication_window_width: int
+    payment_request_callback_url: str
+    payment_request_id: str
+    request_id: str
+    response_code: str
+    response_type: str
+    status: str
+    three_ds_redirect_url: str
+    transaction_id: str
 
 
 class CardCustomerToken(TypedDict, total=False):
@@ -271,6 +454,23 @@ class CardPaymentCreateDataRequired(TypedDict):
 
 class CardPaymentCreateData(CardPaymentCreateDataRequired, total=False):
     partial_refund_amount: float
+    authorized_amount: str
+    currency_code: str
+    is_payer_authentication_required: bool
+    is_soft_decline: bool
+    payer_authentication_access_token: str
+    payer_authentication_merchant_data: str
+    payer_authentication_url: str
+    payer_authentication_window_height: int
+    payer_authentication_window_width: int
+    payment_request_callback_url: str
+    payment_request_id: str
+    request_id: str
+    response_code: str
+    response_type: str
+    status: str
+    three_ds_redirect_url: str
+    transaction_id: str
 
 
 class CardPublicKey(TypedDict, total=False):
@@ -324,8 +524,24 @@ class ConsentCreateData(TypedDict, total=False):
     success_web_hook_url: str
 
 
-class ConsentUpdateData(TypedDict):
+class ConsentUpdateDataRequired(TypedDict):
     id: str
+
+
+class ConsentUpdateData(ConsentUpdateDataRequired, total=False):
+    authorisation_url: str
+    callback_url: str
+    consent_id: str
+    email_address: str
+    expiry_date: str
+    failure_callback_url: str
+    inserted: str
+    institution_id: str
+    is_connected_account: bool
+    is_enabled: bool
+    merchant_id: str
+    provider: str
+    success_web_hook_url: str
 
 
 class ConsentRemoveMatch(TypedDict):
@@ -541,8 +757,39 @@ class MerchantListMatch(TypedDict, total=False):
     your_role_name: str
 
 
-class MerchantUpdateData(TypedDict):
+class MerchantUpdateDataRequired(TypedDict):
     id: str
+
+
+class MerchantUpdateData(MerchantUpdateDataRequired, total=False):
+    account_currency: list
+    can_have_trust_account: bool
+    card_payment_processor: str
+    company_id: str
+    display_qr_on_hosted_pay: bool
+    hosted_pay_version: int
+    inserted: str
+    is_blocked: bool
+    is_exited: bool
+    is_suspended: bool
+    jurisdiction: str
+    logo_url_png: str
+    logo_url_svg: str
+    merchant_category_code: str
+    name: str
+    note: str
+    parent_merchant: dict
+    payment_account: list
+    payment_account_limit: int
+    reason: str
+    short_name: str
+    supported_payment_methods_list: list
+    suspension_reason: str
+    tag: list
+    time_zone_id: str
+    trading_name: str
+    web_hook_limit: int
+    your_role_name: str
 
 
 class MerchantRemoveMatch(TypedDict, total=False):
@@ -664,9 +911,18 @@ class MerchantPaymentRequestTemplateListMatch(TypedDict):
     merchant_id: str
 
 
-class MerchantPaymentRequestTemplateUpdateData(TypedDict):
+class MerchantPaymentRequestTemplateUpdateDataRequired(TypedDict):
     id: str
     paymentrequest_id: str
+
+
+class MerchantPaymentRequestTemplateUpdateData(MerchantPaymentRequestTemplateUpdateDataRequired, total=False):
+    description: str
+    inserted: str
+    last_updated: str
+    merchant_id: str
+    name: str
+    template: dict
 
 
 class MerchantPaymentRequestTemplateRemoveMatch(TypedDict):
@@ -740,8 +996,33 @@ class MerchantTokenCreateData(MerchantTokenCreateDataRequired, total=False):
     token: str
 
 
-class MerchantTokenUpdateData(TypedDict):
+class MerchantTokenUpdateDataRequired(TypedDict):
     id: str
+
+
+class MerchantTokenUpdateData(MerchantTokenUpdateDataRequired, total=False):
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    can_authorise: bool
+    description: str
+    expires_at: str
+    has_current_user_authorised: bool
+    hmac_algorithm: str
+    inserted: str
+    ip_address_whitelist: str
+    is_archived: bool
+    is_enabled: bool
+    last_authorised: str
+    last_updated: str
+    merchant_id: str
+    nonce: str
+    permission_type: list
+    request_signature_version: int
+    shared_secret_algorithm: str
+    shared_secret_base64: str
+    token: str
 
 
 class Metadata(TypedDict):
@@ -975,8 +1256,86 @@ class PaymentCreateData(PaymentCreateDataRequired, total=False):
     use_hosted_payment_page: bool
 
 
-class PaymentUpdateData(TypedDict):
+class PaymentUpdateDataRequired(TypedDict):
     id: str
+
+
+class PaymentUpdateData(PaymentUpdateDataRequired, total=False):
+    address: list
+    amount: float
+    amount_pending: float
+    amount_received: float
+    amount_refunded: float
+    auto_send_receipt: bool
+    base_origin_url: str
+    callback_url: str
+    card_authorize_only: bool
+    card_create_token: bool
+    card_create_token_mode: str
+    card_ignore_cvn: bool
+    card_no_payer_authentication: bool
+    card_processor_merchant_id: str
+    card_stripe_payment_intent_id: str
+    card_stripe_payment_intent_secret: str
+    card_transmit_raw_detail: bool
+    created_by_user: dict
+    currency: str
+    custom_field: list
+    customer_email_address: str
+    customer_id: str
+    customer_name: str
+    description: str
+    destination_account: dict
+    direct_debit_payment: dict
+    due_date: str
+    event: list
+    failure_callback_url: str
+    field_display_setting: list
+    formatted_amount: str
+    hosted_pay_checkout_url: str
+    ignore_address_verification: bool
+    inserted: str
+    inserted_sortable: str
+    is_archived: bool
+    jwk: str
+    last_updated: str
+    lightning_invoice: str
+    lightning_invoice_expires_at: str
+    merchant_direct_debit_mandate_id: str
+    merchant_id: str
+    merchant_token_description: str
+    notification_email_address: str
+    notification_role_i_d: list
+    order_id: str
+    partial_payment_method: str
+    partial_payment_step: str
+    payment_attempt: list
+    payment_method: list
+    payment_processor: str
+    payrun_id: str
+    pisp_account_id: str
+    priority_bank_id: str
+    result: dict
+    sandbox_settle_delay_in_second: int
+    shipping_address: dict
+    shipping_address_city: str
+    shipping_address_country_code: str
+    shipping_address_county: str
+    shipping_address_line1: str
+    shipping_address_line2: str
+    shipping_address_post_code: str
+    shipping_email: str
+    shipping_first_name: str
+    shipping_last_name: str
+    shipping_phone: str
+    status: str
+    success_web_hook_url: str
+    tag: list
+    tag_id: list
+    title: str
+    tokenised_card: list
+    transaction: list
+    use_hosted_payment_page: bool
 
 
 class PaymentAccountRequired(TypedDict):
@@ -1068,8 +1427,17 @@ class PaymentInitiation(TypedDict, total=False):
     specific_error_message: str
 
 
-class PaymentInitiationCreateData(TypedDict):
+class PaymentInitiationCreateDataRequired(TypedDict):
     paymentrequest_id: str
+
+
+class PaymentInitiationCreateData(PaymentInitiationCreateDataRequired, total=False):
+    payment_initiation_id: str
+    payment_request_callback_url: str
+    payment_request_id: str
+    redirect_url: str
+    response_type: str
+    specific_error_message: str
 
 
 class PaymentRequestRequired(TypedDict):
@@ -1223,12 +1591,156 @@ class PaymentRequestListMatch(TypedDict, total=False):
     use_hosted_payment_page: bool
 
 
-class PaymentRequestCreateData(TypedDict, total=False):
+class PaymentRequestCreateDataRequired(TypedDict):
+    created_by_user: dict
+
+
+class PaymentRequestCreateData(PaymentRequestCreateDataRequired, total=False):
+    paymentrequest_id: str
+    address: list
+    amount: float
+    amount_pending: float
+    amount_received: float
+    amount_refunded: float
+    auto_send_receipt: bool
+    base_origin_url: str
+    callback_url: str
+    card_authorize_only: bool
+    card_create_token: bool
+    card_create_token_mode: str
+    card_ignore_cvn: bool
+    card_processor_merchant_id: str
+    card_stripe_payment_intent_id: str
+    card_stripe_payment_intent_secret: str
+    currency: str
+    custom_field: list
+    customer_email_address: str
+    customer_id: str
+    customer_name: str
+    description: str
+    destination_account: dict
+    direct_debit_payment: dict
+    do_simulate_settlement_failure: bool
+    due_date: str
+    error_description: str
+    event: list
+    failed_payment_request: dict
+    failure_callback_url: str
+    field_display_setting: list
+    formatted_amount: str
+    hosted_pay_checkout_url: str
+    id: str
+    ignore_address_verification: bool
+    inserted: str
+    inserted_sortable: str
+    institution: str
+    is_archived: bool
+    jwk: str
+    last_updated: str
+    lightning_invoice: str
+    lightning_invoice_expires_at: str
+    merchant_direct_debit_mandate_id: str
+    merchant_id: str
+    merchant_token_description: str
+    notification_email_address: str
+    notification_role_i_d: list
+    order_id: str
+    partial_payment_method: str
+    partial_payment_step: str
+    payment_attempt: list
+    payment_initiation_id: str
+    payment_method: list
+    payment_processor: str
+    payment_request: list
+    payrun_id: str
+    pisp_account_id: str
+    priority_bank_id: str
+    result: dict
+    sandbox_settle_delay_in_second: int
+    shipping_address: dict
+    status: str
+    success_web_hook_url: str
+    tag: list
+    title: str
+    tokenised_card: list
+    transaction: list
+    use_hosted_payment_page: bool
+
+
+class PaymentRequestUpdateDataRequired(TypedDict):
     paymentrequest_id: str
 
 
-class PaymentRequestUpdateData(TypedDict):
-    paymentrequest_id: str
+class PaymentRequestUpdateData(PaymentRequestUpdateDataRequired, total=False):
+    address: list
+    amount: float
+    amount_pending: float
+    amount_received: float
+    amount_refunded: float
+    auto_send_receipt: bool
+    base_origin_url: str
+    callback_url: str
+    card_authorize_only: bool
+    card_create_token: bool
+    card_create_token_mode: str
+    card_ignore_cvn: bool
+    card_processor_merchant_id: str
+    card_stripe_payment_intent_id: str
+    card_stripe_payment_intent_secret: str
+    created_by_user: dict
+    currency: str
+    custom_field: list
+    customer_email_address: str
+    customer_id: str
+    customer_name: str
+    description: str
+    destination_account: dict
+    direct_debit_payment: dict
+    do_simulate_settlement_failure: bool
+    due_date: str
+    error_description: str
+    event: list
+    failed_payment_request: dict
+    failure_callback_url: str
+    field_display_setting: list
+    formatted_amount: str
+    hosted_pay_checkout_url: str
+    id: str
+    ignore_address_verification: bool
+    inserted: str
+    inserted_sortable: str
+    institution: str
+    is_archived: bool
+    jwk: str
+    last_updated: str
+    lightning_invoice: str
+    lightning_invoice_expires_at: str
+    merchant_direct_debit_mandate_id: str
+    merchant_id: str
+    merchant_token_description: str
+    notification_email_address: str
+    notification_role_i_d: list
+    order_id: str
+    partial_payment_method: str
+    partial_payment_step: str
+    payment_attempt: list
+    payment_initiation_id: str
+    payment_method: list
+    payment_processor: str
+    payment_request: list
+    payrun_id: str
+    pisp_account_id: str
+    priority_bank_id: str
+    result: dict
+    sandbox_settle_delay_in_second: int
+    shipping_address: dict
+    status: str
+    success_web_hook_url: str
+    tag: list
+    title: str
+    tokenised_card: list
+    transaction: list
+    use_hosted_payment_page: bool
 
 
 class PaymentRequestRemoveMatch(TypedDict):
@@ -1451,12 +1963,174 @@ class PayoutListMatch(TypedDict, total=False):
     merchant_id: str
 
 
-class PayoutCreateData(TypedDict, total=False):
+class PayoutCreateDataRequired(TypedDict):
+    beneficiary: dict
+    source_account_identifier: dict
+
+
+class PayoutCreateData(PayoutCreateDataRequired, total=False):
+    id: str
+    account_id: str
+    allow_incomplete: bool
+    amount: float
+    amount_minor_unit: int
+    approve_payout_url: str
+    approver_id: str
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    batch_payout_id: str
+    beneficiary_id: str
+    can_authorise: bool
+    can_process: bool
+    can_update: bool
+    charge_bearer: str
+    created_by: str
+    created_by_email_address: str
+    currency: str
+    current_user_id: str
+    description: str
+    destination: dict
+    document: list
+    event: list
+    failed_payout: dict
+    formatted_amount: str
+    formatted_fx_destination_amount: str
+    formatted_schedule: str
+    formatted_schedule_day_only: str
+    formatted_source_account_available_balance: str
+    fx_destination_amount: float
+    fx_destination_amount_minor_unit: int
+    fx_destination_currency: str
+    fx_quote_expires_at: str
+    fx_quote_id: str
+    fx_rate: float
+    fx_use_destination_amount: bool
+    has_current_user_authorised: bool
+    inserted: str
+    invoice_id: str
+    is_archived: bool
+    is_failed: bool
+    is_settled: bool
+    is_submitted: bool
+    last_updated: str
+    merchant_id: str
+    merchant_token_description: str
+    nonce: str
+    payment_processor: str
+    payment_rail: str
+    payout: list
+    payrun_id: str
+    payrun_name: str
+    reason: str
+    rule: dict
+    schedule_date: str
+    scheduled: bool
+    source_account_available_balance: float
+    source_account_available_balance_minor_unit: int
+    source_account_bic: str
+    source_account_currency: str
+    source_account_iban: str
+    source_account_name: str
+    source_account_number: str
+    source_account_sortcode: str
+    status: str
+    tag: list
+    tag_id: list
+    their_reference: str
+    topup_payrun_id: str
+    transacted_amount: float
+    transacted_fx_amount: float
+    transacted_fx_rate: float
+    type: str
+    user_id: str
+    your_reference: str
+
+
+class PayoutUpdateDataRequired(TypedDict):
     id: str
 
 
-class PayoutUpdateData(TypedDict):
-    id: str
+class PayoutUpdateData(PayoutUpdateDataRequired, total=False):
+    account_id: str
+    allow_incomplete: bool
+    amount: float
+    amount_minor_unit: int
+    approve_payout_url: str
+    approver_id: str
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    batch_payout_id: str
+    beneficiary: dict
+    beneficiary_id: str
+    can_authorise: bool
+    can_process: bool
+    can_update: bool
+    charge_bearer: str
+    created_by: str
+    created_by_email_address: str
+    currency: str
+    current_user_id: str
+    description: str
+    destination: dict
+    document: list
+    event: list
+    failed_payout: dict
+    formatted_amount: str
+    formatted_fx_destination_amount: str
+    formatted_schedule: str
+    formatted_schedule_day_only: str
+    formatted_source_account_available_balance: str
+    fx_destination_amount: float
+    fx_destination_amount_minor_unit: int
+    fx_destination_currency: str
+    fx_quote_expires_at: str
+    fx_quote_id: str
+    fx_rate: float
+    fx_use_destination_amount: bool
+    has_current_user_authorised: bool
+    inserted: str
+    invoice_id: str
+    is_archived: bool
+    is_failed: bool
+    is_settled: bool
+    is_submitted: bool
+    last_updated: str
+    merchant_id: str
+    merchant_token_description: str
+    nonce: str
+    payment_processor: str
+    payment_rail: str
+    payout: list
+    payrun_id: str
+    payrun_name: str
+    reason: str
+    rule: dict
+    schedule_date: str
+    scheduled: bool
+    source_account_available_balance: float
+    source_account_available_balance_minor_unit: int
+    source_account_bic: str
+    source_account_currency: str
+    source_account_iban: str
+    source_account_identifier: dict
+    source_account_name: str
+    source_account_number: str
+    source_account_sortcode: str
+    status: str
+    tag: list
+    tag_id: list
+    their_reference: str
+    topup_payrun_id: str
+    transacted_amount: float
+    transacted_fx_amount: float
+    transacted_fx_rate: float
+    type: str
+    user_id: str
+    your_reference: str
 
 
 class PayoutRemoveMatch(TypedDict):
@@ -1644,12 +2318,80 @@ class PayrunListMatch(TypedDict, total=False):
     total_usd: float
 
 
-class PayrunCreateData(TypedDict):
+class PayrunCreateDataRequired(TypedDict):
+    id: str
+    last_updated_by: dict
+
+
+class PayrunCreateData(PayrunCreateDataRequired, total=False):
+    authorisation: list
+    authorisation_date: str
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    batch_payout_id: str
+    can_authorise: bool
+    can_delete: bool
+    can_edit: bool
+    event: list
+    has_current_user_authorised: bool
+    inserted: str
+    invoice: list
+    invoices_minimal: list
+    is_archived: bool
+    last_updated: str
+    merchant_id: str
+    name: str
+    nonce: str
+    note: str
+    payment: list
+    payout: list
+    payouts_count: int
+    reason: str
+    schedule_date: str
+    scheduled_date: str
+    source_account: list
+    status: str
+    total_eur: float
+    total_gbp: float
+    total_usd: float
+
+
+class PayrunUpdateDataRequired(TypedDict):
     id: str
 
 
-class PayrunUpdateData(TypedDict):
-    id: str
+class PayrunUpdateData(PayrunUpdateDataRequired, total=False):
+    authorisation: list
+    authorisation_date: str
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    batch_payout_id: str
+    can_authorise: bool
+    can_delete: bool
+    can_edit: bool
+    event: list
+    has_current_user_authorised: bool
+    inserted: str
+    invoice: list
+    invoices_minimal: list
+    is_archived: bool
+    last_updated: str
+    last_updated_by: dict
+    merchant_id: str
+    name: str
+    nonce: str
+    note: str
+    payment: list
+    payout: list
+    payouts_count: int
+    reason: str
+    schedule_date: str
+    scheduled_date: str
+    source_account: list
+    status: str
+    total_eur: float
+    total_gbp: float
+    total_usd: float
 
 
 class PayrunRemoveMatch(TypedDict):
@@ -1684,8 +2426,13 @@ class Role(TypedDict, total=False):
     role: list
 
 
-class RoleCreateData(TypedDict):
+class RoleCreateDataRequired(TypedDict):
     merchant_id: str
+
+
+class RoleCreateData(RoleCreateDataRequired, total=False):
+    failed_role: dict
+    role: list
 
 
 class RuleRequired(TypedDict):
@@ -1806,8 +2553,43 @@ class RuleCreateData(RuleCreateDataRequired, total=False):
     web_hook_secret: str
 
 
-class RuleUpdateData(TypedDict):
+class RuleUpdateDataRequired(TypedDict):
     id: str
+
+
+class RuleUpdateData(RuleUpdateDataRequired, total=False):
+    account: dict
+    account_id: str
+    approve_url: str
+    approver_id: str
+    authentication_method: list
+    authorisation: list
+    authorisers_completed_count: int
+    authorisers_required_count: int
+    can_authorise: bool
+    created_by: dict
+    description: str
+    end_at: str
+    has_current_user_authorised: bool
+    inserted: str
+    is_disabled: bool
+    last_executed_at: str
+    last_run_at_transaction_date: str
+    last_updated: str
+    merchant_id: str
+    name: str
+    nonce: str
+    on_approved_web_hook_url: str
+    on_execution_error_web_hook_url: str
+    on_execution_success_web_hook_url: str
+    start_at: str
+    status: str
+    sweep_action: dict
+    time_zone_id: str
+    trigger_cron_expression: str
+    trigger_on_pay_in: bool
+    user_id: str
+    web_hook_secret: str
 
 
 class RuleRemoveMatch(TypedDict):
@@ -1848,8 +2630,15 @@ class TagListMatch(TypedDict):
     merchant_id: str
 
 
-class TagCreateData(TypedDict):
+class TagCreateDataRequired(TypedDict):
     merchant_id: str
+    name: str
+
+
+class TagCreateData(TagCreateDataRequired, total=False):
+    colour_hex: str
+    description: str
+    id: str
 
 
 class Token(TypedDict):
@@ -1936,8 +2725,63 @@ class TransactionListMatch(TypedDict, total=False):
     merchant_id: str
 
 
-class TransactionCreateData(TypedDict):
+class TransactionCreateDataRequired(TypedDict):
     id: str
+    gross_amount: dict
+    payee_detail: dict
+    payer_detail: dict
+    transaction_amount: dict
+
+
+class TransactionCreateData(TransactionCreateDataRequired, total=False):
+    account_id: str
+    account_name: str
+    account_sequence_number: int
+    address_detail: dict
+    amount: float
+    amount_minor_unit: int
+    balance: float
+    balance_minor_unit: int
+    booking_date_time: str
+    charge_detail: dict
+    content: list
+    counterparty: dict
+    counterparty_summary: str
+    currency: str
+    currency_exchange: dict
+    date: str
+    description: str
+    enrichment: dict
+    fx_amount: float
+    fx_currency: str
+    fx_rate: float
+    inserted: str
+    iso_bank_transaction_code: dict
+    merchant: dict
+    merchant_id: str
+    page_number: int
+    page_size: int
+    payment_request_custom_field: dict
+    payment_request_id: str
+    payout_id: str
+    proprietary_bank_transaction_code: dict
+    raw_reference: str
+    reference: str
+    rule_id: str
+    statement_reference: list
+    status: str
+    supplementary_data: Any
+    tag: list
+    their_reference: str
+    total_page: int
+    total_size: int
+    transaction_date: str
+    transaction_information: list
+    transaction_mutability: str
+    type: str
+    value_date_time: str
+    virtual_iban: str
+    your_reference: str
 
 
 class TransactionRemoveMatch(TypedDict):
@@ -1965,8 +2809,21 @@ class UserListMatch(TypedDict, total=False):
     merchant_id: str
 
 
-class UserUpdateData(TypedDict):
+class UserUpdateDataRequired(TypedDict):
     id: str
+
+
+class UserUpdateData(UserUpdateDataRequired, total=False):
+    client_session_timeout: list
+    email_address: str
+    first_name: str
+    last_name: str
+    passkey_added: bool
+    permission: dict
+    profile: str
+    roles_with_scope: list
+    two_factor_enabled: bool
+    user_invite_id: str
 
 
 class UserInviteRequired(TypedDict):
@@ -2006,12 +2863,60 @@ class UserInviteListMatch(TypedDict):
     merchant_id: str
 
 
-class UserInviteCreateData(TypedDict, total=False):
+class UserInviteCreateDataRequired(TypedDict):
+    user: dict
+
+
+class UserInviteCreateData(UserInviteCreateDataRequired, total=False):
+    id: str
+    authorisation_status: dict
+    failed_user_invite: dict
+    initial_role_id: str
+    invitee_email_address: str
+    invitee_first_name: str
+    invitee_last_name: str
+    inviter_email_address: str
+    inviter_first_name: str
+    inviter_last_name: str
+    is_authorised: bool
+    is_invitee_registered: bool
+    last_invited: str
+    merchant_id: str
+    merchant_name: str
+    message: str
+    registration_url: str
+    send_invite_email: bool
+    status: str
+    user_id: str
+    user_invite: list
+
+
+class UserInviteUpdateDataRequired(TypedDict):
     id: str
 
 
-class UserInviteUpdateData(TypedDict):
-    id: str
+class UserInviteUpdateData(UserInviteUpdateDataRequired, total=False):
+    authorisation_status: dict
+    failed_user_invite: dict
+    initial_role_id: str
+    invitee_email_address: str
+    invitee_first_name: str
+    invitee_last_name: str
+    inviter_email_address: str
+    inviter_first_name: str
+    inviter_last_name: str
+    is_authorised: bool
+    is_invitee_registered: bool
+    last_invited: str
+    merchant_id: str
+    merchant_name: str
+    message: str
+    registration_url: str
+    send_invite_email: bool
+    status: str
+    user: dict
+    user_id: str
+    user_invite: list
 
 
 class UserInviteRemoveMatch(TypedDict):
@@ -2064,13 +2969,98 @@ class Virtual(VirtualRequired, total=False):
     xero_unsynchronised_transactions_count: int
 
 
-class VirtualCreateData(TypedDict):
+class VirtualCreateDataRequired(TypedDict):
     account_id: str
+    created_by: dict
+    identifier: dict
+    name: str
 
 
-class VirtualUpdateData(TypedDict):
+class VirtualCreateData(VirtualCreateDataRequired, total=False):
+    account_name: str
+    account_supplier_name: str
+    available_balance: float
+    available_balance_minor_unit: int
+    balance: float
+    balance_minor_unit: int
+    bank_name: str
+    consent_id: str
+    created_by_display_name: str
+    currency: str
+    default_payment_rail: str
+    display_name: str
+    expiry_date: str
+    external_account_icon: str
+    id: str
+    inserted: str
+    is_archived: bool
+    is_connected_account: bool
+    is_default: bool
+    is_trust_account: bool
+    is_virtual: bool
+    last_transaction: dict
+    last_updated: str
+    merchant_id: str
+    merchant_name: str
+    physical_account_id: str
+    rule: list
+    submitted_payouts_balance: float
+    submitted_payouts_balance_minor_unit: int
+    summary: str
+    supplier_sepa_instant_status: str
+    xero_bank_feed_connection_status: str
+    xero_bank_feed_last_synced_at: str
+    xero_bank_feed_sync_last_failed_at: str
+    xero_bank_feed_sync_last_failure_reason: str
+    xero_bank_feed_sync_status: str
+    xero_unsynchronised_transactions_count: int
+
+
+class VirtualUpdateDataRequired(TypedDict):
     account_id: str
     id: str
+
+
+class VirtualUpdateData(VirtualUpdateDataRequired, total=False):
+    account_name: str
+    account_supplier_name: str
+    available_balance: float
+    available_balance_minor_unit: int
+    balance: float
+    balance_minor_unit: int
+    bank_name: str
+    consent_id: str
+    created_by: dict
+    created_by_display_name: str
+    currency: str
+    default_payment_rail: str
+    display_name: str
+    expiry_date: str
+    external_account_icon: str
+    identifier: dict
+    inserted: str
+    is_archived: bool
+    is_connected_account: bool
+    is_default: bool
+    is_trust_account: bool
+    is_virtual: bool
+    last_transaction: dict
+    last_updated: str
+    merchant_id: str
+    merchant_name: str
+    name: str
+    physical_account_id: str
+    rule: list
+    submitted_payouts_balance: float
+    submitted_payouts_balance_minor_unit: int
+    summary: str
+    supplier_sepa_instant_status: str
+    xero_bank_feed_connection_status: str
+    xero_bank_feed_last_synced_at: str
+    xero_bank_feed_sync_last_failed_at: str
+    xero_bank_feed_sync_last_failure_reason: str
+    xero_bank_feed_sync_status: str
+    xero_unsynchronised_transactions_count: int
 
 
 class Webhook(TypedDict, total=False):
@@ -2113,8 +3103,21 @@ class WebhookCreateData(TypedDict, total=False):
     version: int
 
 
-class WebhookUpdateData(TypedDict):
+class WebhookUpdateDataRequired(TypedDict):
     id: str
+
+
+class WebhookUpdateData(WebhookUpdateDataRequired, total=False):
+    destination_url: str
+    email_address: str
+    failed_notification_email_address: str
+    is_active: bool
+    merchant_id: str
+    notification_method: str
+    resource_type: list
+    retry: bool
+    secret: str
+    version: int
 
 
 class WebhookRemoveMatch(TypedDict):

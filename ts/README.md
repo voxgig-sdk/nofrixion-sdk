@@ -68,8 +68,8 @@ try {
 ```ts
 // Create — returns the created Account
 const created = await client.Account().create({
-  account_id: 'example_account_id',
-  currency: 'example_currency',
+  created_by: {},
+  identifier: {},
 })
 
 // Update — the id comes straight off the returned entity
@@ -92,8 +92,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const accounts = await client.Account().list()
-  console.log(accounts)
+  const ruleevents = await client.RuleEvent().list()
+  console.log(ruleevents)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -159,9 +159,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = NofrixionSDK.test()
 
-const account = await client.Account().list()
-// account is a bare entity populated with mock response data
-console.log(account)
+const ruleevent = await client.RuleEvent().list()
+// ruleevent is a bare entity populated with mock response data
+console.log(ruleevent)
 ```
 
 You can also use the instance method:
@@ -176,7 +176,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Account()
+const entity = client.RuleEvent()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -1896,6 +1896,8 @@ const accounts = await client.Account().list()
 
 ```ts
 const account = await client.Account().create({
+  created_by: {},
+  identifier: {},
 })
 ```
 
@@ -1994,6 +1996,9 @@ const beneficiarys = await client.Beneficiary().list()
 
 ```ts
 const beneficiary = await client.Beneficiary().create({
+  created_by: {},
+  currency: 'example_currency',
+  name: 'example_name',
 })
 ```
 
@@ -3112,6 +3117,7 @@ const payment_requests = await client.PaymentRequest().list()
 
 ```ts
 const payment_request = await client.PaymentRequest().create({
+  created_by_user: {},
 })
 ```
 
@@ -3401,6 +3407,8 @@ const payouts = await client.Payout().list()
 
 ```ts
 const payout = await client.Payout().create({
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -3597,6 +3605,7 @@ const payruns = await client.Payrun().list()
 ```ts
 const payrun = await client.Payrun().create({
   id: 'example_id',
+  last_updated_by: {},
 })
 ```
 
@@ -3804,6 +3813,7 @@ const tags = await client.Tag().list()
 ```ts
 const tag = await client.Tag().create({
   merchant_id: 'example_merchant_id',
+  name: 'example_name',
 })
 ```
 
@@ -3916,6 +3926,10 @@ const transactions = await client.Transaction().list()
 ```ts
 const transaction = await client.Transaction().create({
   id: 'example_id',
+  gross_amount: {},
+  payee_detail: {},
+  payer_detail: {},
+  transaction_amount: {},
 })
 ```
 
@@ -4011,6 +4025,7 @@ const user_invites = await client.UserInvite().list()
 
 ```ts
 const user_invite = await client.UserInvite().create({
+  user: {},
 })
 ```
 
@@ -4076,6 +4091,9 @@ Create an instance: `const virtual = client.Virtual()`
 ```ts
 const virtual = await client.Virtual().create({
   account_id: 'example_account_id',
+  created_by: {},
+  identifier: {},
+  name: 'example_name',
 })
 ```
 
@@ -4199,11 +4217,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const account = client.Account()
-await account.list()
+const ruleevent = client.RuleEvent()
+await ruleevent.list()
 
-// account.data() now returns the account data from the last `list`
-// account.match() returns the last match criteria
+// ruleevent.data() now returns the ruleevent data from the last `list`
+// ruleevent.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

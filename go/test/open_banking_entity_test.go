@@ -65,14 +65,6 @@ func TestOpenBankingEntity(t *testing.T) {
 			t.Fatal("expected create result to be a map")
 		}
 
-		// REMOVE
-		openBankingRef01MatchRm0 := map[string]any{
-			"id": openBankingRef01Data["id"],
-		}
-		_, err = openBankingRef01Ent.Remove(openBankingRef01MatchRm0, nil)
-		if err != nil {
-			t.Fatalf("remove failed: %v", err)
-		}
 
 	})
 }

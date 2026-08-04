@@ -44,12 +44,6 @@ describe("TokenEntity", function()
     token_ref01_data = helpers.to_map(token_ref01_data_result)
     assert.is_not_nil(token_ref01_data)
 
-    -- REMOVE
-    local token_ref01_match_rm0 = {
-      id = token_ref01_data["id"],
-    }
-    local _, err = token_ref01_ent:remove(token_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
   end)
 end)

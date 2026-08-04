@@ -73,11 +73,115 @@
 ---@class AccountCreateData
 ---@field account_id? string
 ---@field currency? string
+---@field account_balance? table
+---@field account_identification? table
+---@field account_name? string
+---@field account_supplier_name? string
+---@field account_type? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field consolidated_account_information? table
+---@field created_by table
+---@field created_by_display_name? string
+---@field default_payment_rail? string
+---@field description? string
+---@field detail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field format? string
+---@field from_date? string
+---@field id? string
+---@field identifier table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field nickname? string
+---@field physical_account_id? string
+---@field role_i_d? table
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_physical_account_id? string
+---@field supplier_sepa_instant_status? string
+---@field to_date? string
+---@field type? string
+---@field usage_type? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
 
 ---@class AccountUpdateData
 ---@field account_id? string
 ---@field amount? number
 ---@field id? string
+---@field account_balance? table
+---@field account_identification? table
+---@field account_name? string
+---@field account_supplier_name? string
+---@field account_type? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field consolidated_account_information? table
+---@field created_by? table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field description? string
+---@field detail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field format? string
+---@field from_date? string
+---@field identifier? table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field nickname? string
+---@field physical_account_id? string
+---@field role_i_d? table
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_physical_account_id? string
+---@field supplier_sepa_instant_status? string
+---@field to_date? string
+---@field type? string
+---@field usage_type? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
 
 ---@class AccountRemoveMatch
 ---@field id string
@@ -132,9 +236,59 @@
 
 ---@class BeneficiaryCreateData
 ---@field id? string
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary? table
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by table
+---@field created_by_email_address? string
+---@field currency string
+---@field destination? table
+---@field failed_beneficiary? table
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name string
+---@field nonce? string
+---@field source_account? table
+---@field source_account_i_d? table
+---@field their_reference? string
 
 ---@class BeneficiaryUpdateData
 ---@field id string
+---@field approval_callback_url? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field beneficiary? table
+---@field beneficiary_event? table
+---@field can_authorise? boolean
+---@field can_update? boolean
+---@field created_by? table
+---@field created_by_email_address? string
+---@field currency? string
+---@field destination? table
+---@field failed_beneficiary? table
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field source_account? table
+---@field source_account_i_d? table
+---@field their_reference? string
 
 ---@class BeneficiaryRemoveMatch
 ---@field id string
@@ -171,6 +325,23 @@
 
 ---@class CardCreateData
 ---@field paymentrequest_id string
+---@field authorized_amount? string
+---@field currency_code? string
+---@field is_payer_authentication_required? boolean
+---@field is_soft_decline? boolean
+---@field payer_authentication_access_token? string
+---@field payer_authentication_merchant_data? string
+---@field payer_authentication_url? string
+---@field payer_authentication_window_height? number
+---@field payer_authentication_window_width? number
+---@field payment_request_callback_url? string
+---@field payment_request_id? string
+---@field request_id? string
+---@field response_code? string
+---@field response_type? string
+---@field status? string
+---@field three_ds_redirect_url? string
+---@field transaction_id? string
 
 ---@class CardCustomerToken
 ---@field card_type? string
@@ -219,6 +390,23 @@
 ---@class CardPaymentCreateData
 ---@field partial_refund_amount? number
 ---@field paymentrequest_id string
+---@field authorized_amount? string
+---@field currency_code? string
+---@field is_payer_authentication_required? boolean
+---@field is_soft_decline? boolean
+---@field payer_authentication_access_token? string
+---@field payer_authentication_merchant_data? string
+---@field payer_authentication_url? string
+---@field payer_authentication_window_height? number
+---@field payer_authentication_window_width? number
+---@field payment_request_callback_url? string
+---@field payment_request_id? string
+---@field request_id? string
+---@field response_code? string
+---@field response_type? string
+---@field status? string
+---@field three_ds_redirect_url? string
+---@field transaction_id? string
 
 ---@class CardPublicKey
 ---@field jwt? string
@@ -267,6 +455,19 @@
 
 ---@class ConsentUpdateData
 ---@field id string
+---@field authorisation_url? string
+---@field callback_url? string
+---@field consent_id? string
+---@field email_address? string
+---@field expiry_date? string
+---@field failure_callback_url? string
+---@field inserted? string
+---@field institution_id? string
+---@field is_connected_account? boolean
+---@field is_enabled? boolean
+---@field merchant_id? string
+---@field provider? string
+---@field success_web_hook_url? string
 
 ---@class ConsentRemoveMatch
 ---@field id string
@@ -461,6 +662,34 @@
 
 ---@class MerchantUpdateData
 ---@field id string
+---@field account_currency? table
+---@field can_have_trust_account? boolean
+---@field card_payment_processor? string
+---@field company_id? string
+---@field display_qr_on_hosted_pay? boolean
+---@field hosted_pay_version? number
+---@field inserted? string
+---@field is_blocked? boolean
+---@field is_exited? boolean
+---@field is_suspended? boolean
+---@field jurisdiction? string
+---@field logo_url_png? string
+---@field logo_url_svg? string
+---@field merchant_category_code? string
+---@field name? string
+---@field note? string
+---@field parent_merchant? table
+---@field payment_account? table
+---@field payment_account_limit? number
+---@field reason? string
+---@field short_name? string
+---@field supported_payment_methods_list? table
+---@field suspension_reason? string
+---@field tag? table
+---@field time_zone_id? string
+---@field trading_name? string
+---@field web_hook_limit? number
+---@field your_role_name? string
 
 ---@class MerchantRemoveMatch
 ---@field id? string
@@ -571,6 +800,12 @@
 ---@class MerchantPaymentRequestTemplateUpdateData
 ---@field id string
 ---@field paymentrequest_id string
+---@field description? string
+---@field inserted? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field template? table
 
 ---@class MerchantPaymentRequestTemplateRemoveMatch
 ---@field id string
@@ -634,6 +869,28 @@
 
 ---@class MerchantTokenUpdateData
 ---@field id string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field description? string
+---@field expires_at? string
+---@field has_current_user_authorised? boolean
+---@field hmac_algorithm? string
+---@field inserted? string
+---@field ip_address_whitelist? string
+---@field is_archived? boolean
+---@field is_enabled? boolean
+---@field last_authorised? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field nonce? string
+---@field permission_type? table
+---@field request_signature_version? number
+---@field shared_secret_algorithm? string
+---@field shared_secret_base64? string
+---@field token? string
 
 ---@class Metadata
 
@@ -841,6 +1098,81 @@
 
 ---@class PaymentUpdateData
 ---@field id string
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_no_payer_authentication? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field card_transmit_raw_detail? boolean
+---@field created_by_user? table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field due_date? string
+---@field event? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_method? table
+---@field payment_processor? string
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field shipping_address_city? string
+---@field shipping_address_country_code? string
+---@field shipping_address_county? string
+---@field shipping_address_line1? string
+---@field shipping_address_line2? string
+---@field shipping_address_post_code? string
+---@field shipping_email? string
+---@field shipping_first_name? string
+---@field shipping_last_name? string
+---@field shipping_phone? string
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field tag_id? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
 
 ---@class PaymentAccount
 ---@field account_name? string
@@ -922,6 +1254,12 @@
 
 ---@class PaymentInitiationCreateData
 ---@field paymentrequest_id string
+---@field payment_initiation_id? string
+---@field payment_request_callback_url? string
+---@field payment_request_id? string
+---@field redirect_url? string
+---@field response_type? string
+---@field specific_error_message? string
 
 ---@class PaymentRequest
 ---@field address? table
@@ -1070,9 +1408,147 @@
 
 ---@class PaymentRequestCreateData
 ---@field paymentrequest_id? string
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field created_by_user table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field do_simulate_settlement_failure? boolean
+---@field due_date? string
+---@field error_description? string
+---@field event? table
+---@field failed_payment_request? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field institution? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_initiation_id? string
+---@field payment_method? table
+---@field payment_processor? string
+---@field payment_request? table
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
 
 ---@class PaymentRequestUpdateData
 ---@field paymentrequest_id string
+---@field address? table
+---@field amount? number
+---@field amount_pending? number
+---@field amount_received? number
+---@field amount_refunded? number
+---@field auto_send_receipt? boolean
+---@field base_origin_url? string
+---@field callback_url? string
+---@field card_authorize_only? boolean
+---@field card_create_token? boolean
+---@field card_create_token_mode? string
+---@field card_ignore_cvn? boolean
+---@field card_processor_merchant_id? string
+---@field card_stripe_payment_intent_id? string
+---@field card_stripe_payment_intent_secret? string
+---@field created_by_user? table
+---@field currency? string
+---@field custom_field? table
+---@field customer_email_address? string
+---@field customer_id? string
+---@field customer_name? string
+---@field description? string
+---@field destination_account? table
+---@field direct_debit_payment? table
+---@field do_simulate_settlement_failure? boolean
+---@field due_date? string
+---@field error_description? string
+---@field event? table
+---@field failed_payment_request? table
+---@field failure_callback_url? string
+---@field field_display_setting? table
+---@field formatted_amount? string
+---@field hosted_pay_checkout_url? string
+---@field id? string
+---@field ignore_address_verification? boolean
+---@field inserted? string
+---@field inserted_sortable? string
+---@field institution? string
+---@field is_archived? boolean
+---@field jwk? string
+---@field last_updated? string
+---@field lightning_invoice? string
+---@field lightning_invoice_expires_at? string
+---@field merchant_direct_debit_mandate_id? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field notification_email_address? string
+---@field notification_role_i_d? table
+---@field order_id? string
+---@field partial_payment_method? string
+---@field partial_payment_step? string
+---@field payment_attempt? table
+---@field payment_initiation_id? string
+---@field payment_method? table
+---@field payment_processor? string
+---@field payment_request? table
+---@field payrun_id? string
+---@field pisp_account_id? string
+---@field priority_bank_id? string
+---@field result? table
+---@field sandbox_settle_delay_in_second? number
+---@field shipping_address? table
+---@field status? string
+---@field success_web_hook_url? string
+---@field tag? table
+---@field title? string
+---@field tokenised_card? table
+---@field transaction? table
+---@field use_hosted_payment_page? boolean
 
 ---@class PaymentRequestRemoveMatch
 ---@field id string
@@ -1278,9 +1754,165 @@
 
 ---@class PayoutCreateData
 ---@field id? string
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field failed_payout? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payout? table
+---@field payrun_id? string
+---@field payrun_name? string
+---@field reason? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
 
 ---@class PayoutUpdateData
 ---@field id string
+---@field account_id? string
+---@field allow_incomplete? boolean
+---@field amount? number
+---@field amount_minor_unit? number
+---@field approve_payout_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field beneficiary? table
+---@field beneficiary_id? string
+---@field can_authorise? boolean
+---@field can_process? boolean
+---@field can_update? boolean
+---@field charge_bearer? string
+---@field created_by? string
+---@field created_by_email_address? string
+---@field currency? string
+---@field current_user_id? string
+---@field description? string
+---@field destination? table
+---@field document? table
+---@field event? table
+---@field failed_payout? table
+---@field formatted_amount? string
+---@field formatted_fx_destination_amount? string
+---@field formatted_schedule? string
+---@field formatted_schedule_day_only? string
+---@field formatted_source_account_available_balance? string
+---@field fx_destination_amount? number
+---@field fx_destination_amount_minor_unit? number
+---@field fx_destination_currency? string
+---@field fx_quote_expires_at? string
+---@field fx_quote_id? string
+---@field fx_rate? number
+---@field fx_use_destination_amount? boolean
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field invoice_id? string
+---@field is_archived? boolean
+---@field is_failed? boolean
+---@field is_settled? boolean
+---@field is_submitted? boolean
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_token_description? string
+---@field nonce? string
+---@field payment_processor? string
+---@field payment_rail? string
+---@field payout? table
+---@field payrun_id? string
+---@field payrun_name? string
+---@field reason? string
+---@field rule? table
+---@field schedule_date? string
+---@field scheduled? boolean
+---@field source_account_available_balance? number
+---@field source_account_available_balance_minor_unit? number
+---@field source_account_bic? string
+---@field source_account_currency? string
+---@field source_account_iban? string
+---@field source_account_identifier? table
+---@field source_account_name? string
+---@field source_account_number? string
+---@field source_account_sortcode? string
+---@field status? string
+---@field tag? table
+---@field tag_id? table
+---@field their_reference? string
+---@field topup_payrun_id? string
+---@field transacted_amount? number
+---@field transacted_fx_amount? number
+---@field transacted_fx_rate? number
+---@field type? string
+---@field user_id? string
+---@field your_reference? string
 
 ---@class PayoutRemoveMatch
 ---@field id string
@@ -1455,9 +2087,71 @@
 
 ---@class PayrunCreateData
 ---@field id string
+---@field authorisation? table
+---@field authorisation_date? string
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field can_authorise? boolean
+---@field can_delete? boolean
+---@field can_edit? boolean
+---@field event? table
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field invoice? table
+---@field invoices_minimal? table
+---@field is_archived? boolean
+---@field last_updated? string
+---@field last_updated_by table
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field note? string
+---@field payment? table
+---@field payout? table
+---@field payouts_count? number
+---@field reason? string
+---@field schedule_date? string
+---@field scheduled_date? string
+---@field source_account? table
+---@field status? string
+---@field total_eur? number
+---@field total_gbp? number
+---@field total_usd? number
 
 ---@class PayrunUpdateData
 ---@field id string
+---@field authorisation? table
+---@field authorisation_date? string
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field batch_payout_id? string
+---@field can_authorise? boolean
+---@field can_delete? boolean
+---@field can_edit? boolean
+---@field event? table
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field invoice? table
+---@field invoices_minimal? table
+---@field is_archived? boolean
+---@field last_updated? string
+---@field last_updated_by? table
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field note? string
+---@field payment? table
+---@field payout? table
+---@field payouts_count? number
+---@field reason? string
+---@field schedule_date? string
+---@field scheduled_date? string
+---@field source_account? table
+---@field status? string
+---@field total_eur? number
+---@field total_gbp? number
+---@field total_usd? number
 
 ---@class PayrunRemoveMatch
 ---@field id string
@@ -1486,6 +2180,8 @@
 
 ---@class RoleCreateData
 ---@field merchant_id string
+---@field failed_role? table
+---@field role? table
 
 ---@class Rule
 ---@field account? table
@@ -1597,6 +2293,38 @@
 
 ---@class RuleUpdateData
 ---@field id string
+---@field account? table
+---@field account_id? string
+---@field approve_url? string
+---@field approver_id? string
+---@field authentication_method? table
+---@field authorisation? table
+---@field authorisers_completed_count? number
+---@field authorisers_required_count? number
+---@field can_authorise? boolean
+---@field created_by? table
+---@field description? string
+---@field end_at? string
+---@field has_current_user_authorised? boolean
+---@field inserted? string
+---@field is_disabled? boolean
+---@field last_executed_at? string
+---@field last_run_at_transaction_date? string
+---@field last_updated? string
+---@field merchant_id? string
+---@field name? string
+---@field nonce? string
+---@field on_approved_web_hook_url? string
+---@field on_execution_error_web_hook_url? string
+---@field on_execution_success_web_hook_url? string
+---@field start_at? string
+---@field status? string
+---@field sweep_action? table
+---@field time_zone_id? string
+---@field trigger_cron_expression? string
+---@field trigger_on_pay_in? boolean
+---@field user_id? string
+---@field web_hook_secret? string
 
 ---@class RuleRemoveMatch
 ---@field id string
@@ -1627,6 +2355,10 @@
 
 ---@class TagCreateData
 ---@field merchant_id string
+---@field colour_hex? string
+---@field description? string
+---@field id? string
+---@field name string
 
 ---@class Token
 
@@ -1704,6 +2436,58 @@
 
 ---@class TransactionCreateData
 ---@field id string
+---@field account_id? string
+---@field account_name? string
+---@field account_sequence_number? number
+---@field address_detail? table
+---@field amount? number
+---@field amount_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field booking_date_time? string
+---@field charge_detail? table
+---@field content? table
+---@field counterparty? table
+---@field counterparty_summary? string
+---@field currency? string
+---@field currency_exchange? table
+---@field date? string
+---@field description? string
+---@field enrichment? table
+---@field fx_amount? number
+---@field fx_currency? string
+---@field fx_rate? number
+---@field gross_amount table
+---@field inserted? string
+---@field iso_bank_transaction_code? table
+---@field merchant? table
+---@field merchant_id? string
+---@field page_number? number
+---@field page_size? number
+---@field payee_detail table
+---@field payer_detail table
+---@field payment_request_custom_field? table
+---@field payment_request_id? string
+---@field payout_id? string
+---@field proprietary_bank_transaction_code? table
+---@field raw_reference? string
+---@field reference? string
+---@field rule_id? string
+---@field statement_reference? table
+---@field status? string
+---@field supplementary_data? any
+---@field tag? table
+---@field their_reference? string
+---@field total_page? number
+---@field total_size? number
+---@field transaction_amount table
+---@field transaction_date? string
+---@field transaction_information? table
+---@field transaction_mutability? string
+---@field type? string
+---@field value_date_time? string
+---@field virtual_iban? string
+---@field your_reference? string
 
 ---@class TransactionRemoveMatch
 ---@field id string
@@ -1726,6 +2510,16 @@
 
 ---@class UserUpdateData
 ---@field id string
+---@field client_session_timeout? table
+---@field email_address? string
+---@field first_name? string
+---@field last_name? string
+---@field passkey_added? boolean
+---@field permission? table
+---@field profile? string
+---@field roles_with_scope? table
+---@field two_factor_enabled? boolean
+---@field user_invite_id? string
 
 ---@class UserInvite
 ---@field authorisation_status? table
@@ -1760,9 +2554,51 @@
 
 ---@class UserInviteCreateData
 ---@field id? string
+---@field authorisation_status? table
+---@field failed_user_invite? table
+---@field initial_role_id? string
+---@field invitee_email_address? string
+---@field invitee_first_name? string
+---@field invitee_last_name? string
+---@field inviter_email_address? string
+---@field inviter_first_name? string
+---@field inviter_last_name? string
+---@field is_authorised? boolean
+---@field is_invitee_registered? boolean
+---@field last_invited? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field message? string
+---@field registration_url? string
+---@field send_invite_email? boolean
+---@field status? string
+---@field user table
+---@field user_id? string
+---@field user_invite? table
 
 ---@class UserInviteUpdateData
 ---@field id string
+---@field authorisation_status? table
+---@field failed_user_invite? table
+---@field initial_role_id? string
+---@field invitee_email_address? string
+---@field invitee_first_name? string
+---@field invitee_last_name? string
+---@field inviter_email_address? string
+---@field inviter_first_name? string
+---@field inviter_last_name? string
+---@field is_authorised? boolean
+---@field is_invitee_registered? boolean
+---@field last_invited? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field message? string
+---@field registration_url? string
+---@field send_invite_email? boolean
+---@field status? string
+---@field user? table
+---@field user_id? string
+---@field user_invite? table
 
 ---@class UserInviteRemoveMatch
 ---@field id string
@@ -1811,10 +2647,89 @@
 
 ---@class VirtualCreateData
 ---@field account_id string
+---@field account_name? string
+---@field account_supplier_name? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field created_by table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field id? string
+---@field identifier table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field name string
+---@field physical_account_id? string
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_sepa_instant_status? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
 
 ---@class VirtualUpdateData
 ---@field account_id string
 ---@field id string
+---@field account_name? string
+---@field account_supplier_name? string
+---@field available_balance? number
+---@field available_balance_minor_unit? number
+---@field balance? number
+---@field balance_minor_unit? number
+---@field bank_name? string
+---@field consent_id? string
+---@field created_by? table
+---@field created_by_display_name? string
+---@field currency? string
+---@field default_payment_rail? string
+---@field display_name? string
+---@field expiry_date? string
+---@field external_account_icon? string
+---@field identifier? table
+---@field inserted? string
+---@field is_archived? boolean
+---@field is_connected_account? boolean
+---@field is_default? boolean
+---@field is_trust_account? boolean
+---@field is_virtual? boolean
+---@field last_transaction? table
+---@field last_updated? string
+---@field merchant_id? string
+---@field merchant_name? string
+---@field name? string
+---@field physical_account_id? string
+---@field rule? table
+---@field submitted_payouts_balance? number
+---@field submitted_payouts_balance_minor_unit? number
+---@field summary? string
+---@field supplier_sepa_instant_status? string
+---@field xero_bank_feed_connection_status? string
+---@field xero_bank_feed_last_synced_at? string
+---@field xero_bank_feed_sync_last_failed_at? string
+---@field xero_bank_feed_sync_last_failure_reason? string
+---@field xero_bank_feed_sync_status? string
+---@field xero_unsynchronised_transactions_count? number
 
 ---@class Webhook
 ---@field destination_url? string
@@ -1851,6 +2766,16 @@
 
 ---@class WebhookUpdateData
 ---@field id string
+---@field destination_url? string
+---@field email_address? string
+---@field failed_notification_email_address? string
+---@field is_active? boolean
+---@field merchant_id? string
+---@field notification_method? string
+---@field resource_type? table
+---@field retry? boolean
+---@field secret? string
+---@field version? number
 
 ---@class WebhookRemoveMatch
 ---@field id string

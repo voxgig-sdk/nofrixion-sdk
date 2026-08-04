@@ -68,10 +68,6 @@ describe('OpenBankingEntity', async () => {
     assert(null != open_banking_ref01_data)
 
 
-    // REMOVE
-    const open_banking_ref01_match_rm0: any = { id: open_banking_ref01_data.id }
-    await open_banking_ref01_ent.remove(open_banking_ref01_match_rm0)
-  
 
   })
 })

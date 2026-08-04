@@ -46,12 +46,6 @@ describe("OpenBankingEntity", function()
     open_banking_ref01_data = helpers.to_map(open_banking_ref01_data_result)
     assert.is_not_nil(open_banking_ref01_data)
 
-    -- REMOVE
-    local open_banking_ref01_match_rm0 = {
-      id = open_banking_ref01_data["id"],
-    }
-    local _, err = open_banking_ref01_ent:remove(open_banking_ref01_match_rm0, nil)
-    assert.is_nil(err)
 
   end)
 end)

@@ -343,6 +343,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Account().create({
+    "created_by": {},  # dict
+    "identifier": {},  # dict
 })
 ```
 
@@ -550,6 +552,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Beneficiary().create({
+    "created_by": {},  # dict
+    "currency": "example_currency",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -2706,6 +2711,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.PaymentRequest().create({
+    "created_by_user": {},  # dict
 })
 ```
 
@@ -3246,6 +3252,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Payout().create({
+    "beneficiary": {},  # dict
+    "source_account_identifier": {},  # dict
 })
 ```
 
@@ -3549,6 +3557,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Payrun().create({
     "id": "example_id",  # str
+    "last_updated_by": {},  # dict
 })
 ```
 
@@ -4024,6 +4033,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Tag().create({
     "merchant_id": "example_merchant_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -4194,6 +4204,10 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Transaction().create({
     "id": "example_id",  # str
+    "gross_amount": {},  # dict
+    "payee_detail": {},  # dict
+    "payer_detail": {},  # dict
+    "transaction_amount": {},  # dict
 })
 ```
 
@@ -4410,6 +4424,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.UserInvite().create({
+    "user": {},  # dict
 })
 ```
 
@@ -4539,6 +4554,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Virtual().create({
     "account_id": "example_account_id",  # str
+    "created_by": {},  # dict
+    "identifier": {},  # dict
+    "name": "example_name",  # str
 })
 ```
 

@@ -40,11 +40,6 @@ class TokenEntityTest < Minitest::Test
     token_ref01_data = Helpers.to_map(token_ref01_data_result)
     assert !token_ref01_data.nil?
 
-    # REMOVE
-    token_ref01_match_rm0 = {
-      "id" => token_ref01_data["id"],
-    }
-    token_ref01_ent.remove(token_ref01_match_rm0, nil)
 
   end
 end

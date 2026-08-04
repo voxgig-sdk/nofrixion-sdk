@@ -70,7 +70,7 @@ func main() {
     fmt.Println(account)
 
     // Create a account.
-    created, err := client.Account(nil).Create(map[string]any{"account_id": "example_account_id", "currency": "example_currency"}, nil)
+    created, err := client.Account(nil).Create(map[string]any{"created_by": map[string]any{}, "identifier": map[string]any{}}, nil)
     if err != nil {
         panic(err)
     }
@@ -99,12 +99,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-accounts, err := client.Account(nil).List(nil, nil)
+ruleevents, err := client.RuleEvent(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = accounts
+_ = ruleevents
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -168,13 +168,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-account, err := client.Account(nil).List(
+ruleEvent, err := client.RuleEvent(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(account) // the returned mock data
+fmt.Println(ruleEvent) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -1868,6 +1868,8 @@ fmt.Println(accounts) // the array of records
 
 ```go
 result, err := client.Account(nil).Create(map[string]any{
+    "created_by": map[string]any{},
+    "identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -1986,6 +1988,9 @@ fmt.Println(beneficiarys) // the array of records
 
 ```go
 result, err := client.Beneficiary(nil).Create(map[string]any{
+    "created_by": map[string]any{},
+    "currency": "example_currency",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -3256,6 +3261,7 @@ fmt.Println(paymentRequests) // the array of records
 
 ```go
 result, err := client.PaymentRequest(nil).Create(map[string]any{
+    "created_by_user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3573,6 +3579,8 @@ fmt.Println(payouts) // the array of records
 
 ```go
 result, err := client.Payout(nil).Create(map[string]any{
+    "beneficiary": map[string]any{},
+    "source_account_identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3789,6 +3797,7 @@ fmt.Println(payruns) // the array of records
 ```go
 result, err := client.Payrun(nil).Create(map[string]any{
     "id": "example_id",
+    "last_updated_by": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4028,6 +4037,7 @@ fmt.Println(tags) // the array of records
 ```go
 result, err := client.Tag(nil).Create(map[string]any{
     "merchant_id": "example_merchant_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4156,6 +4166,10 @@ fmt.Println(transactions) // the array of records
 ```go
 result, err := client.Transaction(nil).Create(map[string]any{
     "id": "example_id",
+    "gross_amount": map[string]any{},
+    "payee_detail": map[string]any{},
+    "payer_detail": map[string]any{},
+    "transaction_amount": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4267,6 +4281,7 @@ fmt.Println(userInvites) // the array of records
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
+    "user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4336,6 +4351,9 @@ Create an instance: `virtual := client.Virtual(nil)`
 ```go
 result, err := client.Virtual(nil).Create(map[string]any{
     "account_id": "example_account_id",
+    "created_by": map[string]any{},
+    "identifier": map[string]any{},
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4479,11 +4497,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-account := client.Account(nil)
-account.List(nil, nil)
+ruleevent := client.RuleEvent(nil)
+ruleevent.List(nil, nil)
 
-// account.Data() now returns the account data from the last list
-// account.Match() returns the last match criteria
+// ruleevent.Data() now returns the ruleevent data from the last list
+// ruleevent.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

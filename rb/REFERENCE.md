@@ -349,6 +349,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Account.create({
+  "created_by" => {}, # Hash
+  "identifier" => {}, # Hash
 })
 ```
 
@@ -556,6 +558,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Beneficiary.create({
+  "created_by" => {}, # Hash
+  "currency" => "example_currency", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -2710,6 +2715,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.PaymentRequest.create({
+  "created_by_user" => {}, # Hash
 })
 ```
 
@@ -3247,6 +3253,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Payout.create({
+  "beneficiary" => {}, # Hash
+  "source_account_identifier" => {}, # Hash
 })
 ```
 
@@ -3549,6 +3557,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Payrun.create({
   "id" => "example_id", # String
+  "last_updated_by" => {}, # Hash
 })
 ```
 
@@ -4024,6 +4033,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Tag.create({
   "merchant_id" => "example_merchant_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -4194,6 +4204,10 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Transaction.create({
   "id" => "example_id", # String
+  "gross_amount" => {}, # Hash
+  "payee_detail" => {}, # Hash
+  "payer_detail" => {}, # Hash
+  "transaction_amount" => {}, # Hash
 })
 ```
 
@@ -4408,6 +4422,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.UserInvite.create({
+  "user" => {}, # Hash
 })
 ```
 
@@ -4536,6 +4551,9 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Virtual.create({
   "account_id" => "example_account_id", # String
+  "created_by" => {}, # Hash
+  "identifier" => {}, # Hash
+  "name" => "example_name", # String
 })
 ```
 

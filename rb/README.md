@@ -64,7 +64,7 @@ end
 
 ```ruby
 # create returns the bare created Account record.
-created = client.Account.create({ "account_id" => "example_account_id", "currency" => "example_currency" })
+created = client.Account.create({ "created_by" => {}, "identifier" => {} })
 
 # Update — index the bare record directly (created["id"]).
 client.Account.update({ "id" => created["id"], "account_id" => "example_account_id", "amount" => 1 })
@@ -80,7 +80,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  accounts = client.Account.list()
+  ruleevents = client.RuleEvent.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -143,17 +143,14 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```ruby
-client = NofrixionSDK.test({
-  "entity" => { "account" => { "test01" => { "id" => "test01" } } },
-})
+client = NofrixionSDK.test
 
 # Entity ops return the bare mock record (raises on error).
-account = client.Account.list()
-puts account
+ruleevent = client.RuleEvent.list()
+puts ruleevent
 ```
 
 ### Use a custom fetch function
@@ -1838,6 +1835,8 @@ accounts = client.Account.list
 
 ```ruby
 account = client.Account.create({
+  "created_by" => {}, # Hash
+  "identifier" => {}, # Hash
 })
 ```
 
@@ -1939,6 +1938,9 @@ beneficiarys = client.Beneficiary.list
 
 ```ruby
 beneficiary = client.Beneficiary.create({
+  "created_by" => {}, # Hash
+  "currency" => "example_currency", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -3083,6 +3085,7 @@ payment_requests = client.PaymentRequest.list
 
 ```ruby
 payment_request = client.PaymentRequest.create({
+  "created_by_user" => {}, # Hash
 })
 ```
 
@@ -3378,6 +3381,8 @@ payouts = client.Payout.list
 
 ```ruby
 payout = client.Payout.create({
+  "beneficiary" => {}, # Hash
+  "source_account_identifier" => {}, # Hash
 })
 ```
 
@@ -3578,6 +3583,7 @@ payruns = client.Payrun.list
 ```ruby
 payrun = client.Payrun.create({
   "id" => "example_id", # String
+  "last_updated_by" => {}, # Hash
 })
 ```
 
@@ -3790,6 +3796,7 @@ tags = client.Tag.list
 ```ruby
 tag = client.Tag.create({
   "merchant_id" => "example_merchant_id", # String
+  "name" => "example_name", # String
 })
 ```
 
@@ -3904,6 +3911,10 @@ transactions = client.Transaction.list
 ```ruby
 transaction = client.Transaction.create({
   "id" => "example_id", # String
+  "gross_amount" => {}, # Hash
+  "payee_detail" => {}, # Hash
+  "payer_detail" => {}, # Hash
+  "transaction_amount" => {}, # Hash
 })
 ```
 
@@ -4002,6 +4013,7 @@ user_invites = client.UserInvite.list
 
 ```ruby
 user_invite = client.UserInvite.create({
+  "user" => {}, # Hash
 })
 ```
 
@@ -4067,6 +4079,9 @@ Create an instance: `virtual = client.Virtual`
 ```ruby
 virtual = client.Virtual.create({
   "account_id" => "example_account_id", # String
+  "created_by" => {}, # Hash
+  "identifier" => {}, # Hash
+  "name" => "example_name", # String
 })
 ```
 
@@ -4199,11 +4214,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-account = client.Account
-account.list()
+ruleevent = client.RuleEvent
+ruleevent.list()
 
-# account.data_get now returns the account data from the last list
-# account.match_get returns the last match criteria
+# ruleevent.data_get now returns the ruleevent data from the last list
+# ruleevent.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

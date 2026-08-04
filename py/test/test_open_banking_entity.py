@@ -49,11 +49,6 @@ class TestOpenBankingEntity:
         open_banking_ref01_data = helpers.to_map(open_banking_ref01_ent.create(open_banking_ref01_data, None))
         assert open_banking_ref01_data is not None
 
-        # REMOVE
-        open_banking_ref01_match_rm0 = {
-            "id": open_banking_ref01_data["id"],
-        }
-        open_banking_ref01_ent.remove(open_banking_ref01_match_rm0, None)
 
 
 

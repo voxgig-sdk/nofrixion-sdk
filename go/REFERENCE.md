@@ -378,6 +378,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Account(nil).Create(map[string]any{
+    "created_by": map[string]any{},
+    "identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -603,6 +605,9 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Beneficiary(nil).Create(map[string]any{
+    "created_by": map[string]any{},
+    "currency": "example_currency",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -2827,6 +2832,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.PaymentRequest(nil).Create(map[string]any{
+    "created_by_user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3375,6 +3381,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Payout(nil).Create(map[string]any{
+    "beneficiary": map[string]any{},
+    "source_account_identifier": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -3690,6 +3698,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.Payrun(nil).Create(map[string]any{
     "id": "example_id",
+    "last_updated_by": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4179,6 +4188,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.Tag(nil).Create(map[string]any{
     "merchant_id": "example_merchant_id",
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)
@@ -4367,6 +4377,10 @@ Create a new entity with the given data.
 ```go
 result, err := client.Transaction(nil).Create(map[string]any{
     "id": "example_id",
+    "gross_amount": map[string]any{},
+    "payee_detail": map[string]any{},
+    "payer_detail": map[string]any{},
+    "transaction_amount": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4595,6 +4609,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UserInvite(nil).Create(map[string]any{
+    "user": map[string]any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -4714,6 +4729,9 @@ Create a new entity with the given data.
 ```go
 result, err := client.Virtual(nil).Create(map[string]any{
     "account_id": "example_account_id",
+    "created_by": map[string]any{},
+    "identifier": map[string]any{},
+    "name": "example_name",
 }, nil)
 if err != nil {
     panic(err)

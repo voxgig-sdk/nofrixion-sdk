@@ -19214,6 +19214,7 @@
         }
       },
       "info": {
+        "description": "The NoFrixion MoneyMoov API.",
         "security": {
           "in": "header",
           "name": "Authorization",

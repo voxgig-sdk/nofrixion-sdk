@@ -70,7 +70,7 @@ except Exception as err:
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.Account().create({"account_id": "example_account_id", "currency": "example_currency"})
+created = client.Account().create({"created_by": {}, "identifier": {}})
 
 # Update — the created record's id is a plain dict key
 client.Account().update({"id": created["id"], "account_id": "example_account_id", "amount": 1})
@@ -86,8 +86,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    accounts = client.Account().list()
-    print(accounts)
+    ruleevents = client.RuleEvent().list()
+    print(ruleevents)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -154,8 +154,8 @@ Create a mock client for unit testing — no server required:
 client = NofrixionSDK.test()
 
 # Entity ops return the bare record and raise on error.
-account = client.Account().list()
-# account contains the mock response record
+ruleevent = client.RuleEvent().list()
+# ruleevent contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -1839,6 +1839,8 @@ accounts = client.Account().list()
 
 ```python
 account = client.Account().create({
+    "created_by": {},  # dict
+    "identifier": {},  # dict
 })
 ```
 
@@ -1937,6 +1939,9 @@ beneficiarys = client.Beneficiary().list()
 
 ```python
 beneficiary = client.Beneficiary().create({
+    "created_by": {},  # dict
+    "currency": "example_currency",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -3055,6 +3060,7 @@ payment_requests = client.PaymentRequest().list()
 
 ```python
 payment_request = client.PaymentRequest().create({
+    "created_by_user": {},  # dict
 })
 ```
 
@@ -3344,6 +3350,8 @@ payouts = client.Payout().list()
 
 ```python
 payout = client.Payout().create({
+    "beneficiary": {},  # dict
+    "source_account_identifier": {},  # dict
 })
 ```
 
@@ -3540,6 +3548,7 @@ payruns = client.Payrun().list()
 ```python
 payrun = client.Payrun().create({
     "id": "example_id",  # str
+    "last_updated_by": {},  # dict
 })
 ```
 
@@ -3747,6 +3756,7 @@ tags = client.Tag().list()
 ```python
 tag = client.Tag().create({
     "merchant_id": "example_merchant_id",  # str
+    "name": "example_name",  # str
 })
 ```
 
@@ -3859,6 +3869,10 @@ transactions = client.Transaction().list()
 ```python
 transaction = client.Transaction().create({
     "id": "example_id",  # str
+    "gross_amount": {},  # dict
+    "payee_detail": {},  # dict
+    "payer_detail": {},  # dict
+    "transaction_amount": {},  # dict
 })
 ```
 
@@ -3954,6 +3968,7 @@ user_invites = client.UserInvite().list()
 
 ```python
 user_invite = client.UserInvite().create({
+    "user": {},  # dict
 })
 ```
 
@@ -4019,6 +4034,9 @@ Create an instance: `virtual = client.Virtual()`
 ```python
 virtual = client.Virtual().create({
     "account_id": "example_account_id",  # str
+    "created_by": {},  # dict
+    "identifier": {},  # dict
+    "name": "example_name",  # str
 })
 ```
 
@@ -4148,11 +4166,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-account = client.Account()
-account.list()
+ruleevent = client.RuleEvent()
+ruleevent.list()
 
-# account.data_get() now returns the account data from the last list
-# account.match_get() returns the last match criteria
+# ruleevent.data_get() now returns the ruleevent data from the last list
+# ruleevent.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

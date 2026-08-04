@@ -348,6 +348,8 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Account()->create([
+  "created_by" => null, // array
+  "identifier" => null, // array
 ]);
 ```
 
@@ -555,6 +557,9 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Beneficiary()->create([
+  "created_by" => null, // array
+  "currency" => null, // string
+  "name" => null, // string
 ]);
 ```
 
@@ -2709,6 +2714,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->PaymentRequest()->create([
+  "created_by_user" => null, // array
 ]);
 ```
 
@@ -3246,6 +3252,8 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Payout()->create([
+  "beneficiary" => null, // array
+  "source_account_identifier" => null, // array
 ]);
 ```
 
@@ -3548,6 +3556,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Payrun()->create([
   "id" => null, // string
+  "last_updated_by" => null, // array
 ]);
 ```
 
@@ -4023,6 +4032,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Tag()->create([
   "merchant_id" => null, // string
+  "name" => null, // string
 ]);
 ```
 
@@ -4193,6 +4203,10 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Transaction()->create([
   "id" => null, // string
+  "gross_amount" => null, // array
+  "payee_detail" => null, // array
+  "payer_detail" => null, // array
+  "transaction_amount" => null, // array
 ]);
 ```
 
@@ -4407,6 +4421,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->UserInvite()->create([
+  "user" => null, // array
 ]);
 ```
 
@@ -4535,6 +4550,9 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Virtual()->create([
   "account_id" => null, // string
+  "created_by" => null, // array
+  "identifier" => null, // array
+  "name" => null, // string
 ]);
 ```
 

@@ -756,6 +756,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Account().create({
+  created_by: {},
+  identifier: {},
 })
 ```
 
@@ -959,6 +961,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Beneficiary().create({
+  created_by: {},
+  currency: 'example_currency',
+  name: 'example_name',
 })
 ```
 
@@ -3061,6 +3066,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.PaymentRequest().create({
+  created_by_user: {},
 })
 ```
 
@@ -3588,6 +3594,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Payout().create({
+  beneficiary: {},
+  source_account_identifier: {},
 })
 ```
 
@@ -3884,6 +3892,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Payrun().create({
   id: 'example_id',
+  last_updated_by: {},
 })
 ```
 
@@ -4347,6 +4356,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Tag().create({
   merchant_id: 'example_merchant_id',
+  name: 'example_name',
 })
 ```
 
@@ -4513,6 +4523,10 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Transaction().create({
   id: 'example_id',
+  gross_amount: {},
+  payee_detail: {},
+  payer_detail: {},
+  transaction_amount: {},
 })
 ```
 
@@ -4723,6 +4737,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.UserInvite().create({
+  user: {},
 })
 ```
 
@@ -4849,6 +4864,9 @@ Create a new entity with the given data.
 ```ts
 const result = await client.Virtual().create({
   account_id: 'example_account_id',
+  created_by: {},
+  identifier: {},
+  name: 'example_name',
 })
 ```
 

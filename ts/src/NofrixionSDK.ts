@@ -257,345 +257,443 @@ class NofrixionSDK {
 
 
   // Entity access: `client.Account().list()` / `client.Account().load({ id })`.
-  Account(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Account(entopts?: Record<string, any>) {
     const self = this
-    return new AccountEntity(self,data)
+    return new AccountEntity(self, entopts)
   }
 
 
   // Entity access: `client.Batch().list()` / `client.Batch().load({ id })`.
-  Batch(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Batch(entopts?: Record<string, any>) {
     const self = this
-    return new BatchEntity(self,data)
+    return new BatchEntity(self, entopts)
   }
 
 
   // Entity access: `client.Beneficiary().list()` / `client.Beneficiary().load({ id })`.
-  Beneficiary(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Beneficiary(entopts?: Record<string, any>) {
     const self = this
-    return new BeneficiaryEntity(self,data)
+    return new BeneficiaryEntity(self, entopts)
   }
 
 
   // Entity access: `client.BeneficiaryGroup().list()` / `client.BeneficiaryGroup().load({ id })`.
-  BeneficiaryGroup(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  BeneficiaryGroup(entopts?: Record<string, any>) {
     const self = this
-    return new BeneficiaryGroupEntity(self,data)
+    return new BeneficiaryGroupEntity(self, entopts)
   }
 
 
   // Entity access: `client.Card().list()` / `client.Card().load({ id })`.
-  Card(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Card(entopts?: Record<string, any>) {
     const self = this
-    return new CardEntity(self,data)
+    return new CardEntity(self, entopts)
   }
 
 
   // Entity access: `client.CardCustomerToken().list()` / `client.CardCustomerToken().load({ id })`.
-  CardCustomerToken(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CardCustomerToken(entopts?: Record<string, any>) {
     const self = this
-    return new CardCustomerTokenEntity(self,data)
+    return new CardCustomerTokenEntity(self, entopts)
   }
 
 
   // Entity access: `client.CardPayment().list()` / `client.CardPayment().load({ id })`.
-  CardPayment(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CardPayment(entopts?: Record<string, any>) {
     const self = this
-    return new CardPaymentEntity(self,data)
+    return new CardPaymentEntity(self, entopts)
   }
 
 
   // Entity access: `client.CardPublicKey().list()` / `client.CardPublicKey().load({ id })`.
-  CardPublicKey(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CardPublicKey(entopts?: Record<string, any>) {
     const self = this
-    return new CardPublicKeyEntity(self,data)
+    return new CardPublicKeyEntity(self, entopts)
   }
 
 
   // Entity access: `client.Consent().list()` / `client.Consent().load({ id })`.
-  Consent(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Consent(entopts?: Record<string, any>) {
     const self = this
-    return new ConsentEntity(self,data)
+    return new ConsentEntity(self, entopts)
   }
 
 
   // Entity access: `client.Currency().list()` / `client.Currency().load({ id })`.
-  Currency(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Currency(entopts?: Record<string, any>) {
     const self = this
-    return new CurrencyEntity(self,data)
+    return new CurrencyEntity(self, entopts)
   }
 
 
   // Entity access: `client.DirectDebitBatchSubmit().list()` / `client.DirectDebitBatchSubmit().load({ id })`.
-  DirectDebitBatchSubmit(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  DirectDebitBatchSubmit(entopts?: Record<string, any>) {
     const self = this
-    return new DirectDebitBatchSubmitEntity(self,data)
+    return new DirectDebitBatchSubmitEntity(self, entopts)
   }
 
 
   // Entity access: `client.FxRate().list()` / `client.FxRate().load({ id })`.
-  FxRate(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  FxRate(entopts?: Record<string, any>) {
     const self = this
-    return new FxRateEntity(self,data)
+    return new FxRateEntity(self, entopts)
   }
 
 
   // Entity access: `client.IPayment().list()` / `client.IPayment().load({ id })`.
-  IPayment(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  IPayment(entopts?: Record<string, any>) {
     const self = this
-    return new IPaymentEntity(self,data)
+    return new IPaymentEntity(self, entopts)
   }
 
 
   // Entity access: `client.Mandate().list()` / `client.Mandate().load({ id })`.
-  Mandate(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Mandate(entopts?: Record<string, any>) {
     const self = this
-    return new MandateEntity(self,data)
+    return new MandateEntity(self, entopts)
   }
 
 
   // Entity access: `client.Merchant().list()` / `client.Merchant().load({ id })`.
-  Merchant(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Merchant(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantEntity(self,data)
+    return new MerchantEntity(self, entopts)
   }
 
 
   // Entity access: `client.MerchantAuthorisationSetting().list()` / `client.MerchantAuthorisationSetting().load({ id })`.
-  MerchantAuthorisationSetting(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MerchantAuthorisationSetting(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantAuthorisationSettingEntity(self,data)
+    return new MerchantAuthorisationSettingEntity(self, entopts)
   }
 
 
   // Entity access: `client.MerchantDirectDebitMandatePage().list()` / `client.MerchantDirectDebitMandatePage().load({ id })`.
-  MerchantDirectDebitMandatePage(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MerchantDirectDebitMandatePage(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantDirectDebitMandatePageEntity(self,data)
+    return new MerchantDirectDebitMandatePageEntity(self, entopts)
   }
 
 
   // Entity access: `client.MerchantPayByBankSetting().list()` / `client.MerchantPayByBankSetting().load({ id })`.
-  MerchantPayByBankSetting(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MerchantPayByBankSetting(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantPayByBankSettingEntity(self,data)
+    return new MerchantPayByBankSettingEntity(self, entopts)
   }
 
 
   // Entity access: `client.MerchantPaymentRequestTemplate().list()` / `client.MerchantPaymentRequestTemplate().load({ id })`.
-  MerchantPaymentRequestTemplate(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MerchantPaymentRequestTemplate(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantPaymentRequestTemplateEntity(self,data)
+    return new MerchantPaymentRequestTemplateEntity(self, entopts)
   }
 
 
   // Entity access: `client.MerchantToken().list()` / `client.MerchantToken().load({ id })`.
-  MerchantToken(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MerchantToken(entopts?: Record<string, any>) {
     const self = this
-    return new MerchantTokenEntity(self,data)
+    return new MerchantTokenEntity(self, entopts)
   }
 
 
   // Entity access: `client.Metadata().list()` / `client.Metadata().load({ id })`.
-  Metadata(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Metadata(entopts?: Record<string, any>) {
     const self = this
-    return new MetadataEntity(self,data)
+    return new MetadataEntity(self, entopts)
   }
 
 
   // Entity access: `client.NoFrixionVersion().list()` / `client.NoFrixionVersion().load({ id })`.
-  NoFrixionVersion(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  NoFrixionVersion(entopts?: Record<string, any>) {
     const self = this
-    return new NoFrixionVersionEntity(self,data)
+    return new NoFrixionVersionEntity(self, entopts)
   }
 
 
   // Entity access: `client.OpenBanking().list()` / `client.OpenBanking().load({ id })`.
-  OpenBanking(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  OpenBanking(entopts?: Record<string, any>) {
     const self = this
-    return new OpenBankingEntity(self,data)
+    return new OpenBankingEntity(self, entopts)
   }
 
 
   // Entity access: `client.Payeeverification().list()` / `client.Payeeverification().load({ id })`.
-  Payeeverification(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Payeeverification(entopts?: Record<string, any>) {
     const self = this
-    return new PayeeverificationEntity(self,data)
+    return new PayeeverificationEntity(self, entopts)
   }
 
 
   // Entity access: `client.Payment().list()` / `client.Payment().load({ id })`.
-  Payment(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Payment(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentEntity(self,data)
+    return new PaymentEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentAccount().list()` / `client.PaymentAccount().load({ id })`.
-  PaymentAccount(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentAccount(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentAccountEntity(self,data)
+    return new PaymentAccountEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentAccountMinimal().list()` / `client.PaymentAccountMinimal().load({ id })`.
-  PaymentAccountMinimal(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentAccountMinimal(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentAccountMinimalEntity(self,data)
+    return new PaymentAccountMinimalEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentInitiation().list()` / `client.PaymentInitiation().load({ id })`.
-  PaymentInitiation(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentInitiation(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentInitiationEntity(self,data)
+    return new PaymentInitiationEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentRequest().list()` / `client.PaymentRequest().load({ id })`.
-  PaymentRequest(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentRequest(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentRequestEntity(self,data)
+    return new PaymentRequestEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentRequestEvent().list()` / `client.PaymentRequestEvent().load({ id })`.
-  PaymentRequestEvent(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentRequestEvent(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentRequestEventEntity(self,data)
+    return new PaymentRequestEventEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentRequestMetric().list()` / `client.PaymentRequestMetric().load({ id })`.
-  PaymentRequestMetric(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentRequestMetric(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentRequestMetricEntity(self,data)
+    return new PaymentRequestMetricEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentRequestMinimal().list()` / `client.PaymentRequestMinimal().load({ id })`.
-  PaymentRequestMinimal(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentRequestMinimal(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentRequestMinimalEntity(self,data)
+    return new PaymentRequestMinimalEntity(self, entopts)
   }
 
 
   // Entity access: `client.PaymentRequestResult().list()` / `client.PaymentRequestResult().load({ id })`.
-  PaymentRequestResult(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PaymentRequestResult(entopts?: Record<string, any>) {
     const self = this
-    return new PaymentRequestResultEntity(self,data)
+    return new PaymentRequestResultEntity(self, entopts)
   }
 
 
   // Entity access: `client.Payout().list()` / `client.Payout().load({ id })`.
-  Payout(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Payout(entopts?: Record<string, any>) {
     const self = this
-    return new PayoutEntity(self,data)
+    return new PayoutEntity(self, entopts)
   }
 
 
   // Entity access: `client.PayoutKeysetPage().list()` / `client.PayoutKeysetPage().load({ id })`.
-  PayoutKeysetPage(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PayoutKeysetPage(entopts?: Record<string, any>) {
     const self = this
-    return new PayoutKeysetPageEntity(self,data)
+    return new PayoutKeysetPageEntity(self, entopts)
   }
 
 
   // Entity access: `client.PayoutMetric().list()` / `client.PayoutMetric().load({ id })`.
-  PayoutMetric(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PayoutMetric(entopts?: Record<string, any>) {
     const self = this
-    return new PayoutMetricEntity(self,data)
+    return new PayoutMetricEntity(self, entopts)
   }
 
 
   // Entity access: `client.Payrun().list()` / `client.Payrun().load({ id })`.
-  Payrun(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Payrun(entopts?: Record<string, any>) {
     const self = this
-    return new PayrunEntity(self,data)
+    return new PayrunEntity(self, entopts)
   }
 
 
   // Entity access: `client.Report().list()` / `client.Report().load({ id })`.
-  Report(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Report(entopts?: Record<string, any>) {
     const self = this
-    return new ReportEntity(self,data)
+    return new ReportEntity(self, entopts)
   }
 
 
   // Entity access: `client.ReportResult().list()` / `client.ReportResult().load({ id })`.
-  ReportResult(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  ReportResult(entopts?: Record<string, any>) {
     const self = this
-    return new ReportResultEntity(self,data)
+    return new ReportResultEntity(self, entopts)
   }
 
 
   // Entity access: `client.Role().list()` / `client.Role().load({ id })`.
-  Role(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Role(entopts?: Record<string, any>) {
     const self = this
-    return new RoleEntity(self,data)
+    return new RoleEntity(self, entopts)
   }
 
 
   // Entity access: `client.Rule().list()` / `client.Rule().load({ id })`.
-  Rule(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Rule(entopts?: Record<string, any>) {
     const self = this
-    return new RuleEntity(self,data)
+    return new RuleEntity(self, entopts)
   }
 
 
   // Entity access: `client.RuleEvent().list()` / `client.RuleEvent().load({ id })`.
-  RuleEvent(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  RuleEvent(entopts?: Record<string, any>) {
     const self = this
-    return new RuleEventEntity(self,data)
+    return new RuleEventEntity(self, entopts)
   }
 
 
   // Entity access: `client.Tag().list()` / `client.Tag().load({ id })`.
-  Tag(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Tag(entopts?: Record<string, any>) {
     const self = this
-    return new TagEntity(self,data)
+    return new TagEntity(self, entopts)
   }
 
 
   // Entity access: `client.Token().list()` / `client.Token().load({ id })`.
-  Token(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Token(entopts?: Record<string, any>) {
     const self = this
-    return new TokenEntity(self,data)
+    return new TokenEntity(self, entopts)
   }
 
 
   // Entity access: `client.Transaction().list()` / `client.Transaction().load({ id })`.
-  Transaction(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Transaction(entopts?: Record<string, any>) {
     const self = this
-    return new TransactionEntity(self,data)
+    return new TransactionEntity(self, entopts)
   }
 
 
   // Entity access: `client.User().list()` / `client.User().load({ id })`.
-  User(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  User(entopts?: Record<string, any>) {
     const self = this
-    return new UserEntity(self,data)
+    return new UserEntity(self, entopts)
   }
 
 
   // Entity access: `client.UserInvite().list()` / `client.UserInvite().load({ id })`.
-  UserInvite(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  UserInvite(entopts?: Record<string, any>) {
     const self = this
-    return new UserInviteEntity(self,data)
+    return new UserInviteEntity(self, entopts)
   }
 
 
   // Entity access: `client.Virtual().list()` / `client.Virtual().load({ id })`.
-  Virtual(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Virtual(entopts?: Record<string, any>) {
     const self = this
-    return new VirtualEntity(self,data)
+    return new VirtualEntity(self, entopts)
   }
 
 
   // Entity access: `client.Webhook().list()` / `client.Webhook().load({ id })`.
-  Webhook(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Webhook(entopts?: Record<string, any>) {
     const self = this
-    return new WebhookEntity(self,data)
+    return new WebhookEntity(self, entopts)
   }
 
 

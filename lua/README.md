@@ -63,7 +63,7 @@ print(cardcustomertoken)
 
 ```lua
 -- Create
-local created, err = client:Account():create({ account_id = "example_account_id", currency = "example_currency" })
+local created, err = client:Account():create({ created_by = {}, identifier = {} })
 if err then error(err) end
 
 -- Update
@@ -80,7 +80,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local accounts, err = client:Account():list()
+local ruleevents, err = client:RuleEvent():list()
 if err then error(err) end
 ```
 
@@ -138,7 +138,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Account():list()
+local result, err = client:RuleEvent():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -1826,6 +1826,8 @@ local accounts, err = client:Account():list()
 
 ```lua
 local account, err = client:Account():create({
+  created_by = {}, -- table
+  identifier = {}, -- table
 })
 ```
 
@@ -1924,6 +1926,9 @@ local beneficiarys, err = client:Beneficiary():list()
 
 ```lua
 local beneficiary, err = client:Beneficiary():create({
+  created_by = {}, -- table
+  currency = "example_currency", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -3042,6 +3047,7 @@ local payment_requests, err = client:PaymentRequest():list()
 
 ```lua
 local payment_request, err = client:PaymentRequest():create({
+  created_by_user = {}, -- table
 })
 ```
 
@@ -3331,6 +3337,8 @@ local payouts, err = client:Payout():list()
 
 ```lua
 local payout, err = client:Payout():create({
+  beneficiary = {}, -- table
+  source_account_identifier = {}, -- table
 })
 ```
 
@@ -3527,6 +3535,7 @@ local payruns, err = client:Payrun():list()
 ```lua
 local payrun, err = client:Payrun():create({
   id = "example_id", -- string
+  last_updated_by = {}, -- table
 })
 ```
 
@@ -3734,6 +3743,7 @@ local tags, err = client:Tag():list()
 ```lua
 local tag, err = client:Tag():create({
   merchant_id = "example_merchant_id", -- string
+  name = "example_name", -- string
 })
 ```
 
@@ -3846,6 +3856,10 @@ local transactions, err = client:Transaction():list()
 ```lua
 local transaction, err = client:Transaction():create({
   id = "example_id", -- string
+  gross_amount = {}, -- table
+  payee_detail = {}, -- table
+  payer_detail = {}, -- table
+  transaction_amount = {}, -- table
 })
 ```
 
@@ -3941,6 +3955,7 @@ local user_invites, err = client:UserInvite():list()
 
 ```lua
 local user_invite, err = client:UserInvite():create({
+  user = {}, -- table
 })
 ```
 
@@ -4006,6 +4021,9 @@ Create an instance: `local virtual = client:Virtual(nil)`
 ```lua
 local virtual, err = client:Virtual():create({
   account_id = "example_account_id", -- string
+  created_by = {}, -- table
+  identifier = {}, -- table
+  name = "example_name", -- string
 })
 ```
 
@@ -4136,11 +4154,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local account = client:Account()
-account:list()
+local ruleevent = client:RuleEvent()
+ruleevent:list()
 
--- account:data_get() now returns the account data from the last list
--- account:match_get() returns the last match criteria
+-- ruleevent:data_get() now returns the ruleevent data from the last list
+-- ruleevent:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

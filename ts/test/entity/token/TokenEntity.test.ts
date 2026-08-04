@@ -66,10 +66,6 @@ describe('TokenEntity', async () => {
     assert(null != token_ref01_data)
 
 
-    // REMOVE
-    const token_ref01_match_rm0: any = { id: token_ref01_data.id }
-    await token_ref01_ent.remove(token_ref01_match_rm0)
-  
 
   })
 })

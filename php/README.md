@@ -65,7 +65,7 @@ try {
 
 ```php
 // create() returns the bare created Account record.
-$created = $client->Account()->create(["account_id" => "example_account_id", "currency" => "example_currency"]);
+$created = $client->Account()->create(["created_by" => [], "identifier" => []]);
 
 // Update — index the bare record directly ($created["id"]).
 $client->Account()->update(["id" => $created["id"], "account_id" => "example_account_id", "amount" => 1]);
@@ -82,7 +82,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $accounts = $client->Account()->list();
+    $ruleevents = $client->RuleEvent()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -149,17 +149,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = NofrixionSDK::test([
-    "entity" => ["account" => ["test01" => ["id" => "test01"]]],
-]);
+$client = NofrixionSDK::test();
 
 // Entity ops return the bare mock record (throws on error).
-$account = $client->Account()->list();
-print_r($account);
+$ruleevent = $client->RuleEvent()->list();
+print_r($ruleevent);
 ```
 
 ### Use a custom fetch function
@@ -1848,6 +1845,8 @@ $accounts = $client->Account()->list();
 
 ```php
 $account = $client->Account()->create([
+    "created_by" => null, // array
+    "identifier" => null, // array
 ]);
 ```
 
@@ -1949,6 +1948,9 @@ $beneficiarys = $client->Beneficiary()->list();
 
 ```php
 $beneficiary = $client->Beneficiary()->create([
+    "created_by" => null, // array
+    "currency" => null, // string
+    "name" => null, // string
 ]);
 ```
 
@@ -3093,6 +3095,7 @@ $payment_requests = $client->PaymentRequest()->list();
 
 ```php
 $payment_request = $client->PaymentRequest()->create([
+    "created_by_user" => null, // array
 ]);
 ```
 
@@ -3388,6 +3391,8 @@ $payouts = $client->Payout()->list();
 
 ```php
 $payout = $client->Payout()->create([
+    "beneficiary" => null, // array
+    "source_account_identifier" => null, // array
 ]);
 ```
 
@@ -3588,6 +3593,7 @@ $payruns = $client->Payrun()->list();
 ```php
 $payrun = $client->Payrun()->create([
     "id" => null, // string
+    "last_updated_by" => null, // array
 ]);
 ```
 
@@ -3800,6 +3806,7 @@ $tags = $client->Tag()->list();
 ```php
 $tag = $client->Tag()->create([
     "merchant_id" => null, // string
+    "name" => null, // string
 ]);
 ```
 
@@ -3914,6 +3921,10 @@ $transactions = $client->Transaction()->list();
 ```php
 $transaction = $client->Transaction()->create([
     "id" => null, // string
+    "gross_amount" => null, // array
+    "payee_detail" => null, // array
+    "payer_detail" => null, // array
+    "transaction_amount" => null, // array
 ]);
 ```
 
@@ -4012,6 +4023,7 @@ $user_invites = $client->UserInvite()->list();
 
 ```php
 $user_invite = $client->UserInvite()->create([
+    "user" => null, // array
 ]);
 ```
 
@@ -4077,6 +4089,9 @@ Create an instance: `$virtual = $client->Virtual();`
 ```php
 $virtual = $client->Virtual()->create([
     "account_id" => null, // string
+    "created_by" => null, // array
+    "identifier" => null, // array
+    "name" => null, // string
 ]);
 ```
 
@@ -4209,11 +4224,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$account = $client->Account();
-$account->list();
+$ruleevent = $client->RuleEvent();
+$ruleevent->list();
 
-// $account->data_get() now returns the account data from the last list
-// $account->match_get() returns the last match criteria
+// $ruleevent->data_get() now returns the ruleevent data from the last list
+// $ruleevent->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

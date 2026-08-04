@@ -42,11 +42,6 @@ class OpenBankingEntityTest < Minitest::Test
     open_banking_ref01_data = Helpers.to_map(open_banking_ref01_data_result)
     assert !open_banking_ref01_data.nil?
 
-    # REMOVE
-    open_banking_ref01_match_rm0 = {
-      "id" => open_banking_ref01_data["id"],
-    }
-    open_banking_ref01_ent.remove(open_banking_ref01_match_rm0, nil)
 
   end
 end

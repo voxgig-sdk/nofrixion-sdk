@@ -346,6 +346,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Account():create({
+  created_by = --[[ table ]],
+  identifier = --[[ table ]],
 })
 ```
 
@@ -553,6 +555,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Beneficiary():create({
+  created_by = --[[ table ]],
+  currency = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -2707,6 +2712,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:PaymentRequest():create({
+  created_by_user = --[[ table ]],
 })
 ```
 
@@ -3244,6 +3250,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Payout():create({
+  beneficiary = --[[ table ]],
+  source_account_identifier = --[[ table ]],
 })
 ```
 
@@ -3546,6 +3554,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Payrun():create({
   id = --[[ string ]],
+  last_updated_by = --[[ table ]],
 })
 ```
 
@@ -4021,6 +4030,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Tag():create({
   merchant_id = --[[ string ]],
+  name = --[[ string ]],
 })
 ```
 
@@ -4191,6 +4201,10 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Transaction():create({
   id = --[[ string ]],
+  gross_amount = --[[ table ]],
+  payee_detail = --[[ table ]],
+  payer_detail = --[[ table ]],
+  transaction_amount = --[[ table ]],
 })
 ```
 
@@ -4405,6 +4419,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:UserInvite():create({
+  user = --[[ table ]],
 })
 ```
 
@@ -4533,6 +4548,9 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Virtual():create({
   account_id = --[[ string ]],
+  created_by = --[[ table ]],
+  identifier = --[[ table ]],
+  name = --[[ string ]],
 })
 ```
 

@@ -35,17 +35,17 @@ network, and no credentials:
 
 ```ts
 const client = NofrixionSDK.test()
-const accounts = await client.Account().list()
-// accounts is an array of bare Account records populated with mock data
-console.log(accounts)
+const ruleevents = await client.RuleEvent().list()
+// ruleevents is an array of bare RuleEvent records populated with mock data
+console.log(ruleevents)
 ```
 
 ### Python
 
 ```python
 client = NofrixionSDK.test()
-accounts = client.Account().list()
-print(accounts)
+ruleevents = client.RuleEvent().list()
+print(ruleevents)
 ```
 
 ### PHP
@@ -53,16 +53,16 @@ print(accounts)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = NofrixionSDK::test([
-    "entity" => ["account" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["ruleevent" => ["test01" => []]],
 ]);
-$accounts = $client->Account()->list();
+$ruleevents = $client->RuleEvent()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Account(nil).List(
+result, err := client.RuleEvent(nil).List(
     nil, nil,
 )
 ```
@@ -72,16 +72,16 @@ result, err := client.Account(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = NofrixionSDK.test({
-  "entity" => { "account" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "ruleevent" => { "test01" => {} } },
 })
-accounts = client.Account.list()
+ruleevents = client.RuleEvent.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Account():list()
+local results, err = client:RuleEvent():list()
 ```
 
 ## Packages
