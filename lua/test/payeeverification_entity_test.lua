@@ -41,7 +41,7 @@ describe("PayeeverificationEntity", function()
 
     local payeeverification_ref01_data_result, err = payeeverification_ref01_ent:create(payeeverification_ref01_data, nil)
     assert.is_nil(err)
-    payeeverification_ref01_data = helpers.to_map(payeeverification_ref01_data_result)
+    payeeverification_ref01_data = helpers.to_map(type(payeeverification_ref01_data_result) == 'table' and payeeverification_ref01_data_result.data_get and payeeverification_ref01_data_result:data_get() or payeeverification_ref01_data_result)
     assert.is_not_nil(payeeverification_ref01_data)
 
   end)

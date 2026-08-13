@@ -45,7 +45,7 @@ class RoleEntityTest extends TestCase
         $role_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $role_ref01_data_result = $role_ref01_ent->create($role_ref01_data, null);
-        $role_ref01_data = Helpers::to_map($role_ref01_data_result);
+        $role_ref01_data = Helpers::to_map(is_object($role_ref01_data_result) && method_exists($role_ref01_data_result, 'data_get') ? $role_ref01_data_result->data_get() : $role_ref01_data_result);
         $this->assertNotNull($role_ref01_data);
 
     }

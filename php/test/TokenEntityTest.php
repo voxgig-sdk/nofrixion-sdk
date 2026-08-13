@@ -44,7 +44,7 @@ class TokenEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.token"), "token_ref01"));
 
         $token_ref01_data_result = $token_ref01_ent->create($token_ref01_data, null);
-        $token_ref01_data = Helpers::to_map($token_ref01_data_result);
+        $token_ref01_data = Helpers::to_map(is_object($token_ref01_data_result) && method_exists($token_ref01_data_result, 'data_get') ? $token_ref01_data_result->data_get() : $token_ref01_data_result);
         $this->assertNotNull($token_ref01_data);
 
 

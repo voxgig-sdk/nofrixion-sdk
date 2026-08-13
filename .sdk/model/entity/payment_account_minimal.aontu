@@ -6,12 +6,12 @@ main: kit: entity: payment_account_minimal: {
 
   fields: [
     {
-      name: "account_name"
+      name: "accountName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "available_balance"
+      name: "availableBalance"
       req: false
       type: "`$NUMBER`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: payment_account_minimal: {
       type: "`$NUMBER`"
     }
     {
-      name: "balance_minor_unit"
+      name: "balanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
@@ -41,22 +41,22 @@ main: kit: entity: payment_account_minimal: {
       type: "`$OBJECT`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_connected_account"
+      name: "isConnectedAccount"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "submitted_payouts_balance"
+      name: "submittedPayoutsBalance"
       req: false
       type: "`$NUMBER`"
     }

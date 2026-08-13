@@ -60,7 +60,7 @@ func TestVirtualEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		virtualRef01Data = core.ToMapAny(virtualRef01DataResult)
+		virtualRef01Data = core.ToMapAny(entityData(virtualRef01DataResult))
 		if virtualRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -74,7 +74,7 @@ func TestVirtualEntity(t *testing.T) {
 			"account_id": setup.idmap["account_id"],
 		}
 
-		virtualRef01MarkdefUp0Name := "account_name"
+		virtualRef01MarkdefUp0Name := "accountName"
 		virtualRef01MarkdefUp0Value := fmt.Sprintf("Mark01-virtual_ref01_%d", setup.now)
 		virtualRef01DataUp0Up[virtualRef01MarkdefUp0Name] = virtualRef01MarkdefUp0Value
 
@@ -82,7 +82,7 @@ func TestVirtualEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		virtualRef01ResdataUp0 := core.ToMapAny(virtualRef01ResdataUp0Result)
+		virtualRef01ResdataUp0 := core.ToMapAny(entityData(virtualRef01ResdataUp0Result))
 		if virtualRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

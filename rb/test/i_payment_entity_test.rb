@@ -37,7 +37,7 @@ class IPaymentEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.i_payment"), "i_payment_ref01"))
 
     i_payment_ref01_data_result = i_payment_ref01_ent.create(i_payment_ref01_data, nil)
-    i_payment_ref01_data = Helpers.to_map(i_payment_ref01_data_result)
+    i_payment_ref01_data = Helpers.to_map(i_payment_ref01_data_result.respond_to?(:data_get) ? i_payment_ref01_data_result.data_get : i_payment_ref01_data_result)
     assert !i_payment_ref01_data.nil?
 
   end

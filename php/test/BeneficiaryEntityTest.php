@@ -84,7 +84,7 @@ class BeneficiaryEntityTest extends TestCase
         $beneficiary_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $beneficiary_ref01_data_result = $beneficiary_ref01_ent->create($beneficiary_ref01_data, null);
-        $beneficiary_ref01_data = Helpers::to_map($beneficiary_ref01_data_result);
+        $beneficiary_ref01_data = Helpers::to_map(is_object($beneficiary_ref01_data_result) && method_exists($beneficiary_ref01_data_result, 'data_get') ? $beneficiary_ref01_data_result->data_get() : $beneficiary_ref01_data_result);
         $this->assertNotNull($beneficiary_ref01_data);
         $this->assertNotNull($beneficiary_ref01_data["id"]);
 
@@ -106,12 +106,12 @@ class BeneficiaryEntityTest extends TestCase
             "id" => $beneficiary_ref01_data["id"],
         ];
 
-        $beneficiary_ref01_markdef_up0_name = "approval_callback_url";
+        $beneficiary_ref01_markdef_up0_name = "approvalCallbackUrl";
         $beneficiary_ref01_markdef_up0_value = "Mark01-beneficiary_ref01_" . $setup["now"];
         $beneficiary_ref01_data_up0_up[$beneficiary_ref01_markdef_up0_name] = $beneficiary_ref01_markdef_up0_value;
 
         $beneficiary_ref01_resdata_up0_result = $beneficiary_ref01_ent->update($beneficiary_ref01_data_up0_up, null);
-        $beneficiary_ref01_resdata_up0 = Helpers::to_map($beneficiary_ref01_resdata_up0_result);
+        $beneficiary_ref01_resdata_up0 = Helpers::to_map(is_object($beneficiary_ref01_resdata_up0_result) && method_exists($beneficiary_ref01_resdata_up0_result, 'data_get') ? $beneficiary_ref01_resdata_up0_result->data_get() : $beneficiary_ref01_resdata_up0_result);
         $this->assertNotNull($beneficiary_ref01_resdata_up0);
         $this->assertEquals($beneficiary_ref01_resdata_up0["id"], $beneficiary_ref01_data_up0_up["id"]);
         $this->assertEquals($beneficiary_ref01_resdata_up0[$beneficiary_ref01_markdef_up0_name], $beneficiary_ref01_markdef_up0_value);
@@ -121,7 +121,7 @@ class BeneficiaryEntityTest extends TestCase
             "id" => $beneficiary_ref01_data["id"],
         ];
         $beneficiary_ref01_data_dt0_loaded = $beneficiary_ref01_ent->load($beneficiary_ref01_match_dt0, null);
-        $beneficiary_ref01_data_dt0_load_result = Helpers::to_map($beneficiary_ref01_data_dt0_loaded);
+        $beneficiary_ref01_data_dt0_load_result = Helpers::to_map(is_object($beneficiary_ref01_data_dt0_loaded) && method_exists($beneficiary_ref01_data_dt0_loaded, 'data_get') ? $beneficiary_ref01_data_dt0_loaded->data_get() : $beneficiary_ref01_data_dt0_loaded);
         $this->assertNotNull($beneficiary_ref01_data_dt0_load_result);
         $this->assertEquals($beneficiary_ref01_data_dt0_load_result["id"], $beneficiary_ref01_data["id"]);
 

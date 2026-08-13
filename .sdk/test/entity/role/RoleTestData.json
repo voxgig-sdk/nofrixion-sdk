@@ -2,20 +2,20 @@
   "existing": {
     "role": {
       "ROLE00": {
-        "failed_role": {},
-        "role": [],
+        "failedRoles": {},
+        "roles": [],
         "merchant_id": "MERCHANT01",
         "id": "ROLE00"
       },
       "ROLE01": {
-        "failed_role": {},
-        "role": [],
+        "failedRoles": {},
+        "roles": [],
         "merchant_id": "MERCHANT01",
         "id": "ROLE01"
       },
       "ROLE02": {
-        "failed_role": {},
-        "role": [],
+        "failedRoles": {},
+        "roles": [],
         "merchant_id": "MERCHANT01",
         "id": "ROLE02"
       }
@@ -24,8 +24,8 @@
   "new": {
     "role": {
       "role_ref01": {
-        "failed_role": {},
-        "role": []
+        "failedRoles": {},
+        "roles": []
       }
     }
   }

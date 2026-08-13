@@ -64,7 +64,7 @@ describe('MerchantAuthorisationSettingEntity', async () => {
     const merchant_authorisation_setting_ref01_match: any = {}
     merchant_authorisation_setting_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const merchant_authorisation_setting_ref01_list = await merchant_authorisation_setting_ref01_ent.list(merchant_authorisation_setting_ref01_match)
+    const merchant_authorisation_setting_ref01_list = (await merchant_authorisation_setting_ref01_ent.list(merchant_authorisation_setting_ref01_match)).map((e: any) => e.data())
 
 
   })

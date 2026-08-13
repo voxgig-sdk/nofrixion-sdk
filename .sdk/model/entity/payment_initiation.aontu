@@ -6,32 +6,32 @@ main: kit: entity: payment_initiation: {
 
   fields: [
     {
-      name: "payment_initiation_id"
+      name: "paymentInitiationID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request_callback_url"
+      name: "paymentRequestCallbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "redirect_url"
+      name: "redirectUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "response_type"
+      name: "responseType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "specific_error_message"
+      name: "specificErrorMessage"
       req: false
       type: "`$STRING`"
     }

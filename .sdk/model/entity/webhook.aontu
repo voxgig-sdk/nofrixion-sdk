@@ -6,17 +6,17 @@ main: kit: entity: webhook: {
 
   fields: [
     {
-      name: "destination_url"
+      name: "destinationUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "email_address"
+      name: "emailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "failed_notification_email_address"
+      name: "failedNotificationEmailAddress"
       req: false
       type: "`$STRING`"
     }
@@ -26,12 +26,12 @@ main: kit: entity: webhook: {
       type: "`$STRING`"
     }
     {
-      name: "is_active"
+      name: "isActive"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       op: {
         create: {
           req: true
@@ -46,7 +46,7 @@ main: kit: entity: webhook: {
       type: "`$STRING`"
     }
     {
-      name: "notification_method"
+      name: "notificationMethod"
       op: {
         create: {
           req: true
@@ -61,7 +61,7 @@ main: kit: entity: webhook: {
       type: "`$STRING`"
     }
     {
-      name: "resource_type"
+      name: "resourceTypes"
       req: false
       type: "`$ARRAY`"
     }

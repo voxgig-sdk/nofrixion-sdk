@@ -58,7 +58,7 @@ func TestMandateEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		mandateRef01Data = core.ToMapAny(mandateRef01DataResult)
+		mandateRef01Data = core.ToMapAny(entityData(mandateRef01DataResult))
 		if mandateRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -74,7 +74,7 @@ func TestMandateEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		mandateRef01DataDt0LoadResult := core.ToMapAny(mandateRef01DataDt0Loaded)
+		mandateRef01DataDt0LoadResult := core.ToMapAny(entityData(mandateRef01DataDt0Loaded))
 		if mandateRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

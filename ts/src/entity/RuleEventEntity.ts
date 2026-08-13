@@ -37,7 +37,7 @@ class RuleEventEntity extends NofrixionEntityBase<RuleEvent> {
 
 
 
-  async list(this: any, reqmatch?: RuleEventListMatch, ctrl?: Control): Promise<RuleEvent[]> {
+  async list(this: any, reqmatch?: RuleEventListMatch, ctrl?: Control): Promise<RuleEventEntity[]> {
 
     const utility = this._utility
 

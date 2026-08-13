@@ -62,14 +62,14 @@ describe('BatchEntity', async () => {
     const batch_ref01_ent = client.Batch()
     let batch_ref01_data = setup.data.new.batch['batch_ref01']
 
-    batch_ref01_data = await batch_ref01_ent.create(batch_ref01_data)
+    batch_ref01_data = (await batch_ref01_ent.create(batch_ref01_data)).data()
     assert(null != batch_ref01_data.id)
 
 
     // LOAD
     const batch_ref01_match_dt0: any = {}
     batch_ref01_match_dt0.id = batch_ref01_data.id
-    const batch_ref01_data_dt0 = await batch_ref01_ent.load(batch_ref01_match_dt0)
+    const batch_ref01_data_dt0 = (await batch_ref01_ent.load(batch_ref01_match_dt0)).data()
     assert(batch_ref01_data_dt0.id === batch_ref01_data.id)
 
 

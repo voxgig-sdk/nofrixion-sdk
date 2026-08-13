@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import NofrixionSDK
-from core.error import NofrixionError
-from core.result import NofrixionResult
-from core.response import NofrixionResponse
-from core.spec import NofrixionSpec
-from feature.base_feature import NofrixionBaseFeature
+from projectname_sdk.core.error import NofrixionError
+from projectname_sdk.core.result import NofrixionResult
+from projectname_sdk.core.response import NofrixionResponse
+from projectname_sdk.core.spec import NofrixionSpec
+from projectname_sdk.feature.base_feature import NofrixionBaseFeature
 
 
 def _client():

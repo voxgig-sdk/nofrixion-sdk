@@ -63,7 +63,7 @@ describe('BeneficiaryEntity', async () => {
     let beneficiary_ref01_data = setup.data.new.beneficiary['beneficiary_ref01']
     beneficiary_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    beneficiary_ref01_data = await beneficiary_ref01_ent.create(beneficiary_ref01_data)
+    beneficiary_ref01_data = (await beneficiary_ref01_ent.create(beneficiary_ref01_data)).data()
     assert(null != beneficiary_ref01_data.id)
 
 
@@ -71,7 +71,7 @@ describe('BeneficiaryEntity', async () => {
     const beneficiary_ref01_match: any = {}
     beneficiary_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const beneficiary_ref01_list = await beneficiary_ref01_ent.list(beneficiary_ref01_match)
+    const beneficiary_ref01_list = (await beneficiary_ref01_ent.list(beneficiary_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(beneficiary_ref01_list, { id: beneficiary_ref01_data.id })))
 
@@ -80,10 +80,10 @@ describe('BeneficiaryEntity', async () => {
     const beneficiary_ref01_data_up0: any = {}
     beneficiary_ref01_data_up0.id = beneficiary_ref01_data.id
 
-    const beneficiary_ref01_markdef_up0 = { name: 'approval_callback_url', value: 'Mark01-beneficiary_ref01_' + setup.now }
+    const beneficiary_ref01_markdef_up0 = { name: 'approvalCallbackUrl', value: 'Mark01-beneficiary_ref01_' + setup.now }
     ;(beneficiary_ref01_data_up0 as any)[beneficiary_ref01_markdef_up0.name] = beneficiary_ref01_markdef_up0.value
 
-    const beneficiary_ref01_resdata_up0 = await beneficiary_ref01_ent.update(beneficiary_ref01_data_up0)
+    const beneficiary_ref01_resdata_up0 = (await beneficiary_ref01_ent.update(beneficiary_ref01_data_up0)).data()
     assert(beneficiary_ref01_resdata_up0.id === beneficiary_ref01_data_up0.id)
 
     assert((beneficiary_ref01_resdata_up0 as any)[beneficiary_ref01_markdef_up0.name] === beneficiary_ref01_markdef_up0.value)
@@ -92,7 +92,7 @@ describe('BeneficiaryEntity', async () => {
     // LOAD
     const beneficiary_ref01_match_dt0: any = {}
     beneficiary_ref01_match_dt0.id = beneficiary_ref01_data.id
-    const beneficiary_ref01_data_dt0 = await beneficiary_ref01_ent.load(beneficiary_ref01_match_dt0)
+    const beneficiary_ref01_data_dt0 = (await beneficiary_ref01_ent.load(beneficiary_ref01_match_dt0)).data()
     assert(beneficiary_ref01_data_dt0.id === beneficiary_ref01_data.id)
 
 
@@ -105,7 +105,7 @@ describe('BeneficiaryEntity', async () => {
     const beneficiary_ref01_match_rt0: any = {}
     beneficiary_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const beneficiary_ref01_list_rt0 = await beneficiary_ref01_ent.list(beneficiary_ref01_match_rt0)
+    const beneficiary_ref01_list_rt0 = (await beneficiary_ref01_ent.list(beneficiary_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(beneficiary_ref01_list_rt0, { id: beneficiary_ref01_data.id })))
 

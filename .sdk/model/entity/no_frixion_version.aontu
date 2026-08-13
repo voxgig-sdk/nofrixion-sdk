@@ -6,22 +6,22 @@ main: kit: entity: no_frixion_version: {
 
   fields: [
     {
-      name: "build_version"
+      name: "buildVersion"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "major_version"
+      name: "majorVersion"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "minor_version"
+      name: "minorVersion"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "release_name"
+      name: "releaseName"
       req: false
       type: "`$STRING`"
     }

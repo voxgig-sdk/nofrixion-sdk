@@ -38,7 +38,7 @@ class PaymentInitiationEntityTest < Minitest::Test
     payment_initiation_ref01_data["paymentrequest_id"] = setup[:idmap]["paymentrequest01"]
 
     payment_initiation_ref01_data_result = payment_initiation_ref01_ent.create(payment_initiation_ref01_data, nil)
-    payment_initiation_ref01_data = Helpers.to_map(payment_initiation_ref01_data_result)
+    payment_initiation_ref01_data = Helpers.to_map(payment_initiation_ref01_data_result.respond_to?(:data_get) ? payment_initiation_ref01_data_result.data_get : payment_initiation_ref01_data_result)
     assert !payment_initiation_ref01_data.nil?
 
   end

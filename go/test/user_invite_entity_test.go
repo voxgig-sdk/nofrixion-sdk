@@ -108,7 +108,7 @@ func TestUserInviteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		userInviteRef01Data = core.ToMapAny(userInviteRef01DataResult)
+		userInviteRef01Data = core.ToMapAny(entityData(userInviteRef01DataResult))
 		if userInviteRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -140,7 +140,7 @@ func TestUserInviteEntity(t *testing.T) {
 			"id": userInviteRef01Data["id"],
 		}
 
-		userInviteRef01MarkdefUp0Name := "initial_role_id"
+		userInviteRef01MarkdefUp0Name := "initialRoleID"
 		userInviteRef01MarkdefUp0Value := fmt.Sprintf("Mark01-user_invite_ref01_%d", setup.now)
 		userInviteRef01DataUp0Up[userInviteRef01MarkdefUp0Name] = userInviteRef01MarkdefUp0Value
 
@@ -148,7 +148,7 @@ func TestUserInviteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		userInviteRef01ResdataUp0 := core.ToMapAny(userInviteRef01ResdataUp0Result)
+		userInviteRef01ResdataUp0 := core.ToMapAny(entityData(userInviteRef01ResdataUp0Result))
 		if userInviteRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -167,7 +167,7 @@ func TestUserInviteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		userInviteRef01DataDt0LoadResult := core.ToMapAny(userInviteRef01DataDt0Loaded)
+		userInviteRef01DataDt0LoadResult := core.ToMapAny(entityData(userInviteRef01DataDt0Loaded))
 		if userInviteRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

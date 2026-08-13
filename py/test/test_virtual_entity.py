@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -45,7 +45,7 @@ class TestVirtualEntity:
             vs.getpath(setup["data"], "new.virtual"), "virtual_ref01"))
         virtual_ref01_data["account_id"] = setup["idmap"]["account01"]
 
-        virtual_ref01_data = helpers.to_map(virtual_ref01_ent.create(virtual_ref01_data, None))
+        virtual_ref01_data = helpers.to_map(runner.entity_data(virtual_ref01_ent.create(virtual_ref01_data, None)))
         assert virtual_ref01_data is not None
         assert virtual_ref01_data["id"] is not None
 
@@ -55,11 +55,11 @@ class TestVirtualEntity:
             "account_id": setup["idmap"]["account_id"],
         }
 
-        virtual_ref01_markdef_up0_name = "account_name"
+        virtual_ref01_markdef_up0_name = "accountName"
         virtual_ref01_markdef_up0_value = "Mark01-virtual_ref01_" + str(setup["now"])
         virtual_ref01_data_up0_up[virtual_ref01_markdef_up0_name] = virtual_ref01_markdef_up0_value
 
-        virtual_ref01_resdata_up0 = helpers.to_map(virtual_ref01_ent.update(virtual_ref01_data_up0_up, None))
+        virtual_ref01_resdata_up0 = helpers.to_map(runner.entity_data(virtual_ref01_ent.update(virtual_ref01_data_up0_up, None)))
         assert virtual_ref01_resdata_up0 is not None
         assert virtual_ref01_resdata_up0["id"] == virtual_ref01_data_up0_up["id"]
         assert virtual_ref01_resdata_up0[virtual_ref01_markdef_up0_name] == virtual_ref01_markdef_up0_value

@@ -137,7 +137,7 @@ func TestMerchantPaymentRequestTemplateEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		merchantPaymentRequestTemplateRef01ResdataUp0 := core.ToMapAny(merchantPaymentRequestTemplateRef01ResdataUp0Result)
+		merchantPaymentRequestTemplateRef01ResdataUp0 := core.ToMapAny(entityData(merchantPaymentRequestTemplateRef01ResdataUp0Result))
 		if merchantPaymentRequestTemplateRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -156,7 +156,7 @@ func TestMerchantPaymentRequestTemplateEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		merchantPaymentRequestTemplateRef01DataDt0LoadResult := core.ToMapAny(merchantPaymentRequestTemplateRef01DataDt0Loaded)
+		merchantPaymentRequestTemplateRef01DataDt0LoadResult := core.ToMapAny(entityData(merchantPaymentRequestTemplateRef01DataDt0Loaded))
 		if merchantPaymentRequestTemplateRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

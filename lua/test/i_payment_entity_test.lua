@@ -41,7 +41,7 @@ describe("IPaymentEntity", function()
 
     local i_payment_ref01_data_result, err = i_payment_ref01_ent:create(i_payment_ref01_data, nil)
     assert.is_nil(err)
-    i_payment_ref01_data = helpers.to_map(i_payment_ref01_data_result)
+    i_payment_ref01_data = helpers.to_map(type(i_payment_ref01_data_result) == 'table' and i_payment_ref01_data_result.data_get and i_payment_ref01_data_result:data_get() or i_payment_ref01_data_result)
     assert.is_not_nil(i_payment_ref01_data)
 
   end)

@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestBatchEntity:
         batch_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.batch"), "batch_ref01"))
 
-        batch_ref01_data = helpers.to_map(batch_ref01_ent.create(batch_ref01_data, None))
+        batch_ref01_data = helpers.to_map(runner.entity_data(batch_ref01_ent.create(batch_ref01_data, None)))
         assert batch_ref01_data is not None
         assert batch_ref01_data["id"] is not None
 
@@ -53,7 +53,7 @@ class TestBatchEntity:
             "id": batch_ref01_data["id"],
         }
         batch_ref01_data_dt0_loaded = batch_ref01_ent.load(batch_ref01_match_dt0, None)
-        batch_ref01_data_dt0_load_result = helpers.to_map(batch_ref01_data_dt0_loaded)
+        batch_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(batch_ref01_data_dt0_loaded))
         assert batch_ref01_data_dt0_load_result is not None
         assert batch_ref01_data_dt0_load_result["id"] == batch_ref01_data["id"]
 

@@ -37,7 +37,7 @@ class MerchantPayByBankSettingEntity extends NofrixionEntityBase<MerchantPayByBa
 
 
 
-  async list(this: any, reqmatch?: MerchantPayByBankSettingListMatch, ctrl?: Control): Promise<MerchantPayByBankSetting[]> {
+  async list(this: any, reqmatch?: MerchantPayByBankSettingListMatch, ctrl?: Control): Promise<MerchantPayByBankSettingEntity[]> {
 
     const utility = this._utility
 

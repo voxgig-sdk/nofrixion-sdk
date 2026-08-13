@@ -45,7 +45,7 @@ class PaymentInitiationEntityTest extends TestCase
         $payment_initiation_ref01_data["paymentrequest_id"] = $setup["idmap"]["paymentrequest01"];
 
         $payment_initiation_ref01_data_result = $payment_initiation_ref01_ent->create($payment_initiation_ref01_data, null);
-        $payment_initiation_ref01_data = Helpers::to_map($payment_initiation_ref01_data_result);
+        $payment_initiation_ref01_data = Helpers::to_map(is_object($payment_initiation_ref01_data_result) && method_exists($payment_initiation_ref01_data_result, 'data_get') ? $payment_initiation_ref01_data_result->data_get() : $payment_initiation_ref01_data_result);
         $this->assertNotNull($payment_initiation_ref01_data);
 
     }

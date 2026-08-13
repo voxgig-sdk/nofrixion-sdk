@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ NofrixionUtility::setRegistrar(function (NofrixionUtility $u): void {
     $u->prepare_params = [NofrixionPrepareParams::class, 'call'];
     $u->prepare_path = [NofrixionPreparePath::class, 'call'];
     $u->prepare_query = [NofrixionPrepareQuery::class, 'call'];
+    $u->graphql_body = [NofrixionGraphql::class, 'body'];
+    $u->graphql_errors = [NofrixionGraphql::class, 'errors'];
     $u->result_basic = [NofrixionResultBasic::class, 'call'];
     $u->result_body = [NofrixionResultBody::class, 'call'];
     $u->result_headers = [NofrixionResultHeaders::class, 'call'];

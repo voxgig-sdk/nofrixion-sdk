@@ -11,17 +11,17 @@ main: kit: entity: payment_request_result: {
       type: "`$NUMBER`"
     }
     {
-      name: "amount_pending"
+      name: "amountPending"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_received"
+      name: "amountReceived"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_refunded"
+      name: "amountRefunded"
       req: false
       type: "`$NUMBER`"
     }
@@ -31,27 +31,27 @@ main: kit: entity: payment_request_result: {
       type: "`$STRING`"
     }
     {
-      name: "customer_id"
+      name: "customerID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_authorization"
+      name: "payments"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "requested_amount"
+      name: "pispAuthorizations"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "requestedAmount"
       req: false
       type: "`$NUMBER`"
     }

@@ -74,7 +74,7 @@ class UserInviteEntityTest < Minitest::Test
     user_invite_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     user_invite_ref01_data_result = user_invite_ref01_ent.create(user_invite_ref01_data, nil)
-    user_invite_ref01_data = Helpers.to_map(user_invite_ref01_data_result)
+    user_invite_ref01_data = Helpers.to_map(user_invite_ref01_data_result.respond_to?(:data_get) ? user_invite_ref01_data_result.data_get : user_invite_ref01_data_result)
     assert !user_invite_ref01_data.nil?
     assert !user_invite_ref01_data["id"].nil?
 
@@ -96,12 +96,12 @@ class UserInviteEntityTest < Minitest::Test
       "id" => user_invite_ref01_data["id"],
     }
 
-    user_invite_ref01_markdef_up0_name = "initial_role_id"
+    user_invite_ref01_markdef_up0_name = "initialRoleID"
     user_invite_ref01_markdef_up0_value = "Mark01-user_invite_ref01_#{setup[:now]}"
     user_invite_ref01_data_up0_up[user_invite_ref01_markdef_up0_name] = user_invite_ref01_markdef_up0_value
 
     user_invite_ref01_resdata_up0_result = user_invite_ref01_ent.update(user_invite_ref01_data_up0_up, nil)
-    user_invite_ref01_resdata_up0 = Helpers.to_map(user_invite_ref01_resdata_up0_result)
+    user_invite_ref01_resdata_up0 = Helpers.to_map(user_invite_ref01_resdata_up0_result.respond_to?(:data_get) ? user_invite_ref01_resdata_up0_result.data_get : user_invite_ref01_resdata_up0_result)
     assert !user_invite_ref01_resdata_up0.nil?
     assert_equal user_invite_ref01_resdata_up0["id"], user_invite_ref01_data_up0_up["id"]
     assert_equal user_invite_ref01_resdata_up0[user_invite_ref01_markdef_up0_name], user_invite_ref01_markdef_up0_value
@@ -111,7 +111,7 @@ class UserInviteEntityTest < Minitest::Test
       "id" => user_invite_ref01_data["id"],
     }
     user_invite_ref01_data_dt0_loaded = user_invite_ref01_ent.load(user_invite_ref01_match_dt0, nil)
-    user_invite_ref01_data_dt0_load_result = Helpers.to_map(user_invite_ref01_data_dt0_loaded)
+    user_invite_ref01_data_dt0_load_result = Helpers.to_map(user_invite_ref01_data_dt0_loaded.respond_to?(:data_get) ? user_invite_ref01_data_dt0_loaded.data_get : user_invite_ref01_data_dt0_loaded)
     assert !user_invite_ref01_data_dt0_load_result.nil?
     assert_equal user_invite_ref01_data_dt0_load_result["id"], user_invite_ref01_data["id"]
 

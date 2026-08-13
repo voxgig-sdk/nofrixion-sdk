@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -45,7 +45,7 @@ class TestRoleEntity:
             vs.getpath(setup["data"], "new.role"), "role_ref01"))
         role_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
-        role_ref01_data = helpers.to_map(role_ref01_ent.create(role_ref01_data, None))
+        role_ref01_data = helpers.to_map(runner.entity_data(role_ref01_ent.create(role_ref01_data, None)))
         assert role_ref01_data is not None
 
 

@@ -73,7 +73,7 @@ class PaymentRequestEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.payment_request"), "payment_request_ref01"))
 
     payment_request_ref01_data_result = payment_request_ref01_ent.create(payment_request_ref01_data, nil)
-    payment_request_ref01_data = Helpers.to_map(payment_request_ref01_data_result)
+    payment_request_ref01_data = Helpers.to_map(payment_request_ref01_data_result.respond_to?(:data_get) ? payment_request_ref01_data_result.data_get : payment_request_ref01_data_result)
     assert !payment_request_ref01_data.nil?
     assert !payment_request_ref01_data["id"].nil?
 
@@ -93,12 +93,12 @@ class PaymentRequestEntityTest < Minitest::Test
       "id" => payment_request_ref01_data["id"],
     }
 
-    payment_request_ref01_markdef_up0_name = "base_origin_url"
+    payment_request_ref01_markdef_up0_name = "baseOriginUrl"
     payment_request_ref01_markdef_up0_value = "Mark01-payment_request_ref01_#{setup[:now]}"
     payment_request_ref01_data_up0_up[payment_request_ref01_markdef_up0_name] = payment_request_ref01_markdef_up0_value
 
     payment_request_ref01_resdata_up0_result = payment_request_ref01_ent.update(payment_request_ref01_data_up0_up, nil)
-    payment_request_ref01_resdata_up0 = Helpers.to_map(payment_request_ref01_resdata_up0_result)
+    payment_request_ref01_resdata_up0 = Helpers.to_map(payment_request_ref01_resdata_up0_result.respond_to?(:data_get) ? payment_request_ref01_resdata_up0_result.data_get : payment_request_ref01_resdata_up0_result)
     assert !payment_request_ref01_resdata_up0.nil?
     assert_equal payment_request_ref01_resdata_up0["id"], payment_request_ref01_data_up0_up["id"]
     assert_equal payment_request_ref01_resdata_up0[payment_request_ref01_markdef_up0_name], payment_request_ref01_markdef_up0_value
@@ -108,7 +108,7 @@ class PaymentRequestEntityTest < Minitest::Test
       "id" => payment_request_ref01_data["id"],
     }
     payment_request_ref01_data_dt0_loaded = payment_request_ref01_ent.load(payment_request_ref01_match_dt0, nil)
-    payment_request_ref01_data_dt0_load_result = Helpers.to_map(payment_request_ref01_data_dt0_loaded)
+    payment_request_ref01_data_dt0_load_result = Helpers.to_map(payment_request_ref01_data_dt0_loaded.respond_to?(:data_get) ? payment_request_ref01_data_dt0_loaded.data_get : payment_request_ref01_data_dt0_loaded)
     assert !payment_request_ref01_data_dt0_load_result.nil?
     assert_equal payment_request_ref01_data_dt0_load_result["id"], payment_request_ref01_data["id"]
 

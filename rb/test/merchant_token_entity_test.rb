@@ -74,7 +74,7 @@ class MerchantTokenEntityTest < Minitest::Test
     merchant_token_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     merchant_token_ref01_data_result = merchant_token_ref01_ent.create(merchant_token_ref01_data, nil)
-    merchant_token_ref01_data = Helpers.to_map(merchant_token_ref01_data_result)
+    merchant_token_ref01_data = Helpers.to_map(merchant_token_ref01_data_result.respond_to?(:data_get) ? merchant_token_ref01_data_result.data_get : merchant_token_ref01_data_result)
     assert !merchant_token_ref01_data.nil?
     assert !merchant_token_ref01_data["id"].nil?
 
@@ -101,7 +101,7 @@ class MerchantTokenEntityTest < Minitest::Test
     merchant_token_ref01_data_up0_up[merchant_token_ref01_markdef_up0_name] = merchant_token_ref01_markdef_up0_value
 
     merchant_token_ref01_resdata_up0_result = merchant_token_ref01_ent.update(merchant_token_ref01_data_up0_up, nil)
-    merchant_token_ref01_resdata_up0 = Helpers.to_map(merchant_token_ref01_resdata_up0_result)
+    merchant_token_ref01_resdata_up0 = Helpers.to_map(merchant_token_ref01_resdata_up0_result.respond_to?(:data_get) ? merchant_token_ref01_resdata_up0_result.data_get : merchant_token_ref01_resdata_up0_result)
     assert !merchant_token_ref01_resdata_up0.nil?
     assert_equal merchant_token_ref01_resdata_up0["id"], merchant_token_ref01_data_up0_up["id"]
     assert_equal merchant_token_ref01_resdata_up0[merchant_token_ref01_markdef_up0_name], merchant_token_ref01_markdef_up0_value
@@ -111,7 +111,7 @@ class MerchantTokenEntityTest < Minitest::Test
       "id" => merchant_token_ref01_data["id"],
     }
     merchant_token_ref01_data_dt0_loaded = merchant_token_ref01_ent.load(merchant_token_ref01_match_dt0, nil)
-    merchant_token_ref01_data_dt0_load_result = Helpers.to_map(merchant_token_ref01_data_dt0_loaded)
+    merchant_token_ref01_data_dt0_load_result = Helpers.to_map(merchant_token_ref01_data_dt0_loaded.respond_to?(:data_get) ? merchant_token_ref01_data_dt0_loaded.data_get : merchant_token_ref01_data_dt0_loaded)
     assert !merchant_token_ref01_data_dt0_load_result.nil?
     assert_equal merchant_token_ref01_data_dt0_load_result["id"], merchant_token_ref01_data["id"]
 

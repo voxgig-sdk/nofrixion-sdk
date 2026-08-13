@@ -37,7 +37,7 @@ class MandateEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.mandate"), "mandate_ref01"))
 
     mandate_ref01_data_result = mandate_ref01_ent.create(mandate_ref01_data, nil)
-    mandate_ref01_data = Helpers.to_map(mandate_ref01_data_result)
+    mandate_ref01_data = Helpers.to_map(mandate_ref01_data_result.respond_to?(:data_get) ? mandate_ref01_data_result.data_get : mandate_ref01_data_result)
     assert !mandate_ref01_data.nil?
     assert !mandate_ref01_data["id"].nil?
 
@@ -46,7 +46,7 @@ class MandateEntityTest < Minitest::Test
       "id" => mandate_ref01_data["id"],
     }
     mandate_ref01_data_dt0_loaded = mandate_ref01_ent.load(mandate_ref01_match_dt0, nil)
-    mandate_ref01_data_dt0_load_result = Helpers.to_map(mandate_ref01_data_dt0_loaded)
+    mandate_ref01_data_dt0_load_result = Helpers.to_map(mandate_ref01_data_dt0_loaded.respond_to?(:data_get) ? mandate_ref01_data_dt0_loaded.data_get : mandate_ref01_data_dt0_loaded)
     assert !mandate_ref01_data_dt0_load_result.nil?
     assert_equal mandate_ref01_data_dt0_load_result["id"], mandate_ref01_data["id"]
 

@@ -73,7 +73,7 @@ class RuleEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.rule"), "rule_ref01"))
 
     rule_ref01_data_result = rule_ref01_ent.create(rule_ref01_data, nil)
-    rule_ref01_data = Helpers.to_map(rule_ref01_data_result)
+    rule_ref01_data = Helpers.to_map(rule_ref01_data_result.respond_to?(:data_get) ? rule_ref01_data_result.data_get : rule_ref01_data_result)
     assert !rule_ref01_data.nil?
     assert !rule_ref01_data["id"].nil?
 
@@ -93,12 +93,12 @@ class RuleEntityTest < Minitest::Test
       "id" => rule_ref01_data["id"],
     }
 
-    rule_ref01_markdef_up0_name = "account_id"
+    rule_ref01_markdef_up0_name = "accountID"
     rule_ref01_markdef_up0_value = "Mark01-rule_ref01_#{setup[:now]}"
     rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
     rule_ref01_resdata_up0_result = rule_ref01_ent.update(rule_ref01_data_up0_up, nil)
-    rule_ref01_resdata_up0 = Helpers.to_map(rule_ref01_resdata_up0_result)
+    rule_ref01_resdata_up0 = Helpers.to_map(rule_ref01_resdata_up0_result.respond_to?(:data_get) ? rule_ref01_resdata_up0_result.data_get : rule_ref01_resdata_up0_result)
     assert !rule_ref01_resdata_up0.nil?
     assert_equal rule_ref01_resdata_up0["id"], rule_ref01_data_up0_up["id"]
     assert_equal rule_ref01_resdata_up0[rule_ref01_markdef_up0_name], rule_ref01_markdef_up0_value
@@ -108,7 +108,7 @@ class RuleEntityTest < Minitest::Test
       "id" => rule_ref01_data["id"],
     }
     rule_ref01_data_dt0_loaded = rule_ref01_ent.load(rule_ref01_match_dt0, nil)
-    rule_ref01_data_dt0_load_result = Helpers.to_map(rule_ref01_data_dt0_loaded)
+    rule_ref01_data_dt0_load_result = Helpers.to_map(rule_ref01_data_dt0_loaded.respond_to?(:data_get) ? rule_ref01_data_dt0_loaded.data_get : rule_ref01_data_dt0_loaded)
     assert !rule_ref01_data_dt0_load_result.nil?
     assert_equal rule_ref01_data_dt0_load_result["id"], rule_ref01_data["id"]
 

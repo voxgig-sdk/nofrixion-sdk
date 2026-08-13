@@ -6,42 +6,47 @@ main: kit: entity: account: {
 
   fields: [
     {
-      name: "account_balance"
+      name: "accountBalances"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "account_id"
+      name: "accountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "account_identification"
+      name: "accountIdentifications"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "account_name"
+      name: "accountName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "account_supplier_name"
+      name: "accountNames"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "accountSupplierName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "account_type"
+      name: "accountType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "available_balance"
+      name: "availableBalance"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "available_balance_minor_unit"
+      name: "availableBalanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
@@ -51,32 +56,32 @@ main: kit: entity: account: {
       type: "`$NUMBER`"
     }
     {
-      name: "balance_minor_unit"
+      name: "balanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "bank_name"
+      name: "bankName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "consent_id"
+      name: "consentID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "consolidated_account_information"
+      name: "consolidatedAccountInformation"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "created_by"
+      name: "createdBy"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "created_by_display_name"
+      name: "createdByDisplayName"
       req: false
       type: "`$STRING`"
     }
@@ -86,7 +91,7 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "default_payment_rail"
+      name: "defaultPaymentRail"
       req: false
       type: "`$STRING`"
     }
@@ -96,22 +101,22 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "detail"
+      name: "details"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "display_name"
+      name: "displayName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "expiry_date"
+      name: "expiryDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "external_account_icon"
+      name: "externalAccountIcon"
       req: false
       type: "`$STRING`"
     }
@@ -121,7 +126,7 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "from_date"
+      name: "fromDate"
       req: false
       type: "`$STRING`"
     }
@@ -141,47 +146,47 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_connected_account"
+      name: "isConnectedAccount"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_default"
+      name: "isDefault"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_trust_account"
+      name: "isTrustAccount"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_virtual"
+      name: "isVirtual"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_transaction"
+      name: "lastTransaction"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_name"
+      name: "merchantName"
       req: false
       type: "`$STRING`"
     }
@@ -191,27 +196,27 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "physical_account_id"
+      name: "physicalAccountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "role_i_d"
+      name: "roleIDs"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "rule"
+      name: "rules"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "submitted_payouts_balance"
+      name: "submittedPayoutsBalance"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "submitted_payouts_balance_minor_unit"
+      name: "submittedPayoutsBalanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
@@ -221,17 +226,17 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "supplier_physical_account_id"
+      name: "supplierPhysicalAccountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_sepa_instant_status"
+      name: "supplierSepaInstantStatus"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "to_date"
+      name: "toDate"
       req: false
       type: "`$STRING`"
     }
@@ -241,37 +246,37 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "usage_type"
+      name: "usageType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_bank_feed_connection_status"
+      name: "xeroBankFeedConnectionStatus"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_bank_feed_last_synced_at"
+      name: "xeroBankFeedLastSyncedAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_bank_feed_sync_last_failed_at"
+      name: "xeroBankFeedSyncLastFailedAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_bank_feed_sync_last_failure_reason"
+      name: "xeroBankFeedSyncLastFailureReason"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_bank_feed_sync_status"
+      name: "xeroBankFeedSyncStatus"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "xero_unsynchronised_transactions_count"
+      name: "xeroUnsynchronisedTransactionsCount"
       req: false
       type: "`$INTEGER`"
     }

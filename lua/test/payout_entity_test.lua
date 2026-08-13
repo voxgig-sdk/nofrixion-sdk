@@ -86,7 +86,7 @@ describe("PayoutEntity", function()
 
     local payout_ref01_data_result, err = payout_ref01_ent:create(payout_ref01_data, nil)
     assert.is_nil(err)
-    payout_ref01_data = helpers.to_map(payout_ref01_data_result)
+    payout_ref01_data = helpers.to_map(type(payout_ref01_data_result) == 'table' and payout_ref01_data_result.data_get and payout_ref01_data_result:data_get() or payout_ref01_data_result)
     assert.is_not_nil(payout_ref01_data)
     assert.is_not_nil(payout_ref01_data["id"])
 
@@ -109,13 +109,13 @@ describe("PayoutEntity", function()
       id = payout_ref01_data["id"],
     }
 
-    local payout_ref01_markdef_up0_name = "account_id"
+    local payout_ref01_markdef_up0_name = "accountID"
     local payout_ref01_markdef_up0_value = "Mark01-payout_ref01_" .. tostring(setup.now)
     payout_ref01_data_up0_up[payout_ref01_markdef_up0_name] = payout_ref01_markdef_up0_value
 
     local payout_ref01_resdata_up0_result, err = payout_ref01_ent:update(payout_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local payout_ref01_resdata_up0 = helpers.to_map(payout_ref01_resdata_up0_result)
+    local payout_ref01_resdata_up0 = helpers.to_map(type(payout_ref01_resdata_up0_result) == 'table' and payout_ref01_resdata_up0_result.data_get and payout_ref01_resdata_up0_result:data_get() or payout_ref01_resdata_up0_result)
     assert.is_not_nil(payout_ref01_resdata_up0)
     assert.are.equal(payout_ref01_resdata_up0["id"], payout_ref01_data_up0_up["id"])
     assert.are.equal(payout_ref01_resdata_up0[payout_ref01_markdef_up0_name], payout_ref01_markdef_up0_value)
@@ -126,7 +126,7 @@ describe("PayoutEntity", function()
     }
     local payout_ref01_data_dt0_loaded, err = payout_ref01_ent:load(payout_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local payout_ref01_data_dt0_load_result = helpers.to_map(payout_ref01_data_dt0_loaded)
+    local payout_ref01_data_dt0_load_result = helpers.to_map(type(payout_ref01_data_dt0_loaded) == 'table' and payout_ref01_data_dt0_loaded.data_get and payout_ref01_data_dt0_loaded:data_get() or payout_ref01_data_dt0_loaded)
     assert.is_not_nil(payout_ref01_data_dt0_load_result)
     assert.are.equal(payout_ref01_data_dt0_load_result["id"], payout_ref01_data["id"])
 

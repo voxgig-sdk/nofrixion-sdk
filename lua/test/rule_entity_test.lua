@@ -82,7 +82,7 @@ describe("RuleEntity", function()
 
     local rule_ref01_data_result, err = rule_ref01_ent:create(rule_ref01_data, nil)
     assert.is_nil(err)
-    rule_ref01_data = helpers.to_map(rule_ref01_data_result)
+    rule_ref01_data = helpers.to_map(type(rule_ref01_data_result) == 'table' and rule_ref01_data_result.data_get and rule_ref01_data_result:data_get() or rule_ref01_data_result)
     assert.is_not_nil(rule_ref01_data)
     assert.is_not_nil(rule_ref01_data["id"])
 
@@ -103,13 +103,13 @@ describe("RuleEntity", function()
       id = rule_ref01_data["id"],
     }
 
-    local rule_ref01_markdef_up0_name = "account_id"
+    local rule_ref01_markdef_up0_name = "accountID"
     local rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" .. tostring(setup.now)
     rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
     local rule_ref01_resdata_up0_result, err = rule_ref01_ent:update(rule_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local rule_ref01_resdata_up0 = helpers.to_map(rule_ref01_resdata_up0_result)
+    local rule_ref01_resdata_up0 = helpers.to_map(type(rule_ref01_resdata_up0_result) == 'table' and rule_ref01_resdata_up0_result.data_get and rule_ref01_resdata_up0_result:data_get() or rule_ref01_resdata_up0_result)
     assert.is_not_nil(rule_ref01_resdata_up0)
     assert.are.equal(rule_ref01_resdata_up0["id"], rule_ref01_data_up0_up["id"])
     assert.are.equal(rule_ref01_resdata_up0[rule_ref01_markdef_up0_name], rule_ref01_markdef_up0_value)
@@ -120,7 +120,7 @@ describe("RuleEntity", function()
     }
     local rule_ref01_data_dt0_loaded, err = rule_ref01_ent:load(rule_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local rule_ref01_data_dt0_load_result = helpers.to_map(rule_ref01_data_dt0_loaded)
+    local rule_ref01_data_dt0_load_result = helpers.to_map(type(rule_ref01_data_dt0_loaded) == 'table' and rule_ref01_data_dt0_loaded.data_get and rule_ref01_data_dt0_loaded:data_get() or rule_ref01_data_dt0_loaded)
     assert.is_not_nil(rule_ref01_data_dt0_load_result)
     assert.are.equal(rule_ref01_data_dt0_load_result["id"], rule_ref01_data["id"])
 

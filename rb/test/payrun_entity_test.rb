@@ -74,7 +74,7 @@ class PayrunEntityTest < Minitest::Test
     payrun_ref01_data["merchant_i_d"] = setup[:idmap]["merchant_i_d01"]
 
     payrun_ref01_data_result = payrun_ref01_ent.create(payrun_ref01_data, nil)
-    payrun_ref01_data = Helpers.to_map(payrun_ref01_data_result)
+    payrun_ref01_data = Helpers.to_map(payrun_ref01_data_result.respond_to?(:data_get) ? payrun_ref01_data_result.data_get : payrun_ref01_data_result)
     assert !payrun_ref01_data.nil?
     assert !payrun_ref01_data["id"].nil?
 
@@ -94,12 +94,12 @@ class PayrunEntityTest < Minitest::Test
       "id" => payrun_ref01_data["id"],
     }
 
-    payrun_ref01_markdef_up0_name = "authorisation_date"
+    payrun_ref01_markdef_up0_name = "authorisationDate"
     payrun_ref01_markdef_up0_value = "Mark01-payrun_ref01_#{setup[:now]}"
     payrun_ref01_data_up0_up[payrun_ref01_markdef_up0_name] = payrun_ref01_markdef_up0_value
 
     payrun_ref01_resdata_up0_result = payrun_ref01_ent.update(payrun_ref01_data_up0_up, nil)
-    payrun_ref01_resdata_up0 = Helpers.to_map(payrun_ref01_resdata_up0_result)
+    payrun_ref01_resdata_up0 = Helpers.to_map(payrun_ref01_resdata_up0_result.respond_to?(:data_get) ? payrun_ref01_resdata_up0_result.data_get : payrun_ref01_resdata_up0_result)
     assert !payrun_ref01_resdata_up0.nil?
     assert_equal payrun_ref01_resdata_up0["id"], payrun_ref01_data_up0_up["id"]
     assert_equal payrun_ref01_resdata_up0[payrun_ref01_markdef_up0_name], payrun_ref01_markdef_up0_value
@@ -109,7 +109,7 @@ class PayrunEntityTest < Minitest::Test
       "id" => payrun_ref01_data["id"],
     }
     payrun_ref01_data_dt0_loaded = payrun_ref01_ent.load(payrun_ref01_match_dt0, nil)
-    payrun_ref01_data_dt0_load_result = Helpers.to_map(payrun_ref01_data_dt0_loaded)
+    payrun_ref01_data_dt0_load_result = Helpers.to_map(payrun_ref01_data_dt0_loaded.respond_to?(:data_get) ? payrun_ref01_data_dt0_loaded.data_get : payrun_ref01_data_dt0_loaded)
     assert !payrun_ref01_data_dt0_load_result.nil?
     assert_equal payrun_ref01_data_dt0_load_result["id"], payrun_ref01_data["id"]
 

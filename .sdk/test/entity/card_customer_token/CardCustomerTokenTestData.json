@@ -2,59 +2,65 @@
   "existing": {
     "card_customer_token": {
       "CARD_CUSTOMER_TOKEN00": {
-        "card_type": "s6e",
-        "customer_email_address": "s6f",
-        "expiry_month": "s70",
-        "expiry_year": "s71",
+        "cardType": "s6e",
+        "customerEmailAddress": "s6f",
+        "expiryMonth": "s70",
+        "expiryYear": "s71",
         "id": "CARD_CUSTOMER_TOKEN00",
         "inserted": "s73",
-        "last_four_digit": "s74",
-        "last_updated": "s75",
-        "masked_card_number": "s76",
-        "merchant_id": "MERCHANT01",
-        "payment_request_id": "PAYMENT_REQUEST01"
+        "lastFourDigits": "s74",
+        "lastUpdated": "s75",
+        "maskedCardNumber": "s76",
+        "merchantID": "s77",
+        "paymentRequestID": "s78",
+        "customer_email_address": "CUSTOMER_EMAIL_ADDRESS01",
+        "merchant_id": "MERCHANT01"
       },
       "CARD_CUSTOMER_TOKEN01": {
-        "card_type": "sdc",
-        "customer_email_address": "sdd",
-        "expiry_month": "sde",
-        "expiry_year": "sdf",
+        "cardType": "sdc",
+        "customerEmailAddress": "sdd",
+        "expiryMonth": "sde",
+        "expiryYear": "sdf",
         "id": "CARD_CUSTOMER_TOKEN01",
         "inserted": "se1",
-        "last_four_digit": "se2",
-        "last_updated": "se3",
-        "masked_card_number": "se4",
-        "merchant_id": "MERCHANT01",
-        "payment_request_id": "PAYMENT_REQUEST01"
+        "lastFourDigits": "se2",
+        "lastUpdated": "se3",
+        "maskedCardNumber": "se4",
+        "merchantID": "se5",
+        "paymentRequestID": "se6",
+        "customer_email_address": "CUSTOMER_EMAIL_ADDRESS01",
+        "merchant_id": "MERCHANT01"
       },
       "CARD_CUSTOMER_TOKEN02": {
-        "card_type": "s14a",
-        "customer_email_address": "s14b",
-        "expiry_month": "s14c",
-        "expiry_year": "s14d",
+        "cardType": "s14a",
+        "customerEmailAddress": "s14b",
+        "expiryMonth": "s14c",
+        "expiryYear": "s14d",
         "id": "CARD_CUSTOMER_TOKEN02",
         "inserted": "s14f",
-        "last_four_digit": "s150",
-        "last_updated": "s151",
-        "masked_card_number": "s152",
-        "merchant_id": "MERCHANT01",
-        "payment_request_id": "PAYMENT_REQUEST01"
+        "lastFourDigits": "s150",
+        "lastUpdated": "s151",
+        "maskedCardNumber": "s152",
+        "merchantID": "s153",
+        "paymentRequestID": "s154",
+        "customer_email_address": "CUSTOMER_EMAIL_ADDRESS01",
+        "merchant_id": "MERCHANT01"
       }
     }
   },
   "new": {
     "card_customer_token": {
       "card_customer_token_ref01": {
-        "card_type": "s1b8",
-        "customer_email_address": "s1b9",
-        "expiry_month": "s1ba",
-        "expiry_year": "s1bb",
+        "cardType": "s1b8",
+        "customerEmailAddress": "s1b9",
+        "expiryMonth": "s1ba",
+        "expiryYear": "s1bb",
         "inserted": "s1bd",
-        "last_four_digit": "s1be",
-        "last_updated": "s1bf",
-        "masked_card_number": "s1c0",
-        "merchant_id": "MERCHANT01",
-        "payment_request_id": "PAYMENT_REQUEST01"
+        "lastFourDigits": "s1be",
+        "lastUpdated": "s1bf",
+        "maskedCardNumber": "s1c0",
+        "merchantID": "s1c1",
+        "paymentRequestID": "s1c2"
       }
     }
   }

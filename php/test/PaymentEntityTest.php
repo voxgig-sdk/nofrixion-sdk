@@ -44,7 +44,7 @@ class PaymentEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.payment"), "payment_ref01"));
 
         $payment_ref01_data_result = $payment_ref01_ent->create($payment_ref01_data, null);
-        $payment_ref01_data = Helpers::to_map($payment_ref01_data_result);
+        $payment_ref01_data = Helpers::to_map(is_object($payment_ref01_data_result) && method_exists($payment_ref01_data_result, 'data_get') ? $payment_ref01_data_result->data_get() : $payment_ref01_data_result);
         $this->assertNotNull($payment_ref01_data);
         $this->assertNotNull($payment_ref01_data["id"]);
 
@@ -53,12 +53,12 @@ class PaymentEntityTest extends TestCase
             "id" => $payment_ref01_data["id"],
         ];
 
-        $payment_ref01_markdef_up0_name = "base_origin_url";
+        $payment_ref01_markdef_up0_name = "baseOriginUrl";
         $payment_ref01_markdef_up0_value = "Mark01-payment_ref01_" . $setup["now"];
         $payment_ref01_data_up0_up[$payment_ref01_markdef_up0_name] = $payment_ref01_markdef_up0_value;
 
         $payment_ref01_resdata_up0_result = $payment_ref01_ent->update($payment_ref01_data_up0_up, null);
-        $payment_ref01_resdata_up0 = Helpers::to_map($payment_ref01_resdata_up0_result);
+        $payment_ref01_resdata_up0 = Helpers::to_map(is_object($payment_ref01_resdata_up0_result) && method_exists($payment_ref01_resdata_up0_result, 'data_get') ? $payment_ref01_resdata_up0_result->data_get() : $payment_ref01_resdata_up0_result);
         $this->assertNotNull($payment_ref01_resdata_up0);
         $this->assertEquals($payment_ref01_resdata_up0["id"], $payment_ref01_data_up0_up["id"]);
         $this->assertEquals($payment_ref01_resdata_up0[$payment_ref01_markdef_up0_name], $payment_ref01_markdef_up0_value);
@@ -68,7 +68,7 @@ class PaymentEntityTest extends TestCase
             "id" => $payment_ref01_data["id"],
         ];
         $payment_ref01_data_dt0_loaded = $payment_ref01_ent->load($payment_ref01_match_dt0, null);
-        $payment_ref01_data_dt0_load_result = Helpers::to_map($payment_ref01_data_dt0_loaded);
+        $payment_ref01_data_dt0_load_result = Helpers::to_map(is_object($payment_ref01_data_dt0_loaded) && method_exists($payment_ref01_data_dt0_loaded, 'data_get') ? $payment_ref01_data_dt0_loaded->data_get() : $payment_ref01_data_dt0_loaded);
         $this->assertNotNull($payment_ref01_data_dt0_load_result);
         $this->assertEquals($payment_ref01_data_dt0_load_result["id"], $payment_ref01_data["id"]);
 

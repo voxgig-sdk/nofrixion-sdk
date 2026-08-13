@@ -42,7 +42,7 @@ describe("PaymentInitiationEntity", function()
 
     local payment_initiation_ref01_data_result, err = payment_initiation_ref01_ent:create(payment_initiation_ref01_data, nil)
     assert.is_nil(err)
-    payment_initiation_ref01_data = helpers.to_map(payment_initiation_ref01_data_result)
+    payment_initiation_ref01_data = helpers.to_map(type(payment_initiation_ref01_data_result) == 'table' and payment_initiation_ref01_data_result.data_get and payment_initiation_ref01_data_result:data_get() or payment_initiation_ref01_data_result)
     assert.is_not_nil(payment_initiation_ref01_data)
 
   end)

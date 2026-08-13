@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -51,7 +51,7 @@ class TestReportEntity:
         report_ref01_data_up0_up = {
         }
 
-        report_ref01_resdata_up0 = helpers.to_map(report_ref01_ent.update(report_ref01_data_up0_up, None))
+        report_ref01_resdata_up0 = helpers.to_map(runner.entity_data(report_ref01_ent.update(report_ref01_data_up0_up, None)))
         assert report_ref01_resdata_up0 is not None
 
 

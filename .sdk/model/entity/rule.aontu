@@ -11,47 +11,47 @@ main: kit: entity: rule: {
       type: "`$OBJECT`"
     }
     {
-      name: "account_id"
+      name: "accountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "approve_url"
+      name: "approveUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "approver_id"
+      name: "approverID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "authentication_method"
+      name: "authenticationMethods"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisation"
+      name: "authorisations"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisers_completed_count"
+      name: "authorisersCompletedCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "authorisers_required_count"
+      name: "authorisersRequiredCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "can_authorise"
+      name: "canAuthorise"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "created_by"
+      name: "createdBy"
       req: true
       type: "`$OBJECT`"
     }
@@ -61,12 +61,12 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
-      name: "end_at"
+      name: "endAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "has_current_user_authorised"
+      name: "hasCurrentUserAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -81,27 +81,27 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
-      name: "is_disabled"
+      name: "isDisabled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_executed_at"
+      name: "lastExecutedAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_run_at_transaction_date"
+      name: "lastRunAtTransactionDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
@@ -122,22 +122,22 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
-      name: "on_approved_web_hook_url"
+      name: "onApprovedWebHookUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "on_execution_error_web_hook_url"
+      name: "onExecutionErrorWebHookUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "on_execution_success_web_hook_url"
+      name: "onExecutionSuccessWebHookUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "start_at"
+      name: "startAt"
       req: false
       type: "`$STRING`"
     }
@@ -147,7 +147,7 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
-      name: "sweep_action"
+      name: "sweepAction"
       op: {
         create: {
           req: true
@@ -158,27 +158,27 @@ main: kit: entity: rule: {
       type: "`$OBJECT`"
     }
     {
-      name: "time_zone_id"
+      name: "timeZoneId"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "trigger_cron_expression"
+      name: "triggerCronExpression"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "trigger_on_pay_in"
+      name: "triggerOnPayIn"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "user_id"
+      name: "userID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "web_hook_secret"
+      name: "webHookSecret"
       req: false
       type: "`$STRING`"
     }

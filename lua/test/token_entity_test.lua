@@ -41,7 +41,7 @@ describe("TokenEntity", function()
 
     local token_ref01_data_result, err = token_ref01_ent:create(token_ref01_data, nil)
     assert.is_nil(err)
-    token_ref01_data = helpers.to_map(token_ref01_data_result)
+    token_ref01_data = helpers.to_map(type(token_ref01_data_result) == 'table' and token_ref01_data_result.data_get and token_ref01_data_result:data_get() or token_ref01_data_result)
     assert.is_not_nil(token_ref01_data)
 
 

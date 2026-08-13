@@ -84,7 +84,7 @@ describe("ConsentEntity", function()
 
     local consent_ref01_data_result, err = consent_ref01_ent:create(consent_ref01_data, nil)
     assert.is_nil(err)
-    consent_ref01_data = helpers.to_map(consent_ref01_data_result)
+    consent_ref01_data = helpers.to_map(type(consent_ref01_data_result) == 'table' and consent_ref01_data_result.data_get and consent_ref01_data_result:data_get() or consent_ref01_data_result)
     assert.is_not_nil(consent_ref01_data)
     assert.is_not_nil(consent_ref01_data["id"])
 
@@ -108,13 +108,13 @@ describe("ConsentEntity", function()
       id = consent_ref01_data["id"],
     }
 
-    local consent_ref01_markdef_up0_name = "authorisation_url"
+    local consent_ref01_markdef_up0_name = "authorisationUrl"
     local consent_ref01_markdef_up0_value = "Mark01-consent_ref01_" .. tostring(setup.now)
     consent_ref01_data_up0_up[consent_ref01_markdef_up0_name] = consent_ref01_markdef_up0_value
 
     local consent_ref01_resdata_up0_result, err = consent_ref01_ent:update(consent_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local consent_ref01_resdata_up0 = helpers.to_map(consent_ref01_resdata_up0_result)
+    local consent_ref01_resdata_up0 = helpers.to_map(type(consent_ref01_resdata_up0_result) == 'table' and consent_ref01_resdata_up0_result.data_get and consent_ref01_resdata_up0_result:data_get() or consent_ref01_resdata_up0_result)
     assert.is_not_nil(consent_ref01_resdata_up0)
     assert.are.equal(consent_ref01_resdata_up0["id"], consent_ref01_data_up0_up["id"])
     assert.are.equal(consent_ref01_resdata_up0[consent_ref01_markdef_up0_name], consent_ref01_markdef_up0_value)
@@ -125,7 +125,7 @@ describe("ConsentEntity", function()
     }
     local consent_ref01_data_dt0_loaded, err = consent_ref01_ent:load(consent_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local consent_ref01_data_dt0_load_result = helpers.to_map(consent_ref01_data_dt0_loaded)
+    local consent_ref01_data_dt0_load_result = helpers.to_map(type(consent_ref01_data_dt0_loaded) == 'table' and consent_ref01_data_dt0_loaded.data_get and consent_ref01_data_dt0_loaded:data_get() or consent_ref01_data_dt0_loaded)
     assert.is_not_nil(consent_ref01_data_dt0_load_result)
     assert.are.equal(consent_ref01_data_dt0_load_result["id"], consent_ref01_data["id"])
 

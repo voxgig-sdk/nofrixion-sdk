@@ -37,7 +37,7 @@ class BeneficiaryGroupEntity extends NofrixionEntityBase<BeneficiaryGroup> {
 
 
 
-  async list(this: any, reqmatch?: BeneficiaryGroupListMatch, ctrl?: Control): Promise<BeneficiaryGroup[]> {
+  async list(this: any, reqmatch?: BeneficiaryGroupListMatch, ctrl?: Control): Promise<BeneficiaryGroupEntity[]> {
 
     const utility = this._utility
 

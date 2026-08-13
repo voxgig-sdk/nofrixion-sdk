@@ -100,7 +100,7 @@ describe("CardCustomerTokenEntity", function()
     }
     local card_customer_token_ref01_data_dt0_loaded, err = card_customer_token_ref01_ent:load(card_customer_token_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local card_customer_token_ref01_data_dt0_load_result = helpers.to_map(card_customer_token_ref01_data_dt0_loaded)
+    local card_customer_token_ref01_data_dt0_load_result = helpers.to_map(type(card_customer_token_ref01_data_dt0_loaded) == 'table' and card_customer_token_ref01_data_dt0_loaded.data_get and card_customer_token_ref01_data_dt0_loaded:data_get() or card_customer_token_ref01_data_dt0_loaded)
     assert.is_not_nil(card_customer_token_ref01_data_dt0_load_result)
     assert.are.equal(card_customer_token_ref01_data_dt0_load_result["id"], card_customer_token_ref01_data["id"])
 

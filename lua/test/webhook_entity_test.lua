@@ -83,7 +83,7 @@ describe("WebhookEntity", function()
 
     local webhook_ref01_data_result, err = webhook_ref01_ent:create(webhook_ref01_data, nil)
     assert.is_nil(err)
-    webhook_ref01_data = helpers.to_map(webhook_ref01_data_result)
+    webhook_ref01_data = helpers.to_map(type(webhook_ref01_data_result) == 'table' and webhook_ref01_data_result.data_get and webhook_ref01_data_result:data_get() or webhook_ref01_data_result)
     assert.is_not_nil(webhook_ref01_data)
     assert.is_not_nil(webhook_ref01_data["id"])
 
@@ -106,13 +106,13 @@ describe("WebhookEntity", function()
       id = webhook_ref01_data["id"],
     }
 
-    local webhook_ref01_markdef_up0_name = "destination_url"
+    local webhook_ref01_markdef_up0_name = "destinationUrl"
     local webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" .. tostring(setup.now)
     webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
     local webhook_ref01_resdata_up0_result, err = webhook_ref01_ent:update(webhook_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local webhook_ref01_resdata_up0 = helpers.to_map(webhook_ref01_resdata_up0_result)
+    local webhook_ref01_resdata_up0 = helpers.to_map(type(webhook_ref01_resdata_up0_result) == 'table' and webhook_ref01_resdata_up0_result.data_get and webhook_ref01_resdata_up0_result:data_get() or webhook_ref01_resdata_up0_result)
     assert.is_not_nil(webhook_ref01_resdata_up0)
     assert.are.equal(webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"])
     assert.are.equal(webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value)
@@ -123,7 +123,7 @@ describe("WebhookEntity", function()
     }
     local webhook_ref01_data_dt0_loaded, err = webhook_ref01_ent:load(webhook_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local webhook_ref01_data_dt0_load_result = helpers.to_map(webhook_ref01_data_dt0_loaded)
+    local webhook_ref01_data_dt0_load_result = helpers.to_map(type(webhook_ref01_data_dt0_loaded) == 'table' and webhook_ref01_data_dt0_loaded.data_get and webhook_ref01_data_dt0_loaded:data_get() or webhook_ref01_data_dt0_loaded)
     assert.is_not_nil(webhook_ref01_data_dt0_load_result)
     assert.are.equal(webhook_ref01_data_dt0_load_result["id"], webhook_ref01_data["id"])
 

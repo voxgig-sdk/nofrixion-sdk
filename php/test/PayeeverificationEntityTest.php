@@ -44,7 +44,7 @@ class PayeeverificationEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.payeeverification"), "payeeverification_ref01"));
 
         $payeeverification_ref01_data_result = $payeeverification_ref01_ent->create($payeeverification_ref01_data, null);
-        $payeeverification_ref01_data = Helpers::to_map($payeeverification_ref01_data_result);
+        $payeeverification_ref01_data = Helpers::to_map(is_object($payeeverification_ref01_data_result) && method_exists($payeeverification_ref01_data_result, 'data_get') ? $payeeverification_ref01_data_result->data_get() : $payeeverification_ref01_data_result);
         $this->assertNotNull($payeeverification_ref01_data);
 
     }

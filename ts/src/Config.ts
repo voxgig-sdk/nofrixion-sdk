@@ -204,381 +204,388 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_balance",
+          "name": "accountBalances",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "account_id",
+          "name": "accountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "account_identification",
+          "name": "accountIdentifications",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "account_supplier_name",
+          "name": "accountNames",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "account_type",
+          "name": "accountSupplierName",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "available_balance",
+          "name": "accountType",
           "req": false,
-          "type": "`$NUMBER`",
+          "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "available_balance_minor_unit",
+          "name": "availableBalance",
+          "req": false,
+          "type": "`$NUMBER`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "availableBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 7
+          "index$": 8
         },
         {
           "active": true,
           "name": "balance",
           "req": false,
           "type": "`$NUMBER`",
-          "index$": 8
-        },
-        {
-          "active": true,
-          "name": "balance_minor_unit",
-          "req": false,
-          "type": "`$INTEGER`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "bank_name",
+          "name": "balanceMinorUnits",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$INTEGER`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "consent_id",
+          "name": "bankName",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "consolidated_account_information",
+          "name": "consentID",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "created_by",
-          "req": true,
+          "name": "consolidatedAccountInformation",
+          "req": false,
           "type": "`$OBJECT`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "created_by_display_name",
-          "req": false,
-          "type": "`$STRING`",
+          "name": "createdBy",
+          "req": true,
+          "type": "`$OBJECT`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "currency",
+          "name": "createdByDisplayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "default_payment_rail",
+          "name": "currency",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "description",
+          "name": "defaultPaymentRail",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "detail",
+          "name": "description",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "display_name",
+          "name": "details",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "expiry_date",
+          "name": "displayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "external_account_icon",
+          "name": "expiryDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "format",
+          "name": "externalAccountIcon",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "from_date",
+          "name": "format",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "id",
+          "name": "fromDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
+          "name": "id",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 25
+        },
+        {
+          "active": true,
           "name": "identifier",
           "req": true,
           "type": "`$OBJECT`",
-          "index$": 25
+          "index$": 26
         },
         {
           "active": true,
           "name": "inserted",
           "req": false,
           "type": "`$STRING`",
-          "index$": 26
-        },
-        {
-          "active": true,
-          "name": "is_archived",
-          "req": false,
-          "type": "`$BOOLEAN`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "is_connected_account",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "is_default",
+          "name": "isConnectedAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "is_trust_account",
+          "name": "isDefault",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "is_virtual",
+          "name": "isTrustAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "last_transaction",
+          "name": "isVirtual",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$BOOLEAN`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastTransaction",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "merchant_name",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
         },
         {
           "active": true,
-          "name": "nickname",
+          "name": "merchantName",
           "req": false,
           "type": "`$STRING`",
           "index$": 36
         },
         {
           "active": true,
-          "name": "physical_account_id",
+          "name": "nickname",
           "req": false,
           "type": "`$STRING`",
           "index$": 37
         },
         {
           "active": true,
-          "name": "role_i_d",
+          "name": "physicalAccountID",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$STRING`",
           "index$": 38
         },
         {
           "active": true,
-          "name": "rule",
+          "name": "roleIDs",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 39
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance",
+          "name": "rules",
           "req": false,
-          "type": "`$NUMBER`",
+          "type": "`$ARRAY`",
           "index$": 40
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance_minor_unit",
+          "name": "submittedPayoutsBalance",
+          "req": false,
+          "type": "`$NUMBER`",
+          "index$": 41
+        },
+        {
+          "active": true,
+          "name": "submittedPayoutsBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 41
+          "index$": 42
         },
         {
           "active": true,
           "name": "summary",
           "req": false,
           "type": "`$STRING`",
-          "index$": 42
-        },
-        {
-          "active": true,
-          "name": "supplier_physical_account_id",
-          "req": false,
-          "type": "`$STRING`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "supplier_sepa_instant_status",
+          "name": "supplierPhysicalAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "to_date",
+          "name": "supplierSepaInstantStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 45
         },
         {
           "active": true,
-          "name": "type",
+          "name": "toDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
         },
         {
           "active": true,
-          "name": "usage_type",
+          "name": "type",
           "req": false,
           "type": "`$STRING`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "xero_bank_feed_connection_status",
+          "name": "usageType",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
         },
         {
           "active": true,
-          "name": "xero_bank_feed_last_synced_at",
+          "name": "xeroBankFeedConnectionStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 49
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failed_at",
+          "name": "xeroBankFeedLastSyncedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 50
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failure_reason",
+          "name": "xeroBankFeedSyncLastFailedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 51
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_status",
+          "name": "xeroBankFeedSyncLastFailureReason",
           "req": false,
           "type": "`$STRING`",
           "index$": 52
         },
         {
           "active": true,
-          "name": "xero_unsynchronised_transactions_count",
+          "name": "xeroBankFeedSyncStatus",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 53
+        },
+        {
+          "active": true,
+          "name": "xeroUnsynchronisedTransactionsCount",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 53
+          "index$": 54
         }
       ],
       "name": "account",
@@ -611,6 +618,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/accounts/{accountID}/{currency}",
               "parts": [
@@ -652,6 +660,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/accounts/{accountID}/statements",
               "parts": [
@@ -681,6 +690,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/accounts",
               "parts": [
@@ -743,6 +753,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts",
               "parts": [
@@ -790,6 +801,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/accounts",
               "parts": [
@@ -922,6 +934,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/export",
               "parts": [
@@ -1042,6 +1055,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/transactions/export",
               "parts": [
@@ -1102,6 +1116,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/statements/{id}",
               "parts": [
@@ -1153,6 +1168,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/accounts/{accountID}",
               "parts": [
@@ -1196,6 +1212,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}",
               "parts": [
@@ -1235,6 +1252,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/openbanking/accounts/{id}",
               "parts": [
@@ -1258,6 +1276,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/statements",
               "parts": [
@@ -1297,6 +1316,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/accounts/archive/{id}",
               "parts": [
@@ -1320,6 +1340,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/accounts/statements",
               "parts": [
@@ -1368,6 +1389,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/accounts/{accountID}/topup/{amount}",
               "parts": [
@@ -1410,6 +1432,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/accounts/unarchive/{id}",
               "parts": [
@@ -1445,6 +1468,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/accounts/{id}",
               "parts": [
@@ -1487,7 +1511,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "approve_url",
+          "name": "approveUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -1501,7 +1525,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "payout",
+          "name": "payouts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
@@ -1516,6 +1540,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/batch",
               "parts": [
@@ -1553,6 +1578,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/batch/{id}",
               "parts": [
@@ -1585,77 +1611,77 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "approval_callback_url",
+          "name": "approvalCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "authentication_method",
+          "name": "authenticationMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "beneficiary",
+          "name": "beneficiaries",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "beneficiary_event",
+          "name": "beneficiaryEvents",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "can_update",
+          "name": "canUpdate",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "created_by_email_address",
+          "name": "createdByEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -1688,14 +1714,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "failed_beneficiary",
+          "name": "failedBeneficiaries",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 14
@@ -1716,28 +1742,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_enabled",
+          "name": "isEnabled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "last_authorised",
+          "name": "lastAuthorised",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "op": {
             "create": {
               "req": true,
@@ -1770,21 +1796,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "source_account",
+          "name": "sourceAccountIDs",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "source_account_i_d",
+          "name": "sourceAccounts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "their_reference",
+          "name": "theirReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
@@ -1811,6 +1837,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/beneficiaries/authorise/{id}",
               "parts": [
@@ -1834,6 +1861,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/beneficiaries",
               "parts": [
@@ -1851,6 +1879,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/beneficiaries/batchcreate",
               "parts": [
@@ -1946,6 +1975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/beneficiaries",
               "parts": [
@@ -2045,6 +2075,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/beneficiaries",
               "parts": [
@@ -2147,6 +2178,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/beneficiaries/export",
               "parts": [
@@ -2197,6 +2229,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/beneficiaries/{id}",
               "parts": [
@@ -2239,6 +2272,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/beneficiaries/{id}",
               "parts": [
@@ -2280,6 +2314,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/beneficiaries/{id}",
               "parts": [
@@ -2321,6 +2356,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/beneficiaries/disable/{id}",
               "parts": [
@@ -2356,6 +2392,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/beneficiaries/enable/{id}",
               "parts": [
@@ -2391,6 +2428,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/beneficiaries/{id}",
               "parts": [
@@ -2426,14 +2464,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "group_member",
+          "name": "groupMembers",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "group_name",
+          "name": "groupName",
           "req": true,
           "type": "`$STRING`",
           "index$": 1
@@ -2454,14 +2492,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": true,
           "type": "`$STRING`",
           "index$": 5
@@ -2506,6 +2544,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/beneficiarygroups",
               "parts": [
@@ -2549,98 +2588,98 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authorized_amount",
+          "name": "authorizedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "currency_code",
+          "name": "currencyCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "is_payer_authentication_required",
+          "name": "isPayerAuthenticationRequired",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "is_soft_decline",
+          "name": "isSoftDecline",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "payer_authentication_access_token",
+          "name": "payerAuthenticationAccessToken",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "payer_authentication_merchant_data",
+          "name": "payerAuthenticationMerchantData",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "payer_authentication_url",
+          "name": "payerAuthenticationUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "payer_authentication_window_height",
+          "name": "payerAuthenticationWindowHeight",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "payer_authentication_window_width",
+          "name": "payerAuthenticationWindowWidth",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "payment_request_callback_url",
+          "name": "paymentRequestCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "request_id",
+          "name": "requestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "response_code",
+          "name": "responseCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "response_type",
+          "name": "responseType",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
@@ -2654,14 +2693,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "three_ds_redirect_url",
+          "name": "threeDSRedirectUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "transaction_id",
+          "name": "transactionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -2688,6 +2727,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card",
               "parts": [
@@ -2729,28 +2769,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "card_type",
+          "name": "cardType",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "customer_email_address",
+          "name": "customerEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "expiry_month",
+          "name": "expiryMonth",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "expiry_year",
+          "name": "expiryYear",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -2771,35 +2811,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_four_digit",
+          "name": "lastFourDigits",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "masked_card_number",
+          "name": "maskedCardNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -2835,6 +2875,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}",
               "parts": [
@@ -2886,6 +2927,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/card/customertokens/{customerEmailAddress}",
               "parts": [
@@ -2943,6 +2985,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/paymentrequests/card/customertokens/removeall/{merchantID}/{customerEmailAddress}",
               "parts": [
@@ -2988,6 +3031,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/paymentrequests/card/customertokens/removeall/{customerEmailAddress}",
               "parts": [
@@ -3030,6 +3074,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/paymentrequests/card/customertokens/{id}",
               "parts": [
@@ -3070,98 +3115,98 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authorized_amount",
+          "name": "authorizedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "currency_code",
+          "name": "currencyCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "is_payer_authentication_required",
+          "name": "isPayerAuthenticationRequired",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "is_soft_decline",
+          "name": "isSoftDecline",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "payer_authentication_access_token",
+          "name": "payerAuthenticationAccessToken",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "payer_authentication_merchant_data",
+          "name": "payerAuthenticationMerchantData",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "payer_authentication_url",
+          "name": "payerAuthenticationUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "payer_authentication_window_height",
+          "name": "payerAuthenticationWindowHeight",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "payer_authentication_window_width",
+          "name": "payerAuthenticationWindowWidth",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "payment_request_callback_url",
+          "name": "paymentRequestCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "request_id",
+          "name": "requestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "response_code",
+          "name": "responseCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "response_type",
+          "name": "responseType",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
@@ -3175,14 +3220,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "three_ds_redirect_url",
+          "name": "threeDSRedirectUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "transaction_id",
+          "name": "transactionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -3218,6 +3263,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}",
               "parts": [
@@ -3262,6 +3308,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card/capture",
               "parts": [
@@ -3303,6 +3350,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card/paywithtoken",
               "parts": [
@@ -3344,6 +3392,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card/void",
               "parts": [
@@ -3385,6 +3434,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/card/voidpaymentrequest",
               "parts": [
@@ -3458,6 +3508,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}/card/publickey",
               "parts": [
@@ -3500,42 +3551,42 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authorisation_url",
+          "name": "authorisationUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "callback_url",
+          "name": "callbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "consent_id",
+          "name": "consentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "email_address",
+          "name": "emailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "expiry_date",
+          "name": "expiryDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "failure_callback_url",
+          "name": "failureCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
@@ -3556,7 +3607,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "institution_id",
+          "name": "institutionID",
           "op": {
             "create": {
               "req": true,
@@ -3569,21 +3620,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_connected_account",
+          "name": "isConnectedAccounts",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "is_enabled",
+          "name": "isEnabled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "op": {
             "create": {
               "req": true,
@@ -3603,7 +3654,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "success_web_hook_url",
+          "name": "successWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
@@ -3618,6 +3669,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/openbanking/consents",
               "parts": [
@@ -3664,6 +3716,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/openbanking/consents/{merchantID}/{email}",
               "parts": [
@@ -3713,6 +3766,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/openbanking/consents/{id}",
               "parts": [
@@ -3755,6 +3809,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/openbanking/consents/{id}",
               "parts": [
@@ -3797,6 +3852,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PATCH",
               "orig": "/api/v1/openbanking/consents/{id}",
               "parts": [
@@ -3840,28 +3896,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "decimal",
+          "name": "decimals",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "is_fiat",
+          "name": "isFiat",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "iso4217_alpha_code",
+          "name": "iso4217AlphaCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "iso4217_numeric_code",
+          "name": "iso4217NumericCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -3894,6 +3950,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/currencies",
               "parts": [
@@ -3924,14 +3981,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "failed_submission",
+          "name": "failedSubmissions",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "successful_submission",
+          "name": "successfulSubmissions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -3946,6 +4003,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/directdebit/batchsubmit",
               "parts": [
@@ -3974,35 +4032,35 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "destination_currency",
+          "name": "destinationCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "exchange_rate",
+          "name": "exchangeRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "expiry_time",
+          "name": "expiryTime",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "quote_id",
+          "name": "quoteID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "source_currency",
+          "name": "sourceCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -4038,6 +4096,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/fxallheldrates/{source}/{destination}",
               "parts": [
@@ -4100,6 +4159,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}",
               "parts": [
@@ -4148,14 +4208,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "response_type",
+          "name": "responseType",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -4170,6 +4230,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/payondemand",
               "parts": [
@@ -4197,28 +4258,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_number",
+          "name": "accountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "address_line1",
+          "name": "addressLine1",
           "req": true,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "address_line2",
+          "name": "addressLine2",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "approved_at",
+          "name": "approvedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -4232,7 +4293,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "country_code",
+          "name": "countryCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 5
@@ -4252,77 +4313,77 @@ class Config {
         },
         {
           "active": true,
-          "name": "customer_account_number",
+          "name": "customerAccountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "customer_city",
+          "name": "customerCity",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "customer_country_code",
+          "name": "customerCountryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "customer_country_name",
+          "name": "customerCountryName",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "customer_email_address",
+          "name": "customerEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "customer_first_name",
+          "name": "customerFirstName",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "customer_iban",
+          "name": "customerIban",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "customer_last_name",
+          "name": "customerLastName",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "customer_sort_code",
+          "name": "customerSortCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "email_address",
+          "name": "emailAddress",
           "req": true,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "first_name",
+          "name": "firstName",
           "req": true,
           "type": "`$STRING`",
           "index$": 17
@@ -4350,28 +4411,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_recurring",
+          "name": "isRecurring",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "last_name",
+          "name": "lastName",
           "req": true,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "op": {
             "create": {
               "req": true,
@@ -4384,7 +4445,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "postal_code",
+          "name": "postalCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 25
@@ -4398,7 +4459,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "sort_code",
+          "name": "sortCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 27
@@ -4412,35 +4473,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "supplier_bank_account_id",
+          "name": "supplierBankAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "supplier_customer_id",
+          "name": "supplierCustomerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "supplier_mandate_id",
+          "name": "supplierMandateID",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "supplier_name",
+          "name": "supplierName",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "supplier_status",
+          "name": "supplierStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
@@ -4455,6 +4516,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/mandates",
               "parts": [
@@ -4491,6 +4553,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/mandates/{id}",
               "parts": [
@@ -4522,42 +4585,42 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_currency",
+          "name": "accountCurrencies",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "can_have_trust_account",
+          "name": "canHaveTrustAccounts",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "card_payment_processor",
+          "name": "cardPaymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "company_id",
+          "name": "companyID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "display_qr_on_hosted_pay",
+          "name": "displayQrOnHostedPay",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "hosted_pay_version",
+          "name": "hostedPayVersion",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 5
@@ -4578,21 +4641,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_blocked",
+          "name": "isBlocked",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "is_exited",
+          "name": "isExited",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "is_suspended",
+          "name": "isSuspended",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 10
@@ -4606,21 +4669,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "logo_url_png",
+          "name": "logoUrlPng",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "logo_url_svg",
+          "name": "logoUrlSvg",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "merchant_category_code",
+          "name": "merchantCategoryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -4634,30 +4697,30 @@ class Config {
         },
         {
           "active": true,
-          "name": "note",
+          "name": "notes",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "parent_merchant",
+          "name": "parentMerchant",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "payment_account",
+          "name": "paymentAccountLimit",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$INTEGER`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "payment_account_limit",
+          "name": "paymentAccounts",
           "req": false,
-          "type": "`$INTEGER`",
+          "type": "`$ARRAY`",
           "index$": 19
         },
         {
@@ -4669,56 +4732,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "short_name",
+          "name": "shortName",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "supported_payment_methods_list",
+          "name": "supportedPaymentMethodsList",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "suspension_reason",
+          "name": "suspensionReason",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "time_zone_id",
+          "name": "timeZoneId",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "trading_name",
+          "name": "tradingName",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "web_hook_limit",
+          "name": "webHookLimit",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "your_role_name",
+          "name": "yourRoleName",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
@@ -4780,6 +4843,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/childmerchants",
               "parts": [
@@ -4859,6 +4923,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/paged",
               "parts": [
@@ -4886,6 +4951,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants",
               "parts": [
@@ -4903,6 +4969,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/whoamimerchant",
               "parts": [
@@ -4921,6 +4988,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/whoamimerchantsigned",
               "parts": [
@@ -4939,6 +5007,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/whoamimerchantwhitelist",
               "parts": [
@@ -5066,6 +5135,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/payouts/export",
               "parts": [
@@ -5170,6 +5240,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/beneficiaries/export",
               "parts": [
@@ -5218,6 +5289,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}",
               "parts": [
@@ -5273,6 +5345,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/merchants/{merchantId}/users/{userId}",
               "parts": [
@@ -5325,6 +5398,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/merchants/{merchantID}/tags/{tagID}",
               "parts": [
@@ -5375,6 +5449,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/merchants/{merchantID}",
               "parts": [
@@ -5413,6 +5488,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/merchants/{merchantId}/suspend",
               "parts": [
@@ -5462,28 +5538,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "amount_lower",
+          "name": "amountLower",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "amount_upper",
+          "name": "amountUpper",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "authorisation_type",
+          "name": "authorisationType",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "beneficiaries_only",
+          "name": "beneficiariesOnly",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
@@ -5504,35 +5580,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_editor_cant_authorise",
+          "name": "lastEditorCantAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "number_of_authoriser",
+          "name": "numberOfAuthorisers",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "role_setting",
+          "name": "roleSettings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 10
@@ -5559,6 +5635,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/authorisationsettings",
               "parts": [
@@ -5600,7 +5677,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "approved_at",
+          "name": "approvedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -5614,63 +5691,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "customer_account_number",
+          "name": "customerAccountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "customer_city",
+          "name": "customerCity",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "customer_country_code",
+          "name": "customerCountryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "customer_country_name",
+          "name": "customerCountryName",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "customer_email_address",
+          "name": "customerEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "customer_first_name",
+          "name": "customerFirstName",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "customer_iban",
+          "name": "customerIban",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "customer_last_name",
+          "name": "customerLastName",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "customer_sort_code",
+          "name": "customerSortCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -5691,21 +5768,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_recurring",
+          "name": "isRecurring",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
@@ -5726,35 +5803,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "supplier_bank_account_id",
+          "name": "supplierBankAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "supplier_customer_id",
+          "name": "supplierCustomerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "supplier_mandate_id",
+          "name": "supplierMandateID",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "supplier_name",
+          "name": "supplierName",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "supplier_status",
+          "name": "supplierStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
@@ -5870,6 +5947,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/mandates",
               "parts": [
@@ -5911,28 +5989,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "bank_country_code",
+          "name": "bankCountryCodes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "bank_id",
+          "name": "bankID",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "bank_name",
+          "name": "bankName",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "business_institution_id",
+          "name": "businessInstitutionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -5960,7 +6038,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "message_image_url",
+          "name": "messageImageUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -5974,7 +6052,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "personal_institution_id",
+          "name": "personalInstitutionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -5988,14 +6066,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "warning_heading",
+          "name": "warningHeading",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "warning_message",
+          "name": "warningMessage",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
@@ -6049,6 +6127,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/banksettings",
               "parts": [
@@ -6093,52 +6172,115 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "description",
-          "req": true,
-          "type": "`$STRING`",
+          "name": "bankPaymentOptions",
+          "req": false,
+          "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "id",
+          "name": "cardPaymentAddressOptions",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "inserted",
+          "name": "cardPaymentCaptureOptions",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "customFields",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "defaultFields",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "name",
+          "name": "description",
           "req": true,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
+          "name": "id",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "inserted",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "lastUpdated",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "merchantID",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "name",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "notificationOptions",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "paymentMethods",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 12
+        },
+        {
+          "active": true,
+          "name": "paymentTerms",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 13
+        },
+        {
+          "active": true,
+          "name": "priorityBankOptions",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 14
+        },
+        {
+          "active": true,
           "name": "template",
           "req": true,
           "type": "`$OBJECT`",
-          "index$": 6
+          "index$": 15
         }
       ],
       "name": "merchant_payment_request_template",
@@ -6162,6 +6304,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{merchantID}/templates",
               "parts": [
@@ -6218,6 +6361,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
               "parts": [
@@ -6277,6 +6421,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
               "parts": [
@@ -6336,6 +6481,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
               "parts": [
@@ -6380,35 +6526,35 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authentication_method",
+          "name": "authenticationMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
@@ -6428,21 +6574,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "expires_at",
+          "name": "expiresAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "hmac_algorithm",
+          "name": "hmacAlgorithm",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
@@ -6463,42 +6609,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "ip_address_whitelist",
+          "name": "ipAddressWhitelist",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "is_enabled",
+          "name": "isEnabled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "last_authorised",
+          "name": "lastAuthorised",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "op": {
             "create": {
               "req": true,
@@ -6518,28 +6664,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "permission_type",
+          "name": "permissionTypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "request_signature_version",
+          "name": "requestSignatureVersion",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "shared_secret_algorithm",
+          "name": "sharedSecretAlgorithm",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "shared_secret_base64",
+          "name": "sharedSecretBase64",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
@@ -6561,6 +6707,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/tokens",
               "parts": [
@@ -6615,6 +6762,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/tokens",
               "parts": [
@@ -6664,6 +6812,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/tokens/{id}",
               "parts": [
@@ -6705,6 +6854,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/tokens/{id}",
               "parts": [
@@ -6774,6 +6924,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/problemnotification",
               "parts": [
@@ -6799,6 +6950,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/problem",
               "parts": [
@@ -6828,28 +6980,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "build_version",
+          "name": "buildVersion",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "major_version",
+          "name": "majorVersion",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "minor_version",
+          "name": "minorVersion",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "release_name",
+          "name": "releaseName",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -6864,6 +7016,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/version",
               "parts": [
@@ -6910,6 +7063,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/openbanking/account/{accountID}/synchronise",
               "parts": [
@@ -6967,6 +7121,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/openbanking/consents/{merchantID}/{email}",
               "parts": [
@@ -7009,6 +7164,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/openbanking/account/{accountID}",
               "parts": [
@@ -7053,14 +7209,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "account_number",
+          "name": "accountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -7074,7 +7230,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "payee_verified_account_name",
+          "name": "payeeVerifiedAccountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -7088,14 +7244,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "secondary_identification",
+          "name": "secondaryIdentification",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "sort_code",
+          "name": "sortCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
@@ -7110,6 +7266,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/openbanking/payeeverification",
               "parts": [
@@ -7137,7 +7294,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "address",
+          "name": "addresses",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -7157,112 +7314,112 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_pending",
+          "name": "amountPending",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "amount_received",
+          "name": "amountReceived",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "amount_refunded",
+          "name": "amountRefunded",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "auto_send_receipt",
+          "name": "autoSendReceipt",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "base_origin_url",
+          "name": "baseOriginUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "callback_url",
+          "name": "callbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "card_authorize_only",
+          "name": "cardAuthorizeOnly",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "card_create_token",
+          "name": "cardCreateToken",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "card_create_token_mode",
+          "name": "cardCreateTokenMode",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "card_ignore_cvn",
+          "name": "cardIgnoreCVN",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "card_no_payer_authentication",
+          "name": "cardNoPayerAuthentication",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "card_processor_merchant_id",
+          "name": "cardProcessorMerchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "card_stripe_payment_intent_id",
+          "name": "cardStripePaymentIntentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "card_stripe_payment_intent_secret",
+          "name": "cardStripePaymentIntentSecret",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "card_transmit_raw_detail",
+          "name": "cardTransmitRawDetails",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "created_by_user",
+          "name": "createdByUser",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 17
@@ -7276,28 +7433,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "custom_field",
+          "name": "customFields",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "customer_email_address",
+          "name": "customerEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "customer_id",
+          "name": "customerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "customer_name",
+          "name": "customerName",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
@@ -7311,56 +7468,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "destination_account",
+          "name": "destinationAccount",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "direct_debit_payment",
+          "name": "directDebitPayment",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "due_date",
+          "name": "dueDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "event",
+          "name": "events",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "failure_callback_url",
+          "name": "failureCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "field_display_setting",
+          "name": "fieldDisplaySettings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "formatted_amount",
+          "name": "formattedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "hosted_pay_checkout_url",
+          "name": "hostedPayCheckoutUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
@@ -7374,7 +7531,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "ignore_address_verification",
+          "name": "ignoreAddressVerification",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 33
@@ -7388,14 +7545,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "inserted_sortable",
+          "name": "insertedSortable",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 36
@@ -7409,119 +7566,119 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 38
         },
         {
           "active": true,
-          "name": "lightning_invoice",
+          "name": "lightningInvoice",
           "req": false,
           "type": "`$STRING`",
           "index$": 39
         },
         {
           "active": true,
-          "name": "lightning_invoice_expires_at",
+          "name": "lightningInvoiceExpiresAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 40
         },
         {
           "active": true,
-          "name": "merchant_direct_debit_mandate_id",
+          "name": "merchantDirectDebitMandateID",
           "req": false,
           "type": "`$STRING`",
           "index$": 41
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 42
         },
         {
           "active": true,
-          "name": "merchant_token_description",
+          "name": "merchantTokenDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "notification_email_address",
+          "name": "notificationEmailAddresses",
           "req": false,
           "type": "`$STRING`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "notification_role_i_d",
+          "name": "notificationRoleIDs",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 45
         },
         {
           "active": true,
-          "name": "order_id",
+          "name": "orderID",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
         },
         {
           "active": true,
-          "name": "partial_payment_method",
+          "name": "partialPaymentMethod",
           "req": false,
           "type": "`$STRING`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "partial_payment_step",
+          "name": "partialPaymentSteps",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
         },
         {
           "active": true,
-          "name": "payment_attempt",
+          "name": "paymentAttempts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 49
         },
         {
           "active": true,
-          "name": "payment_method",
+          "name": "paymentMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 50
         },
         {
           "active": true,
-          "name": "payment_processor",
+          "name": "paymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 51
         },
         {
           "active": true,
-          "name": "payrun_id",
+          "name": "payrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 52
         },
         {
           "active": true,
-          "name": "pisp_account_id",
+          "name": "pispAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 53
         },
         {
           "active": true,
-          "name": "priority_bank_id",
+          "name": "priorityBankID",
           "req": false,
           "type": "`$STRING`",
           "index$": 54
@@ -7535,84 +7692,84 @@ class Config {
         },
         {
           "active": true,
-          "name": "sandbox_settle_delay_in_second",
+          "name": "sandboxSettleDelayInSeconds",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 56
         },
         {
           "active": true,
-          "name": "shipping_address",
+          "name": "shippingAddress",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 57
         },
         {
           "active": true,
-          "name": "shipping_address_city",
+          "name": "shippingAddressCity",
           "req": false,
           "type": "`$STRING`",
           "index$": 58
         },
         {
           "active": true,
-          "name": "shipping_address_country_code",
+          "name": "shippingAddressCountryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 59
         },
         {
           "active": true,
-          "name": "shipping_address_county",
+          "name": "shippingAddressCounty",
           "req": false,
           "type": "`$STRING`",
           "index$": 60
         },
         {
           "active": true,
-          "name": "shipping_address_line1",
+          "name": "shippingAddressLine1",
           "req": false,
           "type": "`$STRING`",
           "index$": 61
         },
         {
           "active": true,
-          "name": "shipping_address_line2",
+          "name": "shippingAddressLine2",
           "req": false,
           "type": "`$STRING`",
           "index$": 62
         },
         {
           "active": true,
-          "name": "shipping_address_post_code",
+          "name": "shippingAddressPostCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 63
         },
         {
           "active": true,
-          "name": "shipping_email",
+          "name": "shippingEmail",
           "req": false,
           "type": "`$STRING`",
           "index$": 64
         },
         {
           "active": true,
-          "name": "shipping_first_name",
+          "name": "shippingFirstName",
           "req": false,
           "type": "`$STRING`",
           "index$": 65
         },
         {
           "active": true,
-          "name": "shipping_last_name",
+          "name": "shippingLastName",
           "req": false,
           "type": "`$STRING`",
           "index$": 66
         },
         {
           "active": true,
-          "name": "shipping_phone",
+          "name": "shippingPhone",
           "req": false,
           "type": "`$STRING`",
           "index$": 67
@@ -7626,21 +7783,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "success_web_hook_url",
+          "name": "successWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 69
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tagIds",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 70
         },
         {
           "active": true,
-          "name": "tag_id",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 71
@@ -7654,21 +7811,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "tokenised_card",
+          "name": "tokenisedCards",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 73
         },
         {
           "active": true,
-          "name": "transaction",
+          "name": "transactions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 74
         },
         {
           "active": true,
-          "name": "use_hosted_payment_page",
+          "name": "useHostedPaymentPage",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 75
@@ -7683,6 +7840,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests",
               "parts": [
@@ -7730,6 +7888,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}",
               "parts": [
@@ -7765,6 +7924,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/getbyorderid/{orderID}",
               "parts": [
@@ -7812,6 +7972,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/paymentrequests/{id}",
               "parts": [
@@ -7847,28 +8008,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "account_supplier_name",
+          "name": "accountSupplierName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "available_balance",
+          "name": "availableBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "available_balance_minor_unit",
+          "name": "availableBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
@@ -7882,35 +8043,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "balance_minor_unit",
+          "name": "balanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "bank_name",
+          "name": "bankName",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "consent_id",
+          "name": "consentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "created_by_display_name",
+          "name": "createdByDisplayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -7924,28 +8085,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "default_payment_rail",
+          "name": "defaultPaymentRail",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "display_name",
+          "name": "displayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "expiry_date",
+          "name": "expiryDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "external_account_icon",
+          "name": "externalAccountIcon",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -7973,91 +8134,91 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "is_connected_account",
+          "name": "isConnectedAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "is_default",
+          "name": "isDefault",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "is_trust_account",
+          "name": "isTrustAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "is_virtual",
+          "name": "isVirtual",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "last_transaction",
+          "name": "lastTransaction",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "merchant_name",
+          "name": "merchantName",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "physical_account_id",
+          "name": "physicalAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "rule",
+          "name": "rules",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance",
+          "name": "submittedPayoutsBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance_minor_unit",
+          "name": "submittedPayoutsBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 30
@@ -8071,49 +8232,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "supplier_sepa_instant_status",
+          "name": "supplierSepaInstantStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "xero_bank_feed_connection_status",
+          "name": "xeroBankFeedConnectionStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "xero_bank_feed_last_synced_at",
+          "name": "xeroBankFeedLastSyncedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failed_at",
+          "name": "xeroBankFeedSyncLastFailedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failure_reason",
+          "name": "xeroBankFeedSyncLastFailureReason",
           "req": false,
           "type": "`$STRING`",
           "index$": 36
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_status",
+          "name": "xeroBankFeedSyncStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 37
         },
         {
           "active": true,
-          "name": "xero_unsynchronised_transactions_count",
+          "name": "xeroUnsynchronisedTransactionsCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 38
@@ -8224,6 +8385,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/paged",
               "parts": [
@@ -8288,6 +8450,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/virtual",
               "parts": [
@@ -8331,14 +8494,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "available_balance",
+          "name": "availableBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 1
@@ -8352,7 +8515,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "balance_minor_unit",
+          "name": "balanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
@@ -8380,28 +8543,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "is_connected_account",
+          "name": "isConnectedAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance",
+          "name": "submittedPayoutsBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 10
@@ -8505,6 +8668,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/minimal",
               "parts": [
@@ -8545,42 +8709,42 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "payment_initiation_id",
+          "name": "paymentInitiationID",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "payment_request_callback_url",
+          "name": "paymentRequestCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "redirect_url",
+          "name": "redirectUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "response_type",
+          "name": "responseType",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "specific_error_message",
+          "name": "specificErrorMessage",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
@@ -8607,6 +8771,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/pisp",
               "parts": [
@@ -8648,7 +8813,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "address",
+          "name": "addresses",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -8662,98 +8827,98 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_pending",
+          "name": "amountPending",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "amount_received",
+          "name": "amountReceived",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "amount_refunded",
+          "name": "amountRefunded",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "auto_send_receipt",
+          "name": "autoSendReceipt",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "base_origin_url",
+          "name": "baseOriginUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "callback_url",
+          "name": "callbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "card_authorize_only",
+          "name": "cardAuthorizeOnly",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "card_create_token",
+          "name": "cardCreateToken",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "card_create_token_mode",
+          "name": "cardCreateTokenMode",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "card_ignore_cvn",
+          "name": "cardIgnoreCVN",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "card_processor_merchant_id",
+          "name": "cardProcessorMerchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "card_stripe_payment_intent_id",
+          "name": "cardStripePaymentIntentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "card_stripe_payment_intent_secret",
+          "name": "cardStripePaymentIntentSecret",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "created_by_user",
+          "name": "createdByUser",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 15
@@ -8767,28 +8932,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "custom_field",
+          "name": "customFields",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "customer_email_address",
+          "name": "customerEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "customer_id",
+          "name": "customerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "customer_name",
+          "name": "customerName",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
@@ -8802,77 +8967,77 @@ class Config {
         },
         {
           "active": true,
-          "name": "destination_account",
+          "name": "destinationAccount",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "direct_debit_payment",
+          "name": "directDebitPayment",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "do_simulate_settlement_failure",
+          "name": "doSimulateSettlementFailure",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "due_date",
+          "name": "dueDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "error_description",
+          "name": "errorDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "event",
+          "name": "events",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "failed_payment_request",
+          "name": "failedPaymentRequests",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "failure_callback_url",
+          "name": "failureCallbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "field_display_setting",
+          "name": "fieldDisplaySettings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "formatted_amount",
+          "name": "formattedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "hosted_pay_checkout_url",
+          "name": "hostedPayCheckoutUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
@@ -8886,7 +9051,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "ignore_address_verification",
+          "name": "ignoreAddressVerification",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 34
@@ -8900,7 +9065,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "inserted_sortable",
+          "name": "insertedSortable",
           "req": false,
           "type": "`$STRING`",
           "index$": 36
@@ -8914,7 +9079,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 38
@@ -8928,133 +9093,133 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 40
         },
         {
           "active": true,
-          "name": "lightning_invoice",
+          "name": "lightningInvoice",
           "req": false,
           "type": "`$STRING`",
           "index$": 41
         },
         {
           "active": true,
-          "name": "lightning_invoice_expires_at",
+          "name": "lightningInvoiceExpiresAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 42
         },
         {
           "active": true,
-          "name": "merchant_direct_debit_mandate_id",
+          "name": "merchantDirectDebitMandateID",
           "req": false,
           "type": "`$STRING`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "merchant_token_description",
+          "name": "merchantTokenDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 45
         },
         {
           "active": true,
-          "name": "notification_email_address",
+          "name": "notificationEmailAddresses",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
         },
         {
           "active": true,
-          "name": "notification_role_i_d",
+          "name": "notificationRoleIDs",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "order_id",
+          "name": "orderID",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
         },
         {
           "active": true,
-          "name": "partial_payment_method",
+          "name": "partialPaymentMethod",
           "req": false,
           "type": "`$STRING`",
           "index$": 49
         },
         {
           "active": true,
-          "name": "partial_payment_step",
+          "name": "partialPaymentSteps",
           "req": false,
           "type": "`$STRING`",
           "index$": 50
         },
         {
           "active": true,
-          "name": "payment_attempt",
+          "name": "paymentAttempts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 51
         },
         {
           "active": true,
-          "name": "payment_initiation_id",
+          "name": "paymentInitiationID",
           "req": false,
           "type": "`$STRING`",
           "index$": 52
         },
         {
           "active": true,
-          "name": "payment_method",
+          "name": "paymentMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 53
         },
         {
           "active": true,
-          "name": "payment_processor",
+          "name": "paymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 54
         },
         {
           "active": true,
-          "name": "payment_request",
+          "name": "paymentRequests",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 55
         },
         {
           "active": true,
-          "name": "payrun_id",
+          "name": "payrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 56
         },
         {
           "active": true,
-          "name": "pisp_account_id",
+          "name": "pispAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 57
         },
         {
           "active": true,
-          "name": "priority_bank_id",
+          "name": "priorityBankID",
           "req": false,
           "type": "`$STRING`",
           "index$": 58
@@ -9068,14 +9233,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "sandbox_settle_delay_in_second",
+          "name": "sandboxSettleDelayInSeconds",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 60
         },
         {
           "active": true,
-          "name": "shipping_address",
+          "name": "shippingAddress",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 61
@@ -9089,14 +9254,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "success_web_hook_url",
+          "name": "successWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 63
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 64
@@ -9110,21 +9275,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "tokenised_card",
+          "name": "tokenisedCards",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 66
         },
         {
           "active": true,
-          "name": "transaction",
+          "name": "transactions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 67
         },
         {
           "active": true,
-          "name": "use_hosted_payment_page",
+          "name": "useHostedPaymentPage",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 68
@@ -9169,6 +9334,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/{id}/directdebit",
               "parts": [
@@ -9199,6 +9365,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/paymentrequests/batchcreate",
               "parts": [
@@ -9343,6 +9510,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests",
               "parts": [
@@ -9503,6 +9671,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/export",
               "parts": [
@@ -9550,6 +9719,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}/receipt",
               "parts": [
@@ -9597,6 +9767,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/paymentrequests/{id}",
               "parts": [
@@ -9638,6 +9809,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/paymentrequests/{id}/pisp/sandboxcallback",
               "parts": [
@@ -9687,77 +9859,77 @@ class Config {
         },
         {
           "active": true,
-          "name": "apple_pay_transaction_id",
+          "name": "applePayTransactionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "card_authorization_response_id",
+          "name": "cardAuthorizationResponseID",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "card_expiry_month",
+          "name": "cardExpiryMonth",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "card_expiry_year",
+          "name": "cardExpiryYear",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "card_issuer",
+          "name": "cardIssuer",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "card_issuer_country",
+          "name": "cardIssuerCountry",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "card_last_four_digit",
+          "name": "cardLastFourDigits",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "card_request_id",
+          "name": "cardRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "card_scheme",
+          "name": "cardScheme",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "card_token_customer_id",
+          "name": "cardTokenCustomerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "card_transaction_id",
+          "name": "cardTransactionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
@@ -9771,42 +9943,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "direct_debit_payment_id",
+          "name": "directDebitPaymentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "direct_debit_payment_reference",
+          "name": "directDebitPaymentReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "drirect_debit_mandate_id",
+          "name": "drirectDebitMandateID",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "error_message",
+          "name": "errorMessage",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "error_reason",
+          "name": "errorReason",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "event_type",
+          "name": "eventType",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
@@ -9827,91 +9999,91 @@ class Config {
         },
         {
           "active": true,
-          "name": "lightning_invoice",
+          "name": "lightningInvoice",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "lightning_r_hash",
+          "name": "lightningRHash",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "origin_url",
+          "name": "originUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "payment_method_type",
+          "name": "paymentMethodType",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "payment_processor_name",
+          "name": "paymentProcessorName",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "pisp_bank_status",
+          "name": "pispBankStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "pisp_payment_initiation_id",
+          "name": "pispPaymentInitiationID",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "pisp_payment_institution_name",
+          "name": "pispPaymentInstitutionName",
           "req": false,
           "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "pisp_payment_service_provider_id",
+          "name": "pispPaymentServiceProviderID",
           "req": false,
           "type": "`$STRING`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "pisp_redirect_url",
+          "name": "pispRedirectUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "reconciled_transaction_id",
+          "name": "reconciledTransactionID",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "refund_payout_id",
+          "name": "refundPayoutID",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
@@ -9925,7 +10097,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "wallet_name",
+          "name": "walletName",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
@@ -9952,6 +10124,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}/events",
               "parts": [
@@ -9990,50 +10163,7 @@ class Config {
       }
     },
     "payment_request_metric": {
-      "fields": [
-        {
-          "active": true,
-          "name": "all",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 0
-        },
-        {
-          "active": true,
-          "name": "authorized",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "paid",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "partially_paid",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 3
-        },
-        {
-          "active": true,
-          "name": "total_amounts_by_currency",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 4
-        },
-        {
-          "active": true,
-          "name": "unpaid",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 5
-        }
-      ],
+      "fields": [],
       "name": "payment_request_metric",
       "op": {
         "load": {
@@ -10127,6 +10257,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/metrics",
               "parts": [
@@ -10174,42 +10305,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_pending",
+          "name": "amountPending",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "amount_received",
+          "name": "amountReceived",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "amount_refunded",
+          "name": "amountRefunded",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "callback_url",
+          "name": "callbackUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "card_stripe_payment_intent_secret",
+          "name": "cardStripePaymentIntentSecret",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "country_code",
+          "name": "countryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
@@ -10223,7 +10354,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "custom_fields_to_display",
+          "name": "customFieldsToDisplay",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 8
@@ -10237,21 +10368,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "due_date",
+          "name": "dueDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "field_display_setting",
+          "name": "fieldDisplaySettings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "google_pay_merchant_id",
+          "name": "googlePayMerchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
@@ -10272,84 +10403,84 @@ class Config {
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "merchant_logo_url_png",
+          "name": "merchantLogoUrlPng",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "merchant_logo_url_svg",
+          "name": "merchantLogoUrlSvg",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "merchant_name",
+          "name": "merchantName",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "merchant_short_name",
+          "name": "merchantShortName",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "partial_payment_method",
+          "name": "partialPaymentMethod",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "payment_attempt",
+          "name": "paymentAttempts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "payment_methods_list",
+          "name": "paymentMethodsList",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "payment_processor",
+          "name": "paymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "payment_processor_key",
+          "name": "paymentProcessorKey",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "pisp_error",
+          "name": "pispError",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "priority_bank_id",
+          "name": "priorityBankID",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
@@ -10363,7 +10494,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "stripe_account_id",
+          "name": "stripeAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
@@ -10397,6 +10528,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}/minimal",
               "parts": [
@@ -10445,21 +10577,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_pending",
+          "name": "amountPending",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "amount_received",
+          "name": "amountReceived",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "amount_refunded",
+          "name": "amountRefunded",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 3
@@ -10473,35 +10605,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "customer_id",
+          "name": "customerID",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "payment",
+          "name": "paymentRequestID",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "payments",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "pisp_authorization",
+          "name": "pispAuthorizations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "requested_amount",
+          "name": "requestedAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 9
@@ -10535,6 +10667,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/paymentrequests/{id}/result",
               "parts": [
@@ -10576,7 +10709,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_id",
+          "name": "accountID",
           "op": {
             "create": {
               "req": true,
@@ -10589,7 +10722,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "allow_incomplete",
+          "name": "allowIncomplete",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 1
@@ -10603,56 +10736,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_minor_unit",
+          "name": "amountMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "approve_payout_url",
+          "name": "approvePayoutUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "approver_id",
+          "name": "approverID",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "authentication_method",
+          "name": "authenticationMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "batch_payout_id",
+          "name": "batchPayoutID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -10666,49 +10799,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "beneficiary_id",
+          "name": "beneficiaryID",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "can_process",
+          "name": "canProcess",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "can_update",
+          "name": "canUpdate",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "charge_bearer",
+          "name": "chargeBearer",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "created_by_email_address",
+          "name": "createdByEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
@@ -10728,7 +10861,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "current_user_id",
+          "name": "currentUserID",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
@@ -10749,112 +10882,112 @@ class Config {
         },
         {
           "active": true,
-          "name": "document",
+          "name": "documents",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "event",
+          "name": "events",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "failed_payout",
+          "name": "failedPayouts",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "formatted_amount",
+          "name": "formattedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "formatted_fx_destination_amount",
+          "name": "formattedFxDestinationAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "formatted_schedule",
+          "name": "formattedSchedule",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "formatted_schedule_day_only",
+          "name": "formattedScheduleDayOnly",
           "req": false,
           "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "formatted_source_account_available_balance",
+          "name": "formattedSourceAccountAvailableBalance",
           "req": false,
           "type": "`$STRING`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "fx_destination_amount",
+          "name": "fxDestinationAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "fx_destination_amount_minor_unit",
+          "name": "fxDestinationAmountMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "fx_destination_currency",
+          "name": "fxDestinationCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "fx_quote_expires_at",
+          "name": "fxQuoteExpiresAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "fx_quote_id",
+          "name": "fxQuoteID",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
         },
         {
           "active": true,
-          "name": "fx_rate",
+          "name": "fxRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 36
         },
         {
           "active": true,
-          "name": "fx_use_destination_amount",
+          "name": "fxUseDestinationAmount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 37
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 38
@@ -10875,56 +11008,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "invoice_id",
+          "name": "invoiceID",
           "req": false,
           "type": "`$STRING`",
           "index$": 41
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 42
         },
         {
           "active": true,
-          "name": "is_failed",
+          "name": "isFailed",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "is_settled",
+          "name": "isSettled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "is_submitted",
+          "name": "isSubmitted",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 45
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "merchant_token_description",
+          "name": "merchantTokenDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
@@ -10938,35 +11071,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "payment_processor",
+          "name": "paymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 50
         },
         {
           "active": true,
-          "name": "payment_rail",
+          "name": "paymentRail",
           "req": false,
           "type": "`$STRING`",
           "index$": 51
         },
         {
           "active": true,
-          "name": "payout",
+          "name": "payouts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 52
         },
         {
           "active": true,
-          "name": "payrun_id",
+          "name": "payrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 53
         },
         {
           "active": true,
-          "name": "payrun_name",
+          "name": "payrunName",
           "req": false,
           "type": "`$STRING`",
           "index$": 54
@@ -10987,7 +11120,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "schedule_date",
+          "name": "scheduleDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 57
@@ -11001,63 +11134,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "source_account_available_balance",
+          "name": "sourceAccountAvailableBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 59
         },
         {
           "active": true,
-          "name": "source_account_available_balance_minor_unit",
+          "name": "sourceAccountAvailableBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 60
         },
         {
           "active": true,
-          "name": "source_account_bic",
+          "name": "sourceAccountBic",
           "req": false,
           "type": "`$STRING`",
           "index$": 61
         },
         {
           "active": true,
-          "name": "source_account_currency",
+          "name": "sourceAccountCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 62
         },
         {
           "active": true,
-          "name": "source_account_iban",
+          "name": "sourceAccountIban",
           "req": false,
           "type": "`$STRING`",
           "index$": 63
         },
         {
           "active": true,
-          "name": "source_account_identifier",
+          "name": "sourceAccountIdentifier",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 64
         },
         {
           "active": true,
-          "name": "source_account_name",
+          "name": "sourceAccountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 65
         },
         {
           "active": true,
-          "name": "source_account_number",
+          "name": "sourceAccountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 66
         },
         {
           "active": true,
-          "name": "source_account_sortcode",
+          "name": "sourceAccountSortcode",
           "req": false,
           "type": "`$STRING`",
           "index$": 67
@@ -11071,49 +11204,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tagIds",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 69
         },
         {
           "active": true,
-          "name": "tag_id",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 70
         },
         {
           "active": true,
-          "name": "their_reference",
+          "name": "theirReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 71
         },
         {
           "active": true,
-          "name": "topup_payrun_id",
+          "name": "topupPayrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 72
         },
         {
           "active": true,
-          "name": "transacted_amount",
+          "name": "transactedAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 73
         },
         {
           "active": true,
-          "name": "transacted_fx_amount",
+          "name": "transactedFxAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 74
         },
         {
           "active": true,
-          "name": "transacted_fx_rate",
+          "name": "transactedFxRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 75
@@ -11133,14 +11266,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "user_id",
+          "name": "userID",
           "req": false,
           "type": "`$STRING`",
           "index$": 77
         },
         {
           "active": true,
-          "name": "your_reference",
+          "name": "yourReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 78
@@ -11167,6 +11300,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/batch/submit/{id}",
               "parts": [
@@ -11203,6 +11337,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/submit/{id}",
               "parts": [
@@ -11226,6 +11361,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts",
               "parts": [
@@ -11243,6 +11379,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/batchcreate",
               "parts": [
@@ -11263,6 +11400,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/send",
               "parts": [
@@ -11283,6 +11421,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payouts/sendbeneficiary",
               "parts": [
@@ -11418,6 +11557,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts",
               "parts": [
@@ -11553,6 +11693,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/payouts",
               "parts": [
@@ -11694,6 +11835,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/payouts",
               "parts": [
@@ -11848,6 +11990,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/export",
               "parts": [
@@ -11913,6 +12056,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/fxquote/{source}/{destination}/{amount}",
               "parts": [
@@ -11952,6 +12096,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/{id}",
               "parts": [
@@ -11985,6 +12130,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/{id}/proof",
               "parts": [
@@ -12028,6 +12174,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/payouts/{id}",
               "parts": [
@@ -12050,6 +12197,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/payouts/batchdelete",
               "parts": [
@@ -12089,6 +12237,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payouts/cancel/{id}",
               "parts": [
@@ -12124,6 +12273,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payouts/reject/{id}",
               "parts": [
@@ -12159,6 +12309,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payouts/{id}",
               "parts": [
@@ -12200,7 +12351,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_id",
+          "name": "accountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -12214,56 +12365,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_minor_unit",
+          "name": "amountMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "approve_payout_url",
+          "name": "approvePayoutUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "approver_id",
+          "name": "approverID",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "authentication_method",
+          "name": "authenticationMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "batch_payout_id",
+          "name": "batchPayoutID",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -12277,42 +12428,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "can_process",
+          "name": "canProcess",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "can_update",
+          "name": "canUpdate",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "charge_bearer",
+          "name": "chargeBearer",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "created_by_email_address",
+          "name": "createdByEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -12326,7 +12477,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "current_user_id",
+          "name": "currentUserID",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
@@ -12347,105 +12498,105 @@ class Config {
         },
         {
           "active": true,
-          "name": "document",
+          "name": "documents",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "event",
+          "name": "events",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "formatted_amount",
+          "name": "formattedAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "formatted_fx_destination_amount",
+          "name": "formattedFxDestinationAmount",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "formatted_schedule",
+          "name": "formattedSchedule",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "formatted_schedule_day_only",
+          "name": "formattedScheduleDayOnly",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "formatted_source_account_available_balance",
+          "name": "formattedSourceAccountAvailableBalance",
           "req": false,
           "type": "`$STRING`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "fx_destination_amount",
+          "name": "fxDestinationAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "fx_destination_amount_minor_unit",
+          "name": "fxDestinationAmountMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "fx_destination_currency",
+          "name": "fxDestinationCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "fx_quote_expires_at",
+          "name": "fxQuoteExpiresAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "fx_quote_id",
+          "name": "fxQuoteID",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "fx_rate",
+          "name": "fxRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "fx_use_destination_amount",
+          "name": "fxUseDestinationAmount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 35
@@ -12466,56 +12617,56 @@ class Config {
         },
         {
           "active": true,
-          "name": "invoice_id",
+          "name": "invoiceID",
           "req": false,
           "type": "`$STRING`",
           "index$": 38
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 39
         },
         {
           "active": true,
-          "name": "is_failed",
+          "name": "isFailed",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 40
         },
         {
           "active": true,
-          "name": "is_settled",
+          "name": "isSettled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 41
         },
         {
           "active": true,
-          "name": "is_submitted",
+          "name": "isSubmitted",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 42
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "merchant_token_description",
+          "name": "merchantTokenDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 45
@@ -12529,28 +12680,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "payment_processor",
+          "name": "paymentProcessor",
           "req": false,
           "type": "`$STRING`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "payment_rail",
+          "name": "paymentRail",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
         },
         {
           "active": true,
-          "name": "payrun_id",
+          "name": "payrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 49
         },
         {
           "active": true,
-          "name": "payrun_name",
+          "name": "payrunName",
           "req": false,
           "type": "`$STRING`",
           "index$": 50
@@ -12564,7 +12715,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "schedule_date",
+          "name": "scheduleDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 52
@@ -12578,63 +12729,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "source_account_available_balance",
+          "name": "sourceAccountAvailableBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 54
         },
         {
           "active": true,
-          "name": "source_account_available_balance_minor_unit",
+          "name": "sourceAccountAvailableBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 55
         },
         {
           "active": true,
-          "name": "source_account_bic",
+          "name": "sourceAccountBic",
           "req": false,
           "type": "`$STRING`",
           "index$": 56
         },
         {
           "active": true,
-          "name": "source_account_currency",
+          "name": "sourceAccountCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 57
         },
         {
           "active": true,
-          "name": "source_account_iban",
+          "name": "sourceAccountIban",
           "req": false,
           "type": "`$STRING`",
           "index$": 58
         },
         {
           "active": true,
-          "name": "source_account_identifier",
+          "name": "sourceAccountIdentifier",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 59
         },
         {
           "active": true,
-          "name": "source_account_name",
+          "name": "sourceAccountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 60
         },
         {
           "active": true,
-          "name": "source_account_number",
+          "name": "sourceAccountNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 61
         },
         {
           "active": true,
-          "name": "source_account_sortcode",
+          "name": "sourceAccountSortcode",
           "req": false,
           "type": "`$STRING`",
           "index$": 62
@@ -12648,42 +12799,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 64
         },
         {
           "active": true,
-          "name": "their_reference",
+          "name": "theirReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 65
         },
         {
           "active": true,
-          "name": "topup_payrun_id",
+          "name": "topupPayrunID",
           "req": false,
           "type": "`$STRING`",
           "index$": 66
         },
         {
           "active": true,
-          "name": "transacted_amount",
+          "name": "transactedAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 67
         },
         {
           "active": true,
-          "name": "transacted_fx_amount",
+          "name": "transactedFxAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 68
         },
         {
           "active": true,
-          "name": "transacted_fx_rate",
+          "name": "transactedFxRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 69
@@ -12697,14 +12848,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "user_id",
+          "name": "userID",
           "req": false,
           "type": "`$STRING`",
           "index$": 71
         },
         {
           "active": true,
-          "name": "your_reference",
+          "name": "yourReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 72
@@ -12750,6 +12901,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/payouts/failed",
               "parts": [
@@ -12812,6 +12964,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/payouts/failed",
               "parts": [
@@ -12874,6 +13027,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/{merchantID}/failed",
               "parts": [
@@ -12920,57 +13074,7 @@ class Config {
       }
     },
     "payout_metric": {
-      "fields": [
-        {
-          "active": true,
-          "name": "all",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 0
-        },
-        {
-          "active": true,
-          "name": "failed",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "in_progress",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "paid",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 3
-        },
-        {
-          "active": true,
-          "name": "pending_approval",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 4
-        },
-        {
-          "active": true,
-          "name": "scheduled",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 5
-        },
-        {
-          "active": true,
-          "name": "total_amounts_by_currency",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 6
-        }
-      ],
+      "fields": [],
       "name": "payout_metric",
       "op": {
         "load": {
@@ -13056,6 +13160,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payouts/metrics",
               "parts": [
@@ -13095,70 +13200,70 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisationDate",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "authorisation_date",
+          "name": "authorisations",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "batch_payout_id",
+          "name": "batchPayoutID",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "can_delete",
+          "name": "canDelete",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "can_edit",
+          "name": "canEdit",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "event",
+          "name": "events",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
@@ -13179,42 +13284,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "invoice",
+          "name": "invoices",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "invoices_minimal",
+          "name": "invoicesMinimal",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "last_updated_by",
+          "name": "lastUpdatedBy",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
@@ -13235,28 +13340,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "note",
+          "name": "notes",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "payment",
+          "name": "payments",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "payout",
+          "name": "payouts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "payouts_count",
+          "name": "payoutsCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 23
@@ -13270,21 +13375,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "schedule_date",
+          "name": "scheduleDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "scheduled_date",
+          "name": "scheduledDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "source_account",
+          "name": "sourceAccounts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 27
@@ -13298,21 +13403,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "total_eur",
+          "name": "totalEur",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "total_gbp",
+          "name": "totalGbp",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "total_usd",
+          "name": "totalUsd",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 31
@@ -13339,6 +13444,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payruns/{id}/request-authorisation",
               "parts": [
@@ -13375,6 +13481,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payruns/{id}/submit",
               "parts": [
@@ -13411,6 +13518,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/payruns/{merchantID}",
               "parts": [
@@ -13521,6 +13629,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payruns",
               "parts": [
@@ -13569,6 +13678,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/payruns/{id}",
               "parts": [
@@ -13610,6 +13720,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/payruns/{id}",
               "parts": [
@@ -13643,6 +13754,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/payruns/{id}/archive",
               "parts": [
@@ -13686,6 +13798,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payruns/{id}",
               "parts": [
@@ -13719,6 +13832,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payruns/{id}/cancel",
               "parts": [
@@ -13754,6 +13868,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payruns/{id}/reject",
               "parts": [
@@ -13789,6 +13904,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/payruns/{id}/unarchive",
               "parts": [
@@ -13841,6 +13957,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/reports/{id}/initiate",
               "parts": [
@@ -13874,49 +13991,49 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "content",
+          "name": "contentType",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "content_type",
+          "name": "contents",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "last_completed_at",
+          "name": "lastCompletedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "report_name",
+          "name": "reportName",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "report_type",
+          "name": "reportType",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "statement_number",
+          "name": "statementNumber",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 6
@@ -13952,6 +14069,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/reports/{id}/result/{statementNumber}",
               "parts": [
@@ -13996,14 +14114,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "failed_role",
+          "name": "failedRoles",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "role",
+          "name": "roles",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -14030,6 +14148,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/merchants/{merchantID}/roles/batchcreate",
               "parts": [
@@ -14080,63 +14199,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "account_id",
+          "name": "accountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "approve_url",
+          "name": "approveUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "approver_id",
+          "name": "approverID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "authentication_method",
+          "name": "authenticationMethods",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "authorisation",
+          "name": "authorisations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "authorisers_completed_count",
+          "name": "authorisersCompletedCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "authorisers_required_count",
+          "name": "authorisersRequiredCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "can_authorise",
+          "name": "canAuthorise",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 9
@@ -14150,14 +14269,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "end_at",
+          "name": "endAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "has_current_user_authorised",
+          "name": "hasCurrentUserAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 12
@@ -14178,35 +14297,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_disabled",
+          "name": "isDisabled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "last_executed_at",
+          "name": "lastExecutedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "last_run_at_transaction_date",
+          "name": "lastRunAtTransactionDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
@@ -14233,28 +14352,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "on_approved_web_hook_url",
+          "name": "onApprovedWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "on_execution_error_web_hook_url",
+          "name": "onExecutionErrorWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "on_execution_success_web_hook_url",
+          "name": "onExecutionSuccessWebHookUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "start_at",
+          "name": "startAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
@@ -14268,7 +14387,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "sweep_action",
+          "name": "sweepAction",
           "op": {
             "create": {
               "req": true,
@@ -14281,35 +14400,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "time_zone_id",
+          "name": "timeZoneId",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "trigger_cron_expression",
+          "name": "triggerCronExpression",
           "req": false,
           "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "trigger_on_pay_in",
+          "name": "triggerOnPayIn",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "user_id",
+          "name": "userID",
           "req": false,
           "type": "`$STRING`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "web_hook_secret",
+          "name": "webHookSecret",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
@@ -14324,6 +14443,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/rules",
               "parts": [
@@ -14402,6 +14522,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/rules",
               "parts": [
@@ -14447,6 +14568,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/rules/{id}",
               "parts": [
@@ -14488,6 +14610,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/rules/{id}",
               "parts": [
@@ -14529,6 +14652,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/rules/{id}",
               "parts": [
@@ -14562,6 +14686,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/rules/{id}/disable",
               "parts": [
@@ -14595,7 +14720,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "error_message",
+          "name": "errorMessage",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -14616,7 +14741,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_authorise_to_enable",
+          "name": "isAuthoriseToEnable",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
@@ -14630,21 +14755,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "raw_response",
+          "name": "rawResponse",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "rule_event_type",
+          "name": "ruleEventType",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "rule_id",
+          "name": "ruleID",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -14706,6 +14831,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/rules/{id}/events",
               "parts": [
@@ -14741,7 +14867,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "colour_hex",
+          "name": "colourHex",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -14762,7 +14888,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
@@ -14796,6 +14922,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/merchants/{merchantID}/tags",
               "parts": [
@@ -14843,6 +14970,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/tags",
               "parts": [
@@ -14903,6 +15031,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/tokens/authorise/{id}",
               "parts": [
@@ -14945,6 +15074,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/tokens/{id}",
               "parts": [
@@ -14976,28 +15106,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_id",
+          "name": "accountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "account_sequence_number",
+          "name": "accountSequenceNumber",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "address_detail",
+          "name": "addressDetails",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 3
@@ -15011,7 +15141,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "amount_minor_unit",
+          "name": "amountMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 5
@@ -15025,21 +15155,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "balance_minor_unit",
+          "name": "balanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "booking_date_time",
+          "name": "bookingDateTime",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "charge_detail",
+          "name": "chargeDetails",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 9
@@ -15060,7 +15190,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "counterparty_summary",
+          "name": "counterpartySummary",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
@@ -15074,7 +15204,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "currency_exchange",
+          "name": "currencyExchange",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 14
@@ -15102,28 +15232,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "fx_amount",
+          "name": "fxAmount",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "fx_currency",
+          "name": "fxCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "fx_rate",
+          "name": "fxRate",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "gross_amount",
+          "name": "grossAmount",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 21
@@ -15144,7 +15274,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "iso_bank_transaction_code",
+          "name": "isoBankTransactionCode",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 24
@@ -15158,70 +15288,70 @@ class Config {
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
         },
         {
           "active": true,
-          "name": "page_number",
+          "name": "pageNumber",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "page_size",
+          "name": "pageSize",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "payee_detail",
+          "name": "payeeDetails",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "payer_detail",
+          "name": "payerDetails",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "payment_request_custom_field",
+          "name": "paymentRequestCustomFields",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "payment_request_id",
+          "name": "paymentRequestID",
           "req": false,
           "type": "`$STRING`",
           "index$": 32
         },
         {
           "active": true,
-          "name": "payout_id",
+          "name": "payoutID",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "proprietary_bank_transaction_code",
+          "name": "proprietaryBankTransactionCode",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "raw_reference",
+          "name": "rawReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
@@ -15235,14 +15365,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "rule_id",
+          "name": "ruleID",
           "req": false,
           "type": "`$STRING`",
           "index$": 37
         },
         {
           "active": true,
-          "name": "statement_reference",
+          "name": "statementReferences",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 38
@@ -15256,63 +15386,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "supplementary_data",
+          "name": "supplementaryData",
           "req": false,
           "type": "`$ANY`",
           "index$": 40
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 41
         },
         {
           "active": true,
-          "name": "their_reference",
+          "name": "theirReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 42
         },
         {
           "active": true,
-          "name": "total_page",
+          "name": "totalPages",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 43
         },
         {
           "active": true,
-          "name": "total_size",
+          "name": "totalSize",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 44
         },
         {
           "active": true,
-          "name": "transaction_amount",
+          "name": "transactionAmount",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 45
         },
         {
           "active": true,
-          "name": "transaction_date",
+          "name": "transactionDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 46
         },
         {
           "active": true,
-          "name": "transaction_information",
+          "name": "transactionInformation",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 47
         },
         {
           "active": true,
-          "name": "transaction_mutability",
+          "name": "transactionMutability",
           "req": false,
           "type": "`$STRING`",
           "index$": 48
@@ -15326,21 +15456,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "value_date_time",
+          "name": "valueDateTime",
           "req": false,
           "type": "`$STRING`",
           "index$": 50
         },
         {
           "active": true,
-          "name": "virtual_iban",
+          "name": "virtualIBAN",
           "req": false,
           "type": "`$STRING`",
           "index$": 51
         },
         {
           "active": true,
-          "name": "your_reference",
+          "name": "yourReference",
           "req": false,
           "type": "`$STRING`",
           "index$": 52
@@ -15367,6 +15497,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/transactions/{id}/tags",
               "parts": [
@@ -15485,6 +15616,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/transactions",
               "parts": [
@@ -15585,6 +15717,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/openbanking/transactions/{id}/{accountID}",
               "parts": [
@@ -15675,6 +15808,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/transactions",
               "parts": [
@@ -15752,6 +15886,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions",
               "parts": [
@@ -15871,6 +16006,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions/{accountID}/export",
               "parts": [
@@ -15996,6 +16132,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions/{accountID}",
               "parts": [
@@ -16065,6 +16202,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions/{accountID}/from/{sequenceNumber}",
               "parts": [
@@ -16118,6 +16256,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/accounts/{accountID}/transactions/{id}",
               "parts": [
@@ -16160,6 +16299,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions/detail/{id}",
               "parts": [
@@ -16194,6 +16334,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/transactions/{id}/proof",
               "parts": [
@@ -16247,6 +16388,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/transactions/{id}/tag",
               "parts": [
@@ -16295,14 +16437,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "client_session_timeout",
+          "name": "clientSessionTimeouts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "email_address",
+          "name": "emailAddress",
           "op": {
             "update": {
               "req": false,
@@ -16315,7 +16457,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "first_name",
+          "name": "firstName",
           "op": {
             "update": {
               "req": false,
@@ -16335,7 +16477,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "last_name",
+          "name": "lastName",
           "op": {
             "update": {
               "req": false,
@@ -16348,14 +16490,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "passkey_added",
+          "name": "passkeyAdded",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "permission",
+          "name": "permissions",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 6
@@ -16369,21 +16511,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "roles_with_scope",
+          "name": "rolesWithScope",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "two_factor_enabled",
+          "name": "twoFactorEnabled",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "user_invite_id",
+          "name": "userInviteID",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -16445,6 +16587,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/user/{merchantID}/userspaged",
               "parts": [
@@ -16490,6 +16633,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/users",
               "parts": [
@@ -16518,6 +16662,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/whoami",
               "parts": [
@@ -16536,6 +16681,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/metadata/whoamitrustedapp",
               "parts": [
@@ -16554,6 +16700,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/user",
               "parts": [
@@ -16590,6 +16737,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/user/{id}",
               "parts": [
@@ -16628,14 +16776,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "authorisation_status",
+          "name": "authorisationStatus",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "failed_user_invite",
+          "name": "failedUserInvites",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 1
@@ -16649,14 +16797,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "initial_role_id",
+          "name": "initialRoleID",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "invitee_email_address",
+          "name": "inviteeEmailAddress",
           "op": {
             "create": {
               "req": true,
@@ -16669,70 +16817,70 @@ class Config {
         },
         {
           "active": true,
-          "name": "invitee_first_name",
+          "name": "inviteeFirstName",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "invitee_last_name",
+          "name": "inviteeLastName",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "inviter_email_address",
+          "name": "inviterEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "inviter_first_name",
+          "name": "inviterFirstName",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "inviter_last_name",
+          "name": "inviterLastName",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "is_authorised",
+          "name": "isAuthorised",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "is_invitee_registered",
+          "name": "isInviteeRegistered",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "last_invited",
+          "name": "lastInvited",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "merchant_name",
+          "name": "merchantName",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -16746,14 +16894,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "registration_url",
+          "name": "registrationUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
         },
         {
           "active": true,
-          "name": "send_invite_email",
+          "name": "sendInviteEmail",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 17
@@ -16774,14 +16922,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "user_id",
+          "name": "userID",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "user_invite",
+          "name": "userInvites",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 21
@@ -16808,6 +16956,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/userinvites/authorise/{id}",
               "parts": [
@@ -16831,6 +16980,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/userinvites",
               "parts": [
@@ -16848,6 +16998,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/userinvites/batchcreate",
               "parts": [
@@ -16921,6 +17072,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/userinvitespaged",
               "parts": [
@@ -16972,6 +17124,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/userinvites/{id}",
               "parts": [
@@ -17006,6 +17159,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/userinvites/{id}/details",
               "parts": [
@@ -17053,6 +17207,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/userinvites/{id}",
               "parts": [
@@ -17094,6 +17249,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/userinvites/{id}",
               "parts": [
@@ -17132,28 +17288,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "account_name",
+          "name": "accountName",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "account_supplier_name",
+          "name": "accountSupplierName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "available_balance",
+          "name": "availableBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "available_balance_minor_unit",
+          "name": "availableBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
@@ -17167,35 +17323,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "balance_minor_unit",
+          "name": "balanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "bank_name",
+          "name": "bankName",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "consent_id",
+          "name": "consentID",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "created_by",
+          "name": "createdBy",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "created_by_display_name",
+          "name": "createdByDisplayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -17209,28 +17365,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "default_payment_rail",
+          "name": "defaultPaymentRail",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "display_name",
+          "name": "displayName",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "expiry_date",
+          "name": "expiryDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "external_account_icon",
+          "name": "externalAccountIcon",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -17258,63 +17414,63 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_archived",
+          "name": "isArchived",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "is_connected_account",
+          "name": "isConnectedAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "is_default",
+          "name": "isDefault",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "is_trust_account",
+          "name": "isTrustAccount",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "is_virtual",
+          "name": "isVirtual",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "last_transaction",
+          "name": "lastTransaction",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "last_updated",
+          "name": "lastUpdated",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "merchant_name",
+          "name": "merchantName",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
@@ -17328,28 +17484,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "physical_account_id",
+          "name": "physicalAccountID",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "rule",
+          "name": "rules",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance",
+          "name": "submittedPayoutsBalance",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "submitted_payouts_balance_minor_unit",
+          "name": "submittedPayoutsBalanceMinorUnits",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 31
@@ -17363,49 +17519,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "supplier_sepa_instant_status",
+          "name": "supplierSepaInstantStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 33
         },
         {
           "active": true,
-          "name": "xero_bank_feed_connection_status",
+          "name": "xeroBankFeedConnectionStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 34
         },
         {
           "active": true,
-          "name": "xero_bank_feed_last_synced_at",
+          "name": "xeroBankFeedLastSyncedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 35
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failed_at",
+          "name": "xeroBankFeedSyncLastFailedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 36
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_last_failure_reason",
+          "name": "xeroBankFeedSyncLastFailureReason",
           "req": false,
           "type": "`$STRING`",
           "index$": 37
         },
         {
           "active": true,
-          "name": "xero_bank_feed_sync_status",
+          "name": "xeroBankFeedSyncStatus",
           "req": false,
           "type": "`$STRING`",
           "index$": 38
         },
         {
           "active": true,
-          "name": "xero_unsynchronised_transactions_count",
+          "name": "xeroUnsynchronisedTransactionsCount",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 39
@@ -17432,6 +17588,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/accounts/{accountID}/virtual",
               "parts": [
@@ -17488,6 +17645,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/accounts/{accountID}/virtual/{virtualAccountID}",
               "parts": [
@@ -17532,21 +17690,21 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "destination_url",
+          "name": "destinationUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "email_address",
+          "name": "emailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "failed_notification_email_address",
+          "name": "failedNotificationEmailAddress",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -17560,14 +17718,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_active",
+          "name": "isActive",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "merchant_id",
+          "name": "merchantID",
           "op": {
             "create": {
               "req": true,
@@ -17584,7 +17742,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "notification_method",
+          "name": "notificationMethod",
           "op": {
             "create": {
               "req": true,
@@ -17601,7 +17759,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "resource_type",
+          "name": "resourceTypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
@@ -17637,6 +17795,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v1/webhooks",
               "parts": [
@@ -17673,6 +17832,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/webhooks",
               "parts": [
@@ -17729,6 +17889,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/merchants/{merchantID}/webhooks/{id}",
               "parts": [
@@ -17771,6 +17932,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v1/webhooks/{merchantID}",
               "parts": [
@@ -17817,6 +17979,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "DELETE",
               "orig": "/api/v1/webhooks/{id}",
               "parts": [
@@ -17858,6 +18021,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "PUT",
               "orig": "/api/v1/webhooks/{id}",
               "parts": [

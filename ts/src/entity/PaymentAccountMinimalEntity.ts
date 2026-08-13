@@ -37,7 +37,7 @@ class PaymentAccountMinimalEntity extends NofrixionEntityBase<PaymentAccountMini
 
 
 
-  async list(this: any, reqmatch?: PaymentAccountMinimalListMatch, ctrl?: Control): Promise<PaymentAccountMinimal[]> {
+  async list(this: any, reqmatch?: PaymentAccountMinimalListMatch, ctrl?: Control): Promise<PaymentAccountMinimalEntity[]> {
 
     const utility = this._utility
 

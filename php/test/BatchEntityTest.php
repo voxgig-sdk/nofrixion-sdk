@@ -44,7 +44,7 @@ class BatchEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.batch"), "batch_ref01"));
 
         $batch_ref01_data_result = $batch_ref01_ent->create($batch_ref01_data, null);
-        $batch_ref01_data = Helpers::to_map($batch_ref01_data_result);
+        $batch_ref01_data = Helpers::to_map(is_object($batch_ref01_data_result) && method_exists($batch_ref01_data_result, 'data_get') ? $batch_ref01_data_result->data_get() : $batch_ref01_data_result);
         $this->assertNotNull($batch_ref01_data);
         $this->assertNotNull($batch_ref01_data["id"]);
 
@@ -53,7 +53,7 @@ class BatchEntityTest extends TestCase
             "id" => $batch_ref01_data["id"],
         ];
         $batch_ref01_data_dt0_loaded = $batch_ref01_ent->load($batch_ref01_match_dt0, null);
-        $batch_ref01_data_dt0_load_result = Helpers::to_map($batch_ref01_data_dt0_loaded);
+        $batch_ref01_data_dt0_load_result = Helpers::to_map(is_object($batch_ref01_data_dt0_loaded) && method_exists($batch_ref01_data_dt0_loaded, 'data_get') ? $batch_ref01_data_dt0_loaded->data_get() : $batch_ref01_data_dt0_loaded);
         $this->assertNotNull($batch_ref01_data_dt0_load_result);
         $this->assertEquals($batch_ref01_data_dt0_load_result["id"], $batch_ref01_data["id"]);
 

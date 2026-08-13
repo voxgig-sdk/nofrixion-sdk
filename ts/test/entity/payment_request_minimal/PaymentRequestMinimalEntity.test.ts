@@ -64,7 +64,7 @@ describe('PaymentRequestMinimalEntity', async () => {
     const payment_request_minimal_ref01_match: any = {}
     payment_request_minimal_ref01_match['paymentrequest_id'] = setup.idmap['paymentrequest01']
 
-    const payment_request_minimal_ref01_list = await payment_request_minimal_ref01_ent.list(payment_request_minimal_ref01_match)
+    const payment_request_minimal_ref01_list = (await payment_request_minimal_ref01_ent.list(payment_request_minimal_ref01_match)).map((e: any) => e.data())
 
 
   })

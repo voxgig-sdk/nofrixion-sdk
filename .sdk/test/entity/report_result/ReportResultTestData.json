@@ -2,35 +2,35 @@
   "existing": {
     "report_result": {
       "REPORT_RESULT00": {
-        "content": "s46",
-        "content_type": "s47",
-        "last_completed_at": "s48",
-        "merchant_id": "MERCHANT01",
-        "report_name": "s4a",
-        "report_type": "s4b",
-        "statement_number": "s4c",
+        "contentType": "s46",
+        "contents": "s47",
+        "lastCompletedAt": "s48",
+        "merchantID": "s49",
+        "reportName": "s4a",
+        "reportType": "s4b",
+        "statementNumber": "s4c",
         "report_id": "REPORT01",
         "id": "REPORT_RESULT00"
       },
       "REPORT_RESULT01": {
-        "content": "s8c",
-        "content_type": "s8d",
-        "last_completed_at": "s8e",
-        "merchant_id": "MERCHANT01",
-        "report_name": "s90",
-        "report_type": "s91",
-        "statement_number": "s92",
+        "contentType": "s8c",
+        "contents": "s8d",
+        "lastCompletedAt": "s8e",
+        "merchantID": "s8f",
+        "reportName": "s90",
+        "reportType": "s91",
+        "statementNumber": "s92",
         "report_id": "REPORT01",
         "id": "REPORT_RESULT01"
       },
       "REPORT_RESULT02": {
-        "content": "sd2",
-        "content_type": "sd3",
-        "last_completed_at": "sd4",
-        "merchant_id": "MERCHANT01",
-        "report_name": "sd6",
-        "report_type": "sd7",
-        "statement_number": "sd8",
+        "contentType": "sd2",
+        "contents": "sd3",
+        "lastCompletedAt": "sd4",
+        "merchantID": "sd5",
+        "reportName": "sd6",
+        "reportType": "sd7",
+        "statementNumber": "sd8",
         "report_id": "REPORT01",
         "id": "REPORT_RESULT02"
       }
@@ -39,13 +39,13 @@
   "new": {
     "report_result": {
       "report_result_ref01": {
-        "content": "s118",
-        "content_type": "s119",
-        "last_completed_at": "s11a",
-        "merchant_id": "MERCHANT01",
-        "report_name": "s11c",
-        "report_type": "s11d",
-        "statement_number": "s11e"
+        "contentType": "s118",
+        "contents": "s119",
+        "lastCompletedAt": "s11a",
+        "merchantID": "s11b",
+        "reportName": "s11c",
+        "reportType": "s11d",
+        "statementNumber": "s11e"
       }
     }
   }

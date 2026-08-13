@@ -6,37 +6,37 @@ main: kit: entity: report_result: {
 
   fields: [
     {
-      name: "content"
+      name: "contentType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "content_type"
+      name: "contents"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_completed_at"
+      name: "lastCompletedAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "report_name"
+      name: "reportName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "report_type"
+      name: "reportType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "statement_number"
+      name: "statementNumber"
       req: false
       type: "`$INTEGER`"
     }

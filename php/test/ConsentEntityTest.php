@@ -85,7 +85,7 @@ class ConsentEntityTest extends TestCase
         $consent_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $consent_ref01_data_result = $consent_ref01_ent->create($consent_ref01_data, null);
-        $consent_ref01_data = Helpers::to_map($consent_ref01_data_result);
+        $consent_ref01_data = Helpers::to_map(is_object($consent_ref01_data_result) && method_exists($consent_ref01_data_result, 'data_get') ? $consent_ref01_data_result->data_get() : $consent_ref01_data_result);
         $this->assertNotNull($consent_ref01_data);
         $this->assertNotNull($consent_ref01_data["id"]);
 
@@ -108,12 +108,12 @@ class ConsentEntityTest extends TestCase
             "id" => $consent_ref01_data["id"],
         ];
 
-        $consent_ref01_markdef_up0_name = "authorisation_url";
+        $consent_ref01_markdef_up0_name = "authorisationUrl";
         $consent_ref01_markdef_up0_value = "Mark01-consent_ref01_" . $setup["now"];
         $consent_ref01_data_up0_up[$consent_ref01_markdef_up0_name] = $consent_ref01_markdef_up0_value;
 
         $consent_ref01_resdata_up0_result = $consent_ref01_ent->update($consent_ref01_data_up0_up, null);
-        $consent_ref01_resdata_up0 = Helpers::to_map($consent_ref01_resdata_up0_result);
+        $consent_ref01_resdata_up0 = Helpers::to_map(is_object($consent_ref01_resdata_up0_result) && method_exists($consent_ref01_resdata_up0_result, 'data_get') ? $consent_ref01_resdata_up0_result->data_get() : $consent_ref01_resdata_up0_result);
         $this->assertNotNull($consent_ref01_resdata_up0);
         $this->assertEquals($consent_ref01_resdata_up0["id"], $consent_ref01_data_up0_up["id"]);
         $this->assertEquals($consent_ref01_resdata_up0[$consent_ref01_markdef_up0_name], $consent_ref01_markdef_up0_value);
@@ -123,7 +123,7 @@ class ConsentEntityTest extends TestCase
             "id" => $consent_ref01_data["id"],
         ];
         $consent_ref01_data_dt0_loaded = $consent_ref01_ent->load($consent_ref01_match_dt0, null);
-        $consent_ref01_data_dt0_load_result = Helpers::to_map($consent_ref01_data_dt0_loaded);
+        $consent_ref01_data_dt0_load_result = Helpers::to_map(is_object($consent_ref01_data_dt0_loaded) && method_exists($consent_ref01_data_dt0_loaded, 'data_get') ? $consent_ref01_data_dt0_loaded->data_get() : $consent_ref01_data_dt0_loaded);
         $this->assertNotNull($consent_ref01_data_dt0_load_result);
         $this->assertEquals($consent_ref01_data_dt0_load_result["id"], $consent_ref01_data["id"]);
 

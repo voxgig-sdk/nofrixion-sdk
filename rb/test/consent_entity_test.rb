@@ -75,7 +75,7 @@ class ConsentEntityTest < Minitest::Test
     consent_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     consent_ref01_data_result = consent_ref01_ent.create(consent_ref01_data, nil)
-    consent_ref01_data = Helpers.to_map(consent_ref01_data_result)
+    consent_ref01_data = Helpers.to_map(consent_ref01_data_result.respond_to?(:data_get) ? consent_ref01_data_result.data_get : consent_ref01_data_result)
     assert !consent_ref01_data.nil?
     assert !consent_ref01_data["id"].nil?
 
@@ -98,12 +98,12 @@ class ConsentEntityTest < Minitest::Test
       "id" => consent_ref01_data["id"],
     }
 
-    consent_ref01_markdef_up0_name = "authorisation_url"
+    consent_ref01_markdef_up0_name = "authorisationUrl"
     consent_ref01_markdef_up0_value = "Mark01-consent_ref01_#{setup[:now]}"
     consent_ref01_data_up0_up[consent_ref01_markdef_up0_name] = consent_ref01_markdef_up0_value
 
     consent_ref01_resdata_up0_result = consent_ref01_ent.update(consent_ref01_data_up0_up, nil)
-    consent_ref01_resdata_up0 = Helpers.to_map(consent_ref01_resdata_up0_result)
+    consent_ref01_resdata_up0 = Helpers.to_map(consent_ref01_resdata_up0_result.respond_to?(:data_get) ? consent_ref01_resdata_up0_result.data_get : consent_ref01_resdata_up0_result)
     assert !consent_ref01_resdata_up0.nil?
     assert_equal consent_ref01_resdata_up0["id"], consent_ref01_data_up0_up["id"]
     assert_equal consent_ref01_resdata_up0[consent_ref01_markdef_up0_name], consent_ref01_markdef_up0_value
@@ -113,7 +113,7 @@ class ConsentEntityTest < Minitest::Test
       "id" => consent_ref01_data["id"],
     }
     consent_ref01_data_dt0_loaded = consent_ref01_ent.load(consent_ref01_match_dt0, nil)
-    consent_ref01_data_dt0_load_result = Helpers.to_map(consent_ref01_data_dt0_loaded)
+    consent_ref01_data_dt0_load_result = Helpers.to_map(consent_ref01_data_dt0_loaded.respond_to?(:data_get) ? consent_ref01_data_dt0_loaded.data_get : consent_ref01_data_dt0_loaded)
     assert !consent_ref01_data_dt0_load_result.nil?
     assert_equal consent_ref01_data_dt0_load_result["id"], consent_ref01_data["id"]
 

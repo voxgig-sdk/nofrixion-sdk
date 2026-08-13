@@ -42,7 +42,7 @@ main: kit: flow: BasicPayoutFlow:
         ref: "payout_ref01",
         srcdatavar: "payout_ref01_data",
         suffix: "_up0",
-        textfield: "account_id"
+        textfield: "accountID"
       }
 
       op: "update",

@@ -39,7 +39,7 @@ class OpenBankingEntityTest < Minitest::Test
     open_banking_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     open_banking_ref01_data_result = open_banking_ref01_ent.create(open_banking_ref01_data, nil)
-    open_banking_ref01_data = Helpers.to_map(open_banking_ref01_data_result)
+    open_banking_ref01_data = Helpers.to_map(open_banking_ref01_data_result.respond_to?(:data_get) ? open_banking_ref01_data_result.data_get : open_banking_ref01_data_result)
     assert !open_banking_ref01_data.nil?
 
 

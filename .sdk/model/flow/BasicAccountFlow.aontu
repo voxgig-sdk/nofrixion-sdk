@@ -40,7 +40,7 @@ main: kit: flow: BasicAccountFlow:
         ref: "account_ref01",
         srcdatavar: "account_ref01_data",
         suffix: "_up0",
-        textfield: "account_id"
+        textfield: "accountID"
       }
 
       op: "update",

@@ -83,7 +83,7 @@ class RuleEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.rule"), "rule_ref01"));
 
         $rule_ref01_data_result = $rule_ref01_ent->create($rule_ref01_data, null);
-        $rule_ref01_data = Helpers::to_map($rule_ref01_data_result);
+        $rule_ref01_data = Helpers::to_map(is_object($rule_ref01_data_result) && method_exists($rule_ref01_data_result, 'data_get') ? $rule_ref01_data_result->data_get() : $rule_ref01_data_result);
         $this->assertNotNull($rule_ref01_data);
         $this->assertNotNull($rule_ref01_data["id"]);
 
@@ -103,12 +103,12 @@ class RuleEntityTest extends TestCase
             "id" => $rule_ref01_data["id"],
         ];
 
-        $rule_ref01_markdef_up0_name = "account_id";
+        $rule_ref01_markdef_up0_name = "accountID";
         $rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" . $setup["now"];
         $rule_ref01_data_up0_up[$rule_ref01_markdef_up0_name] = $rule_ref01_markdef_up0_value;
 
         $rule_ref01_resdata_up0_result = $rule_ref01_ent->update($rule_ref01_data_up0_up, null);
-        $rule_ref01_resdata_up0 = Helpers::to_map($rule_ref01_resdata_up0_result);
+        $rule_ref01_resdata_up0 = Helpers::to_map(is_object($rule_ref01_resdata_up0_result) && method_exists($rule_ref01_resdata_up0_result, 'data_get') ? $rule_ref01_resdata_up0_result->data_get() : $rule_ref01_resdata_up0_result);
         $this->assertNotNull($rule_ref01_resdata_up0);
         $this->assertEquals($rule_ref01_resdata_up0["id"], $rule_ref01_data_up0_up["id"]);
         $this->assertEquals($rule_ref01_resdata_up0[$rule_ref01_markdef_up0_name], $rule_ref01_markdef_up0_value);
@@ -118,7 +118,7 @@ class RuleEntityTest extends TestCase
             "id" => $rule_ref01_data["id"],
         ];
         $rule_ref01_data_dt0_loaded = $rule_ref01_ent->load($rule_ref01_match_dt0, null);
-        $rule_ref01_data_dt0_load_result = Helpers::to_map($rule_ref01_data_dt0_loaded);
+        $rule_ref01_data_dt0_load_result = Helpers::to_map(is_object($rule_ref01_data_dt0_loaded) && method_exists($rule_ref01_data_dt0_loaded, 'data_get') ? $rule_ref01_data_dt0_loaded->data_get() : $rule_ref01_data_dt0_loaded);
         $this->assertNotNull($rule_ref01_data_dt0_load_result);
         $this->assertEquals($rule_ref01_data_dt0_load_result["id"], $rule_ref01_data["id"]);
 

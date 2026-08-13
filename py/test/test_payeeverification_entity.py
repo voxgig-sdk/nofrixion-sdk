@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestPayeeverificationEntity:
         payeeverification_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.payeeverification"), "payeeverification_ref01"))
 
-        payeeverification_ref01_data = helpers.to_map(payeeverification_ref01_ent.create(payeeverification_ref01_data, None))
+        payeeverification_ref01_data = helpers.to_map(runner.entity_data(payeeverification_ref01_ent.create(payeeverification_ref01_data, None)))
         assert payeeverification_ref01_data is not None
 
 

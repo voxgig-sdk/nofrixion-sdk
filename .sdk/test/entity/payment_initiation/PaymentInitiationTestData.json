@@ -2,32 +2,32 @@
   "existing": {
     "payment_initiation": {
       "PAYMENT_INITIATION00": {
-        "payment_initiation_id": "PAYMENT_INITIATION01",
-        "payment_request_callback_url": "s3d",
-        "payment_request_id": "PAYMENT_REQUEST01",
-        "redirect_url": "s3f",
-        "response_type": "s40",
-        "specific_error_message": "s41",
+        "paymentInitiationID": "s3c",
+        "paymentRequestCallbackUrl": "s3d",
+        "paymentRequestID": "s3e",
+        "redirectUrl": "s3f",
+        "responseType": "s40",
+        "specificErrorMessage": "s41",
         "paymentrequest_id": "PAYMENTREQUEST01",
         "id": "PAYMENT_INITIATION00"
       },
       "PAYMENT_INITIATION01": {
-        "payment_initiation_id": "PAYMENT_INITIATION01",
-        "payment_request_callback_url": "s79",
-        "payment_request_id": "PAYMENT_REQUEST01",
-        "redirect_url": "s7b",
-        "response_type": "s7c",
-        "specific_error_message": "s7d",
+        "paymentInitiationID": "s78",
+        "paymentRequestCallbackUrl": "s79",
+        "paymentRequestID": "s7a",
+        "redirectUrl": "s7b",
+        "responseType": "s7c",
+        "specificErrorMessage": "s7d",
         "paymentrequest_id": "PAYMENTREQUEST01",
         "id": "PAYMENT_INITIATION01"
       },
       "PAYMENT_INITIATION02": {
-        "payment_initiation_id": "PAYMENT_INITIATION01",
-        "payment_request_callback_url": "sb5",
-        "payment_request_id": "PAYMENT_REQUEST01",
-        "redirect_url": "sb7",
-        "response_type": "sb8",
-        "specific_error_message": "sb9",
+        "paymentInitiationID": "sb4",
+        "paymentRequestCallbackUrl": "sb5",
+        "paymentRequestID": "sb6",
+        "redirectUrl": "sb7",
+        "responseType": "sb8",
+        "specificErrorMessage": "sb9",
         "paymentrequest_id": "PAYMENTREQUEST01",
         "id": "PAYMENT_INITIATION02"
       }
@@ -36,12 +36,12 @@
   "new": {
     "payment_initiation": {
       "payment_initiation_ref01": {
-        "payment_initiation_id": "PAYMENT_INITIATION01",
-        "payment_request_callback_url": "sf1",
-        "payment_request_id": "PAYMENT_REQUEST01",
-        "redirect_url": "sf3",
-        "response_type": "sf4",
-        "specific_error_message": "sf5"
+        "paymentInitiationID": "sf0",
+        "paymentRequestCallbackUrl": "sf1",
+        "paymentRequestID": "sf2",
+        "redirectUrl": "sf3",
+        "responseType": "sf4",
+        "specificErrorMessage": "sf5"
       }
     }
   }

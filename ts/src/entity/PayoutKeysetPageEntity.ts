@@ -37,7 +37,7 @@ class PayoutKeysetPageEntity extends NofrixionEntityBase<PayoutKeysetPage> {
 
 
 
-  async list(this: any, reqmatch?: PayoutKeysetPageListMatch, ctrl?: Control): Promise<PayoutKeysetPage[]> {
+  async list(this: any, reqmatch?: PayoutKeysetPageListMatch, ctrl?: Control): Promise<PayoutKeysetPageEntity[]> {
 
     const utility = this._utility
 

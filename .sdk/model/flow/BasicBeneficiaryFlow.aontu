@@ -39,7 +39,7 @@ main: kit: flow: BasicBeneficiaryFlow:
         ref: "beneficiary_ref01",
         srcdatavar: "beneficiary_ref01_data",
         suffix: "_up0",
-        textfield: "approval_callback_url"
+        textfield: "approvalCallbackUrl"
       }
 
       op: "update",

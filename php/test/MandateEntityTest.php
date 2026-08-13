@@ -44,7 +44,7 @@ class MandateEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.mandate"), "mandate_ref01"));
 
         $mandate_ref01_data_result = $mandate_ref01_ent->create($mandate_ref01_data, null);
-        $mandate_ref01_data = Helpers::to_map($mandate_ref01_data_result);
+        $mandate_ref01_data = Helpers::to_map(is_object($mandate_ref01_data_result) && method_exists($mandate_ref01_data_result, 'data_get') ? $mandate_ref01_data_result->data_get() : $mandate_ref01_data_result);
         $this->assertNotNull($mandate_ref01_data);
         $this->assertNotNull($mandate_ref01_data["id"]);
 
@@ -53,7 +53,7 @@ class MandateEntityTest extends TestCase
             "id" => $mandate_ref01_data["id"],
         ];
         $mandate_ref01_data_dt0_loaded = $mandate_ref01_ent->load($mandate_ref01_match_dt0, null);
-        $mandate_ref01_data_dt0_load_result = Helpers::to_map($mandate_ref01_data_dt0_loaded);
+        $mandate_ref01_data_dt0_load_result = Helpers::to_map(is_object($mandate_ref01_data_dt0_loaded) && method_exists($mandate_ref01_data_dt0_loaded, 'data_get') ? $mandate_ref01_data_dt0_loaded->data_get() : $mandate_ref01_data_dt0_loaded);
         $this->assertNotNull($mandate_ref01_data_dt0_load_result);
         $this->assertEquals($mandate_ref01_data_dt0_load_result["id"], $mandate_ref01_data["id"]);
 

@@ -63,7 +63,7 @@ describe('MerchantTokenEntity', async () => {
     let merchant_token_ref01_data = setup.data.new.merchant_token['merchant_token_ref01']
     merchant_token_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    merchant_token_ref01_data = await merchant_token_ref01_ent.create(merchant_token_ref01_data)
+    merchant_token_ref01_data = (await merchant_token_ref01_ent.create(merchant_token_ref01_data)).data()
     assert(null != merchant_token_ref01_data.id)
 
 
@@ -71,7 +71,7 @@ describe('MerchantTokenEntity', async () => {
     const merchant_token_ref01_match: any = {}
     merchant_token_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const merchant_token_ref01_list = await merchant_token_ref01_ent.list(merchant_token_ref01_match)
+    const merchant_token_ref01_list = (await merchant_token_ref01_ent.list(merchant_token_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(merchant_token_ref01_list, { id: merchant_token_ref01_data.id })))
 
@@ -83,7 +83,7 @@ describe('MerchantTokenEntity', async () => {
     const merchant_token_ref01_markdef_up0 = { name: 'description', value: 'Mark01-merchant_token_ref01_' + setup.now }
     ;(merchant_token_ref01_data_up0 as any)[merchant_token_ref01_markdef_up0.name] = merchant_token_ref01_markdef_up0.value
 
-    const merchant_token_ref01_resdata_up0 = await merchant_token_ref01_ent.update(merchant_token_ref01_data_up0)
+    const merchant_token_ref01_resdata_up0 = (await merchant_token_ref01_ent.update(merchant_token_ref01_data_up0)).data()
     assert(merchant_token_ref01_resdata_up0.id === merchant_token_ref01_data_up0.id)
 
     assert((merchant_token_ref01_resdata_up0 as any)[merchant_token_ref01_markdef_up0.name] === merchant_token_ref01_markdef_up0.value)
@@ -92,7 +92,7 @@ describe('MerchantTokenEntity', async () => {
     // LOAD
     const merchant_token_ref01_match_dt0: any = {}
     merchant_token_ref01_match_dt0.id = merchant_token_ref01_data.id
-    const merchant_token_ref01_data_dt0 = await merchant_token_ref01_ent.load(merchant_token_ref01_match_dt0)
+    const merchant_token_ref01_data_dt0 = (await merchant_token_ref01_ent.load(merchant_token_ref01_match_dt0)).data()
     assert(merchant_token_ref01_data_dt0.id === merchant_token_ref01_data.id)
 
 

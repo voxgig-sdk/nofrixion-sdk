@@ -83,7 +83,7 @@ describe("UserInviteEntity", function()
 
     local user_invite_ref01_data_result, err = user_invite_ref01_ent:create(user_invite_ref01_data, nil)
     assert.is_nil(err)
-    user_invite_ref01_data = helpers.to_map(user_invite_ref01_data_result)
+    user_invite_ref01_data = helpers.to_map(type(user_invite_ref01_data_result) == 'table' and user_invite_ref01_data_result.data_get and user_invite_ref01_data_result:data_get() or user_invite_ref01_data_result)
     assert.is_not_nil(user_invite_ref01_data)
     assert.is_not_nil(user_invite_ref01_data["id"])
 
@@ -106,13 +106,13 @@ describe("UserInviteEntity", function()
       id = user_invite_ref01_data["id"],
     }
 
-    local user_invite_ref01_markdef_up0_name = "initial_role_id"
+    local user_invite_ref01_markdef_up0_name = "initialRoleID"
     local user_invite_ref01_markdef_up0_value = "Mark01-user_invite_ref01_" .. tostring(setup.now)
     user_invite_ref01_data_up0_up[user_invite_ref01_markdef_up0_name] = user_invite_ref01_markdef_up0_value
 
     local user_invite_ref01_resdata_up0_result, err = user_invite_ref01_ent:update(user_invite_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local user_invite_ref01_resdata_up0 = helpers.to_map(user_invite_ref01_resdata_up0_result)
+    local user_invite_ref01_resdata_up0 = helpers.to_map(type(user_invite_ref01_resdata_up0_result) == 'table' and user_invite_ref01_resdata_up0_result.data_get and user_invite_ref01_resdata_up0_result:data_get() or user_invite_ref01_resdata_up0_result)
     assert.is_not_nil(user_invite_ref01_resdata_up0)
     assert.are.equal(user_invite_ref01_resdata_up0["id"], user_invite_ref01_data_up0_up["id"])
     assert.are.equal(user_invite_ref01_resdata_up0[user_invite_ref01_markdef_up0_name], user_invite_ref01_markdef_up0_value)
@@ -123,7 +123,7 @@ describe("UserInviteEntity", function()
     }
     local user_invite_ref01_data_dt0_loaded, err = user_invite_ref01_ent:load(user_invite_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local user_invite_ref01_data_dt0_load_result = helpers.to_map(user_invite_ref01_data_dt0_loaded)
+    local user_invite_ref01_data_dt0_load_result = helpers.to_map(type(user_invite_ref01_data_dt0_loaded) == 'table' and user_invite_ref01_data_dt0_loaded.data_get and user_invite_ref01_data_dt0_loaded:data_get() or user_invite_ref01_data_dt0_loaded)
     assert.is_not_nil(user_invite_ref01_data_dt0_load_result)
     assert.are.equal(user_invite_ref01_data_dt0_load_result["id"], user_invite_ref01_data["id"])
 

@@ -42,7 +42,7 @@ describe("RoleEntity", function()
 
     local role_ref01_data_result, err = role_ref01_ent:create(role_ref01_data, nil)
     assert.is_nil(err)
-    role_ref01_data = helpers.to_map(role_ref01_data_result)
+    role_ref01_data = helpers.to_map(type(role_ref01_data_result) == 'table' and role_ref01_data_result.data_get and role_ref01_data_result:data_get() or role_ref01_data_result)
     assert.is_not_nil(role_ref01_data)
 
   end)

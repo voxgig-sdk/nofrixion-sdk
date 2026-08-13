@@ -63,7 +63,7 @@ describe('TagEntity', async () => {
     let tag_ref01_data = setup.data.new.tag['tag_ref01']
     tag_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    tag_ref01_data = await tag_ref01_ent.create(tag_ref01_data)
+    tag_ref01_data = (await tag_ref01_ent.create(tag_ref01_data)).data()
     assert(null != tag_ref01_data.id)
 
 
@@ -71,7 +71,7 @@ describe('TagEntity', async () => {
     const tag_ref01_match: any = {}
     tag_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const tag_ref01_list = await tag_ref01_ent.list(tag_ref01_match)
+    const tag_ref01_list = (await tag_ref01_ent.list(tag_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(tag_ref01_list, { id: tag_ref01_data.id })))
 

@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestPaymentEntity:
         payment_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.payment"), "payment_ref01"))
 
-        payment_ref01_data = helpers.to_map(payment_ref01_ent.create(payment_ref01_data, None))
+        payment_ref01_data = helpers.to_map(runner.entity_data(payment_ref01_ent.create(payment_ref01_data, None)))
         assert payment_ref01_data is not None
         assert payment_ref01_data["id"] is not None
 
@@ -53,11 +53,11 @@ class TestPaymentEntity:
             "id": payment_ref01_data["id"],
         }
 
-        payment_ref01_markdef_up0_name = "base_origin_url"
+        payment_ref01_markdef_up0_name = "baseOriginUrl"
         payment_ref01_markdef_up0_value = "Mark01-payment_ref01_" + str(setup["now"])
         payment_ref01_data_up0_up[payment_ref01_markdef_up0_name] = payment_ref01_markdef_up0_value
 
-        payment_ref01_resdata_up0 = helpers.to_map(payment_ref01_ent.update(payment_ref01_data_up0_up, None))
+        payment_ref01_resdata_up0 = helpers.to_map(runner.entity_data(payment_ref01_ent.update(payment_ref01_data_up0_up, None)))
         assert payment_ref01_resdata_up0 is not None
         assert payment_ref01_resdata_up0["id"] == payment_ref01_data_up0_up["id"]
         assert payment_ref01_resdata_up0[payment_ref01_markdef_up0_name] == payment_ref01_markdef_up0_value
@@ -67,7 +67,7 @@ class TestPaymentEntity:
             "id": payment_ref01_data["id"],
         }
         payment_ref01_data_dt0_loaded = payment_ref01_ent.load(payment_ref01_match_dt0, None)
-        payment_ref01_data_dt0_load_result = helpers.to_map(payment_ref01_data_dt0_loaded)
+        payment_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(payment_ref01_data_dt0_loaded))
         assert payment_ref01_data_dt0_load_result is not None
         assert payment_ref01_data_dt0_load_result["id"] == payment_ref01_data["id"]
 

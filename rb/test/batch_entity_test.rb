@@ -37,7 +37,7 @@ class BatchEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.batch"), "batch_ref01"))
 
     batch_ref01_data_result = batch_ref01_ent.create(batch_ref01_data, nil)
-    batch_ref01_data = Helpers.to_map(batch_ref01_data_result)
+    batch_ref01_data = Helpers.to_map(batch_ref01_data_result.respond_to?(:data_get) ? batch_ref01_data_result.data_get : batch_ref01_data_result)
     assert !batch_ref01_data.nil?
     assert !batch_ref01_data["id"].nil?
 
@@ -46,7 +46,7 @@ class BatchEntityTest < Minitest::Test
       "id" => batch_ref01_data["id"],
     }
     batch_ref01_data_dt0_loaded = batch_ref01_ent.load(batch_ref01_match_dt0, nil)
-    batch_ref01_data_dt0_load_result = Helpers.to_map(batch_ref01_data_dt0_loaded)
+    batch_ref01_data_dt0_load_result = Helpers.to_map(batch_ref01_data_dt0_loaded.respond_to?(:data_get) ? batch_ref01_data_dt0_loaded.data_get : batch_ref01_data_dt0_loaded)
     assert !batch_ref01_data_dt0_load_result.nil?
     assert_equal batch_ref01_data_dt0_load_result["id"], batch_ref01_data["id"]
 

@@ -4,44 +4,6 @@ main: kit: entity: payout_metric: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "all"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "failed"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "in_progress"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "paid"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "pending_approval"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "scheduled"
-      req: false
-      type: "`$NUMBER`"
-    }
-    {
-      name: "total_amounts_by_currency"
-      req: false
-      type: "`$OBJECT`"
-    }
-  ]
-
   name: "payout_metric"
   op: {
     load: {

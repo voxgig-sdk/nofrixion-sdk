@@ -37,7 +37,7 @@ class MerchantDirectDebitMandatePageEntity extends NofrixionEntityBase<MerchantD
 
 
 
-  async list(this: any, reqmatch?: MerchantDirectDebitMandatePageListMatch, ctrl?: Control): Promise<MerchantDirectDebitMandatePage[]> {
+  async list(this: any, reqmatch?: MerchantDirectDebitMandatePageListMatch, ctrl?: Control): Promise<MerchantDirectDebitMandatePageEntity[]> {
 
     const utility = this._utility
 

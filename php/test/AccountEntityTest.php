@@ -85,7 +85,7 @@ class AccountEntityTest extends TestCase
         $account_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $account_ref01_data_result = $account_ref01_ent->create($account_ref01_data, null);
-        $account_ref01_data = Helpers::to_map($account_ref01_data_result);
+        $account_ref01_data = Helpers::to_map(is_object($account_ref01_data_result) && method_exists($account_ref01_data_result, 'data_get') ? $account_ref01_data_result->data_get() : $account_ref01_data_result);
         $this->assertNotNull($account_ref01_data);
         $this->assertNotNull($account_ref01_data["id"]);
 
@@ -107,12 +107,12 @@ class AccountEntityTest extends TestCase
             "id" => $account_ref01_data["id"],
         ];
 
-        $account_ref01_markdef_up0_name = "account_id";
+        $account_ref01_markdef_up0_name = "accountID";
         $account_ref01_markdef_up0_value = "Mark01-account_ref01_" . $setup["now"];
         $account_ref01_data_up0_up[$account_ref01_markdef_up0_name] = $account_ref01_markdef_up0_value;
 
         $account_ref01_resdata_up0_result = $account_ref01_ent->update($account_ref01_data_up0_up, null);
-        $account_ref01_resdata_up0 = Helpers::to_map($account_ref01_resdata_up0_result);
+        $account_ref01_resdata_up0 = Helpers::to_map(is_object($account_ref01_resdata_up0_result) && method_exists($account_ref01_resdata_up0_result, 'data_get') ? $account_ref01_resdata_up0_result->data_get() : $account_ref01_resdata_up0_result);
         $this->assertNotNull($account_ref01_resdata_up0);
         $this->assertEquals($account_ref01_resdata_up0["id"], $account_ref01_data_up0_up["id"]);
         $this->assertEquals($account_ref01_resdata_up0[$account_ref01_markdef_up0_name], $account_ref01_markdef_up0_value);
@@ -122,7 +122,7 @@ class AccountEntityTest extends TestCase
             "id" => $account_ref01_data["id"],
         ];
         $account_ref01_data_dt0_loaded = $account_ref01_ent->load($account_ref01_match_dt0, null);
-        $account_ref01_data_dt0_load_result = Helpers::to_map($account_ref01_data_dt0_loaded);
+        $account_ref01_data_dt0_load_result = Helpers::to_map(is_object($account_ref01_data_dt0_loaded) && method_exists($account_ref01_data_dt0_loaded, 'data_get') ? $account_ref01_data_dt0_loaded->data_get() : $account_ref01_data_dt0_loaded);
         $this->assertNotNull($account_ref01_data_dt0_load_result);
         $this->assertEquals($account_ref01_data_dt0_load_result["id"], $account_ref01_data["id"]);
 

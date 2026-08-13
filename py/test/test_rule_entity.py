@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestRuleEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from nofrixion_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = NofrixionSDK.test(
@@ -78,7 +78,7 @@ class TestRuleEntity:
         rule_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.rule"), "rule_ref01"))
 
-        rule_ref01_data = helpers.to_map(rule_ref01_ent.create(rule_ref01_data, None))
+        rule_ref01_data = helpers.to_map(runner.entity_data(rule_ref01_ent.create(rule_ref01_data, None)))
         assert rule_ref01_data is not None
         assert rule_ref01_data["id"] is not None
 
@@ -98,11 +98,11 @@ class TestRuleEntity:
             "id": rule_ref01_data["id"],
         }
 
-        rule_ref01_markdef_up0_name = "account_id"
+        rule_ref01_markdef_up0_name = "accountID"
         rule_ref01_markdef_up0_value = "Mark01-rule_ref01_" + str(setup["now"])
         rule_ref01_data_up0_up[rule_ref01_markdef_up0_name] = rule_ref01_markdef_up0_value
 
-        rule_ref01_resdata_up0 = helpers.to_map(rule_ref01_ent.update(rule_ref01_data_up0_up, None))
+        rule_ref01_resdata_up0 = helpers.to_map(runner.entity_data(rule_ref01_ent.update(rule_ref01_data_up0_up, None)))
         assert rule_ref01_resdata_up0 is not None
         assert rule_ref01_resdata_up0["id"] == rule_ref01_data_up0_up["id"]
         assert rule_ref01_resdata_up0[rule_ref01_markdef_up0_name] == rule_ref01_markdef_up0_value
@@ -112,7 +112,7 @@ class TestRuleEntity:
             "id": rule_ref01_data["id"],
         }
         rule_ref01_data_dt0_loaded = rule_ref01_ent.load(rule_ref01_match_dt0, None)
-        rule_ref01_data_dt0_load_result = helpers.to_map(rule_ref01_data_dt0_loaded)
+        rule_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(rule_ref01_data_dt0_loaded))
         assert rule_ref01_data_dt0_load_result is not None
         assert rule_ref01_data_dt0_load_result["id"] == rule_ref01_data["id"]
 

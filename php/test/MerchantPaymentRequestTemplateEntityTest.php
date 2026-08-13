@@ -105,7 +105,7 @@ class MerchantPaymentRequestTemplateEntityTest extends TestCase
         $merchant_payment_request_template_ref01_data_up0_up[$merchant_payment_request_template_ref01_markdef_up0_name] = $merchant_payment_request_template_ref01_markdef_up0_value;
 
         $merchant_payment_request_template_ref01_resdata_up0_result = $merchant_payment_request_template_ref01_ent->update($merchant_payment_request_template_ref01_data_up0_up, null);
-        $merchant_payment_request_template_ref01_resdata_up0 = Helpers::to_map($merchant_payment_request_template_ref01_resdata_up0_result);
+        $merchant_payment_request_template_ref01_resdata_up0 = Helpers::to_map(is_object($merchant_payment_request_template_ref01_resdata_up0_result) && method_exists($merchant_payment_request_template_ref01_resdata_up0_result, 'data_get') ? $merchant_payment_request_template_ref01_resdata_up0_result->data_get() : $merchant_payment_request_template_ref01_resdata_up0_result);
         $this->assertNotNull($merchant_payment_request_template_ref01_resdata_up0);
         $this->assertEquals($merchant_payment_request_template_ref01_resdata_up0["id"], $merchant_payment_request_template_ref01_data_up0_up["id"]);
         $this->assertEquals($merchant_payment_request_template_ref01_resdata_up0[$merchant_payment_request_template_ref01_markdef_up0_name], $merchant_payment_request_template_ref01_markdef_up0_value);
@@ -115,7 +115,7 @@ class MerchantPaymentRequestTemplateEntityTest extends TestCase
             "id" => $merchant_payment_request_template_ref01_data["id"],
         ];
         $merchant_payment_request_template_ref01_data_dt0_loaded = $merchant_payment_request_template_ref01_ent->load($merchant_payment_request_template_ref01_match_dt0, null);
-        $merchant_payment_request_template_ref01_data_dt0_load_result = Helpers::to_map($merchant_payment_request_template_ref01_data_dt0_loaded);
+        $merchant_payment_request_template_ref01_data_dt0_load_result = Helpers::to_map(is_object($merchant_payment_request_template_ref01_data_dt0_loaded) && method_exists($merchant_payment_request_template_ref01_data_dt0_loaded, 'data_get') ? $merchant_payment_request_template_ref01_data_dt0_loaded->data_get() : $merchant_payment_request_template_ref01_data_dt0_loaded);
         $this->assertNotNull($merchant_payment_request_template_ref01_data_dt0_load_result);
         $this->assertEquals($merchant_payment_request_template_ref01_data_dt0_load_result["id"], $merchant_payment_request_template_ref01_data["id"]);
 

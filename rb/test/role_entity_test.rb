@@ -38,7 +38,7 @@ class RoleEntityTest < Minitest::Test
     role_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     role_ref01_data_result = role_ref01_ent.create(role_ref01_data, nil)
-    role_ref01_data = Helpers.to_map(role_ref01_data_result)
+    role_ref01_data = Helpers.to_map(role_ref01_data_result.respond_to?(:data_get) ? role_ref01_data_result.data_get : role_ref01_data_result)
     assert !role_ref01_data.nil?
 
   end

@@ -6,66 +6,73 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Account {
-  account_balance?: any[]
-  account_id?: string
-  account_identification?: any[]
-  account_name?: string
-  account_supplier_name?: string
-  account_type?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountBalances?: any[]
+  accountID?: string
+  accountIdentifications?: any[]
+  accountName?: string
+  accountNames?: any[]
+  accountSupplierName?: string
+  accountType?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  consolidated_account_information?: Record<string, any>
-  created_by: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  consolidatedAccountInformation?: Record<string, any>
+  createdBy: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
+  defaultPaymentRail?: string
   description?: string
-  detail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  details?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   format?: string
-  from_date?: string
+  fromDate?: string
   id?: string
   identifier: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   nickname?: string
-  physical_account_id?: string
-  role_i_d?: any[]
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  roleIDs?: any[]
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_physical_account_id?: string
-  supplier_sepa_instant_status?: string
-  to_date?: string
+  supplierPhysicalAccountID?: string
+  supplierSepaInstantStatus?: string
+  toDate?: string
   type?: string
-  usage_type?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  usageType?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface AccountLoadMatch {
   account_id?: string
   id: string
   merchant_id?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'export' | 'statement' | 'transaction_export'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface AccountListMatch {
@@ -75,126 +82,142 @@ export interface AccountListMatch {
 export interface AccountCreateData {
   account_id?: string
   currency?: string
-  account_balance?: any[]
-  account_identification?: any[]
-  account_name?: string
-  account_supplier_name?: string
-  account_type?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountBalances?: any[]
+  accountID?: string
+  accountIdentifications?: any[]
+  accountName?: string
+  accountNames?: any[]
+  accountSupplierName?: string
+  accountType?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  consolidated_account_information?: Record<string, any>
-  created_by: Record<string, any>
-  created_by_display_name?: string
-  default_payment_rail?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  consolidatedAccountInformation?: Record<string, any>
+  createdBy: Record<string, any>
+  createdByDisplayName?: string
+  defaultPaymentRail?: string
   description?: string
-  detail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  details?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   format?: string
-  from_date?: string
+  fromDate?: string
   id?: string
   identifier: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   nickname?: string
-  physical_account_id?: string
-  role_i_d?: any[]
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  roleIDs?: any[]
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_physical_account_id?: string
-  supplier_sepa_instant_status?: string
-  to_date?: string
+  supplierPhysicalAccountID?: string
+  supplierSepaInstantStatus?: string
+  toDate?: string
   type?: string
-  usage_type?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  usageType?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
+
+  // Selects a custom action instead of the plain create:
+  //   'statement'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface AccountUpdateData {
   account_id?: string
   amount?: number
   id?: string
-  account_balance?: any[]
-  account_identification?: any[]
-  account_name?: string
-  account_supplier_name?: string
-  account_type?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountBalances?: any[]
+  accountID?: string
+  accountIdentifications?: any[]
+  accountName?: string
+  accountNames?: any[]
+  accountSupplierName?: string
+  accountType?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  consolidated_account_information?: Record<string, any>
-  created_by?: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  consolidatedAccountInformation?: Record<string, any>
+  createdBy?: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
+  defaultPaymentRail?: string
   description?: string
-  detail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  details?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   format?: string
-  from_date?: string
+  fromDate?: string
   identifier?: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   nickname?: string
-  physical_account_id?: string
-  role_i_d?: any[]
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  roleIDs?: any[]
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_physical_account_id?: string
-  supplier_sepa_instant_status?: string
-  to_date?: string
+  supplierPhysicalAccountID?: string
+  supplierSepaInstantStatus?: string
+  toDate?: string
   type?: string
-  usage_type?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  usageType?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface AccountRemoveMatch {
   id: string
+
+  // Selects a custom action instead of the plain remove:
+  //   'statement'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Batch {
-  approve_url?: string
+  approveUrl?: string
   id?: string
-  payout?: any[]
+  payouts?: any[]
 }
 
 export interface BatchLoadMatch {
@@ -202,43 +225,49 @@ export interface BatchLoadMatch {
 }
 
 export interface BatchCreateData {
-  approve_url?: string
+  approveUrl?: string
   id?: string
-  payout?: any[]
+  payouts?: any[]
 }
 
 export interface Beneficiary {
-  approval_callback_url?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  beneficiary?: any[]
-  beneficiary_event?: any[]
-  can_authorise?: boolean
-  can_update?: boolean
-  created_by: Record<string, any>
-  created_by_email_address?: string
+  approvalCallbackUrl?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  beneficiaries?: any[]
+  beneficiaryEvents?: any[]
+  canAuthorise?: boolean
+  canUpdate?: boolean
+  createdBy: Record<string, any>
+  createdByEmailAddress?: string
   currency: string
   destination?: Record<string, any>
-  failed_beneficiary?: Record<string, any>
-  has_current_user_authorised?: boolean
+  failedBeneficiaries?: Record<string, any>
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   name: string
   nonce?: string
-  source_account?: any[]
-  source_account_i_d?: any[]
-  their_reference?: string
+  sourceAccountIDs?: any[]
+  sourceAccounts?: any[]
+  theirReference?: string
 }
 
 export interface BeneficiaryLoadMatch {
   id: string
   merchant_id?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'export'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface BeneficiaryListMatch {
@@ -247,60 +276,66 @@ export interface BeneficiaryListMatch {
 
 export interface BeneficiaryCreateData {
   id?: string
-  approval_callback_url?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  beneficiary?: any[]
-  beneficiary_event?: any[]
-  can_authorise?: boolean
-  can_update?: boolean
-  created_by: Record<string, any>
-  created_by_email_address?: string
+  approvalCallbackUrl?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  beneficiaries?: any[]
+  beneficiaryEvents?: any[]
+  canAuthorise?: boolean
+  canUpdate?: boolean
+  createdBy: Record<string, any>
+  createdByEmailAddress?: string
   currency: string
   destination?: Record<string, any>
-  failed_beneficiary?: Record<string, any>
-  has_current_user_authorised?: boolean
+  failedBeneficiaries?: Record<string, any>
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   name: string
   nonce?: string
-  source_account?: any[]
-  source_account_i_d?: any[]
-  their_reference?: string
+  sourceAccountIDs?: any[]
+  sourceAccounts?: any[]
+  theirReference?: string
+
+  // Selects a custom action instead of the plain create:
+  //   'batchcreate'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface BeneficiaryUpdateData {
   id: string
-  approval_callback_url?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  beneficiary?: any[]
-  beneficiary_event?: any[]
-  can_authorise?: boolean
-  can_update?: boolean
-  created_by?: Record<string, any>
-  created_by_email_address?: string
+  approvalCallbackUrl?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  beneficiaries?: any[]
+  beneficiaryEvents?: any[]
+  canAuthorise?: boolean
+  canUpdate?: boolean
+  createdBy?: Record<string, any>
+  createdByEmailAddress?: string
   currency?: string
   destination?: Record<string, any>
-  failed_beneficiary?: Record<string, any>
-  has_current_user_authorised?: boolean
+  failedBeneficiaries?: Record<string, any>
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
   nonce?: string
-  source_account?: any[]
-  source_account_i_d?: any[]
-  their_reference?: string
+  sourceAccountIDs?: any[]
+  sourceAccounts?: any[]
+  theirReference?: string
 }
 
 export interface BeneficiaryRemoveMatch {
@@ -308,12 +343,12 @@ export interface BeneficiaryRemoveMatch {
 }
 
 export interface BeneficiaryGroup {
-  group_member?: any[]
-  group_name: string
+  groupMembers?: any[]
+  groupName: string
   id?: string
   inserted?: string
-  last_updated?: string
-  merchant_id: string
+  lastUpdated?: string
+  merchantID: string
 }
 
 export interface BeneficiaryGroupListMatch {
@@ -321,58 +356,58 @@ export interface BeneficiaryGroupListMatch {
 }
 
 export interface Card {
-  authorized_amount?: string
-  currency_code?: string
-  is_payer_authentication_required?: boolean
-  is_soft_decline?: boolean
-  payer_authentication_access_token?: string
-  payer_authentication_merchant_data?: string
-  payer_authentication_url?: string
-  payer_authentication_window_height?: number
-  payer_authentication_window_width?: number
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  request_id?: string
-  response_code?: string
-  response_type?: string
+  authorizedAmount?: string
+  currencyCode?: string
+  isPayerAuthenticationRequired?: boolean
+  isSoftDecline?: boolean
+  payerAuthenticationAccessToken?: string
+  payerAuthenticationMerchantData?: string
+  payerAuthenticationUrl?: string
+  payerAuthenticationWindowHeight?: number
+  payerAuthenticationWindowWidth?: number
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  requestID?: string
+  responseCode?: string
+  responseType?: string
   status?: string
-  three_ds_redirect_url?: string
-  transaction_id?: string
+  threeDSRedirectUrl?: string
+  transactionID?: string
 }
 
 export interface CardCreateData {
   paymentrequest_id: string
-  authorized_amount?: string
-  currency_code?: string
-  is_payer_authentication_required?: boolean
-  is_soft_decline?: boolean
-  payer_authentication_access_token?: string
-  payer_authentication_merchant_data?: string
-  payer_authentication_url?: string
-  payer_authentication_window_height?: number
-  payer_authentication_window_width?: number
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  request_id?: string
-  response_code?: string
-  response_type?: string
+  authorizedAmount?: string
+  currencyCode?: string
+  isPayerAuthenticationRequired?: boolean
+  isSoftDecline?: boolean
+  payerAuthenticationAccessToken?: string
+  payerAuthenticationMerchantData?: string
+  payerAuthenticationUrl?: string
+  payerAuthenticationWindowHeight?: number
+  payerAuthenticationWindowWidth?: number
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  requestID?: string
+  responseCode?: string
+  responseType?: string
   status?: string
-  three_ds_redirect_url?: string
-  transaction_id?: string
+  threeDSRedirectUrl?: string
+  transactionID?: string
 }
 
 export interface CardCustomerToken {
-  card_type?: string
-  customer_email_address?: string
-  expiry_month?: string
-  expiry_year?: string
+  cardType?: string
+  customerEmailAddress?: string
+  expiryMonth?: string
+  expiryYear?: string
   id?: string
   inserted?: string
-  last_four_digit?: string
-  last_updated?: string
-  masked_card_number?: string
-  merchant_id?: string
-  payment_request_id?: string
+  lastFourDigits?: string
+  lastUpdated?: string
+  maskedCardNumber?: string
+  merchantID?: string
+  paymentRequestID?: string
 }
 
 export interface CardCustomerTokenLoadMatch {
@@ -391,45 +426,45 @@ export interface CardCustomerTokenRemoveMatch {
 }
 
 export interface CardPayment {
-  authorized_amount?: string
-  currency_code?: string
-  is_payer_authentication_required?: boolean
-  is_soft_decline?: boolean
-  payer_authentication_access_token?: string
-  payer_authentication_merchant_data?: string
-  payer_authentication_url?: string
-  payer_authentication_window_height?: number
-  payer_authentication_window_width?: number
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  request_id?: string
-  response_code?: string
-  response_type?: string
+  authorizedAmount?: string
+  currencyCode?: string
+  isPayerAuthenticationRequired?: boolean
+  isSoftDecline?: boolean
+  payerAuthenticationAccessToken?: string
+  payerAuthenticationMerchantData?: string
+  payerAuthenticationUrl?: string
+  payerAuthenticationWindowHeight?: number
+  payerAuthenticationWindowWidth?: number
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  requestID?: string
+  responseCode?: string
+  responseType?: string
   status?: string
-  three_ds_redirect_url?: string
-  transaction_id?: string
+  threeDSRedirectUrl?: string
+  transactionID?: string
 }
 
 export interface CardPaymentCreateData {
   partial_refund_amount?: number
   paymentrequest_id: string
-  authorized_amount?: string
-  currency_code?: string
-  is_payer_authentication_required?: boolean
-  is_soft_decline?: boolean
-  payer_authentication_access_token?: string
-  payer_authentication_merchant_data?: string
-  payer_authentication_url?: string
-  payer_authentication_window_height?: number
-  payer_authentication_window_width?: number
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  request_id?: string
-  response_code?: string
-  response_type?: string
+  authorizedAmount?: string
+  currencyCode?: string
+  isPayerAuthenticationRequired?: boolean
+  isSoftDecline?: boolean
+  payerAuthenticationAccessToken?: string
+  payerAuthenticationMerchantData?: string
+  payerAuthenticationUrl?: string
+  payerAuthenticationWindowHeight?: number
+  payerAuthenticationWindowWidth?: number
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  requestID?: string
+  responseCode?: string
+  responseType?: string
   status?: string
-  three_ds_redirect_url?: string
-  transaction_id?: string
+  threeDSRedirectUrl?: string
+  transactionID?: string
 }
 
 export interface CardPublicKey {
@@ -441,20 +476,20 @@ export interface CardPublicKeyLoadMatch {
 }
 
 export interface Consent {
-  authorisation_url?: string
-  callback_url?: string
-  consent_id?: string
-  email_address?: string
-  expiry_date?: string
-  failure_callback_url?: string
+  authorisationUrl?: string
+  callbackUrl?: string
+  consentID?: string
+  emailAddress?: string
+  expiryDate?: string
+  failureCallbackUrl?: string
   id?: string
   inserted?: string
-  institution_id?: string
-  is_connected_account?: boolean
-  is_enabled?: boolean
-  merchant_id?: string
+  institutionID?: string
+  isConnectedAccounts?: boolean
+  isEnabled?: boolean
+  merchantID?: string
   provider?: string
-  success_web_hook_url?: string
+  successWebHookUrl?: string
 }
 
 export interface ConsentLoadMatch {
@@ -467,37 +502,37 @@ export interface ConsentListMatch {
 }
 
 export interface ConsentCreateData {
-  authorisation_url?: string
-  callback_url?: string
-  consent_id?: string
-  email_address?: string
-  expiry_date?: string
-  failure_callback_url?: string
+  authorisationUrl?: string
+  callbackUrl?: string
+  consentID?: string
+  emailAddress?: string
+  expiryDate?: string
+  failureCallbackUrl?: string
   id?: string
   inserted?: string
-  institution_id?: string
-  is_connected_account?: boolean
-  is_enabled?: boolean
-  merchant_id?: string
+  institutionID?: string
+  isConnectedAccounts?: boolean
+  isEnabled?: boolean
+  merchantID?: string
   provider?: string
-  success_web_hook_url?: string
+  successWebHookUrl?: string
 }
 
 export interface ConsentUpdateData {
   id: string
-  authorisation_url?: string
-  callback_url?: string
-  consent_id?: string
-  email_address?: string
-  expiry_date?: string
-  failure_callback_url?: string
+  authorisationUrl?: string
+  callbackUrl?: string
+  consentID?: string
+  emailAddress?: string
+  expiryDate?: string
+  failureCallbackUrl?: string
   inserted?: string
-  institution_id?: string
-  is_connected_account?: boolean
-  is_enabled?: boolean
-  merchant_id?: string
+  institutionID?: string
+  isConnectedAccounts?: boolean
+  isEnabled?: boolean
+  merchantID?: string
   provider?: string
-  success_web_hook_url?: string
+  successWebHookUrl?: string
 }
 
 export interface ConsentRemoveMatch {
@@ -506,38 +541,38 @@ export interface ConsentRemoveMatch {
 
 export interface Currency {
   code?: string
-  decimal?: number
-  is_fiat?: boolean
-  iso4217_alpha_code?: string
-  iso4217_numeric_code?: string
+  decimals?: number
+  isFiat?: boolean
+  iso4217AlphaCode?: string
+  iso4217NumericCode?: string
   symbol?: string
 }
 
 export interface CurrencyListMatch {
   code?: string
-  decimal?: number
-  is_fiat?: boolean
-  iso4217_alpha_code?: string
-  iso4217_numeric_code?: string
+  decimals?: number
+  isFiat?: boolean
+  iso4217AlphaCode?: string
+  iso4217NumericCode?: string
   symbol?: string
 }
 
 export interface DirectDebitBatchSubmit {
-  failed_submission?: Record<string, any>
-  successful_submission?: any[]
+  failedSubmissions?: Record<string, any>
+  successfulSubmissions?: any[]
 }
 
 export interface DirectDebitBatchSubmitCreateData {
-  failed_submission?: Record<string, any>
-  successful_submission?: any[]
+  failedSubmissions?: Record<string, any>
+  successfulSubmissions?: any[]
 }
 
 export interface FxRate {
-  destination_currency?: string
-  exchange_rate?: number
-  expiry_time?: string
-  quote_id?: string
-  source_currency?: string
+  destinationCurrency?: string
+  exchangeRate?: number
+  expiryTime?: string
+  quoteID?: string
+  sourceCurrency?: string
 }
 
 export interface FxRateLoadMatch {
@@ -552,50 +587,50 @@ export interface FxRateListMatch {
 }
 
 export interface IPayment {
-  payment_request_id?: string
-  response_type?: string
+  paymentRequestID?: string
+  responseType?: string
 }
 
 export interface IPaymentCreateData {
-  payment_request_id?: string
-  response_type?: string
+  paymentRequestID?: string
+  responseType?: string
 }
 
 export interface Mandate {
-  account_number?: string
-  address_line1: string
-  address_line2?: string
-  approved_at?: string
+  accountNumber?: string
+  addressLine1: string
+  addressLine2?: string
+  approvedAt?: string
   city: string
-  country_code: string
+  countryCode: string
   currency?: string
-  customer_account_number?: string
-  customer_city?: string
-  customer_country_code?: string
-  customer_country_name?: string
-  customer_email_address?: string
-  customer_first_name?: string
-  customer_iban?: string
-  customer_last_name?: string
-  customer_sort_code?: string
-  email_address: string
-  first_name: string
+  customerAccountNumber?: string
+  customerCity?: string
+  customerCountryCode?: string
+  customerCountryName?: string
+  customerEmailAddress?: string
+  customerFirstName?: string
+  customerIban?: string
+  customerLastName?: string
+  customerSortCode?: string
+  emailAddress: string
+  firstName: string
   iban?: string
   id?: string
   inserted?: string
-  is_recurring?: boolean
-  last_name: string
-  last_updated?: string
-  merchant_id?: string
-  postal_code: string
+  isRecurring?: boolean
+  lastName: string
+  lastUpdated?: string
+  merchantID?: string
+  postalCode: string
   reference?: string
-  sort_code?: string
+  sortCode?: string
   status?: string
-  supplier_bank_account_id?: string
-  supplier_customer_id?: string
-  supplier_mandate_id?: string
-  supplier_name?: string
-  supplier_status?: string
+  supplierBankAccountID?: string
+  supplierCustomerID?: string
+  supplierMandateID?: string
+  supplierName?: string
+  supplierStatus?: string
 }
 
 export interface MandateLoadMatch {
@@ -603,140 +638,158 @@ export interface MandateLoadMatch {
 }
 
 export interface MandateCreateData {
-  account_number?: string
-  address_line1: string
-  address_line2?: string
-  approved_at?: string
+  accountNumber?: string
+  addressLine1: string
+  addressLine2?: string
+  approvedAt?: string
   city: string
-  country_code: string
+  countryCode: string
   currency?: string
-  customer_account_number?: string
-  customer_city?: string
-  customer_country_code?: string
-  customer_country_name?: string
-  customer_email_address?: string
-  customer_first_name?: string
-  customer_iban?: string
-  customer_last_name?: string
-  customer_sort_code?: string
-  email_address: string
-  first_name: string
+  customerAccountNumber?: string
+  customerCity?: string
+  customerCountryCode?: string
+  customerCountryName?: string
+  customerEmailAddress?: string
+  customerFirstName?: string
+  customerIban?: string
+  customerLastName?: string
+  customerSortCode?: string
+  emailAddress: string
+  firstName: string
   iban?: string
   id?: string
   inserted?: string
-  is_recurring?: boolean
-  last_name: string
-  last_updated?: string
-  merchant_id?: string
-  postal_code: string
+  isRecurring?: boolean
+  lastName: string
+  lastUpdated?: string
+  merchantID?: string
+  postalCode: string
   reference?: string
-  sort_code?: string
+  sortCode?: string
   status?: string
-  supplier_bank_account_id?: string
-  supplier_customer_id?: string
-  supplier_mandate_id?: string
-  supplier_name?: string
-  supplier_status?: string
+  supplierBankAccountID?: string
+  supplierCustomerID?: string
+  supplierMandateID?: string
+  supplierName?: string
+  supplierStatus?: string
 }
 
 export interface Merchant {
-  account_currency?: any[]
-  can_have_trust_account?: boolean
-  card_payment_processor?: string
-  company_id?: string
-  display_qr_on_hosted_pay?: boolean
-  hosted_pay_version?: number
+  accountCurrencies?: any[]
+  canHaveTrustAccounts?: boolean
+  cardPaymentProcessor?: string
+  companyID?: string
+  displayQrOnHostedPay?: boolean
+  hostedPayVersion?: number
   id?: string
   inserted?: string
-  is_blocked?: boolean
-  is_exited?: boolean
-  is_suspended?: boolean
+  isBlocked?: boolean
+  isExited?: boolean
+  isSuspended?: boolean
   jurisdiction?: string
-  logo_url_png?: string
-  logo_url_svg?: string
-  merchant_category_code?: string
+  logoUrlPng?: string
+  logoUrlSvg?: string
+  merchantCategoryCode?: string
   name?: string
-  note?: string
-  parent_merchant?: Record<string, any>
-  payment_account?: any[]
-  payment_account_limit?: number
+  notes?: string
+  parentMerchant?: Record<string, any>
+  paymentAccountLimit?: number
+  paymentAccounts?: any[]
   reason?: string
-  short_name?: string
-  supported_payment_methods_list?: any[]
-  suspension_reason?: string
-  tag?: any[]
-  time_zone_id?: string
-  trading_name?: string
-  web_hook_limit?: number
-  your_role_name?: string
+  shortName?: string
+  supportedPaymentMethodsList?: any[]
+  suspensionReason?: string
+  tags?: any[]
+  timeZoneId?: string
+  tradingName?: string
+  webHookLimit?: number
+  yourRoleName?: string
 }
 
 export interface MerchantLoadMatch {
   id: string
+
+  // Selects a custom action instead of the plain load:
+  //   'beneficiary_export' | 'payout_export'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface MerchantListMatch {
-  account_currency?: any[]
-  can_have_trust_account?: boolean
-  card_payment_processor?: string
-  company_id?: string
-  display_qr_on_hosted_pay?: boolean
-  hosted_pay_version?: number
+  accountCurrencies?: any[]
+  canHaveTrustAccounts?: boolean
+  cardPaymentProcessor?: string
+  companyID?: string
+  displayQrOnHostedPay?: boolean
+  hostedPayVersion?: number
   id?: string
   inserted?: string
-  is_blocked?: boolean
-  is_exited?: boolean
-  is_suspended?: boolean
+  isBlocked?: boolean
+  isExited?: boolean
+  isSuspended?: boolean
   jurisdiction?: string
-  logo_url_png?: string
-  logo_url_svg?: string
-  merchant_category_code?: string
+  logoUrlPng?: string
+  logoUrlSvg?: string
+  merchantCategoryCode?: string
   name?: string
-  note?: string
-  parent_merchant?: Record<string, any>
-  payment_account?: any[]
-  payment_account_limit?: number
+  notes?: string
+  parentMerchant?: Record<string, any>
+  paymentAccountLimit?: number
+  paymentAccounts?: any[]
   reason?: string
-  short_name?: string
-  supported_payment_methods_list?: any[]
-  suspension_reason?: string
-  tag?: any[]
-  time_zone_id?: string
-  trading_name?: string
-  web_hook_limit?: number
-  your_role_name?: string
+  shortName?: string
+  supportedPaymentMethodsList?: any[]
+  suspensionReason?: string
+  tags?: any[]
+  timeZoneId?: string
+  tradingName?: string
+  webHookLimit?: number
+  yourRoleName?: string
+
+  // Selects a custom action instead of the plain list:
+  //   'childmerchant' | 'paged'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface MerchantUpdateData {
   id: string
-  account_currency?: any[]
-  can_have_trust_account?: boolean
-  card_payment_processor?: string
-  company_id?: string
-  display_qr_on_hosted_pay?: boolean
-  hosted_pay_version?: number
+  accountCurrencies?: any[]
+  canHaveTrustAccounts?: boolean
+  cardPaymentProcessor?: string
+  companyID?: string
+  displayQrOnHostedPay?: boolean
+  hostedPayVersion?: number
   inserted?: string
-  is_blocked?: boolean
-  is_exited?: boolean
-  is_suspended?: boolean
+  isBlocked?: boolean
+  isExited?: boolean
+  isSuspended?: boolean
   jurisdiction?: string
-  logo_url_png?: string
-  logo_url_svg?: string
-  merchant_category_code?: string
+  logoUrlPng?: string
+  logoUrlSvg?: string
+  merchantCategoryCode?: string
   name?: string
-  note?: string
-  parent_merchant?: Record<string, any>
-  payment_account?: any[]
-  payment_account_limit?: number
+  notes?: string
+  parentMerchant?: Record<string, any>
+  paymentAccountLimit?: number
+  paymentAccounts?: any[]
   reason?: string
-  short_name?: string
-  supported_payment_methods_list?: any[]
-  suspension_reason?: string
-  tag?: any[]
-  time_zone_id?: string
-  trading_name?: string
-  web_hook_limit?: number
-  your_role_name?: string
+  shortName?: string
+  supportedPaymentMethodsList?: any[]
+  suspensionReason?: string
+  tags?: any[]
+  timeZoneId?: string
+  tradingName?: string
+  webHookLimit?: number
+  yourRoleName?: string
+
+  // Selects a custom action instead of the plain update:
+  //   'suspend'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface MerchantRemoveMatch {
@@ -747,17 +800,17 @@ export interface MerchantRemoveMatch {
 }
 
 export interface MerchantAuthorisationSetting {
-  amount_lower?: number
-  amount_upper?: number
-  authorisation_type?: string
-  beneficiaries_only?: boolean
+  amountLower?: number
+  amountUpper?: number
+  authorisationType?: string
+  beneficiariesOnly?: boolean
   id?: string
   inserted?: string
-  last_editor_cant_authorise?: boolean
-  last_updated?: string
-  merchant_id?: string
-  number_of_authoriser?: number
-  role_setting?: any[]
+  lastEditorCantAuthorise?: boolean
+  lastUpdated?: string
+  merchantID?: string
+  numberOfAuthorisers?: number
+  roleSettings?: any[]
 }
 
 export interface MerchantAuthorisationSettingListMatch {
@@ -765,71 +818,71 @@ export interface MerchantAuthorisationSettingListMatch {
 }
 
 export interface MerchantDirectDebitMandatePage {
-  approved_at?: string
+  approvedAt?: string
   currency?: string
-  customer_account_number?: string
-  customer_city?: string
-  customer_country_code?: string
-  customer_country_name?: string
-  customer_email_address?: string
-  customer_first_name?: string
-  customer_iban?: string
-  customer_last_name?: string
-  customer_sort_code?: string
+  customerAccountNumber?: string
+  customerCity?: string
+  customerCountryCode?: string
+  customerCountryName?: string
+  customerEmailAddress?: string
+  customerFirstName?: string
+  customerIban?: string
+  customerLastName?: string
+  customerSortCode?: string
   id?: string
   inserted?: string
-  is_recurring?: boolean
-  last_updated?: string
-  merchant_id?: string
+  isRecurring?: boolean
+  lastUpdated?: string
+  merchantID?: string
   reference?: string
   status?: string
-  supplier_bank_account_id?: string
-  supplier_customer_id?: string
-  supplier_mandate_id?: string
-  supplier_name?: string
-  supplier_status?: string
+  supplierBankAccountID?: string
+  supplierCustomerID?: string
+  supplierMandateID?: string
+  supplierName?: string
+  supplierStatus?: string
 }
 
 export interface MerchantDirectDebitMandatePageListMatch {
-  approved_at?: string
+  approvedAt?: string
   currency?: string
-  customer_account_number?: string
-  customer_city?: string
-  customer_country_code?: string
-  customer_country_name?: string
-  customer_email_address?: string
-  customer_first_name?: string
-  customer_iban?: string
-  customer_last_name?: string
-  customer_sort_code?: string
+  customerAccountNumber?: string
+  customerCity?: string
+  customerCountryCode?: string
+  customerCountryName?: string
+  customerEmailAddress?: string
+  customerFirstName?: string
+  customerIban?: string
+  customerLastName?: string
+  customerSortCode?: string
   id?: string
   inserted?: string
-  is_recurring?: boolean
-  last_updated?: string
-  merchant_id?: string
+  isRecurring?: boolean
+  lastUpdated?: string
+  merchantID?: string
   reference?: string
   status?: string
-  supplier_bank_account_id?: string
-  supplier_customer_id?: string
-  supplier_mandate_id?: string
-  supplier_name?: string
-  supplier_status?: string
+  supplierBankAccountID?: string
+  supplierCustomerID?: string
+  supplierMandateID?: string
+  supplierName?: string
+  supplierStatus?: string
 }
 
 export interface MerchantPayByBankSetting {
-  bank_country_code?: any[]
-  bank_id?: string
-  bank_name?: string
-  business_institution_id?: string
+  bankCountryCodes?: any[]
+  bankID?: string
+  bankName?: string
+  businessInstitutionID?: string
   currency?: string
   logo?: string
   message?: string
-  message_image_url?: string
+  messageImageUrl?: string
   order?: number
-  personal_institution_id?: string
+  personalInstitutionID?: string
   processor?: string
-  warning_heading?: string
-  warning_message?: string
+  warningHeading?: string
+  warningMessage?: string
 }
 
 export interface MerchantPayByBankSettingListMatch {
@@ -837,12 +890,21 @@ export interface MerchantPayByBankSettingListMatch {
 }
 
 export interface MerchantPaymentRequestTemplate {
+  bankPaymentOptions?: Record<string, any>
+  cardPaymentAddressOptions?: Record<string, any>
+  cardPaymentCaptureOptions?: Record<string, any>
+  customFields?: any[]
+  defaultFields?: any[]
   description: string
   id?: string
   inserted?: string
-  last_updated?: string
-  merchant_id?: string
+  lastUpdated?: string
+  merchantID?: string
   name: string
+  notificationOptions?: Record<string, any>
+  paymentMethods?: Record<string, any>
+  paymentTerms?: Record<string, any>
+  priorityBankOptions?: Record<string, any>
   template: Record<string, any>
 }
 
@@ -858,11 +920,20 @@ export interface MerchantPaymentRequestTemplateListMatch {
 export interface MerchantPaymentRequestTemplateUpdateData {
   id: string
   paymentrequest_id: string
+  bankPaymentOptions?: Record<string, any>
+  cardPaymentAddressOptions?: Record<string, any>
+  cardPaymentCaptureOptions?: Record<string, any>
+  customFields?: any[]
+  defaultFields?: any[]
   description?: string
   inserted?: string
-  last_updated?: string
-  merchant_id?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
+  notificationOptions?: Record<string, any>
+  paymentMethods?: Record<string, any>
+  paymentTerms?: Record<string, any>
+  priorityBankOptions?: Record<string, any>
   template?: Record<string, any>
 }
 
@@ -872,28 +943,28 @@ export interface MerchantPaymentRequestTemplateRemoveMatch {
 }
 
 export interface MerchantToken {
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
   description?: string
-  expires_at?: string
-  has_current_user_authorised?: boolean
-  hmac_algorithm?: string
+  expiresAt?: string
+  hasCurrentUserAuthorised?: boolean
+  hmacAlgorithm?: string
   id?: string
   inserted?: string
-  ip_address_whitelist?: string
-  is_archived?: boolean
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  ipAddressWhitelist?: string
+  isArchived?: boolean
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   nonce: string
-  permission_type?: any[]
-  request_signature_version?: number
-  shared_secret_algorithm?: string
-  shared_secret_base64?: string
+  permissionTypes?: any[]
+  requestSignatureVersion?: number
+  sharedSecretAlgorithm?: string
+  sharedSecretBase64?: string
   token?: string
 }
 
@@ -906,54 +977,54 @@ export interface MerchantTokenListMatch {
 }
 
 export interface MerchantTokenCreateData {
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
   description?: string
-  expires_at?: string
-  has_current_user_authorised?: boolean
-  hmac_algorithm?: string
+  expiresAt?: string
+  hasCurrentUserAuthorised?: boolean
+  hmacAlgorithm?: string
   id?: string
   inserted?: string
-  ip_address_whitelist?: string
-  is_archived?: boolean
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  ipAddressWhitelist?: string
+  isArchived?: boolean
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   nonce: string
-  permission_type?: any[]
-  request_signature_version?: number
-  shared_secret_algorithm?: string
-  shared_secret_base64?: string
+  permissionTypes?: any[]
+  requestSignatureVersion?: number
+  sharedSecretAlgorithm?: string
+  sharedSecretBase64?: string
   token?: string
 }
 
 export interface MerchantTokenUpdateData {
   id: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
   description?: string
-  expires_at?: string
-  has_current_user_authorised?: boolean
-  hmac_algorithm?: string
+  expiresAt?: string
+  hasCurrentUserAuthorised?: boolean
+  hmacAlgorithm?: string
   inserted?: string
-  ip_address_whitelist?: string
-  is_archived?: boolean
-  is_enabled?: boolean
-  last_authorised?: string
-  last_updated?: string
-  merchant_id?: string
+  ipAddressWhitelist?: string
+  isArchived?: boolean
+  isEnabled?: boolean
+  lastAuthorised?: string
+  lastUpdated?: string
+  merchantID?: string
   nonce?: string
-  permission_type?: any[]
-  request_signature_version?: number
-  shared_secret_algorithm?: string
-  shared_secret_base64?: string
+  permissionTypes?: any[]
+  requestSignatureVersion?: number
+  sharedSecretAlgorithm?: string
+  sharedSecretBase64?: string
   token?: string
 }
 
@@ -961,20 +1032,26 @@ export interface Metadata {
 }
 
 export interface MetadataLoadMatch {
+
+  // Selects a custom action instead of the plain load:
+  //   'problem' | 'problemnotification'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface NoFrixionVersion {
-  build_version?: number
-  major_version?: number
-  minor_version?: number
-  release_name?: string
+  buildVersion?: number
+  majorVersion?: number
+  minorVersion?: number
+  releaseName?: string
 }
 
 export interface NoFrixionVersionLoadMatch {
-  build_version?: number
-  major_version?: number
-  minor_version?: number
-  release_name?: string
+  buildVersion?: number
+  majorVersion?: number
+  minorVersion?: number
+  releaseName?: string
 }
 
 export interface OpenBanking {
@@ -991,102 +1068,102 @@ export interface OpenBankingRemoveMatch {
 }
 
 export interface Payeeverification {
-  account_name: string
-  account_number?: string
+  accountName: string
+  accountNumber?: string
   iban: string
-  payee_verified_account_name?: string
+  payeeVerifiedAccountName?: string
   result?: string
-  secondary_identification?: string
-  sort_code?: string
+  secondaryIdentification?: string
+  sortCode?: string
 }
 
 export interface PayeeverificationCreateData {
-  account_name: string
-  account_number?: string
+  accountName: string
+  accountNumber?: string
   iban: string
-  payee_verified_account_name?: string
+  payeeVerifiedAccountName?: string
   result?: string
-  secondary_identification?: string
-  sort_code?: string
+  secondaryIdentification?: string
+  sortCode?: string
 }
 
 export interface Payment {
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_no_payer_authentication?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  card_transmit_raw_detail?: boolean
-  created_by_user: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardNoPayerAuthentication?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  cardTransmitRawDetails?: boolean
+  createdByUser: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  due_date?: string
-  event?: any[]
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  dueDate?: string
+  events?: any[]
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
-  is_archived?: boolean
+  insertedSortable?: string
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_method?: any[]
-  payment_processor?: string
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
-  shipping_address_city?: string
-  shipping_address_country_code?: string
-  shipping_address_county?: string
-  shipping_address_line1?: string
-  shipping_address_line2?: string
-  shipping_address_post_code?: string
-  shipping_email?: string
-  shipping_first_name?: string
-  shipping_last_name?: string
-  shipping_phone?: string
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
+  shippingAddressCity?: string
+  shippingAddressCountryCode?: string
+  shippingAddressCounty?: string
+  shippingAddressLine1?: string
+  shippingAddressLine2?: string
+  shippingAddressPostCode?: string
+  shippingEmail?: string
+  shippingFirstName?: string
+  shippingLastName?: string
+  shippingPhone?: string
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
-  tag_id?: any[]
+  successWebHookUrl?: string
+  tagIds?: any[]
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentLoadMatch {
@@ -1095,203 +1172,203 @@ export interface PaymentLoadMatch {
 }
 
 export interface PaymentCreateData {
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_no_payer_authentication?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  card_transmit_raw_detail?: boolean
-  created_by_user: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardNoPayerAuthentication?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  cardTransmitRawDetails?: boolean
+  createdByUser: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  due_date?: string
-  event?: any[]
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  dueDate?: string
+  events?: any[]
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
-  is_archived?: boolean
+  insertedSortable?: string
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_method?: any[]
-  payment_processor?: string
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
-  shipping_address_city?: string
-  shipping_address_country_code?: string
-  shipping_address_county?: string
-  shipping_address_line1?: string
-  shipping_address_line2?: string
-  shipping_address_post_code?: string
-  shipping_email?: string
-  shipping_first_name?: string
-  shipping_last_name?: string
-  shipping_phone?: string
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
+  shippingAddressCity?: string
+  shippingAddressCountryCode?: string
+  shippingAddressCounty?: string
+  shippingAddressLine1?: string
+  shippingAddressLine2?: string
+  shippingAddressPostCode?: string
+  shippingEmail?: string
+  shippingFirstName?: string
+  shippingLastName?: string
+  shippingPhone?: string
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
-  tag_id?: any[]
+  successWebHookUrl?: string
+  tagIds?: any[]
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentUpdateData {
   id: string
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_no_payer_authentication?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  card_transmit_raw_detail?: boolean
-  created_by_user?: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardNoPayerAuthentication?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  cardTransmitRawDetails?: boolean
+  createdByUser?: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  due_date?: string
-  event?: any[]
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
-  ignore_address_verification?: boolean
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  dueDate?: string
+  events?: any[]
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
-  is_archived?: boolean
+  insertedSortable?: string
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_method?: any[]
-  payment_processor?: string
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
-  shipping_address_city?: string
-  shipping_address_country_code?: string
-  shipping_address_county?: string
-  shipping_address_line1?: string
-  shipping_address_line2?: string
-  shipping_address_post_code?: string
-  shipping_email?: string
-  shipping_first_name?: string
-  shipping_last_name?: string
-  shipping_phone?: string
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
+  shippingAddressCity?: string
+  shippingAddressCountryCode?: string
+  shippingAddressCounty?: string
+  shippingAddressLine1?: string
+  shippingAddressLine2?: string
+  shippingAddressPostCode?: string
+  shippingEmail?: string
+  shippingFirstName?: string
+  shippingLastName?: string
+  shippingPhone?: string
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
-  tag_id?: any[]
+  successWebHookUrl?: string
+  tagIds?: any[]
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentAccount {
-  account_name?: string
-  account_supplier_name?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountName?: string
+  accountSupplierName?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  created_by: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  createdBy: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  defaultPaymentRail?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   id?: string
   identifier: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
-  physical_account_id?: string
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
+  physicalAccountID?: string
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_sepa_instant_status?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  supplierSepaInstantStatus?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface PaymentAccountListMatch {
@@ -1299,122 +1376,122 @@ export interface PaymentAccountListMatch {
 }
 
 export interface PaymentAccountMinimal {
-  account_name?: string
-  available_balance?: number
+  accountName?: string
+  availableBalance?: number
   balance?: number
-  balance_minor_unit?: number
+  balanceMinorUnits?: number
   currency?: string
   id?: string
   identifier: Record<string, any>
-  is_archived?: boolean
-  is_connected_account?: boolean
-  merchant_id?: string
-  submitted_payouts_balance?: number
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  merchantID?: string
+  submittedPayoutsBalance?: number
 }
 
 export interface PaymentAccountMinimalListMatch {
-  account_name?: string
-  available_balance?: number
+  accountName?: string
+  availableBalance?: number
   balance?: number
-  balance_minor_unit?: number
+  balanceMinorUnits?: number
   currency?: string
   id?: string
   identifier?: Record<string, any>
-  is_archived?: boolean
-  is_connected_account?: boolean
-  merchant_id?: string
-  submitted_payouts_balance?: number
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  merchantID?: string
+  submittedPayoutsBalance?: number
 }
 
 export interface PaymentInitiation {
-  payment_initiation_id?: string
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  redirect_url?: string
-  response_type?: string
-  specific_error_message?: string
+  paymentInitiationID?: string
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  redirectUrl?: string
+  responseType?: string
+  specificErrorMessage?: string
 }
 
 export interface PaymentInitiationCreateData {
   paymentrequest_id: string
-  payment_initiation_id?: string
-  payment_request_callback_url?: string
-  payment_request_id?: string
-  redirect_url?: string
-  response_type?: string
-  specific_error_message?: string
+  paymentInitiationID?: string
+  paymentRequestCallbackUrl?: string
+  paymentRequestID?: string
+  redirectUrl?: string
+  responseType?: string
+  specificErrorMessage?: string
 }
 
 export interface PaymentRequest {
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  created_by_user: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  createdByUser: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  do_simulate_settlement_failure?: boolean
-  due_date?: string
-  error_description?: string
-  event?: any[]
-  failed_payment_request?: Record<string, any>
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  doSimulateSettlementFailure?: boolean
+  dueDate?: string
+  errorDescription?: string
+  events?: any[]
+  failedPaymentRequests?: Record<string, any>
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
+  insertedSortable?: string
   institution?: string
-  is_archived?: boolean
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_initiation_id?: string
-  payment_method?: any[]
-  payment_processor?: string
-  payment_request?: any[]
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentInitiationID?: string
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  paymentRequests?: any[]
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
+  successWebHookUrl?: string
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentRequestLoadMatch {
@@ -1422,221 +1499,221 @@ export interface PaymentRequestLoadMatch {
 }
 
 export interface PaymentRequestListMatch {
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  created_by_user?: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  createdByUser?: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  do_simulate_settlement_failure?: boolean
-  due_date?: string
-  error_description?: string
-  event?: any[]
-  failed_payment_request?: Record<string, any>
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  doSimulateSettlementFailure?: boolean
+  dueDate?: string
+  errorDescription?: string
+  events?: any[]
+  failedPaymentRequests?: Record<string, any>
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
+  insertedSortable?: string
   institution?: string
-  is_archived?: boolean
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_initiation_id?: string
-  payment_method?: any[]
-  payment_processor?: string
-  payment_request?: any[]
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentInitiationID?: string
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  paymentRequests?: any[]
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
+  successWebHookUrl?: string
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentRequestCreateData {
   paymentrequest_id?: string
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  created_by_user: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  createdByUser: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  do_simulate_settlement_failure?: boolean
-  due_date?: string
-  error_description?: string
-  event?: any[]
-  failed_payment_request?: Record<string, any>
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  doSimulateSettlementFailure?: boolean
+  dueDate?: string
+  errorDescription?: string
+  events?: any[]
+  failedPaymentRequests?: Record<string, any>
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
+  insertedSortable?: string
   institution?: string
-  is_archived?: boolean
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_initiation_id?: string
-  payment_method?: any[]
-  payment_processor?: string
-  payment_request?: any[]
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentInitiationID?: string
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  paymentRequests?: any[]
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
+  successWebHookUrl?: string
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentRequestUpdateData {
   paymentrequest_id: string
-  address?: any[]
+  addresses?: any[]
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  auto_send_receipt?: boolean
-  base_origin_url?: string
-  callback_url?: string
-  card_authorize_only?: boolean
-  card_create_token?: boolean
-  card_create_token_mode?: string
-  card_ignore_cvn?: boolean
-  card_processor_merchant_id?: string
-  card_stripe_payment_intent_id?: string
-  card_stripe_payment_intent_secret?: string
-  created_by_user?: Record<string, any>
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  autoSendReceipt?: boolean
+  baseOriginUrl?: string
+  callbackUrl?: string
+  cardAuthorizeOnly?: boolean
+  cardCreateToken?: boolean
+  cardCreateTokenMode?: string
+  cardIgnoreCVN?: boolean
+  cardProcessorMerchantID?: string
+  cardStripePaymentIntentID?: string
+  cardStripePaymentIntentSecret?: string
+  createdByUser?: Record<string, any>
   currency?: string
-  custom_field?: any[]
-  customer_email_address?: string
-  customer_id?: string
-  customer_name?: string
+  customFields?: any[]
+  customerEmailAddress?: string
+  customerID?: string
+  customerName?: string
   description?: string
-  destination_account?: Record<string, any>
-  direct_debit_payment?: Record<string, any>
-  do_simulate_settlement_failure?: boolean
-  due_date?: string
-  error_description?: string
-  event?: any[]
-  failed_payment_request?: Record<string, any>
-  failure_callback_url?: string
-  field_display_setting?: any[]
-  formatted_amount?: string
-  hosted_pay_checkout_url?: string
+  destinationAccount?: Record<string, any>
+  directDebitPayment?: Record<string, any>
+  doSimulateSettlementFailure?: boolean
+  dueDate?: string
+  errorDescription?: string
+  events?: any[]
+  failedPaymentRequests?: Record<string, any>
+  failureCallbackUrl?: string
+  fieldDisplaySettings?: any[]
+  formattedAmount?: string
+  hostedPayCheckoutUrl?: string
   id?: string
-  ignore_address_verification?: boolean
+  ignoreAddressVerification?: boolean
   inserted?: string
-  inserted_sortable?: string
+  insertedSortable?: string
   institution?: string
-  is_archived?: boolean
+  isArchived?: boolean
   jwk?: string
-  last_updated?: string
-  lightning_invoice?: string
-  lightning_invoice_expires_at?: string
-  merchant_direct_debit_mandate_id?: string
-  merchant_id?: string
-  merchant_token_description?: string
-  notification_email_address?: string
-  notification_role_i_d?: any[]
-  order_id?: string
-  partial_payment_method?: string
-  partial_payment_step?: string
-  payment_attempt?: any[]
-  payment_initiation_id?: string
-  payment_method?: any[]
-  payment_processor?: string
-  payment_request?: any[]
-  payrun_id?: string
-  pisp_account_id?: string
-  priority_bank_id?: string
+  lastUpdated?: string
+  lightningInvoice?: string
+  lightningInvoiceExpiresAt?: string
+  merchantDirectDebitMandateID?: string
+  merchantID?: string
+  merchantTokenDescription?: string
+  notificationEmailAddresses?: string
+  notificationRoleIDs?: any[]
+  orderID?: string
+  partialPaymentMethod?: string
+  partialPaymentSteps?: string
+  paymentAttempts?: any[]
+  paymentInitiationID?: string
+  paymentMethods?: any[]
+  paymentProcessor?: string
+  paymentRequests?: any[]
+  payrunID?: string
+  pispAccountID?: string
+  priorityBankID?: string
   result?: Record<string, any>
-  sandbox_settle_delay_in_second?: number
-  shipping_address?: Record<string, any>
+  sandboxSettleDelayInSeconds?: number
+  shippingAddress?: Record<string, any>
   status?: string
-  success_web_hook_url?: string
-  tag?: any[]
+  successWebHookUrl?: string
+  tags?: any[]
   title?: string
-  tokenised_card?: any[]
-  transaction?: any[]
-  use_hosted_payment_page?: boolean
+  tokenisedCards?: any[]
+  transactions?: any[]
+  useHostedPaymentPage?: boolean
 }
 
 export interface PaymentRequestRemoveMatch {
@@ -1645,41 +1722,41 @@ export interface PaymentRequestRemoveMatch {
 
 export interface PaymentRequestEvent {
   amount: number
-  apple_pay_transaction_id?: string
-  card_authorization_response_id?: string
-  card_expiry_month?: number
-  card_expiry_year?: number
-  card_issuer?: string
-  card_issuer_country?: string
-  card_last_four_digit?: string
-  card_request_id?: string
-  card_scheme?: string
-  card_token_customer_id?: string
-  card_transaction_id?: string
+  applePayTransactionID?: string
+  cardAuthorizationResponseID?: string
+  cardExpiryMonth?: number
+  cardExpiryYear?: number
+  cardIssuer?: string
+  cardIssuerCountry?: string
+  cardLastFourDigits?: string
+  cardRequestID?: string
+  cardScheme?: string
+  cardTokenCustomerID?: string
+  cardTransactionID?: string
   currency?: string
-  direct_debit_payment_id?: string
-  direct_debit_payment_reference?: string
-  drirect_debit_mandate_id?: string
-  error_message?: string
-  error_reason?: string
-  event_type?: string
+  directDebitPaymentID?: string
+  directDebitPaymentReference?: string
+  drirectDebitMandateID?: string
+  errorMessage?: string
+  errorReason?: string
+  eventType?: string
   id?: string
   inserted?: string
-  lightning_invoice?: string
-  lightning_r_hash?: string
-  origin_url?: string
-  payment_method_type?: string
-  payment_processor_name?: string
-  payment_request_id?: string
-  pisp_bank_status?: string
-  pisp_payment_initiation_id?: string
-  pisp_payment_institution_name?: string
-  pisp_payment_service_provider_id?: string
-  pisp_redirect_url?: string
-  reconciled_transaction_id?: string
-  refund_payout_id?: string
+  lightningInvoice?: string
+  lightningRHash?: string
+  originUrl?: string
+  paymentMethodType?: string
+  paymentProcessorName?: string
+  paymentRequestID?: string
+  pispBankStatus?: string
+  pispPaymentInitiationID?: string
+  pispPaymentInstitutionName?: string
+  pispPaymentServiceProviderID?: string
+  pispRedirectUrl?: string
+  reconciledTransactionID?: string
+  refundPayoutID?: string
   status?: string
-  wallet_name?: string
+  walletName?: string
 }
 
 export interface PaymentRequestEventListMatch {
@@ -1687,53 +1764,41 @@ export interface PaymentRequestEventListMatch {
 }
 
 export interface PaymentRequestMetric {
-  all?: number
-  authorized?: number
-  paid?: number
-  partially_paid?: number
-  total_amounts_by_currency?: Record<string, any>
-  unpaid?: number
 }
 
 export interface PaymentRequestMetricLoadMatch {
-  all?: number
-  authorized?: number
-  paid?: number
-  partially_paid?: number
-  total_amounts_by_currency?: Record<string, any>
-  unpaid?: number
 }
 
 export interface PaymentRequestMinimal {
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
-  callback_url?: string
-  card_stripe_payment_intent_secret?: string
-  country_code?: string
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
+  callbackUrl?: string
+  cardStripePaymentIntentSecret?: string
+  countryCode?: string
   currency?: string
-  custom_fields_to_display?: any[]
+  customFieldsToDisplay?: any[]
   description?: string
-  due_date?: string
-  field_display_setting?: any[]
-  google_pay_merchant_id?: string
+  dueDate?: string
+  fieldDisplaySettings?: any[]
+  googlePayMerchantID?: string
   id?: string
   jwk?: string
-  merchant_id?: string
-  merchant_logo_url_png?: string
-  merchant_logo_url_svg?: string
-  merchant_name?: string
-  merchant_short_name?: string
-  partial_payment_method?: string
-  payment_attempt?: any[]
-  payment_methods_list?: any[]
-  payment_processor?: string
-  payment_processor_key?: string
-  pisp_error?: string
-  priority_bank_id?: string
+  merchantID?: string
+  merchantLogoUrlPng?: string
+  merchantLogoUrlSvg?: string
+  merchantName?: string
+  merchantShortName?: string
+  partialPaymentMethod?: string
+  paymentAttempts?: any[]
+  paymentMethodsList?: any[]
+  paymentProcessor?: string
+  paymentProcessorKey?: string
+  pispError?: string
+  priorityBankID?: string
   status?: string
-  stripe_account_id?: string
+  stripeAccountID?: string
   title?: string
 }
 
@@ -1743,15 +1808,15 @@ export interface PaymentRequestMinimalListMatch {
 
 export interface PaymentRequestResult {
   amount?: number
-  amount_pending?: number
-  amount_received?: number
-  amount_refunded?: number
+  amountPending?: number
+  amountReceived?: number
+  amountRefunded?: number
   currency?: string
-  customer_id?: string
-  payment?: any[]
-  payment_request_id?: string
-  pisp_authorization?: any[]
-  requested_amount?: number
+  customerID?: string
+  paymentRequestID?: string
+  payments?: any[]
+  pispAuthorizations?: any[]
+  requestedAmount?: number
   result?: string
 }
 
@@ -1760,85 +1825,85 @@ export interface PaymentRequestResultListMatch {
 }
 
 export interface Payout {
-  account_id?: string
-  allow_incomplete?: boolean
+  accountID?: string
+  allowIncomplete?: boolean
   amount?: number
-  amount_minor_unit?: number
-  approve_payout_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
+  amountMinorUnits?: number
+  approvePayoutUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
   beneficiary: Record<string, any>
-  beneficiary_id?: string
-  can_authorise?: boolean
-  can_process?: boolean
-  can_update?: boolean
-  charge_bearer?: string
-  created_by?: string
-  created_by_email_address?: string
+  beneficiaryID?: string
+  canAuthorise?: boolean
+  canProcess?: boolean
+  canUpdate?: boolean
+  chargeBearer?: string
+  createdBy?: string
+  createdByEmailAddress?: string
   currency?: string
-  current_user_id?: string
+  currentUserID?: string
   description?: string
   destination?: Record<string, any>
-  document?: any[]
-  event?: any[]
-  failed_payout?: Record<string, any>
-  formatted_amount?: string
-  formatted_fx_destination_amount?: string
-  formatted_schedule?: string
-  formatted_schedule_day_only?: string
-  formatted_source_account_available_balance?: string
-  fx_destination_amount?: number
-  fx_destination_amount_minor_unit?: number
-  fx_destination_currency?: string
-  fx_quote_expires_at?: string
-  fx_quote_id?: string
-  fx_rate?: number
-  fx_use_destination_amount?: boolean
-  has_current_user_authorised?: boolean
+  documents?: any[]
+  events?: any[]
+  failedPayouts?: Record<string, any>
+  formattedAmount?: string
+  formattedFxDestinationAmount?: string
+  formattedSchedule?: string
+  formattedScheduleDayOnly?: string
+  formattedSourceAccountAvailableBalance?: string
+  fxDestinationAmount?: number
+  fxDestinationAmountMinorUnits?: number
+  fxDestinationCurrency?: string
+  fxQuoteExpiresAt?: string
+  fxQuoteID?: string
+  fxRate?: number
+  fxUseDestinationAmount?: boolean
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  invoice_id?: string
-  is_archived?: boolean
-  is_failed?: boolean
-  is_settled?: boolean
-  is_submitted?: boolean
-  last_updated?: string
-  merchant_id?: string
-  merchant_token_description?: string
+  invoiceID?: string
+  isArchived?: boolean
+  isFailed?: boolean
+  isSettled?: boolean
+  isSubmitted?: boolean
+  lastUpdated?: string
+  merchantID?: string
+  merchantTokenDescription?: string
   nonce?: string
-  payment_processor?: string
-  payment_rail?: string
-  payout?: any[]
-  payrun_id?: string
-  payrun_name?: string
+  paymentProcessor?: string
+  paymentRail?: string
+  payouts?: any[]
+  payrunID?: string
+  payrunName?: string
   reason?: string
   rule?: Record<string, any>
-  schedule_date?: string
+  scheduleDate?: string
   scheduled?: boolean
-  source_account_available_balance?: number
-  source_account_available_balance_minor_unit?: number
-  source_account_bic?: string
-  source_account_currency?: string
-  source_account_iban?: string
-  source_account_identifier: Record<string, any>
-  source_account_name?: string
-  source_account_number?: string
-  source_account_sortcode?: string
+  sourceAccountAvailableBalance?: number
+  sourceAccountAvailableBalanceMinorUnits?: number
+  sourceAccountBic?: string
+  sourceAccountCurrency?: string
+  sourceAccountIban?: string
+  sourceAccountIdentifier: Record<string, any>
+  sourceAccountName?: string
+  sourceAccountNumber?: string
+  sourceAccountSortcode?: string
   status?: string
-  tag?: any[]
-  tag_id?: any[]
-  their_reference?: string
-  topup_payrun_id?: string
-  transacted_amount?: number
-  transacted_fx_amount?: number
-  transacted_fx_rate?: number
+  tagIds?: any[]
+  tags?: any[]
+  theirReference?: string
+  topupPayrunID?: string
+  transactedAmount?: number
+  transactedFxAmount?: number
+  transactedFxRate?: number
   type?: string
-  user_id?: string
-  your_reference?: string
+  userID?: string
+  yourReference?: string
 }
 
 export interface PayoutLoadMatch {
@@ -1846,6 +1911,12 @@ export interface PayoutLoadMatch {
   destination?: string
   source?: string
   id?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'export' | 'proof'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PayoutListMatch {
@@ -1855,246 +1926,258 @@ export interface PayoutListMatch {
 
 export interface PayoutCreateData {
   id?: string
-  account_id?: string
-  allow_incomplete?: boolean
+  accountID?: string
+  allowIncomplete?: boolean
   amount?: number
-  amount_minor_unit?: number
-  approve_payout_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
+  amountMinorUnits?: number
+  approvePayoutUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
   beneficiary: Record<string, any>
-  beneficiary_id?: string
-  can_authorise?: boolean
-  can_process?: boolean
-  can_update?: boolean
-  charge_bearer?: string
-  created_by?: string
-  created_by_email_address?: string
+  beneficiaryID?: string
+  canAuthorise?: boolean
+  canProcess?: boolean
+  canUpdate?: boolean
+  chargeBearer?: string
+  createdBy?: string
+  createdByEmailAddress?: string
   currency?: string
-  current_user_id?: string
+  currentUserID?: string
   description?: string
   destination?: Record<string, any>
-  document?: any[]
-  event?: any[]
-  failed_payout?: Record<string, any>
-  formatted_amount?: string
-  formatted_fx_destination_amount?: string
-  formatted_schedule?: string
-  formatted_schedule_day_only?: string
-  formatted_source_account_available_balance?: string
-  fx_destination_amount?: number
-  fx_destination_amount_minor_unit?: number
-  fx_destination_currency?: string
-  fx_quote_expires_at?: string
-  fx_quote_id?: string
-  fx_rate?: number
-  fx_use_destination_amount?: boolean
-  has_current_user_authorised?: boolean
+  documents?: any[]
+  events?: any[]
+  failedPayouts?: Record<string, any>
+  formattedAmount?: string
+  formattedFxDestinationAmount?: string
+  formattedSchedule?: string
+  formattedScheduleDayOnly?: string
+  formattedSourceAccountAvailableBalance?: string
+  fxDestinationAmount?: number
+  fxDestinationAmountMinorUnits?: number
+  fxDestinationCurrency?: string
+  fxQuoteExpiresAt?: string
+  fxQuoteID?: string
+  fxRate?: number
+  fxUseDestinationAmount?: boolean
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  invoice_id?: string
-  is_archived?: boolean
-  is_failed?: boolean
-  is_settled?: boolean
-  is_submitted?: boolean
-  last_updated?: string
-  merchant_id?: string
-  merchant_token_description?: string
+  invoiceID?: string
+  isArchived?: boolean
+  isFailed?: boolean
+  isSettled?: boolean
+  isSubmitted?: boolean
+  lastUpdated?: string
+  merchantID?: string
+  merchantTokenDescription?: string
   nonce?: string
-  payment_processor?: string
-  payment_rail?: string
-  payout?: any[]
-  payrun_id?: string
-  payrun_name?: string
+  paymentProcessor?: string
+  paymentRail?: string
+  payouts?: any[]
+  payrunID?: string
+  payrunName?: string
   reason?: string
   rule?: Record<string, any>
-  schedule_date?: string
+  scheduleDate?: string
   scheduled?: boolean
-  source_account_available_balance?: number
-  source_account_available_balance_minor_unit?: number
-  source_account_bic?: string
-  source_account_currency?: string
-  source_account_iban?: string
-  source_account_identifier: Record<string, any>
-  source_account_name?: string
-  source_account_number?: string
-  source_account_sortcode?: string
+  sourceAccountAvailableBalance?: number
+  sourceAccountAvailableBalanceMinorUnits?: number
+  sourceAccountBic?: string
+  sourceAccountCurrency?: string
+  sourceAccountIban?: string
+  sourceAccountIdentifier: Record<string, any>
+  sourceAccountName?: string
+  sourceAccountNumber?: string
+  sourceAccountSortcode?: string
   status?: string
-  tag?: any[]
-  tag_id?: any[]
-  their_reference?: string
-  topup_payrun_id?: string
-  transacted_amount?: number
-  transacted_fx_amount?: number
-  transacted_fx_rate?: number
+  tagIds?: any[]
+  tags?: any[]
+  theirReference?: string
+  topupPayrunID?: string
+  transactedAmount?: number
+  transactedFxAmount?: number
+  transactedFxRate?: number
   type?: string
-  user_id?: string
-  your_reference?: string
+  userID?: string
+  yourReference?: string
+
+  // Selects a custom action instead of the plain create:
+  //   'batchcreate' | 'send' | 'sendbeneficiary'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PayoutUpdateData {
   id: string
-  account_id?: string
-  allow_incomplete?: boolean
+  accountID?: string
+  allowIncomplete?: boolean
   amount?: number
-  amount_minor_unit?: number
-  approve_payout_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
+  amountMinorUnits?: number
+  approvePayoutUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
   beneficiary?: Record<string, any>
-  beneficiary_id?: string
-  can_authorise?: boolean
-  can_process?: boolean
-  can_update?: boolean
-  charge_bearer?: string
-  created_by?: string
-  created_by_email_address?: string
+  beneficiaryID?: string
+  canAuthorise?: boolean
+  canProcess?: boolean
+  canUpdate?: boolean
+  chargeBearer?: string
+  createdBy?: string
+  createdByEmailAddress?: string
   currency?: string
-  current_user_id?: string
+  currentUserID?: string
   description?: string
   destination?: Record<string, any>
-  document?: any[]
-  event?: any[]
-  failed_payout?: Record<string, any>
-  formatted_amount?: string
-  formatted_fx_destination_amount?: string
-  formatted_schedule?: string
-  formatted_schedule_day_only?: string
-  formatted_source_account_available_balance?: string
-  fx_destination_amount?: number
-  fx_destination_amount_minor_unit?: number
-  fx_destination_currency?: string
-  fx_quote_expires_at?: string
-  fx_quote_id?: string
-  fx_rate?: number
-  fx_use_destination_amount?: boolean
-  has_current_user_authorised?: boolean
+  documents?: any[]
+  events?: any[]
+  failedPayouts?: Record<string, any>
+  formattedAmount?: string
+  formattedFxDestinationAmount?: string
+  formattedSchedule?: string
+  formattedScheduleDayOnly?: string
+  formattedSourceAccountAvailableBalance?: string
+  fxDestinationAmount?: number
+  fxDestinationAmountMinorUnits?: number
+  fxDestinationCurrency?: string
+  fxQuoteExpiresAt?: string
+  fxQuoteID?: string
+  fxRate?: number
+  fxUseDestinationAmount?: boolean
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  invoice_id?: string
-  is_archived?: boolean
-  is_failed?: boolean
-  is_settled?: boolean
-  is_submitted?: boolean
-  last_updated?: string
-  merchant_id?: string
-  merchant_token_description?: string
+  invoiceID?: string
+  isArchived?: boolean
+  isFailed?: boolean
+  isSettled?: boolean
+  isSubmitted?: boolean
+  lastUpdated?: string
+  merchantID?: string
+  merchantTokenDescription?: string
   nonce?: string
-  payment_processor?: string
-  payment_rail?: string
-  payout?: any[]
-  payrun_id?: string
-  payrun_name?: string
+  paymentProcessor?: string
+  paymentRail?: string
+  payouts?: any[]
+  payrunID?: string
+  payrunName?: string
   reason?: string
   rule?: Record<string, any>
-  schedule_date?: string
+  scheduleDate?: string
   scheduled?: boolean
-  source_account_available_balance?: number
-  source_account_available_balance_minor_unit?: number
-  source_account_bic?: string
-  source_account_currency?: string
-  source_account_iban?: string
-  source_account_identifier?: Record<string, any>
-  source_account_name?: string
-  source_account_number?: string
-  source_account_sortcode?: string
+  sourceAccountAvailableBalance?: number
+  sourceAccountAvailableBalanceMinorUnits?: number
+  sourceAccountBic?: string
+  sourceAccountCurrency?: string
+  sourceAccountIban?: string
+  sourceAccountIdentifier?: Record<string, any>
+  sourceAccountName?: string
+  sourceAccountNumber?: string
+  sourceAccountSortcode?: string
   status?: string
-  tag?: any[]
-  tag_id?: any[]
-  their_reference?: string
-  topup_payrun_id?: string
-  transacted_amount?: number
-  transacted_fx_amount?: number
-  transacted_fx_rate?: number
+  tagIds?: any[]
+  tags?: any[]
+  theirReference?: string
+  topupPayrunID?: string
+  transactedAmount?: number
+  transactedFxAmount?: number
+  transactedFxRate?: number
   type?: string
-  user_id?: string
-  your_reference?: string
+  userID?: string
+  yourReference?: string
 }
 
 export interface PayoutRemoveMatch {
   id: string
+
+  // Selects a custom action instead of the plain remove:
+  //   'batchdelete'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PayoutKeysetPage {
-  account_id?: string
+  accountID?: string
   amount?: number
-  amount_minor_unit?: number
-  approve_payout_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
+  amountMinorUnits?: number
+  approvePayoutUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
   beneficiary: Record<string, any>
-  can_authorise?: boolean
-  can_process?: boolean
-  can_update?: boolean
-  charge_bearer?: string
-  created_by?: string
-  created_by_email_address?: string
+  canAuthorise?: boolean
+  canProcess?: boolean
+  canUpdate?: boolean
+  chargeBearer?: string
+  createdBy?: string
+  createdByEmailAddress?: string
   currency?: string
-  current_user_id?: string
+  currentUserID?: string
   description?: string
   destination?: Record<string, any>
-  document?: any[]
-  event?: any[]
-  formatted_amount?: string
-  formatted_fx_destination_amount?: string
-  formatted_schedule?: string
-  formatted_schedule_day_only?: string
-  formatted_source_account_available_balance?: string
-  fx_destination_amount?: number
-  fx_destination_amount_minor_unit?: number
-  fx_destination_currency?: string
-  fx_quote_expires_at?: string
-  fx_quote_id?: string
-  fx_rate?: number
-  fx_use_destination_amount?: boolean
-  has_current_user_authorised?: boolean
+  documents?: any[]
+  events?: any[]
+  formattedAmount?: string
+  formattedFxDestinationAmount?: string
+  formattedSchedule?: string
+  formattedScheduleDayOnly?: string
+  formattedSourceAccountAvailableBalance?: string
+  fxDestinationAmount?: number
+  fxDestinationAmountMinorUnits?: number
+  fxDestinationCurrency?: string
+  fxQuoteExpiresAt?: string
+  fxQuoteID?: string
+  fxRate?: number
+  fxUseDestinationAmount?: boolean
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  invoice_id?: string
-  is_archived?: boolean
-  is_failed?: boolean
-  is_settled?: boolean
-  is_submitted?: boolean
-  last_updated?: string
-  merchant_id?: string
-  merchant_token_description?: string
+  invoiceID?: string
+  isArchived?: boolean
+  isFailed?: boolean
+  isSettled?: boolean
+  isSubmitted?: boolean
+  lastUpdated?: string
+  merchantID?: string
+  merchantTokenDescription?: string
   nonce?: string
-  payment_processor?: string
-  payment_rail?: string
-  payrun_id?: string
-  payrun_name?: string
+  paymentProcessor?: string
+  paymentRail?: string
+  payrunID?: string
+  payrunName?: string
   rule?: Record<string, any>
-  schedule_date?: string
+  scheduleDate?: string
   scheduled?: boolean
-  source_account_available_balance?: number
-  source_account_available_balance_minor_unit?: number
-  source_account_bic?: string
-  source_account_currency?: string
-  source_account_iban?: string
-  source_account_identifier: Record<string, any>
-  source_account_name?: string
-  source_account_number?: string
-  source_account_sortcode?: string
+  sourceAccountAvailableBalance?: number
+  sourceAccountAvailableBalanceMinorUnits?: number
+  sourceAccountBic?: string
+  sourceAccountCurrency?: string
+  sourceAccountIban?: string
+  sourceAccountIdentifier: Record<string, any>
+  sourceAccountName?: string
+  sourceAccountNumber?: string
+  sourceAccountSortcode?: string
   status?: string
-  tag?: any[]
-  their_reference?: string
-  topup_payrun_id?: string
-  transacted_amount?: number
-  transacted_fx_amount?: number
-  transacted_fx_rate?: number
+  tags?: any[]
+  theirReference?: string
+  topupPayrunID?: string
+  transactedAmount?: number
+  transactedFxAmount?: number
+  transactedFxRate?: number
   type?: string
-  user_id?: string
-  your_reference?: string
+  userID?: string
+  yourReference?: string
 }
 
 export interface PayoutKeysetPageListMatch {
@@ -2103,58 +2186,44 @@ export interface PayoutKeysetPageListMatch {
 }
 
 export interface PayoutMetric {
-  all?: number
-  failed?: number
-  in_progress?: number
-  paid?: number
-  pending_approval?: number
-  scheduled?: number
-  total_amounts_by_currency?: Record<string, any>
 }
 
 export interface PayoutMetricLoadMatch {
-  all?: number
-  failed?: number
-  in_progress?: number
-  paid?: number
-  pending_approval?: number
-  scheduled?: number
-  total_amounts_by_currency?: Record<string, any>
 }
 
 export interface Payrun {
-  authorisation?: any[]
-  authorisation_date?: string
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
-  can_authorise?: boolean
-  can_delete?: boolean
-  can_edit?: boolean
-  event?: any[]
-  has_current_user_authorised?: boolean
+  authorisationDate?: string
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
+  canAuthorise?: boolean
+  canDelete?: boolean
+  canEdit?: boolean
+  events?: any[]
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  invoice?: any[]
-  invoices_minimal?: any[]
-  is_archived?: boolean
-  last_updated?: string
-  last_updated_by: Record<string, any>
-  merchant_id?: string
+  invoices?: any[]
+  invoicesMinimal?: any[]
+  isArchived?: boolean
+  lastUpdated?: string
+  lastUpdatedBy: Record<string, any>
+  merchantID?: string
   name?: string
   nonce?: string
-  note?: string
-  payment?: any[]
-  payout?: any[]
-  payouts_count?: number
+  notes?: string
+  payments?: any[]
+  payouts?: any[]
+  payoutsCount?: number
   reason?: string
-  schedule_date?: string
-  scheduled_date?: string
-  source_account?: any[]
+  scheduleDate?: string
+  scheduledDate?: string
+  sourceAccounts?: any[]
   status?: string
-  total_eur?: number
-  total_gbp?: number
-  total_usd?: number
+  totalEur?: number
+  totalGbp?: number
+  totalUsd?: number
 }
 
 export interface PayrunLoadMatch {
@@ -2162,112 +2231,130 @@ export interface PayrunLoadMatch {
 }
 
 export interface PayrunListMatch {
-  authorisation?: any[]
-  authorisation_date?: string
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
-  can_authorise?: boolean
-  can_delete?: boolean
-  can_edit?: boolean
-  event?: any[]
-  has_current_user_authorised?: boolean
+  authorisationDate?: string
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
+  canAuthorise?: boolean
+  canDelete?: boolean
+  canEdit?: boolean
+  events?: any[]
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  invoice?: any[]
-  invoices_minimal?: any[]
-  is_archived?: boolean
-  last_updated?: string
-  last_updated_by?: Record<string, any>
-  merchant_id?: string
+  invoices?: any[]
+  invoicesMinimal?: any[]
+  isArchived?: boolean
+  lastUpdated?: string
+  lastUpdatedBy?: Record<string, any>
+  merchantID?: string
   name?: string
   nonce?: string
-  note?: string
-  payment?: any[]
-  payout?: any[]
-  payouts_count?: number
+  notes?: string
+  payments?: any[]
+  payouts?: any[]
+  payoutsCount?: number
   reason?: string
-  schedule_date?: string
-  scheduled_date?: string
-  source_account?: any[]
+  scheduleDate?: string
+  scheduledDate?: string
+  sourceAccounts?: any[]
   status?: string
-  total_eur?: number
-  total_gbp?: number
-  total_usd?: number
+  totalEur?: number
+  totalGbp?: number
+  totalUsd?: number
 }
 
 export interface PayrunCreateData {
   id: string
-  authorisation?: any[]
-  authorisation_date?: string
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
-  can_authorise?: boolean
-  can_delete?: boolean
-  can_edit?: boolean
-  event?: any[]
-  has_current_user_authorised?: boolean
+  authorisationDate?: string
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
+  canAuthorise?: boolean
+  canDelete?: boolean
+  canEdit?: boolean
+  events?: any[]
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  invoice?: any[]
-  invoices_minimal?: any[]
-  is_archived?: boolean
-  last_updated?: string
-  last_updated_by: Record<string, any>
-  merchant_id?: string
+  invoices?: any[]
+  invoicesMinimal?: any[]
+  isArchived?: boolean
+  lastUpdated?: string
+  lastUpdatedBy: Record<string, any>
+  merchantID?: string
   name?: string
   nonce?: string
-  note?: string
-  payment?: any[]
-  payout?: any[]
-  payouts_count?: number
+  notes?: string
+  payments?: any[]
+  payouts?: any[]
+  payoutsCount?: number
   reason?: string
-  schedule_date?: string
-  scheduled_date?: string
-  source_account?: any[]
+  scheduleDate?: string
+  scheduledDate?: string
+  sourceAccounts?: any[]
   status?: string
-  total_eur?: number
-  total_gbp?: number
-  total_usd?: number
+  totalEur?: number
+  totalGbp?: number
+  totalUsd?: number
+
+  // Selects a custom action instead of the plain create:
+  //   'request_authorisation' | 'submit'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PayrunUpdateData {
   id: string
-  authorisation?: any[]
-  authorisation_date?: string
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  batch_payout_id?: string
-  can_authorise?: boolean
-  can_delete?: boolean
-  can_edit?: boolean
-  event?: any[]
-  has_current_user_authorised?: boolean
+  authorisationDate?: string
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  batchPayoutID?: string
+  canAuthorise?: boolean
+  canDelete?: boolean
+  canEdit?: boolean
+  events?: any[]
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  invoice?: any[]
-  invoices_minimal?: any[]
-  is_archived?: boolean
-  last_updated?: string
-  last_updated_by?: Record<string, any>
-  merchant_id?: string
+  invoices?: any[]
+  invoicesMinimal?: any[]
+  isArchived?: boolean
+  lastUpdated?: string
+  lastUpdatedBy?: Record<string, any>
+  merchantID?: string
   name?: string
   nonce?: string
-  note?: string
-  payment?: any[]
-  payout?: any[]
-  payouts_count?: number
+  notes?: string
+  payments?: any[]
+  payouts?: any[]
+  payoutsCount?: number
   reason?: string
-  schedule_date?: string
-  scheduled_date?: string
-  source_account?: any[]
+  scheduleDate?: string
+  scheduledDate?: string
+  sourceAccounts?: any[]
   status?: string
-  total_eur?: number
-  total_gbp?: number
-  total_usd?: number
+  totalEur?: number
+  totalGbp?: number
+  totalUsd?: number
+
+  // Selects a custom action instead of the plain update:
+  //   'cancel' | 'reject' | 'unarchive'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PayrunRemoveMatch {
   id: string
+
+  // Selects a custom action instead of the plain remove:
+  //   'archive'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Report {
@@ -2275,16 +2362,22 @@ export interface Report {
 
 export interface ReportUpdateData {
   id: string
+
+  // Selects a custom action instead of the plain update:
+  //   'initiate'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface ReportResult {
-  content?: string
-  content_type?: string
-  last_completed_at?: string
-  merchant_id?: string
-  report_name?: string
-  report_type?: string
-  statement_number?: number
+  contentType?: string
+  contents?: string
+  lastCompletedAt?: string
+  merchantID?: string
+  reportName?: string
+  reportType?: string
+  statementNumber?: number
 }
 
 export interface ReportResultLoadMatch {
@@ -2293,50 +2386,56 @@ export interface ReportResultLoadMatch {
 }
 
 export interface Role {
-  failed_role?: Record<string, any>
-  role?: any[]
+  failedRoles?: Record<string, any>
+  roles?: any[]
 }
 
 export interface RoleCreateData {
   merchant_id: string
-  failed_role?: Record<string, any>
-  role?: any[]
+  failedRoles?: Record<string, any>
+  roles?: any[]
+
+  // Selects a custom action instead of the plain create:
+  //   'batchcreate'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Rule {
   account?: Record<string, any>
-  account_id?: string
-  approve_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
-  created_by: Record<string, any>
+  accountID?: string
+  approveUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
+  createdBy: Record<string, any>
   description?: string
-  end_at?: string
-  has_current_user_authorised?: boolean
+  endAt?: string
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  is_disabled?: boolean
-  last_executed_at?: string
-  last_run_at_transaction_date?: string
-  last_updated?: string
-  merchant_id?: string
+  isDisabled?: boolean
+  lastExecutedAt?: string
+  lastRunAtTransactionDate?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
   nonce: string
-  on_approved_web_hook_url?: string
-  on_execution_error_web_hook_url?: string
-  on_execution_success_web_hook_url?: string
-  start_at?: string
+  onApprovedWebHookUrl?: string
+  onExecutionErrorWebHookUrl?: string
+  onExecutionSuccessWebHookUrl?: string
+  startAt?: string
   status?: string
-  sweep_action?: Record<string, any>
-  time_zone_id?: string
-  trigger_cron_expression?: string
-  trigger_on_pay_in?: boolean
-  user_id?: string
-  web_hook_secret?: string
+  sweepAction?: Record<string, any>
+  timeZoneId?: string
+  triggerCronExpression?: string
+  triggerOnPayIn?: boolean
+  userID?: string
+  webHookSecret?: string
 }
 
 export interface RuleLoadMatch {
@@ -2345,110 +2444,116 @@ export interface RuleLoadMatch {
 
 export interface RuleListMatch {
   account?: Record<string, any>
-  account_id?: string
-  approve_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
-  created_by?: Record<string, any>
+  accountID?: string
+  approveUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
+  createdBy?: Record<string, any>
   description?: string
-  end_at?: string
-  has_current_user_authorised?: boolean
+  endAt?: string
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  is_disabled?: boolean
-  last_executed_at?: string
-  last_run_at_transaction_date?: string
-  last_updated?: string
-  merchant_id?: string
+  isDisabled?: boolean
+  lastExecutedAt?: string
+  lastRunAtTransactionDate?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
   nonce?: string
-  on_approved_web_hook_url?: string
-  on_execution_error_web_hook_url?: string
-  on_execution_success_web_hook_url?: string
-  start_at?: string
+  onApprovedWebHookUrl?: string
+  onExecutionErrorWebHookUrl?: string
+  onExecutionSuccessWebHookUrl?: string
+  startAt?: string
   status?: string
-  sweep_action?: Record<string, any>
-  time_zone_id?: string
-  trigger_cron_expression?: string
-  trigger_on_pay_in?: boolean
-  user_id?: string
-  web_hook_secret?: string
+  sweepAction?: Record<string, any>
+  timeZoneId?: string
+  triggerCronExpression?: string
+  triggerOnPayIn?: boolean
+  userID?: string
+  webHookSecret?: string
 }
 
 export interface RuleCreateData {
   account?: Record<string, any>
-  account_id?: string
-  approve_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
-  created_by: Record<string, any>
+  accountID?: string
+  approveUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
+  createdBy: Record<string, any>
   description?: string
-  end_at?: string
-  has_current_user_authorised?: boolean
+  endAt?: string
+  hasCurrentUserAuthorised?: boolean
   id?: string
   inserted?: string
-  is_disabled?: boolean
-  last_executed_at?: string
-  last_run_at_transaction_date?: string
-  last_updated?: string
-  merchant_id?: string
+  isDisabled?: boolean
+  lastExecutedAt?: string
+  lastRunAtTransactionDate?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
   nonce: string
-  on_approved_web_hook_url?: string
-  on_execution_error_web_hook_url?: string
-  on_execution_success_web_hook_url?: string
-  start_at?: string
+  onApprovedWebHookUrl?: string
+  onExecutionErrorWebHookUrl?: string
+  onExecutionSuccessWebHookUrl?: string
+  startAt?: string
   status?: string
-  sweep_action?: Record<string, any>
-  time_zone_id?: string
-  trigger_cron_expression?: string
-  trigger_on_pay_in?: boolean
-  user_id?: string
-  web_hook_secret?: string
+  sweepAction?: Record<string, any>
+  timeZoneId?: string
+  triggerCronExpression?: string
+  triggerOnPayIn?: boolean
+  userID?: string
+  webHookSecret?: string
 }
 
 export interface RuleUpdateData {
   id: string
   account?: Record<string, any>
-  account_id?: string
-  approve_url?: string
-  approver_id?: string
-  authentication_method?: any[]
-  authorisation?: any[]
-  authorisers_completed_count?: number
-  authorisers_required_count?: number
-  can_authorise?: boolean
-  created_by?: Record<string, any>
+  accountID?: string
+  approveUrl?: string
+  approverID?: string
+  authenticationMethods?: any[]
+  authorisations?: any[]
+  authorisersCompletedCount?: number
+  authorisersRequiredCount?: number
+  canAuthorise?: boolean
+  createdBy?: Record<string, any>
   description?: string
-  end_at?: string
-  has_current_user_authorised?: boolean
+  endAt?: string
+  hasCurrentUserAuthorised?: boolean
   inserted?: string
-  is_disabled?: boolean
-  last_executed_at?: string
-  last_run_at_transaction_date?: string
-  last_updated?: string
-  merchant_id?: string
+  isDisabled?: boolean
+  lastExecutedAt?: string
+  lastRunAtTransactionDate?: string
+  lastUpdated?: string
+  merchantID?: string
   name?: string
   nonce?: string
-  on_approved_web_hook_url?: string
-  on_execution_error_web_hook_url?: string
-  on_execution_success_web_hook_url?: string
-  start_at?: string
+  onApprovedWebHookUrl?: string
+  onExecutionErrorWebHookUrl?: string
+  onExecutionSuccessWebHookUrl?: string
+  startAt?: string
   status?: string
-  sweep_action?: Record<string, any>
-  time_zone_id?: string
-  trigger_cron_expression?: string
-  trigger_on_pay_in?: boolean
-  user_id?: string
-  web_hook_secret?: string
+  sweepAction?: Record<string, any>
+  timeZoneId?: string
+  triggerCronExpression?: string
+  triggerOnPayIn?: boolean
+  userID?: string
+  webHookSecret?: string
+
+  // Selects a custom action instead of the plain update:
+  //   'disable'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface RuleRemoveMatch {
@@ -2456,14 +2561,14 @@ export interface RuleRemoveMatch {
 }
 
 export interface RuleEvent {
-  error_message?: string
+  errorMessage?: string
   id?: string
   inserted?: string
-  is_authorise_to_enable?: boolean
+  isAuthoriseToEnable?: boolean
   message?: string
-  raw_response?: string
-  rule_event_type?: string
-  rule_id?: string
+  rawResponse?: string
+  ruleEventType?: string
+  ruleID?: string
   user: Record<string, any>
 }
 
@@ -2472,10 +2577,10 @@ export interface RuleEventListMatch {
 }
 
 export interface Tag {
-  colour_hex?: string
+  colourHex?: string
   description?: string
   id?: string
-  merchant_id: string
+  merchantID: string
   name: string
 }
 
@@ -2485,9 +2590,10 @@ export interface TagListMatch {
 
 export interface TagCreateData {
   merchant_id: string
-  colour_hex?: string
+  colourHex?: string
   description?: string
   id?: string
+  merchantID: string
   name: string
 }
 
@@ -2503,59 +2609,59 @@ export interface TokenRemoveMatch {
 }
 
 export interface Transaction {
-  account_id?: string
-  account_name?: string
-  account_sequence_number?: number
-  address_detail?: Record<string, any>
+  accountID?: string
+  accountName?: string
+  accountSequenceNumber?: number
+  addressDetails?: Record<string, any>
   amount?: number
-  amount_minor_unit?: number
+  amountMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  booking_date_time?: string
-  charge_detail?: Record<string, any>
+  balanceMinorUnits?: number
+  bookingDateTime?: string
+  chargeDetails?: Record<string, any>
   content?: any[]
   counterparty?: Record<string, any>
-  counterparty_summary?: string
+  counterpartySummary?: string
   currency?: string
-  currency_exchange?: Record<string, any>
+  currencyExchange?: Record<string, any>
   date?: string
   description?: string
   enrichment?: Record<string, any>
-  fx_amount?: number
-  fx_currency?: string
-  fx_rate?: number
-  gross_amount: Record<string, any>
+  fxAmount?: number
+  fxCurrency?: string
+  fxRate?: number
+  grossAmount: Record<string, any>
   id?: string
   inserted?: string
-  iso_bank_transaction_code?: Record<string, any>
+  isoBankTransactionCode?: Record<string, any>
   merchant?: Record<string, any>
-  merchant_id?: string
-  page_number?: number
-  page_size?: number
-  payee_detail: Record<string, any>
-  payer_detail: Record<string, any>
-  payment_request_custom_field?: Record<string, any>
-  payment_request_id?: string
-  payout_id?: string
-  proprietary_bank_transaction_code?: Record<string, any>
-  raw_reference?: string
+  merchantID?: string
+  pageNumber?: number
+  pageSize?: number
+  payeeDetails: Record<string, any>
+  payerDetails: Record<string, any>
+  paymentRequestCustomFields?: Record<string, any>
+  paymentRequestID?: string
+  payoutID?: string
+  proprietaryBankTransactionCode?: Record<string, any>
+  rawReference?: string
   reference?: string
-  rule_id?: string
-  statement_reference?: any[]
+  ruleID?: string
+  statementReferences?: any[]
   status?: string
-  supplementary_data?: any
-  tag?: any[]
-  their_reference?: string
-  total_page?: number
-  total_size?: number
-  transaction_amount: Record<string, any>
-  transaction_date?: string
-  transaction_information?: any[]
-  transaction_mutability?: string
+  supplementaryData?: any
+  tags?: any[]
+  theirReference?: string
+  totalPages?: number
+  totalSize?: number
+  transactionAmount: Record<string, any>
+  transactionDate?: string
+  transactionInformation?: any[]
+  transactionMutability?: string
   type?: string
-  value_date_time?: string
-  virtual_iban?: string
-  your_reference?: string
+  valueDateTime?: string
+  virtualIBAN?: string
+  yourReference?: string
 }
 
 export interface TransactionLoadMatch {
@@ -2563,6 +2669,12 @@ export interface TransactionLoadMatch {
   sequence_number?: number
   transaction_id?: string
   account_id?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'export' | 'proof'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface TransactionListMatch {
@@ -2573,119 +2685,137 @@ export interface TransactionListMatch {
 
 export interface TransactionCreateData {
   id: string
-  account_id?: string
-  account_name?: string
-  account_sequence_number?: number
-  address_detail?: Record<string, any>
+  accountID?: string
+  accountName?: string
+  accountSequenceNumber?: number
+  addressDetails?: Record<string, any>
   amount?: number
-  amount_minor_unit?: number
+  amountMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  booking_date_time?: string
-  charge_detail?: Record<string, any>
+  balanceMinorUnits?: number
+  bookingDateTime?: string
+  chargeDetails?: Record<string, any>
   content?: any[]
   counterparty?: Record<string, any>
-  counterparty_summary?: string
+  counterpartySummary?: string
   currency?: string
-  currency_exchange?: Record<string, any>
+  currencyExchange?: Record<string, any>
   date?: string
   description?: string
   enrichment?: Record<string, any>
-  fx_amount?: number
-  fx_currency?: string
-  fx_rate?: number
-  gross_amount: Record<string, any>
+  fxAmount?: number
+  fxCurrency?: string
+  fxRate?: number
+  grossAmount: Record<string, any>
   inserted?: string
-  iso_bank_transaction_code?: Record<string, any>
+  isoBankTransactionCode?: Record<string, any>
   merchant?: Record<string, any>
-  merchant_id?: string
-  page_number?: number
-  page_size?: number
-  payee_detail: Record<string, any>
-  payer_detail: Record<string, any>
-  payment_request_custom_field?: Record<string, any>
-  payment_request_id?: string
-  payout_id?: string
-  proprietary_bank_transaction_code?: Record<string, any>
-  raw_reference?: string
+  merchantID?: string
+  pageNumber?: number
+  pageSize?: number
+  payeeDetails: Record<string, any>
+  payerDetails: Record<string, any>
+  paymentRequestCustomFields?: Record<string, any>
+  paymentRequestID?: string
+  payoutID?: string
+  proprietaryBankTransactionCode?: Record<string, any>
+  rawReference?: string
   reference?: string
-  rule_id?: string
-  statement_reference?: any[]
+  ruleID?: string
+  statementReferences?: any[]
   status?: string
-  supplementary_data?: any
-  tag?: any[]
-  their_reference?: string
-  total_page?: number
-  total_size?: number
-  transaction_amount: Record<string, any>
-  transaction_date?: string
-  transaction_information?: any[]
-  transaction_mutability?: string
+  supplementaryData?: any
+  tags?: any[]
+  theirReference?: string
+  totalPages?: number
+  totalSize?: number
+  transactionAmount: Record<string, any>
+  transactionDate?: string
+  transactionInformation?: any[]
+  transactionMutability?: string
   type?: string
-  value_date_time?: string
-  virtual_iban?: string
-  your_reference?: string
+  valueDateTime?: string
+  virtualIBAN?: string
+  yourReference?: string
+
+  // Selects a custom action instead of the plain create:
+  //   'tag'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface TransactionRemoveMatch {
   id: string
+
+  // Selects a custom action instead of the plain remove:
+  //   'tag'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface User {
-  client_session_timeout?: any[]
-  email_address: string
-  first_name: string
+  clientSessionTimeouts?: any[]
+  emailAddress: string
+  firstName: string
   id?: string
-  last_name: string
-  passkey_added?: boolean
-  permission?: Record<string, any>
+  lastName: string
+  passkeyAdded?: boolean
+  permissions?: Record<string, any>
   profile?: string
-  roles_with_scope?: any[]
-  two_factor_enabled?: boolean
-  user_invite_id?: string
+  rolesWithScope?: any[]
+  twoFactorEnabled?: boolean
+  userInviteID?: string
 }
 
 export interface UserListMatch {
   merchant_id?: string
+
+  // Selects a custom action instead of the plain list:
+  //   'userspaged'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface UserUpdateData {
   id: string
-  client_session_timeout?: any[]
-  email_address?: string
-  first_name?: string
-  last_name?: string
-  passkey_added?: boolean
-  permission?: Record<string, any>
+  clientSessionTimeouts?: any[]
+  emailAddress?: string
+  firstName?: string
+  lastName?: string
+  passkeyAdded?: boolean
+  permissions?: Record<string, any>
   profile?: string
-  roles_with_scope?: any[]
-  two_factor_enabled?: boolean
-  user_invite_id?: string
+  rolesWithScope?: any[]
+  twoFactorEnabled?: boolean
+  userInviteID?: string
 }
 
 export interface UserInvite {
-  authorisation_status?: Record<string, any>
-  failed_user_invite?: Record<string, any>
+  authorisationStatus?: Record<string, any>
+  failedUserInvites?: Record<string, any>
   id?: string
-  initial_role_id?: string
-  invitee_email_address?: string
-  invitee_first_name?: string
-  invitee_last_name?: string
-  inviter_email_address?: string
-  inviter_first_name?: string
-  inviter_last_name?: string
-  is_authorised?: boolean
-  is_invitee_registered?: boolean
-  last_invited?: string
-  merchant_id?: string
-  merchant_name?: string
+  initialRoleID?: string
+  inviteeEmailAddress?: string
+  inviteeFirstName?: string
+  inviteeLastName?: string
+  inviterEmailAddress?: string
+  inviterFirstName?: string
+  inviterLastName?: string
+  isAuthorised?: boolean
+  isInviteeRegistered?: boolean
+  lastInvited?: string
+  merchantID?: string
+  merchantName?: string
   message?: string
-  registration_url?: string
-  send_invite_email?: boolean
+  registrationUrl?: string
+  sendInviteEmail?: boolean
   status?: string
   user: Record<string, any>
-  user_id?: string
-  user_invite?: any[]
+  userID?: string
+  userInvites?: any[]
 }
 
 export interface UserInviteLoadMatch {
@@ -2699,52 +2829,52 @@ export interface UserInviteListMatch {
 
 export interface UserInviteCreateData {
   id?: string
-  authorisation_status?: Record<string, any>
-  failed_user_invite?: Record<string, any>
-  initial_role_id?: string
-  invitee_email_address?: string
-  invitee_first_name?: string
-  invitee_last_name?: string
-  inviter_email_address?: string
-  inviter_first_name?: string
-  inviter_last_name?: string
-  is_authorised?: boolean
-  is_invitee_registered?: boolean
-  last_invited?: string
-  merchant_id?: string
-  merchant_name?: string
+  authorisationStatus?: Record<string, any>
+  failedUserInvites?: Record<string, any>
+  initialRoleID?: string
+  inviteeEmailAddress?: string
+  inviteeFirstName?: string
+  inviteeLastName?: string
+  inviterEmailAddress?: string
+  inviterFirstName?: string
+  inviterLastName?: string
+  isAuthorised?: boolean
+  isInviteeRegistered?: boolean
+  lastInvited?: string
+  merchantID?: string
+  merchantName?: string
   message?: string
-  registration_url?: string
-  send_invite_email?: boolean
+  registrationUrl?: string
+  sendInviteEmail?: boolean
   status?: string
   user: Record<string, any>
-  user_id?: string
-  user_invite?: any[]
+  userID?: string
+  userInvites?: any[]
 }
 
 export interface UserInviteUpdateData {
   id: string
-  authorisation_status?: Record<string, any>
-  failed_user_invite?: Record<string, any>
-  initial_role_id?: string
-  invitee_email_address?: string
-  invitee_first_name?: string
-  invitee_last_name?: string
-  inviter_email_address?: string
-  inviter_first_name?: string
-  inviter_last_name?: string
-  is_authorised?: boolean
-  is_invitee_registered?: boolean
-  last_invited?: string
-  merchant_id?: string
-  merchant_name?: string
+  authorisationStatus?: Record<string, any>
+  failedUserInvites?: Record<string, any>
+  initialRoleID?: string
+  inviteeEmailAddress?: string
+  inviteeFirstName?: string
+  inviteeLastName?: string
+  inviterEmailAddress?: string
+  inviterFirstName?: string
+  inviterLastName?: string
+  isAuthorised?: boolean
+  isInviteeRegistered?: boolean
+  lastInvited?: string
+  merchantID?: string
+  merchantName?: string
   message?: string
-  registration_url?: string
-  send_invite_email?: boolean
+  registrationUrl?: string
+  sendInviteEmail?: boolean
   status?: string
   user?: Record<string, any>
-  user_id?: string
-  user_invite?: any[]
+  userID?: string
+  userInvites?: any[]
 }
 
 export interface UserInviteRemoveMatch {
@@ -2752,145 +2882,145 @@ export interface UserInviteRemoveMatch {
 }
 
 export interface Virtual {
-  account_name?: string
-  account_supplier_name?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountName?: string
+  accountSupplierName?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  created_by: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  createdBy: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  defaultPaymentRail?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   id?: string
   identifier: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   name: string
-  physical_account_id?: string
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_sepa_instant_status?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  supplierSepaInstantStatus?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface VirtualCreateData {
   account_id: string
-  account_name?: string
-  account_supplier_name?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountName?: string
+  accountSupplierName?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  created_by: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  createdBy: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  defaultPaymentRail?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   id?: string
   identifier: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   name: string
-  physical_account_id?: string
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_sepa_instant_status?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  supplierSepaInstantStatus?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface VirtualUpdateData {
   account_id: string
   id: string
-  account_name?: string
-  account_supplier_name?: string
-  available_balance?: number
-  available_balance_minor_unit?: number
+  accountName?: string
+  accountSupplierName?: string
+  availableBalance?: number
+  availableBalanceMinorUnits?: number
   balance?: number
-  balance_minor_unit?: number
-  bank_name?: string
-  consent_id?: string
-  created_by?: Record<string, any>
-  created_by_display_name?: string
+  balanceMinorUnits?: number
+  bankName?: string
+  consentID?: string
+  createdBy?: Record<string, any>
+  createdByDisplayName?: string
   currency?: string
-  default_payment_rail?: string
-  display_name?: string
-  expiry_date?: string
-  external_account_icon?: string
+  defaultPaymentRail?: string
+  displayName?: string
+  expiryDate?: string
+  externalAccountIcon?: string
   identifier?: Record<string, any>
   inserted?: string
-  is_archived?: boolean
-  is_connected_account?: boolean
-  is_default?: boolean
-  is_trust_account?: boolean
-  is_virtual?: boolean
-  last_transaction?: Record<string, any>
-  last_updated?: string
-  merchant_id?: string
-  merchant_name?: string
+  isArchived?: boolean
+  isConnectedAccount?: boolean
+  isDefault?: boolean
+  isTrustAccount?: boolean
+  isVirtual?: boolean
+  lastTransaction?: Record<string, any>
+  lastUpdated?: string
+  merchantID?: string
+  merchantName?: string
   name?: string
-  physical_account_id?: string
-  rule?: any[]
-  submitted_payouts_balance?: number
-  submitted_payouts_balance_minor_unit?: number
+  physicalAccountID?: string
+  rules?: any[]
+  submittedPayoutsBalance?: number
+  submittedPayoutsBalanceMinorUnits?: number
   summary?: string
-  supplier_sepa_instant_status?: string
-  xero_bank_feed_connection_status?: string
-  xero_bank_feed_last_synced_at?: string
-  xero_bank_feed_sync_last_failed_at?: string
-  xero_bank_feed_sync_last_failure_reason?: string
-  xero_bank_feed_sync_status?: string
-  xero_unsynchronised_transactions_count?: number
+  supplierSepaInstantStatus?: string
+  xeroBankFeedConnectionStatus?: string
+  xeroBankFeedLastSyncedAt?: string
+  xeroBankFeedSyncLastFailedAt?: string
+  xeroBankFeedSyncLastFailureReason?: string
+  xeroBankFeedSyncStatus?: string
+  xeroUnsynchronisedTransactionsCount?: number
 }
 
 export interface Webhook {
-  destination_url?: string
-  email_address?: string
-  failed_notification_email_address?: string
+  destinationUrl?: string
+  emailAddress?: string
+  failedNotificationEmailAddress?: string
   id?: string
-  is_active?: boolean
-  merchant_id?: string
-  notification_method?: string
-  resource_type?: any[]
+  isActive?: boolean
+  merchantID?: string
+  notificationMethod?: string
+  resourceTypes?: any[]
   retry?: boolean
   secret?: string
   version?: number
@@ -2906,14 +3036,14 @@ export interface WebhookListMatch {
 }
 
 export interface WebhookCreateData {
-  destination_url?: string
-  email_address?: string
-  failed_notification_email_address?: string
+  destinationUrl?: string
+  emailAddress?: string
+  failedNotificationEmailAddress?: string
   id?: string
-  is_active?: boolean
-  merchant_id?: string
-  notification_method?: string
-  resource_type?: any[]
+  isActive?: boolean
+  merchantID?: string
+  notificationMethod?: string
+  resourceTypes?: any[]
   retry?: boolean
   secret?: string
   version?: number
@@ -2921,13 +3051,13 @@ export interface WebhookCreateData {
 
 export interface WebhookUpdateData {
   id: string
-  destination_url?: string
-  email_address?: string
-  failed_notification_email_address?: string
-  is_active?: boolean
-  merchant_id?: string
-  notification_method?: string
-  resource_type?: any[]
+  destinationUrl?: string
+  emailAddress?: string
+  failedNotificationEmailAddress?: string
+  isActive?: boolean
+  merchantID?: string
+  notificationMethod?: string
+  resourceTypes?: any[]
   retry?: boolean
   secret?: string
   version?: number

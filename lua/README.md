@@ -45,7 +45,7 @@ local accounts, err = client:Account():list()
 if err then error(err) end
 
 for _, item in ipairs(accounts) do
-  print(item["id"], item["account_id"])
+  print(item["id"], item["accountID"])
 end
 ```
 
@@ -63,14 +63,14 @@ print(cardcustomertoken)
 
 ```lua
 -- Create
-local created, err = client:Account():create({ created_by = {}, identifier = {} })
+local created, err = client:Account():create({ createdBy = {}, identifier = {} })
 if err then error(err) end
 
 -- Update
-client:Account():update({ id = created["id"], account_id = "example_account_id", amount = 1 })
+client:Account():update({ id = created:data_get()["id"], account_id = "example_account_id", amount = 1 })
 
 -- Remove
-client:Account():remove({ id = created["id"] })
+client:Account():remove({ id = created:data_get()["id"] })
 ```
 
 
@@ -80,7 +80,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local ruleevents, err = client:RuleEvent():list()
+local consents, err = client:Consent():list()
 if err then error(err) end
 ```
 
@@ -138,7 +138,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:RuleEvent():list()
+local result, err = client:Consent():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -312,60 +312,61 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `account_balance` |  |
-| `account_id` |  |
-| `account_identification` |  |
-| `account_name` |  |
-| `account_supplier_name` |  |
-| `account_type` |  |
-| `available_balance` |  |
-| `available_balance_minor_unit` |  |
+| `accountBalances` |  |
+| `accountID` |  |
+| `accountIdentifications` |  |
+| `accountName` |  |
+| `accountNames` |  |
+| `accountSupplierName` |  |
+| `accountType` |  |
+| `availableBalance` |  |
+| `availableBalanceMinorUnits` |  |
 | `balance` |  |
-| `balance_minor_unit` |  |
-| `bank_name` |  |
-| `consent_id` |  |
-| `consolidated_account_information` |  |
-| `created_by` |  |
-| `created_by_display_name` |  |
+| `balanceMinorUnits` |  |
+| `bankName` |  |
+| `consentID` |  |
+| `consolidatedAccountInformation` |  |
+| `createdBy` |  |
+| `createdByDisplayName` |  |
 | `currency` |  |
-| `default_payment_rail` |  |
+| `defaultPaymentRail` |  |
 | `description` |  |
-| `detail` |  |
-| `display_name` |  |
-| `expiry_date` |  |
-| `external_account_icon` |  |
+| `details` |  |
+| `displayName` |  |
+| `expiryDate` |  |
+| `externalAccountIcon` |  |
 | `format` |  |
-| `from_date` |  |
+| `fromDate` |  |
 | `id` |  |
 | `identifier` |  |
 | `inserted` |  |
-| `is_archived` |  |
-| `is_connected_account` |  |
-| `is_default` |  |
-| `is_trust_account` |  |
-| `is_virtual` |  |
-| `last_transaction` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
+| `isArchived` |  |
+| `isConnectedAccount` |  |
+| `isDefault` |  |
+| `isTrustAccount` |  |
+| `isVirtual` |  |
+| `lastTransaction` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `merchantName` |  |
 | `nickname` |  |
-| `physical_account_id` |  |
-| `role_i_d` |  |
-| `rule` |  |
-| `submitted_payouts_balance` |  |
-| `submitted_payouts_balance_minor_unit` |  |
+| `physicalAccountID` |  |
+| `roleIDs` |  |
+| `rules` |  |
+| `submittedPayoutsBalance` |  |
+| `submittedPayoutsBalanceMinorUnits` |  |
 | `summary` |  |
-| `supplier_physical_account_id` |  |
-| `supplier_sepa_instant_status` |  |
-| `to_date` |  |
+| `supplierPhysicalAccountID` |  |
+| `supplierSepaInstantStatus` |  |
+| `toDate` |  |
 | `type` |  |
-| `usage_type` |  |
-| `xero_bank_feed_connection_status` |  |
-| `xero_bank_feed_last_synced_at` |  |
-| `xero_bank_feed_sync_last_failed_at` |  |
-| `xero_bank_feed_sync_last_failure_reason` |  |
-| `xero_bank_feed_sync_status` |  |
-| `xero_unsynchronised_transactions_count` |  |
+| `usageType` |  |
+| `xeroBankFeedConnectionStatus` |  |
+| `xeroBankFeedLastSyncedAt` |  |
+| `xeroBankFeedSyncLastFailedAt` |  |
+| `xeroBankFeedSyncLastFailureReason` |  |
+| `xeroBankFeedSyncStatus` |  |
+| `xeroUnsynchronisedTransactionsCount` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -375,9 +376,9 @@ API path: `/api/v1/accounts/{accountID}/{currency}`
 
 | Field | Description |
 | --- | --- |
-| `approve_url` |  |
+| `approveUrl` |  |
 | `id` |  |
-| `payout` |  |
+| `payouts` |  |
 
 Operations: Create, Load.
 
@@ -387,32 +388,32 @@ API path: `/api/v1/payouts/batch`
 
 | Field | Description |
 | --- | --- |
-| `approval_callback_url` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `beneficiary` |  |
-| `beneficiary_event` |  |
-| `can_authorise` |  |
-| `can_update` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
+| `approvalCallbackUrl` |  |
+| `authenticationMethods` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `beneficiaries` |  |
+| `beneficiaryEvents` |  |
+| `canAuthorise` |  |
+| `canUpdate` |  |
+| `createdBy` |  |
+| `createdByEmailAddress` |  |
 | `currency` |  |
 | `destination` |  |
-| `failed_beneficiary` |  |
-| `has_current_user_authorised` |  |
+| `failedBeneficiaries` |  |
+| `hasCurrentUserAuthorised` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `isEnabled` |  |
+| `lastAuthorised` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 | `name` |  |
 | `nonce` |  |
-| `source_account` |  |
-| `source_account_i_d` |  |
-| `their_reference` |  |
+| `sourceAccountIDs` |  |
+| `sourceAccounts` |  |
+| `theirReference` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -422,12 +423,12 @@ API path: `/api/v1/beneficiaries/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `group_member` |  |
-| `group_name` |  |
+| `groupMembers` |  |
+| `groupName` |  |
 | `id` |  |
 | `inserted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 
 Operations: List.
 
@@ -437,23 +438,23 @@ API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
 
 | Field | Description |
 | --- | --- |
-| `authorized_amount` |  |
-| `currency_code` |  |
-| `is_payer_authentication_required` |  |
-| `is_soft_decline` |  |
-| `payer_authentication_access_token` |  |
-| `payer_authentication_merchant_data` |  |
-| `payer_authentication_url` |  |
-| `payer_authentication_window_height` |  |
-| `payer_authentication_window_width` |  |
-| `payment_request_callback_url` |  |
-| `payment_request_id` |  |
-| `request_id` |  |
-| `response_code` |  |
-| `response_type` |  |
+| `authorizedAmount` |  |
+| `currencyCode` |  |
+| `isPayerAuthenticationRequired` |  |
+| `isSoftDecline` |  |
+| `payerAuthenticationAccessToken` |  |
+| `payerAuthenticationMerchantData` |  |
+| `payerAuthenticationUrl` |  |
+| `payerAuthenticationWindowHeight` |  |
+| `payerAuthenticationWindowWidth` |  |
+| `paymentRequestCallbackUrl` |  |
+| `paymentRequestID` |  |
+| `requestID` |  |
+| `responseCode` |  |
+| `responseType` |  |
 | `status` |  |
-| `three_ds_redirect_url` |  |
-| `transaction_id` |  |
+| `threeDSRedirectUrl` |  |
+| `transactionID` |  |
 
 Operations: Create.
 
@@ -463,17 +464,17 @@ API path: `/api/v1/paymentrequests/{id}/card`
 
 | Field | Description |
 | --- | --- |
-| `card_type` |  |
-| `customer_email_address` |  |
-| `expiry_month` |  |
-| `expiry_year` |  |
+| `cardType` |  |
+| `customerEmailAddress` |  |
+| `expiryMonth` |  |
+| `expiryYear` |  |
 | `id` |  |
 | `inserted` |  |
-| `last_four_digit` |  |
-| `last_updated` |  |
-| `masked_card_number` |  |
-| `merchant_id` |  |
-| `payment_request_id` |  |
+| `lastFourDigits` |  |
+| `lastUpdated` |  |
+| `maskedCardNumber` |  |
+| `merchantID` |  |
+| `paymentRequestID` |  |
 
 Operations: List, Load, Remove.
 
@@ -483,23 +484,23 @@ API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEma
 
 | Field | Description |
 | --- | --- |
-| `authorized_amount` |  |
-| `currency_code` |  |
-| `is_payer_authentication_required` |  |
-| `is_soft_decline` |  |
-| `payer_authentication_access_token` |  |
-| `payer_authentication_merchant_data` |  |
-| `payer_authentication_url` |  |
-| `payer_authentication_window_height` |  |
-| `payer_authentication_window_width` |  |
-| `payment_request_callback_url` |  |
-| `payment_request_id` |  |
-| `request_id` |  |
-| `response_code` |  |
-| `response_type` |  |
+| `authorizedAmount` |  |
+| `currencyCode` |  |
+| `isPayerAuthenticationRequired` |  |
+| `isSoftDecline` |  |
+| `payerAuthenticationAccessToken` |  |
+| `payerAuthenticationMerchantData` |  |
+| `payerAuthenticationUrl` |  |
+| `payerAuthenticationWindowHeight` |  |
+| `payerAuthenticationWindowWidth` |  |
+| `paymentRequestCallbackUrl` |  |
+| `paymentRequestID` |  |
+| `requestID` |  |
+| `responseCode` |  |
+| `responseType` |  |
 | `status` |  |
-| `three_ds_redirect_url` |  |
-| `transaction_id` |  |
+| `threeDSRedirectUrl` |  |
+| `transactionID` |  |
 
 Operations: Create.
 
@@ -519,20 +520,20 @@ API path: `/api/v1/paymentrequests/{id}/card/publickey`
 
 | Field | Description |
 | --- | --- |
-| `authorisation_url` |  |
-| `callback_url` |  |
-| `consent_id` |  |
-| `email_address` |  |
-| `expiry_date` |  |
-| `failure_callback_url` |  |
+| `authorisationUrl` |  |
+| `callbackUrl` |  |
+| `consentID` |  |
+| `emailAddress` |  |
+| `expiryDate` |  |
+| `failureCallbackUrl` |  |
 | `id` |  |
 | `inserted` |  |
-| `institution_id` |  |
-| `is_connected_account` |  |
-| `is_enabled` |  |
-| `merchant_id` |  |
+| `institutionID` |  |
+| `isConnectedAccounts` |  |
+| `isEnabled` |  |
+| `merchantID` |  |
 | `provider` |  |
-| `success_web_hook_url` |  |
+| `successWebHookUrl` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -543,10 +544,10 @@ API path: `/api/v1/openbanking/consents`
 | Field | Description |
 | --- | --- |
 | `code` |  |
-| `decimal` |  |
-| `is_fiat` |  |
-| `iso4217_alpha_code` |  |
-| `iso4217_numeric_code` |  |
+| `decimals` |  |
+| `isFiat` |  |
+| `iso4217AlphaCode` |  |
+| `iso4217NumericCode` |  |
 | `symbol` |  |
 
 Operations: List.
@@ -557,8 +558,8 @@ API path: `/api/v1/currencies`
 
 | Field | Description |
 | --- | --- |
-| `failed_submission` |  |
-| `successful_submission` |  |
+| `failedSubmissions` |  |
+| `successfulSubmissions` |  |
 
 Operations: Create.
 
@@ -568,11 +569,11 @@ API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 
 | Field | Description |
 | --- | --- |
-| `destination_currency` |  |
-| `exchange_rate` |  |
-| `expiry_time` |  |
-| `quote_id` |  |
-| `source_currency` |  |
+| `destinationCurrency` |  |
+| `exchangeRate` |  |
+| `expiryTime` |  |
+| `quoteID` |  |
+| `sourceCurrency` |  |
 
 Operations: List, Load.
 
@@ -582,8 +583,8 @@ API path: `/api/v1/payouts/fxallheldrates/{source}/{destination}`
 
 | Field | Description |
 | --- | --- |
-| `payment_request_id` |  |
-| `response_type` |  |
+| `paymentRequestID` |  |
+| `responseType` |  |
 
 Operations: Create.
 
@@ -593,40 +594,40 @@ API path: `/api/v1/paymentrequests/payondemand`
 
 | Field | Description |
 | --- | --- |
-| `account_number` |  |
-| `address_line1` |  |
-| `address_line2` |  |
-| `approved_at` |  |
+| `accountNumber` |  |
+| `addressLine1` |  |
+| `addressLine2` |  |
+| `approvedAt` |  |
 | `city` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
-| `customer_account_number` |  |
-| `customer_city` |  |
-| `customer_country_code` |  |
-| `customer_country_name` |  |
-| `customer_email_address` |  |
-| `customer_first_name` |  |
-| `customer_iban` |  |
-| `customer_last_name` |  |
-| `customer_sort_code` |  |
-| `email_address` |  |
-| `first_name` |  |
+| `customerAccountNumber` |  |
+| `customerCity` |  |
+| `customerCountryCode` |  |
+| `customerCountryName` |  |
+| `customerEmailAddress` |  |
+| `customerFirstName` |  |
+| `customerIban` |  |
+| `customerLastName` |  |
+| `customerSortCode` |  |
+| `emailAddress` |  |
+| `firstName` |  |
 | `iban` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_recurring` |  |
-| `last_name` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `postal_code` |  |
+| `isRecurring` |  |
+| `lastName` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `postalCode` |  |
 | `reference` |  |
-| `sort_code` |  |
+| `sortCode` |  |
 | `status` |  |
-| `supplier_bank_account_id` |  |
-| `supplier_customer_id` |  |
-| `supplier_mandate_id` |  |
-| `supplier_name` |  |
-| `supplier_status` |  |
+| `supplierBankAccountID` |  |
+| `supplierCustomerID` |  |
+| `supplierMandateID` |  |
+| `supplierName` |  |
+| `supplierStatus` |  |
 
 Operations: Create, Load.
 
@@ -636,35 +637,35 @@ API path: `/api/v1/mandates`
 
 | Field | Description |
 | --- | --- |
-| `account_currency` |  |
-| `can_have_trust_account` |  |
-| `card_payment_processor` |  |
-| `company_id` |  |
-| `display_qr_on_hosted_pay` |  |
-| `hosted_pay_version` |  |
+| `accountCurrencies` |  |
+| `canHaveTrustAccounts` |  |
+| `cardPaymentProcessor` |  |
+| `companyID` |  |
+| `displayQrOnHostedPay` |  |
+| `hostedPayVersion` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_blocked` |  |
-| `is_exited` |  |
-| `is_suspended` |  |
+| `isBlocked` |  |
+| `isExited` |  |
+| `isSuspended` |  |
 | `jurisdiction` |  |
-| `logo_url_png` |  |
-| `logo_url_svg` |  |
-| `merchant_category_code` |  |
+| `logoUrlPng` |  |
+| `logoUrlSvg` |  |
+| `merchantCategoryCode` |  |
 | `name` |  |
-| `note` |  |
-| `parent_merchant` |  |
-| `payment_account` |  |
-| `payment_account_limit` |  |
+| `notes` |  |
+| `parentMerchant` |  |
+| `paymentAccountLimit` |  |
+| `paymentAccounts` |  |
 | `reason` |  |
-| `short_name` |  |
-| `supported_payment_methods_list` |  |
-| `suspension_reason` |  |
-| `tag` |  |
-| `time_zone_id` |  |
-| `trading_name` |  |
-| `web_hook_limit` |  |
-| `your_role_name` |  |
+| `shortName` |  |
+| `supportedPaymentMethodsList` |  |
+| `suspensionReason` |  |
+| `tags` |  |
+| `timeZoneId` |  |
+| `tradingName` |  |
+| `webHookLimit` |  |
+| `yourRoleName` |  |
 
 Operations: List, Load, Remove, Update.
 
@@ -674,17 +675,17 @@ API path: `/api/v1/merchants/{merchantID}/childmerchants`
 
 | Field | Description |
 | --- | --- |
-| `amount_lower` |  |
-| `amount_upper` |  |
-| `authorisation_type` |  |
-| `beneficiaries_only` |  |
+| `amountLower` |  |
+| `amountUpper` |  |
+| `authorisationType` |  |
+| `beneficiariesOnly` |  |
 | `id` |  |
 | `inserted` |  |
-| `last_editor_cant_authorise` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `number_of_authoriser` |  |
-| `role_setting` |  |
+| `lastEditorCantAuthorise` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `numberOfAuthorisers` |  |
+| `roleSettings` |  |
 
 Operations: List.
 
@@ -694,29 +695,29 @@ API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
 | Field | Description |
 | --- | --- |
-| `approved_at` |  |
+| `approvedAt` |  |
 | `currency` |  |
-| `customer_account_number` |  |
-| `customer_city` |  |
-| `customer_country_code` |  |
-| `customer_country_name` |  |
-| `customer_email_address` |  |
-| `customer_first_name` |  |
-| `customer_iban` |  |
-| `customer_last_name` |  |
-| `customer_sort_code` |  |
+| `customerAccountNumber` |  |
+| `customerCity` |  |
+| `customerCountryCode` |  |
+| `customerCountryName` |  |
+| `customerEmailAddress` |  |
+| `customerFirstName` |  |
+| `customerIban` |  |
+| `customerLastName` |  |
+| `customerSortCode` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_recurring` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `isRecurring` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 | `reference` |  |
 | `status` |  |
-| `supplier_bank_account_id` |  |
-| `supplier_customer_id` |  |
-| `supplier_mandate_id` |  |
-| `supplier_name` |  |
-| `supplier_status` |  |
+| `supplierBankAccountID` |  |
+| `supplierCustomerID` |  |
+| `supplierMandateID` |  |
+| `supplierName` |  |
+| `supplierStatus` |  |
 
 Operations: List.
 
@@ -726,19 +727,19 @@ API path: `/api/v1/mandates`
 
 | Field | Description |
 | --- | --- |
-| `bank_country_code` |  |
-| `bank_id` |  |
-| `bank_name` |  |
-| `business_institution_id` |  |
+| `bankCountryCodes` |  |
+| `bankID` |  |
+| `bankName` |  |
+| `businessInstitutionID` |  |
 | `currency` |  |
 | `logo` |  |
 | `message` |  |
-| `message_image_url` |  |
+| `messageImageUrl` |  |
 | `order` |  |
-| `personal_institution_id` |  |
+| `personalInstitutionID` |  |
 | `processor` |  |
-| `warning_heading` |  |
-| `warning_message` |  |
+| `warningHeading` |  |
+| `warningMessage` |  |
 
 Operations: List.
 
@@ -748,12 +749,21 @@ API path: `/api/v1/merchants/{merchantID}/banksettings`
 
 | Field | Description |
 | --- | --- |
+| `bankPaymentOptions` |  |
+| `cardPaymentAddressOptions` |  |
+| `cardPaymentCaptureOptions` |  |
+| `customFields` |  |
+| `defaultFields` |  |
 | `description` |  |
 | `id` |  |
 | `inserted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 | `name` |  |
+| `notificationOptions` |  |
+| `paymentMethods` |  |
+| `paymentTerms` |  |
+| `priorityBankOptions` |  |
 | `template` |  |
 
 Operations: List, Load, Remove, Update.
@@ -764,28 +774,28 @@ API path: `/api/v1/paymentrequests/{merchantID}/templates`
 
 | Field | Description |
 | --- | --- |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `can_authorise` |  |
+| `authenticationMethods` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `canAuthorise` |  |
 | `description` |  |
-| `expires_at` |  |
-| `has_current_user_authorised` |  |
-| `hmac_algorithm` |  |
+| `expiresAt` |  |
+| `hasCurrentUserAuthorised` |  |
+| `hmacAlgorithm` |  |
 | `id` |  |
 | `inserted` |  |
-| `ip_address_whitelist` |  |
-| `is_archived` |  |
-| `is_enabled` |  |
-| `last_authorised` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `ipAddressWhitelist` |  |
+| `isArchived` |  |
+| `isEnabled` |  |
+| `lastAuthorised` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 | `nonce` |  |
-| `permission_type` |  |
-| `request_signature_version` |  |
-| `shared_secret_algorithm` |  |
-| `shared_secret_base64` |  |
+| `permissionTypes` |  |
+| `requestSignatureVersion` |  |
+| `sharedSecretAlgorithm` |  |
+| `sharedSecretBase64` |  |
 | `token` |  |
 
 Operations: Create, List, Load, Update.
@@ -805,10 +815,10 @@ API path: `/api/v1/metadata/problemnotification`
 
 | Field | Description |
 | --- | --- |
-| `build_version` |  |
-| `major_version` |  |
-| `minor_version` |  |
-| `release_name` |  |
+| `buildVersion` |  |
+| `majorVersion` |  |
+| `minorVersion` |  |
+| `releaseName` |  |
 
 Operations: Load.
 
@@ -827,13 +837,13 @@ API path: `/api/v1/openbanking/account/{accountID}/synchronise`
 
 | Field | Description |
 | --- | --- |
-| `account_name` |  |
-| `account_number` |  |
+| `accountName` |  |
+| `accountNumber` |  |
 | `iban` |  |
-| `payee_verified_account_name` |  |
+| `payeeVerifiedAccountName` |  |
 | `result` |  |
-| `secondary_identification` |  |
-| `sort_code` |  |
+| `secondaryIdentification` |  |
+| `sortCode` |  |
 
 Operations: Create.
 
@@ -843,82 +853,82 @@ API path: `/api/v1/openbanking/payeeverification`
 
 | Field | Description |
 | --- | --- |
-| `address` |  |
+| `addresses` |  |
 | `amount` |  |
-| `amount_pending` |  |
-| `amount_received` |  |
-| `amount_refunded` |  |
-| `auto_send_receipt` |  |
-| `base_origin_url` |  |
-| `callback_url` |  |
-| `card_authorize_only` |  |
-| `card_create_token` |  |
-| `card_create_token_mode` |  |
-| `card_ignore_cvn` |  |
-| `card_no_payer_authentication` |  |
-| `card_processor_merchant_id` |  |
-| `card_stripe_payment_intent_id` |  |
-| `card_stripe_payment_intent_secret` |  |
-| `card_transmit_raw_detail` |  |
-| `created_by_user` |  |
+| `amountPending` |  |
+| `amountReceived` |  |
+| `amountRefunded` |  |
+| `autoSendReceipt` |  |
+| `baseOriginUrl` |  |
+| `callbackUrl` |  |
+| `cardAuthorizeOnly` |  |
+| `cardCreateToken` |  |
+| `cardCreateTokenMode` |  |
+| `cardIgnoreCVN` |  |
+| `cardNoPayerAuthentication` |  |
+| `cardProcessorMerchantID` |  |
+| `cardStripePaymentIntentID` |  |
+| `cardStripePaymentIntentSecret` |  |
+| `cardTransmitRawDetails` |  |
+| `createdByUser` |  |
 | `currency` |  |
-| `custom_field` |  |
-| `customer_email_address` |  |
-| `customer_id` |  |
-| `customer_name` |  |
+| `customFields` |  |
+| `customerEmailAddress` |  |
+| `customerID` |  |
+| `customerName` |  |
 | `description` |  |
-| `destination_account` |  |
-| `direct_debit_payment` |  |
-| `due_date` |  |
-| `event` |  |
-| `failure_callback_url` |  |
-| `field_display_setting` |  |
-| `formatted_amount` |  |
-| `hosted_pay_checkout_url` |  |
+| `destinationAccount` |  |
+| `directDebitPayment` |  |
+| `dueDate` |  |
+| `events` |  |
+| `failureCallbackUrl` |  |
+| `fieldDisplaySettings` |  |
+| `formattedAmount` |  |
+| `hostedPayCheckoutUrl` |  |
 | `id` |  |
-| `ignore_address_verification` |  |
+| `ignoreAddressVerification` |  |
 | `inserted` |  |
-| `inserted_sortable` |  |
-| `is_archived` |  |
+| `insertedSortable` |  |
+| `isArchived` |  |
 | `jwk` |  |
-| `last_updated` |  |
-| `lightning_invoice` |  |
-| `lightning_invoice_expires_at` |  |
-| `merchant_direct_debit_mandate_id` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `notification_email_address` |  |
-| `notification_role_i_d` |  |
-| `order_id` |  |
-| `partial_payment_method` |  |
-| `partial_payment_step` |  |
-| `payment_attempt` |  |
-| `payment_method` |  |
-| `payment_processor` |  |
-| `payrun_id` |  |
-| `pisp_account_id` |  |
-| `priority_bank_id` |  |
+| `lastUpdated` |  |
+| `lightningInvoice` |  |
+| `lightningInvoiceExpiresAt` |  |
+| `merchantDirectDebitMandateID` |  |
+| `merchantID` |  |
+| `merchantTokenDescription` |  |
+| `notificationEmailAddresses` |  |
+| `notificationRoleIDs` |  |
+| `orderID` |  |
+| `partialPaymentMethod` |  |
+| `partialPaymentSteps` |  |
+| `paymentAttempts` |  |
+| `paymentMethods` |  |
+| `paymentProcessor` |  |
+| `payrunID` |  |
+| `pispAccountID` |  |
+| `priorityBankID` |  |
 | `result` |  |
-| `sandbox_settle_delay_in_second` |  |
-| `shipping_address` |  |
-| `shipping_address_city` |  |
-| `shipping_address_country_code` |  |
-| `shipping_address_county` |  |
-| `shipping_address_line1` |  |
-| `shipping_address_line2` |  |
-| `shipping_address_post_code` |  |
-| `shipping_email` |  |
-| `shipping_first_name` |  |
-| `shipping_last_name` |  |
-| `shipping_phone` |  |
+| `sandboxSettleDelayInSeconds` |  |
+| `shippingAddress` |  |
+| `shippingAddressCity` |  |
+| `shippingAddressCountryCode` |  |
+| `shippingAddressCounty` |  |
+| `shippingAddressLine1` |  |
+| `shippingAddressLine2` |  |
+| `shippingAddressPostCode` |  |
+| `shippingEmail` |  |
+| `shippingFirstName` |  |
+| `shippingLastName` |  |
+| `shippingPhone` |  |
 | `status` |  |
-| `success_web_hook_url` |  |
-| `tag` |  |
-| `tag_id` |  |
+| `successWebHookUrl` |  |
+| `tagIds` |  |
+| `tags` |  |
 | `title` |  |
-| `tokenised_card` |  |
-| `transaction` |  |
-| `use_hosted_payment_page` |  |
+| `tokenisedCards` |  |
+| `transactions` |  |
+| `useHostedPaymentPage` |  |
 
 Operations: Create, Load, Update.
 
@@ -928,45 +938,45 @@ API path: `/api/v1/paymentrequests`
 
 | Field | Description |
 | --- | --- |
-| `account_name` |  |
-| `account_supplier_name` |  |
-| `available_balance` |  |
-| `available_balance_minor_unit` |  |
+| `accountName` |  |
+| `accountSupplierName` |  |
+| `availableBalance` |  |
+| `availableBalanceMinorUnits` |  |
 | `balance` |  |
-| `balance_minor_unit` |  |
-| `bank_name` |  |
-| `consent_id` |  |
-| `created_by` |  |
-| `created_by_display_name` |  |
+| `balanceMinorUnits` |  |
+| `bankName` |  |
+| `consentID` |  |
+| `createdBy` |  |
+| `createdByDisplayName` |  |
 | `currency` |  |
-| `default_payment_rail` |  |
-| `display_name` |  |
-| `expiry_date` |  |
-| `external_account_icon` |  |
+| `defaultPaymentRail` |  |
+| `displayName` |  |
+| `expiryDate` |  |
+| `externalAccountIcon` |  |
 | `id` |  |
 | `identifier` |  |
 | `inserted` |  |
-| `is_archived` |  |
-| `is_connected_account` |  |
-| `is_default` |  |
-| `is_trust_account` |  |
-| `is_virtual` |  |
-| `last_transaction` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
-| `physical_account_id` |  |
-| `rule` |  |
-| `submitted_payouts_balance` |  |
-| `submitted_payouts_balance_minor_unit` |  |
+| `isArchived` |  |
+| `isConnectedAccount` |  |
+| `isDefault` |  |
+| `isTrustAccount` |  |
+| `isVirtual` |  |
+| `lastTransaction` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `merchantName` |  |
+| `physicalAccountID` |  |
+| `rules` |  |
+| `submittedPayoutsBalance` |  |
+| `submittedPayoutsBalanceMinorUnits` |  |
 | `summary` |  |
-| `supplier_sepa_instant_status` |  |
-| `xero_bank_feed_connection_status` |  |
-| `xero_bank_feed_last_synced_at` |  |
-| `xero_bank_feed_sync_last_failed_at` |  |
-| `xero_bank_feed_sync_last_failure_reason` |  |
-| `xero_bank_feed_sync_status` |  |
-| `xero_unsynchronised_transactions_count` |  |
+| `supplierSepaInstantStatus` |  |
+| `xeroBankFeedConnectionStatus` |  |
+| `xeroBankFeedLastSyncedAt` |  |
+| `xeroBankFeedSyncLastFailedAt` |  |
+| `xeroBankFeedSyncLastFailureReason` |  |
+| `xeroBankFeedSyncStatus` |  |
+| `xeroUnsynchronisedTransactionsCount` |  |
 
 Operations: List.
 
@@ -976,17 +986,17 @@ API path: `/api/v1/accounts/paged`
 
 | Field | Description |
 | --- | --- |
-| `account_name` |  |
-| `available_balance` |  |
+| `accountName` |  |
+| `availableBalance` |  |
 | `balance` |  |
-| `balance_minor_unit` |  |
+| `balanceMinorUnits` |  |
 | `currency` |  |
 | `id` |  |
 | `identifier` |  |
-| `is_archived` |  |
-| `is_connected_account` |  |
-| `merchant_id` |  |
-| `submitted_payouts_balance` |  |
+| `isArchived` |  |
+| `isConnectedAccount` |  |
+| `merchantID` |  |
+| `submittedPayoutsBalance` |  |
 
 Operations: List.
 
@@ -996,12 +1006,12 @@ API path: `/api/v1/accounts/minimal`
 
 | Field | Description |
 | --- | --- |
-| `payment_initiation_id` |  |
-| `payment_request_callback_url` |  |
-| `payment_request_id` |  |
-| `redirect_url` |  |
-| `response_type` |  |
-| `specific_error_message` |  |
+| `paymentInitiationID` |  |
+| `paymentRequestCallbackUrl` |  |
+| `paymentRequestID` |  |
+| `redirectUrl` |  |
+| `responseType` |  |
+| `specificErrorMessage` |  |
 
 Operations: Create.
 
@@ -1011,75 +1021,75 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 
 | Field | Description |
 | --- | --- |
-| `address` |  |
+| `addresses` |  |
 | `amount` |  |
-| `amount_pending` |  |
-| `amount_received` |  |
-| `amount_refunded` |  |
-| `auto_send_receipt` |  |
-| `base_origin_url` |  |
-| `callback_url` |  |
-| `card_authorize_only` |  |
-| `card_create_token` |  |
-| `card_create_token_mode` |  |
-| `card_ignore_cvn` |  |
-| `card_processor_merchant_id` |  |
-| `card_stripe_payment_intent_id` |  |
-| `card_stripe_payment_intent_secret` |  |
-| `created_by_user` |  |
+| `amountPending` |  |
+| `amountReceived` |  |
+| `amountRefunded` |  |
+| `autoSendReceipt` |  |
+| `baseOriginUrl` |  |
+| `callbackUrl` |  |
+| `cardAuthorizeOnly` |  |
+| `cardCreateToken` |  |
+| `cardCreateTokenMode` |  |
+| `cardIgnoreCVN` |  |
+| `cardProcessorMerchantID` |  |
+| `cardStripePaymentIntentID` |  |
+| `cardStripePaymentIntentSecret` |  |
+| `createdByUser` |  |
 | `currency` |  |
-| `custom_field` |  |
-| `customer_email_address` |  |
-| `customer_id` |  |
-| `customer_name` |  |
+| `customFields` |  |
+| `customerEmailAddress` |  |
+| `customerID` |  |
+| `customerName` |  |
 | `description` |  |
-| `destination_account` |  |
-| `direct_debit_payment` |  |
-| `do_simulate_settlement_failure` |  |
-| `due_date` |  |
-| `error_description` |  |
-| `event` |  |
-| `failed_payment_request` |  |
-| `failure_callback_url` |  |
-| `field_display_setting` |  |
-| `formatted_amount` |  |
-| `hosted_pay_checkout_url` |  |
+| `destinationAccount` |  |
+| `directDebitPayment` |  |
+| `doSimulateSettlementFailure` |  |
+| `dueDate` |  |
+| `errorDescription` |  |
+| `events` |  |
+| `failedPaymentRequests` |  |
+| `failureCallbackUrl` |  |
+| `fieldDisplaySettings` |  |
+| `formattedAmount` |  |
+| `hostedPayCheckoutUrl` |  |
 | `id` |  |
-| `ignore_address_verification` |  |
+| `ignoreAddressVerification` |  |
 | `inserted` |  |
-| `inserted_sortable` |  |
+| `insertedSortable` |  |
 | `institution` |  |
-| `is_archived` |  |
+| `isArchived` |  |
 | `jwk` |  |
-| `last_updated` |  |
-| `lightning_invoice` |  |
-| `lightning_invoice_expires_at` |  |
-| `merchant_direct_debit_mandate_id` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
-| `notification_email_address` |  |
-| `notification_role_i_d` |  |
-| `order_id` |  |
-| `partial_payment_method` |  |
-| `partial_payment_step` |  |
-| `payment_attempt` |  |
-| `payment_initiation_id` |  |
-| `payment_method` |  |
-| `payment_processor` |  |
-| `payment_request` |  |
-| `payrun_id` |  |
-| `pisp_account_id` |  |
-| `priority_bank_id` |  |
+| `lastUpdated` |  |
+| `lightningInvoice` |  |
+| `lightningInvoiceExpiresAt` |  |
+| `merchantDirectDebitMandateID` |  |
+| `merchantID` |  |
+| `merchantTokenDescription` |  |
+| `notificationEmailAddresses` |  |
+| `notificationRoleIDs` |  |
+| `orderID` |  |
+| `partialPaymentMethod` |  |
+| `partialPaymentSteps` |  |
+| `paymentAttempts` |  |
+| `paymentInitiationID` |  |
+| `paymentMethods` |  |
+| `paymentProcessor` |  |
+| `paymentRequests` |  |
+| `payrunID` |  |
+| `pispAccountID` |  |
+| `priorityBankID` |  |
 | `result` |  |
-| `sandbox_settle_delay_in_second` |  |
-| `shipping_address` |  |
+| `sandboxSettleDelayInSeconds` |  |
+| `shippingAddress` |  |
 | `status` |  |
-| `success_web_hook_url` |  |
-| `tag` |  |
+| `successWebHookUrl` |  |
+| `tags` |  |
 | `title` |  |
-| `tokenised_card` |  |
-| `transaction` |  |
-| `use_hosted_payment_page` |  |
+| `tokenisedCards` |  |
+| `transactions` |  |
+| `useHostedPaymentPage` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1090,41 +1100,41 @@ API path: `/api/v1/paymentrequests/{id}/directdebit`
 | Field | Description |
 | --- | --- |
 | `amount` |  |
-| `apple_pay_transaction_id` |  |
-| `card_authorization_response_id` |  |
-| `card_expiry_month` |  |
-| `card_expiry_year` |  |
-| `card_issuer` |  |
-| `card_issuer_country` |  |
-| `card_last_four_digit` |  |
-| `card_request_id` |  |
-| `card_scheme` |  |
-| `card_token_customer_id` |  |
-| `card_transaction_id` |  |
+| `applePayTransactionID` |  |
+| `cardAuthorizationResponseID` |  |
+| `cardExpiryMonth` |  |
+| `cardExpiryYear` |  |
+| `cardIssuer` |  |
+| `cardIssuerCountry` |  |
+| `cardLastFourDigits` |  |
+| `cardRequestID` |  |
+| `cardScheme` |  |
+| `cardTokenCustomerID` |  |
+| `cardTransactionID` |  |
 | `currency` |  |
-| `direct_debit_payment_id` |  |
-| `direct_debit_payment_reference` |  |
-| `drirect_debit_mandate_id` |  |
-| `error_message` |  |
-| `error_reason` |  |
-| `event_type` |  |
+| `directDebitPaymentID` |  |
+| `directDebitPaymentReference` |  |
+| `drirectDebitMandateID` |  |
+| `errorMessage` |  |
+| `errorReason` |  |
+| `eventType` |  |
 | `id` |  |
 | `inserted` |  |
-| `lightning_invoice` |  |
-| `lightning_r_hash` |  |
-| `origin_url` |  |
-| `payment_method_type` |  |
-| `payment_processor_name` |  |
-| `payment_request_id` |  |
-| `pisp_bank_status` |  |
-| `pisp_payment_initiation_id` |  |
-| `pisp_payment_institution_name` |  |
-| `pisp_payment_service_provider_id` |  |
-| `pisp_redirect_url` |  |
-| `reconciled_transaction_id` |  |
-| `refund_payout_id` |  |
+| `lightningInvoice` |  |
+| `lightningRHash` |  |
+| `originUrl` |  |
+| `paymentMethodType` |  |
+| `paymentProcessorName` |  |
+| `paymentRequestID` |  |
+| `pispBankStatus` |  |
+| `pispPaymentInitiationID` |  |
+| `pispPaymentInstitutionName` |  |
+| `pispPaymentServiceProviderID` |  |
+| `pispRedirectUrl` |  |
+| `reconciledTransactionID` |  |
+| `refundPayoutID` |  |
 | `status` |  |
-| `wallet_name` |  |
+| `walletName` |  |
 
 Operations: List.
 
@@ -1134,12 +1144,6 @@ API path: `/api/v1/paymentrequests/{id}/events`
 
 | Field | Description |
 | --- | --- |
-| `all` |  |
-| `authorized` |  |
-| `paid` |  |
-| `partially_paid` |  |
-| `total_amounts_by_currency` |  |
-| `unpaid` |  |
 
 Operations: Load.
 
@@ -1150,34 +1154,34 @@ API path: `/api/v1/paymentrequests/metrics`
 | Field | Description |
 | --- | --- |
 | `amount` |  |
-| `amount_pending` |  |
-| `amount_received` |  |
-| `amount_refunded` |  |
-| `callback_url` |  |
-| `card_stripe_payment_intent_secret` |  |
-| `country_code` |  |
+| `amountPending` |  |
+| `amountReceived` |  |
+| `amountRefunded` |  |
+| `callbackUrl` |  |
+| `cardStripePaymentIntentSecret` |  |
+| `countryCode` |  |
 | `currency` |  |
-| `custom_fields_to_display` |  |
+| `customFieldsToDisplay` |  |
 | `description` |  |
-| `due_date` |  |
-| `field_display_setting` |  |
-| `google_pay_merchant_id` |  |
+| `dueDate` |  |
+| `fieldDisplaySettings` |  |
+| `googlePayMerchantID` |  |
 | `id` |  |
 | `jwk` |  |
-| `merchant_id` |  |
-| `merchant_logo_url_png` |  |
-| `merchant_logo_url_svg` |  |
-| `merchant_name` |  |
-| `merchant_short_name` |  |
-| `partial_payment_method` |  |
-| `payment_attempt` |  |
-| `payment_methods_list` |  |
-| `payment_processor` |  |
-| `payment_processor_key` |  |
-| `pisp_error` |  |
-| `priority_bank_id` |  |
+| `merchantID` |  |
+| `merchantLogoUrlPng` |  |
+| `merchantLogoUrlSvg` |  |
+| `merchantName` |  |
+| `merchantShortName` |  |
+| `partialPaymentMethod` |  |
+| `paymentAttempts` |  |
+| `paymentMethodsList` |  |
+| `paymentProcessor` |  |
+| `paymentProcessorKey` |  |
+| `pispError` |  |
+| `priorityBankID` |  |
 | `status` |  |
-| `stripe_account_id` |  |
+| `stripeAccountID` |  |
 | `title` |  |
 
 Operations: List.
@@ -1189,15 +1193,15 @@ API path: `/api/v1/paymentrequests/{id}/minimal`
 | Field | Description |
 | --- | --- |
 | `amount` |  |
-| `amount_pending` |  |
-| `amount_received` |  |
-| `amount_refunded` |  |
+| `amountPending` |  |
+| `amountReceived` |  |
+| `amountRefunded` |  |
 | `currency` |  |
-| `customer_id` |  |
-| `payment` |  |
-| `payment_request_id` |  |
-| `pisp_authorization` |  |
-| `requested_amount` |  |
+| `customerID` |  |
+| `paymentRequestID` |  |
+| `payments` |  |
+| `pispAuthorizations` |  |
+| `requestedAmount` |  |
 | `result` |  |
 
 Operations: List.
@@ -1208,85 +1212,85 @@ API path: `/api/v1/paymentrequests/{id}/result`
 
 | Field | Description |
 | --- | --- |
-| `account_id` |  |
-| `allow_incomplete` |  |
+| `accountID` |  |
+| `allowIncomplete` |  |
 | `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
+| `amountMinorUnits` |  |
+| `approvePayoutUrl` |  |
+| `approverID` |  |
+| `authenticationMethods` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `batchPayoutID` |  |
 | `beneficiary` |  |
-| `beneficiary_id` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
+| `beneficiaryID` |  |
+| `canAuthorise` |  |
+| `canProcess` |  |
+| `canUpdate` |  |
+| `chargeBearer` |  |
+| `createdBy` |  |
+| `createdByEmailAddress` |  |
 | `currency` |  |
-| `current_user_id` |  |
+| `currentUserID` |  |
 | `description` |  |
 | `destination` |  |
-| `document` |  |
-| `event` |  |
-| `failed_payout` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
+| `documents` |  |
+| `events` |  |
+| `failedPayouts` |  |
+| `formattedAmount` |  |
+| `formattedFxDestinationAmount` |  |
+| `formattedSchedule` |  |
+| `formattedScheduleDayOnly` |  |
+| `formattedSourceAccountAvailableBalance` |  |
+| `fxDestinationAmount` |  |
+| `fxDestinationAmountMinorUnits` |  |
+| `fxDestinationCurrency` |  |
+| `fxQuoteExpiresAt` |  |
+| `fxQuoteID` |  |
+| `fxRate` |  |
+| `fxUseDestinationAmount` |  |
+| `hasCurrentUserAuthorised` |  |
 | `id` |  |
 | `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
+| `invoiceID` |  |
+| `isArchived` |  |
+| `isFailed` |  |
+| `isSettled` |  |
+| `isSubmitted` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `merchantTokenDescription` |  |
 | `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payout` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
+| `paymentProcessor` |  |
+| `paymentRail` |  |
+| `payouts` |  |
+| `payrunID` |  |
+| `payrunName` |  |
 | `reason` |  |
 | `rule` |  |
-| `schedule_date` |  |
+| `scheduleDate` |  |
 | `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
+| `sourceAccountAvailableBalance` |  |
+| `sourceAccountAvailableBalanceMinorUnits` |  |
+| `sourceAccountBic` |  |
+| `sourceAccountCurrency` |  |
+| `sourceAccountIban` |  |
+| `sourceAccountIdentifier` |  |
+| `sourceAccountName` |  |
+| `sourceAccountNumber` |  |
+| `sourceAccountSortcode` |  |
 | `status` |  |
-| `tag` |  |
-| `tag_id` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
+| `tagIds` |  |
+| `tags` |  |
+| `theirReference` |  |
+| `topupPayrunID` |  |
+| `transactedAmount` |  |
+| `transactedFxAmount` |  |
+| `transactedFxRate` |  |
 | `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
+| `userID` |  |
+| `yourReference` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1296,79 +1300,79 @@ API path: `/api/v1/payouts/batch/submit/{id}`
 
 | Field | Description |
 | --- | --- |
-| `account_id` |  |
+| `accountID` |  |
 | `amount` |  |
-| `amount_minor_unit` |  |
-| `approve_payout_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
+| `amountMinorUnits` |  |
+| `approvePayoutUrl` |  |
+| `approverID` |  |
+| `authenticationMethods` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `batchPayoutID` |  |
 | `beneficiary` |  |
-| `can_authorise` |  |
-| `can_process` |  |
-| `can_update` |  |
-| `charge_bearer` |  |
-| `created_by` |  |
-| `created_by_email_address` |  |
+| `canAuthorise` |  |
+| `canProcess` |  |
+| `canUpdate` |  |
+| `chargeBearer` |  |
+| `createdBy` |  |
+| `createdByEmailAddress` |  |
 | `currency` |  |
-| `current_user_id` |  |
+| `currentUserID` |  |
 | `description` |  |
 | `destination` |  |
-| `document` |  |
-| `event` |  |
-| `formatted_amount` |  |
-| `formatted_fx_destination_amount` |  |
-| `formatted_schedule` |  |
-| `formatted_schedule_day_only` |  |
-| `formatted_source_account_available_balance` |  |
-| `fx_destination_amount` |  |
-| `fx_destination_amount_minor_unit` |  |
-| `fx_destination_currency` |  |
-| `fx_quote_expires_at` |  |
-| `fx_quote_id` |  |
-| `fx_rate` |  |
-| `fx_use_destination_amount` |  |
-| `has_current_user_authorised` |  |
+| `documents` |  |
+| `events` |  |
+| `formattedAmount` |  |
+| `formattedFxDestinationAmount` |  |
+| `formattedSchedule` |  |
+| `formattedScheduleDayOnly` |  |
+| `formattedSourceAccountAvailableBalance` |  |
+| `fxDestinationAmount` |  |
+| `fxDestinationAmountMinorUnits` |  |
+| `fxDestinationCurrency` |  |
+| `fxQuoteExpiresAt` |  |
+| `fxQuoteID` |  |
+| `fxRate` |  |
+| `fxUseDestinationAmount` |  |
+| `hasCurrentUserAuthorised` |  |
 | `id` |  |
 | `inserted` |  |
-| `invoice_id` |  |
-| `is_archived` |  |
-| `is_failed` |  |
-| `is_settled` |  |
-| `is_submitted` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_token_description` |  |
+| `invoiceID` |  |
+| `isArchived` |  |
+| `isFailed` |  |
+| `isSettled` |  |
+| `isSubmitted` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `merchantTokenDescription` |  |
 | `nonce` |  |
-| `payment_processor` |  |
-| `payment_rail` |  |
-| `payrun_id` |  |
-| `payrun_name` |  |
+| `paymentProcessor` |  |
+| `paymentRail` |  |
+| `payrunID` |  |
+| `payrunName` |  |
 | `rule` |  |
-| `schedule_date` |  |
+| `scheduleDate` |  |
 | `scheduled` |  |
-| `source_account_available_balance` |  |
-| `source_account_available_balance_minor_unit` |  |
-| `source_account_bic` |  |
-| `source_account_currency` |  |
-| `source_account_iban` |  |
-| `source_account_identifier` |  |
-| `source_account_name` |  |
-| `source_account_number` |  |
-| `source_account_sortcode` |  |
+| `sourceAccountAvailableBalance` |  |
+| `sourceAccountAvailableBalanceMinorUnits` |  |
+| `sourceAccountBic` |  |
+| `sourceAccountCurrency` |  |
+| `sourceAccountIban` |  |
+| `sourceAccountIdentifier` |  |
+| `sourceAccountName` |  |
+| `sourceAccountNumber` |  |
+| `sourceAccountSortcode` |  |
 | `status` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `topup_payrun_id` |  |
-| `transacted_amount` |  |
-| `transacted_fx_amount` |  |
-| `transacted_fx_rate` |  |
+| `tags` |  |
+| `theirReference` |  |
+| `topupPayrunID` |  |
+| `transactedAmount` |  |
+| `transactedFxAmount` |  |
+| `transactedFxRate` |  |
 | `type` |  |
-| `user_id` |  |
-| `your_reference` |  |
+| `userID` |  |
+| `yourReference` |  |
 
 Operations: List.
 
@@ -1378,13 +1382,6 @@ API path: `/api/v1/accounts/{accountID}/payouts/failed`
 
 | Field | Description |
 | --- | --- |
-| `all` |  |
-| `failed` |  |
-| `in_progress` |  |
-| `paid` |  |
-| `pending_approval` |  |
-| `scheduled` |  |
-| `total_amounts_by_currency` |  |
 
 Operations: Load.
 
@@ -1394,38 +1391,38 @@ API path: `/api/v1/payouts/metrics`
 
 | Field | Description |
 | --- | --- |
-| `authorisation` |  |
-| `authorisation_date` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `batch_payout_id` |  |
-| `can_authorise` |  |
-| `can_delete` |  |
-| `can_edit` |  |
-| `event` |  |
-| `has_current_user_authorised` |  |
+| `authorisationDate` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `batchPayoutID` |  |
+| `canAuthorise` |  |
+| `canDelete` |  |
+| `canEdit` |  |
+| `events` |  |
+| `hasCurrentUserAuthorised` |  |
 | `id` |  |
 | `inserted` |  |
-| `invoice` |  |
-| `invoices_minimal` |  |
-| `is_archived` |  |
-| `last_updated` |  |
-| `last_updated_by` |  |
-| `merchant_id` |  |
+| `invoices` |  |
+| `invoicesMinimal` |  |
+| `isArchived` |  |
+| `lastUpdated` |  |
+| `lastUpdatedBy` |  |
+| `merchantID` |  |
 | `name` |  |
 | `nonce` |  |
-| `note` |  |
-| `payment` |  |
-| `payout` |  |
-| `payouts_count` |  |
+| `notes` |  |
+| `payments` |  |
+| `payouts` |  |
+| `payoutsCount` |  |
 | `reason` |  |
-| `schedule_date` |  |
-| `scheduled_date` |  |
-| `source_account` |  |
+| `scheduleDate` |  |
+| `scheduledDate` |  |
+| `sourceAccounts` |  |
 | `status` |  |
-| `total_eur` |  |
-| `total_gbp` |  |
-| `total_usd` |  |
+| `totalEur` |  |
+| `totalGbp` |  |
+| `totalUsd` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1444,13 +1441,13 @@ API path: `/api/v1/reports/{id}/initiate`
 
 | Field | Description |
 | --- | --- |
-| `content` |  |
-| `content_type` |  |
-| `last_completed_at` |  |
-| `merchant_id` |  |
-| `report_name` |  |
-| `report_type` |  |
-| `statement_number` |  |
+| `contentType` |  |
+| `contents` |  |
+| `lastCompletedAt` |  |
+| `merchantID` |  |
+| `reportName` |  |
+| `reportType` |  |
+| `statementNumber` |  |
 
 Operations: Load.
 
@@ -1460,8 +1457,8 @@ API path: `/api/v1/reports/{id}/result/{statementNumber}`
 
 | Field | Description |
 | --- | --- |
-| `failed_role` |  |
-| `role` |  |
+| `failedRoles` |  |
+| `roles` |  |
 
 Operations: Create.
 
@@ -1472,38 +1469,38 @@ API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
 | Field | Description |
 | --- | --- |
 | `account` |  |
-| `account_id` |  |
-| `approve_url` |  |
-| `approver_id` |  |
-| `authentication_method` |  |
-| `authorisation` |  |
-| `authorisers_completed_count` |  |
-| `authorisers_required_count` |  |
-| `can_authorise` |  |
-| `created_by` |  |
+| `accountID` |  |
+| `approveUrl` |  |
+| `approverID` |  |
+| `authenticationMethods` |  |
+| `authorisations` |  |
+| `authorisersCompletedCount` |  |
+| `authorisersRequiredCount` |  |
+| `canAuthorise` |  |
+| `createdBy` |  |
 | `description` |  |
-| `end_at` |  |
-| `has_current_user_authorised` |  |
+| `endAt` |  |
+| `hasCurrentUserAuthorised` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_disabled` |  |
-| `last_executed_at` |  |
-| `last_run_at_transaction_date` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
+| `isDisabled` |  |
+| `lastExecutedAt` |  |
+| `lastRunAtTransactionDate` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
 | `name` |  |
 | `nonce` |  |
-| `on_approved_web_hook_url` |  |
-| `on_execution_error_web_hook_url` |  |
-| `on_execution_success_web_hook_url` |  |
-| `start_at` |  |
+| `onApprovedWebHookUrl` |  |
+| `onExecutionErrorWebHookUrl` |  |
+| `onExecutionSuccessWebHookUrl` |  |
+| `startAt` |  |
 | `status` |  |
-| `sweep_action` |  |
-| `time_zone_id` |  |
-| `trigger_cron_expression` |  |
-| `trigger_on_pay_in` |  |
-| `user_id` |  |
-| `web_hook_secret` |  |
+| `sweepAction` |  |
+| `timeZoneId` |  |
+| `triggerCronExpression` |  |
+| `triggerOnPayIn` |  |
+| `userID` |  |
+| `webHookSecret` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1513,14 +1510,14 @@ API path: `/api/v1/rules`
 
 | Field | Description |
 | --- | --- |
-| `error_message` |  |
+| `errorMessage` |  |
 | `id` |  |
 | `inserted` |  |
-| `is_authorise_to_enable` |  |
+| `isAuthoriseToEnable` |  |
 | `message` |  |
-| `raw_response` |  |
-| `rule_event_type` |  |
-| `rule_id` |  |
+| `rawResponse` |  |
+| `ruleEventType` |  |
+| `ruleID` |  |
 | `user` |  |
 
 Operations: List.
@@ -1531,10 +1528,10 @@ API path: `/api/v1/rules/{id}/events`
 
 | Field | Description |
 | --- | --- |
-| `colour_hex` |  |
+| `colourHex` |  |
 | `description` |  |
 | `id` |  |
-| `merchant_id` |  |
+| `merchantID` |  |
 | `name` |  |
 
 Operations: Create, List.
@@ -1554,59 +1551,59 @@ API path: `/api/v1/tokens/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `account_id` |  |
-| `account_name` |  |
-| `account_sequence_number` |  |
-| `address_detail` |  |
+| `accountID` |  |
+| `accountName` |  |
+| `accountSequenceNumber` |  |
+| `addressDetails` |  |
 | `amount` |  |
-| `amount_minor_unit` |  |
+| `amountMinorUnits` |  |
 | `balance` |  |
-| `balance_minor_unit` |  |
-| `booking_date_time` |  |
-| `charge_detail` |  |
+| `balanceMinorUnits` |  |
+| `bookingDateTime` |  |
+| `chargeDetails` |  |
 | `content` |  |
 | `counterparty` |  |
-| `counterparty_summary` |  |
+| `counterpartySummary` |  |
 | `currency` |  |
-| `currency_exchange` |  |
+| `currencyExchange` |  |
 | `date` |  |
 | `description` |  |
 | `enrichment` |  |
-| `fx_amount` |  |
-| `fx_currency` |  |
-| `fx_rate` |  |
-| `gross_amount` |  |
+| `fxAmount` |  |
+| `fxCurrency` |  |
+| `fxRate` |  |
+| `grossAmount` |  |
 | `id` |  |
 | `inserted` |  |
-| `iso_bank_transaction_code` |  |
+| `isoBankTransactionCode` |  |
 | `merchant` |  |
-| `merchant_id` |  |
-| `page_number` |  |
-| `page_size` |  |
-| `payee_detail` |  |
-| `payer_detail` |  |
-| `payment_request_custom_field` |  |
-| `payment_request_id` |  |
-| `payout_id` |  |
-| `proprietary_bank_transaction_code` |  |
-| `raw_reference` |  |
+| `merchantID` |  |
+| `pageNumber` |  |
+| `pageSize` |  |
+| `payeeDetails` |  |
+| `payerDetails` |  |
+| `paymentRequestCustomFields` |  |
+| `paymentRequestID` |  |
+| `payoutID` |  |
+| `proprietaryBankTransactionCode` |  |
+| `rawReference` |  |
 | `reference` |  |
-| `rule_id` |  |
-| `statement_reference` |  |
+| `ruleID` |  |
+| `statementReferences` |  |
 | `status` |  |
-| `supplementary_data` |  |
-| `tag` |  |
-| `their_reference` |  |
-| `total_page` |  |
-| `total_size` |  |
-| `transaction_amount` |  |
-| `transaction_date` |  |
-| `transaction_information` |  |
-| `transaction_mutability` |  |
+| `supplementaryData` |  |
+| `tags` |  |
+| `theirReference` |  |
+| `totalPages` |  |
+| `totalSize` |  |
+| `transactionAmount` |  |
+| `transactionDate` |  |
+| `transactionInformation` |  |
+| `transactionMutability` |  |
 | `type` |  |
-| `value_date_time` |  |
-| `virtual_iban` |  |
-| `your_reference` |  |
+| `valueDateTime` |  |
+| `virtualIBAN` |  |
+| `yourReference` |  |
 
 Operations: Create, List, Load, Remove.
 
@@ -1616,17 +1613,17 @@ API path: `/api/v1/transactions/{id}/tags`
 
 | Field | Description |
 | --- | --- |
-| `client_session_timeout` |  |
-| `email_address` |  |
-| `first_name` |  |
+| `clientSessionTimeouts` |  |
+| `emailAddress` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `passkey_added` |  |
-| `permission` |  |
+| `lastName` |  |
+| `passkeyAdded` |  |
+| `permissions` |  |
 | `profile` |  |
-| `roles_with_scope` |  |
-| `two_factor_enabled` |  |
-| `user_invite_id` |  |
+| `rolesWithScope` |  |
+| `twoFactorEnabled` |  |
+| `userInviteID` |  |
 
 Operations: List, Update.
 
@@ -1636,28 +1633,28 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 
 | Field | Description |
 | --- | --- |
-| `authorisation_status` |  |
-| `failed_user_invite` |  |
+| `authorisationStatus` |  |
+| `failedUserInvites` |  |
 | `id` |  |
-| `initial_role_id` |  |
-| `invitee_email_address` |  |
-| `invitee_first_name` |  |
-| `invitee_last_name` |  |
-| `inviter_email_address` |  |
-| `inviter_first_name` |  |
-| `inviter_last_name` |  |
-| `is_authorised` |  |
-| `is_invitee_registered` |  |
-| `last_invited` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
+| `initialRoleID` |  |
+| `inviteeEmailAddress` |  |
+| `inviteeFirstName` |  |
+| `inviteeLastName` |  |
+| `inviterEmailAddress` |  |
+| `inviterFirstName` |  |
+| `inviterLastName` |  |
+| `isAuthorised` |  |
+| `isInviteeRegistered` |  |
+| `lastInvited` |  |
+| `merchantID` |  |
+| `merchantName` |  |
 | `message` |  |
-| `registration_url` |  |
-| `send_invite_email` |  |
+| `registrationUrl` |  |
+| `sendInviteEmail` |  |
 | `status` |  |
 | `user` |  |
-| `user_id` |  |
-| `user_invite` |  |
+| `userID` |  |
+| `userInvites` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1667,46 +1664,46 @@ API path: `/api/v1/userinvites/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `account_name` |  |
-| `account_supplier_name` |  |
-| `available_balance` |  |
-| `available_balance_minor_unit` |  |
+| `accountName` |  |
+| `accountSupplierName` |  |
+| `availableBalance` |  |
+| `availableBalanceMinorUnits` |  |
 | `balance` |  |
-| `balance_minor_unit` |  |
-| `bank_name` |  |
-| `consent_id` |  |
-| `created_by` |  |
-| `created_by_display_name` |  |
+| `balanceMinorUnits` |  |
+| `bankName` |  |
+| `consentID` |  |
+| `createdBy` |  |
+| `createdByDisplayName` |  |
 | `currency` |  |
-| `default_payment_rail` |  |
-| `display_name` |  |
-| `expiry_date` |  |
-| `external_account_icon` |  |
+| `defaultPaymentRail` |  |
+| `displayName` |  |
+| `expiryDate` |  |
+| `externalAccountIcon` |  |
 | `id` |  |
 | `identifier` |  |
 | `inserted` |  |
-| `is_archived` |  |
-| `is_connected_account` |  |
-| `is_default` |  |
-| `is_trust_account` |  |
-| `is_virtual` |  |
-| `last_transaction` |  |
-| `last_updated` |  |
-| `merchant_id` |  |
-| `merchant_name` |  |
+| `isArchived` |  |
+| `isConnectedAccount` |  |
+| `isDefault` |  |
+| `isTrustAccount` |  |
+| `isVirtual` |  |
+| `lastTransaction` |  |
+| `lastUpdated` |  |
+| `merchantID` |  |
+| `merchantName` |  |
 | `name` |  |
-| `physical_account_id` |  |
-| `rule` |  |
-| `submitted_payouts_balance` |  |
-| `submitted_payouts_balance_minor_unit` |  |
+| `physicalAccountID` |  |
+| `rules` |  |
+| `submittedPayoutsBalance` |  |
+| `submittedPayoutsBalanceMinorUnits` |  |
 | `summary` |  |
-| `supplier_sepa_instant_status` |  |
-| `xero_bank_feed_connection_status` |  |
-| `xero_bank_feed_last_synced_at` |  |
-| `xero_bank_feed_sync_last_failed_at` |  |
-| `xero_bank_feed_sync_last_failure_reason` |  |
-| `xero_bank_feed_sync_status` |  |
-| `xero_unsynchronised_transactions_count` |  |
+| `supplierSepaInstantStatus` |  |
+| `xeroBankFeedConnectionStatus` |  |
+| `xeroBankFeedLastSyncedAt` |  |
+| `xeroBankFeedSyncLastFailedAt` |  |
+| `xeroBankFeedSyncLastFailureReason` |  |
+| `xeroBankFeedSyncStatus` |  |
+| `xeroUnsynchronisedTransactionsCount` |  |
 
 Operations: Create, Update.
 
@@ -1716,14 +1713,14 @@ API path: `/api/v1/accounts/{accountID}/virtual`
 
 | Field | Description |
 | --- | --- |
-| `destination_url` |  |
-| `email_address` |  |
-| `failed_notification_email_address` |  |
+| `destinationUrl` |  |
+| `emailAddress` |  |
+| `failedNotificationEmailAddress` |  |
 | `id` |  |
-| `is_active` |  |
-| `merchant_id` |  |
-| `notification_method` |  |
-| `resource_type` |  |
+| `isActive` |  |
+| `merchantID` |  |
+| `notificationMethod` |  |
+| `resourceTypes` |  |
 | `retry` |  |
 | `secret` |  |
 | `version` |  |
@@ -1755,60 +1752,61 @@ Create an instance: `local account = client:Account(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_balance` | `table` |  |
-| `account_id` | `string` |  |
-| `account_identification` | `table` |  |
-| `account_name` | `string` |  |
-| `account_supplier_name` | `string` |  |
-| `account_type` | `string` |  |
-| `available_balance` | `number` |  |
-| `available_balance_minor_unit` | `number` |  |
+| `accountBalances` | `table` |  |
+| `accountID` | `string` |  |
+| `accountIdentifications` | `table` |  |
+| `accountName` | `string` |  |
+| `accountNames` | `table` |  |
+| `accountSupplierName` | `string` |  |
+| `accountType` | `string` |  |
+| `availableBalance` | `number` |  |
+| `availableBalanceMinorUnits` | `number` |  |
 | `balance` | `number` |  |
-| `balance_minor_unit` | `number` |  |
-| `bank_name` | `string` |  |
-| `consent_id` | `string` |  |
-| `consolidated_account_information` | `table` |  |
-| `created_by` | `table` |  |
-| `created_by_display_name` | `string` |  |
+| `balanceMinorUnits` | `number` |  |
+| `bankName` | `string` |  |
+| `consentID` | `string` |  |
+| `consolidatedAccountInformation` | `table` |  |
+| `createdBy` | `table` |  |
+| `createdByDisplayName` | `string` |  |
 | `currency` | `string` |  |
-| `default_payment_rail` | `string` |  |
+| `defaultPaymentRail` | `string` |  |
 | `description` | `string` |  |
-| `detail` | `string` |  |
-| `display_name` | `string` |  |
-| `expiry_date` | `string` |  |
-| `external_account_icon` | `string` |  |
+| `details` | `string` |  |
+| `displayName` | `string` |  |
+| `expiryDate` | `string` |  |
+| `externalAccountIcon` | `string` |  |
 | `format` | `string` |  |
-| `from_date` | `string` |  |
+| `fromDate` | `string` |  |
 | `id` | `string` |  |
 | `identifier` | `table` |  |
 | `inserted` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_connected_account` | `boolean` |  |
-| `is_default` | `boolean` |  |
-| `is_trust_account` | `boolean` |  |
-| `is_virtual` | `boolean` |  |
-| `last_transaction` | `table` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
+| `isArchived` | `boolean` |  |
+| `isConnectedAccount` | `boolean` |  |
+| `isDefault` | `boolean` |  |
+| `isTrustAccount` | `boolean` |  |
+| `isVirtual` | `boolean` |  |
+| `lastTransaction` | `table` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantName` | `string` |  |
 | `nickname` | `string` |  |
-| `physical_account_id` | `string` |  |
-| `role_i_d` | `table` |  |
-| `rule` | `table` |  |
-| `submitted_payouts_balance` | `number` |  |
-| `submitted_payouts_balance_minor_unit` | `number` |  |
+| `physicalAccountID` | `string` |  |
+| `roleIDs` | `table` |  |
+| `rules` | `table` |  |
+| `submittedPayoutsBalance` | `number` |  |
+| `submittedPayoutsBalanceMinorUnits` | `number` |  |
 | `summary` | `string` |  |
-| `supplier_physical_account_id` | `string` |  |
-| `supplier_sepa_instant_status` | `string` |  |
-| `to_date` | `string` |  |
+| `supplierPhysicalAccountID` | `string` |  |
+| `supplierSepaInstantStatus` | `string` |  |
+| `toDate` | `string` |  |
 | `type` | `string` |  |
-| `usage_type` | `string` |  |
-| `xero_bank_feed_connection_status` | `string` |  |
-| `xero_bank_feed_last_synced_at` | `string` |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` |  |
-| `xero_bank_feed_sync_status` | `string` |  |
-| `xero_unsynchronised_transactions_count` | `number` |  |
+| `usageType` | `string` |  |
+| `xeroBankFeedConnectionStatus` | `string` |  |
+| `xeroBankFeedLastSyncedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` |  |
+| `xeroBankFeedSyncStatus` | `string` |  |
+| `xeroUnsynchronisedTransactionsCount` | `number` |  |
 
 #### Example: Load
 
@@ -1826,7 +1824,7 @@ local accounts, err = client:Account():list()
 
 ```lua
 local account, err = client:Account():create({
-  created_by = {}, -- table
+  createdBy = {}, -- table
   identifier = {}, -- table
 })
 ```
@@ -1847,9 +1845,9 @@ Create an instance: `local batch = client:Batch(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approve_url` | `string` |  |
+| `approveUrl` | `string` |  |
 | `id` | `string` |  |
-| `payout` | `table` |  |
+| `payouts` | `table` |  |
 
 #### Example: Load
 
@@ -1883,32 +1881,32 @@ Create an instance: `local beneficiary = client:Beneficiary(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approval_callback_url` | `string` |  |
-| `authentication_method` | `table` |  |
-| `authorisation` | `table` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `beneficiary` | `table` |  |
-| `beneficiary_event` | `table` |  |
-| `can_authorise` | `boolean` |  |
-| `can_update` | `boolean` |  |
-| `created_by` | `table` |  |
-| `created_by_email_address` | `string` |  |
+| `approvalCallbackUrl` | `string` |  |
+| `authenticationMethods` | `table` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `beneficiaries` | `table` |  |
+| `beneficiaryEvents` | `table` |  |
+| `canAuthorise` | `boolean` |  |
+| `canUpdate` | `boolean` |  |
+| `createdBy` | `table` |  |
+| `createdByEmailAddress` | `string` |  |
 | `currency` | `string` |  |
 | `destination` | `table` |  |
-| `failed_beneficiary` | `table` |  |
-| `has_current_user_authorised` | `boolean` |  |
+| `failedBeneficiaries` | `table` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_enabled` | `boolean` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `isEnabled` | `boolean` |  |
+| `lastAuthorised` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 | `name` | `string` |  |
 | `nonce` | `string` |  |
-| `source_account` | `table` |  |
-| `source_account_i_d` | `table` |  |
-| `their_reference` | `string` |  |
+| `sourceAccountIDs` | `table` |  |
+| `sourceAccounts` | `table` |  |
+| `theirReference` | `string` |  |
 
 #### Example: Load
 
@@ -1926,7 +1924,7 @@ local beneficiarys, err = client:Beneficiary():list()
 
 ```lua
 local beneficiary, err = client:Beneficiary():create({
-  created_by = {}, -- table
+  createdBy = {}, -- table
   currency = "example_currency", -- string
   name = "example_name", -- string
 })
@@ -1947,12 +1945,12 @@ Create an instance: `local beneficiary_group = client:BeneficiaryGroup(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `group_member` | `table` |  |
-| `group_name` | `string` |  |
+| `groupMembers` | `table` |  |
+| `groupName` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 
 #### Example: List
 
@@ -1975,23 +1973,23 @@ Create an instance: `local card = client:Card(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorized_amount` | `string` |  |
-| `currency_code` | `string` |  |
-| `is_payer_authentication_required` | `boolean` |  |
-| `is_soft_decline` | `boolean` |  |
-| `payer_authentication_access_token` | `string` |  |
-| `payer_authentication_merchant_data` | `string` |  |
-| `payer_authentication_url` | `string` |  |
-| `payer_authentication_window_height` | `number` |  |
-| `payer_authentication_window_width` | `number` |  |
-| `payment_request_callback_url` | `string` |  |
-| `payment_request_id` | `string` |  |
-| `request_id` | `string` |  |
-| `response_code` | `string` |  |
-| `response_type` | `string` |  |
+| `authorizedAmount` | `string` |  |
+| `currencyCode` | `string` |  |
+| `isPayerAuthenticationRequired` | `boolean` |  |
+| `isSoftDecline` | `boolean` |  |
+| `payerAuthenticationAccessToken` | `string` |  |
+| `payerAuthenticationMerchantData` | `string` |  |
+| `payerAuthenticationUrl` | `string` |  |
+| `payerAuthenticationWindowHeight` | `number` |  |
+| `payerAuthenticationWindowWidth` | `number` |  |
+| `paymentRequestCallbackUrl` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `requestID` | `string` |  |
+| `responseCode` | `string` |  |
+| `responseType` | `string` |  |
 | `status` | `string` |  |
-| `three_ds_redirect_url` | `string` |  |
-| `transaction_id` | `string` |  |
+| `threeDSRedirectUrl` | `string` |  |
+| `transactionID` | `string` |  |
 
 #### Example: Create
 
@@ -2018,17 +2016,17 @@ Create an instance: `local card_customer_token = client:CardCustomerToken(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_type` | `string` |  |
-| `customer_email_address` | `string` |  |
-| `expiry_month` | `string` |  |
-| `expiry_year` | `string` |  |
+| `cardType` | `string` |  |
+| `customerEmailAddress` | `string` |  |
+| `expiryMonth` | `string` |  |
+| `expiryYear` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `last_four_digit` | `string` |  |
-| `last_updated` | `string` |  |
-| `masked_card_number` | `string` |  |
-| `merchant_id` | `string` |  |
-| `payment_request_id` | `string` |  |
+| `lastFourDigits` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `maskedCardNumber` | `string` |  |
+| `merchantID` | `string` |  |
+| `paymentRequestID` | `string` |  |
 
 #### Example: Load
 
@@ -2057,23 +2055,23 @@ Create an instance: `local card_payment = client:CardPayment(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorized_amount` | `string` |  |
-| `currency_code` | `string` |  |
-| `is_payer_authentication_required` | `boolean` |  |
-| `is_soft_decline` | `boolean` |  |
-| `payer_authentication_access_token` | `string` |  |
-| `payer_authentication_merchant_data` | `string` |  |
-| `payer_authentication_url` | `string` |  |
-| `payer_authentication_window_height` | `number` |  |
-| `payer_authentication_window_width` | `number` |  |
-| `payment_request_callback_url` | `string` |  |
-| `payment_request_id` | `string` |  |
-| `request_id` | `string` |  |
-| `response_code` | `string` |  |
-| `response_type` | `string` |  |
+| `authorizedAmount` | `string` |  |
+| `currencyCode` | `string` |  |
+| `isPayerAuthenticationRequired` | `boolean` |  |
+| `isSoftDecline` | `boolean` |  |
+| `payerAuthenticationAccessToken` | `string` |  |
+| `payerAuthenticationMerchantData` | `string` |  |
+| `payerAuthenticationUrl` | `string` |  |
+| `payerAuthenticationWindowHeight` | `number` |  |
+| `payerAuthenticationWindowWidth` | `number` |  |
+| `paymentRequestCallbackUrl` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `requestID` | `string` |  |
+| `responseCode` | `string` |  |
+| `responseType` | `string` |  |
 | `status` | `string` |  |
-| `three_ds_redirect_url` | `string` |  |
-| `transaction_id` | `string` |  |
+| `threeDSRedirectUrl` | `string` |  |
+| `transactionID` | `string` |  |
 
 #### Example: Create
 
@@ -2125,20 +2123,20 @@ Create an instance: `local consent = client:Consent(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorisation_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `consent_id` | `string` |  |
-| `email_address` | `string` |  |
-| `expiry_date` | `string` |  |
-| `failure_callback_url` | `string` |  |
+| `authorisationUrl` | `string` |  |
+| `callbackUrl` | `string` |  |
+| `consentID` | `string` |  |
+| `emailAddress` | `string` |  |
+| `expiryDate` | `string` |  |
+| `failureCallbackUrl` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `institution_id` | `string` |  |
-| `is_connected_account` | `boolean` |  |
-| `is_enabled` | `boolean` |  |
-| `merchant_id` | `string` |  |
+| `institutionID` | `string` |  |
+| `isConnectedAccounts` | `boolean` |  |
+| `isEnabled` | `boolean` |  |
+| `merchantID` | `string` |  |
 | `provider` | `string` |  |
-| `success_web_hook_url` | `string` |  |
+| `successWebHookUrl` | `string` |  |
 
 #### Example: Load
 
@@ -2175,10 +2173,10 @@ Create an instance: `local currency = client:Currency(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` |  |
-| `decimal` | `number` |  |
-| `is_fiat` | `boolean` |  |
-| `iso4217_alpha_code` | `string` |  |
-| `iso4217_numeric_code` | `string` |  |
+| `decimals` | `number` |  |
+| `isFiat` | `boolean` |  |
+| `iso4217AlphaCode` | `string` |  |
+| `iso4217NumericCode` | `string` |  |
 | `symbol` | `string` |  |
 
 #### Example: List
@@ -2202,8 +2200,8 @@ Create an instance: `local direct_debit_batch_submit = client:DirectDebitBatchSu
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `failed_submission` | `table` |  |
-| `successful_submission` | `table` |  |
+| `failedSubmissions` | `table` |  |
+| `successfulSubmissions` | `table` |  |
 
 #### Example: Create
 
@@ -2228,11 +2226,11 @@ Create an instance: `local fx_rate = client:FxRate(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destination_currency` | `string` |  |
-| `exchange_rate` | `number` |  |
-| `expiry_time` | `string` |  |
-| `quote_id` | `string` |  |
-| `source_currency` | `string` |  |
+| `destinationCurrency` | `string` |  |
+| `exchangeRate` | `number` |  |
+| `expiryTime` | `string` |  |
+| `quoteID` | `string` |  |
+| `sourceCurrency` | `string` |  |
 
 #### Example: Load
 
@@ -2261,8 +2259,8 @@ Create an instance: `local i_payment = client:IPayment(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `payment_request_id` | `string` |  |
-| `response_type` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `responseType` | `string` |  |
 
 #### Example: Create
 
@@ -2287,40 +2285,40 @@ Create an instance: `local mandate = client:Mandate(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_number` | `string` |  |
-| `address_line1` | `string` |  |
-| `address_line2` | `string` |  |
-| `approved_at` | `string` |  |
+| `accountNumber` | `string` |  |
+| `addressLine1` | `string` |  |
+| `addressLine2` | `string` |  |
+| `approvedAt` | `string` |  |
 | `city` | `string` |  |
-| `country_code` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
-| `customer_account_number` | `string` |  |
-| `customer_city` | `string` |  |
-| `customer_country_code` | `string` |  |
-| `customer_country_name` | `string` |  |
-| `customer_email_address` | `string` |  |
-| `customer_first_name` | `string` |  |
-| `customer_iban` | `string` |  |
-| `customer_last_name` | `string` |  |
-| `customer_sort_code` | `string` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
+| `customerAccountNumber` | `string` |  |
+| `customerCity` | `string` |  |
+| `customerCountryCode` | `string` |  |
+| `customerCountryName` | `string` |  |
+| `customerEmailAddress` | `string` |  |
+| `customerFirstName` | `string` |  |
+| `customerIban` | `string` |  |
+| `customerLastName` | `string` |  |
+| `customerSortCode` | `string` |  |
+| `emailAddress` | `string` |  |
+| `firstName` | `string` |  |
 | `iban` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_recurring` | `boolean` |  |
-| `last_name` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `postal_code` | `string` |  |
+| `isRecurring` | `boolean` |  |
+| `lastName` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `postalCode` | `string` |  |
 | `reference` | `string` |  |
-| `sort_code` | `string` |  |
+| `sortCode` | `string` |  |
 | `status` | `string` |  |
-| `supplier_bank_account_id` | `string` |  |
-| `supplier_customer_id` | `string` |  |
-| `supplier_mandate_id` | `string` |  |
-| `supplier_name` | `string` |  |
-| `supplier_status` | `string` |  |
+| `supplierBankAccountID` | `string` |  |
+| `supplierCustomerID` | `string` |  |
+| `supplierMandateID` | `string` |  |
+| `supplierName` | `string` |  |
+| `supplierStatus` | `string` |  |
 
 #### Example: Load
 
@@ -2332,13 +2330,13 @@ local mandate, err = client:Mandate():load({ id = "mandate_id" })
 
 ```lua
 local mandate, err = client:Mandate():create({
-  address_line1 = "example_address_line1", -- string
+  addressLine1 = "example_addressLine1", -- string
   city = "example_city", -- string
-  country_code = "example_country_code", -- string
-  email_address = "example_email_address", -- string
-  first_name = "example_first_name", -- string
-  last_name = "example_last_name", -- string
-  postal_code = "example_postal_code", -- string
+  countryCode = "example_countryCode", -- string
+  emailAddress = "example_emailAddress", -- string
+  firstName = "example_firstName", -- string
+  lastName = "example_lastName", -- string
+  postalCode = "example_postalCode", -- string
 })
 ```
 
@@ -2360,35 +2358,35 @@ Create an instance: `local merchant = client:Merchant(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_currency` | `table` |  |
-| `can_have_trust_account` | `boolean` |  |
-| `card_payment_processor` | `string` |  |
-| `company_id` | `string` |  |
-| `display_qr_on_hosted_pay` | `boolean` |  |
-| `hosted_pay_version` | `number` |  |
+| `accountCurrencies` | `table` |  |
+| `canHaveTrustAccounts` | `boolean` |  |
+| `cardPaymentProcessor` | `string` |  |
+| `companyID` | `string` |  |
+| `displayQrOnHostedPay` | `boolean` |  |
+| `hostedPayVersion` | `number` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_blocked` | `boolean` |  |
-| `is_exited` | `boolean` |  |
-| `is_suspended` | `boolean` |  |
+| `isBlocked` | `boolean` |  |
+| `isExited` | `boolean` |  |
+| `isSuspended` | `boolean` |  |
 | `jurisdiction` | `string` |  |
-| `logo_url_png` | `string` |  |
-| `logo_url_svg` | `string` |  |
-| `merchant_category_code` | `string` |  |
+| `logoUrlPng` | `string` |  |
+| `logoUrlSvg` | `string` |  |
+| `merchantCategoryCode` | `string` |  |
 | `name` | `string` |  |
-| `note` | `string` |  |
-| `parent_merchant` | `table` |  |
-| `payment_account` | `table` |  |
-| `payment_account_limit` | `number` |  |
+| `notes` | `string` |  |
+| `parentMerchant` | `table` |  |
+| `paymentAccountLimit` | `number` |  |
+| `paymentAccounts` | `table` |  |
 | `reason` | `string` |  |
-| `short_name` | `string` |  |
-| `supported_payment_methods_list` | `table` |  |
-| `suspension_reason` | `string` |  |
-| `tag` | `table` |  |
-| `time_zone_id` | `string` |  |
-| `trading_name` | `string` |  |
-| `web_hook_limit` | `number` |  |
-| `your_role_name` | `string` |  |
+| `shortName` | `string` |  |
+| `supportedPaymentMethodsList` | `table` |  |
+| `suspensionReason` | `string` |  |
+| `tags` | `table` |  |
+| `timeZoneId` | `string` |  |
+| `tradingName` | `string` |  |
+| `webHookLimit` | `number` |  |
+| `yourRoleName` | `string` |  |
 
 #### Example: Load
 
@@ -2417,17 +2415,17 @@ Create an instance: `local merchant_authorisation_setting = client:MerchantAutho
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount_lower` | `number` |  |
-| `amount_upper` | `number` |  |
-| `authorisation_type` | `string` |  |
-| `beneficiaries_only` | `boolean` |  |
+| `amountLower` | `number` |  |
+| `amountUpper` | `number` |  |
+| `authorisationType` | `string` |  |
+| `beneficiariesOnly` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `last_editor_cant_authorise` | `boolean` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `number_of_authoriser` | `number` |  |
-| `role_setting` | `table` |  |
+| `lastEditorCantAuthorise` | `boolean` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `numberOfAuthorisers` | `number` |  |
+| `roleSettings` | `table` |  |
 
 #### Example: List
 
@@ -2450,29 +2448,29 @@ Create an instance: `local merchant_direct_debit_mandate_page = client:MerchantD
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approved_at` | `string` |  |
+| `approvedAt` | `string` |  |
 | `currency` | `string` |  |
-| `customer_account_number` | `string` |  |
-| `customer_city` | `string` |  |
-| `customer_country_code` | `string` |  |
-| `customer_country_name` | `string` |  |
-| `customer_email_address` | `string` |  |
-| `customer_first_name` | `string` |  |
-| `customer_iban` | `string` |  |
-| `customer_last_name` | `string` |  |
-| `customer_sort_code` | `string` |  |
+| `customerAccountNumber` | `string` |  |
+| `customerCity` | `string` |  |
+| `customerCountryCode` | `string` |  |
+| `customerCountryName` | `string` |  |
+| `customerEmailAddress` | `string` |  |
+| `customerFirstName` | `string` |  |
+| `customerIban` | `string` |  |
+| `customerLastName` | `string` |  |
+| `customerSortCode` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_recurring` | `boolean` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `isRecurring` | `boolean` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 | `reference` | `string` |  |
 | `status` | `string` |  |
-| `supplier_bank_account_id` | `string` |  |
-| `supplier_customer_id` | `string` |  |
-| `supplier_mandate_id` | `string` |  |
-| `supplier_name` | `string` |  |
-| `supplier_status` | `string` |  |
+| `supplierBankAccountID` | `string` |  |
+| `supplierCustomerID` | `string` |  |
+| `supplierMandateID` | `string` |  |
+| `supplierName` | `string` |  |
+| `supplierStatus` | `string` |  |
 
 #### Example: List
 
@@ -2495,19 +2493,19 @@ Create an instance: `local merchant_pay_by_bank_setting = client:MerchantPayByBa
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bank_country_code` | `table` |  |
-| `bank_id` | `string` |  |
-| `bank_name` | `string` |  |
-| `business_institution_id` | `string` |  |
+| `bankCountryCodes` | `table` |  |
+| `bankID` | `string` |  |
+| `bankName` | `string` |  |
+| `businessInstitutionID` | `string` |  |
 | `currency` | `string` |  |
 | `logo` | `string` |  |
 | `message` | `string` |  |
-| `message_image_url` | `string` |  |
+| `messageImageUrl` | `string` |  |
 | `order` | `number` |  |
-| `personal_institution_id` | `string` |  |
+| `personalInstitutionID` | `string` |  |
 | `processor` | `string` |  |
-| `warning_heading` | `string` |  |
-| `warning_message` | `string` |  |
+| `warningHeading` | `string` |  |
+| `warningMessage` | `string` |  |
 
 #### Example: List
 
@@ -2533,12 +2531,21 @@ Create an instance: `local merchant_payment_request_template = client:MerchantPa
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `bankPaymentOptions` | `table` |  |
+| `cardPaymentAddressOptions` | `table` |  |
+| `cardPaymentCaptureOptions` | `table` |  |
+| `customFields` | `table` |  |
+| `defaultFields` | `table` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 | `name` | `string` |  |
+| `notificationOptions` | `table` |  |
+| `paymentMethods` | `table` |  |
+| `paymentTerms` | `table` |  |
+| `priorityBankOptions` | `table` |  |
 | `template` | `table` |  |
 
 #### Example: Load
@@ -2571,28 +2578,28 @@ Create an instance: `local merchant_token = client:MerchantToken(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authentication_method` | `table` |  |
-| `authorisation` | `table` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `can_authorise` | `boolean` |  |
+| `authenticationMethods` | `table` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `canAuthorise` | `boolean` |  |
 | `description` | `string` |  |
-| `expires_at` | `string` |  |
-| `has_current_user_authorised` | `boolean` |  |
-| `hmac_algorithm` | `string` |  |
+| `expiresAt` | `string` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
+| `hmacAlgorithm` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `ip_address_whitelist` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_enabled` | `boolean` |  |
-| `last_authorised` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `ipAddressWhitelist` | `string` |  |
+| `isArchived` | `boolean` |  |
+| `isEnabled` | `boolean` |  |
+| `lastAuthorised` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 | `nonce` | `string` |  |
-| `permission_type` | `table` |  |
-| `request_signature_version` | `number` |  |
-| `shared_secret_algorithm` | `string` |  |
-| `shared_secret_base64` | `string` |  |
+| `permissionTypes` | `table` |  |
+| `requestSignatureVersion` | `number` |  |
+| `sharedSecretAlgorithm` | `string` |  |
+| `sharedSecretBase64` | `string` |  |
 | `token` | `string` |  |
 
 #### Example: Load
@@ -2647,10 +2654,10 @@ Create an instance: `local no_frixion_version = client:NoFrixionVersion(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `build_version` | `number` |  |
-| `major_version` | `number` |  |
-| `minor_version` | `number` |  |
-| `release_name` | `string` |  |
+| `buildVersion` | `number` |  |
+| `majorVersion` | `number` |  |
+| `minorVersion` | `number` |  |
+| `releaseName` | `string` |  |
 
 #### Example: Load
 
@@ -2693,19 +2700,19 @@ Create an instance: `local payeeverification = client:Payeeverification(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_name` | `string` |  |
-| `account_number` | `string` |  |
+| `accountName` | `string` |  |
+| `accountNumber` | `string` |  |
 | `iban` | `string` |  |
-| `payee_verified_account_name` | `string` |  |
+| `payeeVerifiedAccountName` | `string` |  |
 | `result` | `string` |  |
-| `secondary_identification` | `string` |  |
-| `sort_code` | `string` |  |
+| `secondaryIdentification` | `string` |  |
+| `sortCode` | `string` |  |
 
 #### Example: Create
 
 ```lua
 local payeeverification, err = client:Payeeverification():create({
-  account_name = "example_account_name", -- string
+  accountName = "example_accountName", -- string
   iban = "example_iban", -- string
 })
 ```
@@ -2727,82 +2734,82 @@ Create an instance: `local payment = client:Payment(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | `table` |  |
+| `addresses` | `table` |  |
 | `amount` | `number` |  |
-| `amount_pending` | `number` |  |
-| `amount_received` | `number` |  |
-| `amount_refunded` | `number` |  |
-| `auto_send_receipt` | `boolean` |  |
-| `base_origin_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `card_authorize_only` | `boolean` |  |
-| `card_create_token` | `boolean` |  |
-| `card_create_token_mode` | `string` |  |
-| `card_ignore_cvn` | `boolean` |  |
-| `card_no_payer_authentication` | `boolean` |  |
-| `card_processor_merchant_id` | `string` |  |
-| `card_stripe_payment_intent_id` | `string` |  |
-| `card_stripe_payment_intent_secret` | `string` |  |
-| `card_transmit_raw_detail` | `boolean` |  |
-| `created_by_user` | `table` |  |
+| `amountPending` | `number` |  |
+| `amountReceived` | `number` |  |
+| `amountRefunded` | `number` |  |
+| `autoSendReceipt` | `boolean` |  |
+| `baseOriginUrl` | `string` |  |
+| `callbackUrl` | `string` |  |
+| `cardAuthorizeOnly` | `boolean` |  |
+| `cardCreateToken` | `boolean` |  |
+| `cardCreateTokenMode` | `string` |  |
+| `cardIgnoreCVN` | `boolean` |  |
+| `cardNoPayerAuthentication` | `boolean` |  |
+| `cardProcessorMerchantID` | `string` |  |
+| `cardStripePaymentIntentID` | `string` |  |
+| `cardStripePaymentIntentSecret` | `string` |  |
+| `cardTransmitRawDetails` | `boolean` |  |
+| `createdByUser` | `table` |  |
 | `currency` | `string` |  |
-| `custom_field` | `table` |  |
-| `customer_email_address` | `string` |  |
-| `customer_id` | `string` |  |
-| `customer_name` | `string` |  |
+| `customFields` | `table` |  |
+| `customerEmailAddress` | `string` |  |
+| `customerID` | `string` |  |
+| `customerName` | `string` |  |
 | `description` | `string` |  |
-| `destination_account` | `table` |  |
-| `direct_debit_payment` | `table` |  |
-| `due_date` | `string` |  |
-| `event` | `table` |  |
-| `failure_callback_url` | `string` |  |
-| `field_display_setting` | `table` |  |
-| `formatted_amount` | `string` |  |
-| `hosted_pay_checkout_url` | `string` |  |
+| `destinationAccount` | `table` |  |
+| `directDebitPayment` | `table` |  |
+| `dueDate` | `string` |  |
+| `events` | `table` |  |
+| `failureCallbackUrl` | `string` |  |
+| `fieldDisplaySettings` | `table` |  |
+| `formattedAmount` | `string` |  |
+| `hostedPayCheckoutUrl` | `string` |  |
 | `id` | `string` |  |
-| `ignore_address_verification` | `boolean` |  |
+| `ignoreAddressVerification` | `boolean` |  |
 | `inserted` | `string` |  |
-| `inserted_sortable` | `string` |  |
-| `is_archived` | `boolean` |  |
+| `insertedSortable` | `string` |  |
+| `isArchived` | `boolean` |  |
 | `jwk` | `string` |  |
-| `last_updated` | `string` |  |
-| `lightning_invoice` | `string` |  |
-| `lightning_invoice_expires_at` | `string` |  |
-| `merchant_direct_debit_mandate_id` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `notification_email_address` | `string` |  |
-| `notification_role_i_d` | `table` |  |
-| `order_id` | `string` |  |
-| `partial_payment_method` | `string` |  |
-| `partial_payment_step` | `string` |  |
-| `payment_attempt` | `table` |  |
-| `payment_method` | `table` |  |
-| `payment_processor` | `string` |  |
-| `payrun_id` | `string` |  |
-| `pisp_account_id` | `string` |  |
-| `priority_bank_id` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `lightningInvoice` | `string` |  |
+| `lightningInvoiceExpiresAt` | `string` |  |
+| `merchantDirectDebitMandateID` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantTokenDescription` | `string` |  |
+| `notificationEmailAddresses` | `string` |  |
+| `notificationRoleIDs` | `table` |  |
+| `orderID` | `string` |  |
+| `partialPaymentMethod` | `string` |  |
+| `partialPaymentSteps` | `string` |  |
+| `paymentAttempts` | `table` |  |
+| `paymentMethods` | `table` |  |
+| `paymentProcessor` | `string` |  |
+| `payrunID` | `string` |  |
+| `pispAccountID` | `string` |  |
+| `priorityBankID` | `string` |  |
 | `result` | `table` |  |
-| `sandbox_settle_delay_in_second` | `number` |  |
-| `shipping_address` | `table` |  |
-| `shipping_address_city` | `string` |  |
-| `shipping_address_country_code` | `string` |  |
-| `shipping_address_county` | `string` |  |
-| `shipping_address_line1` | `string` |  |
-| `shipping_address_line2` | `string` |  |
-| `shipping_address_post_code` | `string` |  |
-| `shipping_email` | `string` |  |
-| `shipping_first_name` | `string` |  |
-| `shipping_last_name` | `string` |  |
-| `shipping_phone` | `string` |  |
+| `sandboxSettleDelayInSeconds` | `number` |  |
+| `shippingAddress` | `table` |  |
+| `shippingAddressCity` | `string` |  |
+| `shippingAddressCountryCode` | `string` |  |
+| `shippingAddressCounty` | `string` |  |
+| `shippingAddressLine1` | `string` |  |
+| `shippingAddressLine2` | `string` |  |
+| `shippingAddressPostCode` | `string` |  |
+| `shippingEmail` | `string` |  |
+| `shippingFirstName` | `string` |  |
+| `shippingLastName` | `string` |  |
+| `shippingPhone` | `string` |  |
 | `status` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-| `tag` | `table` |  |
-| `tag_id` | `table` |  |
+| `successWebHookUrl` | `string` |  |
+| `tagIds` | `table` |  |
+| `tags` | `table` |  |
 | `title` | `string` |  |
-| `tokenised_card` | `table` |  |
-| `transaction` | `table` |  |
-| `use_hosted_payment_page` | `boolean` |  |
+| `tokenisedCards` | `table` |  |
+| `transactions` | `table` |  |
+| `useHostedPaymentPage` | `boolean` |  |
 
 #### Example: Load
 
@@ -2814,7 +2821,7 @@ local payment, err = client:Payment():load({ id = "payment_id" })
 
 ```lua
 local payment, err = client:Payment():create({
-  created_by_user = {}, -- table
+  createdByUser = {}, -- table
 })
 ```
 
@@ -2833,45 +2840,45 @@ Create an instance: `local payment_account = client:PaymentAccount(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_name` | `string` |  |
-| `account_supplier_name` | `string` |  |
-| `available_balance` | `number` |  |
-| `available_balance_minor_unit` | `number` |  |
+| `accountName` | `string` |  |
+| `accountSupplierName` | `string` |  |
+| `availableBalance` | `number` |  |
+| `availableBalanceMinorUnits` | `number` |  |
 | `balance` | `number` |  |
-| `balance_minor_unit` | `number` |  |
-| `bank_name` | `string` |  |
-| `consent_id` | `string` |  |
-| `created_by` | `table` |  |
-| `created_by_display_name` | `string` |  |
+| `balanceMinorUnits` | `number` |  |
+| `bankName` | `string` |  |
+| `consentID` | `string` |  |
+| `createdBy` | `table` |  |
+| `createdByDisplayName` | `string` |  |
 | `currency` | `string` |  |
-| `default_payment_rail` | `string` |  |
-| `display_name` | `string` |  |
-| `expiry_date` | `string` |  |
-| `external_account_icon` | `string` |  |
+| `defaultPaymentRail` | `string` |  |
+| `displayName` | `string` |  |
+| `expiryDate` | `string` |  |
+| `externalAccountIcon` | `string` |  |
 | `id` | `string` |  |
 | `identifier` | `table` |  |
 | `inserted` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_connected_account` | `boolean` |  |
-| `is_default` | `boolean` |  |
-| `is_trust_account` | `boolean` |  |
-| `is_virtual` | `boolean` |  |
-| `last_transaction` | `table` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
-| `physical_account_id` | `string` |  |
-| `rule` | `table` |  |
-| `submitted_payouts_balance` | `number` |  |
-| `submitted_payouts_balance_minor_unit` | `number` |  |
+| `isArchived` | `boolean` |  |
+| `isConnectedAccount` | `boolean` |  |
+| `isDefault` | `boolean` |  |
+| `isTrustAccount` | `boolean` |  |
+| `isVirtual` | `boolean` |  |
+| `lastTransaction` | `table` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantName` | `string` |  |
+| `physicalAccountID` | `string` |  |
+| `rules` | `table` |  |
+| `submittedPayoutsBalance` | `number` |  |
+| `submittedPayoutsBalanceMinorUnits` | `number` |  |
 | `summary` | `string` |  |
-| `supplier_sepa_instant_status` | `string` |  |
-| `xero_bank_feed_connection_status` | `string` |  |
-| `xero_bank_feed_last_synced_at` | `string` |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` |  |
-| `xero_bank_feed_sync_status` | `string` |  |
-| `xero_unsynchronised_transactions_count` | `number` |  |
+| `supplierSepaInstantStatus` | `string` |  |
+| `xeroBankFeedConnectionStatus` | `string` |  |
+| `xeroBankFeedLastSyncedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` |  |
+| `xeroBankFeedSyncStatus` | `string` |  |
+| `xeroUnsynchronisedTransactionsCount` | `number` |  |
 
 #### Example: List
 
@@ -2894,17 +2901,17 @@ Create an instance: `local payment_account_minimal = client:PaymentAccountMinima
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_name` | `string` |  |
-| `available_balance` | `number` |  |
+| `accountName` | `string` |  |
+| `availableBalance` | `number` |  |
 | `balance` | `number` |  |
-| `balance_minor_unit` | `number` |  |
+| `balanceMinorUnits` | `number` |  |
 | `currency` | `string` |  |
 | `id` | `string` |  |
 | `identifier` | `table` |  |
-| `is_archived` | `boolean` |  |
-| `is_connected_account` | `boolean` |  |
-| `merchant_id` | `string` |  |
-| `submitted_payouts_balance` | `number` |  |
+| `isArchived` | `boolean` |  |
+| `isConnectedAccount` | `boolean` |  |
+| `merchantID` | `string` |  |
+| `submittedPayoutsBalance` | `number` |  |
 
 #### Example: List
 
@@ -2927,12 +2934,12 @@ Create an instance: `local payment_initiation = client:PaymentInitiation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `payment_initiation_id` | `string` |  |
-| `payment_request_callback_url` | `string` |  |
-| `payment_request_id` | `string` |  |
-| `redirect_url` | `string` |  |
-| `response_type` | `string` |  |
-| `specific_error_message` | `string` |  |
+| `paymentInitiationID` | `string` |  |
+| `paymentRequestCallbackUrl` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `redirectUrl` | `string` |  |
+| `responseType` | `string` |  |
+| `specificErrorMessage` | `string` |  |
 
 #### Example: Create
 
@@ -2961,75 +2968,75 @@ Create an instance: `local payment_request = client:PaymentRequest(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | `table` |  |
+| `addresses` | `table` |  |
 | `amount` | `number` |  |
-| `amount_pending` | `number` |  |
-| `amount_received` | `number` |  |
-| `amount_refunded` | `number` |  |
-| `auto_send_receipt` | `boolean` |  |
-| `base_origin_url` | `string` |  |
-| `callback_url` | `string` |  |
-| `card_authorize_only` | `boolean` |  |
-| `card_create_token` | `boolean` |  |
-| `card_create_token_mode` | `string` |  |
-| `card_ignore_cvn` | `boolean` |  |
-| `card_processor_merchant_id` | `string` |  |
-| `card_stripe_payment_intent_id` | `string` |  |
-| `card_stripe_payment_intent_secret` | `string` |  |
-| `created_by_user` | `table` |  |
+| `amountPending` | `number` |  |
+| `amountReceived` | `number` |  |
+| `amountRefunded` | `number` |  |
+| `autoSendReceipt` | `boolean` |  |
+| `baseOriginUrl` | `string` |  |
+| `callbackUrl` | `string` |  |
+| `cardAuthorizeOnly` | `boolean` |  |
+| `cardCreateToken` | `boolean` |  |
+| `cardCreateTokenMode` | `string` |  |
+| `cardIgnoreCVN` | `boolean` |  |
+| `cardProcessorMerchantID` | `string` |  |
+| `cardStripePaymentIntentID` | `string` |  |
+| `cardStripePaymentIntentSecret` | `string` |  |
+| `createdByUser` | `table` |  |
 | `currency` | `string` |  |
-| `custom_field` | `table` |  |
-| `customer_email_address` | `string` |  |
-| `customer_id` | `string` |  |
-| `customer_name` | `string` |  |
+| `customFields` | `table` |  |
+| `customerEmailAddress` | `string` |  |
+| `customerID` | `string` |  |
+| `customerName` | `string` |  |
 | `description` | `string` |  |
-| `destination_account` | `table` |  |
-| `direct_debit_payment` | `table` |  |
-| `do_simulate_settlement_failure` | `boolean` |  |
-| `due_date` | `string` |  |
-| `error_description` | `string` |  |
-| `event` | `table` |  |
-| `failed_payment_request` | `table` |  |
-| `failure_callback_url` | `string` |  |
-| `field_display_setting` | `table` |  |
-| `formatted_amount` | `string` |  |
-| `hosted_pay_checkout_url` | `string` |  |
+| `destinationAccount` | `table` |  |
+| `directDebitPayment` | `table` |  |
+| `doSimulateSettlementFailure` | `boolean` |  |
+| `dueDate` | `string` |  |
+| `errorDescription` | `string` |  |
+| `events` | `table` |  |
+| `failedPaymentRequests` | `table` |  |
+| `failureCallbackUrl` | `string` |  |
+| `fieldDisplaySettings` | `table` |  |
+| `formattedAmount` | `string` |  |
+| `hostedPayCheckoutUrl` | `string` |  |
 | `id` | `string` |  |
-| `ignore_address_verification` | `boolean` |  |
+| `ignoreAddressVerification` | `boolean` |  |
 | `inserted` | `string` |  |
-| `inserted_sortable` | `string` |  |
+| `insertedSortable` | `string` |  |
 | `institution` | `string` |  |
-| `is_archived` | `boolean` |  |
+| `isArchived` | `boolean` |  |
 | `jwk` | `string` |  |
-| `last_updated` | `string` |  |
-| `lightning_invoice` | `string` |  |
-| `lightning_invoice_expires_at` | `string` |  |
-| `merchant_direct_debit_mandate_id` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
-| `notification_email_address` | `string` |  |
-| `notification_role_i_d` | `table` |  |
-| `order_id` | `string` |  |
-| `partial_payment_method` | `string` |  |
-| `partial_payment_step` | `string` |  |
-| `payment_attempt` | `table` |  |
-| `payment_initiation_id` | `string` |  |
-| `payment_method` | `table` |  |
-| `payment_processor` | `string` |  |
-| `payment_request` | `table` |  |
-| `payrun_id` | `string` |  |
-| `pisp_account_id` | `string` |  |
-| `priority_bank_id` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `lightningInvoice` | `string` |  |
+| `lightningInvoiceExpiresAt` | `string` |  |
+| `merchantDirectDebitMandateID` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantTokenDescription` | `string` |  |
+| `notificationEmailAddresses` | `string` |  |
+| `notificationRoleIDs` | `table` |  |
+| `orderID` | `string` |  |
+| `partialPaymentMethod` | `string` |  |
+| `partialPaymentSteps` | `string` |  |
+| `paymentAttempts` | `table` |  |
+| `paymentInitiationID` | `string` |  |
+| `paymentMethods` | `table` |  |
+| `paymentProcessor` | `string` |  |
+| `paymentRequests` | `table` |  |
+| `payrunID` | `string` |  |
+| `pispAccountID` | `string` |  |
+| `priorityBankID` | `string` |  |
 | `result` | `table` |  |
-| `sandbox_settle_delay_in_second` | `number` |  |
-| `shipping_address` | `table` |  |
+| `sandboxSettleDelayInSeconds` | `number` |  |
+| `shippingAddress` | `table` |  |
 | `status` | `string` |  |
-| `success_web_hook_url` | `string` |  |
-| `tag` | `table` |  |
+| `successWebHookUrl` | `string` |  |
+| `tags` | `table` |  |
 | `title` | `string` |  |
-| `tokenised_card` | `table` |  |
-| `transaction` | `table` |  |
-| `use_hosted_payment_page` | `boolean` |  |
+| `tokenisedCards` | `table` |  |
+| `transactions` | `table` |  |
+| `useHostedPaymentPage` | `boolean` |  |
 
 #### Example: Load
 
@@ -3047,7 +3054,7 @@ local payment_requests, err = client:PaymentRequest():list()
 
 ```lua
 local payment_request, err = client:PaymentRequest():create({
-  created_by_user = {}, -- table
+  createdByUser = {}, -- table
 })
 ```
 
@@ -3067,41 +3074,41 @@ Create an instance: `local payment_request_event = client:PaymentRequestEvent(ni
 | Field | Type | Description |
 | --- | --- | --- |
 | `amount` | `number` |  |
-| `apple_pay_transaction_id` | `string` |  |
-| `card_authorization_response_id` | `string` |  |
-| `card_expiry_month` | `number` |  |
-| `card_expiry_year` | `number` |  |
-| `card_issuer` | `string` |  |
-| `card_issuer_country` | `string` |  |
-| `card_last_four_digit` | `string` |  |
-| `card_request_id` | `string` |  |
-| `card_scheme` | `string` |  |
-| `card_token_customer_id` | `string` |  |
-| `card_transaction_id` | `string` |  |
+| `applePayTransactionID` | `string` |  |
+| `cardAuthorizationResponseID` | `string` |  |
+| `cardExpiryMonth` | `number` |  |
+| `cardExpiryYear` | `number` |  |
+| `cardIssuer` | `string` |  |
+| `cardIssuerCountry` | `string` |  |
+| `cardLastFourDigits` | `string` |  |
+| `cardRequestID` | `string` |  |
+| `cardScheme` | `string` |  |
+| `cardTokenCustomerID` | `string` |  |
+| `cardTransactionID` | `string` |  |
 | `currency` | `string` |  |
-| `direct_debit_payment_id` | `string` |  |
-| `direct_debit_payment_reference` | `string` |  |
-| `drirect_debit_mandate_id` | `string` |  |
-| `error_message` | `string` |  |
-| `error_reason` | `string` |  |
-| `event_type` | `string` |  |
+| `directDebitPaymentID` | `string` |  |
+| `directDebitPaymentReference` | `string` |  |
+| `drirectDebitMandateID` | `string` |  |
+| `errorMessage` | `string` |  |
+| `errorReason` | `string` |  |
+| `eventType` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `lightning_invoice` | `string` |  |
-| `lightning_r_hash` | `string` |  |
-| `origin_url` | `string` |  |
-| `payment_method_type` | `string` |  |
-| `payment_processor_name` | `string` |  |
-| `payment_request_id` | `string` |  |
-| `pisp_bank_status` | `string` |  |
-| `pisp_payment_initiation_id` | `string` |  |
-| `pisp_payment_institution_name` | `string` |  |
-| `pisp_payment_service_provider_id` | `string` |  |
-| `pisp_redirect_url` | `string` |  |
-| `reconciled_transaction_id` | `string` |  |
-| `refund_payout_id` | `string` |  |
+| `lightningInvoice` | `string` |  |
+| `lightningRHash` | `string` |  |
+| `originUrl` | `string` |  |
+| `paymentMethodType` | `string` |  |
+| `paymentProcessorName` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `pispBankStatus` | `string` |  |
+| `pispPaymentInitiationID` | `string` |  |
+| `pispPaymentInstitutionName` | `string` |  |
+| `pispPaymentServiceProviderID` | `string` |  |
+| `pispRedirectUrl` | `string` |  |
+| `reconciledTransactionID` | `string` |  |
+| `refundPayoutID` | `string` |  |
 | `status` | `string` |  |
-| `wallet_name` | `string` |  |
+| `walletName` | `string` |  |
 
 #### Example: List
 
@@ -3119,17 +3126,6 @@ Create an instance: `local payment_request_metric = client:PaymentRequestMetric(
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `all` | `number` |  |
-| `authorized` | `number` |  |
-| `paid` | `number` |  |
-| `partially_paid` | `number` |  |
-| `total_amounts_by_currency` | `table` |  |
-| `unpaid` | `number` |  |
 
 #### Example: Load
 
@@ -3153,34 +3149,34 @@ Create an instance: `local payment_request_minimal = client:PaymentRequestMinima
 | Field | Type | Description |
 | --- | --- | --- |
 | `amount` | `number` |  |
-| `amount_pending` | `number` |  |
-| `amount_received` | `number` |  |
-| `amount_refunded` | `number` |  |
-| `callback_url` | `string` |  |
-| `card_stripe_payment_intent_secret` | `string` |  |
-| `country_code` | `string` |  |
+| `amountPending` | `number` |  |
+| `amountReceived` | `number` |  |
+| `amountRefunded` | `number` |  |
+| `callbackUrl` | `string` |  |
+| `cardStripePaymentIntentSecret` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
-| `custom_fields_to_display` | `table` |  |
+| `customFieldsToDisplay` | `table` |  |
 | `description` | `string` |  |
-| `due_date` | `string` |  |
-| `field_display_setting` | `table` |  |
-| `google_pay_merchant_id` | `string` |  |
+| `dueDate` | `string` |  |
+| `fieldDisplaySettings` | `table` |  |
+| `googlePayMerchantID` | `string` |  |
 | `id` | `string` |  |
 | `jwk` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_logo_url_png` | `string` |  |
-| `merchant_logo_url_svg` | `string` |  |
-| `merchant_name` | `string` |  |
-| `merchant_short_name` | `string` |  |
-| `partial_payment_method` | `string` |  |
-| `payment_attempt` | `table` |  |
-| `payment_methods_list` | `table` |  |
-| `payment_processor` | `string` |  |
-| `payment_processor_key` | `string` |  |
-| `pisp_error` | `string` |  |
-| `priority_bank_id` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantLogoUrlPng` | `string` |  |
+| `merchantLogoUrlSvg` | `string` |  |
+| `merchantName` | `string` |  |
+| `merchantShortName` | `string` |  |
+| `partialPaymentMethod` | `string` |  |
+| `paymentAttempts` | `table` |  |
+| `paymentMethodsList` | `table` |  |
+| `paymentProcessor` | `string` |  |
+| `paymentProcessorKey` | `string` |  |
+| `pispError` | `string` |  |
+| `priorityBankID` | `string` |  |
 | `status` | `string` |  |
-| `stripe_account_id` | `string` |  |
+| `stripeAccountID` | `string` |  |
 | `title` | `string` |  |
 
 #### Example: List
@@ -3205,15 +3201,15 @@ Create an instance: `local payment_request_result = client:PaymentRequestResult(
 | Field | Type | Description |
 | --- | --- | --- |
 | `amount` | `number` |  |
-| `amount_pending` | `number` |  |
-| `amount_received` | `number` |  |
-| `amount_refunded` | `number` |  |
+| `amountPending` | `number` |  |
+| `amountReceived` | `number` |  |
+| `amountRefunded` | `number` |  |
 | `currency` | `string` |  |
-| `customer_id` | `string` |  |
-| `payment` | `table` |  |
-| `payment_request_id` | `string` |  |
-| `pisp_authorization` | `table` |  |
-| `requested_amount` | `number` |  |
+| `customerID` | `string` |  |
+| `paymentRequestID` | `string` |  |
+| `payments` | `table` |  |
+| `pispAuthorizations` | `table` |  |
+| `requestedAmount` | `number` |  |
 | `result` | `string` |  |
 
 #### Example: List
@@ -3241,85 +3237,85 @@ Create an instance: `local payout = client:Payout(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_id` | `string` |  |
-| `allow_incomplete` | `boolean` |  |
+| `accountID` | `string` |  |
+| `allowIncomplete` | `boolean` |  |
 | `amount` | `number` |  |
-| `amount_minor_unit` | `number` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `table` |  |
-| `authorisation` | `table` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `batch_payout_id` | `string` |  |
+| `amountMinorUnits` | `number` |  |
+| `approvePayoutUrl` | `string` |  |
+| `approverID` | `string` |  |
+| `authenticationMethods` | `table` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `batchPayoutID` | `string` |  |
 | `beneficiary` | `table` |  |
-| `beneficiary_id` | `string` |  |
-| `can_authorise` | `boolean` |  |
-| `can_process` | `boolean` |  |
-| `can_update` | `boolean` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
+| `beneficiaryID` | `string` |  |
+| `canAuthorise` | `boolean` |  |
+| `canProcess` | `boolean` |  |
+| `canUpdate` | `boolean` |  |
+| `chargeBearer` | `string` |  |
+| `createdBy` | `string` |  |
+| `createdByEmailAddress` | `string` |  |
 | `currency` | `string` |  |
-| `current_user_id` | `string` |  |
+| `currentUserID` | `string` |  |
 | `description` | `string` |  |
 | `destination` | `table` |  |
-| `document` | `table` |  |
-| `event` | `table` |  |
-| `failed_payout` | `table` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `number` |  |
-| `fx_destination_amount_minor_unit` | `number` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `number` |  |
-| `fx_use_destination_amount` | `boolean` |  |
-| `has_current_user_authorised` | `boolean` |  |
+| `documents` | `table` |  |
+| `events` | `table` |  |
+| `failedPayouts` | `table` |  |
+| `formattedAmount` | `string` |  |
+| `formattedFxDestinationAmount` | `string` |  |
+| `formattedSchedule` | `string` |  |
+| `formattedScheduleDayOnly` | `string` |  |
+| `formattedSourceAccountAvailableBalance` | `string` |  |
+| `fxDestinationAmount` | `number` |  |
+| `fxDestinationAmountMinorUnits` | `number` |  |
+| `fxDestinationCurrency` | `string` |  |
+| `fxQuoteExpiresAt` | `string` |  |
+| `fxQuoteID` | `string` |  |
+| `fxRate` | `number` |  |
+| `fxUseDestinationAmount` | `boolean` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_failed` | `boolean` |  |
-| `is_settled` | `boolean` |  |
-| `is_submitted` | `boolean` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
+| `invoiceID` | `string` |  |
+| `isArchived` | `boolean` |  |
+| `isFailed` | `boolean` |  |
+| `isSettled` | `boolean` |  |
+| `isSubmitted` | `boolean` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantTokenDescription` | `string` |  |
 | `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payout` | `table` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
+| `paymentProcessor` | `string` |  |
+| `paymentRail` | `string` |  |
+| `payouts` | `table` |  |
+| `payrunID` | `string` |  |
+| `payrunName` | `string` |  |
 | `reason` | `string` |  |
 | `rule` | `table` |  |
-| `schedule_date` | `string` |  |
+| `scheduleDate` | `string` |  |
 | `scheduled` | `boolean` |  |
-| `source_account_available_balance` | `number` |  |
-| `source_account_available_balance_minor_unit` | `number` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `table` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
+| `sourceAccountAvailableBalance` | `number` |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `number` |  |
+| `sourceAccountBic` | `string` |  |
+| `sourceAccountCurrency` | `string` |  |
+| `sourceAccountIban` | `string` |  |
+| `sourceAccountIdentifier` | `table` |  |
+| `sourceAccountName` | `string` |  |
+| `sourceAccountNumber` | `string` |  |
+| `sourceAccountSortcode` | `string` |  |
 | `status` | `string` |  |
-| `tag` | `table` |  |
-| `tag_id` | `table` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `number` |  |
-| `transacted_fx_amount` | `number` |  |
-| `transacted_fx_rate` | `number` |  |
+| `tagIds` | `table` |  |
+| `tags` | `table` |  |
+| `theirReference` | `string` |  |
+| `topupPayrunID` | `string` |  |
+| `transactedAmount` | `number` |  |
+| `transactedFxAmount` | `number` |  |
+| `transactedFxRate` | `number` |  |
 | `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
+| `userID` | `string` |  |
+| `yourReference` | `string` |  |
 
 #### Example: Load
 
@@ -3338,7 +3334,7 @@ local payouts, err = client:Payout():list()
 ```lua
 local payout, err = client:Payout():create({
   beneficiary = {}, -- table
-  source_account_identifier = {}, -- table
+  sourceAccountIdentifier = {}, -- table
 })
 ```
 
@@ -3357,79 +3353,79 @@ Create an instance: `local payout_keyset_page = client:PayoutKeysetPage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_id` | `string` |  |
+| `accountID` | `string` |  |
 | `amount` | `number` |  |
-| `amount_minor_unit` | `number` |  |
-| `approve_payout_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `table` |  |
-| `authorisation` | `table` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `batch_payout_id` | `string` |  |
+| `amountMinorUnits` | `number` |  |
+| `approvePayoutUrl` | `string` |  |
+| `approverID` | `string` |  |
+| `authenticationMethods` | `table` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `batchPayoutID` | `string` |  |
 | `beneficiary` | `table` |  |
-| `can_authorise` | `boolean` |  |
-| `can_process` | `boolean` |  |
-| `can_update` | `boolean` |  |
-| `charge_bearer` | `string` |  |
-| `created_by` | `string` |  |
-| `created_by_email_address` | `string` |  |
+| `canAuthorise` | `boolean` |  |
+| `canProcess` | `boolean` |  |
+| `canUpdate` | `boolean` |  |
+| `chargeBearer` | `string` |  |
+| `createdBy` | `string` |  |
+| `createdByEmailAddress` | `string` |  |
 | `currency` | `string` |  |
-| `current_user_id` | `string` |  |
+| `currentUserID` | `string` |  |
 | `description` | `string` |  |
 | `destination` | `table` |  |
-| `document` | `table` |  |
-| `event` | `table` |  |
-| `formatted_amount` | `string` |  |
-| `formatted_fx_destination_amount` | `string` |  |
-| `formatted_schedule` | `string` |  |
-| `formatted_schedule_day_only` | `string` |  |
-| `formatted_source_account_available_balance` | `string` |  |
-| `fx_destination_amount` | `number` |  |
-| `fx_destination_amount_minor_unit` | `number` |  |
-| `fx_destination_currency` | `string` |  |
-| `fx_quote_expires_at` | `string` |  |
-| `fx_quote_id` | `string` |  |
-| `fx_rate` | `number` |  |
-| `fx_use_destination_amount` | `boolean` |  |
-| `has_current_user_authorised` | `boolean` |  |
+| `documents` | `table` |  |
+| `events` | `table` |  |
+| `formattedAmount` | `string` |  |
+| `formattedFxDestinationAmount` | `string` |  |
+| `formattedSchedule` | `string` |  |
+| `formattedScheduleDayOnly` | `string` |  |
+| `formattedSourceAccountAvailableBalance` | `string` |  |
+| `fxDestinationAmount` | `number` |  |
+| `fxDestinationAmountMinorUnits` | `number` |  |
+| `fxDestinationCurrency` | `string` |  |
+| `fxQuoteExpiresAt` | `string` |  |
+| `fxQuoteID` | `string` |  |
+| `fxRate` | `number` |  |
+| `fxUseDestinationAmount` | `boolean` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `invoice_id` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_failed` | `boolean` |  |
-| `is_settled` | `boolean` |  |
-| `is_submitted` | `boolean` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_token_description` | `string` |  |
+| `invoiceID` | `string` |  |
+| `isArchived` | `boolean` |  |
+| `isFailed` | `boolean` |  |
+| `isSettled` | `boolean` |  |
+| `isSubmitted` | `boolean` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantTokenDescription` | `string` |  |
 | `nonce` | `string` |  |
-| `payment_processor` | `string` |  |
-| `payment_rail` | `string` |  |
-| `payrun_id` | `string` |  |
-| `payrun_name` | `string` |  |
+| `paymentProcessor` | `string` |  |
+| `paymentRail` | `string` |  |
+| `payrunID` | `string` |  |
+| `payrunName` | `string` |  |
 | `rule` | `table` |  |
-| `schedule_date` | `string` |  |
+| `scheduleDate` | `string` |  |
 | `scheduled` | `boolean` |  |
-| `source_account_available_balance` | `number` |  |
-| `source_account_available_balance_minor_unit` | `number` |  |
-| `source_account_bic` | `string` |  |
-| `source_account_currency` | `string` |  |
-| `source_account_iban` | `string` |  |
-| `source_account_identifier` | `table` |  |
-| `source_account_name` | `string` |  |
-| `source_account_number` | `string` |  |
-| `source_account_sortcode` | `string` |  |
+| `sourceAccountAvailableBalance` | `number` |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `number` |  |
+| `sourceAccountBic` | `string` |  |
+| `sourceAccountCurrency` | `string` |  |
+| `sourceAccountIban` | `string` |  |
+| `sourceAccountIdentifier` | `table` |  |
+| `sourceAccountName` | `string` |  |
+| `sourceAccountNumber` | `string` |  |
+| `sourceAccountSortcode` | `string` |  |
 | `status` | `string` |  |
-| `tag` | `table` |  |
-| `their_reference` | `string` |  |
-| `topup_payrun_id` | `string` |  |
-| `transacted_amount` | `number` |  |
-| `transacted_fx_amount` | `number` |  |
-| `transacted_fx_rate` | `number` |  |
+| `tags` | `table` |  |
+| `theirReference` | `string` |  |
+| `topupPayrunID` | `string` |  |
+| `transactedAmount` | `number` |  |
+| `transactedFxAmount` | `number` |  |
+| `transactedFxRate` | `number` |  |
 | `type` | `string` |  |
-| `user_id` | `string` |  |
-| `your_reference` | `string` |  |
+| `userID` | `string` |  |
+| `yourReference` | `string` |  |
 
 #### Example: List
 
@@ -3447,18 +3443,6 @@ Create an instance: `local payout_metric = client:PayoutMetric(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `all` | `number` |  |
-| `failed` | `number` |  |
-| `in_progress` | `number` |  |
-| `paid` | `number` |  |
-| `pending_approval` | `number` |  |
-| `scheduled` | `number` |  |
-| `total_amounts_by_currency` | `table` |  |
 
 #### Example: Load
 
@@ -3485,38 +3469,38 @@ Create an instance: `local payrun = client:Payrun(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorisation` | `table` |  |
-| `authorisation_date` | `string` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `batch_payout_id` | `string` |  |
-| `can_authorise` | `boolean` |  |
-| `can_delete` | `boolean` |  |
-| `can_edit` | `boolean` |  |
-| `event` | `table` |  |
-| `has_current_user_authorised` | `boolean` |  |
+| `authorisationDate` | `string` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `batchPayoutID` | `string` |  |
+| `canAuthorise` | `boolean` |  |
+| `canDelete` | `boolean` |  |
+| `canEdit` | `boolean` |  |
+| `events` | `table` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `invoice` | `table` |  |
-| `invoices_minimal` | `table` |  |
-| `is_archived` | `boolean` |  |
-| `last_updated` | `string` |  |
-| `last_updated_by` | `table` |  |
-| `merchant_id` | `string` |  |
+| `invoices` | `table` |  |
+| `invoicesMinimal` | `table` |  |
+| `isArchived` | `boolean` |  |
+| `lastUpdated` | `string` |  |
+| `lastUpdatedBy` | `table` |  |
+| `merchantID` | `string` |  |
 | `name` | `string` |  |
 | `nonce` | `string` |  |
-| `note` | `string` |  |
-| `payment` | `table` |  |
-| `payout` | `table` |  |
-| `payouts_count` | `number` |  |
+| `notes` | `string` |  |
+| `payments` | `table` |  |
+| `payouts` | `table` |  |
+| `payoutsCount` | `number` |  |
 | `reason` | `string` |  |
-| `schedule_date` | `string` |  |
-| `scheduled_date` | `string` |  |
-| `source_account` | `table` |  |
+| `scheduleDate` | `string` |  |
+| `scheduledDate` | `string` |  |
+| `sourceAccounts` | `table` |  |
 | `status` | `string` |  |
-| `total_eur` | `number` |  |
-| `total_gbp` | `number` |  |
-| `total_usd` | `number` |  |
+| `totalEur` | `number` |  |
+| `totalGbp` | `number` |  |
+| `totalUsd` | `number` |  |
 
 #### Example: Load
 
@@ -3535,7 +3519,7 @@ local payruns, err = client:Payrun():list()
 ```lua
 local payrun, err = client:Payrun():create({
   id = "example_id", -- string
-  last_updated_by = {}, -- table
+  lastUpdatedBy = {}, -- table
 })
 ```
 
@@ -3565,13 +3549,13 @@ Create an instance: `local report_result = client:ReportResult(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `content` | `string` |  |
-| `content_type` | `string` |  |
-| `last_completed_at` | `string` |  |
-| `merchant_id` | `string` |  |
-| `report_name` | `string` |  |
-| `report_type` | `string` |  |
-| `statement_number` | `number` |  |
+| `contentType` | `string` |  |
+| `contents` | `string` |  |
+| `lastCompletedAt` | `string` |  |
+| `merchantID` | `string` |  |
+| `reportName` | `string` |  |
+| `reportType` | `string` |  |
+| `statementNumber` | `number` |  |
 
 #### Example: Load
 
@@ -3594,8 +3578,8 @@ Create an instance: `local role = client:Role(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `failed_role` | `table` |  |
-| `role` | `table` |  |
+| `failedRoles` | `table` |  |
+| `roles` | `table` |  |
 
 #### Example: Create
 
@@ -3625,38 +3609,38 @@ Create an instance: `local rule = client:Rule(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `account` | `table` |  |
-| `account_id` | `string` |  |
-| `approve_url` | `string` |  |
-| `approver_id` | `string` |  |
-| `authentication_method` | `table` |  |
-| `authorisation` | `table` |  |
-| `authorisers_completed_count` | `number` |  |
-| `authorisers_required_count` | `number` |  |
-| `can_authorise` | `boolean` |  |
-| `created_by` | `table` |  |
+| `accountID` | `string` |  |
+| `approveUrl` | `string` |  |
+| `approverID` | `string` |  |
+| `authenticationMethods` | `table` |  |
+| `authorisations` | `table` |  |
+| `authorisersCompletedCount` | `number` |  |
+| `authorisersRequiredCount` | `number` |  |
+| `canAuthorise` | `boolean` |  |
+| `createdBy` | `table` |  |
 | `description` | `string` |  |
-| `end_at` | `string` |  |
-| `has_current_user_authorised` | `boolean` |  |
+| `endAt` | `string` |  |
+| `hasCurrentUserAuthorised` | `boolean` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_disabled` | `boolean` |  |
-| `last_executed_at` | `string` |  |
-| `last_run_at_transaction_date` | `string` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
+| `isDisabled` | `boolean` |  |
+| `lastExecutedAt` | `string` |  |
+| `lastRunAtTransactionDate` | `string` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
 | `name` | `string` |  |
 | `nonce` | `string` |  |
-| `on_approved_web_hook_url` | `string` |  |
-| `on_execution_error_web_hook_url` | `string` |  |
-| `on_execution_success_web_hook_url` | `string` |  |
-| `start_at` | `string` |  |
+| `onApprovedWebHookUrl` | `string` |  |
+| `onExecutionErrorWebHookUrl` | `string` |  |
+| `onExecutionSuccessWebHookUrl` | `string` |  |
+| `startAt` | `string` |  |
 | `status` | `string` |  |
-| `sweep_action` | `table` |  |
-| `time_zone_id` | `string` |  |
-| `trigger_cron_expression` | `string` |  |
-| `trigger_on_pay_in` | `boolean` |  |
-| `user_id` | `string` |  |
-| `web_hook_secret` | `string` |  |
+| `sweepAction` | `table` |  |
+| `timeZoneId` | `string` |  |
+| `triggerCronExpression` | `string` |  |
+| `triggerOnPayIn` | `boolean` |  |
+| `userID` | `string` |  |
+| `webHookSecret` | `string` |  |
 
 #### Example: Load
 
@@ -3674,7 +3658,7 @@ local rules, err = client:Rule():list()
 
 ```lua
 local rule, err = client:Rule():create({
-  created_by = {}, -- table
+  createdBy = {}, -- table
   nonce = "example_nonce", -- string
 })
 ```
@@ -3694,14 +3678,14 @@ Create an instance: `local rule_event = client:RuleEvent(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `error_message` | `string` |  |
+| `errorMessage` | `string` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `is_authorise_to_enable` | `boolean` |  |
+| `isAuthoriseToEnable` | `boolean` |  |
 | `message` | `string` |  |
-| `raw_response` | `string` |  |
-| `rule_event_type` | `string` |  |
-| `rule_id` | `string` |  |
+| `rawResponse` | `string` |  |
+| `ruleEventType` | `string` |  |
+| `ruleID` | `string` |  |
 | `user` | `table` |  |
 
 #### Example: List
@@ -3726,10 +3710,10 @@ Create an instance: `local tag = client:Tag(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `colour_hex` | `string` |  |
+| `colourHex` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `merchant_id` | `string` |  |
+| `merchantID` | `string` |  |
 | `name` | `string` |  |
 
 #### Example: List
@@ -3743,6 +3727,7 @@ local tags, err = client:Tag():list()
 ```lua
 local tag, err = client:Tag():create({
   merchant_id = "example_merchant_id", -- string
+  merchantID = "example_merchantID", -- string
   name = "example_name", -- string
 })
 ```
@@ -3785,59 +3770,59 @@ Create an instance: `local transaction = client:Transaction(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_id` | `string` |  |
-| `account_name` | `string` |  |
-| `account_sequence_number` | `number` |  |
-| `address_detail` | `table` |  |
+| `accountID` | `string` |  |
+| `accountName` | `string` |  |
+| `accountSequenceNumber` | `number` |  |
+| `addressDetails` | `table` |  |
 | `amount` | `number` |  |
-| `amount_minor_unit` | `number` |  |
+| `amountMinorUnits` | `number` |  |
 | `balance` | `number` |  |
-| `balance_minor_unit` | `number` |  |
-| `booking_date_time` | `string` |  |
-| `charge_detail` | `table` |  |
+| `balanceMinorUnits` | `number` |  |
+| `bookingDateTime` | `string` |  |
+| `chargeDetails` | `table` |  |
 | `content` | `table` |  |
 | `counterparty` | `table` |  |
-| `counterparty_summary` | `string` |  |
+| `counterpartySummary` | `string` |  |
 | `currency` | `string` |  |
-| `currency_exchange` | `table` |  |
+| `currencyExchange` | `table` |  |
 | `date` | `string` |  |
 | `description` | `string` |  |
 | `enrichment` | `table` |  |
-| `fx_amount` | `number` |  |
-| `fx_currency` | `string` |  |
-| `fx_rate` | `number` |  |
-| `gross_amount` | `table` |  |
+| `fxAmount` | `number` |  |
+| `fxCurrency` | `string` |  |
+| `fxRate` | `number` |  |
+| `grossAmount` | `table` |  |
 | `id` | `string` |  |
 | `inserted` | `string` |  |
-| `iso_bank_transaction_code` | `table` |  |
+| `isoBankTransactionCode` | `table` |  |
 | `merchant` | `table` |  |
-| `merchant_id` | `string` |  |
-| `page_number` | `number` |  |
-| `page_size` | `number` |  |
-| `payee_detail` | `table` |  |
-| `payer_detail` | `table` |  |
-| `payment_request_custom_field` | `table` |  |
-| `payment_request_id` | `string` |  |
-| `payout_id` | `string` |  |
-| `proprietary_bank_transaction_code` | `table` |  |
-| `raw_reference` | `string` |  |
+| `merchantID` | `string` |  |
+| `pageNumber` | `number` |  |
+| `pageSize` | `number` |  |
+| `payeeDetails` | `table` |  |
+| `payerDetails` | `table` |  |
+| `paymentRequestCustomFields` | `table` |  |
+| `paymentRequestID` | `string` |  |
+| `payoutID` | `string` |  |
+| `proprietaryBankTransactionCode` | `table` |  |
+| `rawReference` | `string` |  |
 | `reference` | `string` |  |
-| `rule_id` | `string` |  |
-| `statement_reference` | `table` |  |
+| `ruleID` | `string` |  |
+| `statementReferences` | `table` |  |
 | `status` | `string` |  |
-| `supplementary_data` | `any` |  |
-| `tag` | `table` |  |
-| `their_reference` | `string` |  |
-| `total_page` | `number` |  |
-| `total_size` | `number` |  |
-| `transaction_amount` | `table` |  |
-| `transaction_date` | `string` |  |
-| `transaction_information` | `table` |  |
-| `transaction_mutability` | `string` |  |
+| `supplementaryData` | `any` |  |
+| `tags` | `table` |  |
+| `theirReference` | `string` |  |
+| `totalPages` | `number` |  |
+| `totalSize` | `number` |  |
+| `transactionAmount` | `table` |  |
+| `transactionDate` | `string` |  |
+| `transactionInformation` | `table` |  |
+| `transactionMutability` | `string` |  |
 | `type` | `string` |  |
-| `value_date_time` | `string` |  |
-| `virtual_iban` | `string` |  |
-| `your_reference` | `string` |  |
+| `valueDateTime` | `string` |  |
+| `virtualIBAN` | `string` |  |
+| `yourReference` | `string` |  |
 
 #### Example: Load
 
@@ -3856,10 +3841,10 @@ local transactions, err = client:Transaction():list()
 ```lua
 local transaction, err = client:Transaction():create({
   id = "example_id", -- string
-  gross_amount = {}, -- table
-  payee_detail = {}, -- table
-  payer_detail = {}, -- table
-  transaction_amount = {}, -- table
+  grossAmount = {}, -- table
+  payeeDetails = {}, -- table
+  payerDetails = {}, -- table
+  transactionAmount = {}, -- table
 })
 ```
 
@@ -3879,17 +3864,17 @@ Create an instance: `local user = client:User(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `client_session_timeout` | `table` |  |
-| `email_address` | `string` |  |
-| `first_name` | `string` |  |
+| `clientSessionTimeouts` | `table` |  |
+| `emailAddress` | `string` |  |
+| `firstName` | `string` |  |
 | `id` | `string` |  |
-| `last_name` | `string` |  |
-| `passkey_added` | `boolean` |  |
-| `permission` | `table` |  |
+| `lastName` | `string` |  |
+| `passkeyAdded` | `boolean` |  |
+| `permissions` | `table` |  |
 | `profile` | `string` |  |
-| `roles_with_scope` | `table` |  |
-| `two_factor_enabled` | `boolean` |  |
-| `user_invite_id` | `string` |  |
+| `rolesWithScope` | `table` |  |
+| `twoFactorEnabled` | `boolean` |  |
+| `userInviteID` | `string` |  |
 
 #### Example: List
 
@@ -3916,28 +3901,28 @@ Create an instance: `local user_invite = client:UserInvite(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorisation_status` | `table` |  |
-| `failed_user_invite` | `table` |  |
+| `authorisationStatus` | `table` |  |
+| `failedUserInvites` | `table` |  |
 | `id` | `string` |  |
-| `initial_role_id` | `string` |  |
-| `invitee_email_address` | `string` |  |
-| `invitee_first_name` | `string` |  |
-| `invitee_last_name` | `string` |  |
-| `inviter_email_address` | `string` |  |
-| `inviter_first_name` | `string` |  |
-| `inviter_last_name` | `string` |  |
-| `is_authorised` | `boolean` |  |
-| `is_invitee_registered` | `boolean` |  |
-| `last_invited` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
+| `initialRoleID` | `string` |  |
+| `inviteeEmailAddress` | `string` |  |
+| `inviteeFirstName` | `string` |  |
+| `inviteeLastName` | `string` |  |
+| `inviterEmailAddress` | `string` |  |
+| `inviterFirstName` | `string` |  |
+| `inviterLastName` | `string` |  |
+| `isAuthorised` | `boolean` |  |
+| `isInviteeRegistered` | `boolean` |  |
+| `lastInvited` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantName` | `string` |  |
 | `message` | `string` |  |
-| `registration_url` | `string` |  |
-| `send_invite_email` | `boolean` |  |
+| `registrationUrl` | `string` |  |
+| `sendInviteEmail` | `boolean` |  |
 | `status` | `string` |  |
 | `user` | `table` |  |
-| `user_id` | `string` |  |
-| `user_invite` | `table` |  |
+| `userID` | `string` |  |
+| `userInvites` | `table` |  |
 
 #### Example: Load
 
@@ -3975,53 +3960,53 @@ Create an instance: `local virtual = client:Virtual(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `account_name` | `string` |  |
-| `account_supplier_name` | `string` |  |
-| `available_balance` | `number` |  |
-| `available_balance_minor_unit` | `number` |  |
+| `accountName` | `string` |  |
+| `accountSupplierName` | `string` |  |
+| `availableBalance` | `number` |  |
+| `availableBalanceMinorUnits` | `number` |  |
 | `balance` | `number` |  |
-| `balance_minor_unit` | `number` |  |
-| `bank_name` | `string` |  |
-| `consent_id` | `string` |  |
-| `created_by` | `table` |  |
-| `created_by_display_name` | `string` |  |
+| `balanceMinorUnits` | `number` |  |
+| `bankName` | `string` |  |
+| `consentID` | `string` |  |
+| `createdBy` | `table` |  |
+| `createdByDisplayName` | `string` |  |
 | `currency` | `string` |  |
-| `default_payment_rail` | `string` |  |
-| `display_name` | `string` |  |
-| `expiry_date` | `string` |  |
-| `external_account_icon` | `string` |  |
+| `defaultPaymentRail` | `string` |  |
+| `displayName` | `string` |  |
+| `expiryDate` | `string` |  |
+| `externalAccountIcon` | `string` |  |
 | `id` | `string` |  |
 | `identifier` | `table` |  |
 | `inserted` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_connected_account` | `boolean` |  |
-| `is_default` | `boolean` |  |
-| `is_trust_account` | `boolean` |  |
-| `is_virtual` | `boolean` |  |
-| `last_transaction` | `table` |  |
-| `last_updated` | `string` |  |
-| `merchant_id` | `string` |  |
-| `merchant_name` | `string` |  |
+| `isArchived` | `boolean` |  |
+| `isConnectedAccount` | `boolean` |  |
+| `isDefault` | `boolean` |  |
+| `isTrustAccount` | `boolean` |  |
+| `isVirtual` | `boolean` |  |
+| `lastTransaction` | `table` |  |
+| `lastUpdated` | `string` |  |
+| `merchantID` | `string` |  |
+| `merchantName` | `string` |  |
 | `name` | `string` |  |
-| `physical_account_id` | `string` |  |
-| `rule` | `table` |  |
-| `submitted_payouts_balance` | `number` |  |
-| `submitted_payouts_balance_minor_unit` | `number` |  |
+| `physicalAccountID` | `string` |  |
+| `rules` | `table` |  |
+| `submittedPayoutsBalance` | `number` |  |
+| `submittedPayoutsBalanceMinorUnits` | `number` |  |
 | `summary` | `string` |  |
-| `supplier_sepa_instant_status` | `string` |  |
-| `xero_bank_feed_connection_status` | `string` |  |
-| `xero_bank_feed_last_synced_at` | `string` |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` |  |
-| `xero_bank_feed_sync_status` | `string` |  |
-| `xero_unsynchronised_transactions_count` | `number` |  |
+| `supplierSepaInstantStatus` | `string` |  |
+| `xeroBankFeedConnectionStatus` | `string` |  |
+| `xeroBankFeedLastSyncedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` |  |
+| `xeroBankFeedSyncStatus` | `string` |  |
+| `xeroUnsynchronisedTransactionsCount` | `number` |  |
 
 #### Example: Create
 
 ```lua
 local virtual, err = client:Virtual():create({
   account_id = "example_account_id", -- string
-  created_by = {}, -- table
+  createdBy = {}, -- table
   identifier = {}, -- table
   name = "example_name", -- string
 })
@@ -4046,14 +4031,14 @@ Create an instance: `local webhook = client:Webhook(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destination_url` | `string` |  |
-| `email_address` | `string` |  |
-| `failed_notification_email_address` | `string` |  |
+| `destinationUrl` | `string` |  |
+| `emailAddress` | `string` |  |
+| `failedNotificationEmailAddress` | `string` |  |
 | `id` | `string` |  |
-| `is_active` | `boolean` |  |
-| `merchant_id` | `string` |  |
-| `notification_method` | `string` |  |
-| `resource_type` | `table` |  |
+| `isActive` | `boolean` |  |
+| `merchantID` | `string` |  |
+| `notificationMethod` | `string` |  |
+| `resourceTypes` | `table` |  |
 | `retry` | `boolean` |  |
 | `secret` | `string` |  |
 | `version` | `number` |  |
@@ -4154,11 +4139,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local ruleevent = client:RuleEvent()
-ruleevent:list()
+local consent = client:Consent()
+consent:list()
 
--- ruleevent:data_get() now returns the ruleevent data from the last list
--- ruleevent:match_get() returns the last match criteria
+-- consent:data_get() now returns the consent data from the last list
+-- consent:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

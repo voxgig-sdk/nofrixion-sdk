@@ -44,7 +44,7 @@ class DirectDebitBatchSubmitEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.direct_debit_batch_submit"), "direct_debit_batch_submit_ref01"));
 
         $direct_debit_batch_submit_ref01_data_result = $direct_debit_batch_submit_ref01_ent->create($direct_debit_batch_submit_ref01_data, null);
-        $direct_debit_batch_submit_ref01_data = Helpers::to_map($direct_debit_batch_submit_ref01_data_result);
+        $direct_debit_batch_submit_ref01_data = Helpers::to_map(is_object($direct_debit_batch_submit_ref01_data_result) && method_exists($direct_debit_batch_submit_ref01_data_result, 'data_get') ? $direct_debit_batch_submit_ref01_data_result->data_get() : $direct_debit_batch_submit_ref01_data_result);
         $this->assertNotNull($direct_debit_batch_submit_ref01_data);
 
     }

@@ -62,7 +62,7 @@ describe('PaymentEntity', async () => {
     const payment_ref01_ent = client.Payment()
     let payment_ref01_data = setup.data.new.payment['payment_ref01']
 
-    payment_ref01_data = await payment_ref01_ent.create(payment_ref01_data)
+    payment_ref01_data = (await payment_ref01_ent.create(payment_ref01_data)).data()
     assert(null != payment_ref01_data.id)
 
 
@@ -70,10 +70,10 @@ describe('PaymentEntity', async () => {
     const payment_ref01_data_up0: any = {}
     payment_ref01_data_up0.id = payment_ref01_data.id
 
-    const payment_ref01_markdef_up0 = { name: 'base_origin_url', value: 'Mark01-payment_ref01_' + setup.now }
+    const payment_ref01_markdef_up0 = { name: 'baseOriginUrl', value: 'Mark01-payment_ref01_' + setup.now }
     ;(payment_ref01_data_up0 as any)[payment_ref01_markdef_up0.name] = payment_ref01_markdef_up0.value
 
-    const payment_ref01_resdata_up0 = await payment_ref01_ent.update(payment_ref01_data_up0)
+    const payment_ref01_resdata_up0 = (await payment_ref01_ent.update(payment_ref01_data_up0)).data()
     assert(payment_ref01_resdata_up0.id === payment_ref01_data_up0.id)
 
     assert((payment_ref01_resdata_up0 as any)[payment_ref01_markdef_up0.name] === payment_ref01_markdef_up0.value)
@@ -82,7 +82,7 @@ describe('PaymentEntity', async () => {
     // LOAD
     const payment_ref01_match_dt0: any = {}
     payment_ref01_match_dt0.id = payment_ref01_data.id
-    const payment_ref01_data_dt0 = await payment_ref01_ent.load(payment_ref01_match_dt0)
+    const payment_ref01_data_dt0 = (await payment_ref01_ent.load(payment_ref01_match_dt0)).data()
     assert(payment_ref01_data_dt0.id === payment_ref01_data.id)
 
 

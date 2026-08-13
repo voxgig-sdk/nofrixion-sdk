@@ -63,7 +63,7 @@ describe('UserInviteEntity', async () => {
     let user_invite_ref01_data = setup.data.new.user_invite['user_invite_ref01']
     user_invite_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    user_invite_ref01_data = await user_invite_ref01_ent.create(user_invite_ref01_data)
+    user_invite_ref01_data = (await user_invite_ref01_ent.create(user_invite_ref01_data)).data()
     assert(null != user_invite_ref01_data.id)
 
 
@@ -71,7 +71,7 @@ describe('UserInviteEntity', async () => {
     const user_invite_ref01_match: any = {}
     user_invite_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const user_invite_ref01_list = await user_invite_ref01_ent.list(user_invite_ref01_match)
+    const user_invite_ref01_list = (await user_invite_ref01_ent.list(user_invite_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(user_invite_ref01_list, { id: user_invite_ref01_data.id })))
 
@@ -80,10 +80,10 @@ describe('UserInviteEntity', async () => {
     const user_invite_ref01_data_up0: any = {}
     user_invite_ref01_data_up0.id = user_invite_ref01_data.id
 
-    const user_invite_ref01_markdef_up0 = { name: 'initial_role_id', value: 'Mark01-user_invite_ref01_' + setup.now }
+    const user_invite_ref01_markdef_up0 = { name: 'initialRoleID', value: 'Mark01-user_invite_ref01_' + setup.now }
     ;(user_invite_ref01_data_up0 as any)[user_invite_ref01_markdef_up0.name] = user_invite_ref01_markdef_up0.value
 
-    const user_invite_ref01_resdata_up0 = await user_invite_ref01_ent.update(user_invite_ref01_data_up0)
+    const user_invite_ref01_resdata_up0 = (await user_invite_ref01_ent.update(user_invite_ref01_data_up0)).data()
     assert(user_invite_ref01_resdata_up0.id === user_invite_ref01_data_up0.id)
 
     assert((user_invite_ref01_resdata_up0 as any)[user_invite_ref01_markdef_up0.name] === user_invite_ref01_markdef_up0.value)
@@ -92,7 +92,7 @@ describe('UserInviteEntity', async () => {
     // LOAD
     const user_invite_ref01_match_dt0: any = {}
     user_invite_ref01_match_dt0.id = user_invite_ref01_data.id
-    const user_invite_ref01_data_dt0 = await user_invite_ref01_ent.load(user_invite_ref01_match_dt0)
+    const user_invite_ref01_data_dt0 = (await user_invite_ref01_ent.load(user_invite_ref01_match_dt0)).data()
     assert(user_invite_ref01_data_dt0.id === user_invite_ref01_data.id)
 
 
@@ -105,7 +105,7 @@ describe('UserInviteEntity', async () => {
     const user_invite_ref01_match_rt0: any = {}
     user_invite_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const user_invite_ref01_list_rt0 = await user_invite_ref01_ent.list(user_invite_ref01_match_rt0)
+    const user_invite_ref01_list_rt0 = (await user_invite_ref01_ent.list(user_invite_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(user_invite_ref01_list_rt0, { id: user_invite_ref01_data.id })))
 

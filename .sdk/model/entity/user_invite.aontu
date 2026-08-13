@@ -6,12 +6,12 @@ main: kit: entity: user_invite: {
 
   fields: [
     {
-      name: "authorisation_status"
+      name: "authorisationStatus"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "failed_user_invite"
+      name: "failedUserInvites"
       req: false
       type: "`$OBJECT`"
     }
@@ -21,12 +21,12 @@ main: kit: entity: user_invite: {
       type: "`$STRING`"
     }
     {
-      name: "initial_role_id"
+      name: "initialRoleID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "invitee_email_address"
+      name: "inviteeEmailAddress"
       op: {
         create: {
           req: true
@@ -37,52 +37,52 @@ main: kit: entity: user_invite: {
       type: "`$STRING`"
     }
     {
-      name: "invitee_first_name"
+      name: "inviteeFirstName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "invitee_last_name"
+      name: "inviteeLastName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "inviter_email_address"
+      name: "inviterEmailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "inviter_first_name"
+      name: "inviterFirstName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "inviter_last_name"
+      name: "inviterLastName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "is_authorised"
+      name: "isAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_invitee_registered"
+      name: "isInviteeRegistered"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_invited"
+      name: "lastInvited"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_name"
+      name: "merchantName"
       req: false
       type: "`$STRING`"
     }
@@ -92,12 +92,12 @@ main: kit: entity: user_invite: {
       type: "`$STRING`"
     }
     {
-      name: "registration_url"
+      name: "registrationUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "send_invite_email"
+      name: "sendInviteEmail"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -112,12 +112,12 @@ main: kit: entity: user_invite: {
       type: "`$OBJECT`"
     }
     {
-      name: "user_id"
+      name: "userID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "user_invite"
+      name: "userInvites"
       req: false
       type: "`$ARRAY`"
     }

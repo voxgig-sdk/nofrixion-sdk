@@ -41,7 +41,7 @@ describe("BatchEntity", function()
 
     local batch_ref01_data_result, err = batch_ref01_ent:create(batch_ref01_data, nil)
     assert.is_nil(err)
-    batch_ref01_data = helpers.to_map(batch_ref01_data_result)
+    batch_ref01_data = helpers.to_map(type(batch_ref01_data_result) == 'table' and batch_ref01_data_result.data_get and batch_ref01_data_result:data_get() or batch_ref01_data_result)
     assert.is_not_nil(batch_ref01_data)
     assert.is_not_nil(batch_ref01_data["id"])
 
@@ -51,7 +51,7 @@ describe("BatchEntity", function()
     }
     local batch_ref01_data_dt0_loaded, err = batch_ref01_ent:load(batch_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local batch_ref01_data_dt0_load_result = helpers.to_map(batch_ref01_data_dt0_loaded)
+    local batch_ref01_data_dt0_load_result = helpers.to_map(type(batch_ref01_data_dt0_loaded) == 'table' and batch_ref01_data_dt0_loaded.data_get and batch_ref01_data_dt0_loaded:data_get() or batch_ref01_data_dt0_loaded)
     assert.is_not_nil(batch_ref01_data_dt0_load_result)
     assert.are.equal(batch_ref01_data_dt0_load_result["id"], batch_ref01_data["id"])
 

@@ -6,22 +6,22 @@ main: kit: entity: mandate: {
 
   fields: [
     {
-      name: "account_number"
+      name: "accountNumber"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "address_line1"
+      name: "addressLine1"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "address_line2"
+      name: "addressLine2"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "approved_at"
+      name: "approvedAt"
       req: false
       type: "`$STRING`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "country_code"
+      name: "countryCode"
       req: true
       type: "`$STRING`"
     }
@@ -47,57 +47,57 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "customer_account_number"
+      name: "customerAccountNumber"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_city"
+      name: "customerCity"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_country_code"
+      name: "customerCountryCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_country_name"
+      name: "customerCountryName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_email_address"
+      name: "customerEmailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_first_name"
+      name: "customerFirstName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_iban"
+      name: "customerIban"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_last_name"
+      name: "customerLastName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_sort_code"
+      name: "customerSortCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "email_address"
+      name: "emailAddress"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "first_name"
+      name: "firstName"
       req: true
       type: "`$STRING`"
     }
@@ -117,22 +117,22 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "is_recurring"
+      name: "isRecurring"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_name"
+      name: "lastName"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       op: {
         create: {
           req: true
@@ -143,7 +143,7 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "postal_code"
+      name: "postalCode"
       req: true
       type: "`$STRING`"
     }
@@ -153,7 +153,7 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "sort_code"
+      name: "sortCode"
       req: false
       type: "`$STRING`"
     }
@@ -163,27 +163,27 @@ main: kit: entity: mandate: {
       type: "`$STRING`"
     }
     {
-      name: "supplier_bank_account_id"
+      name: "supplierBankAccountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_customer_id"
+      name: "supplierCustomerID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_mandate_id"
+      name: "supplierMandateID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_name"
+      name: "supplierName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_status"
+      name: "supplierStatus"
       req: false
       type: "`$STRING`"
     }

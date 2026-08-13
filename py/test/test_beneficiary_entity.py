@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestBeneficiaryEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from nofrixion_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = NofrixionSDK.test(
@@ -79,7 +79,7 @@ class TestBeneficiaryEntity:
             vs.getpath(setup["data"], "new.beneficiary"), "beneficiary_ref01"))
         beneficiary_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
-        beneficiary_ref01_data = helpers.to_map(beneficiary_ref01_ent.create(beneficiary_ref01_data, None))
+        beneficiary_ref01_data = helpers.to_map(runner.entity_data(beneficiary_ref01_ent.create(beneficiary_ref01_data, None)))
         assert beneficiary_ref01_data is not None
         assert beneficiary_ref01_data["id"] is not None
 
@@ -101,11 +101,11 @@ class TestBeneficiaryEntity:
             "id": beneficiary_ref01_data["id"],
         }
 
-        beneficiary_ref01_markdef_up0_name = "approval_callback_url"
+        beneficiary_ref01_markdef_up0_name = "approvalCallbackUrl"
         beneficiary_ref01_markdef_up0_value = "Mark01-beneficiary_ref01_" + str(setup["now"])
         beneficiary_ref01_data_up0_up[beneficiary_ref01_markdef_up0_name] = beneficiary_ref01_markdef_up0_value
 
-        beneficiary_ref01_resdata_up0 = helpers.to_map(beneficiary_ref01_ent.update(beneficiary_ref01_data_up0_up, None))
+        beneficiary_ref01_resdata_up0 = helpers.to_map(runner.entity_data(beneficiary_ref01_ent.update(beneficiary_ref01_data_up0_up, None)))
         assert beneficiary_ref01_resdata_up0 is not None
         assert beneficiary_ref01_resdata_up0["id"] == beneficiary_ref01_data_up0_up["id"]
         assert beneficiary_ref01_resdata_up0[beneficiary_ref01_markdef_up0_name] == beneficiary_ref01_markdef_up0_value
@@ -115,7 +115,7 @@ class TestBeneficiaryEntity:
             "id": beneficiary_ref01_data["id"],
         }
         beneficiary_ref01_data_dt0_loaded = beneficiary_ref01_ent.load(beneficiary_ref01_match_dt0, None)
-        beneficiary_ref01_data_dt0_load_result = helpers.to_map(beneficiary_ref01_data_dt0_loaded)
+        beneficiary_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(beneficiary_ref01_data_dt0_loaded))
         assert beneficiary_ref01_data_dt0_load_result is not None
         assert beneficiary_ref01_data_dt0_load_result["id"] == beneficiary_ref01_data["id"]
 

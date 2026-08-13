@@ -62,7 +62,7 @@ describe('NoFrixionVersionEntity', async () => {
     // LOAD
     const no_frixion_version_ref01_ent = client.NoFrixionVersion()
     const no_frixion_version_ref01_match_dt0: any = {}
-    const no_frixion_version_ref01_data_dt0 = await no_frixion_version_ref01_ent.load(no_frixion_version_ref01_match_dt0)
+    const no_frixion_version_ref01_data_dt0 = (await no_frixion_version_ref01_ent.load(no_frixion_version_ref01_match_dt0)).data()
     assert(null != no_frixion_version_ref01_data_dt0)
 
 

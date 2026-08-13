@@ -2,36 +2,36 @@
   "existing": {
     "rule_event": {
       "RULE_EVENT00": {
-        "error_message": "s5a",
+        "errorMessage": "s5a",
         "id": "RULE_EVENT00",
         "inserted": "s5c",
-        "is_authorise_to_enable": false,
+        "isAuthoriseToEnable": false,
         "message": "s5e",
-        "raw_response": "s5f",
-        "rule_event_type": "s60",
-        "rule_id": "RULE01",
+        "rawResponse": "s5f",
+        "ruleEventType": "s60",
+        "ruleID": "s61",
         "user": {}
       },
       "RULE_EVENT01": {
-        "error_message": "sb4",
+        "errorMessage": "sb4",
         "id": "RULE_EVENT01",
         "inserted": "sb6",
-        "is_authorise_to_enable": false,
+        "isAuthoriseToEnable": false,
         "message": "sb8",
-        "raw_response": "sb9",
-        "rule_event_type": "sba",
-        "rule_id": "RULE01",
+        "rawResponse": "sb9",
+        "ruleEventType": "sba",
+        "ruleID": "sbb",
         "user": {}
       },
       "RULE_EVENT02": {
-        "error_message": "s10e",
+        "errorMessage": "s10e",
         "id": "RULE_EVENT02",
         "inserted": "s110",
-        "is_authorise_to_enable": false,
+        "isAuthoriseToEnable": false,
         "message": "s112",
-        "raw_response": "s113",
-        "rule_event_type": "s114",
-        "rule_id": "RULE01",
+        "rawResponse": "s113",
+        "ruleEventType": "s114",
+        "ruleID": "s115",
         "user": {}
       }
     }
@@ -39,13 +39,13 @@
   "new": {
     "rule_event": {
       "rule_event_ref01": {
-        "error_message": "s168",
+        "errorMessage": "s168",
         "inserted": "s16a",
-        "is_authorise_to_enable": false,
+        "isAuthoriseToEnable": false,
         "message": "s16c",
-        "raw_response": "s16d",
-        "rule_event_type": "s16e",
-        "rule_id": "RULE01",
+        "rawResponse": "s16d",
+        "ruleEventType": "s16e",
+        "ruleID": "s16f",
         "user": {}
       }
     }

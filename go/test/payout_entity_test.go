@@ -111,7 +111,7 @@ func TestPayoutEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		payoutRef01Data = core.ToMapAny(payoutRef01DataResult)
+		payoutRef01Data = core.ToMapAny(entityData(payoutRef01DataResult))
 		if payoutRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -143,7 +143,7 @@ func TestPayoutEntity(t *testing.T) {
 			"id": payoutRef01Data["id"],
 		}
 
-		payoutRef01MarkdefUp0Name := "account_id"
+		payoutRef01MarkdefUp0Name := "accountID"
 		payoutRef01MarkdefUp0Value := fmt.Sprintf("Mark01-payout_ref01_%d", setup.now)
 		payoutRef01DataUp0Up[payoutRef01MarkdefUp0Name] = payoutRef01MarkdefUp0Value
 
@@ -151,7 +151,7 @@ func TestPayoutEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		payoutRef01ResdataUp0 := core.ToMapAny(payoutRef01ResdataUp0Result)
+		payoutRef01ResdataUp0 := core.ToMapAny(entityData(payoutRef01ResdataUp0Result))
 		if payoutRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -170,7 +170,7 @@ func TestPayoutEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		payoutRef01DataDt0LoadResult := core.ToMapAny(payoutRef01DataDt0Loaded)
+		payoutRef01DataDt0LoadResult := core.ToMapAny(entityData(payoutRef01DataDt0Loaded))
 		if payoutRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

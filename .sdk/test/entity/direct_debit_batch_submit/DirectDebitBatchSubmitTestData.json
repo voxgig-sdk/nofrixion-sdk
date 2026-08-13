@@ -2,18 +2,18 @@
   "existing": {
     "direct_debit_batch_submit": {
       "DIRECT_DEBIT_BATCH_SUBMIT00": {
-        "failed_submission": {},
-        "successful_submission": [],
+        "failedSubmissions": {},
+        "successfulSubmissions": [],
         "id": "DIRECT_DEBIT_BATCH_SUBMIT00"
       },
       "DIRECT_DEBIT_BATCH_SUBMIT01": {
-        "failed_submission": {},
-        "successful_submission": [],
+        "failedSubmissions": {},
+        "successfulSubmissions": [],
         "id": "DIRECT_DEBIT_BATCH_SUBMIT01"
       },
       "DIRECT_DEBIT_BATCH_SUBMIT02": {
-        "failed_submission": {},
-        "successful_submission": [],
+        "failedSubmissions": {},
+        "successfulSubmissions": [],
         "id": "DIRECT_DEBIT_BATCH_SUBMIT02"
       }
     }
@@ -21,8 +21,8 @@
   "new": {
     "direct_debit_batch_submit": {
       "direct_debit_batch_submit_ref01": {
-        "failed_submission": {},
-        "successful_submission": []
+        "failedSubmissions": {},
+        "successfulSubmissions": []
       }
     }
   }

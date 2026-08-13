@@ -64,7 +64,7 @@ describe('PayoutKeysetPageEntity', async () => {
     const payout_keyset_page_ref01_match: any = {}
     payout_keyset_page_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const payout_keyset_page_ref01_list = await payout_keyset_page_ref01_ent.list(payout_keyset_page_ref01_match)
+    const payout_keyset_page_ref01_list = (await payout_keyset_page_ref01_ent.list(payout_keyset_page_ref01_match)).map((e: any) => e.data())
 
 
   })

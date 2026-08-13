@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestDirectDebitBatchSubmitEntity:
         direct_debit_batch_submit_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.direct_debit_batch_submit"), "direct_debit_batch_submit_ref01"))
 
-        direct_debit_batch_submit_ref01_data = helpers.to_map(direct_debit_batch_submit_ref01_ent.create(direct_debit_batch_submit_ref01_data, None))
+        direct_debit_batch_submit_ref01_data = helpers.to_map(runner.entity_data(direct_debit_batch_submit_ref01_ent.create(direct_debit_batch_submit_ref01_data, None)))
         assert direct_debit_batch_submit_ref01_data is not None
 
 

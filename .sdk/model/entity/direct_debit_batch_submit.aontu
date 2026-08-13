@@ -6,12 +6,12 @@ main: kit: entity: direct_debit_batch_submit: {
 
   fields: [
     {
-      name: "failed_submission"
+      name: "failedSubmissions"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "successful_submission"
+      name: "successfulSubmissions"
       req: false
       type: "`$ARRAY`"
     }

@@ -62,7 +62,7 @@ describe('DirectDebitBatchSubmitEntity', async () => {
     const direct_debit_batch_submit_ref01_ent = client.DirectDebitBatchSubmit()
     let direct_debit_batch_submit_ref01_data = setup.data.new.direct_debit_batch_submit['direct_debit_batch_submit_ref01']
 
-    direct_debit_batch_submit_ref01_data = await direct_debit_batch_submit_ref01_ent.create(direct_debit_batch_submit_ref01_data)
+    direct_debit_batch_submit_ref01_data = (await direct_debit_batch_submit_ref01_ent.create(direct_debit_batch_submit_ref01_data)).data()
     assert(null != direct_debit_batch_submit_ref01_data)
 
 

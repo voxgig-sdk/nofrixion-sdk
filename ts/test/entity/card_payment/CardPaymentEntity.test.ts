@@ -63,7 +63,7 @@ describe('CardPaymentEntity', async () => {
     let card_payment_ref01_data = setup.data.new.card_payment['card_payment_ref01']
     card_payment_ref01_data['paymentrequest_id'] = setup.idmap['paymentrequest01']
 
-    card_payment_ref01_data = await card_payment_ref01_ent.create(card_payment_ref01_data)
+    card_payment_ref01_data = (await card_payment_ref01_ent.create(card_payment_ref01_data)).data()
     assert(null != card_payment_ref01_data)
 
 

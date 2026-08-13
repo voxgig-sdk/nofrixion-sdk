@@ -2,59 +2,59 @@
   "existing": {
     "payment_account_minimal": {
       "PAYMENT_ACCOUNT_MINIMAL00": {
-        "account_name": "s6e",
-        "available_balance": 111,
+        "accountName": "s6e",
+        "availableBalance": 111,
         "balance": 112,
-        "balance_minor_unit": "s71",
+        "balanceMinorUnits": "s71",
         "currency": "s72",
         "id": "PAYMENT_ACCOUNT_MINIMAL00",
         "identifier": {},
-        "is_archived": false,
-        "is_connected_account": true,
-        "merchant_id": "MERCHANT01",
-        "submitted_payouts_balance": 120
+        "isArchived": false,
+        "isConnectedAccount": true,
+        "merchantID": "s77",
+        "submittedPayoutsBalance": 120
       },
       "PAYMENT_ACCOUNT_MINIMAL01": {
-        "account_name": "sdc",
-        "available_balance": 221,
+        "accountName": "sdc",
+        "availableBalance": 221,
         "balance": 222,
-        "balance_minor_unit": "sdf",
+        "balanceMinorUnits": "sdf",
         "currency": "se0",
         "id": "PAYMENT_ACCOUNT_MINIMAL01",
         "identifier": {},
-        "is_archived": false,
-        "is_connected_account": true,
-        "merchant_id": "MERCHANT01",
-        "submitted_payouts_balance": 230
+        "isArchived": false,
+        "isConnectedAccount": true,
+        "merchantID": "se5",
+        "submittedPayoutsBalance": 230
       },
       "PAYMENT_ACCOUNT_MINIMAL02": {
-        "account_name": "s14a",
-        "available_balance": 331,
+        "accountName": "s14a",
+        "availableBalance": 331,
         "balance": 332,
-        "balance_minor_unit": "s14d",
+        "balanceMinorUnits": "s14d",
         "currency": "s14e",
         "id": "PAYMENT_ACCOUNT_MINIMAL02",
         "identifier": {},
-        "is_archived": false,
-        "is_connected_account": true,
-        "merchant_id": "MERCHANT01",
-        "submitted_payouts_balance": 340
+        "isArchived": false,
+        "isConnectedAccount": true,
+        "merchantID": "s153",
+        "submittedPayoutsBalance": 340
       }
     }
   },
   "new": {
     "payment_account_minimal": {
       "payment_account_minimal_ref01": {
-        "account_name": "s1b8",
-        "available_balance": 441,
+        "accountName": "s1b8",
+        "availableBalance": 441,
         "balance": 442,
-        "balance_minor_unit": "s1bb",
+        "balanceMinorUnits": "s1bb",
         "currency": "s1bc",
         "identifier": {},
-        "is_archived": false,
-        "is_connected_account": true,
-        "merchant_id": "MERCHANT01",
-        "submitted_payouts_balance": 450
+        "isArchived": false,
+        "isConnectedAccount": true,
+        "merchantID": "s1c1",
+        "submittedPayoutsBalance": 450
       }
     }
   }

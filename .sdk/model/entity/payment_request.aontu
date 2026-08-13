@@ -6,7 +6,7 @@ main: kit: entity: payment_request: {
 
   fields: [
     {
-      name: "address"
+      name: "addresses"
       req: false
       type: "`$ARRAY`"
     }
@@ -16,72 +16,72 @@ main: kit: entity: payment_request: {
       type: "`$NUMBER`"
     }
     {
-      name: "amount_pending"
+      name: "amountPending"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_received"
+      name: "amountReceived"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_refunded"
+      name: "amountRefunded"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "auto_send_receipt"
+      name: "autoSendReceipt"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "base_origin_url"
+      name: "baseOriginUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "callback_url"
+      name: "callbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_authorize_only"
+      name: "cardAuthorizeOnly"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "card_create_token"
+      name: "cardCreateToken"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "card_create_token_mode"
+      name: "cardCreateTokenMode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_ignore_cvn"
+      name: "cardIgnoreCVN"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "card_processor_merchant_id"
+      name: "cardProcessorMerchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_stripe_payment_intent_id"
+      name: "cardStripePaymentIntentID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_stripe_payment_intent_secret"
+      name: "cardStripePaymentIntentSecret"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "created_by_user"
+      name: "createdByUser"
       req: true
       type: "`$OBJECT`"
     }
@@ -91,22 +91,22 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "custom_field"
+      name: "customFields"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "customer_email_address"
+      name: "customerEmailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_id"
+      name: "customerID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_name"
+      name: "customerName"
       req: false
       type: "`$STRING`"
     }
@@ -116,57 +116,57 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "destination_account"
+      name: "destinationAccount"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "direct_debit_payment"
+      name: "directDebitPayment"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "do_simulate_settlement_failure"
+      name: "doSimulateSettlementFailure"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "due_date"
+      name: "dueDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "error_description"
+      name: "errorDescription"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "event"
+      name: "events"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "failed_payment_request"
+      name: "failedPaymentRequests"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "failure_callback_url"
+      name: "failureCallbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "field_display_setting"
+      name: "fieldDisplaySettings"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "formatted_amount"
+      name: "formattedAmount"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "hosted_pay_checkout_url"
+      name: "hostedPayCheckoutUrl"
       req: false
       type: "`$STRING`"
     }
@@ -176,7 +176,7 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "ignore_address_verification"
+      name: "ignoreAddressVerification"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -186,7 +186,7 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "inserted_sortable"
+      name: "insertedSortable"
       req: false
       type: "`$STRING`"
     }
@@ -196,7 +196,7 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -206,97 +206,97 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "lightning_invoice"
+      name: "lightningInvoice"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "lightning_invoice_expires_at"
+      name: "lightningInvoiceExpiresAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_direct_debit_mandate_id"
+      name: "merchantDirectDebitMandateID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_token_description"
+      name: "merchantTokenDescription"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "notification_email_address"
+      name: "notificationEmailAddresses"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "notification_role_i_d"
+      name: "notificationRoleIDs"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "order_id"
+      name: "orderID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "partial_payment_method"
+      name: "partialPaymentMethod"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "partial_payment_step"
+      name: "partialPaymentSteps"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_attempt"
+      name: "paymentAttempts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payment_initiation_id"
+      name: "paymentInitiationID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_method"
+      name: "paymentMethods"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payment_processor"
+      name: "paymentProcessor"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request"
+      name: "paymentRequests"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payrun_id"
+      name: "payrunID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_account_id"
+      name: "pispAccountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "priority_bank_id"
+      name: "priorityBankID"
       req: false
       type: "`$STRING`"
     }
@@ -306,12 +306,12 @@ main: kit: entity: payment_request: {
       type: "`$OBJECT`"
     }
     {
-      name: "sandbox_settle_delay_in_second"
+      name: "sandboxSettleDelayInSeconds"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "shipping_address"
+      name: "shippingAddress"
       req: false
       type: "`$OBJECT`"
     }
@@ -321,12 +321,12 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "success_web_hook_url"
+      name: "successWebHookUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "tag"
+      name: "tags"
       req: false
       type: "`$ARRAY`"
     }
@@ -336,17 +336,17 @@ main: kit: entity: payment_request: {
       type: "`$STRING`"
     }
     {
-      name: "tokenised_card"
+      name: "tokenisedCards"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "transaction"
+      name: "transactions"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "use_hosted_payment_page"
+      name: "useHostedPaymentPage"
       req: false
       type: "`$BOOLEAN`"
     }

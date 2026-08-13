@@ -4,39 +4,6 @@ main: kit: entity: payment_request_metric: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "all"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "authorized"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "paid"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "partially_paid"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "total_amounts_by_currency"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "unpaid"
-      req: false
-      type: "`$INTEGER`"
-    }
-  ]
-
   name: "payment_request_metric"
   op: {
     load: {

@@ -45,7 +45,7 @@ class VirtualEntityTest extends TestCase
         $virtual_ref01_data["account_id"] = $setup["idmap"]["account01"];
 
         $virtual_ref01_data_result = $virtual_ref01_ent->create($virtual_ref01_data, null);
-        $virtual_ref01_data = Helpers::to_map($virtual_ref01_data_result);
+        $virtual_ref01_data = Helpers::to_map(is_object($virtual_ref01_data_result) && method_exists($virtual_ref01_data_result, 'data_get') ? $virtual_ref01_data_result->data_get() : $virtual_ref01_data_result);
         $this->assertNotNull($virtual_ref01_data);
         $this->assertNotNull($virtual_ref01_data["id"]);
 
@@ -55,12 +55,12 @@ class VirtualEntityTest extends TestCase
             "account_id" => $setup["idmap"]["account_id"],
         ];
 
-        $virtual_ref01_markdef_up0_name = "account_name";
+        $virtual_ref01_markdef_up0_name = "accountName";
         $virtual_ref01_markdef_up0_value = "Mark01-virtual_ref01_" . $setup["now"];
         $virtual_ref01_data_up0_up[$virtual_ref01_markdef_up0_name] = $virtual_ref01_markdef_up0_value;
 
         $virtual_ref01_resdata_up0_result = $virtual_ref01_ent->update($virtual_ref01_data_up0_up, null);
-        $virtual_ref01_resdata_up0 = Helpers::to_map($virtual_ref01_resdata_up0_result);
+        $virtual_ref01_resdata_up0 = Helpers::to_map(is_object($virtual_ref01_resdata_up0_result) && method_exists($virtual_ref01_resdata_up0_result, 'data_get') ? $virtual_ref01_resdata_up0_result->data_get() : $virtual_ref01_resdata_up0_result);
         $this->assertNotNull($virtual_ref01_resdata_up0);
         $this->assertEquals($virtual_ref01_resdata_up0["id"], $virtual_ref01_data_up0_up["id"]);
         $this->assertEquals($virtual_ref01_resdata_up0[$virtual_ref01_markdef_up0_name], $virtual_ref01_markdef_up0_value);

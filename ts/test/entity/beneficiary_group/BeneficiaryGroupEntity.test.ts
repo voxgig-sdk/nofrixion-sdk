@@ -64,7 +64,7 @@ describe('BeneficiaryGroupEntity', async () => {
     const beneficiary_group_ref01_match: any = {}
     beneficiary_group_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const beneficiary_group_ref01_list = await beneficiary_group_ref01_ent.list(beneficiary_group_ref01_match)
+    const beneficiary_group_ref01_list = (await beneficiary_group_ref01_ent.list(beneficiary_group_ref01_match)).map((e: any) => e.data())
 
 
   })

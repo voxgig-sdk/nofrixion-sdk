@@ -3,26 +3,26 @@
     "currency": {
       "CURRENCY00": {
         "code": "s3c",
-        "decimal": "s3d",
-        "is_fiat": true,
-        "iso4217_alpha_code": "s3f",
-        "iso4217_numeric_code": "s40",
+        "decimals": "s3d",
+        "isFiat": true,
+        "iso4217AlphaCode": "s3f",
+        "iso4217NumericCode": "s40",
         "symbol": "s41"
       },
       "CURRENCY01": {
         "code": "s78",
-        "decimal": "s79",
-        "is_fiat": true,
-        "iso4217_alpha_code": "s7b",
-        "iso4217_numeric_code": "s7c",
+        "decimals": "s79",
+        "isFiat": true,
+        "iso4217AlphaCode": "s7b",
+        "iso4217NumericCode": "s7c",
         "symbol": "s7d"
       },
       "CURRENCY02": {
         "code": "sb4",
-        "decimal": "sb5",
-        "is_fiat": true,
-        "iso4217_alpha_code": "sb7",
-        "iso4217_numeric_code": "sb8",
+        "decimals": "sb5",
+        "isFiat": true,
+        "iso4217AlphaCode": "sb7",
+        "iso4217NumericCode": "sb8",
         "symbol": "sb9"
       }
     }
@@ -31,10 +31,10 @@
     "currency": {
       "currency_ref01": {
         "code": "sf0",
-        "decimal": "sf1",
-        "is_fiat": true,
-        "iso4217_alpha_code": "sf3",
-        "iso4217_numeric_code": "sf4",
+        "decimals": "sf1",
+        "isFiat": true,
+        "iso4217AlphaCode": "sf3",
+        "iso4217NumericCode": "sf4",
         "symbol": "sf5"
       }
     }

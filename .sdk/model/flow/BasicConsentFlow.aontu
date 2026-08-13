@@ -41,7 +41,7 @@ main: kit: flow: BasicConsentFlow:
         ref: "consent_ref01",
         srcdatavar: "consent_ref01_data",
         suffix: "_up0",
-        textfield: "authorisation_url"
+        textfield: "authorisationUrl"
       }
 
       op: "update",

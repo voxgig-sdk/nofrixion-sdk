@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestWebhookEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from nofrixion_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = NofrixionSDK.test(
@@ -79,7 +79,7 @@ class TestWebhookEntity:
             vs.getpath(setup["data"], "new.webhook"), "webhook_ref01"))
         webhook_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
-        webhook_ref01_data = helpers.to_map(webhook_ref01_ent.create(webhook_ref01_data, None))
+        webhook_ref01_data = helpers.to_map(runner.entity_data(webhook_ref01_ent.create(webhook_ref01_data, None)))
         assert webhook_ref01_data is not None
         assert webhook_ref01_data["id"] is not None
 
@@ -101,11 +101,11 @@ class TestWebhookEntity:
             "id": webhook_ref01_data["id"],
         }
 
-        webhook_ref01_markdef_up0_name = "destination_url"
+        webhook_ref01_markdef_up0_name = "destinationUrl"
         webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" + str(setup["now"])
         webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
-        webhook_ref01_resdata_up0 = helpers.to_map(webhook_ref01_ent.update(webhook_ref01_data_up0_up, None))
+        webhook_ref01_resdata_up0 = helpers.to_map(runner.entity_data(webhook_ref01_ent.update(webhook_ref01_data_up0_up, None)))
         assert webhook_ref01_resdata_up0 is not None
         assert webhook_ref01_resdata_up0["id"] == webhook_ref01_data_up0_up["id"]
         assert webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name] == webhook_ref01_markdef_up0_value
@@ -115,7 +115,7 @@ class TestWebhookEntity:
             "id": webhook_ref01_data["id"],
         }
         webhook_ref01_data_dt0_loaded = webhook_ref01_ent.load(webhook_ref01_match_dt0, None)
-        webhook_ref01_data_dt0_load_result = helpers.to_map(webhook_ref01_data_dt0_loaded)
+        webhook_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(webhook_ref01_data_dt0_loaded))
         assert webhook_ref01_data_dt0_load_result is not None
         assert webhook_ref01_data_dt0_load_result["id"] == webhook_ref01_data["id"]
 

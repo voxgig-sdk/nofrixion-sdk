@@ -41,7 +41,7 @@ describe("MandateEntity", function()
 
     local mandate_ref01_data_result, err = mandate_ref01_ent:create(mandate_ref01_data, nil)
     assert.is_nil(err)
-    mandate_ref01_data = helpers.to_map(mandate_ref01_data_result)
+    mandate_ref01_data = helpers.to_map(type(mandate_ref01_data_result) == 'table' and mandate_ref01_data_result.data_get and mandate_ref01_data_result:data_get() or mandate_ref01_data_result)
     assert.is_not_nil(mandate_ref01_data)
     assert.is_not_nil(mandate_ref01_data["id"])
 
@@ -51,7 +51,7 @@ describe("MandateEntity", function()
     }
     local mandate_ref01_data_dt0_loaded, err = mandate_ref01_ent:load(mandate_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local mandate_ref01_data_dt0_load_result = helpers.to_map(mandate_ref01_data_dt0_loaded)
+    local mandate_ref01_data_dt0_load_result = helpers.to_map(type(mandate_ref01_data_dt0_loaded) == 'table' and mandate_ref01_data_dt0_loaded.data_get and mandate_ref01_data_dt0_loaded:data_get() or mandate_ref01_data_dt0_loaded)
     assert.is_not_nil(mandate_ref01_data_dt0_load_result)
     assert.are.equal(mandate_ref01_data_dt0_load_result["id"], mandate_ref01_data["id"])
 

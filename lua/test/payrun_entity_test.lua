@@ -83,7 +83,7 @@ describe("PayrunEntity", function()
 
     local payrun_ref01_data_result, err = payrun_ref01_ent:create(payrun_ref01_data, nil)
     assert.is_nil(err)
-    payrun_ref01_data = helpers.to_map(payrun_ref01_data_result)
+    payrun_ref01_data = helpers.to_map(type(payrun_ref01_data_result) == 'table' and payrun_ref01_data_result.data_get and payrun_ref01_data_result:data_get() or payrun_ref01_data_result)
     assert.is_not_nil(payrun_ref01_data)
     assert.is_not_nil(payrun_ref01_data["id"])
 
@@ -104,13 +104,13 @@ describe("PayrunEntity", function()
       id = payrun_ref01_data["id"],
     }
 
-    local payrun_ref01_markdef_up0_name = "authorisation_date"
+    local payrun_ref01_markdef_up0_name = "authorisationDate"
     local payrun_ref01_markdef_up0_value = "Mark01-payrun_ref01_" .. tostring(setup.now)
     payrun_ref01_data_up0_up[payrun_ref01_markdef_up0_name] = payrun_ref01_markdef_up0_value
 
     local payrun_ref01_resdata_up0_result, err = payrun_ref01_ent:update(payrun_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local payrun_ref01_resdata_up0 = helpers.to_map(payrun_ref01_resdata_up0_result)
+    local payrun_ref01_resdata_up0 = helpers.to_map(type(payrun_ref01_resdata_up0_result) == 'table' and payrun_ref01_resdata_up0_result.data_get and payrun_ref01_resdata_up0_result:data_get() or payrun_ref01_resdata_up0_result)
     assert.is_not_nil(payrun_ref01_resdata_up0)
     assert.are.equal(payrun_ref01_resdata_up0["id"], payrun_ref01_data_up0_up["id"])
     assert.are.equal(payrun_ref01_resdata_up0[payrun_ref01_markdef_up0_name], payrun_ref01_markdef_up0_value)
@@ -121,7 +121,7 @@ describe("PayrunEntity", function()
     }
     local payrun_ref01_data_dt0_loaded, err = payrun_ref01_ent:load(payrun_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local payrun_ref01_data_dt0_load_result = helpers.to_map(payrun_ref01_data_dt0_loaded)
+    local payrun_ref01_data_dt0_load_result = helpers.to_map(type(payrun_ref01_data_dt0_loaded) == 'table' and payrun_ref01_data_dt0_loaded.data_get and payrun_ref01_data_dt0_loaded:data_get() or payrun_ref01_data_dt0_loaded)
     assert.is_not_nil(payrun_ref01_data_dt0_load_result)
     assert.are.equal(payrun_ref01_data_dt0_load_result["id"], payrun_ref01_data["id"])
 

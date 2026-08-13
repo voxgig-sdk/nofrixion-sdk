@@ -66,7 +66,7 @@ describe('PayoutEntity', async () => {
     payout_ref01_data['merchant_id'] = setup.idmap['merchant01']
     payout_ref01_data['source'] = setup.idmap['source01']
 
-    payout_ref01_data = await payout_ref01_ent.create(payout_ref01_data)
+    payout_ref01_data = (await payout_ref01_ent.create(payout_ref01_data)).data()
     assert(null != payout_ref01_data.id)
 
 
@@ -74,7 +74,7 @@ describe('PayoutEntity', async () => {
     const payout_ref01_match: any = {}
     payout_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const payout_ref01_list = await payout_ref01_ent.list(payout_ref01_match)
+    const payout_ref01_list = (await payout_ref01_ent.list(payout_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(payout_ref01_list, { id: payout_ref01_data.id })))
 
@@ -83,10 +83,10 @@ describe('PayoutEntity', async () => {
     const payout_ref01_data_up0: any = {}
     payout_ref01_data_up0.id = payout_ref01_data.id
 
-    const payout_ref01_markdef_up0 = { name: 'account_id', value: 'Mark01-payout_ref01_' + setup.now }
+    const payout_ref01_markdef_up0 = { name: 'accountID', value: 'Mark01-payout_ref01_' + setup.now }
     ;(payout_ref01_data_up0 as any)[payout_ref01_markdef_up0.name] = payout_ref01_markdef_up0.value
 
-    const payout_ref01_resdata_up0 = await payout_ref01_ent.update(payout_ref01_data_up0)
+    const payout_ref01_resdata_up0 = (await payout_ref01_ent.update(payout_ref01_data_up0)).data()
     assert(payout_ref01_resdata_up0.id === payout_ref01_data_up0.id)
 
     assert((payout_ref01_resdata_up0 as any)[payout_ref01_markdef_up0.name] === payout_ref01_markdef_up0.value)
@@ -95,7 +95,7 @@ describe('PayoutEntity', async () => {
     // LOAD
     const payout_ref01_match_dt0: any = {}
     payout_ref01_match_dt0.id = payout_ref01_data.id
-    const payout_ref01_data_dt0 = await payout_ref01_ent.load(payout_ref01_match_dt0)
+    const payout_ref01_data_dt0 = (await payout_ref01_ent.load(payout_ref01_match_dt0)).data()
     assert(payout_ref01_data_dt0.id === payout_ref01_data.id)
 
 
@@ -108,7 +108,7 @@ describe('PayoutEntity', async () => {
     const payout_ref01_match_rt0: any = {}
     payout_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const payout_ref01_list_rt0 = await payout_ref01_ent.list(payout_ref01_match_rt0)
+    const payout_ref01_list_rt0 = (await payout_ref01_ent.list(payout_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(payout_ref01_list_rt0, { id: payout_ref01_data.id })))
 

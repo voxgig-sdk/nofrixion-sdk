@@ -6,22 +6,22 @@ main: kit: entity: merchant_authorisation_setting: {
 
   fields: [
     {
-      name: "amount_lower"
+      name: "amountLower"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_upper"
+      name: "amountUpper"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "authorisation_type"
+      name: "authorisationType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "beneficiaries_only"
+      name: "beneficiariesOnly"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -36,27 +36,27 @@ main: kit: entity: merchant_authorisation_setting: {
       type: "`$STRING`"
     }
     {
-      name: "last_editor_cant_authorise"
+      name: "lastEditorCantAuthorise"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "number_of_authoriser"
+      name: "numberOfAuthorisers"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "role_setting"
+      name: "roleSettings"
       req: false
       type: "`$ARRAY`"
     }

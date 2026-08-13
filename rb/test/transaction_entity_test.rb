@@ -76,7 +76,7 @@ class TransactionEntityTest < Minitest::Test
     transaction_ref01_data["transaction_id"] = setup[:idmap]["transaction01"]
 
     transaction_ref01_data_result = transaction_ref01_ent.create(transaction_ref01_data, nil)
-    transaction_ref01_data = Helpers.to_map(transaction_ref01_data_result)
+    transaction_ref01_data = Helpers.to_map(transaction_ref01_data_result.respond_to?(:data_get) ? transaction_ref01_data_result.data_get : transaction_ref01_data_result)
     assert !transaction_ref01_data.nil?
     assert !transaction_ref01_data["id"].nil?
 
@@ -96,7 +96,7 @@ class TransactionEntityTest < Minitest::Test
       "id" => transaction_ref01_data["id"],
     }
     transaction_ref01_data_dt0_loaded = transaction_ref01_ent.load(transaction_ref01_match_dt0, nil)
-    transaction_ref01_data_dt0_load_result = Helpers.to_map(transaction_ref01_data_dt0_loaded)
+    transaction_ref01_data_dt0_load_result = Helpers.to_map(transaction_ref01_data_dt0_loaded.respond_to?(:data_get) ? transaction_ref01_data_dt0_loaded.data_get : transaction_ref01_data_dt0_loaded)
     assert !transaction_ref01_data_dt0_load_result.nil?
     assert_equal transaction_ref01_data_dt0_load_result["id"], transaction_ref01_data["id"]
 

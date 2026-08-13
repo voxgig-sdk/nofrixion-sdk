@@ -6,27 +6,27 @@ main: kit: entity: fx_rate: {
 
   fields: [
     {
-      name: "destination_currency"
+      name: "destinationCurrency"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "exchange_rate"
+      name: "exchangeRate"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "expiry_time"
+      name: "expiryTime"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "quote_id"
+      name: "quoteID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_currency"
+      name: "sourceCurrency"
       req: false
       type: "`$STRING`"
     }

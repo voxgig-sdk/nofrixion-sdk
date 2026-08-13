@@ -108,7 +108,7 @@ func TestBeneficiaryEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		beneficiaryRef01Data = core.ToMapAny(beneficiaryRef01DataResult)
+		beneficiaryRef01Data = core.ToMapAny(entityData(beneficiaryRef01DataResult))
 		if beneficiaryRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -140,7 +140,7 @@ func TestBeneficiaryEntity(t *testing.T) {
 			"id": beneficiaryRef01Data["id"],
 		}
 
-		beneficiaryRef01MarkdefUp0Name := "approval_callback_url"
+		beneficiaryRef01MarkdefUp0Name := "approvalCallbackUrl"
 		beneficiaryRef01MarkdefUp0Value := fmt.Sprintf("Mark01-beneficiary_ref01_%d", setup.now)
 		beneficiaryRef01DataUp0Up[beneficiaryRef01MarkdefUp0Name] = beneficiaryRef01MarkdefUp0Value
 
@@ -148,7 +148,7 @@ func TestBeneficiaryEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		beneficiaryRef01ResdataUp0 := core.ToMapAny(beneficiaryRef01ResdataUp0Result)
+		beneficiaryRef01ResdataUp0 := core.ToMapAny(entityData(beneficiaryRef01ResdataUp0Result))
 		if beneficiaryRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -167,7 +167,7 @@ func TestBeneficiaryEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		beneficiaryRef01DataDt0LoadResult := core.ToMapAny(beneficiaryRef01DataDt0Loaded)
+		beneficiaryRef01DataDt0LoadResult := core.ToMapAny(entityData(beneficiaryRef01DataDt0Loaded))
 		if beneficiaryRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

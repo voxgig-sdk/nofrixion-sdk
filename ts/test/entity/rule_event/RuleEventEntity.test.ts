@@ -63,7 +63,7 @@ describe('RuleEventEntity', async () => {
     const rule_event_ref01_ent = client.RuleEvent()
     const rule_event_ref01_match: any = {}
 
-    const rule_event_ref01_list = await rule_event_ref01_ent.list(rule_event_ref01_match)
+    const rule_event_ref01_list = (await rule_event_ref01_ent.list(rule_event_ref01_match)).map((e: any) => e.data())
 
 
   })

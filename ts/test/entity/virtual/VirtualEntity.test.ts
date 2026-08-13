@@ -63,7 +63,7 @@ describe('VirtualEntity', async () => {
     let virtual_ref01_data = setup.data.new.virtual['virtual_ref01']
     virtual_ref01_data['account_id'] = setup.idmap['account01']
 
-    virtual_ref01_data = await virtual_ref01_ent.create(virtual_ref01_data)
+    virtual_ref01_data = (await virtual_ref01_ent.create(virtual_ref01_data)).data()
     assert(null != virtual_ref01_data.id)
 
 
@@ -72,10 +72,10 @@ describe('VirtualEntity', async () => {
     virtual_ref01_data_up0.id = virtual_ref01_data.id
     virtual_ref01_data_up0 ['account_id'] = setup.idmap['account_id']
 
-    const virtual_ref01_markdef_up0 = { name: 'account_name', value: 'Mark01-virtual_ref01_' + setup.now }
+    const virtual_ref01_markdef_up0 = { name: 'accountName', value: 'Mark01-virtual_ref01_' + setup.now }
     ;(virtual_ref01_data_up0 as any)[virtual_ref01_markdef_up0.name] = virtual_ref01_markdef_up0.value
 
-    const virtual_ref01_resdata_up0 = await virtual_ref01_ent.update(virtual_ref01_data_up0)
+    const virtual_ref01_resdata_up0 = (await virtual_ref01_ent.update(virtual_ref01_data_up0)).data()
     assert(virtual_ref01_resdata_up0.id === virtual_ref01_data_up0.id)
 
     assert((virtual_ref01_resdata_up0 as any)[virtual_ref01_markdef_up0.name] === virtual_ref01_markdef_up0.value)

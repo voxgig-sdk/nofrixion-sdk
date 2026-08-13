@@ -84,7 +84,7 @@ describe("AccountEntity", function()
 
     local account_ref01_data_result, err = account_ref01_ent:create(account_ref01_data, nil)
     assert.is_nil(err)
-    account_ref01_data = helpers.to_map(account_ref01_data_result)
+    account_ref01_data = helpers.to_map(type(account_ref01_data_result) == 'table' and account_ref01_data_result.data_get and account_ref01_data_result:data_get() or account_ref01_data_result)
     assert.is_not_nil(account_ref01_data)
     assert.is_not_nil(account_ref01_data["id"])
 
@@ -107,13 +107,13 @@ describe("AccountEntity", function()
       id = account_ref01_data["id"],
     }
 
-    local account_ref01_markdef_up0_name = "account_id"
+    local account_ref01_markdef_up0_name = "accountID"
     local account_ref01_markdef_up0_value = "Mark01-account_ref01_" .. tostring(setup.now)
     account_ref01_data_up0_up[account_ref01_markdef_up0_name] = account_ref01_markdef_up0_value
 
     local account_ref01_resdata_up0_result, err = account_ref01_ent:update(account_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local account_ref01_resdata_up0 = helpers.to_map(account_ref01_resdata_up0_result)
+    local account_ref01_resdata_up0 = helpers.to_map(type(account_ref01_resdata_up0_result) == 'table' and account_ref01_resdata_up0_result.data_get and account_ref01_resdata_up0_result:data_get() or account_ref01_resdata_up0_result)
     assert.is_not_nil(account_ref01_resdata_up0)
     assert.are.equal(account_ref01_resdata_up0["id"], account_ref01_data_up0_up["id"])
     assert.are.equal(account_ref01_resdata_up0[account_ref01_markdef_up0_name], account_ref01_markdef_up0_value)
@@ -124,7 +124,7 @@ describe("AccountEntity", function()
     }
     local account_ref01_data_dt0_loaded, err = account_ref01_ent:load(account_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local account_ref01_data_dt0_load_result = helpers.to_map(account_ref01_data_dt0_loaded)
+    local account_ref01_data_dt0_load_result = helpers.to_map(type(account_ref01_data_dt0_loaded) == 'table' and account_ref01_data_dt0_loaded.data_get and account_ref01_data_dt0_loaded:data_get() or account_ref01_data_dt0_loaded)
     assert.is_not_nil(account_ref01_data_dt0_load_result)
     assert.are.equal(account_ref01_data_dt0_load_result["id"], account_ref01_data["id"])
 

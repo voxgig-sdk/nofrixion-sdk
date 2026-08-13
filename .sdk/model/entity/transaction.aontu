@@ -6,22 +6,22 @@ main: kit: entity: transaction: {
 
   fields: [
     {
-      name: "account_id"
+      name: "accountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "account_name"
+      name: "accountName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "account_sequence_number"
+      name: "accountSequenceNumber"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "address_detail"
+      name: "addressDetails"
       req: false
       type: "`$OBJECT`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: transaction: {
       type: "`$NUMBER`"
     }
     {
-      name: "amount_minor_unit"
+      name: "amountMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
@@ -41,17 +41,17 @@ main: kit: entity: transaction: {
       type: "`$NUMBER`"
     }
     {
-      name: "balance_minor_unit"
+      name: "balanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "booking_date_time"
+      name: "bookingDateTime"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "charge_detail"
+      name: "chargeDetails"
       req: false
       type: "`$OBJECT`"
     }
@@ -66,7 +66,7 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
-      name: "counterparty_summary"
+      name: "counterpartySummary"
       req: false
       type: "`$STRING`"
     }
@@ -76,7 +76,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
-      name: "currency_exchange"
+      name: "currencyExchange"
       req: false
       type: "`$OBJECT`"
     }
@@ -96,22 +96,22 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
-      name: "fx_amount"
+      name: "fxAmount"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "fx_currency"
+      name: "fxCurrency"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "fx_rate"
+      name: "fxRate"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "gross_amount"
+      name: "grossAmount"
       req: true
       type: "`$OBJECT`"
     }
@@ -126,7 +126,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
-      name: "iso_bank_transaction_code"
+      name: "isoBankTransactionCode"
       req: false
       type: "`$OBJECT`"
     }
@@ -136,52 +136,52 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "page_number"
+      name: "pageNumber"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "page_size"
+      name: "pageSize"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "payee_detail"
+      name: "payeeDetails"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "payer_detail"
+      name: "payerDetails"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "payment_request_custom_field"
+      name: "paymentRequestCustomFields"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payout_id"
+      name: "payoutID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "proprietary_bank_transaction_code"
+      name: "proprietaryBankTransactionCode"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "raw_reference"
+      name: "rawReference"
       req: false
       type: "`$STRING`"
     }
@@ -191,12 +191,12 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
-      name: "rule_id"
+      name: "ruleID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "statement_reference"
+      name: "statementReferences"
       req: false
       type: "`$ARRAY`"
     }
@@ -206,47 +206,47 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
-      name: "supplementary_data"
+      name: "supplementaryData"
       req: false
       type: "`$ANY`"
     }
     {
-      name: "tag"
+      name: "tags"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "their_reference"
+      name: "theirReference"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "total_page"
+      name: "totalPages"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "total_size"
+      name: "totalSize"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "transaction_amount"
+      name: "transactionAmount"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "transaction_date"
+      name: "transactionDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "transaction_information"
+      name: "transactionInformation"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "transaction_mutability"
+      name: "transactionMutability"
       req: false
       type: "`$STRING`"
     }
@@ -256,17 +256,17 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
-      name: "value_date_time"
+      name: "valueDateTime"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "virtual_iban"
+      name: "virtualIBAN"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "your_reference"
+      name: "yourReference"
       req: false
       type: "`$STRING`"
     }

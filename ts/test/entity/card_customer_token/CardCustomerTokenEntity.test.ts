@@ -65,13 +65,13 @@ describe('CardCustomerTokenEntity', async () => {
     card_customer_token_ref01_match['customer_email_address'] = setup.idmap['customer_email_address01']
     card_customer_token_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const card_customer_token_ref01_list = await card_customer_token_ref01_ent.list(card_customer_token_ref01_match)
+    const card_customer_token_ref01_list = (await card_customer_token_ref01_ent.list(card_customer_token_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const card_customer_token_ref01_match_dt0: any = {}
     card_customer_token_ref01_match_dt0.id = card_customer_token_ref01_data.id
-    const card_customer_token_ref01_data_dt0 = await card_customer_token_ref01_ent.load(card_customer_token_ref01_match_dt0)
+    const card_customer_token_ref01_data_dt0 = (await card_customer_token_ref01_ent.load(card_customer_token_ref01_match_dt0)).data()
     assert(card_customer_token_ref01_data_dt0.id === card_customer_token_ref01_data.id)
 
 

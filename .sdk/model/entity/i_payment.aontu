@@ -6,12 +6,12 @@ main: kit: entity: i_payment: {
 
   fields: [
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "response_type"
+      name: "responseType"
       req: false
       type: "`$STRING`"
     }

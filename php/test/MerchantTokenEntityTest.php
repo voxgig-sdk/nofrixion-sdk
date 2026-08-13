@@ -84,7 +84,7 @@ class MerchantTokenEntityTest extends TestCase
         $merchant_token_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $merchant_token_ref01_data_result = $merchant_token_ref01_ent->create($merchant_token_ref01_data, null);
-        $merchant_token_ref01_data = Helpers::to_map($merchant_token_ref01_data_result);
+        $merchant_token_ref01_data = Helpers::to_map(is_object($merchant_token_ref01_data_result) && method_exists($merchant_token_ref01_data_result, 'data_get') ? $merchant_token_ref01_data_result->data_get() : $merchant_token_ref01_data_result);
         $this->assertNotNull($merchant_token_ref01_data);
         $this->assertNotNull($merchant_token_ref01_data["id"]);
 
@@ -111,7 +111,7 @@ class MerchantTokenEntityTest extends TestCase
         $merchant_token_ref01_data_up0_up[$merchant_token_ref01_markdef_up0_name] = $merchant_token_ref01_markdef_up0_value;
 
         $merchant_token_ref01_resdata_up0_result = $merchant_token_ref01_ent->update($merchant_token_ref01_data_up0_up, null);
-        $merchant_token_ref01_resdata_up0 = Helpers::to_map($merchant_token_ref01_resdata_up0_result);
+        $merchant_token_ref01_resdata_up0 = Helpers::to_map(is_object($merchant_token_ref01_resdata_up0_result) && method_exists($merchant_token_ref01_resdata_up0_result, 'data_get') ? $merchant_token_ref01_resdata_up0_result->data_get() : $merchant_token_ref01_resdata_up0_result);
         $this->assertNotNull($merchant_token_ref01_resdata_up0);
         $this->assertEquals($merchant_token_ref01_resdata_up0["id"], $merchant_token_ref01_data_up0_up["id"]);
         $this->assertEquals($merchant_token_ref01_resdata_up0[$merchant_token_ref01_markdef_up0_name], $merchant_token_ref01_markdef_up0_value);
@@ -121,7 +121,7 @@ class MerchantTokenEntityTest extends TestCase
             "id" => $merchant_token_ref01_data["id"],
         ];
         $merchant_token_ref01_data_dt0_loaded = $merchant_token_ref01_ent->load($merchant_token_ref01_match_dt0, null);
-        $merchant_token_ref01_data_dt0_load_result = Helpers::to_map($merchant_token_ref01_data_dt0_loaded);
+        $merchant_token_ref01_data_dt0_load_result = Helpers::to_map(is_object($merchant_token_ref01_data_dt0_loaded) && method_exists($merchant_token_ref01_data_dt0_loaded, 'data_get') ? $merchant_token_ref01_data_dt0_loaded->data_get() : $merchant_token_ref01_data_dt0_loaded);
         $this->assertNotNull($merchant_token_ref01_data_dt0_load_result);
         $this->assertEquals($merchant_token_ref01_data_dt0_load_result["id"], $merchant_token_ref01_data["id"]);
 

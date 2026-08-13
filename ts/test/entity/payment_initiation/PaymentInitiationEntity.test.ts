@@ -63,7 +63,7 @@ describe('PaymentInitiationEntity', async () => {
     let payment_initiation_ref01_data = setup.data.new.payment_initiation['payment_initiation_ref01']
     payment_initiation_ref01_data['paymentrequest_id'] = setup.idmap['paymentrequest01']
 
-    payment_initiation_ref01_data = await payment_initiation_ref01_ent.create(payment_initiation_ref01_data)
+    payment_initiation_ref01_data = (await payment_initiation_ref01_ent.create(payment_initiation_ref01_data)).data()
     assert(null != payment_initiation_ref01_data)
 
 

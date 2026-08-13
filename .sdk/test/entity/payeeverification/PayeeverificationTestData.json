@@ -2,33 +2,33 @@
   "existing": {
     "payeeverification": {
       "PAYEEVERIFICATION00": {
-        "account_name": "s46",
-        "account_number": "s47",
+        "accountName": "s46",
+        "accountNumber": "s47",
         "iban": "s48",
-        "payee_verified_account_name": "s49",
+        "payeeVerifiedAccountName": "s49",
         "result": "s4a",
-        "secondary_identification": "s4b",
-        "sort_code": "s4c",
+        "secondaryIdentification": "s4b",
+        "sortCode": "s4c",
         "id": "PAYEEVERIFICATION00"
       },
       "PAYEEVERIFICATION01": {
-        "account_name": "s8c",
-        "account_number": "s8d",
+        "accountName": "s8c",
+        "accountNumber": "s8d",
         "iban": "s8e",
-        "payee_verified_account_name": "s8f",
+        "payeeVerifiedAccountName": "s8f",
         "result": "s90",
-        "secondary_identification": "s91",
-        "sort_code": "s92",
+        "secondaryIdentification": "s91",
+        "sortCode": "s92",
         "id": "PAYEEVERIFICATION01"
       },
       "PAYEEVERIFICATION02": {
-        "account_name": "sd2",
-        "account_number": "sd3",
+        "accountName": "sd2",
+        "accountNumber": "sd3",
         "iban": "sd4",
-        "payee_verified_account_name": "sd5",
+        "payeeVerifiedAccountName": "sd5",
         "result": "sd6",
-        "secondary_identification": "sd7",
-        "sort_code": "sd8",
+        "secondaryIdentification": "sd7",
+        "sortCode": "sd8",
         "id": "PAYEEVERIFICATION02"
       }
     }
@@ -36,13 +36,13 @@
   "new": {
     "payeeverification": {
       "payeeverification_ref01": {
-        "account_name": "s118",
-        "account_number": "s119",
+        "accountName": "s118",
+        "accountNumber": "s119",
         "iban": "s11a",
-        "payee_verified_account_name": "s11b",
+        "payeeVerifiedAccountName": "s11b",
         "result": "s11c",
-        "secondary_identification": "s11d",
-        "sort_code": "s11e"
+        "secondaryIdentification": "s11d",
+        "sortCode": "s11e"
       }
     }
   }

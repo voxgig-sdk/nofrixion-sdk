@@ -109,7 +109,7 @@ func TestConsentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		consentRef01Data = core.ToMapAny(consentRef01DataResult)
+		consentRef01Data = core.ToMapAny(entityData(consentRef01DataResult))
 		if consentRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -142,7 +142,7 @@ func TestConsentEntity(t *testing.T) {
 			"id": consentRef01Data["id"],
 		}
 
-		consentRef01MarkdefUp0Name := "authorisation_url"
+		consentRef01MarkdefUp0Name := "authorisationUrl"
 		consentRef01MarkdefUp0Value := fmt.Sprintf("Mark01-consent_ref01_%d", setup.now)
 		consentRef01DataUp0Up[consentRef01MarkdefUp0Name] = consentRef01MarkdefUp0Value
 
@@ -150,7 +150,7 @@ func TestConsentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		consentRef01ResdataUp0 := core.ToMapAny(consentRef01ResdataUp0Result)
+		consentRef01ResdataUp0 := core.ToMapAny(entityData(consentRef01ResdataUp0Result))
 		if consentRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -169,7 +169,7 @@ func TestConsentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		consentRef01DataDt0LoadResult := core.ToMapAny(consentRef01DataDt0Loaded)
+		consentRef01DataDt0LoadResult := core.ToMapAny(entityData(consentRef01DataDt0Loaded))
 		if consentRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

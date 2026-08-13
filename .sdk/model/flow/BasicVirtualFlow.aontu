@@ -27,7 +27,7 @@ main: kit: flow: BasicVirtualFlow:
         ref: "virtual_ref01",
         srcdatavar: "virtual_ref01_data",
         suffix: "_up0",
-        textfield: "account_name"
+        textfield: "accountName"
       }
 
       op: "update",

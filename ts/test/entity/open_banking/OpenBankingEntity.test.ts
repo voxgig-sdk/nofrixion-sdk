@@ -64,7 +64,7 @@ describe('OpenBankingEntity', async () => {
     open_banking_ref01_data['account_id'] = setup.idmap['account01']
     open_banking_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    open_banking_ref01_data = await open_banking_ref01_ent.create(open_banking_ref01_data)
+    open_banking_ref01_data = (await open_banking_ref01_ent.create(open_banking_ref01_data)).data()
     assert(null != open_banking_ref01_data)
 
 

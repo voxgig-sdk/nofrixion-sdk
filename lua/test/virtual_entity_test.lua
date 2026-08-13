@@ -42,7 +42,7 @@ describe("VirtualEntity", function()
 
     local virtual_ref01_data_result, err = virtual_ref01_ent:create(virtual_ref01_data, nil)
     assert.is_nil(err)
-    virtual_ref01_data = helpers.to_map(virtual_ref01_data_result)
+    virtual_ref01_data = helpers.to_map(type(virtual_ref01_data_result) == 'table' and virtual_ref01_data_result.data_get and virtual_ref01_data_result:data_get() or virtual_ref01_data_result)
     assert.is_not_nil(virtual_ref01_data)
     assert.is_not_nil(virtual_ref01_data["id"])
 
@@ -52,13 +52,13 @@ describe("VirtualEntity", function()
       ["account_id"] = setup.idmap["account_id"],
     }
 
-    local virtual_ref01_markdef_up0_name = "account_name"
+    local virtual_ref01_markdef_up0_name = "accountName"
     local virtual_ref01_markdef_up0_value = "Mark01-virtual_ref01_" .. tostring(setup.now)
     virtual_ref01_data_up0_up[virtual_ref01_markdef_up0_name] = virtual_ref01_markdef_up0_value
 
     local virtual_ref01_resdata_up0_result, err = virtual_ref01_ent:update(virtual_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local virtual_ref01_resdata_up0 = helpers.to_map(virtual_ref01_resdata_up0_result)
+    local virtual_ref01_resdata_up0 = helpers.to_map(type(virtual_ref01_resdata_up0_result) == 'table' and virtual_ref01_resdata_up0_result.data_get and virtual_ref01_resdata_up0_result:data_get() or virtual_ref01_resdata_up0_result)
     assert.is_not_nil(virtual_ref01_resdata_up0)
     assert.are.equal(virtual_ref01_resdata_up0["id"], virtual_ref01_data_up0_up["id"])
     assert.are.equal(virtual_ref01_resdata_up0[virtual_ref01_markdef_up0_name], virtual_ref01_markdef_up0_value)

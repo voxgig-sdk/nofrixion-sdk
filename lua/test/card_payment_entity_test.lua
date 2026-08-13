@@ -42,7 +42,7 @@ describe("CardPaymentEntity", function()
 
     local card_payment_ref01_data_result, err = card_payment_ref01_ent:create(card_payment_ref01_data, nil)
     assert.is_nil(err)
-    card_payment_ref01_data = helpers.to_map(card_payment_ref01_data_result)
+    card_payment_ref01_data = helpers.to_map(type(card_payment_ref01_data_result) == 'table' and card_payment_ref01_data_result.data_get and card_payment_ref01_data_result:data_get() or card_payment_ref01_data_result)
     assert.is_not_nil(card_payment_ref01_data)
 
   end)

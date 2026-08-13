@@ -108,7 +108,7 @@ func TestMerchantTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		merchantTokenRef01Data = core.ToMapAny(merchantTokenRef01DataResult)
+		merchantTokenRef01Data = core.ToMapAny(entityData(merchantTokenRef01DataResult))
 		if merchantTokenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -148,7 +148,7 @@ func TestMerchantTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		merchantTokenRef01ResdataUp0 := core.ToMapAny(merchantTokenRef01ResdataUp0Result)
+		merchantTokenRef01ResdataUp0 := core.ToMapAny(entityData(merchantTokenRef01ResdataUp0Result))
 		if merchantTokenRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -167,7 +167,7 @@ func TestMerchantTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		merchantTokenRef01DataDt0LoadResult := core.ToMapAny(merchantTokenRef01DataDt0Loaded)
+		merchantTokenRef01DataDt0LoadResult := core.ToMapAny(entityData(merchantTokenRef01DataDt0Loaded))
 		if merchantTokenRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

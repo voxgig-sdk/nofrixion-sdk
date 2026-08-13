@@ -64,7 +64,7 @@ describe('ConsentEntity', async () => {
     consent_ref01_data['email'] = setup.idmap['email01']
     consent_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    consent_ref01_data = await consent_ref01_ent.create(consent_ref01_data)
+    consent_ref01_data = (await consent_ref01_ent.create(consent_ref01_data)).data()
     assert(null != consent_ref01_data.id)
 
 
@@ -73,7 +73,7 @@ describe('ConsentEntity', async () => {
     consent_ref01_match['email'] = setup.idmap['email01']
     consent_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const consent_ref01_list = await consent_ref01_ent.list(consent_ref01_match)
+    const consent_ref01_list = (await consent_ref01_ent.list(consent_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(consent_ref01_list, { id: consent_ref01_data.id })))
 
@@ -82,10 +82,10 @@ describe('ConsentEntity', async () => {
     const consent_ref01_data_up0: any = {}
     consent_ref01_data_up0.id = consent_ref01_data.id
 
-    const consent_ref01_markdef_up0 = { name: 'authorisation_url', value: 'Mark01-consent_ref01_' + setup.now }
+    const consent_ref01_markdef_up0 = { name: 'authorisationUrl', value: 'Mark01-consent_ref01_' + setup.now }
     ;(consent_ref01_data_up0 as any)[consent_ref01_markdef_up0.name] = consent_ref01_markdef_up0.value
 
-    const consent_ref01_resdata_up0 = await consent_ref01_ent.update(consent_ref01_data_up0)
+    const consent_ref01_resdata_up0 = (await consent_ref01_ent.update(consent_ref01_data_up0)).data()
     assert(consent_ref01_resdata_up0.id === consent_ref01_data_up0.id)
 
     assert((consent_ref01_resdata_up0 as any)[consent_ref01_markdef_up0.name] === consent_ref01_markdef_up0.value)
@@ -94,7 +94,7 @@ describe('ConsentEntity', async () => {
     // LOAD
     const consent_ref01_match_dt0: any = {}
     consent_ref01_match_dt0.id = consent_ref01_data.id
-    const consent_ref01_data_dt0 = await consent_ref01_ent.load(consent_ref01_match_dt0)
+    const consent_ref01_data_dt0 = (await consent_ref01_ent.load(consent_ref01_match_dt0)).data()
     assert(consent_ref01_data_dt0.id === consent_ref01_data.id)
 
 
@@ -108,7 +108,7 @@ describe('ConsentEntity', async () => {
     consent_ref01_match_rt0['email'] = setup.idmap['email01']
     consent_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const consent_ref01_list_rt0 = await consent_ref01_ent.list(consent_ref01_match_rt0)
+    const consent_ref01_list_rt0 = (await consent_ref01_ent.list(consent_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(consent_ref01_list_rt0, { id: consent_ref01_data.id })))
 

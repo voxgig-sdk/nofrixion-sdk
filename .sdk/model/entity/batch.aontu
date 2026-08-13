@@ -6,7 +6,7 @@ main: kit: entity: batch: {
 
   fields: [
     {
-      name: "approve_url"
+      name: "approveUrl"
       req: false
       type: "`$STRING`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: batch: {
       type: "`$STRING`"
     }
     {
-      name: "payout"
+      name: "payouts"
       req: false
       type: "`$ARRAY`"
     }

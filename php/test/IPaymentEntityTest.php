@@ -44,7 +44,7 @@ class IPaymentEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.i_payment"), "i_payment_ref01"));
 
         $i_payment_ref01_data_result = $i_payment_ref01_ent->create($i_payment_ref01_data, null);
-        $i_payment_ref01_data = Helpers::to_map($i_payment_ref01_data_result);
+        $i_payment_ref01_data = Helpers::to_map(is_object($i_payment_ref01_data_result) && method_exists($i_payment_ref01_data_result, 'data_get') ? $i_payment_ref01_data_result->data_get() : $i_payment_ref01_data_result);
         $this->assertNotNull($i_payment_ref01_data);
 
     }

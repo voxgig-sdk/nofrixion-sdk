@@ -6,7 +6,7 @@ main: kit: entity: payout: {
 
   fields: [
     {
-      name: "account_id"
+      name: "accountID"
       op: {
         create: {
           req: true
@@ -17,7 +17,7 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "allow_incomplete"
+      name: "allowIncomplete"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -27,42 +27,42 @@ main: kit: entity: payout: {
       type: "`$NUMBER`"
     }
     {
-      name: "amount_minor_unit"
+      name: "amountMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "approve_payout_url"
+      name: "approvePayoutUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "approver_id"
+      name: "approverID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "authentication_method"
+      name: "authenticationMethods"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisation"
+      name: "authorisations"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisers_completed_count"
+      name: "authorisersCompletedCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "authorisers_required_count"
+      name: "authorisersRequiredCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "batch_payout_id"
+      name: "batchPayoutID"
       req: false
       type: "`$STRING`"
     }
@@ -72,37 +72,37 @@ main: kit: entity: payout: {
       type: "`$OBJECT`"
     }
     {
-      name: "beneficiary_id"
+      name: "beneficiaryID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "can_authorise"
+      name: "canAuthorise"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_process"
+      name: "canProcess"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_update"
+      name: "canUpdate"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "charge_bearer"
+      name: "chargeBearer"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "created_by"
+      name: "createdBy"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "created_by_email_address"
+      name: "createdByEmailAddress"
       req: false
       type: "`$STRING`"
     }
@@ -118,7 +118,7 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "current_user_id"
+      name: "currentUserID"
       req: false
       type: "`$STRING`"
     }
@@ -133,82 +133,82 @@ main: kit: entity: payout: {
       type: "`$OBJECT`"
     }
     {
-      name: "document"
+      name: "documents"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "event"
+      name: "events"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "failed_payout"
+      name: "failedPayouts"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "formatted_amount"
+      name: "formattedAmount"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "formatted_fx_destination_amount"
+      name: "formattedFxDestinationAmount"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "formatted_schedule"
+      name: "formattedSchedule"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "formatted_schedule_day_only"
+      name: "formattedScheduleDayOnly"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "formatted_source_account_available_balance"
+      name: "formattedSourceAccountAvailableBalance"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "fx_destination_amount"
+      name: "fxDestinationAmount"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "fx_destination_amount_minor_unit"
+      name: "fxDestinationAmountMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "fx_destination_currency"
+      name: "fxDestinationCurrency"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "fx_quote_expires_at"
+      name: "fxQuoteExpiresAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "fx_quote_id"
+      name: "fxQuoteID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "fx_rate"
+      name: "fxRate"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "fx_use_destination_amount"
+      name: "fxUseDestinationAmount"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "has_current_user_authorised"
+      name: "hasCurrentUserAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -223,42 +223,42 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "invoice_id"
+      name: "invoiceID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_failed"
+      name: "isFailed"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_settled"
+      name: "isSettled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_submitted"
+      name: "isSubmitted"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_token_description"
+      name: "merchantTokenDescription"
       req: false
       type: "`$STRING`"
     }
@@ -268,27 +268,27 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "payment_processor"
+      name: "paymentProcessor"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_rail"
+      name: "paymentRail"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payout"
+      name: "payouts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payrun_id"
+      name: "payrunID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payrun_name"
+      name: "payrunName"
       req: false
       type: "`$STRING`"
     }
@@ -303,7 +303,7 @@ main: kit: entity: payout: {
       type: "`$OBJECT`"
     }
     {
-      name: "schedule_date"
+      name: "scheduleDate"
       req: false
       type: "`$STRING`"
     }
@@ -313,47 +313,47 @@ main: kit: entity: payout: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "source_account_available_balance"
+      name: "sourceAccountAvailableBalance"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "source_account_available_balance_minor_unit"
+      name: "sourceAccountAvailableBalanceMinorUnits"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "source_account_bic"
+      name: "sourceAccountBic"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account_currency"
+      name: "sourceAccountCurrency"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account_iban"
+      name: "sourceAccountIban"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account_identifier"
+      name: "sourceAccountIdentifier"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "source_account_name"
+      name: "sourceAccountName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account_number"
+      name: "sourceAccountNumber"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account_sortcode"
+      name: "sourceAccountSortcode"
       req: false
       type: "`$STRING`"
     }
@@ -363,37 +363,37 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "tag"
+      name: "tagIds"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "tag_id"
+      name: "tags"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "their_reference"
+      name: "theirReference"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "topup_payrun_id"
+      name: "topupPayrunID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "transacted_amount"
+      name: "transactedAmount"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "transacted_fx_amount"
+      name: "transactedFxAmount"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "transacted_fx_rate"
+      name: "transactedFxRate"
       req: false
       type: "`$NUMBER`"
     }
@@ -409,12 +409,12 @@ main: kit: entity: payout: {
       type: "`$STRING`"
     }
     {
-      name: "user_id"
+      name: "userID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "your_reference"
+      name: "yourReference"
       req: false
       type: "`$STRING`"
     }

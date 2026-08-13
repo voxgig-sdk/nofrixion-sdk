@@ -6,12 +6,12 @@ main: kit: entity: beneficiary_group: {
 
   fields: [
     {
-      name: "group_member"
+      name: "groupMembers"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "group_name"
+      name: "groupName"
       req: true
       type: "`$STRING`"
     }
@@ -26,12 +26,12 @@ main: kit: entity: beneficiary_group: {
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: true
       type: "`$STRING`"
     }

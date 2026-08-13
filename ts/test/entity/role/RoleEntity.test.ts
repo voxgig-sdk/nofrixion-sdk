@@ -63,7 +63,7 @@ describe('RoleEntity', async () => {
     let role_ref01_data = setup.data.new.role['role_ref01']
     role_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    role_ref01_data = await role_ref01_ent.create(role_ref01_data)
+    role_ref01_data = (await role_ref01_ent.create(role_ref01_data)).data()
     assert(null != role_ref01_data)
 
 

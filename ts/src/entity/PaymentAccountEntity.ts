@@ -37,7 +37,7 @@ class PaymentAccountEntity extends NofrixionEntityBase<PaymentAccount> {
 
 
 
-  async list(this: any, reqmatch?: PaymentAccountListMatch, ctrl?: Control): Promise<PaymentAccount[]> {
+  async list(this: any, reqmatch?: PaymentAccountListMatch, ctrl?: Control): Promise<PaymentAccountEntity[]> {
 
     const utility = this._utility
 

@@ -65,14 +65,14 @@ describe('TransactionEntity', async () => {
     transaction_ref01_data['merchant_id'] = setup.idmap['merchant01']
     transaction_ref01_data['transaction_id'] = setup.idmap['transaction01']
 
-    transaction_ref01_data = await transaction_ref01_ent.create(transaction_ref01_data)
+    transaction_ref01_data = (await transaction_ref01_ent.create(transaction_ref01_data)).data()
     assert(null != transaction_ref01_data.id)
 
 
     // LIST
     const transaction_ref01_match: any = {}
 
-    const transaction_ref01_list = await transaction_ref01_ent.list(transaction_ref01_match)
+    const transaction_ref01_list = (await transaction_ref01_ent.list(transaction_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(transaction_ref01_list, { id: transaction_ref01_data.id })))
 
@@ -80,7 +80,7 @@ describe('TransactionEntity', async () => {
     // LOAD
     const transaction_ref01_match_dt0: any = {}
     transaction_ref01_match_dt0.id = transaction_ref01_data.id
-    const transaction_ref01_data_dt0 = await transaction_ref01_ent.load(transaction_ref01_match_dt0)
+    const transaction_ref01_data_dt0 = (await transaction_ref01_ent.load(transaction_ref01_match_dt0)).data()
     assert(transaction_ref01_data_dt0.id === transaction_ref01_data.id)
 
 
@@ -92,7 +92,7 @@ describe('TransactionEntity', async () => {
     // LIST
     const transaction_ref01_match_rt0: any = {}
 
-    const transaction_ref01_list_rt0 = await transaction_ref01_ent.list(transaction_ref01_match_rt0)
+    const transaction_ref01_list_rt0 = (await transaction_ref01_ent.list(transaction_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(transaction_ref01_list_rt0, { id: transaction_ref01_data.id })))
 

@@ -37,7 +37,7 @@ class DirectDebitBatchSubmitEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.direct_debit_batch_submit"), "direct_debit_batch_submit_ref01"))
 
     direct_debit_batch_submit_ref01_data_result = direct_debit_batch_submit_ref01_ent.create(direct_debit_batch_submit_ref01_data, nil)
-    direct_debit_batch_submit_ref01_data = Helpers.to_map(direct_debit_batch_submit_ref01_data_result)
+    direct_debit_batch_submit_ref01_data = Helpers.to_map(direct_debit_batch_submit_ref01_data_result.respond_to?(:data_get) ? direct_debit_batch_submit_ref01_data_result.data_get : direct_debit_batch_submit_ref01_data_result)
     assert !direct_debit_batch_submit_ref01_data.nil?
 
   end

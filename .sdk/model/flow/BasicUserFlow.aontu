@@ -23,7 +23,7 @@ main: kit: flow: BasicUserFlow:
         ref: "user_ref01",
         srcdatavar: "user_ref01_data",
         suffix: "_up0",
-        textfield: "email_address"
+        textfield: "emailAddress"
       }
 
       op: "update",

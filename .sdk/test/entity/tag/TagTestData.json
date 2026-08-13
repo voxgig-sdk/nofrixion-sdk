@@ -2,34 +2,37 @@
   "existing": {
     "tag": {
       "TAG00": {
-        "colour_hex": "s32",
+        "colourHex": "s32",
         "description": "s33",
         "id": "TAG00",
-        "merchant_id": "MERCHANT01",
-        "name": "s36"
+        "merchantID": "s35",
+        "name": "s36",
+        "merchant_id": "MERCHANT01"
       },
       "TAG01": {
-        "colour_hex": "s64",
+        "colourHex": "s64",
         "description": "s65",
         "id": "TAG01",
-        "merchant_id": "MERCHANT01",
-        "name": "s68"
+        "merchantID": "s67",
+        "name": "s68",
+        "merchant_id": "MERCHANT01"
       },
       "TAG02": {
-        "colour_hex": "s96",
+        "colourHex": "s96",
         "description": "s97",
         "id": "TAG02",
-        "merchant_id": "MERCHANT01",
-        "name": "s9a"
+        "merchantID": "s99",
+        "name": "s9a",
+        "merchant_id": "MERCHANT01"
       }
     }
   },
   "new": {
     "tag": {
       "tag_ref01": {
-        "colour_hex": "sc8",
+        "colourHex": "sc8",
         "description": "sc9",
-        "merchant_id": "MERCHANT01",
+        "merchantID": "scb",
         "name": "scc"
       }
     }

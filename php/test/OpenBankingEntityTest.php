@@ -46,7 +46,7 @@ class OpenBankingEntityTest extends TestCase
         $open_banking_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $open_banking_ref01_data_result = $open_banking_ref01_ent->create($open_banking_ref01_data, null);
-        $open_banking_ref01_data = Helpers::to_map($open_banking_ref01_data_result);
+        $open_banking_ref01_data = Helpers::to_map(is_object($open_banking_ref01_data_result) && method_exists($open_banking_ref01_data_result, 'data_get') ? $open_banking_ref01_data_result->data_get() : $open_banking_ref01_data_result);
         $this->assertNotNull($open_banking_ref01_data);
 
 

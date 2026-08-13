@@ -2,27 +2,30 @@
   "existing": {
     "beneficiary_group": {
       "BENEFICIARY_GROUP00": {
-        "group_member": [],
-        "group_name": "s3d",
+        "groupMembers": [],
+        "groupName": "s3d",
         "id": "BENEFICIARY_GROUP00",
         "inserted": "s3f",
-        "last_updated": "s40",
+        "lastUpdated": "s40",
+        "merchantID": "s41",
         "merchant_id": "MERCHANT01"
       },
       "BENEFICIARY_GROUP01": {
-        "group_member": [],
-        "group_name": "s79",
+        "groupMembers": [],
+        "groupName": "s79",
         "id": "BENEFICIARY_GROUP01",
         "inserted": "s7b",
-        "last_updated": "s7c",
+        "lastUpdated": "s7c",
+        "merchantID": "s7d",
         "merchant_id": "MERCHANT01"
       },
       "BENEFICIARY_GROUP02": {
-        "group_member": [],
-        "group_name": "sb5",
+        "groupMembers": [],
+        "groupName": "sb5",
         "id": "BENEFICIARY_GROUP02",
         "inserted": "sb7",
-        "last_updated": "sb8",
+        "lastUpdated": "sb8",
+        "merchantID": "sb9",
         "merchant_id": "MERCHANT01"
       }
     }
@@ -30,11 +33,11 @@
   "new": {
     "beneficiary_group": {
       "beneficiary_group_ref01": {
-        "group_member": [],
-        "group_name": "sf1",
+        "groupMembers": [],
+        "groupName": "sf1",
         "inserted": "sf3",
-        "last_updated": "sf4",
-        "merchant_id": "MERCHANT01"
+        "lastUpdated": "sf4",
+        "merchantID": "sf5"
       }
     }
   }

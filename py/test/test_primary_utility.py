@@ -6,15 +6,15 @@ import re
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core.spec import NofrixionSpec
-from core.result import NofrixionResult
-from core.response import NofrixionResponse
-from core.operation import NofrixionOperation
-from core.error import NofrixionError
-from core import helpers
-from feature.base_feature import NofrixionBaseFeature
+from nofrixion_sdk.core.spec import NofrixionSpec
+from nofrixion_sdk.core.result import NofrixionResult
+from nofrixion_sdk.core.response import NofrixionResponse
+from nofrixion_sdk.core.operation import NofrixionOperation
+from nofrixion_sdk.core.error import NofrixionError
+from nofrixion_sdk.core import helpers
+from nofrixion_sdk.feature.base_feature import NofrixionBaseFeature
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 

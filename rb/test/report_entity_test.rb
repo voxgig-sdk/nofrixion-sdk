@@ -45,7 +45,7 @@ class ReportEntityTest < Minitest::Test
     }
 
     report_ref01_resdata_up0_result = report_ref01_ent.update(report_ref01_data_up0_up, nil)
-    report_ref01_resdata_up0 = Helpers.to_map(report_ref01_resdata_up0_result)
+    report_ref01_resdata_up0 = Helpers.to_map(report_ref01_resdata_up0_result.respond_to?(:data_get) ? report_ref01_resdata_up0_result.data_get : report_ref01_resdata_up0_result)
     assert !report_ref01_resdata_up0.nil?
 
   end

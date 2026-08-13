@@ -58,7 +58,7 @@ func TestPayeeverificationEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		payeeverificationRef01Data = core.ToMapAny(payeeverificationRef01DataResult)
+		payeeverificationRef01Data = core.ToMapAny(entityData(payeeverificationRef01DataResult))
 		if payeeverificationRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

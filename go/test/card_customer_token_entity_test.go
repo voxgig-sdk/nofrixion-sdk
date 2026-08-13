@@ -131,7 +131,7 @@ func TestCardCustomerTokenEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		cardCustomerTokenRef01DataDt0LoadResult := core.ToMapAny(cardCustomerTokenRef01DataDt0Loaded)
+		cardCustomerTokenRef01DataDt0LoadResult := core.ToMapAny(entityData(cardCustomerTokenRef01DataDt0Loaded))
 		if cardCustomerTokenRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

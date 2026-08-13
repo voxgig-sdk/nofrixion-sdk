@@ -126,7 +126,7 @@ func TestUserEntity(t *testing.T) {
 			"id": userRef01Data["id"],
 		}
 
-		userRef01MarkdefUp0Name := "email_address"
+		userRef01MarkdefUp0Name := "emailAddress"
 		userRef01MarkdefUp0Value := fmt.Sprintf("Mark01-user_ref01_%d", setup.now)
 		userRef01DataUp0Up[userRef01MarkdefUp0Name] = userRef01MarkdefUp0Value
 
@@ -134,7 +134,7 @@ func TestUserEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		userRef01ResdataUp0 := core.ToMapAny(userRef01ResdataUp0Result)
+		userRef01ResdataUp0 := core.ToMapAny(entityData(userRef01ResdataUp0Result))
 		if userRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}

@@ -64,7 +64,7 @@ describe('MerchantPaymentRequestTemplateEntity', async () => {
     const merchant_payment_request_template_ref01_match: any = {}
     merchant_payment_request_template_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const merchant_payment_request_template_ref01_list = await merchant_payment_request_template_ref01_ent.list(merchant_payment_request_template_ref01_match)
+    const merchant_payment_request_template_ref01_list = (await merchant_payment_request_template_ref01_ent.list(merchant_payment_request_template_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -75,7 +75,7 @@ describe('MerchantPaymentRequestTemplateEntity', async () => {
     const merchant_payment_request_template_ref01_markdef_up0 = { name: 'description', value: 'Mark01-merchant_payment_request_template_ref01_' + setup.now }
     ;(merchant_payment_request_template_ref01_data_up0 as any)[merchant_payment_request_template_ref01_markdef_up0.name] = merchant_payment_request_template_ref01_markdef_up0.value
 
-    const merchant_payment_request_template_ref01_resdata_up0 = await merchant_payment_request_template_ref01_ent.update(merchant_payment_request_template_ref01_data_up0)
+    const merchant_payment_request_template_ref01_resdata_up0 = (await merchant_payment_request_template_ref01_ent.update(merchant_payment_request_template_ref01_data_up0)).data()
     assert(merchant_payment_request_template_ref01_resdata_up0.id === merchant_payment_request_template_ref01_data_up0.id)
 
     assert((merchant_payment_request_template_ref01_resdata_up0 as any)[merchant_payment_request_template_ref01_markdef_up0.name] === merchant_payment_request_template_ref01_markdef_up0.value)
@@ -84,7 +84,7 @@ describe('MerchantPaymentRequestTemplateEntity', async () => {
     // LOAD
     const merchant_payment_request_template_ref01_match_dt0: any = {}
     merchant_payment_request_template_ref01_match_dt0.id = merchant_payment_request_template_ref01_data.id
-    const merchant_payment_request_template_ref01_data_dt0 = await merchant_payment_request_template_ref01_ent.load(merchant_payment_request_template_ref01_match_dt0)
+    const merchant_payment_request_template_ref01_data_dt0 = (await merchant_payment_request_template_ref01_ent.load(merchant_payment_request_template_ref01_match_dt0)).data()
     assert(merchant_payment_request_template_ref01_data_dt0.id === merchant_payment_request_template_ref01_data.id)
 
 

@@ -37,7 +37,7 @@ class PaymentEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.payment"), "payment_ref01"))
 
     payment_ref01_data_result = payment_ref01_ent.create(payment_ref01_data, nil)
-    payment_ref01_data = Helpers.to_map(payment_ref01_data_result)
+    payment_ref01_data = Helpers.to_map(payment_ref01_data_result.respond_to?(:data_get) ? payment_ref01_data_result.data_get : payment_ref01_data_result)
     assert !payment_ref01_data.nil?
     assert !payment_ref01_data["id"].nil?
 
@@ -46,12 +46,12 @@ class PaymentEntityTest < Minitest::Test
       "id" => payment_ref01_data["id"],
     }
 
-    payment_ref01_markdef_up0_name = "base_origin_url"
+    payment_ref01_markdef_up0_name = "baseOriginUrl"
     payment_ref01_markdef_up0_value = "Mark01-payment_ref01_#{setup[:now]}"
     payment_ref01_data_up0_up[payment_ref01_markdef_up0_name] = payment_ref01_markdef_up0_value
 
     payment_ref01_resdata_up0_result = payment_ref01_ent.update(payment_ref01_data_up0_up, nil)
-    payment_ref01_resdata_up0 = Helpers.to_map(payment_ref01_resdata_up0_result)
+    payment_ref01_resdata_up0 = Helpers.to_map(payment_ref01_resdata_up0_result.respond_to?(:data_get) ? payment_ref01_resdata_up0_result.data_get : payment_ref01_resdata_up0_result)
     assert !payment_ref01_resdata_up0.nil?
     assert_equal payment_ref01_resdata_up0["id"], payment_ref01_data_up0_up["id"]
     assert_equal payment_ref01_resdata_up0[payment_ref01_markdef_up0_name], payment_ref01_markdef_up0_value
@@ -61,7 +61,7 @@ class PaymentEntityTest < Minitest::Test
       "id" => payment_ref01_data["id"],
     }
     payment_ref01_data_dt0_loaded = payment_ref01_ent.load(payment_ref01_match_dt0, nil)
-    payment_ref01_data_dt0_load_result = Helpers.to_map(payment_ref01_data_dt0_loaded)
+    payment_ref01_data_dt0_load_result = Helpers.to_map(payment_ref01_data_dt0_loaded.respond_to?(:data_get) ? payment_ref01_data_dt0_loaded.data_get : payment_ref01_data_dt0_loaded)
     assert !payment_ref01_data_dt0_load_result.nil?
     assert_equal payment_ref01_data_dt0_load_result["id"], payment_ref01_data["id"]
 

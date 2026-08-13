@@ -285,60 +285,61 @@ $account = $client->Account();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_balance` | `array` | No |  |
-| `account_id` | `string` | No |  |
-| `account_identification` | `array` | No |  |
-| `account_name` | `string` | No |  |
-| `account_supplier_name` | `string` | No |  |
-| `account_type` | `string` | No |  |
-| `available_balance` | `float` | No |  |
-| `available_balance_minor_unit` | `int` | No |  |
+| `accountBalances` | `array` | No |  |
+| `accountID` | `string` | No |  |
+| `accountIdentifications` | `array` | No |  |
+| `accountName` | `string` | No |  |
+| `accountNames` | `array` | No |  |
+| `accountSupplierName` | `string` | No |  |
+| `accountType` | `string` | No |  |
+| `availableBalance` | `float` | No |  |
+| `availableBalanceMinorUnits` | `int` | No |  |
 | `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `bank_name` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `consolidated_account_information` | `array` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_display_name` | `string` | No |  |
+| `balanceMinorUnits` | `int` | No |  |
+| `bankName` | `string` | No |  |
+| `consentID` | `string` | No |  |
+| `consolidatedAccountInformation` | `array` | No |  |
+| `createdBy` | `array` | Yes |  |
+| `createdByDisplayName` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `default_payment_rail` | `string` | No |  |
+| `defaultPaymentRail` | `string` | No |  |
 | `description` | `string` | No |  |
-| `detail` | `string` | No |  |
-| `display_name` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `external_account_icon` | `string` | No |  |
+| `details` | `string` | No |  |
+| `displayName` | `string` | No |  |
+| `expiryDate` | `string` | No |  |
+| `externalAccountIcon` | `string` | No |  |
 | `format` | `string` | No |  |
-| `from_date` | `string` | No |  |
+| `fromDate` | `string` | No |  |
 | `id` | `string` | No |  |
 | `identifier` | `array` | Yes |  |
 | `inserted` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_default` | `bool` | No |  |
-| `is_trust_account` | `bool` | No |  |
-| `is_virtual` | `bool` | No |  |
-| `last_transaction` | `array` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isConnectedAccount` | `bool` | No |  |
+| `isDefault` | `bool` | No |  |
+| `isTrustAccount` | `bool` | No |  |
+| `isVirtual` | `bool` | No |  |
+| `lastTransaction` | `array` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantName` | `string` | No |  |
 | `nickname` | `string` | No |  |
-| `physical_account_id` | `string` | No |  |
-| `role_i_d` | `array` | No |  |
-| `rule` | `array` | No |  |
-| `submitted_payouts_balance` | `float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `int` | No |  |
+| `physicalAccountID` | `string` | No |  |
+| `roleIDs` | `array` | No |  |
+| `rules` | `array` | No |  |
+| `submittedPayoutsBalance` | `float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `int` | No |  |
 | `summary` | `string` | No |  |
-| `supplier_physical_account_id` | `string` | No |  |
-| `supplier_sepa_instant_status` | `string` | No |  |
-| `to_date` | `string` | No |  |
+| `supplierPhysicalAccountID` | `string` | No |  |
+| `supplierSepaInstantStatus` | `string` | No |  |
+| `toDate` | `string` | No |  |
 | `type` | `string` | No |  |
-| `usage_type` | `string` | No |  |
-| `xero_bank_feed_connection_status` | `string` | No |  |
-| `xero_bank_feed_last_synced_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` | No |  |
-| `xero_bank_feed_sync_status` | `string` | No |  |
-| `xero_unsynchronised_transactions_count` | `int` | No |  |
+| `usageType` | `string` | No |  |
+| `xeroBankFeedConnectionStatus` | `string` | No |  |
+| `xeroBankFeedLastSyncedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` | No |  |
+| `xeroBankFeedSyncStatus` | `string` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `int` | No |  |
 
 ### Operations
 
@@ -348,7 +349,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Account()->create([
-  "created_by" => null, // array
+  "createdBy" => null, // array
   "identifier" => null, // array
 ]);
 ```
@@ -428,9 +429,9 @@ $batch = $client->Batch();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approve_url` | `string` | No |  |
+| `approveUrl` | `string` | No |  |
 | `id` | `string` | No |  |
-| `payout` | `array` | No |  |
+| `payouts` | `array` | No |  |
 
 ### Operations
 
@@ -491,63 +492,63 @@ $beneficiary = $client->Beneficiary();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approval_callback_url` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `beneficiary` | `array` | No |  |
-| `beneficiary_event` | `array` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_email_address` | `string` | No |  |
+| `approvalCallbackUrl` | `string` | No |  |
+| `authenticationMethods` | `array` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `beneficiaries` | `array` | No |  |
+| `beneficiaryEvents` | `array` | No |  |
+| `canAuthorise` | `bool` | No |  |
+| `canUpdate` | `bool` | No |  |
+| `createdBy` | `array` | Yes |  |
+| `createdByEmailAddress` | `string` | No |  |
 | `currency` | `string` | Yes |  |
 | `destination` | `array` | No |  |
-| `failed_beneficiary` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `failedBeneficiaries` | `array` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
+| `isEnabled` | `bool` | No |  |
+| `lastAuthorised` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
 | `name` | `string` | Yes |  |
 | `nonce` | `string` | No |  |
-| `source_account` | `array` | No |  |
-| `source_account_i_d` | `array` | No |  |
-| `their_reference` | `string` | No |  |
+| `sourceAccountIDs` | `array` | No |  |
+| `sourceAccounts` | `array` | No |  |
+| `theirReference` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `approval_callback_url` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `beneficiary` | - | - | - | - | - |
-| `beneficiary_event` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `can_update` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
-| `created_by_email_address` | - | - | - | - | - |
+| `approvalCallbackUrl` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `beneficiaries` | - | - | - | - | - |
+| `beneficiaryEvents` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `canUpdate` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
+| `createdByEmailAddress` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
-| `failed_beneficiary` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `failedBeneficiaries` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `last_authorised` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
+| `isEnabled` | - | - | - | - | - |
+| `lastAuthorised` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | - | - |
 | `name` | - | - | - | Yes | - |
 | `nonce` | - | - | - | - | - |
-| `source_account` | - | - | - | - | - |
-| `source_account_i_d` | - | - | - | - | - |
-| `their_reference` | - | - | - | - | - |
+| `sourceAccountIDs` | - | - | - | - | - |
+| `sourceAccounts` | - | - | - | - | - |
+| `theirReference` | - | - | - | - | - |
 
 ### Operations
 
@@ -557,7 +558,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Beneficiary()->create([
-  "created_by" => null, // array
+  "createdBy" => null, // array
   "currency" => null, // string
   "name" => null, // string
 ]);
@@ -638,12 +639,12 @@ $beneficiary_group = $client->BeneficiaryGroup();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `group_member` | `array` | No |  |
-| `group_name` | `string` | Yes |  |
+| `groupMembers` | `array` | No |  |
+| `groupName` | `string` | Yes |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | Yes |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | Yes |  |
 
 ### Operations
 
@@ -695,23 +696,23 @@ $card = $client->Card();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorized_amount` | `string` | No |  |
-| `currency_code` | `string` | No |  |
-| `is_payer_authentication_required` | `bool` | No |  |
-| `is_soft_decline` | `bool` | No |  |
-| `payer_authentication_access_token` | `string` | No |  |
-| `payer_authentication_merchant_data` | `string` | No |  |
-| `payer_authentication_url` | `string` | No |  |
-| `payer_authentication_window_height` | `int` | No |  |
-| `payer_authentication_window_width` | `int` | No |  |
-| `payment_request_callback_url` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `request_id` | `string` | No |  |
-| `response_code` | `string` | No |  |
-| `response_type` | `string` | No |  |
+| `authorizedAmount` | `string` | No |  |
+| `currencyCode` | `string` | No |  |
+| `isPayerAuthenticationRequired` | `bool` | No |  |
+| `isSoftDecline` | `bool` | No |  |
+| `payerAuthenticationAccessToken` | `string` | No |  |
+| `payerAuthenticationMerchantData` | `string` | No |  |
+| `payerAuthenticationUrl` | `string` | No |  |
+| `payerAuthenticationWindowHeight` | `int` | No |  |
+| `payerAuthenticationWindowWidth` | `int` | No |  |
+| `paymentRequestCallbackUrl` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `requestID` | `string` | No |  |
+| `responseCode` | `string` | No |  |
+| `responseType` | `string` | No |  |
 | `status` | `string` | No |  |
-| `three_ds_redirect_url` | `string` | No |  |
-| `transaction_id` | `string` | No |  |
+| `threeDSRedirectUrl` | `string` | No |  |
+| `transactionID` | `string` | No |  |
 
 ### Operations
 
@@ -765,17 +766,17 @@ $card_customer_token = $client->CardCustomerToken();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_type` | `string` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `expiry_month` | `string` | No |  |
-| `expiry_year` | `string` | No |  |
+| `cardType` | `string` | No |  |
+| `customerEmailAddress` | `string` | No |  |
+| `expiryMonth` | `string` | No |  |
+| `expiryYear` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `last_four_digit` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `masked_card_number` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
+| `lastFourDigits` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `maskedCardNumber` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
 
 ### Operations
 
@@ -843,23 +844,23 @@ $card_payment = $client->CardPayment();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorized_amount` | `string` | No |  |
-| `currency_code` | `string` | No |  |
-| `is_payer_authentication_required` | `bool` | No |  |
-| `is_soft_decline` | `bool` | No |  |
-| `payer_authentication_access_token` | `string` | No |  |
-| `payer_authentication_merchant_data` | `string` | No |  |
-| `payer_authentication_url` | `string` | No |  |
-| `payer_authentication_window_height` | `int` | No |  |
-| `payer_authentication_window_width` | `int` | No |  |
-| `payment_request_callback_url` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `request_id` | `string` | No |  |
-| `response_code` | `string` | No |  |
-| `response_type` | `string` | No |  |
+| `authorizedAmount` | `string` | No |  |
+| `currencyCode` | `string` | No |  |
+| `isPayerAuthenticationRequired` | `bool` | No |  |
+| `isSoftDecline` | `bool` | No |  |
+| `payerAuthenticationAccessToken` | `string` | No |  |
+| `payerAuthenticationMerchantData` | `string` | No |  |
+| `payerAuthenticationUrl` | `string` | No |  |
+| `payerAuthenticationWindowHeight` | `int` | No |  |
+| `payerAuthenticationWindowWidth` | `int` | No |  |
+| `paymentRequestCallbackUrl` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `requestID` | `string` | No |  |
+| `responseCode` | `string` | No |  |
+| `responseType` | `string` | No |  |
 | `status` | `string` | No |  |
-| `three_ds_redirect_url` | `string` | No |  |
-| `transaction_id` | `string` | No |  |
+| `threeDSRedirectUrl` | `string` | No |  |
+| `transactionID` | `string` | No |  |
 
 ### Operations
 
@@ -965,39 +966,39 @@ $consent = $client->Consent();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `failure_callback_url` | `string` | No |  |
+| `authorisationUrl` | `string` | No |  |
+| `callbackUrl` | `string` | No |  |
+| `consentID` | `string` | No |  |
+| `emailAddress` | `string` | No |  |
+| `expiryDate` | `string` | No |  |
+| `failureCallbackUrl` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `institution_id` | `string` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
+| `institutionID` | `string` | No |  |
+| `isConnectedAccounts` | `bool` | No |  |
+| `isEnabled` | `bool` | No |  |
+| `merchantID` | `string` | No |  |
 | `provider` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
+| `successWebHookUrl` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `authorisation_url` | - | - | - | - | - |
-| `callback_url` | - | - | - | - | - |
-| `consent_id` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `expiry_date` | - | - | - | - | - |
-| `failure_callback_url` | - | - | - | - | - |
+| `authorisationUrl` | - | - | - | - | - |
+| `callbackUrl` | - | - | - | - | - |
+| `consentID` | - | - | - | - | - |
+| `emailAddress` | - | - | - | - | - |
+| `expiryDate` | - | - | - | - | - |
+| `failureCallbackUrl` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `institution_id` | - | - | Yes | - | - |
-| `is_connected_account` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
+| `institutionID` | - | - | Yes | - | - |
+| `isConnectedAccounts` | - | - | - | - | - |
+| `isEnabled` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | - | - |
 | `provider` | - | - | - | - | - |
-| `success_web_hook_url` | - | - | - | - | - |
+| `successWebHookUrl` | - | - | - | - | - |
 
 ### Operations
 
@@ -1086,10 +1087,10 @@ $currency = $client->Currency();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `string` | No |  |
-| `decimal` | `int` | No |  |
-| `is_fiat` | `bool` | No |  |
-| `iso4217_alpha_code` | `string` | No |  |
-| `iso4217_numeric_code` | `string` | No |  |
+| `decimals` | `int` | No |  |
+| `isFiat` | `bool` | No |  |
+| `iso4217AlphaCode` | `string` | No |  |
+| `iso4217NumericCode` | `string` | No |  |
 | `symbol` | `string` | No |  |
 
 ### Operations
@@ -1142,8 +1143,8 @@ $direct_debit_batch_submit = $client->DirectDebitBatchSubmit();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `failed_submission` | `array` | No |  |
-| `successful_submission` | `array` | No |  |
+| `failedSubmissions` | `array` | No |  |
+| `successfulSubmissions` | `array` | No |  |
 
 ### Operations
 
@@ -1196,11 +1197,11 @@ $fx_rate = $client->FxRate();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destination_currency` | `string` | No |  |
-| `exchange_rate` | `float` | No |  |
-| `expiry_time` | `string` | No |  |
-| `quote_id` | `string` | No |  |
-| `source_currency` | `string` | No |  |
+| `destinationCurrency` | `string` | No |  |
+| `exchangeRate` | `float` | No |  |
+| `expiryTime` | `string` | No |  |
+| `quoteID` | `string` | No |  |
+| `sourceCurrency` | `string` | No |  |
 
 ### Operations
 
@@ -1260,8 +1261,8 @@ $i_payment = $client->IPayment();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `payment_request_id` | `string` | No |  |
-| `response_type` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `responseType` | `string` | No |  |
 
 ### Operations
 
@@ -1314,79 +1315,79 @@ $mandate = $client->Mandate();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_number` | `string` | No |  |
-| `address_line1` | `string` | Yes |  |
-| `address_line2` | `string` | No |  |
-| `approved_at` | `string` | No |  |
+| `accountNumber` | `string` | No |  |
+| `addressLine1` | `string` | Yes |  |
+| `addressLine2` | `string` | No |  |
+| `approvedAt` | `string` | No |  |
 | `city` | `string` | Yes |  |
-| `country_code` | `string` | Yes |  |
+| `countryCode` | `string` | Yes |  |
 | `currency` | `string` | No |  |
-| `customer_account_number` | `string` | No |  |
-| `customer_city` | `string` | No |  |
-| `customer_country_code` | `string` | No |  |
-| `customer_country_name` | `string` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_first_name` | `string` | No |  |
-| `customer_iban` | `string` | No |  |
-| `customer_last_name` | `string` | No |  |
-| `customer_sort_code` | `string` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
+| `customerAccountNumber` | `string` | No |  |
+| `customerCity` | `string` | No |  |
+| `customerCountryCode` | `string` | No |  |
+| `customerCountryName` | `string` | No |  |
+| `customerEmailAddress` | `string` | No |  |
+| `customerFirstName` | `string` | No |  |
+| `customerIban` | `string` | No |  |
+| `customerLastName` | `string` | No |  |
+| `customerSortCode` | `string` | No |  |
+| `emailAddress` | `string` | Yes |  |
+| `firstName` | `string` | Yes |  |
 | `iban` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_recurring` | `bool` | No |  |
-| `last_name` | `string` | Yes |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `postal_code` | `string` | Yes |  |
+| `isRecurring` | `bool` | No |  |
+| `lastName` | `string` | Yes |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `postalCode` | `string` | Yes |  |
 | `reference` | `string` | No |  |
-| `sort_code` | `string` | No |  |
+| `sortCode` | `string` | No |  |
 | `status` | `string` | No |  |
-| `supplier_bank_account_id` | `string` | No |  |
-| `supplier_customer_id` | `string` | No |  |
-| `supplier_mandate_id` | `string` | No |  |
-| `supplier_name` | `string` | No |  |
-| `supplier_status` | `string` | No |  |
+| `supplierBankAccountID` | `string` | No |  |
+| `supplierCustomerID` | `string` | No |  |
+| `supplierMandateID` | `string` | No |  |
+| `supplierName` | `string` | No |  |
+| `supplierStatus` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | create |
 | --- | --- | --- |
-| `account_number` | - | - |
-| `address_line1` | - | - |
-| `address_line2` | - | - |
-| `approved_at` | - | - |
+| `accountNumber` | - | - |
+| `addressLine1` | - | - |
+| `addressLine2` | - | - |
+| `approvedAt` | - | - |
 | `city` | - | - |
-| `country_code` | - | - |
+| `countryCode` | - | - |
 | `currency` | - | Yes |
-| `customer_account_number` | - | - |
-| `customer_city` | - | - |
-| `customer_country_code` | - | - |
-| `customer_country_name` | - | - |
-| `customer_email_address` | - | - |
-| `customer_first_name` | - | - |
-| `customer_iban` | - | - |
-| `customer_last_name` | - | - |
-| `customer_sort_code` | - | - |
-| `email_address` | - | - |
-| `first_name` | - | - |
+| `customerAccountNumber` | - | - |
+| `customerCity` | - | - |
+| `customerCountryCode` | - | - |
+| `customerCountryName` | - | - |
+| `customerEmailAddress` | - | - |
+| `customerFirstName` | - | - |
+| `customerIban` | - | - |
+| `customerLastName` | - | - |
+| `customerSortCode` | - | - |
+| `emailAddress` | - | - |
+| `firstName` | - | - |
 | `iban` | - | - |
 | `id` | - | - |
 | `inserted` | - | - |
-| `is_recurring` | - | - |
-| `last_name` | - | - |
-| `last_updated` | - | - |
-| `merchant_id` | - | Yes |
-| `postal_code` | - | - |
+| `isRecurring` | - | - |
+| `lastName` | - | - |
+| `lastUpdated` | - | - |
+| `merchantID` | - | Yes |
+| `postalCode` | - | - |
 | `reference` | - | - |
-| `sort_code` | - | - |
+| `sortCode` | - | - |
 | `status` | - | - |
-| `supplier_bank_account_id` | - | - |
-| `supplier_customer_id` | - | - |
-| `supplier_mandate_id` | - | - |
-| `supplier_name` | - | - |
-| `supplier_status` | - | - |
+| `supplierBankAccountID` | - | - |
+| `supplierCustomerID` | - | - |
+| `supplierMandateID` | - | - |
+| `supplierName` | - | - |
+| `supplierStatus` | - | - |
 
 ### Operations
 
@@ -1396,13 +1397,13 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Mandate()->create([
-  "address_line1" => null, // string
+  "addressLine1" => null, // string
   "city" => null, // string
-  "country_code" => null, // string
-  "email_address" => null, // string
-  "first_name" => null, // string
-  "last_name" => null, // string
-  "postal_code" => null, // string
+  "countryCode" => null, // string
+  "emailAddress" => null, // string
+  "firstName" => null, // string
+  "lastName" => null, // string
+  "postalCode" => null, // string
 ]);
 ```
 
@@ -1454,35 +1455,35 @@ $merchant = $client->Merchant();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_currency` | `array` | No |  |
-| `can_have_trust_account` | `bool` | No |  |
-| `card_payment_processor` | `string` | No |  |
-| `company_id` | `string` | No |  |
-| `display_qr_on_hosted_pay` | `bool` | No |  |
-| `hosted_pay_version` | `int` | No |  |
+| `accountCurrencies` | `array` | No |  |
+| `canHaveTrustAccounts` | `bool` | No |  |
+| `cardPaymentProcessor` | `string` | No |  |
+| `companyID` | `string` | No |  |
+| `displayQrOnHostedPay` | `bool` | No |  |
+| `hostedPayVersion` | `int` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_blocked` | `bool` | No |  |
-| `is_exited` | `bool` | No |  |
-| `is_suspended` | `bool` | No |  |
+| `isBlocked` | `bool` | No |  |
+| `isExited` | `bool` | No |  |
+| `isSuspended` | `bool` | No |  |
 | `jurisdiction` | `string` | No |  |
-| `logo_url_png` | `string` | No |  |
-| `logo_url_svg` | `string` | No |  |
-| `merchant_category_code` | `string` | No |  |
+| `logoUrlPng` | `string` | No |  |
+| `logoUrlSvg` | `string` | No |  |
+| `merchantCategoryCode` | `string` | No |  |
 | `name` | `string` | No |  |
-| `note` | `string` | No |  |
-| `parent_merchant` | `array` | No |  |
-| `payment_account` | `array` | No |  |
-| `payment_account_limit` | `int` | No |  |
+| `notes` | `string` | No |  |
+| `parentMerchant` | `array` | No |  |
+| `paymentAccountLimit` | `int` | No |  |
+| `paymentAccounts` | `array` | No |  |
 | `reason` | `string` | No |  |
-| `short_name` | `string` | No |  |
-| `supported_payment_methods_list` | `array` | No |  |
-| `suspension_reason` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trading_name` | `string` | No |  |
-| `web_hook_limit` | `int` | No |  |
-| `your_role_name` | `string` | No |  |
+| `shortName` | `string` | No |  |
+| `supportedPaymentMethodsList` | `array` | No |  |
+| `suspensionReason` | `string` | No |  |
+| `tags` | `array` | No |  |
+| `timeZoneId` | `string` | No |  |
+| `tradingName` | `string` | No |  |
+| `webHookLimit` | `int` | No |  |
+| `yourRoleName` | `string` | No |  |
 
 ### Operations
 
@@ -1561,17 +1562,17 @@ $merchant_authorisation_setting = $client->MerchantAuthorisationSetting();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount_lower` | `float` | No |  |
-| `amount_upper` | `float` | No |  |
-| `authorisation_type` | `string` | No |  |
-| `beneficiaries_only` | `bool` | No |  |
+| `amountLower` | `float` | No |  |
+| `amountUpper` | `float` | No |  |
+| `authorisationType` | `string` | No |  |
+| `beneficiariesOnly` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `last_editor_cant_authorise` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `number_of_authoriser` | `int` | No |  |
-| `role_setting` | `array` | No |  |
+| `lastEditorCantAuthorise` | `bool` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `numberOfAuthorisers` | `int` | No |  |
+| `roleSettings` | `array` | No |  |
 
 ### Operations
 
@@ -1623,29 +1624,29 @@ $merchant_direct_debit_mandate_page = $client->MerchantDirectDebitMandatePage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_at` | `string` | No |  |
+| `approvedAt` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `customer_account_number` | `string` | No |  |
-| `customer_city` | `string` | No |  |
-| `customer_country_code` | `string` | No |  |
-| `customer_country_name` | `string` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_first_name` | `string` | No |  |
-| `customer_iban` | `string` | No |  |
-| `customer_last_name` | `string` | No |  |
-| `customer_sort_code` | `string` | No |  |
+| `customerAccountNumber` | `string` | No |  |
+| `customerCity` | `string` | No |  |
+| `customerCountryCode` | `string` | No |  |
+| `customerCountryName` | `string` | No |  |
+| `customerEmailAddress` | `string` | No |  |
+| `customerFirstName` | `string` | No |  |
+| `customerIban` | `string` | No |  |
+| `customerLastName` | `string` | No |  |
+| `customerSortCode` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_recurring` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
+| `isRecurring` | `bool` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
 | `reference` | `string` | No |  |
 | `status` | `string` | No |  |
-| `supplier_bank_account_id` | `string` | No |  |
-| `supplier_customer_id` | `string` | No |  |
-| `supplier_mandate_id` | `string` | No |  |
-| `supplier_name` | `string` | No |  |
-| `supplier_status` | `string` | No |  |
+| `supplierBankAccountID` | `string` | No |  |
+| `supplierCustomerID` | `string` | No |  |
+| `supplierMandateID` | `string` | No |  |
+| `supplierName` | `string` | No |  |
+| `supplierStatus` | `string` | No |  |
 
 ### Operations
 
@@ -1697,19 +1698,19 @@ $merchant_pay_by_bank_setting = $client->MerchantPayByBankSetting();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bank_country_code` | `array` | No |  |
-| `bank_id` | `string` | No |  |
-| `bank_name` | `string` | No |  |
-| `business_institution_id` | `string` | No |  |
+| `bankCountryCodes` | `array` | No |  |
+| `bankID` | `string` | No |  |
+| `bankName` | `string` | No |  |
+| `businessInstitutionID` | `string` | No |  |
 | `currency` | `string` | No |  |
 | `logo` | `string` | No |  |
 | `message` | `string` | No |  |
-| `message_image_url` | `string` | No |  |
+| `messageImageUrl` | `string` | No |  |
 | `order` | `int` | No |  |
-| `personal_institution_id` | `string` | No |  |
+| `personalInstitutionID` | `string` | No |  |
 | `processor` | `string` | No |  |
-| `warning_heading` | `string` | No |  |
-| `warning_message` | `string` | No |  |
+| `warningHeading` | `string` | No |  |
+| `warningMessage` | `string` | No |  |
 
 ### Operations
 
@@ -1761,12 +1762,21 @@ $merchant_payment_request_template = $client->MerchantPaymentRequestTemplate();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `bankPaymentOptions` | `array` | No |  |
+| `cardPaymentAddressOptions` | `array` | No |  |
+| `cardPaymentCaptureOptions` | `array` | No |  |
+| `customFields` | `array` | No |  |
+| `defaultFields` | `array` | No |  |
 | `description` | `string` | Yes |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
 | `name` | `string` | Yes |  |
+| `notificationOptions` | `array` | No |  |
+| `paymentMethods` | `array` | No |  |
+| `paymentTerms` | `array` | No |  |
+| `priorityBankOptions` | `array` | No |  |
 | `template` | `array` | Yes |  |
 
 ### Operations
@@ -1847,56 +1857,56 @@ $merchant_token = $client->MerchantToken();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
+| `authenticationMethods` | `array` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `canAuthorise` | `bool` | No |  |
 | `description` | `string` | No |  |
-| `expires_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
-| `hmac_algorithm` | `string` | No |  |
+| `expiresAt` | `string` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
+| `hmacAlgorithm` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `ip_address_whitelist` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_enabled` | `bool` | No |  |
-| `last_authorised` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
+| `ipAddressWhitelist` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isEnabled` | `bool` | No |  |
+| `lastAuthorised` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
 | `nonce` | `string` | Yes |  |
-| `permission_type` | `array` | No |  |
-| `request_signature_version` | `int` | No |  |
-| `shared_secret_algorithm` | `string` | No |  |
-| `shared_secret_base64` | `string` | No |  |
+| `permissionTypes` | `array` | No |  |
+| `requestSignatureVersion` | `int` | No |  |
+| `sharedSecretAlgorithm` | `string` | No |  |
+| `sharedSecretBase64` | `string` | No |  |
 | `token` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update |
 | --- | --- | --- | --- | --- |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
+| `authenticationMethods` | - | - | - | - |
+| `authorisations` | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - |
+| `canAuthorise` | - | - | - | - |
 | `description` | - | - | Yes | - |
-| `expires_at` | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `hmac_algorithm` | - | - | - | - |
+| `expiresAt` | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - |
+| `hmacAlgorithm` | - | - | - | - |
 | `id` | - | - | - | - |
 | `inserted` | - | - | - | - |
-| `ip_address_whitelist` | - | - | - | - |
-| `is_archived` | - | - | - | - |
-| `is_enabled` | - | - | - | - |
-| `last_authorised` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | - | Yes | - |
+| `ipAddressWhitelist` | - | - | - | - |
+| `isArchived` | - | - | - | - |
+| `isEnabled` | - | - | - | - |
+| `lastAuthorised` | - | - | - | - |
+| `lastUpdated` | - | - | - | - |
+| `merchantID` | - | - | Yes | - |
 | `nonce` | - | - | - | - |
-| `permission_type` | - | - | - | - |
-| `request_signature_version` | - | - | - | - |
-| `shared_secret_algorithm` | - | - | - | - |
-| `shared_secret_base64` | - | - | - | - |
+| `permissionTypes` | - | - | - | - |
+| `requestSignatureVersion` | - | - | - | - |
+| `sharedSecretAlgorithm` | - | - | - | - |
+| `sharedSecretBase64` | - | - | - | - |
 | `token` | - | - | - | - |
 
 ### Operations
@@ -2024,10 +2034,10 @@ $no_frixion_version = $client->NoFrixionVersion();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `build_version` | `int` | No |  |
-| `major_version` | `int` | No |  |
-| `minor_version` | `int` | No |  |
-| `release_name` | `string` | No |  |
+| `buildVersion` | `int` | No |  |
+| `majorVersion` | `int` | No |  |
+| `minorVersion` | `int` | No |  |
+| `releaseName` | `string` | No |  |
 
 ### Operations
 
@@ -2135,13 +2145,13 @@ $payeeverification = $client->Payeeverification();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `string` | Yes |  |
-| `account_number` | `string` | No |  |
+| `accountName` | `string` | Yes |  |
+| `accountNumber` | `string` | No |  |
 | `iban` | `string` | Yes |  |
-| `payee_verified_account_name` | `string` | No |  |
+| `payeeVerifiedAccountName` | `string` | No |  |
 | `result` | `string` | No |  |
-| `secondary_identification` | `string` | No |  |
-| `sort_code` | `string` | No |  |
+| `secondaryIdentification` | `string` | No |  |
+| `sortCode` | `string` | No |  |
 
 ### Operations
 
@@ -2151,7 +2161,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Payeeverification()->create([
-  "account_name" => null, // string
+  "accountName" => null, // string
   "iban" => null, // string
 ]);
 ```
@@ -2196,163 +2206,163 @@ $payment = $client->Payment();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `array` | No |  |
+| `addresses` | `array` | No |  |
 | `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `auto_send_receipt` | `bool` | No |  |
-| `base_origin_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_authorize_only` | `bool` | No |  |
-| `card_create_token` | `bool` | No |  |
-| `card_create_token_mode` | `string` | No |  |
-| `card_ignore_cvn` | `bool` | No |  |
-| `card_no_payer_authentication` | `bool` | No |  |
-| `card_processor_merchant_id` | `string` | No |  |
-| `card_stripe_payment_intent_id` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `card_transmit_raw_detail` | `bool` | No |  |
-| `created_by_user` | `array` | Yes |  |
+| `amountPending` | `float` | No |  |
+| `amountReceived` | `float` | No |  |
+| `amountRefunded` | `float` | No |  |
+| `autoSendReceipt` | `bool` | No |  |
+| `baseOriginUrl` | `string` | No |  |
+| `callbackUrl` | `string` | No |  |
+| `cardAuthorizeOnly` | `bool` | No |  |
+| `cardCreateToken` | `bool` | No |  |
+| `cardCreateTokenMode` | `string` | No |  |
+| `cardIgnoreCVN` | `bool` | No |  |
+| `cardNoPayerAuthentication` | `bool` | No |  |
+| `cardProcessorMerchantID` | `string` | No |  |
+| `cardStripePaymentIntentID` | `string` | No |  |
+| `cardStripePaymentIntentSecret` | `string` | No |  |
+| `cardTransmitRawDetails` | `bool` | No |  |
+| `createdByUser` | `array` | Yes |  |
 | `currency` | `string` | No |  |
-| `custom_field` | `array` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `customer_name` | `string` | No |  |
+| `customFields` | `array` | No |  |
+| `customerEmailAddress` | `string` | No |  |
+| `customerID` | `string` | No |  |
+| `customerName` | `string` | No |  |
 | `description` | `string` | No |  |
-| `destination_account` | `array` | No |  |
-| `direct_debit_payment` | `array` | No |  |
-| `due_date` | `string` | No |  |
-| `event` | `array` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `field_display_setting` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `hosted_pay_checkout_url` | `string` | No |  |
+| `destinationAccount` | `array` | No |  |
+| `directDebitPayment` | `array` | No |  |
+| `dueDate` | `string` | No |  |
+| `events` | `array` | No |  |
+| `failureCallbackUrl` | `string` | No |  |
+| `fieldDisplaySettings` | `array` | No |  |
+| `formattedAmount` | `string` | No |  |
+| `hostedPayCheckoutUrl` | `string` | No |  |
 | `id` | `string` | No |  |
-| `ignore_address_verification` | `bool` | No |  |
+| `ignoreAddressVerification` | `bool` | No |  |
 | `inserted` | `string` | No |  |
-| `inserted_sortable` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
+| `insertedSortable` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
 | `jwk` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_invoice_expires_at` | `string` | No |  |
-| `merchant_direct_debit_mandate_id` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `notification_email_address` | `string` | No |  |
-| `notification_role_i_d` | `array` | No |  |
-| `order_id` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `partial_payment_step` | `string` | No |  |
-| `payment_attempt` | `array` | No |  |
-| `payment_method` | `array` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `pisp_account_id` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `lightningInvoice` | `string` | No |  |
+| `lightningInvoiceExpiresAt` | `string` | No |  |
+| `merchantDirectDebitMandateID` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantTokenDescription` | `string` | No |  |
+| `notificationEmailAddresses` | `string` | No |  |
+| `notificationRoleIDs` | `array` | No |  |
+| `orderID` | `string` | No |  |
+| `partialPaymentMethod` | `string` | No |  |
+| `partialPaymentSteps` | `string` | No |  |
+| `paymentAttempts` | `array` | No |  |
+| `paymentMethods` | `array` | No |  |
+| `paymentProcessor` | `string` | No |  |
+| `payrunID` | `string` | No |  |
+| `pispAccountID` | `string` | No |  |
+| `priorityBankID` | `string` | No |  |
 | `result` | `array` | No |  |
-| `sandbox_settle_delay_in_second` | `int` | No |  |
-| `shipping_address` | `array` | No |  |
-| `shipping_address_city` | `string` | No |  |
-| `shipping_address_country_code` | `string` | No |  |
-| `shipping_address_county` | `string` | No |  |
-| `shipping_address_line1` | `string` | No |  |
-| `shipping_address_line2` | `string` | No |  |
-| `shipping_address_post_code` | `string` | No |  |
-| `shipping_email` | `string` | No |  |
-| `shipping_first_name` | `string` | No |  |
-| `shipping_last_name` | `string` | No |  |
-| `shipping_phone` | `string` | No |  |
+| `sandboxSettleDelayInSeconds` | `int` | No |  |
+| `shippingAddress` | `array` | No |  |
+| `shippingAddressCity` | `string` | No |  |
+| `shippingAddressCountryCode` | `string` | No |  |
+| `shippingAddressCounty` | `string` | No |  |
+| `shippingAddressLine1` | `string` | No |  |
+| `shippingAddressLine2` | `string` | No |  |
+| `shippingAddressPostCode` | `string` | No |  |
+| `shippingEmail` | `string` | No |  |
+| `shippingFirstName` | `string` | No |  |
+| `shippingLastName` | `string` | No |  |
+| `shippingPhone` | `string` | No |  |
 | `status` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `tag_id` | `array` | No |  |
+| `successWebHookUrl` | `string` | No |  |
+| `tagIds` | `array` | No |  |
+| `tags` | `array` | No |  |
 | `title` | `string` | No |  |
-| `tokenised_card` | `array` | No |  |
-| `transaction` | `array` | No |  |
-| `use_hosted_payment_page` | `bool` | No |  |
+| `tokenisedCards` | `array` | No |  |
+| `transactions` | `array` | No |  |
+| `useHostedPaymentPage` | `bool` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | create | update |
 | --- | --- | --- | --- |
-| `address` | - | - | - |
+| `addresses` | - | - | - |
 | `amount` | - | Yes | - |
-| `amount_pending` | - | - | - |
-| `amount_received` | - | - | - |
-| `amount_refunded` | - | - | - |
-| `auto_send_receipt` | - | - | - |
-| `base_origin_url` | - | - | - |
-| `callback_url` | - | - | - |
-| `card_authorize_only` | - | - | - |
-| `card_create_token` | - | - | - |
-| `card_create_token_mode` | - | - | - |
-| `card_ignore_cvn` | - | - | - |
-| `card_no_payer_authentication` | - | - | - |
-| `card_processor_merchant_id` | - | - | - |
-| `card_stripe_payment_intent_id` | - | - | - |
-| `card_stripe_payment_intent_secret` | - | - | - |
-| `card_transmit_raw_detail` | - | - | - |
-| `created_by_user` | - | - | - |
+| `amountPending` | - | - | - |
+| `amountReceived` | - | - | - |
+| `amountRefunded` | - | - | - |
+| `autoSendReceipt` | - | - | - |
+| `baseOriginUrl` | - | - | - |
+| `callbackUrl` | - | - | - |
+| `cardAuthorizeOnly` | - | - | - |
+| `cardCreateToken` | - | - | - |
+| `cardCreateTokenMode` | - | - | - |
+| `cardIgnoreCVN` | - | - | - |
+| `cardNoPayerAuthentication` | - | - | - |
+| `cardProcessorMerchantID` | - | - | - |
+| `cardStripePaymentIntentID` | - | - | - |
+| `cardStripePaymentIntentSecret` | - | - | - |
+| `cardTransmitRawDetails` | - | - | - |
+| `createdByUser` | - | - | - |
 | `currency` | - | - | - |
-| `custom_field` | - | - | - |
-| `customer_email_address` | - | - | - |
-| `customer_id` | - | - | - |
-| `customer_name` | - | - | - |
+| `customFields` | - | - | - |
+| `customerEmailAddress` | - | - | - |
+| `customerID` | - | - | - |
+| `customerName` | - | - | - |
 | `description` | - | - | - |
-| `destination_account` | - | - | - |
-| `direct_debit_payment` | - | - | - |
-| `due_date` | - | - | - |
-| `event` | - | - | - |
-| `failure_callback_url` | - | - | - |
-| `field_display_setting` | - | - | - |
-| `formatted_amount` | - | - | - |
-| `hosted_pay_checkout_url` | - | - | - |
+| `destinationAccount` | - | - | - |
+| `directDebitPayment` | - | - | - |
+| `dueDate` | - | - | - |
+| `events` | - | - | - |
+| `failureCallbackUrl` | - | - | - |
+| `fieldDisplaySettings` | - | - | - |
+| `formattedAmount` | - | - | - |
+| `hostedPayCheckoutUrl` | - | - | - |
 | `id` | - | - | - |
-| `ignore_address_verification` | - | - | - |
+| `ignoreAddressVerification` | - | - | - |
 | `inserted` | - | - | - |
-| `inserted_sortable` | - | - | - |
-| `is_archived` | - | - | - |
+| `insertedSortable` | - | - | - |
+| `isArchived` | - | - | - |
 | `jwk` | - | - | - |
-| `last_updated` | - | - | - |
-| `lightning_invoice` | - | - | - |
-| `lightning_invoice_expires_at` | - | - | - |
-| `merchant_direct_debit_mandate_id` | - | - | - |
-| `merchant_id` | - | - | - |
-| `merchant_token_description` | - | - | - |
-| `notification_email_address` | - | - | - |
-| `notification_role_i_d` | - | - | - |
-| `order_id` | - | - | - |
-| `partial_payment_method` | - | - | - |
-| `partial_payment_step` | - | - | - |
-| `payment_attempt` | - | - | - |
-| `payment_method` | - | - | - |
-| `payment_processor` | - | - | - |
-| `payrun_id` | - | - | - |
-| `pisp_account_id` | - | - | - |
-| `priority_bank_id` | - | - | - |
+| `lastUpdated` | - | - | - |
+| `lightningInvoice` | - | - | - |
+| `lightningInvoiceExpiresAt` | - | - | - |
+| `merchantDirectDebitMandateID` | - | - | - |
+| `merchantID` | - | - | - |
+| `merchantTokenDescription` | - | - | - |
+| `notificationEmailAddresses` | - | - | - |
+| `notificationRoleIDs` | - | - | - |
+| `orderID` | - | - | - |
+| `partialPaymentMethod` | - | - | - |
+| `partialPaymentSteps` | - | - | - |
+| `paymentAttempts` | - | - | - |
+| `paymentMethods` | - | - | - |
+| `paymentProcessor` | - | - | - |
+| `payrunID` | - | - | - |
+| `pispAccountID` | - | - | - |
+| `priorityBankID` | - | - | - |
 | `result` | - | - | - |
-| `sandbox_settle_delay_in_second` | - | - | - |
-| `shipping_address` | - | - | - |
-| `shipping_address_city` | - | - | - |
-| `shipping_address_country_code` | - | - | - |
-| `shipping_address_county` | - | - | - |
-| `shipping_address_line1` | - | - | - |
-| `shipping_address_line2` | - | - | - |
-| `shipping_address_post_code` | - | - | - |
-| `shipping_email` | - | - | - |
-| `shipping_first_name` | - | - | - |
-| `shipping_last_name` | - | - | - |
-| `shipping_phone` | - | - | - |
+| `sandboxSettleDelayInSeconds` | - | - | - |
+| `shippingAddress` | - | - | - |
+| `shippingAddressCity` | - | - | - |
+| `shippingAddressCountryCode` | - | - | - |
+| `shippingAddressCounty` | - | - | - |
+| `shippingAddressLine1` | - | - | - |
+| `shippingAddressLine2` | - | - | - |
+| `shippingAddressPostCode` | - | - | - |
+| `shippingEmail` | - | - | - |
+| `shippingFirstName` | - | - | - |
+| `shippingLastName` | - | - | - |
+| `shippingPhone` | - | - | - |
 | `status` | - | - | - |
-| `success_web_hook_url` | - | - | - |
-| `tag` | - | - | - |
-| `tag_id` | - | - | - |
+| `successWebHookUrl` | - | - | - |
+| `tagIds` | - | - | - |
+| `tags` | - | - | - |
 | `title` | - | - | - |
-| `tokenised_card` | - | - | - |
-| `transaction` | - | - | - |
-| `use_hosted_payment_page` | - | - | - |
+| `tokenisedCards` | - | - | - |
+| `transactions` | - | - | - |
+| `useHostedPaymentPage` | - | - | - |
 
 ### Operations
 
@@ -2362,7 +2372,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Payment()->create([
-  "created_by_user" => null, // array
+  "createdByUser" => null, // array
 ]);
 ```
 
@@ -2425,45 +2435,45 @@ $payment_account = $client->PaymentAccount();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `string` | No |  |
-| `account_supplier_name` | `string` | No |  |
-| `available_balance` | `float` | No |  |
-| `available_balance_minor_unit` | `int` | No |  |
+| `accountName` | `string` | No |  |
+| `accountSupplierName` | `string` | No |  |
+| `availableBalance` | `float` | No |  |
+| `availableBalanceMinorUnits` | `int` | No |  |
 | `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `bank_name` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_display_name` | `string` | No |  |
+| `balanceMinorUnits` | `int` | No |  |
+| `bankName` | `string` | No |  |
+| `consentID` | `string` | No |  |
+| `createdBy` | `array` | Yes |  |
+| `createdByDisplayName` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `default_payment_rail` | `string` | No |  |
-| `display_name` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `external_account_icon` | `string` | No |  |
+| `defaultPaymentRail` | `string` | No |  |
+| `displayName` | `string` | No |  |
+| `expiryDate` | `string` | No |  |
+| `externalAccountIcon` | `string` | No |  |
 | `id` | `string` | No |  |
 | `identifier` | `array` | Yes |  |
 | `inserted` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_default` | `bool` | No |  |
-| `is_trust_account` | `bool` | No |  |
-| `is_virtual` | `bool` | No |  |
-| `last_transaction` | `array` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `physical_account_id` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `submitted_payouts_balance` | `float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `int` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isConnectedAccount` | `bool` | No |  |
+| `isDefault` | `bool` | No |  |
+| `isTrustAccount` | `bool` | No |  |
+| `isVirtual` | `bool` | No |  |
+| `lastTransaction` | `array` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantName` | `string` | No |  |
+| `physicalAccountID` | `string` | No |  |
+| `rules` | `array` | No |  |
+| `submittedPayoutsBalance` | `float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `int` | No |  |
 | `summary` | `string` | No |  |
-| `supplier_sepa_instant_status` | `string` | No |  |
-| `xero_bank_feed_connection_status` | `string` | No |  |
-| `xero_bank_feed_last_synced_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` | No |  |
-| `xero_bank_feed_sync_status` | `string` | No |  |
-| `xero_unsynchronised_transactions_count` | `int` | No |  |
+| `supplierSepaInstantStatus` | `string` | No |  |
+| `xeroBankFeedConnectionStatus` | `string` | No |  |
+| `xeroBankFeedLastSyncedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` | No |  |
+| `xeroBankFeedSyncStatus` | `string` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `int` | No |  |
 
 ### Operations
 
@@ -2515,17 +2525,17 @@ $payment_account_minimal = $client->PaymentAccountMinimal();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `string` | No |  |
-| `available_balance` | `float` | No |  |
+| `accountName` | `string` | No |  |
+| `availableBalance` | `float` | No |  |
 | `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
+| `balanceMinorUnits` | `int` | No |  |
 | `currency` | `string` | No |  |
 | `id` | `string` | No |  |
 | `identifier` | `array` | Yes |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `submitted_payouts_balance` | `float` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isConnectedAccount` | `bool` | No |  |
+| `merchantID` | `string` | No |  |
+| `submittedPayoutsBalance` | `float` | No |  |
 
 ### Operations
 
@@ -2577,12 +2587,12 @@ $payment_initiation = $client->PaymentInitiation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `payment_initiation_id` | `string` | No |  |
-| `payment_request_callback_url` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `redirect_url` | `string` | No |  |
-| `response_type` | `string` | No |  |
-| `specific_error_message` | `string` | No |  |
+| `paymentInitiationID` | `string` | No |  |
+| `paymentRequestCallbackUrl` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `redirectUrl` | `string` | No |  |
+| `responseType` | `string` | No |  |
+| `specificErrorMessage` | `string` | No |  |
 
 ### Operations
 
@@ -2636,75 +2646,75 @@ $payment_request = $client->PaymentRequest();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `array` | No |  |
+| `addresses` | `array` | No |  |
 | `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `auto_send_receipt` | `bool` | No |  |
-| `base_origin_url` | `string` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_authorize_only` | `bool` | No |  |
-| `card_create_token` | `bool` | No |  |
-| `card_create_token_mode` | `string` | No |  |
-| `card_ignore_cvn` | `bool` | No |  |
-| `card_processor_merchant_id` | `string` | No |  |
-| `card_stripe_payment_intent_id` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `created_by_user` | `array` | Yes |  |
+| `amountPending` | `float` | No |  |
+| `amountReceived` | `float` | No |  |
+| `amountRefunded` | `float` | No |  |
+| `autoSendReceipt` | `bool` | No |  |
+| `baseOriginUrl` | `string` | No |  |
+| `callbackUrl` | `string` | No |  |
+| `cardAuthorizeOnly` | `bool` | No |  |
+| `cardCreateToken` | `bool` | No |  |
+| `cardCreateTokenMode` | `string` | No |  |
+| `cardIgnoreCVN` | `bool` | No |  |
+| `cardProcessorMerchantID` | `string` | No |  |
+| `cardStripePaymentIntentID` | `string` | No |  |
+| `cardStripePaymentIntentSecret` | `string` | No |  |
+| `createdByUser` | `array` | Yes |  |
 | `currency` | `string` | No |  |
-| `custom_field` | `array` | No |  |
-| `customer_email_address` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `customer_name` | `string` | No |  |
+| `customFields` | `array` | No |  |
+| `customerEmailAddress` | `string` | No |  |
+| `customerID` | `string` | No |  |
+| `customerName` | `string` | No |  |
 | `description` | `string` | No |  |
-| `destination_account` | `array` | No |  |
-| `direct_debit_payment` | `array` | No |  |
-| `do_simulate_settlement_failure` | `bool` | No |  |
-| `due_date` | `string` | No |  |
-| `error_description` | `string` | No |  |
-| `event` | `array` | No |  |
-| `failed_payment_request` | `array` | No |  |
-| `failure_callback_url` | `string` | No |  |
-| `field_display_setting` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `hosted_pay_checkout_url` | `string` | No |  |
+| `destinationAccount` | `array` | No |  |
+| `directDebitPayment` | `array` | No |  |
+| `doSimulateSettlementFailure` | `bool` | No |  |
+| `dueDate` | `string` | No |  |
+| `errorDescription` | `string` | No |  |
+| `events` | `array` | No |  |
+| `failedPaymentRequests` | `array` | No |  |
+| `failureCallbackUrl` | `string` | No |  |
+| `fieldDisplaySettings` | `array` | No |  |
+| `formattedAmount` | `string` | No |  |
+| `hostedPayCheckoutUrl` | `string` | No |  |
 | `id` | `string` | No |  |
-| `ignore_address_verification` | `bool` | No |  |
+| `ignoreAddressVerification` | `bool` | No |  |
 | `inserted` | `string` | No |  |
-| `inserted_sortable` | `string` | No |  |
+| `insertedSortable` | `string` | No |  |
 | `institution` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
+| `isArchived` | `bool` | No |  |
 | `jwk` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_invoice_expires_at` | `string` | No |  |
-| `merchant_direct_debit_mandate_id` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
-| `notification_email_address` | `string` | No |  |
-| `notification_role_i_d` | `array` | No |  |
-| `order_id` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `partial_payment_step` | `string` | No |  |
-| `payment_attempt` | `array` | No |  |
-| `payment_initiation_id` | `string` | No |  |
-| `payment_method` | `array` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_request` | `array` | No |  |
-| `payrun_id` | `string` | No |  |
-| `pisp_account_id` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `lightningInvoice` | `string` | No |  |
+| `lightningInvoiceExpiresAt` | `string` | No |  |
+| `merchantDirectDebitMandateID` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantTokenDescription` | `string` | No |  |
+| `notificationEmailAddresses` | `string` | No |  |
+| `notificationRoleIDs` | `array` | No |  |
+| `orderID` | `string` | No |  |
+| `partialPaymentMethod` | `string` | No |  |
+| `partialPaymentSteps` | `string` | No |  |
+| `paymentAttempts` | `array` | No |  |
+| `paymentInitiationID` | `string` | No |  |
+| `paymentMethods` | `array` | No |  |
+| `paymentProcessor` | `string` | No |  |
+| `paymentRequests` | `array` | No |  |
+| `payrunID` | `string` | No |  |
+| `pispAccountID` | `string` | No |  |
+| `priorityBankID` | `string` | No |  |
 | `result` | `array` | No |  |
-| `sandbox_settle_delay_in_second` | `int` | No |  |
-| `shipping_address` | `array` | No |  |
+| `sandboxSettleDelayInSeconds` | `int` | No |  |
+| `shippingAddress` | `array` | No |  |
 | `status` | `string` | No |  |
-| `success_web_hook_url` | `string` | No |  |
-| `tag` | `array` | No |  |
+| `successWebHookUrl` | `string` | No |  |
+| `tags` | `array` | No |  |
 | `title` | `string` | No |  |
-| `tokenised_card` | `array` | No |  |
-| `transaction` | `array` | No |  |
-| `use_hosted_payment_page` | `bool` | No |  |
+| `tokenisedCards` | `array` | No |  |
+| `transactions` | `array` | No |  |
+| `useHostedPaymentPage` | `bool` | No |  |
 
 ### Operations
 
@@ -2714,7 +2724,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->PaymentRequest()->create([
-  "created_by_user" => null, // array
+  "createdByUser" => null, // array
 ]);
 ```
 
@@ -2794,41 +2804,41 @@ $payment_request_event = $client->PaymentRequestEvent();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `float` | Yes |  |
-| `apple_pay_transaction_id` | `string` | No |  |
-| `card_authorization_response_id` | `string` | No |  |
-| `card_expiry_month` | `int` | No |  |
-| `card_expiry_year` | `int` | No |  |
-| `card_issuer` | `string` | No |  |
-| `card_issuer_country` | `string` | No |  |
-| `card_last_four_digit` | `string` | No |  |
-| `card_request_id` | `string` | No |  |
-| `card_scheme` | `string` | No |  |
-| `card_token_customer_id` | `string` | No |  |
-| `card_transaction_id` | `string` | No |  |
+| `applePayTransactionID` | `string` | No |  |
+| `cardAuthorizationResponseID` | `string` | No |  |
+| `cardExpiryMonth` | `int` | No |  |
+| `cardExpiryYear` | `int` | No |  |
+| `cardIssuer` | `string` | No |  |
+| `cardIssuerCountry` | `string` | No |  |
+| `cardLastFourDigits` | `string` | No |  |
+| `cardRequestID` | `string` | No |  |
+| `cardScheme` | `string` | No |  |
+| `cardTokenCustomerID` | `string` | No |  |
+| `cardTransactionID` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `direct_debit_payment_id` | `string` | No |  |
-| `direct_debit_payment_reference` | `string` | No |  |
-| `drirect_debit_mandate_id` | `string` | No |  |
-| `error_message` | `string` | No |  |
-| `error_reason` | `string` | No |  |
-| `event_type` | `string` | No |  |
+| `directDebitPaymentID` | `string` | No |  |
+| `directDebitPaymentReference` | `string` | No |  |
+| `drirectDebitMandateID` | `string` | No |  |
+| `errorMessage` | `string` | No |  |
+| `errorReason` | `string` | No |  |
+| `eventType` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `lightning_invoice` | `string` | No |  |
-| `lightning_r_hash` | `string` | No |  |
-| `origin_url` | `string` | No |  |
-| `payment_method_type` | `string` | No |  |
-| `payment_processor_name` | `string` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_bank_status` | `string` | No |  |
-| `pisp_payment_initiation_id` | `string` | No |  |
-| `pisp_payment_institution_name` | `string` | No |  |
-| `pisp_payment_service_provider_id` | `string` | No |  |
-| `pisp_redirect_url` | `string` | No |  |
-| `reconciled_transaction_id` | `string` | No |  |
-| `refund_payout_id` | `string` | No |  |
+| `lightningInvoice` | `string` | No |  |
+| `lightningRHash` | `string` | No |  |
+| `originUrl` | `string` | No |  |
+| `paymentMethodType` | `string` | No |  |
+| `paymentProcessorName` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `pispBankStatus` | `string` | No |  |
+| `pispPaymentInitiationID` | `string` | No |  |
+| `pispPaymentInstitutionName` | `string` | No |  |
+| `pispPaymentServiceProviderID` | `string` | No |  |
+| `pispRedirectUrl` | `string` | No |  |
+| `reconciledTransactionID` | `string` | No |  |
+| `refundPayoutID` | `string` | No |  |
 | `status` | `string` | No |  |
-| `wallet_name` | `string` | No |  |
+| `walletName` | `string` | No |  |
 
 ### Operations
 
@@ -2875,17 +2885,6 @@ Return the entity name.
 ```php
 $payment_request_metric = $client->PaymentRequestMetric();
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `int` | No |  |
-| `authorized` | `int` | No |  |
-| `paid` | `int` | No |  |
-| `partially_paid` | `int` | No |  |
-| `total_amounts_by_currency` | `array` | No |  |
-| `unpaid` | `int` | No |  |
 
 ### Operations
 
@@ -2938,34 +2937,34 @@ $payment_request_minimal = $client->PaymentRequestMinimal();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
-| `callback_url` | `string` | No |  |
-| `card_stripe_payment_intent_secret` | `string` | No |  |
-| `country_code` | `string` | No |  |
+| `amountPending` | `float` | No |  |
+| `amountReceived` | `float` | No |  |
+| `amountRefunded` | `float` | No |  |
+| `callbackUrl` | `string` | No |  |
+| `cardStripePaymentIntentSecret` | `string` | No |  |
+| `countryCode` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `custom_fields_to_display` | `array` | No |  |
+| `customFieldsToDisplay` | `array` | No |  |
 | `description` | `string` | No |  |
-| `due_date` | `string` | No |  |
-| `field_display_setting` | `array` | No |  |
-| `google_pay_merchant_id` | `string` | No |  |
+| `dueDate` | `string` | No |  |
+| `fieldDisplaySettings` | `array` | No |  |
+| `googlePayMerchantID` | `string` | No |  |
 | `id` | `string` | No |  |
 | `jwk` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_logo_url_png` | `string` | No |  |
-| `merchant_logo_url_svg` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
-| `merchant_short_name` | `string` | No |  |
-| `partial_payment_method` | `string` | No |  |
-| `payment_attempt` | `array` | No |  |
-| `payment_methods_list` | `array` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_processor_key` | `string` | No |  |
-| `pisp_error` | `string` | No |  |
-| `priority_bank_id` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantLogoUrlPng` | `string` | No |  |
+| `merchantLogoUrlSvg` | `string` | No |  |
+| `merchantName` | `string` | No |  |
+| `merchantShortName` | `string` | No |  |
+| `partialPaymentMethod` | `string` | No |  |
+| `paymentAttempts` | `array` | No |  |
+| `paymentMethodsList` | `array` | No |  |
+| `paymentProcessor` | `string` | No |  |
+| `paymentProcessorKey` | `string` | No |  |
+| `pispError` | `string` | No |  |
+| `priorityBankID` | `string` | No |  |
 | `status` | `string` | No |  |
-| `stripe_account_id` | `string` | No |  |
+| `stripeAccountID` | `string` | No |  |
 | `title` | `string` | No |  |
 
 ### Operations
@@ -3019,15 +3018,15 @@ $payment_request_result = $client->PaymentRequestResult();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `float` | No |  |
-| `amount_pending` | `float` | No |  |
-| `amount_received` | `float` | No |  |
-| `amount_refunded` | `float` | No |  |
+| `amountPending` | `float` | No |  |
+| `amountReceived` | `float` | No |  |
+| `amountRefunded` | `float` | No |  |
 | `currency` | `string` | No |  |
-| `customer_id` | `string` | No |  |
-| `payment` | `array` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `pisp_authorization` | `array` | No |  |
-| `requested_amount` | `float` | No |  |
+| `customerID` | `string` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `payments` | `array` | No |  |
+| `pispAuthorizations` | `array` | No |  |
+| `requestedAmount` | `float` | No |  |
 | `result` | `string` | No |  |
 
 ### Operations
@@ -3080,169 +3079,169 @@ $payout = $client->Payout();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `allow_incomplete` | `bool` | No |  |
+| `accountID` | `string` | No |  |
+| `allowIncomplete` | `bool` | No |  |
 | `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
+| `amountMinorUnits` | `int` | No |  |
+| `approvePayoutUrl` | `string` | No |  |
+| `approverID` | `string` | No |  |
+| `authenticationMethods` | `array` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `batchPayoutID` | `string` | No |  |
 | `beneficiary` | `array` | Yes |  |
-| `beneficiary_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
+| `beneficiaryID` | `string` | No |  |
+| `canAuthorise` | `bool` | No |  |
+| `canProcess` | `bool` | No |  |
+| `canUpdate` | `bool` | No |  |
+| `chargeBearer` | `string` | No |  |
+| `createdBy` | `string` | No |  |
+| `createdByEmailAddress` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
+| `currentUserID` | `string` | No |  |
 | `description` | `string` | No |  |
 | `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `failed_payout` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `documents` | `array` | No |  |
+| `events` | `array` | No |  |
+| `failedPayouts` | `array` | No |  |
+| `formattedAmount` | `string` | No |  |
+| `formattedFxDestinationAmount` | `string` | No |  |
+| `formattedSchedule` | `string` | No |  |
+| `formattedScheduleDayOnly` | `string` | No |  |
+| `formattedSourceAccountAvailableBalance` | `string` | No |  |
+| `fxDestinationAmount` | `float` | No |  |
+| `fxDestinationAmountMinorUnits` | `int` | No |  |
+| `fxDestinationCurrency` | `string` | No |  |
+| `fxQuoteExpiresAt` | `string` | No |  |
+| `fxQuoteID` | `string` | No |  |
+| `fxRate` | `float` | No |  |
+| `fxUseDestinationAmount` | `bool` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
+| `invoiceID` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isFailed` | `bool` | No |  |
+| `isSettled` | `bool` | No |  |
+| `isSubmitted` | `bool` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantTokenDescription` | `string` | No |  |
 | `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payout` | `array` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
+| `paymentProcessor` | `string` | No |  |
+| `paymentRail` | `string` | No |  |
+| `payouts` | `array` | No |  |
+| `payrunID` | `string` | No |  |
+| `payrunName` | `string` | No |  |
 | `reason` | `string` | No |  |
 | `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
+| `scheduleDate` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
+| `sourceAccountAvailableBalance` | `float` | No |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `int` | No |  |
+| `sourceAccountBic` | `string` | No |  |
+| `sourceAccountCurrency` | `string` | No |  |
+| `sourceAccountIban` | `string` | No |  |
+| `sourceAccountIdentifier` | `array` | Yes |  |
+| `sourceAccountName` | `string` | No |  |
+| `sourceAccountNumber` | `string` | No |  |
+| `sourceAccountSortcode` | `string` | No |  |
 | `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `tag_id` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
+| `tagIds` | `array` | No |  |
+| `tags` | `array` | No |  |
+| `theirReference` | `string` | No |  |
+| `topupPayrunID` | `string` | No |  |
+| `transactedAmount` | `float` | No |  |
+| `transactedFxAmount` | `float` | No |  |
+| `transactedFxRate` | `float` | No |  |
 | `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
+| `userID` | `string` | No |  |
+| `yourReference` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `account_id` | - | - | Yes | - | - |
-| `allow_incomplete` | - | - | - | - | - |
+| `accountID` | - | - | Yes | - | - |
+| `allowIncomplete` | - | - | - | - | - |
 | `amount` | - | - | - | - | - |
-| `amount_minor_unit` | - | - | - | - | - |
-| `approve_payout_url` | - | - | - | - | - |
-| `approver_id` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `batch_payout_id` | - | - | - | - | - |
+| `amountMinorUnits` | - | - | - | - | - |
+| `approvePayoutUrl` | - | - | - | - | - |
+| `approverID` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `batchPayoutID` | - | - | - | - | - |
 | `beneficiary` | - | - | - | - | - |
-| `beneficiary_id` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `can_process` | - | - | - | - | - |
-| `can_update` | - | - | - | - | - |
-| `charge_bearer` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
-| `created_by_email_address` | - | - | - | - | - |
+| `beneficiaryID` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `canProcess` | - | - | - | - | - |
+| `canUpdate` | - | - | - | - | - |
+| `chargeBearer` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
+| `createdByEmailAddress` | - | - | - | - | - |
 | `currency` | - | - | Yes | - | - |
-| `current_user_id` | - | - | - | - | - |
+| `currentUserID` | - | - | - | - | - |
 | `description` | - | - | - | - | - |
 | `destination` | - | - | - | - | - |
-| `document` | - | - | - | - | - |
-| `event` | - | - | - | - | - |
-| `failed_payout` | - | - | - | - | - |
-| `formatted_amount` | - | - | - | - | - |
-| `formatted_fx_destination_amount` | - | - | - | - | - |
-| `formatted_schedule` | - | - | - | - | - |
-| `formatted_schedule_day_only` | - | - | - | - | - |
-| `formatted_source_account_available_balance` | - | - | - | - | - |
-| `fx_destination_amount` | - | - | - | - | - |
-| `fx_destination_amount_minor_unit` | - | - | - | - | - |
-| `fx_destination_currency` | - | - | - | - | - |
-| `fx_quote_expires_at` | - | - | - | - | - |
-| `fx_quote_id` | - | - | - | - | - |
-| `fx_rate` | - | - | - | - | - |
-| `fx_use_destination_amount` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `documents` | - | - | - | - | - |
+| `events` | - | - | - | - | - |
+| `failedPayouts` | - | - | - | - | - |
+| `formattedAmount` | - | - | - | - | - |
+| `formattedFxDestinationAmount` | - | - | - | - | - |
+| `formattedSchedule` | - | - | - | - | - |
+| `formattedScheduleDayOnly` | - | - | - | - | - |
+| `formattedSourceAccountAvailableBalance` | - | - | - | - | - |
+| `fxDestinationAmount` | - | - | - | - | - |
+| `fxDestinationAmountMinorUnits` | - | - | - | - | - |
+| `fxDestinationCurrency` | - | - | - | - | - |
+| `fxQuoteExpiresAt` | - | - | - | - | - |
+| `fxQuoteID` | - | - | - | - | - |
+| `fxRate` | - | - | - | - | - |
+| `fxUseDestinationAmount` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `invoice_id` | - | - | - | - | - |
-| `is_archived` | - | - | - | - | - |
-| `is_failed` | - | - | - | - | - |
-| `is_settled` | - | - | - | - | - |
-| `is_submitted` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
-| `merchant_token_description` | - | - | - | - | - |
+| `invoiceID` | - | - | - | - | - |
+| `isArchived` | - | - | - | - | - |
+| `isFailed` | - | - | - | - | - |
+| `isSettled` | - | - | - | - | - |
+| `isSubmitted` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
+| `merchantTokenDescription` | - | - | - | - | - |
 | `nonce` | - | - | - | - | - |
-| `payment_processor` | - | - | - | - | - |
-| `payment_rail` | - | - | - | - | - |
-| `payout` | - | - | - | - | - |
-| `payrun_id` | - | - | - | - | - |
-| `payrun_name` | - | - | - | - | - |
+| `paymentProcessor` | - | - | - | - | - |
+| `paymentRail` | - | - | - | - | - |
+| `payouts` | - | - | - | - | - |
+| `payrunID` | - | - | - | - | - |
+| `payrunName` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
 | `rule` | - | - | - | - | - |
-| `schedule_date` | - | - | - | - | - |
+| `scheduleDate` | - | - | - | - | - |
 | `scheduled` | - | - | - | - | - |
-| `source_account_available_balance` | - | - | - | - | - |
-| `source_account_available_balance_minor_unit` | - | - | - | - | - |
-| `source_account_bic` | - | - | - | - | - |
-| `source_account_currency` | - | - | - | - | - |
-| `source_account_iban` | - | - | - | - | - |
-| `source_account_identifier` | - | - | - | - | - |
-| `source_account_name` | - | - | - | - | - |
-| `source_account_number` | - | - | - | - | - |
-| `source_account_sortcode` | - | - | - | - | - |
+| `sourceAccountAvailableBalance` | - | - | - | - | - |
+| `sourceAccountAvailableBalanceMinorUnits` | - | - | - | - | - |
+| `sourceAccountBic` | - | - | - | - | - |
+| `sourceAccountCurrency` | - | - | - | - | - |
+| `sourceAccountIban` | - | - | - | - | - |
+| `sourceAccountIdentifier` | - | - | - | - | - |
+| `sourceAccountName` | - | - | - | - | - |
+| `sourceAccountNumber` | - | - | - | - | - |
+| `sourceAccountSortcode` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
-| `tag` | - | - | - | - | - |
-| `tag_id` | - | - | - | - | - |
-| `their_reference` | - | - | - | - | - |
-| `topup_payrun_id` | - | - | - | - | - |
-| `transacted_amount` | - | - | - | - | - |
-| `transacted_fx_amount` | - | - | - | - | - |
-| `transacted_fx_rate` | - | - | - | - | - |
+| `tagIds` | - | - | - | - | - |
+| `tags` | - | - | - | - | - |
+| `theirReference` | - | - | - | - | - |
+| `topupPayrunID` | - | - | - | - | - |
+| `transactedAmount` | - | - | - | - | - |
+| `transactedFxAmount` | - | - | - | - | - |
+| `transactedFxRate` | - | - | - | - | - |
 | `type` | - | - | Yes | - | - |
-| `user_id` | - | - | - | - | - |
-| `your_reference` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `yourReference` | - | - | - | - | - |
 
 ### Operations
 
@@ -3253,7 +3252,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Payout()->create([
   "beneficiary" => null, // array
-  "source_account_identifier" => null, // array
+  "sourceAccountIdentifier" => null, // array
 ]);
 ```
 
@@ -3332,79 +3331,79 @@ $payout_keyset_page = $client->PayoutKeysetPage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
+| `accountID` | `string` | No |  |
 | `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
-| `approve_payout_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
+| `amountMinorUnits` | `int` | No |  |
+| `approvePayoutUrl` | `string` | No |  |
+| `approverID` | `string` | No |  |
+| `authenticationMethods` | `array` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `batchPayoutID` | `string` | No |  |
 | `beneficiary` | `array` | Yes |  |
-| `can_authorise` | `bool` | No |  |
-| `can_process` | `bool` | No |  |
-| `can_update` | `bool` | No |  |
-| `charge_bearer` | `string` | No |  |
-| `created_by` | `string` | No |  |
-| `created_by_email_address` | `string` | No |  |
+| `canAuthorise` | `bool` | No |  |
+| `canProcess` | `bool` | No |  |
+| `canUpdate` | `bool` | No |  |
+| `chargeBearer` | `string` | No |  |
+| `createdBy` | `string` | No |  |
+| `createdByEmailAddress` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `current_user_id` | `string` | No |  |
+| `currentUserID` | `string` | No |  |
 | `description` | `string` | No |  |
 | `destination` | `array` | No |  |
-| `document` | `array` | No |  |
-| `event` | `array` | No |  |
-| `formatted_amount` | `string` | No |  |
-| `formatted_fx_destination_amount` | `string` | No |  |
-| `formatted_schedule` | `string` | No |  |
-| `formatted_schedule_day_only` | `string` | No |  |
-| `formatted_source_account_available_balance` | `string` | No |  |
-| `fx_destination_amount` | `float` | No |  |
-| `fx_destination_amount_minor_unit` | `int` | No |  |
-| `fx_destination_currency` | `string` | No |  |
-| `fx_quote_expires_at` | `string` | No |  |
-| `fx_quote_id` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `fx_use_destination_amount` | `bool` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `documents` | `array` | No |  |
+| `events` | `array` | No |  |
+| `formattedAmount` | `string` | No |  |
+| `formattedFxDestinationAmount` | `string` | No |  |
+| `formattedSchedule` | `string` | No |  |
+| `formattedScheduleDayOnly` | `string` | No |  |
+| `formattedSourceAccountAvailableBalance` | `string` | No |  |
+| `fxDestinationAmount` | `float` | No |  |
+| `fxDestinationAmountMinorUnits` | `int` | No |  |
+| `fxDestinationCurrency` | `string` | No |  |
+| `fxQuoteExpiresAt` | `string` | No |  |
+| `fxQuoteID` | `string` | No |  |
+| `fxRate` | `float` | No |  |
+| `fxUseDestinationAmount` | `bool` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice_id` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_failed` | `bool` | No |  |
-| `is_settled` | `bool` | No |  |
-| `is_submitted` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_token_description` | `string` | No |  |
+| `invoiceID` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isFailed` | `bool` | No |  |
+| `isSettled` | `bool` | No |  |
+| `isSubmitted` | `bool` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantTokenDescription` | `string` | No |  |
 | `nonce` | `string` | No |  |
-| `payment_processor` | `string` | No |  |
-| `payment_rail` | `string` | No |  |
-| `payrun_id` | `string` | No |  |
-| `payrun_name` | `string` | No |  |
+| `paymentProcessor` | `string` | No |  |
+| `paymentRail` | `string` | No |  |
+| `payrunID` | `string` | No |  |
+| `payrunName` | `string` | No |  |
 | `rule` | `array` | No |  |
-| `schedule_date` | `string` | No |  |
+| `scheduleDate` | `string` | No |  |
 | `scheduled` | `bool` | No |  |
-| `source_account_available_balance` | `float` | No |  |
-| `source_account_available_balance_minor_unit` | `int` | No |  |
-| `source_account_bic` | `string` | No |  |
-| `source_account_currency` | `string` | No |  |
-| `source_account_iban` | `string` | No |  |
-| `source_account_identifier` | `array` | Yes |  |
-| `source_account_name` | `string` | No |  |
-| `source_account_number` | `string` | No |  |
-| `source_account_sortcode` | `string` | No |  |
+| `sourceAccountAvailableBalance` | `float` | No |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `int` | No |  |
+| `sourceAccountBic` | `string` | No |  |
+| `sourceAccountCurrency` | `string` | No |  |
+| `sourceAccountIban` | `string` | No |  |
+| `sourceAccountIdentifier` | `array` | Yes |  |
+| `sourceAccountName` | `string` | No |  |
+| `sourceAccountNumber` | `string` | No |  |
+| `sourceAccountSortcode` | `string` | No |  |
 | `status` | `string` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `topup_payrun_id` | `string` | No |  |
-| `transacted_amount` | `float` | No |  |
-| `transacted_fx_amount` | `float` | No |  |
-| `transacted_fx_rate` | `float` | No |  |
+| `tags` | `array` | No |  |
+| `theirReference` | `string` | No |  |
+| `topupPayrunID` | `string` | No |  |
+| `transactedAmount` | `float` | No |  |
+| `transactedFxAmount` | `float` | No |  |
+| `transactedFxRate` | `float` | No |  |
 | `type` | `string` | No |  |
-| `user_id` | `string` | No |  |
-| `your_reference` | `string` | No |  |
+| `userID` | `string` | No |  |
+| `yourReference` | `string` | No |  |
 
 ### Operations
 
@@ -3451,18 +3450,6 @@ Return the entity name.
 ```php
 $payout_metric = $client->PayoutMetric();
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `float` | No |  |
-| `failed` | `float` | No |  |
-| `in_progress` | `float` | No |  |
-| `paid` | `float` | No |  |
-| `pending_approval` | `float` | No |  |
-| `scheduled` | `float` | No |  |
-| `total_amounts_by_currency` | `array` | No |  |
 
 ### Operations
 
@@ -3514,38 +3501,38 @@ $payrun = $client->Payrun();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation` | `array` | No |  |
-| `authorisation_date` | `string` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `batch_payout_id` | `string` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `can_delete` | `bool` | No |  |
-| `can_edit` | `bool` | No |  |
-| `event` | `array` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `authorisationDate` | `string` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `batchPayoutID` | `string` | No |  |
+| `canAuthorise` | `bool` | No |  |
+| `canDelete` | `bool` | No |  |
+| `canEdit` | `bool` | No |  |
+| `events` | `array` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `invoice` | `array` | No |  |
-| `invoices_minimal` | `array` | No |  |
-| `is_archived` | `bool` | No |  |
-| `last_updated` | `string` | No |  |
-| `last_updated_by` | `array` | Yes |  |
-| `merchant_id` | `string` | No |  |
+| `invoices` | `array` | No |  |
+| `invoicesMinimal` | `array` | No |  |
+| `isArchived` | `bool` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `lastUpdatedBy` | `array` | Yes |  |
+| `merchantID` | `string` | No |  |
 | `name` | `string` | No |  |
 | `nonce` | `string` | No |  |
-| `note` | `string` | No |  |
-| `payment` | `array` | No |  |
-| `payout` | `array` | No |  |
-| `payouts_count` | `int` | No |  |
+| `notes` | `string` | No |  |
+| `payments` | `array` | No |  |
+| `payouts` | `array` | No |  |
+| `payoutsCount` | `int` | No |  |
 | `reason` | `string` | No |  |
-| `schedule_date` | `string` | No |  |
-| `scheduled_date` | `string` | No |  |
-| `source_account` | `array` | No |  |
+| `scheduleDate` | `string` | No |  |
+| `scheduledDate` | `string` | No |  |
+| `sourceAccounts` | `array` | No |  |
 | `status` | `string` | No |  |
-| `total_eur` | `float` | No |  |
-| `total_gbp` | `float` | No |  |
-| `total_usd` | `float` | No |  |
+| `totalEur` | `float` | No |  |
+| `totalGbp` | `float` | No |  |
+| `totalUsd` | `float` | No |  |
 
 ### Operations
 
@@ -3556,7 +3543,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Payrun()->create([
   "id" => null, // string
-  "last_updated_by" => null, // array
+  "lastUpdatedBy" => null, // array
 ]);
 ```
 
@@ -3684,13 +3671,13 @@ $report_result = $client->ReportResult();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `content` | `string` | No |  |
-| `content_type` | `string` | No |  |
-| `last_completed_at` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `report_name` | `string` | No |  |
-| `report_type` | `string` | No |  |
-| `statement_number` | `int` | No |  |
+| `contentType` | `string` | No |  |
+| `contents` | `string` | No |  |
+| `lastCompletedAt` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `reportName` | `string` | No |  |
+| `reportType` | `string` | No |  |
+| `statementNumber` | `int` | No |  |
 
 ### Operations
 
@@ -3742,8 +3729,8 @@ $role = $client->Role();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `failed_role` | `array` | No |  |
-| `role` | `array` | No |  |
+| `failedRoles` | `array` | No |  |
+| `roles` | `array` | No |  |
 
 ### Operations
 
@@ -3798,76 +3785,76 @@ $rule = $client->Rule();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `account` | `array` | No |  |
-| `account_id` | `string` | No |  |
-| `approve_url` | `string` | No |  |
-| `approver_id` | `string` | No |  |
-| `authentication_method` | `array` | No |  |
-| `authorisation` | `array` | No |  |
-| `authorisers_completed_count` | `int` | No |  |
-| `authorisers_required_count` | `int` | No |  |
-| `can_authorise` | `bool` | No |  |
-| `created_by` | `array` | Yes |  |
+| `accountID` | `string` | No |  |
+| `approveUrl` | `string` | No |  |
+| `approverID` | `string` | No |  |
+| `authenticationMethods` | `array` | No |  |
+| `authorisations` | `array` | No |  |
+| `authorisersCompletedCount` | `int` | No |  |
+| `authorisersRequiredCount` | `int` | No |  |
+| `canAuthorise` | `bool` | No |  |
+| `createdBy` | `array` | Yes |  |
 | `description` | `string` | No |  |
-| `end_at` | `string` | No |  |
-| `has_current_user_authorised` | `bool` | No |  |
+| `endAt` | `string` | No |  |
+| `hasCurrentUserAuthorised` | `bool` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_disabled` | `bool` | No |  |
-| `last_executed_at` | `string` | No |  |
-| `last_run_at_transaction_date` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
+| `isDisabled` | `bool` | No |  |
+| `lastExecutedAt` | `string` | No |  |
+| `lastRunAtTransactionDate` | `string` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
 | `name` | `string` | No |  |
 | `nonce` | `string` | Yes |  |
-| `on_approved_web_hook_url` | `string` | No |  |
-| `on_execution_error_web_hook_url` | `string` | No |  |
-| `on_execution_success_web_hook_url` | `string` | No |  |
-| `start_at` | `string` | No |  |
+| `onApprovedWebHookUrl` | `string` | No |  |
+| `onExecutionErrorWebHookUrl` | `string` | No |  |
+| `onExecutionSuccessWebHookUrl` | `string` | No |  |
+| `startAt` | `string` | No |  |
 | `status` | `string` | No |  |
-| `sweep_action` | `array` | No |  |
-| `time_zone_id` | `string` | No |  |
-| `trigger_cron_expression` | `string` | No |  |
-| `trigger_on_pay_in` | `bool` | No |  |
-| `user_id` | `string` | No |  |
-| `web_hook_secret` | `string` | No |  |
+| `sweepAction` | `array` | No |  |
+| `timeZoneId` | `string` | No |  |
+| `triggerCronExpression` | `string` | No |  |
+| `triggerOnPayIn` | `bool` | No |  |
+| `userID` | `string` | No |  |
+| `webHookSecret` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `account` | - | - | - | - | - |
-| `account_id` | - | - | - | - | - |
-| `approve_url` | - | - | - | - | - |
-| `approver_id` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
+| `accountID` | - | - | - | - | - |
+| `approveUrl` | - | - | - | - | - |
+| `approverID` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
 | `description` | - | - | - | - | - |
-| `end_at` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `endAt` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `is_disabled` | - | - | - | - | - |
-| `last_executed_at` | - | - | - | - | - |
-| `last_run_at_transaction_date` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
+| `isDisabled` | - | - | - | - | - |
+| `lastExecutedAt` | - | - | - | - | - |
+| `lastRunAtTransactionDate` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
 | `name` | - | - | Yes | - | - |
 | `nonce` | - | - | - | - | - |
-| `on_approved_web_hook_url` | - | - | - | - | - |
-| `on_execution_error_web_hook_url` | - | - | - | - | - |
-| `on_execution_success_web_hook_url` | - | - | - | - | - |
-| `start_at` | - | - | - | - | - |
+| `onApprovedWebHookUrl` | - | - | - | - | - |
+| `onExecutionErrorWebHookUrl` | - | - | - | - | - |
+| `onExecutionSuccessWebHookUrl` | - | - | - | - | - |
+| `startAt` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
-| `sweep_action` | - | - | Yes | - | - |
-| `time_zone_id` | - | - | - | - | - |
-| `trigger_cron_expression` | - | - | - | - | - |
-| `trigger_on_pay_in` | - | - | - | - | - |
-| `user_id` | - | - | - | - | - |
-| `web_hook_secret` | - | - | - | - | - |
+| `sweepAction` | - | - | Yes | - | - |
+| `timeZoneId` | - | - | - | - | - |
+| `triggerCronExpression` | - | - | - | - | - |
+| `triggerOnPayIn` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `webHookSecret` | - | - | - | - | - |
 
 ### Operations
 
@@ -3877,7 +3864,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Rule()->create([
-  "created_by" => null, // array
+  "createdBy" => null, // array
   "nonce" => null, // string
 ]);
 ```
@@ -3957,14 +3944,14 @@ $rule_event = $client->RuleEvent();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `error_message` | `string` | No |  |
+| `errorMessage` | `string` | No |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `is_authorise_to_enable` | `bool` | No |  |
+| `isAuthoriseToEnable` | `bool` | No |  |
 | `message` | `string` | No |  |
-| `raw_response` | `string` | No |  |
-| `rule_event_type` | `string` | No |  |
-| `rule_id` | `string` | No |  |
+| `rawResponse` | `string` | No |  |
+| `ruleEventType` | `string` | No |  |
+| `ruleID` | `string` | No |  |
 | `user` | `array` | Yes |  |
 
 ### Operations
@@ -4017,10 +4004,10 @@ $tag = $client->Tag();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `colour_hex` | `string` | No |  |
+| `colourHex` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `merchant_id` | `string` | Yes |  |
+| `merchantID` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations
@@ -4032,6 +4019,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Tag()->create([
   "merchant_id" => null, // string
+  "merchantID" => null, // string
   "name" => null, // string
 ]);
 ```
@@ -4140,59 +4128,59 @@ $transaction = $client->Transaction();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `string` | No |  |
-| `account_name` | `string` | No |  |
-| `account_sequence_number` | `int` | No |  |
-| `address_detail` | `array` | No |  |
+| `accountID` | `string` | No |  |
+| `accountName` | `string` | No |  |
+| `accountSequenceNumber` | `int` | No |  |
+| `addressDetails` | `array` | No |  |
 | `amount` | `float` | No |  |
-| `amount_minor_unit` | `int` | No |  |
+| `amountMinorUnits` | `int` | No |  |
 | `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `booking_date_time` | `string` | No |  |
-| `charge_detail` | `array` | No |  |
+| `balanceMinorUnits` | `int` | No |  |
+| `bookingDateTime` | `string` | No |  |
+| `chargeDetails` | `array` | No |  |
 | `content` | `array` | No |  |
 | `counterparty` | `array` | No |  |
-| `counterparty_summary` | `string` | No |  |
+| `counterpartySummary` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `currency_exchange` | `array` | No |  |
+| `currencyExchange` | `array` | No |  |
 | `date` | `string` | No |  |
 | `description` | `string` | No |  |
 | `enrichment` | `array` | No |  |
-| `fx_amount` | `float` | No |  |
-| `fx_currency` | `string` | No |  |
-| `fx_rate` | `float` | No |  |
-| `gross_amount` | `array` | Yes |  |
+| `fxAmount` | `float` | No |  |
+| `fxCurrency` | `string` | No |  |
+| `fxRate` | `float` | No |  |
+| `grossAmount` | `array` | Yes |  |
 | `id` | `string` | No |  |
 | `inserted` | `string` | No |  |
-| `iso_bank_transaction_code` | `array` | No |  |
+| `isoBankTransactionCode` | `array` | No |  |
 | `merchant` | `array` | No |  |
-| `merchant_id` | `string` | No |  |
-| `page_number` | `int` | No |  |
-| `page_size` | `int` | No |  |
-| `payee_detail` | `array` | Yes |  |
-| `payer_detail` | `array` | Yes |  |
-| `payment_request_custom_field` | `array` | No |  |
-| `payment_request_id` | `string` | No |  |
-| `payout_id` | `string` | No |  |
-| `proprietary_bank_transaction_code` | `array` | No |  |
-| `raw_reference` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `pageNumber` | `int` | No |  |
+| `pageSize` | `int` | No |  |
+| `payeeDetails` | `array` | Yes |  |
+| `payerDetails` | `array` | Yes |  |
+| `paymentRequestCustomFields` | `array` | No |  |
+| `paymentRequestID` | `string` | No |  |
+| `payoutID` | `string` | No |  |
+| `proprietaryBankTransactionCode` | `array` | No |  |
+| `rawReference` | `string` | No |  |
 | `reference` | `string` | No |  |
-| `rule_id` | `string` | No |  |
-| `statement_reference` | `array` | No |  |
+| `ruleID` | `string` | No |  |
+| `statementReferences` | `array` | No |  |
 | `status` | `string` | No |  |
-| `supplementary_data` | `mixed` | No |  |
-| `tag` | `array` | No |  |
-| `their_reference` | `string` | No |  |
-| `total_page` | `int` | No |  |
-| `total_size` | `int` | No |  |
-| `transaction_amount` | `array` | Yes |  |
-| `transaction_date` | `string` | No |  |
-| `transaction_information` | `array` | No |  |
-| `transaction_mutability` | `string` | No |  |
+| `supplementaryData` | `mixed` | No |  |
+| `tags` | `array` | No |  |
+| `theirReference` | `string` | No |  |
+| `totalPages` | `int` | No |  |
+| `totalSize` | `int` | No |  |
+| `transactionAmount` | `array` | Yes |  |
+| `transactionDate` | `string` | No |  |
+| `transactionInformation` | `array` | No |  |
+| `transactionMutability` | `string` | No |  |
 | `type` | `string` | No |  |
-| `value_date_time` | `string` | No |  |
-| `virtual_iban` | `string` | No |  |
-| `your_reference` | `string` | No |  |
+| `valueDateTime` | `string` | No |  |
+| `virtualIBAN` | `string` | No |  |
+| `yourReference` | `string` | No |  |
 
 ### Operations
 
@@ -4203,10 +4191,10 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Transaction()->create([
   "id" => null, // string
-  "gross_amount" => null, // array
-  "payee_detail" => null, // array
-  "payer_detail" => null, // array
-  "transaction_amount" => null, // array
+  "grossAmount" => null, // array
+  "payeeDetails" => null, // array
+  "payerDetails" => null, // array
+  "transactionAmount" => null, // array
 ]);
 ```
 
@@ -4274,33 +4262,33 @@ $user = $client->User();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client_session_timeout` | `array` | No |  |
-| `email_address` | `string` | Yes |  |
-| `first_name` | `string` | Yes |  |
+| `clientSessionTimeouts` | `array` | No |  |
+| `emailAddress` | `string` | Yes |  |
+| `firstName` | `string` | Yes |  |
 | `id` | `string` | No |  |
-| `last_name` | `string` | Yes |  |
-| `passkey_added` | `bool` | No |  |
-| `permission` | `array` | No |  |
+| `lastName` | `string` | Yes |  |
+| `passkeyAdded` | `bool` | No |  |
+| `permissions` | `array` | No |  |
 | `profile` | `string` | No |  |
-| `roles_with_scope` | `array` | No |  |
-| `two_factor_enabled` | `bool` | No |  |
-| `user_invite_id` | `string` | No |  |
+| `rolesWithScope` | `array` | No |  |
+| `twoFactorEnabled` | `bool` | No |  |
+| `userInviteID` | `string` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | update |
 | --- | --- | --- |
-| `client_session_timeout` | - | - |
-| `email_address` | - | Yes |
-| `first_name` | - | Yes |
+| `clientSessionTimeouts` | - | - |
+| `emailAddress` | - | Yes |
+| `firstName` | - | Yes |
 | `id` | - | - |
-| `last_name` | - | Yes |
-| `passkey_added` | - | - |
-| `permission` | - | - |
+| `lastName` | - | Yes |
+| `passkeyAdded` | - | - |
+| `permissions` | - | - |
 | `profile` | - | - |
-| `roles_with_scope` | - | - |
-| `two_factor_enabled` | - | - |
-| `user_invite_id` | - | - |
+| `rolesWithScope` | - | - |
+| `twoFactorEnabled` | - | - |
+| `userInviteID` | - | - |
 
 ### Operations
 
@@ -4363,55 +4351,55 @@ $user_invite = $client->UserInvite();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation_status` | `array` | No |  |
-| `failed_user_invite` | `array` | No |  |
+| `authorisationStatus` | `array` | No |  |
+| `failedUserInvites` | `array` | No |  |
 | `id` | `string` | No |  |
-| `initial_role_id` | `string` | No |  |
-| `invitee_email_address` | `string` | No |  |
-| `invitee_first_name` | `string` | No |  |
-| `invitee_last_name` | `string` | No |  |
-| `inviter_email_address` | `string` | No |  |
-| `inviter_first_name` | `string` | No |  |
-| `inviter_last_name` | `string` | No |  |
-| `is_authorised` | `bool` | No |  |
-| `is_invitee_registered` | `bool` | No |  |
-| `last_invited` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
+| `initialRoleID` | `string` | No |  |
+| `inviteeEmailAddress` | `string` | No |  |
+| `inviteeFirstName` | `string` | No |  |
+| `inviteeLastName` | `string` | No |  |
+| `inviterEmailAddress` | `string` | No |  |
+| `inviterFirstName` | `string` | No |  |
+| `inviterLastName` | `string` | No |  |
+| `isAuthorised` | `bool` | No |  |
+| `isInviteeRegistered` | `bool` | No |  |
+| `lastInvited` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantName` | `string` | No |  |
 | `message` | `string` | No |  |
-| `registration_url` | `string` | No |  |
-| `send_invite_email` | `bool` | No |  |
+| `registrationUrl` | `string` | No |  |
+| `sendInviteEmail` | `bool` | No |  |
 | `status` | `string` | No |  |
 | `user` | `array` | Yes |  |
-| `user_id` | `string` | No |  |
-| `user_invite` | `array` | No |  |
+| `userID` | `string` | No |  |
+| `userInvites` | `array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `authorisation_status` | - | - | - | - | - |
-| `failed_user_invite` | - | - | - | - | - |
+| `authorisationStatus` | - | - | - | - | - |
+| `failedUserInvites` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `initial_role_id` | - | - | - | - | - |
-| `invitee_email_address` | - | - | Yes | - | - |
-| `invitee_first_name` | - | - | - | - | - |
-| `invitee_last_name` | - | - | - | - | - |
-| `inviter_email_address` | - | - | - | - | - |
-| `inviter_first_name` | - | - | - | - | - |
-| `inviter_last_name` | - | - | - | - | - |
-| `is_authorised` | - | - | - | - | - |
-| `is_invitee_registered` | - | - | - | - | - |
-| `last_invited` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
-| `merchant_name` | - | - | - | - | - |
+| `initialRoleID` | - | - | - | - | - |
+| `inviteeEmailAddress` | - | - | Yes | - | - |
+| `inviteeFirstName` | - | - | - | - | - |
+| `inviteeLastName` | - | - | - | - | - |
+| `inviterEmailAddress` | - | - | - | - | - |
+| `inviterFirstName` | - | - | - | - | - |
+| `inviterLastName` | - | - | - | - | - |
+| `isAuthorised` | - | - | - | - | - |
+| `isInviteeRegistered` | - | - | - | - | - |
+| `lastInvited` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
+| `merchantName` | - | - | - | - | - |
 | `message` | - | - | - | - | - |
-| `registration_url` | - | - | - | - | - |
-| `send_invite_email` | - | - | - | - | - |
+| `registrationUrl` | - | - | - | - | - |
+| `sendInviteEmail` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
-| `user_id` | - | - | - | - | - |
-| `user_invite` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `userInvites` | - | - | - | - | - |
 
 ### Operations
 
@@ -4500,46 +4488,46 @@ $virtual = $client->Virtual();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `string` | No |  |
-| `account_supplier_name` | `string` | No |  |
-| `available_balance` | `float` | No |  |
-| `available_balance_minor_unit` | `int` | No |  |
+| `accountName` | `string` | No |  |
+| `accountSupplierName` | `string` | No |  |
+| `availableBalance` | `float` | No |  |
+| `availableBalanceMinorUnits` | `int` | No |  |
 | `balance` | `float` | No |  |
-| `balance_minor_unit` | `int` | No |  |
-| `bank_name` | `string` | No |  |
-| `consent_id` | `string` | No |  |
-| `created_by` | `array` | Yes |  |
-| `created_by_display_name` | `string` | No |  |
+| `balanceMinorUnits` | `int` | No |  |
+| `bankName` | `string` | No |  |
+| `consentID` | `string` | No |  |
+| `createdBy` | `array` | Yes |  |
+| `createdByDisplayName` | `string` | No |  |
 | `currency` | `string` | No |  |
-| `default_payment_rail` | `string` | No |  |
-| `display_name` | `string` | No |  |
-| `expiry_date` | `string` | No |  |
-| `external_account_icon` | `string` | No |  |
+| `defaultPaymentRail` | `string` | No |  |
+| `displayName` | `string` | No |  |
+| `expiryDate` | `string` | No |  |
+| `externalAccountIcon` | `string` | No |  |
 | `id` | `string` | No |  |
 | `identifier` | `array` | Yes |  |
 | `inserted` | `string` | No |  |
-| `is_archived` | `bool` | No |  |
-| `is_connected_account` | `bool` | No |  |
-| `is_default` | `bool` | No |  |
-| `is_trust_account` | `bool` | No |  |
-| `is_virtual` | `bool` | No |  |
-| `last_transaction` | `array` | No |  |
-| `last_updated` | `string` | No |  |
-| `merchant_id` | `string` | No |  |
-| `merchant_name` | `string` | No |  |
+| `isArchived` | `bool` | No |  |
+| `isConnectedAccount` | `bool` | No |  |
+| `isDefault` | `bool` | No |  |
+| `isTrustAccount` | `bool` | No |  |
+| `isVirtual` | `bool` | No |  |
+| `lastTransaction` | `array` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `merchantID` | `string` | No |  |
+| `merchantName` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `physical_account_id` | `string` | No |  |
-| `rule` | `array` | No |  |
-| `submitted_payouts_balance` | `float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `int` | No |  |
+| `physicalAccountID` | `string` | No |  |
+| `rules` | `array` | No |  |
+| `submittedPayoutsBalance` | `float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `int` | No |  |
 | `summary` | `string` | No |  |
-| `supplier_sepa_instant_status` | `string` | No |  |
-| `xero_bank_feed_connection_status` | `string` | No |  |
-| `xero_bank_feed_last_synced_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `string` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `string` | No |  |
-| `xero_bank_feed_sync_status` | `string` | No |  |
-| `xero_unsynchronised_transactions_count` | `int` | No |  |
+| `supplierSepaInstantStatus` | `string` | No |  |
+| `xeroBankFeedConnectionStatus` | `string` | No |  |
+| `xeroBankFeedLastSyncedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `string` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `string` | No |  |
+| `xeroBankFeedSyncStatus` | `string` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `int` | No |  |
 
 ### Operations
 
@@ -4550,7 +4538,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->Virtual()->create([
   "account_id" => null, // string
-  "created_by" => null, // array
+  "createdBy" => null, // array
   "identifier" => null, // array
   "name" => null, // string
 ]);
@@ -4608,14 +4596,14 @@ $webhook = $client->Webhook();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destination_url` | `string` | No |  |
-| `email_address` | `string` | No |  |
-| `failed_notification_email_address` | `string` | No |  |
+| `destinationUrl` | `string` | No |  |
+| `emailAddress` | `string` | No |  |
+| `failedNotificationEmailAddress` | `string` | No |  |
 | `id` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `merchant_id` | `string` | No |  |
-| `notification_method` | `string` | No |  |
-| `resource_type` | `array` | No |  |
+| `isActive` | `bool` | No |  |
+| `merchantID` | `string` | No |  |
+| `notificationMethod` | `string` | No |  |
+| `resourceTypes` | `array` | No |  |
 | `retry` | `bool` | No |  |
 | `secret` | `string` | No |  |
 | `version` | `int` | No |  |
@@ -4624,14 +4612,14 @@ $webhook = $client->Webhook();
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `destination_url` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `failed_notification_email_address` | - | - | - | - | - |
+| `destinationUrl` | - | - | - | - | - |
+| `emailAddress` | - | - | - | - | - |
+| `failedNotificationEmailAddress` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `is_active` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | Yes | - |
-| `notification_method` | - | - | Yes | Yes | - |
-| `resource_type` | - | - | - | - | - |
+| `isActive` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | Yes | - |
+| `notificationMethod` | - | - | Yes | Yes | - |
+| `resourceTypes` | - | - | - | - | - |
 | `retry` | - | - | - | - | - |
 | `secret` | - | - | - | - | - |
 | `version` | - | - | - | - | - |

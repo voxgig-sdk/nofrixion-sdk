@@ -63,17 +63,17 @@ describe('UserEntity', async () => {
     const user_ref01_ent = client.User()
     const user_ref01_match: any = {}
 
-    const user_ref01_list = await user_ref01_ent.list(user_ref01_match)
+    const user_ref01_list = (await user_ref01_ent.list(user_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
     const user_ref01_data_up0: any = {}
     user_ref01_data_up0.id = user_ref01_data.id
 
-    const user_ref01_markdef_up0 = { name: 'email_address', value: 'Mark01-user_ref01_' + setup.now }
+    const user_ref01_markdef_up0 = { name: 'emailAddress', value: 'Mark01-user_ref01_' + setup.now }
     ;(user_ref01_data_up0 as any)[user_ref01_markdef_up0.name] = user_ref01_markdef_up0.value
 
-    const user_ref01_resdata_up0 = await user_ref01_ent.update(user_ref01_data_up0)
+    const user_ref01_resdata_up0 = (await user_ref01_ent.update(user_ref01_data_up0)).data()
     assert(user_ref01_resdata_up0.id === user_ref01_data_up0.id)
 
     assert((user_ref01_resdata_up0 as any)[user_ref01_markdef_up0.name] === user_ref01_markdef_up0.value)

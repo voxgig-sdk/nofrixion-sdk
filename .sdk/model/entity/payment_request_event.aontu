@@ -11,57 +11,57 @@ main: kit: entity: payment_request_event: {
       type: "`$NUMBER`"
     }
     {
-      name: "apple_pay_transaction_id"
+      name: "applePayTransactionID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_authorization_response_id"
+      name: "cardAuthorizationResponseID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_expiry_month"
+      name: "cardExpiryMonth"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "card_expiry_year"
+      name: "cardExpiryYear"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "card_issuer"
+      name: "cardIssuer"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_issuer_country"
+      name: "cardIssuerCountry"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_last_four_digit"
+      name: "cardLastFourDigits"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_request_id"
+      name: "cardRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_scheme"
+      name: "cardScheme"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_token_customer_id"
+      name: "cardTokenCustomerID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_transaction_id"
+      name: "cardTransactionID"
       req: false
       type: "`$STRING`"
     }
@@ -71,32 +71,32 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
-      name: "direct_debit_payment_id"
+      name: "directDebitPaymentID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "direct_debit_payment_reference"
+      name: "directDebitPaymentReference"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "drirect_debit_mandate_id"
+      name: "drirectDebitMandateID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "error_message"
+      name: "errorMessage"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "error_reason"
+      name: "errorReason"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "event_type"
+      name: "eventType"
       req: false
       type: "`$STRING`"
     }
@@ -111,67 +111,67 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
-      name: "lightning_invoice"
+      name: "lightningInvoice"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "lightning_r_hash"
+      name: "lightningRHash"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "origin_url"
+      name: "originUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_method_type"
+      name: "paymentMethodType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_processor_name"
+      name: "paymentProcessorName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_bank_status"
+      name: "pispBankStatus"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_payment_initiation_id"
+      name: "pispPaymentInitiationID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_payment_institution_name"
+      name: "pispPaymentInstitutionName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_payment_service_provider_id"
+      name: "pispPaymentServiceProviderID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_redirect_url"
+      name: "pispRedirectUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "reconciled_transaction_id"
+      name: "reconciledTransactionID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "refund_payout_id"
+      name: "refundPayoutID"
       req: false
       type: "`$STRING`"
     }
@@ -181,7 +181,7 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
-      name: "wallet_name"
+      name: "walletName"
       req: false
       type: "`$STRING`"
     }

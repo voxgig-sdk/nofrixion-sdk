@@ -64,7 +64,7 @@ describe('AccountEntity', async () => {
     account_ref01_data['account_id'] = setup.idmap['account01']
     account_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    account_ref01_data = await account_ref01_ent.create(account_ref01_data)
+    account_ref01_data = (await account_ref01_ent.create(account_ref01_data)).data()
     assert(null != account_ref01_data.id)
 
 
@@ -72,7 +72,7 @@ describe('AccountEntity', async () => {
     const account_ref01_match: any = {}
     account_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const account_ref01_list = await account_ref01_ent.list(account_ref01_match)
+    const account_ref01_list = (await account_ref01_ent.list(account_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(account_ref01_list, { id: account_ref01_data.id })))
 
@@ -81,10 +81,10 @@ describe('AccountEntity', async () => {
     const account_ref01_data_up0: any = {}
     account_ref01_data_up0.id = account_ref01_data.id
 
-    const account_ref01_markdef_up0 = { name: 'account_id', value: 'Mark01-account_ref01_' + setup.now }
+    const account_ref01_markdef_up0 = { name: 'accountID', value: 'Mark01-account_ref01_' + setup.now }
     ;(account_ref01_data_up0 as any)[account_ref01_markdef_up0.name] = account_ref01_markdef_up0.value
 
-    const account_ref01_resdata_up0 = await account_ref01_ent.update(account_ref01_data_up0)
+    const account_ref01_resdata_up0 = (await account_ref01_ent.update(account_ref01_data_up0)).data()
     assert(account_ref01_resdata_up0.id === account_ref01_data_up0.id)
 
     assert((account_ref01_resdata_up0 as any)[account_ref01_markdef_up0.name] === account_ref01_markdef_up0.value)
@@ -93,7 +93,7 @@ describe('AccountEntity', async () => {
     // LOAD
     const account_ref01_match_dt0: any = {}
     account_ref01_match_dt0.id = account_ref01_data.id
-    const account_ref01_data_dt0 = await account_ref01_ent.load(account_ref01_match_dt0)
+    const account_ref01_data_dt0 = (await account_ref01_ent.load(account_ref01_match_dt0)).data()
     assert(account_ref01_data_dt0.id === account_ref01_data.id)
 
 
@@ -106,7 +106,7 @@ describe('AccountEntity', async () => {
     const account_ref01_match_rt0: any = {}
     account_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const account_ref01_list_rt0 = await account_ref01_ent.list(account_ref01_match_rt0)
+    const account_ref01_list_rt0 = (await account_ref01_ent.list(account_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(account_ref01_list_rt0, { id: account_ref01_data.id })))
 

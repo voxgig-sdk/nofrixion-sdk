@@ -6,6 +6,31 @@ main: kit: entity: merchant_payment_request_template: {
 
   fields: [
     {
+      name: "bankPaymentOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "cardPaymentAddressOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "cardPaymentCaptureOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "customFields"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "defaultFields"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "description"
       req: true
       type: "`$STRING`"
@@ -21,12 +46,12 @@ main: kit: entity: merchant_payment_request_template: {
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
@@ -34,6 +59,26 @@ main: kit: entity: merchant_payment_request_template: {
       name: "name"
       req: true
       type: "`$STRING`"
+    }
+    {
+      name: "notificationOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "paymentMethods"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "paymentTerms"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "priorityBankOptions"
+      req: false
+      type: "`$OBJECT`"
     }
     {
       name: "template"

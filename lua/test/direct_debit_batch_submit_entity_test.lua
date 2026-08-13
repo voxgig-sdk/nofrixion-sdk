@@ -41,7 +41,7 @@ describe("DirectDebitBatchSubmitEntity", function()
 
     local direct_debit_batch_submit_ref01_data_result, err = direct_debit_batch_submit_ref01_ent:create(direct_debit_batch_submit_ref01_data, nil)
     assert.is_nil(err)
-    direct_debit_batch_submit_ref01_data = helpers.to_map(direct_debit_batch_submit_ref01_data_result)
+    direct_debit_batch_submit_ref01_data = helpers.to_map(type(direct_debit_batch_submit_ref01_data_result) == 'table' and direct_debit_batch_submit_ref01_data_result.data_get and direct_debit_batch_submit_ref01_data_result:data_get() or direct_debit_batch_submit_ref01_data_result)
     assert.is_not_nil(direct_debit_batch_submit_ref01_data)
 
   end)

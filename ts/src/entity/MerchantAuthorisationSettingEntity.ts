@@ -37,7 +37,7 @@ class MerchantAuthorisationSettingEntity extends NofrixionEntityBase<MerchantAut
 
 
 
-  async list(this: any, reqmatch?: MerchantAuthorisationSettingListMatch, ctrl?: Control): Promise<MerchantAuthorisationSetting[]> {
+  async list(this: any, reqmatch?: MerchantAuthorisationSettingListMatch, ctrl?: Control): Promise<MerchantAuthorisationSettingEntity[]> {
 
     const utility = this._utility
 

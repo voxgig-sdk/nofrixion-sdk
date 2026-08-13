@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestPayoutEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from nofrixion_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = NofrixionSDK.test(
@@ -82,7 +82,7 @@ class TestPayoutEntity:
         payout_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
         payout_ref01_data["source"] = setup["idmap"]["source01"]
 
-        payout_ref01_data = helpers.to_map(payout_ref01_ent.create(payout_ref01_data, None))
+        payout_ref01_data = helpers.to_map(runner.entity_data(payout_ref01_ent.create(payout_ref01_data, None)))
         assert payout_ref01_data is not None
         assert payout_ref01_data["id"] is not None
 
@@ -104,11 +104,11 @@ class TestPayoutEntity:
             "id": payout_ref01_data["id"],
         }
 
-        payout_ref01_markdef_up0_name = "account_id"
+        payout_ref01_markdef_up0_name = "accountID"
         payout_ref01_markdef_up0_value = "Mark01-payout_ref01_" + str(setup["now"])
         payout_ref01_data_up0_up[payout_ref01_markdef_up0_name] = payout_ref01_markdef_up0_value
 
-        payout_ref01_resdata_up0 = helpers.to_map(payout_ref01_ent.update(payout_ref01_data_up0_up, None))
+        payout_ref01_resdata_up0 = helpers.to_map(runner.entity_data(payout_ref01_ent.update(payout_ref01_data_up0_up, None)))
         assert payout_ref01_resdata_up0 is not None
         assert payout_ref01_resdata_up0["id"] == payout_ref01_data_up0_up["id"]
         assert payout_ref01_resdata_up0[payout_ref01_markdef_up0_name] == payout_ref01_markdef_up0_value
@@ -118,7 +118,7 @@ class TestPayoutEntity:
             "id": payout_ref01_data["id"],
         }
         payout_ref01_data_dt0_loaded = payout_ref01_ent.load(payout_ref01_match_dt0, None)
-        payout_ref01_data_dt0_load_result = helpers.to_map(payout_ref01_data_dt0_loaded)
+        payout_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(payout_ref01_data_dt0_loaded))
         assert payout_ref01_data_dt0_load_result is not None
         assert payout_ref01_data_dt0_load_result["id"] == payout_ref01_data["id"]
 

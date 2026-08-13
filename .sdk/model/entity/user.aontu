@@ -6,12 +6,12 @@ main: kit: entity: user: {
 
   fields: [
     {
-      name: "client_session_timeout"
+      name: "clientSessionTimeouts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "email_address"
+      name: "emailAddress"
       op: {
         update: {
           req: false
@@ -22,7 +22,7 @@ main: kit: entity: user: {
       type: "`$STRING`"
     }
     {
-      name: "first_name"
+      name: "firstName"
       op: {
         update: {
           req: false
@@ -38,7 +38,7 @@ main: kit: entity: user: {
       type: "`$STRING`"
     }
     {
-      name: "last_name"
+      name: "lastName"
       op: {
         update: {
           req: false
@@ -49,12 +49,12 @@ main: kit: entity: user: {
       type: "`$STRING`"
     }
     {
-      name: "passkey_added"
+      name: "passkeyAdded"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "permission"
+      name: "permissions"
       req: false
       type: "`$OBJECT`"
     }
@@ -64,17 +64,17 @@ main: kit: entity: user: {
       type: "`$STRING`"
     }
     {
-      name: "roles_with_scope"
+      name: "rolesWithScope"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "two_factor_enabled"
+      name: "twoFactorEnabled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "user_invite_id"
+      name: "userInviteID"
       req: false
       type: "`$STRING`"
     }

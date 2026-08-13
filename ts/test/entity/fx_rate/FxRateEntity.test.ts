@@ -65,7 +65,7 @@ describe('FxRateEntity', async () => {
     fx_rate_ref01_match['destination'] = setup.idmap['destination01']
     fx_rate_ref01_match['source'] = setup.idmap['source01']
 
-    const fx_rate_ref01_list = await fx_rate_ref01_ent.list(fx_rate_ref01_match)
+    const fx_rate_ref01_list = (await fx_rate_ref01_ent.list(fx_rate_ref01_match)).map((e: any) => e.data())
 
 
 

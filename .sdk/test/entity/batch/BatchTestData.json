@@ -2,27 +2,27 @@
   "existing": {
     "batch": {
       "BATCH00": {
-        "approve_url": "s1e",
+        "approveUrl": "s1e",
         "id": "BATCH00",
-        "payout": []
+        "payouts": []
       },
       "BATCH01": {
-        "approve_url": "s3c",
+        "approveUrl": "s3c",
         "id": "BATCH01",
-        "payout": []
+        "payouts": []
       },
       "BATCH02": {
-        "approve_url": "s5a",
+        "approveUrl": "s5a",
         "id": "BATCH02",
-        "payout": []
+        "payouts": []
       }
     }
   },
   "new": {
     "batch": {
       "batch_ref01": {
-        "approve_url": "s78",
-        "payout": []
+        "approveUrl": "s78",
+        "payouts": []
       }
     }
   }

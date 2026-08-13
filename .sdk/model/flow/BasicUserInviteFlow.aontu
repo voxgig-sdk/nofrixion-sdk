@@ -39,7 +39,7 @@ main: kit: flow: BasicUserInviteFlow:
         ref: "user_invite_ref01",
         srcdatavar: "user_invite_ref01_data",
         suffix: "_up0",
-        textfield: "initial_role_id"
+        textfield: "initialRoleID"
       }
 
       op: "update",

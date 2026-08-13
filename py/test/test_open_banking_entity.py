@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -46,7 +46,7 @@ class TestOpenBankingEntity:
         open_banking_ref01_data["account_id"] = setup["idmap"]["account01"]
         open_banking_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
-        open_banking_ref01_data = helpers.to_map(open_banking_ref01_ent.create(open_banking_ref01_data, None))
+        open_banking_ref01_data = helpers.to_map(runner.entity_data(open_banking_ref01_ent.create(open_banking_ref01_data, None)))
         assert open_banking_ref01_data is not None
 
 

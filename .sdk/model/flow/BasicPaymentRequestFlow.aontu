@@ -31,7 +31,7 @@ main: kit: flow: BasicPaymentRequestFlow:
         ref: "payment_request_ref01",
         srcdatavar: "payment_request_ref01_data",
         suffix: "_up0",
-        textfield: "base_origin_url"
+        textfield: "baseOriginUrl"
       }
 
       op: "update",

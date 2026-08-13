@@ -74,7 +74,7 @@ class TagEntityTest < Minitest::Test
     tag_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     tag_ref01_data_result = tag_ref01_ent.create(tag_ref01_data, nil)
-    tag_ref01_data = Helpers.to_map(tag_ref01_data_result)
+    tag_ref01_data = Helpers.to_map(tag_ref01_data_result.respond_to?(:data_get) ? tag_ref01_data_result.data_get : tag_ref01_data_result)
     assert !tag_ref01_data.nil?
     assert !tag_ref01_data["id"].nil?
 

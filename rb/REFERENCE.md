@@ -286,60 +286,61 @@ account = client.Account
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_balance` | `Array` | No |  |
-| `account_id` | `String` | No |  |
-| `account_identification` | `Array` | No |  |
-| `account_name` | `String` | No |  |
-| `account_supplier_name` | `String` | No |  |
-| `account_type` | `String` | No |  |
-| `available_balance` | `Float` | No |  |
-| `available_balance_minor_unit` | `Integer` | No |  |
+| `accountBalances` | `Array` | No |  |
+| `accountID` | `String` | No |  |
+| `accountIdentifications` | `Array` | No |  |
+| `accountName` | `String` | No |  |
+| `accountNames` | `Array` | No |  |
+| `accountSupplierName` | `String` | No |  |
+| `accountType` | `String` | No |  |
+| `availableBalance` | `Float` | No |  |
+| `availableBalanceMinorUnits` | `Integer` | No |  |
 | `balance` | `Float` | No |  |
-| `balance_minor_unit` | `Integer` | No |  |
-| `bank_name` | `String` | No |  |
-| `consent_id` | `String` | No |  |
-| `consolidated_account_information` | `Hash` | No |  |
-| `created_by` | `Hash` | Yes |  |
-| `created_by_display_name` | `String` | No |  |
+| `balanceMinorUnits` | `Integer` | No |  |
+| `bankName` | `String` | No |  |
+| `consentID` | `String` | No |  |
+| `consolidatedAccountInformation` | `Hash` | No |  |
+| `createdBy` | `Hash` | Yes |  |
+| `createdByDisplayName` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `default_payment_rail` | `String` | No |  |
+| `defaultPaymentRail` | `String` | No |  |
 | `description` | `String` | No |  |
-| `detail` | `String` | No |  |
-| `display_name` | `String` | No |  |
-| `expiry_date` | `String` | No |  |
-| `external_account_icon` | `String` | No |  |
+| `details` | `String` | No |  |
+| `displayName` | `String` | No |  |
+| `expiryDate` | `String` | No |  |
+| `externalAccountIcon` | `String` | No |  |
 | `format` | `String` | No |  |
-| `from_date` | `String` | No |  |
+| `fromDate` | `String` | No |  |
 | `id` | `String` | No |  |
 | `identifier` | `Hash` | Yes |  |
 | `inserted` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_connected_account` | `Boolean` | No |  |
-| `is_default` | `Boolean` | No |  |
-| `is_trust_account` | `Boolean` | No |  |
-| `is_virtual` | `Boolean` | No |  |
-| `last_transaction` | `Hash` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_name` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isConnectedAccount` | `Boolean` | No |  |
+| `isDefault` | `Boolean` | No |  |
+| `isTrustAccount` | `Boolean` | No |  |
+| `isVirtual` | `Boolean` | No |  |
+| `lastTransaction` | `Hash` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantName` | `String` | No |  |
 | `nickname` | `String` | No |  |
-| `physical_account_id` | `String` | No |  |
-| `role_i_d` | `Array` | No |  |
-| `rule` | `Array` | No |  |
-| `submitted_payouts_balance` | `Float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `Integer` | No |  |
+| `physicalAccountID` | `String` | No |  |
+| `roleIDs` | `Array` | No |  |
+| `rules` | `Array` | No |  |
+| `submittedPayoutsBalance` | `Float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | No |  |
 | `summary` | `String` | No |  |
-| `supplier_physical_account_id` | `String` | No |  |
-| `supplier_sepa_instant_status` | `String` | No |  |
-| `to_date` | `String` | No |  |
+| `supplierPhysicalAccountID` | `String` | No |  |
+| `supplierSepaInstantStatus` | `String` | No |  |
+| `toDate` | `String` | No |  |
 | `type` | `String` | No |  |
-| `usage_type` | `String` | No |  |
-| `xero_bank_feed_connection_status` | `String` | No |  |
-| `xero_bank_feed_last_synced_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `String` | No |  |
-| `xero_bank_feed_sync_status` | `String` | No |  |
-| `xero_unsynchronised_transactions_count` | `Integer` | No |  |
+| `usageType` | `String` | No |  |
+| `xeroBankFeedConnectionStatus` | `String` | No |  |
+| `xeroBankFeedLastSyncedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `String` | No |  |
+| `xeroBankFeedSyncStatus` | `String` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | No |  |
 
 ### Operations
 
@@ -349,7 +350,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Account.create({
-  "created_by" => {}, # Hash
+  "createdBy" => {}, # Hash
   "identifier" => {}, # Hash
 })
 ```
@@ -429,9 +430,9 @@ batch = client.Batch
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approve_url` | `String` | No |  |
+| `approveUrl` | `String` | No |  |
 | `id` | `String` | No |  |
-| `payout` | `Array` | No |  |
+| `payouts` | `Array` | No |  |
 
 ### Operations
 
@@ -492,63 +493,63 @@ beneficiary = client.Beneficiary
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approval_callback_url` | `String` | No |  |
-| `authentication_method` | `Array` | No |  |
-| `authorisation` | `Array` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `beneficiary` | `Array` | No |  |
-| `beneficiary_event` | `Array` | No |  |
-| `can_authorise` | `Boolean` | No |  |
-| `can_update` | `Boolean` | No |  |
-| `created_by` | `Hash` | Yes |  |
-| `created_by_email_address` | `String` | No |  |
+| `approvalCallbackUrl` | `String` | No |  |
+| `authenticationMethods` | `Array` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `beneficiaries` | `Array` | No |  |
+| `beneficiaryEvents` | `Array` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
+| `canUpdate` | `Boolean` | No |  |
+| `createdBy` | `Hash` | Yes |  |
+| `createdByEmailAddress` | `String` | No |  |
 | `currency` | `String` | Yes |  |
 | `destination` | `Hash` | No |  |
-| `failed_beneficiary` | `Hash` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
+| `failedBeneficiaries` | `Hash` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_enabled` | `Boolean` | No |  |
-| `last_authorised` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
+| `isEnabled` | `Boolean` | No |  |
+| `lastAuthorised` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
 | `name` | `String` | Yes |  |
 | `nonce` | `String` | No |  |
-| `source_account` | `Array` | No |  |
-| `source_account_i_d` | `Array` | No |  |
-| `their_reference` | `String` | No |  |
+| `sourceAccountIDs` | `Array` | No |  |
+| `sourceAccounts` | `Array` | No |  |
+| `theirReference` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `approval_callback_url` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `beneficiary` | - | - | - | - | - |
-| `beneficiary_event` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `can_update` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
-| `created_by_email_address` | - | - | - | - | - |
+| `approvalCallbackUrl` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `beneficiaries` | - | - | - | - | - |
+| `beneficiaryEvents` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `canUpdate` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
+| `createdByEmailAddress` | - | - | - | - | - |
 | `currency` | - | - | - | Yes | - |
 | `destination` | - | - | Yes | - | - |
-| `failed_beneficiary` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `failedBeneficiaries` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `last_authorised` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
+| `isEnabled` | - | - | - | - | - |
+| `lastAuthorised` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | - | - |
 | `name` | - | - | - | Yes | - |
 | `nonce` | - | - | - | - | - |
-| `source_account` | - | - | - | - | - |
-| `source_account_i_d` | - | - | - | - | - |
-| `their_reference` | - | - | - | - | - |
+| `sourceAccountIDs` | - | - | - | - | - |
+| `sourceAccounts` | - | - | - | - | - |
+| `theirReference` | - | - | - | - | - |
 
 ### Operations
 
@@ -558,7 +559,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Beneficiary.create({
-  "created_by" => {}, # Hash
+  "createdBy" => {}, # Hash
   "currency" => "example_currency", # String
   "name" => "example_name", # String
 })
@@ -639,12 +640,12 @@ beneficiary_group = client.BeneficiaryGroup
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `group_member` | `Array` | No |  |
-| `group_name` | `String` | Yes |  |
+| `groupMembers` | `Array` | No |  |
+| `groupName` | `String` | Yes |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | Yes |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | Yes |  |
 
 ### Operations
 
@@ -696,23 +697,23 @@ card = client.Card
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorized_amount` | `String` | No |  |
-| `currency_code` | `String` | No |  |
-| `is_payer_authentication_required` | `Boolean` | No |  |
-| `is_soft_decline` | `Boolean` | No |  |
-| `payer_authentication_access_token` | `String` | No |  |
-| `payer_authentication_merchant_data` | `String` | No |  |
-| `payer_authentication_url` | `String` | No |  |
-| `payer_authentication_window_height` | `Integer` | No |  |
-| `payer_authentication_window_width` | `Integer` | No |  |
-| `payment_request_callback_url` | `String` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `request_id` | `String` | No |  |
-| `response_code` | `String` | No |  |
-| `response_type` | `String` | No |  |
+| `authorizedAmount` | `String` | No |  |
+| `currencyCode` | `String` | No |  |
+| `isPayerAuthenticationRequired` | `Boolean` | No |  |
+| `isSoftDecline` | `Boolean` | No |  |
+| `payerAuthenticationAccessToken` | `String` | No |  |
+| `payerAuthenticationMerchantData` | `String` | No |  |
+| `payerAuthenticationUrl` | `String` | No |  |
+| `payerAuthenticationWindowHeight` | `Integer` | No |  |
+| `payerAuthenticationWindowWidth` | `Integer` | No |  |
+| `paymentRequestCallbackUrl` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `requestID` | `String` | No |  |
+| `responseCode` | `String` | No |  |
+| `responseType` | `String` | No |  |
 | `status` | `String` | No |  |
-| `three_ds_redirect_url` | `String` | No |  |
-| `transaction_id` | `String` | No |  |
+| `threeDSRedirectUrl` | `String` | No |  |
+| `transactionID` | `String` | No |  |
 
 ### Operations
 
@@ -766,17 +767,17 @@ card_customer_token = client.CardCustomerToken
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_type` | `String` | No |  |
-| `customer_email_address` | `String` | No |  |
-| `expiry_month` | `String` | No |  |
-| `expiry_year` | `String` | No |  |
+| `cardType` | `String` | No |  |
+| `customerEmailAddress` | `String` | No |  |
+| `expiryMonth` | `String` | No |  |
+| `expiryYear` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `last_four_digit` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `masked_card_number` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `payment_request_id` | `String` | No |  |
+| `lastFourDigits` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `maskedCardNumber` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
 
 ### Operations
 
@@ -844,23 +845,23 @@ card_payment = client.CardPayment
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorized_amount` | `String` | No |  |
-| `currency_code` | `String` | No |  |
-| `is_payer_authentication_required` | `Boolean` | No |  |
-| `is_soft_decline` | `Boolean` | No |  |
-| `payer_authentication_access_token` | `String` | No |  |
-| `payer_authentication_merchant_data` | `String` | No |  |
-| `payer_authentication_url` | `String` | No |  |
-| `payer_authentication_window_height` | `Integer` | No |  |
-| `payer_authentication_window_width` | `Integer` | No |  |
-| `payment_request_callback_url` | `String` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `request_id` | `String` | No |  |
-| `response_code` | `String` | No |  |
-| `response_type` | `String` | No |  |
+| `authorizedAmount` | `String` | No |  |
+| `currencyCode` | `String` | No |  |
+| `isPayerAuthenticationRequired` | `Boolean` | No |  |
+| `isSoftDecline` | `Boolean` | No |  |
+| `payerAuthenticationAccessToken` | `String` | No |  |
+| `payerAuthenticationMerchantData` | `String` | No |  |
+| `payerAuthenticationUrl` | `String` | No |  |
+| `payerAuthenticationWindowHeight` | `Integer` | No |  |
+| `payerAuthenticationWindowWidth` | `Integer` | No |  |
+| `paymentRequestCallbackUrl` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `requestID` | `String` | No |  |
+| `responseCode` | `String` | No |  |
+| `responseType` | `String` | No |  |
 | `status` | `String` | No |  |
-| `three_ds_redirect_url` | `String` | No |  |
-| `transaction_id` | `String` | No |  |
+| `threeDSRedirectUrl` | `String` | No |  |
+| `transactionID` | `String` | No |  |
 
 ### Operations
 
@@ -966,39 +967,39 @@ consent = client.Consent
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation_url` | `String` | No |  |
-| `callback_url` | `String` | No |  |
-| `consent_id` | `String` | No |  |
-| `email_address` | `String` | No |  |
-| `expiry_date` | `String` | No |  |
-| `failure_callback_url` | `String` | No |  |
+| `authorisationUrl` | `String` | No |  |
+| `callbackUrl` | `String` | No |  |
+| `consentID` | `String` | No |  |
+| `emailAddress` | `String` | No |  |
+| `expiryDate` | `String` | No |  |
+| `failureCallbackUrl` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `institution_id` | `String` | No |  |
-| `is_connected_account` | `Boolean` | No |  |
-| `is_enabled` | `Boolean` | No |  |
-| `merchant_id` | `String` | No |  |
+| `institutionID` | `String` | No |  |
+| `isConnectedAccounts` | `Boolean` | No |  |
+| `isEnabled` | `Boolean` | No |  |
+| `merchantID` | `String` | No |  |
 | `provider` | `String` | No |  |
-| `success_web_hook_url` | `String` | No |  |
+| `successWebHookUrl` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `authorisation_url` | - | - | - | - | - |
-| `callback_url` | - | - | - | - | - |
-| `consent_id` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `expiry_date` | - | - | - | - | - |
-| `failure_callback_url` | - | - | - | - | - |
+| `authorisationUrl` | - | - | - | - | - |
+| `callbackUrl` | - | - | - | - | - |
+| `consentID` | - | - | - | - | - |
+| `emailAddress` | - | - | - | - | - |
+| `expiryDate` | - | - | - | - | - |
+| `failureCallbackUrl` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `institution_id` | - | - | Yes | - | - |
-| `is_connected_account` | - | - | - | - | - |
-| `is_enabled` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | - | - |
+| `institutionID` | - | - | Yes | - | - |
+| `isConnectedAccounts` | - | - | - | - | - |
+| `isEnabled` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | - | - |
 | `provider` | - | - | - | - | - |
-| `success_web_hook_url` | - | - | - | - | - |
+| `successWebHookUrl` | - | - | - | - | - |
 
 ### Operations
 
@@ -1087,10 +1088,10 @@ currency = client.Currency
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `String` | No |  |
-| `decimal` | `Integer` | No |  |
-| `is_fiat` | `Boolean` | No |  |
-| `iso4217_alpha_code` | `String` | No |  |
-| `iso4217_numeric_code` | `String` | No |  |
+| `decimals` | `Integer` | No |  |
+| `isFiat` | `Boolean` | No |  |
+| `iso4217AlphaCode` | `String` | No |  |
+| `iso4217NumericCode` | `String` | No |  |
 | `symbol` | `String` | No |  |
 
 ### Operations
@@ -1143,8 +1144,8 @@ direct_debit_batch_submit = client.DirectDebitBatchSubmit
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `failed_submission` | `Hash` | No |  |
-| `successful_submission` | `Array` | No |  |
+| `failedSubmissions` | `Hash` | No |  |
+| `successfulSubmissions` | `Array` | No |  |
 
 ### Operations
 
@@ -1197,11 +1198,11 @@ fx_rate = client.FxRate
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destination_currency` | `String` | No |  |
-| `exchange_rate` | `Float` | No |  |
-| `expiry_time` | `String` | No |  |
-| `quote_id` | `String` | No |  |
-| `source_currency` | `String` | No |  |
+| `destinationCurrency` | `String` | No |  |
+| `exchangeRate` | `Float` | No |  |
+| `expiryTime` | `String` | No |  |
+| `quoteID` | `String` | No |  |
+| `sourceCurrency` | `String` | No |  |
 
 ### Operations
 
@@ -1261,8 +1262,8 @@ i_payment = client.IPayment
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `payment_request_id` | `String` | No |  |
-| `response_type` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `responseType` | `String` | No |  |
 
 ### Operations
 
@@ -1315,79 +1316,79 @@ mandate = client.Mandate
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_number` | `String` | No |  |
-| `address_line1` | `String` | Yes |  |
-| `address_line2` | `String` | No |  |
-| `approved_at` | `String` | No |  |
+| `accountNumber` | `String` | No |  |
+| `addressLine1` | `String` | Yes |  |
+| `addressLine2` | `String` | No |  |
+| `approvedAt` | `String` | No |  |
 | `city` | `String` | Yes |  |
-| `country_code` | `String` | Yes |  |
+| `countryCode` | `String` | Yes |  |
 | `currency` | `String` | No |  |
-| `customer_account_number` | `String` | No |  |
-| `customer_city` | `String` | No |  |
-| `customer_country_code` | `String` | No |  |
-| `customer_country_name` | `String` | No |  |
-| `customer_email_address` | `String` | No |  |
-| `customer_first_name` | `String` | No |  |
-| `customer_iban` | `String` | No |  |
-| `customer_last_name` | `String` | No |  |
-| `customer_sort_code` | `String` | No |  |
-| `email_address` | `String` | Yes |  |
-| `first_name` | `String` | Yes |  |
+| `customerAccountNumber` | `String` | No |  |
+| `customerCity` | `String` | No |  |
+| `customerCountryCode` | `String` | No |  |
+| `customerCountryName` | `String` | No |  |
+| `customerEmailAddress` | `String` | No |  |
+| `customerFirstName` | `String` | No |  |
+| `customerIban` | `String` | No |  |
+| `customerLastName` | `String` | No |  |
+| `customerSortCode` | `String` | No |  |
+| `emailAddress` | `String` | Yes |  |
+| `firstName` | `String` | Yes |  |
 | `iban` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_recurring` | `Boolean` | No |  |
-| `last_name` | `String` | Yes |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `postal_code` | `String` | Yes |  |
+| `isRecurring` | `Boolean` | No |  |
+| `lastName` | `String` | Yes |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `postalCode` | `String` | Yes |  |
 | `reference` | `String` | No |  |
-| `sort_code` | `String` | No |  |
+| `sortCode` | `String` | No |  |
 | `status` | `String` | No |  |
-| `supplier_bank_account_id` | `String` | No |  |
-| `supplier_customer_id` | `String` | No |  |
-| `supplier_mandate_id` | `String` | No |  |
-| `supplier_name` | `String` | No |  |
-| `supplier_status` | `String` | No |  |
+| `supplierBankAccountID` | `String` | No |  |
+| `supplierCustomerID` | `String` | No |  |
+| `supplierMandateID` | `String` | No |  |
+| `supplierName` | `String` | No |  |
+| `supplierStatus` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | create |
 | --- | --- | --- |
-| `account_number` | - | - |
-| `address_line1` | - | - |
-| `address_line2` | - | - |
-| `approved_at` | - | - |
+| `accountNumber` | - | - |
+| `addressLine1` | - | - |
+| `addressLine2` | - | - |
+| `approvedAt` | - | - |
 | `city` | - | - |
-| `country_code` | - | - |
+| `countryCode` | - | - |
 | `currency` | - | Yes |
-| `customer_account_number` | - | - |
-| `customer_city` | - | - |
-| `customer_country_code` | - | - |
-| `customer_country_name` | - | - |
-| `customer_email_address` | - | - |
-| `customer_first_name` | - | - |
-| `customer_iban` | - | - |
-| `customer_last_name` | - | - |
-| `customer_sort_code` | - | - |
-| `email_address` | - | - |
-| `first_name` | - | - |
+| `customerAccountNumber` | - | - |
+| `customerCity` | - | - |
+| `customerCountryCode` | - | - |
+| `customerCountryName` | - | - |
+| `customerEmailAddress` | - | - |
+| `customerFirstName` | - | - |
+| `customerIban` | - | - |
+| `customerLastName` | - | - |
+| `customerSortCode` | - | - |
+| `emailAddress` | - | - |
+| `firstName` | - | - |
 | `iban` | - | - |
 | `id` | - | - |
 | `inserted` | - | - |
-| `is_recurring` | - | - |
-| `last_name` | - | - |
-| `last_updated` | - | - |
-| `merchant_id` | - | Yes |
-| `postal_code` | - | - |
+| `isRecurring` | - | - |
+| `lastName` | - | - |
+| `lastUpdated` | - | - |
+| `merchantID` | - | Yes |
+| `postalCode` | - | - |
 | `reference` | - | - |
-| `sort_code` | - | - |
+| `sortCode` | - | - |
 | `status` | - | - |
-| `supplier_bank_account_id` | - | - |
-| `supplier_customer_id` | - | - |
-| `supplier_mandate_id` | - | - |
-| `supplier_name` | - | - |
-| `supplier_status` | - | - |
+| `supplierBankAccountID` | - | - |
+| `supplierCustomerID` | - | - |
+| `supplierMandateID` | - | - |
+| `supplierName` | - | - |
+| `supplierStatus` | - | - |
 
 ### Operations
 
@@ -1397,13 +1398,13 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Mandate.create({
-  "address_line1" => "example_address_line1", # String
+  "addressLine1" => "example_addressLine1", # String
   "city" => "example_city", # String
-  "country_code" => "example_country_code", # String
-  "email_address" => "example_email_address", # String
-  "first_name" => "example_first_name", # String
-  "last_name" => "example_last_name", # String
-  "postal_code" => "example_postal_code", # String
+  "countryCode" => "example_countryCode", # String
+  "emailAddress" => "example_emailAddress", # String
+  "firstName" => "example_firstName", # String
+  "lastName" => "example_lastName", # String
+  "postalCode" => "example_postalCode", # String
 })
 ```
 
@@ -1455,35 +1456,35 @@ merchant = client.Merchant
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_currency` | `Array` | No |  |
-| `can_have_trust_account` | `Boolean` | No |  |
-| `card_payment_processor` | `String` | No |  |
-| `company_id` | `String` | No |  |
-| `display_qr_on_hosted_pay` | `Boolean` | No |  |
-| `hosted_pay_version` | `Integer` | No |  |
+| `accountCurrencies` | `Array` | No |  |
+| `canHaveTrustAccounts` | `Boolean` | No |  |
+| `cardPaymentProcessor` | `String` | No |  |
+| `companyID` | `String` | No |  |
+| `displayQrOnHostedPay` | `Boolean` | No |  |
+| `hostedPayVersion` | `Integer` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_blocked` | `Boolean` | No |  |
-| `is_exited` | `Boolean` | No |  |
-| `is_suspended` | `Boolean` | No |  |
+| `isBlocked` | `Boolean` | No |  |
+| `isExited` | `Boolean` | No |  |
+| `isSuspended` | `Boolean` | No |  |
 | `jurisdiction` | `String` | No |  |
-| `logo_url_png` | `String` | No |  |
-| `logo_url_svg` | `String` | No |  |
-| `merchant_category_code` | `String` | No |  |
+| `logoUrlPng` | `String` | No |  |
+| `logoUrlSvg` | `String` | No |  |
+| `merchantCategoryCode` | `String` | No |  |
 | `name` | `String` | No |  |
-| `note` | `String` | No |  |
-| `parent_merchant` | `Hash` | No |  |
-| `payment_account` | `Array` | No |  |
-| `payment_account_limit` | `Integer` | No |  |
+| `notes` | `String` | No |  |
+| `parentMerchant` | `Hash` | No |  |
+| `paymentAccountLimit` | `Integer` | No |  |
+| `paymentAccounts` | `Array` | No |  |
 | `reason` | `String` | No |  |
-| `short_name` | `String` | No |  |
-| `supported_payment_methods_list` | `Array` | No |  |
-| `suspension_reason` | `String` | No |  |
-| `tag` | `Array` | No |  |
-| `time_zone_id` | `String` | No |  |
-| `trading_name` | `String` | No |  |
-| `web_hook_limit` | `Integer` | No |  |
-| `your_role_name` | `String` | No |  |
+| `shortName` | `String` | No |  |
+| `supportedPaymentMethodsList` | `Array` | No |  |
+| `suspensionReason` | `String` | No |  |
+| `tags` | `Array` | No |  |
+| `timeZoneId` | `String` | No |  |
+| `tradingName` | `String` | No |  |
+| `webHookLimit` | `Integer` | No |  |
+| `yourRoleName` | `String` | No |  |
 
 ### Operations
 
@@ -1562,17 +1563,17 @@ merchant_authorisation_setting = client.MerchantAuthorisationSetting
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount_lower` | `Float` | No |  |
-| `amount_upper` | `Float` | No |  |
-| `authorisation_type` | `String` | No |  |
-| `beneficiaries_only` | `Boolean` | No |  |
+| `amountLower` | `Float` | No |  |
+| `amountUpper` | `Float` | No |  |
+| `authorisationType` | `String` | No |  |
+| `beneficiariesOnly` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `last_editor_cant_authorise` | `Boolean` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `number_of_authoriser` | `Integer` | No |  |
-| `role_setting` | `Array` | No |  |
+| `lastEditorCantAuthorise` | `Boolean` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `numberOfAuthorisers` | `Integer` | No |  |
+| `roleSettings` | `Array` | No |  |
 
 ### Operations
 
@@ -1624,29 +1625,29 @@ merchant_direct_debit_mandate_page = client.MerchantDirectDebitMandatePage
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_at` | `String` | No |  |
+| `approvedAt` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `customer_account_number` | `String` | No |  |
-| `customer_city` | `String` | No |  |
-| `customer_country_code` | `String` | No |  |
-| `customer_country_name` | `String` | No |  |
-| `customer_email_address` | `String` | No |  |
-| `customer_first_name` | `String` | No |  |
-| `customer_iban` | `String` | No |  |
-| `customer_last_name` | `String` | No |  |
-| `customer_sort_code` | `String` | No |  |
+| `customerAccountNumber` | `String` | No |  |
+| `customerCity` | `String` | No |  |
+| `customerCountryCode` | `String` | No |  |
+| `customerCountryName` | `String` | No |  |
+| `customerEmailAddress` | `String` | No |  |
+| `customerFirstName` | `String` | No |  |
+| `customerIban` | `String` | No |  |
+| `customerLastName` | `String` | No |  |
+| `customerSortCode` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_recurring` | `Boolean` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
+| `isRecurring` | `Boolean` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
 | `reference` | `String` | No |  |
 | `status` | `String` | No |  |
-| `supplier_bank_account_id` | `String` | No |  |
-| `supplier_customer_id` | `String` | No |  |
-| `supplier_mandate_id` | `String` | No |  |
-| `supplier_name` | `String` | No |  |
-| `supplier_status` | `String` | No |  |
+| `supplierBankAccountID` | `String` | No |  |
+| `supplierCustomerID` | `String` | No |  |
+| `supplierMandateID` | `String` | No |  |
+| `supplierName` | `String` | No |  |
+| `supplierStatus` | `String` | No |  |
 
 ### Operations
 
@@ -1698,19 +1699,19 @@ merchant_pay_by_bank_setting = client.MerchantPayByBankSetting
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bank_country_code` | `Array` | No |  |
-| `bank_id` | `String` | No |  |
-| `bank_name` | `String` | No |  |
-| `business_institution_id` | `String` | No |  |
+| `bankCountryCodes` | `Array` | No |  |
+| `bankID` | `String` | No |  |
+| `bankName` | `String` | No |  |
+| `businessInstitutionID` | `String` | No |  |
 | `currency` | `String` | No |  |
 | `logo` | `String` | No |  |
 | `message` | `String` | No |  |
-| `message_image_url` | `String` | No |  |
+| `messageImageUrl` | `String` | No |  |
 | `order` | `Integer` | No |  |
-| `personal_institution_id` | `String` | No |  |
+| `personalInstitutionID` | `String` | No |  |
 | `processor` | `String` | No |  |
-| `warning_heading` | `String` | No |  |
-| `warning_message` | `String` | No |  |
+| `warningHeading` | `String` | No |  |
+| `warningMessage` | `String` | No |  |
 
 ### Operations
 
@@ -1762,12 +1763,21 @@ merchant_payment_request_template = client.MerchantPaymentRequestTemplate
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `bankPaymentOptions` | `Hash` | No |  |
+| `cardPaymentAddressOptions` | `Hash` | No |  |
+| `cardPaymentCaptureOptions` | `Hash` | No |  |
+| `customFields` | `Array` | No |  |
+| `defaultFields` | `Array` | No |  |
 | `description` | `String` | Yes |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
 | `name` | `String` | Yes |  |
+| `notificationOptions` | `Hash` | No |  |
+| `paymentMethods` | `Hash` | No |  |
+| `paymentTerms` | `Hash` | No |  |
+| `priorityBankOptions` | `Hash` | No |  |
 | `template` | `Hash` | Yes |  |
 
 ### Operations
@@ -1848,56 +1858,56 @@ merchant_token = client.MerchantToken
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authentication_method` | `Array` | No |  |
-| `authorisation` | `Array` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `can_authorise` | `Boolean` | No |  |
+| `authenticationMethods` | `Array` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
 | `description` | `String` | No |  |
-| `expires_at` | `String` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
-| `hmac_algorithm` | `String` | No |  |
+| `expiresAt` | `String` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
+| `hmacAlgorithm` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `ip_address_whitelist` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_enabled` | `Boolean` | No |  |
-| `last_authorised` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
+| `ipAddressWhitelist` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isEnabled` | `Boolean` | No |  |
+| `lastAuthorised` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
 | `nonce` | `String` | Yes |  |
-| `permission_type` | `Array` | No |  |
-| `request_signature_version` | `Integer` | No |  |
-| `shared_secret_algorithm` | `String` | No |  |
-| `shared_secret_base64` | `String` | No |  |
+| `permissionTypes` | `Array` | No |  |
+| `requestSignatureVersion` | `Integer` | No |  |
+| `sharedSecretAlgorithm` | `String` | No |  |
+| `sharedSecretBase64` | `String` | No |  |
 | `token` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update |
 | --- | --- | --- | --- | --- |
-| `authentication_method` | - | - | - | - |
-| `authorisation` | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - |
-| `can_authorise` | - | - | - | - |
+| `authenticationMethods` | - | - | - | - |
+| `authorisations` | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - |
+| `canAuthorise` | - | - | - | - |
 | `description` | - | - | Yes | - |
-| `expires_at` | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - |
-| `hmac_algorithm` | - | - | - | - |
+| `expiresAt` | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - |
+| `hmacAlgorithm` | - | - | - | - |
 | `id` | - | - | - | - |
 | `inserted` | - | - | - | - |
-| `ip_address_whitelist` | - | - | - | - |
-| `is_archived` | - | - | - | - |
-| `is_enabled` | - | - | - | - |
-| `last_authorised` | - | - | - | - |
-| `last_updated` | - | - | - | - |
-| `merchant_id` | - | - | Yes | - |
+| `ipAddressWhitelist` | - | - | - | - |
+| `isArchived` | - | - | - | - |
+| `isEnabled` | - | - | - | - |
+| `lastAuthorised` | - | - | - | - |
+| `lastUpdated` | - | - | - | - |
+| `merchantID` | - | - | Yes | - |
 | `nonce` | - | - | - | - |
-| `permission_type` | - | - | - | - |
-| `request_signature_version` | - | - | - | - |
-| `shared_secret_algorithm` | - | - | - | - |
-| `shared_secret_base64` | - | - | - | - |
+| `permissionTypes` | - | - | - | - |
+| `requestSignatureVersion` | - | - | - | - |
+| `sharedSecretAlgorithm` | - | - | - | - |
+| `sharedSecretBase64` | - | - | - | - |
 | `token` | - | - | - | - |
 
 ### Operations
@@ -2025,10 +2035,10 @@ no_frixion_version = client.NoFrixionVersion
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `build_version` | `Integer` | No |  |
-| `major_version` | `Integer` | No |  |
-| `minor_version` | `Integer` | No |  |
-| `release_name` | `String` | No |  |
+| `buildVersion` | `Integer` | No |  |
+| `majorVersion` | `Integer` | No |  |
+| `minorVersion` | `Integer` | No |  |
+| `releaseName` | `String` | No |  |
 
 ### Operations
 
@@ -2136,13 +2146,13 @@ payeeverification = client.Payeeverification
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `String` | Yes |  |
-| `account_number` | `String` | No |  |
+| `accountName` | `String` | Yes |  |
+| `accountNumber` | `String` | No |  |
 | `iban` | `String` | Yes |  |
-| `payee_verified_account_name` | `String` | No |  |
+| `payeeVerifiedAccountName` | `String` | No |  |
 | `result` | `String` | No |  |
-| `secondary_identification` | `String` | No |  |
-| `sort_code` | `String` | No |  |
+| `secondaryIdentification` | `String` | No |  |
+| `sortCode` | `String` | No |  |
 
 ### Operations
 
@@ -2152,7 +2162,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Payeeverification.create({
-  "account_name" => "example_account_name", # String
+  "accountName" => "example_accountName", # String
   "iban" => "example_iban", # String
 })
 ```
@@ -2197,163 +2207,163 @@ payment = client.Payment
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `Array` | No |  |
+| `addresses` | `Array` | No |  |
 | `amount` | `Float` | No |  |
-| `amount_pending` | `Float` | No |  |
-| `amount_received` | `Float` | No |  |
-| `amount_refunded` | `Float` | No |  |
-| `auto_send_receipt` | `Boolean` | No |  |
-| `base_origin_url` | `String` | No |  |
-| `callback_url` | `String` | No |  |
-| `card_authorize_only` | `Boolean` | No |  |
-| `card_create_token` | `Boolean` | No |  |
-| `card_create_token_mode` | `String` | No |  |
-| `card_ignore_cvn` | `Boolean` | No |  |
-| `card_no_payer_authentication` | `Boolean` | No |  |
-| `card_processor_merchant_id` | `String` | No |  |
-| `card_stripe_payment_intent_id` | `String` | No |  |
-| `card_stripe_payment_intent_secret` | `String` | No |  |
-| `card_transmit_raw_detail` | `Boolean` | No |  |
-| `created_by_user` | `Hash` | Yes |  |
+| `amountPending` | `Float` | No |  |
+| `amountReceived` | `Float` | No |  |
+| `amountRefunded` | `Float` | No |  |
+| `autoSendReceipt` | `Boolean` | No |  |
+| `baseOriginUrl` | `String` | No |  |
+| `callbackUrl` | `String` | No |  |
+| `cardAuthorizeOnly` | `Boolean` | No |  |
+| `cardCreateToken` | `Boolean` | No |  |
+| `cardCreateTokenMode` | `String` | No |  |
+| `cardIgnoreCVN` | `Boolean` | No |  |
+| `cardNoPayerAuthentication` | `Boolean` | No |  |
+| `cardProcessorMerchantID` | `String` | No |  |
+| `cardStripePaymentIntentID` | `String` | No |  |
+| `cardStripePaymentIntentSecret` | `String` | No |  |
+| `cardTransmitRawDetails` | `Boolean` | No |  |
+| `createdByUser` | `Hash` | Yes |  |
 | `currency` | `String` | No |  |
-| `custom_field` | `Array` | No |  |
-| `customer_email_address` | `String` | No |  |
-| `customer_id` | `String` | No |  |
-| `customer_name` | `String` | No |  |
+| `customFields` | `Array` | No |  |
+| `customerEmailAddress` | `String` | No |  |
+| `customerID` | `String` | No |  |
+| `customerName` | `String` | No |  |
 | `description` | `String` | No |  |
-| `destination_account` | `Hash` | No |  |
-| `direct_debit_payment` | `Hash` | No |  |
-| `due_date` | `String` | No |  |
-| `event` | `Array` | No |  |
-| `failure_callback_url` | `String` | No |  |
-| `field_display_setting` | `Array` | No |  |
-| `formatted_amount` | `String` | No |  |
-| `hosted_pay_checkout_url` | `String` | No |  |
+| `destinationAccount` | `Hash` | No |  |
+| `directDebitPayment` | `Hash` | No |  |
+| `dueDate` | `String` | No |  |
+| `events` | `Array` | No |  |
+| `failureCallbackUrl` | `String` | No |  |
+| `fieldDisplaySettings` | `Array` | No |  |
+| `formattedAmount` | `String` | No |  |
+| `hostedPayCheckoutUrl` | `String` | No |  |
 | `id` | `String` | No |  |
-| `ignore_address_verification` | `Boolean` | No |  |
+| `ignoreAddressVerification` | `Boolean` | No |  |
 | `inserted` | `String` | No |  |
-| `inserted_sortable` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
+| `insertedSortable` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
 | `jwk` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `lightning_invoice` | `String` | No |  |
-| `lightning_invoice_expires_at` | `String` | No |  |
-| `merchant_direct_debit_mandate_id` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_token_description` | `String` | No |  |
-| `notification_email_address` | `String` | No |  |
-| `notification_role_i_d` | `Array` | No |  |
-| `order_id` | `String` | No |  |
-| `partial_payment_method` | `String` | No |  |
-| `partial_payment_step` | `String` | No |  |
-| `payment_attempt` | `Array` | No |  |
-| `payment_method` | `Array` | No |  |
-| `payment_processor` | `String` | No |  |
-| `payrun_id` | `String` | No |  |
-| `pisp_account_id` | `String` | No |  |
-| `priority_bank_id` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `lightningInvoice` | `String` | No |  |
+| `lightningInvoiceExpiresAt` | `String` | No |  |
+| `merchantDirectDebitMandateID` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantTokenDescription` | `String` | No |  |
+| `notificationEmailAddresses` | `String` | No |  |
+| `notificationRoleIDs` | `Array` | No |  |
+| `orderID` | `String` | No |  |
+| `partialPaymentMethod` | `String` | No |  |
+| `partialPaymentSteps` | `String` | No |  |
+| `paymentAttempts` | `Array` | No |  |
+| `paymentMethods` | `Array` | No |  |
+| `paymentProcessor` | `String` | No |  |
+| `payrunID` | `String` | No |  |
+| `pispAccountID` | `String` | No |  |
+| `priorityBankID` | `String` | No |  |
 | `result` | `Hash` | No |  |
-| `sandbox_settle_delay_in_second` | `Integer` | No |  |
-| `shipping_address` | `Hash` | No |  |
-| `shipping_address_city` | `String` | No |  |
-| `shipping_address_country_code` | `String` | No |  |
-| `shipping_address_county` | `String` | No |  |
-| `shipping_address_line1` | `String` | No |  |
-| `shipping_address_line2` | `String` | No |  |
-| `shipping_address_post_code` | `String` | No |  |
-| `shipping_email` | `String` | No |  |
-| `shipping_first_name` | `String` | No |  |
-| `shipping_last_name` | `String` | No |  |
-| `shipping_phone` | `String` | No |  |
+| `sandboxSettleDelayInSeconds` | `Integer` | No |  |
+| `shippingAddress` | `Hash` | No |  |
+| `shippingAddressCity` | `String` | No |  |
+| `shippingAddressCountryCode` | `String` | No |  |
+| `shippingAddressCounty` | `String` | No |  |
+| `shippingAddressLine1` | `String` | No |  |
+| `shippingAddressLine2` | `String` | No |  |
+| `shippingAddressPostCode` | `String` | No |  |
+| `shippingEmail` | `String` | No |  |
+| `shippingFirstName` | `String` | No |  |
+| `shippingLastName` | `String` | No |  |
+| `shippingPhone` | `String` | No |  |
 | `status` | `String` | No |  |
-| `success_web_hook_url` | `String` | No |  |
-| `tag` | `Array` | No |  |
-| `tag_id` | `Array` | No |  |
+| `successWebHookUrl` | `String` | No |  |
+| `tagIds` | `Array` | No |  |
+| `tags` | `Array` | No |  |
 | `title` | `String` | No |  |
-| `tokenised_card` | `Array` | No |  |
-| `transaction` | `Array` | No |  |
-| `use_hosted_payment_page` | `Boolean` | No |  |
+| `tokenisedCards` | `Array` | No |  |
+| `transactions` | `Array` | No |  |
+| `useHostedPaymentPage` | `Boolean` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | create | update |
 | --- | --- | --- | --- |
-| `address` | - | - | - |
+| `addresses` | - | - | - |
 | `amount` | - | Yes | - |
-| `amount_pending` | - | - | - |
-| `amount_received` | - | - | - |
-| `amount_refunded` | - | - | - |
-| `auto_send_receipt` | - | - | - |
-| `base_origin_url` | - | - | - |
-| `callback_url` | - | - | - |
-| `card_authorize_only` | - | - | - |
-| `card_create_token` | - | - | - |
-| `card_create_token_mode` | - | - | - |
-| `card_ignore_cvn` | - | - | - |
-| `card_no_payer_authentication` | - | - | - |
-| `card_processor_merchant_id` | - | - | - |
-| `card_stripe_payment_intent_id` | - | - | - |
-| `card_stripe_payment_intent_secret` | - | - | - |
-| `card_transmit_raw_detail` | - | - | - |
-| `created_by_user` | - | - | - |
+| `amountPending` | - | - | - |
+| `amountReceived` | - | - | - |
+| `amountRefunded` | - | - | - |
+| `autoSendReceipt` | - | - | - |
+| `baseOriginUrl` | - | - | - |
+| `callbackUrl` | - | - | - |
+| `cardAuthorizeOnly` | - | - | - |
+| `cardCreateToken` | - | - | - |
+| `cardCreateTokenMode` | - | - | - |
+| `cardIgnoreCVN` | - | - | - |
+| `cardNoPayerAuthentication` | - | - | - |
+| `cardProcessorMerchantID` | - | - | - |
+| `cardStripePaymentIntentID` | - | - | - |
+| `cardStripePaymentIntentSecret` | - | - | - |
+| `cardTransmitRawDetails` | - | - | - |
+| `createdByUser` | - | - | - |
 | `currency` | - | - | - |
-| `custom_field` | - | - | - |
-| `customer_email_address` | - | - | - |
-| `customer_id` | - | - | - |
-| `customer_name` | - | - | - |
+| `customFields` | - | - | - |
+| `customerEmailAddress` | - | - | - |
+| `customerID` | - | - | - |
+| `customerName` | - | - | - |
 | `description` | - | - | - |
-| `destination_account` | - | - | - |
-| `direct_debit_payment` | - | - | - |
-| `due_date` | - | - | - |
-| `event` | - | - | - |
-| `failure_callback_url` | - | - | - |
-| `field_display_setting` | - | - | - |
-| `formatted_amount` | - | - | - |
-| `hosted_pay_checkout_url` | - | - | - |
+| `destinationAccount` | - | - | - |
+| `directDebitPayment` | - | - | - |
+| `dueDate` | - | - | - |
+| `events` | - | - | - |
+| `failureCallbackUrl` | - | - | - |
+| `fieldDisplaySettings` | - | - | - |
+| `formattedAmount` | - | - | - |
+| `hostedPayCheckoutUrl` | - | - | - |
 | `id` | - | - | - |
-| `ignore_address_verification` | - | - | - |
+| `ignoreAddressVerification` | - | - | - |
 | `inserted` | - | - | - |
-| `inserted_sortable` | - | - | - |
-| `is_archived` | - | - | - |
+| `insertedSortable` | - | - | - |
+| `isArchived` | - | - | - |
 | `jwk` | - | - | - |
-| `last_updated` | - | - | - |
-| `lightning_invoice` | - | - | - |
-| `lightning_invoice_expires_at` | - | - | - |
-| `merchant_direct_debit_mandate_id` | - | - | - |
-| `merchant_id` | - | - | - |
-| `merchant_token_description` | - | - | - |
-| `notification_email_address` | - | - | - |
-| `notification_role_i_d` | - | - | - |
-| `order_id` | - | - | - |
-| `partial_payment_method` | - | - | - |
-| `partial_payment_step` | - | - | - |
-| `payment_attempt` | - | - | - |
-| `payment_method` | - | - | - |
-| `payment_processor` | - | - | - |
-| `payrun_id` | - | - | - |
-| `pisp_account_id` | - | - | - |
-| `priority_bank_id` | - | - | - |
+| `lastUpdated` | - | - | - |
+| `lightningInvoice` | - | - | - |
+| `lightningInvoiceExpiresAt` | - | - | - |
+| `merchantDirectDebitMandateID` | - | - | - |
+| `merchantID` | - | - | - |
+| `merchantTokenDescription` | - | - | - |
+| `notificationEmailAddresses` | - | - | - |
+| `notificationRoleIDs` | - | - | - |
+| `orderID` | - | - | - |
+| `partialPaymentMethod` | - | - | - |
+| `partialPaymentSteps` | - | - | - |
+| `paymentAttempts` | - | - | - |
+| `paymentMethods` | - | - | - |
+| `paymentProcessor` | - | - | - |
+| `payrunID` | - | - | - |
+| `pispAccountID` | - | - | - |
+| `priorityBankID` | - | - | - |
 | `result` | - | - | - |
-| `sandbox_settle_delay_in_second` | - | - | - |
-| `shipping_address` | - | - | - |
-| `shipping_address_city` | - | - | - |
-| `shipping_address_country_code` | - | - | - |
-| `shipping_address_county` | - | - | - |
-| `shipping_address_line1` | - | - | - |
-| `shipping_address_line2` | - | - | - |
-| `shipping_address_post_code` | - | - | - |
-| `shipping_email` | - | - | - |
-| `shipping_first_name` | - | - | - |
-| `shipping_last_name` | - | - | - |
-| `shipping_phone` | - | - | - |
+| `sandboxSettleDelayInSeconds` | - | - | - |
+| `shippingAddress` | - | - | - |
+| `shippingAddressCity` | - | - | - |
+| `shippingAddressCountryCode` | - | - | - |
+| `shippingAddressCounty` | - | - | - |
+| `shippingAddressLine1` | - | - | - |
+| `shippingAddressLine2` | - | - | - |
+| `shippingAddressPostCode` | - | - | - |
+| `shippingEmail` | - | - | - |
+| `shippingFirstName` | - | - | - |
+| `shippingLastName` | - | - | - |
+| `shippingPhone` | - | - | - |
 | `status` | - | - | - |
-| `success_web_hook_url` | - | - | - |
-| `tag` | - | - | - |
-| `tag_id` | - | - | - |
+| `successWebHookUrl` | - | - | - |
+| `tagIds` | - | - | - |
+| `tags` | - | - | - |
 | `title` | - | - | - |
-| `tokenised_card` | - | - | - |
-| `transaction` | - | - | - |
-| `use_hosted_payment_page` | - | - | - |
+| `tokenisedCards` | - | - | - |
+| `transactions` | - | - | - |
+| `useHostedPaymentPage` | - | - | - |
 
 ### Operations
 
@@ -2363,7 +2373,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Payment.create({
-  "created_by_user" => {}, # Hash
+  "createdByUser" => {}, # Hash
 })
 ```
 
@@ -2426,45 +2436,45 @@ payment_account = client.PaymentAccount
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `String` | No |  |
-| `account_supplier_name` | `String` | No |  |
-| `available_balance` | `Float` | No |  |
-| `available_balance_minor_unit` | `Integer` | No |  |
+| `accountName` | `String` | No |  |
+| `accountSupplierName` | `String` | No |  |
+| `availableBalance` | `Float` | No |  |
+| `availableBalanceMinorUnits` | `Integer` | No |  |
 | `balance` | `Float` | No |  |
-| `balance_minor_unit` | `Integer` | No |  |
-| `bank_name` | `String` | No |  |
-| `consent_id` | `String` | No |  |
-| `created_by` | `Hash` | Yes |  |
-| `created_by_display_name` | `String` | No |  |
+| `balanceMinorUnits` | `Integer` | No |  |
+| `bankName` | `String` | No |  |
+| `consentID` | `String` | No |  |
+| `createdBy` | `Hash` | Yes |  |
+| `createdByDisplayName` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `default_payment_rail` | `String` | No |  |
-| `display_name` | `String` | No |  |
-| `expiry_date` | `String` | No |  |
-| `external_account_icon` | `String` | No |  |
+| `defaultPaymentRail` | `String` | No |  |
+| `displayName` | `String` | No |  |
+| `expiryDate` | `String` | No |  |
+| `externalAccountIcon` | `String` | No |  |
 | `id` | `String` | No |  |
 | `identifier` | `Hash` | Yes |  |
 | `inserted` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_connected_account` | `Boolean` | No |  |
-| `is_default` | `Boolean` | No |  |
-| `is_trust_account` | `Boolean` | No |  |
-| `is_virtual` | `Boolean` | No |  |
-| `last_transaction` | `Hash` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_name` | `String` | No |  |
-| `physical_account_id` | `String` | No |  |
-| `rule` | `Array` | No |  |
-| `submitted_payouts_balance` | `Float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `Integer` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isConnectedAccount` | `Boolean` | No |  |
+| `isDefault` | `Boolean` | No |  |
+| `isTrustAccount` | `Boolean` | No |  |
+| `isVirtual` | `Boolean` | No |  |
+| `lastTransaction` | `Hash` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantName` | `String` | No |  |
+| `physicalAccountID` | `String` | No |  |
+| `rules` | `Array` | No |  |
+| `submittedPayoutsBalance` | `Float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | No |  |
 | `summary` | `String` | No |  |
-| `supplier_sepa_instant_status` | `String` | No |  |
-| `xero_bank_feed_connection_status` | `String` | No |  |
-| `xero_bank_feed_last_synced_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `String` | No |  |
-| `xero_bank_feed_sync_status` | `String` | No |  |
-| `xero_unsynchronised_transactions_count` | `Integer` | No |  |
+| `supplierSepaInstantStatus` | `String` | No |  |
+| `xeroBankFeedConnectionStatus` | `String` | No |  |
+| `xeroBankFeedLastSyncedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `String` | No |  |
+| `xeroBankFeedSyncStatus` | `String` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | No |  |
 
 ### Operations
 
@@ -2516,17 +2526,17 @@ payment_account_minimal = client.PaymentAccountMinimal
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `String` | No |  |
-| `available_balance` | `Float` | No |  |
+| `accountName` | `String` | No |  |
+| `availableBalance` | `Float` | No |  |
 | `balance` | `Float` | No |  |
-| `balance_minor_unit` | `Integer` | No |  |
+| `balanceMinorUnits` | `Integer` | No |  |
 | `currency` | `String` | No |  |
 | `id` | `String` | No |  |
 | `identifier` | `Hash` | Yes |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_connected_account` | `Boolean` | No |  |
-| `merchant_id` | `String` | No |  |
-| `submitted_payouts_balance` | `Float` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isConnectedAccount` | `Boolean` | No |  |
+| `merchantID` | `String` | No |  |
+| `submittedPayoutsBalance` | `Float` | No |  |
 
 ### Operations
 
@@ -2578,12 +2588,12 @@ payment_initiation = client.PaymentInitiation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `payment_initiation_id` | `String` | No |  |
-| `payment_request_callback_url` | `String` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `redirect_url` | `String` | No |  |
-| `response_type` | `String` | No |  |
-| `specific_error_message` | `String` | No |  |
+| `paymentInitiationID` | `String` | No |  |
+| `paymentRequestCallbackUrl` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `redirectUrl` | `String` | No |  |
+| `responseType` | `String` | No |  |
+| `specificErrorMessage` | `String` | No |  |
 
 ### Operations
 
@@ -2637,75 +2647,75 @@ payment_request = client.PaymentRequest
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `Array` | No |  |
+| `addresses` | `Array` | No |  |
 | `amount` | `Float` | No |  |
-| `amount_pending` | `Float` | No |  |
-| `amount_received` | `Float` | No |  |
-| `amount_refunded` | `Float` | No |  |
-| `auto_send_receipt` | `Boolean` | No |  |
-| `base_origin_url` | `String` | No |  |
-| `callback_url` | `String` | No |  |
-| `card_authorize_only` | `Boolean` | No |  |
-| `card_create_token` | `Boolean` | No |  |
-| `card_create_token_mode` | `String` | No |  |
-| `card_ignore_cvn` | `Boolean` | No |  |
-| `card_processor_merchant_id` | `String` | No |  |
-| `card_stripe_payment_intent_id` | `String` | No |  |
-| `card_stripe_payment_intent_secret` | `String` | No |  |
-| `created_by_user` | `Hash` | Yes |  |
+| `amountPending` | `Float` | No |  |
+| `amountReceived` | `Float` | No |  |
+| `amountRefunded` | `Float` | No |  |
+| `autoSendReceipt` | `Boolean` | No |  |
+| `baseOriginUrl` | `String` | No |  |
+| `callbackUrl` | `String` | No |  |
+| `cardAuthorizeOnly` | `Boolean` | No |  |
+| `cardCreateToken` | `Boolean` | No |  |
+| `cardCreateTokenMode` | `String` | No |  |
+| `cardIgnoreCVN` | `Boolean` | No |  |
+| `cardProcessorMerchantID` | `String` | No |  |
+| `cardStripePaymentIntentID` | `String` | No |  |
+| `cardStripePaymentIntentSecret` | `String` | No |  |
+| `createdByUser` | `Hash` | Yes |  |
 | `currency` | `String` | No |  |
-| `custom_field` | `Array` | No |  |
-| `customer_email_address` | `String` | No |  |
-| `customer_id` | `String` | No |  |
-| `customer_name` | `String` | No |  |
+| `customFields` | `Array` | No |  |
+| `customerEmailAddress` | `String` | No |  |
+| `customerID` | `String` | No |  |
+| `customerName` | `String` | No |  |
 | `description` | `String` | No |  |
-| `destination_account` | `Hash` | No |  |
-| `direct_debit_payment` | `Hash` | No |  |
-| `do_simulate_settlement_failure` | `Boolean` | No |  |
-| `due_date` | `String` | No |  |
-| `error_description` | `String` | No |  |
-| `event` | `Array` | No |  |
-| `failed_payment_request` | `Hash` | No |  |
-| `failure_callback_url` | `String` | No |  |
-| `field_display_setting` | `Array` | No |  |
-| `formatted_amount` | `String` | No |  |
-| `hosted_pay_checkout_url` | `String` | No |  |
+| `destinationAccount` | `Hash` | No |  |
+| `directDebitPayment` | `Hash` | No |  |
+| `doSimulateSettlementFailure` | `Boolean` | No |  |
+| `dueDate` | `String` | No |  |
+| `errorDescription` | `String` | No |  |
+| `events` | `Array` | No |  |
+| `failedPaymentRequests` | `Hash` | No |  |
+| `failureCallbackUrl` | `String` | No |  |
+| `fieldDisplaySettings` | `Array` | No |  |
+| `formattedAmount` | `String` | No |  |
+| `hostedPayCheckoutUrl` | `String` | No |  |
 | `id` | `String` | No |  |
-| `ignore_address_verification` | `Boolean` | No |  |
+| `ignoreAddressVerification` | `Boolean` | No |  |
 | `inserted` | `String` | No |  |
-| `inserted_sortable` | `String` | No |  |
+| `insertedSortable` | `String` | No |  |
 | `institution` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
+| `isArchived` | `Boolean` | No |  |
 | `jwk` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `lightning_invoice` | `String` | No |  |
-| `lightning_invoice_expires_at` | `String` | No |  |
-| `merchant_direct_debit_mandate_id` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_token_description` | `String` | No |  |
-| `notification_email_address` | `String` | No |  |
-| `notification_role_i_d` | `Array` | No |  |
-| `order_id` | `String` | No |  |
-| `partial_payment_method` | `String` | No |  |
-| `partial_payment_step` | `String` | No |  |
-| `payment_attempt` | `Array` | No |  |
-| `payment_initiation_id` | `String` | No |  |
-| `payment_method` | `Array` | No |  |
-| `payment_processor` | `String` | No |  |
-| `payment_request` | `Array` | No |  |
-| `payrun_id` | `String` | No |  |
-| `pisp_account_id` | `String` | No |  |
-| `priority_bank_id` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `lightningInvoice` | `String` | No |  |
+| `lightningInvoiceExpiresAt` | `String` | No |  |
+| `merchantDirectDebitMandateID` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantTokenDescription` | `String` | No |  |
+| `notificationEmailAddresses` | `String` | No |  |
+| `notificationRoleIDs` | `Array` | No |  |
+| `orderID` | `String` | No |  |
+| `partialPaymentMethod` | `String` | No |  |
+| `partialPaymentSteps` | `String` | No |  |
+| `paymentAttempts` | `Array` | No |  |
+| `paymentInitiationID` | `String` | No |  |
+| `paymentMethods` | `Array` | No |  |
+| `paymentProcessor` | `String` | No |  |
+| `paymentRequests` | `Array` | No |  |
+| `payrunID` | `String` | No |  |
+| `pispAccountID` | `String` | No |  |
+| `priorityBankID` | `String` | No |  |
 | `result` | `Hash` | No |  |
-| `sandbox_settle_delay_in_second` | `Integer` | No |  |
-| `shipping_address` | `Hash` | No |  |
+| `sandboxSettleDelayInSeconds` | `Integer` | No |  |
+| `shippingAddress` | `Hash` | No |  |
 | `status` | `String` | No |  |
-| `success_web_hook_url` | `String` | No |  |
-| `tag` | `Array` | No |  |
+| `successWebHookUrl` | `String` | No |  |
+| `tags` | `Array` | No |  |
 | `title` | `String` | No |  |
-| `tokenised_card` | `Array` | No |  |
-| `transaction` | `Array` | No |  |
-| `use_hosted_payment_page` | `Boolean` | No |  |
+| `tokenisedCards` | `Array` | No |  |
+| `transactions` | `Array` | No |  |
+| `useHostedPaymentPage` | `Boolean` | No |  |
 
 ### Operations
 
@@ -2715,7 +2725,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.PaymentRequest.create({
-  "created_by_user" => {}, # Hash
+  "createdByUser" => {}, # Hash
 })
 ```
 
@@ -2795,41 +2805,41 @@ payment_request_event = client.PaymentRequestEvent
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `Float` | Yes |  |
-| `apple_pay_transaction_id` | `String` | No |  |
-| `card_authorization_response_id` | `String` | No |  |
-| `card_expiry_month` | `Integer` | No |  |
-| `card_expiry_year` | `Integer` | No |  |
-| `card_issuer` | `String` | No |  |
-| `card_issuer_country` | `String` | No |  |
-| `card_last_four_digit` | `String` | No |  |
-| `card_request_id` | `String` | No |  |
-| `card_scheme` | `String` | No |  |
-| `card_token_customer_id` | `String` | No |  |
-| `card_transaction_id` | `String` | No |  |
+| `applePayTransactionID` | `String` | No |  |
+| `cardAuthorizationResponseID` | `String` | No |  |
+| `cardExpiryMonth` | `Integer` | No |  |
+| `cardExpiryYear` | `Integer` | No |  |
+| `cardIssuer` | `String` | No |  |
+| `cardIssuerCountry` | `String` | No |  |
+| `cardLastFourDigits` | `String` | No |  |
+| `cardRequestID` | `String` | No |  |
+| `cardScheme` | `String` | No |  |
+| `cardTokenCustomerID` | `String` | No |  |
+| `cardTransactionID` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `direct_debit_payment_id` | `String` | No |  |
-| `direct_debit_payment_reference` | `String` | No |  |
-| `drirect_debit_mandate_id` | `String` | No |  |
-| `error_message` | `String` | No |  |
-| `error_reason` | `String` | No |  |
-| `event_type` | `String` | No |  |
+| `directDebitPaymentID` | `String` | No |  |
+| `directDebitPaymentReference` | `String` | No |  |
+| `drirectDebitMandateID` | `String` | No |  |
+| `errorMessage` | `String` | No |  |
+| `errorReason` | `String` | No |  |
+| `eventType` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `lightning_invoice` | `String` | No |  |
-| `lightning_r_hash` | `String` | No |  |
-| `origin_url` | `String` | No |  |
-| `payment_method_type` | `String` | No |  |
-| `payment_processor_name` | `String` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `pisp_bank_status` | `String` | No |  |
-| `pisp_payment_initiation_id` | `String` | No |  |
-| `pisp_payment_institution_name` | `String` | No |  |
-| `pisp_payment_service_provider_id` | `String` | No |  |
-| `pisp_redirect_url` | `String` | No |  |
-| `reconciled_transaction_id` | `String` | No |  |
-| `refund_payout_id` | `String` | No |  |
+| `lightningInvoice` | `String` | No |  |
+| `lightningRHash` | `String` | No |  |
+| `originUrl` | `String` | No |  |
+| `paymentMethodType` | `String` | No |  |
+| `paymentProcessorName` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `pispBankStatus` | `String` | No |  |
+| `pispPaymentInitiationID` | `String` | No |  |
+| `pispPaymentInstitutionName` | `String` | No |  |
+| `pispPaymentServiceProviderID` | `String` | No |  |
+| `pispRedirectUrl` | `String` | No |  |
+| `reconciledTransactionID` | `String` | No |  |
+| `refundPayoutID` | `String` | No |  |
 | `status` | `String` | No |  |
-| `wallet_name` | `String` | No |  |
+| `walletName` | `String` | No |  |
 
 ### Operations
 
@@ -2876,17 +2886,6 @@ Return the entity name.
 ```ruby
 payment_request_metric = client.PaymentRequestMetric
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `Integer` | No |  |
-| `authorized` | `Integer` | No |  |
-| `paid` | `Integer` | No |  |
-| `partially_paid` | `Integer` | No |  |
-| `total_amounts_by_currency` | `Hash` | No |  |
-| `unpaid` | `Integer` | No |  |
 
 ### Operations
 
@@ -2939,34 +2938,34 @@ payment_request_minimal = client.PaymentRequestMinimal
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `Float` | No |  |
-| `amount_pending` | `Float` | No |  |
-| `amount_received` | `Float` | No |  |
-| `amount_refunded` | `Float` | No |  |
-| `callback_url` | `String` | No |  |
-| `card_stripe_payment_intent_secret` | `String` | No |  |
-| `country_code` | `String` | No |  |
+| `amountPending` | `Float` | No |  |
+| `amountReceived` | `Float` | No |  |
+| `amountRefunded` | `Float` | No |  |
+| `callbackUrl` | `String` | No |  |
+| `cardStripePaymentIntentSecret` | `String` | No |  |
+| `countryCode` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `custom_fields_to_display` | `Array` | No |  |
+| `customFieldsToDisplay` | `Array` | No |  |
 | `description` | `String` | No |  |
-| `due_date` | `String` | No |  |
-| `field_display_setting` | `Array` | No |  |
-| `google_pay_merchant_id` | `String` | No |  |
+| `dueDate` | `String` | No |  |
+| `fieldDisplaySettings` | `Array` | No |  |
+| `googlePayMerchantID` | `String` | No |  |
 | `id` | `String` | No |  |
 | `jwk` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_logo_url_png` | `String` | No |  |
-| `merchant_logo_url_svg` | `String` | No |  |
-| `merchant_name` | `String` | No |  |
-| `merchant_short_name` | `String` | No |  |
-| `partial_payment_method` | `String` | No |  |
-| `payment_attempt` | `Array` | No |  |
-| `payment_methods_list` | `Array` | No |  |
-| `payment_processor` | `String` | No |  |
-| `payment_processor_key` | `String` | No |  |
-| `pisp_error` | `String` | No |  |
-| `priority_bank_id` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantLogoUrlPng` | `String` | No |  |
+| `merchantLogoUrlSvg` | `String` | No |  |
+| `merchantName` | `String` | No |  |
+| `merchantShortName` | `String` | No |  |
+| `partialPaymentMethod` | `String` | No |  |
+| `paymentAttempts` | `Array` | No |  |
+| `paymentMethodsList` | `Array` | No |  |
+| `paymentProcessor` | `String` | No |  |
+| `paymentProcessorKey` | `String` | No |  |
+| `pispError` | `String` | No |  |
+| `priorityBankID` | `String` | No |  |
 | `status` | `String` | No |  |
-| `stripe_account_id` | `String` | No |  |
+| `stripeAccountID` | `String` | No |  |
 | `title` | `String` | No |  |
 
 ### Operations
@@ -3020,15 +3019,15 @@ payment_request_result = client.PaymentRequestResult
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | `Float` | No |  |
-| `amount_pending` | `Float` | No |  |
-| `amount_received` | `Float` | No |  |
-| `amount_refunded` | `Float` | No |  |
+| `amountPending` | `Float` | No |  |
+| `amountReceived` | `Float` | No |  |
+| `amountRefunded` | `Float` | No |  |
 | `currency` | `String` | No |  |
-| `customer_id` | `String` | No |  |
-| `payment` | `Array` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `pisp_authorization` | `Array` | No |  |
-| `requested_amount` | `Float` | No |  |
+| `customerID` | `String` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `payments` | `Array` | No |  |
+| `pispAuthorizations` | `Array` | No |  |
+| `requestedAmount` | `Float` | No |  |
 | `result` | `String` | No |  |
 
 ### Operations
@@ -3081,169 +3080,169 @@ payout = client.Payout
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `String` | No |  |
-| `allow_incomplete` | `Boolean` | No |  |
+| `accountID` | `String` | No |  |
+| `allowIncomplete` | `Boolean` | No |  |
 | `amount` | `Float` | No |  |
-| `amount_minor_unit` | `Integer` | No |  |
-| `approve_payout_url` | `String` | No |  |
-| `approver_id` | `String` | No |  |
-| `authentication_method` | `Array` | No |  |
-| `authorisation` | `Array` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `batch_payout_id` | `String` | No |  |
+| `amountMinorUnits` | `Integer` | No |  |
+| `approvePayoutUrl` | `String` | No |  |
+| `approverID` | `String` | No |  |
+| `authenticationMethods` | `Array` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `batchPayoutID` | `String` | No |  |
 | `beneficiary` | `Hash` | Yes |  |
-| `beneficiary_id` | `String` | No |  |
-| `can_authorise` | `Boolean` | No |  |
-| `can_process` | `Boolean` | No |  |
-| `can_update` | `Boolean` | No |  |
-| `charge_bearer` | `String` | No |  |
-| `created_by` | `String` | No |  |
-| `created_by_email_address` | `String` | No |  |
+| `beneficiaryID` | `String` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
+| `canProcess` | `Boolean` | No |  |
+| `canUpdate` | `Boolean` | No |  |
+| `chargeBearer` | `String` | No |  |
+| `createdBy` | `String` | No |  |
+| `createdByEmailAddress` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `current_user_id` | `String` | No |  |
+| `currentUserID` | `String` | No |  |
 | `description` | `String` | No |  |
 | `destination` | `Hash` | No |  |
-| `document` | `Array` | No |  |
-| `event` | `Array` | No |  |
-| `failed_payout` | `Hash` | No |  |
-| `formatted_amount` | `String` | No |  |
-| `formatted_fx_destination_amount` | `String` | No |  |
-| `formatted_schedule` | `String` | No |  |
-| `formatted_schedule_day_only` | `String` | No |  |
-| `formatted_source_account_available_balance` | `String` | No |  |
-| `fx_destination_amount` | `Float` | No |  |
-| `fx_destination_amount_minor_unit` | `Integer` | No |  |
-| `fx_destination_currency` | `String` | No |  |
-| `fx_quote_expires_at` | `String` | No |  |
-| `fx_quote_id` | `String` | No |  |
-| `fx_rate` | `Float` | No |  |
-| `fx_use_destination_amount` | `Boolean` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
+| `documents` | `Array` | No |  |
+| `events` | `Array` | No |  |
+| `failedPayouts` | `Hash` | No |  |
+| `formattedAmount` | `String` | No |  |
+| `formattedFxDestinationAmount` | `String` | No |  |
+| `formattedSchedule` | `String` | No |  |
+| `formattedScheduleDayOnly` | `String` | No |  |
+| `formattedSourceAccountAvailableBalance` | `String` | No |  |
+| `fxDestinationAmount` | `Float` | No |  |
+| `fxDestinationAmountMinorUnits` | `Integer` | No |  |
+| `fxDestinationCurrency` | `String` | No |  |
+| `fxQuoteExpiresAt` | `String` | No |  |
+| `fxQuoteID` | `String` | No |  |
+| `fxRate` | `Float` | No |  |
+| `fxUseDestinationAmount` | `Boolean` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `invoice_id` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_failed` | `Boolean` | No |  |
-| `is_settled` | `Boolean` | No |  |
-| `is_submitted` | `Boolean` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_token_description` | `String` | No |  |
+| `invoiceID` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isFailed` | `Boolean` | No |  |
+| `isSettled` | `Boolean` | No |  |
+| `isSubmitted` | `Boolean` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantTokenDescription` | `String` | No |  |
 | `nonce` | `String` | No |  |
-| `payment_processor` | `String` | No |  |
-| `payment_rail` | `String` | No |  |
-| `payout` | `Array` | No |  |
-| `payrun_id` | `String` | No |  |
-| `payrun_name` | `String` | No |  |
+| `paymentProcessor` | `String` | No |  |
+| `paymentRail` | `String` | No |  |
+| `payouts` | `Array` | No |  |
+| `payrunID` | `String` | No |  |
+| `payrunName` | `String` | No |  |
 | `reason` | `String` | No |  |
 | `rule` | `Hash` | No |  |
-| `schedule_date` | `String` | No |  |
+| `scheduleDate` | `String` | No |  |
 | `scheduled` | `Boolean` | No |  |
-| `source_account_available_balance` | `Float` | No |  |
-| `source_account_available_balance_minor_unit` | `Integer` | No |  |
-| `source_account_bic` | `String` | No |  |
-| `source_account_currency` | `String` | No |  |
-| `source_account_iban` | `String` | No |  |
-| `source_account_identifier` | `Hash` | Yes |  |
-| `source_account_name` | `String` | No |  |
-| `source_account_number` | `String` | No |  |
-| `source_account_sortcode` | `String` | No |  |
+| `sourceAccountAvailableBalance` | `Float` | No |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `Integer` | No |  |
+| `sourceAccountBic` | `String` | No |  |
+| `sourceAccountCurrency` | `String` | No |  |
+| `sourceAccountIban` | `String` | No |  |
+| `sourceAccountIdentifier` | `Hash` | Yes |  |
+| `sourceAccountName` | `String` | No |  |
+| `sourceAccountNumber` | `String` | No |  |
+| `sourceAccountSortcode` | `String` | No |  |
 | `status` | `String` | No |  |
-| `tag` | `Array` | No |  |
-| `tag_id` | `Array` | No |  |
-| `their_reference` | `String` | No |  |
-| `topup_payrun_id` | `String` | No |  |
-| `transacted_amount` | `Float` | No |  |
-| `transacted_fx_amount` | `Float` | No |  |
-| `transacted_fx_rate` | `Float` | No |  |
+| `tagIds` | `Array` | No |  |
+| `tags` | `Array` | No |  |
+| `theirReference` | `String` | No |  |
+| `topupPayrunID` | `String` | No |  |
+| `transactedAmount` | `Float` | No |  |
+| `transactedFxAmount` | `Float` | No |  |
+| `transactedFxRate` | `Float` | No |  |
 | `type` | `String` | No |  |
-| `user_id` | `String` | No |  |
-| `your_reference` | `String` | No |  |
+| `userID` | `String` | No |  |
+| `yourReference` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `account_id` | - | - | Yes | - | - |
-| `allow_incomplete` | - | - | - | - | - |
+| `accountID` | - | - | Yes | - | - |
+| `allowIncomplete` | - | - | - | - | - |
 | `amount` | - | - | - | - | - |
-| `amount_minor_unit` | - | - | - | - | - |
-| `approve_payout_url` | - | - | - | - | - |
-| `approver_id` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `batch_payout_id` | - | - | - | - | - |
+| `amountMinorUnits` | - | - | - | - | - |
+| `approvePayoutUrl` | - | - | - | - | - |
+| `approverID` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `batchPayoutID` | - | - | - | - | - |
 | `beneficiary` | - | - | - | - | - |
-| `beneficiary_id` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `can_process` | - | - | - | - | - |
-| `can_update` | - | - | - | - | - |
-| `charge_bearer` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
-| `created_by_email_address` | - | - | - | - | - |
+| `beneficiaryID` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `canProcess` | - | - | - | - | - |
+| `canUpdate` | - | - | - | - | - |
+| `chargeBearer` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
+| `createdByEmailAddress` | - | - | - | - | - |
 | `currency` | - | - | Yes | - | - |
-| `current_user_id` | - | - | - | - | - |
+| `currentUserID` | - | - | - | - | - |
 | `description` | - | - | - | - | - |
 | `destination` | - | - | - | - | - |
-| `document` | - | - | - | - | - |
-| `event` | - | - | - | - | - |
-| `failed_payout` | - | - | - | - | - |
-| `formatted_amount` | - | - | - | - | - |
-| `formatted_fx_destination_amount` | - | - | - | - | - |
-| `formatted_schedule` | - | - | - | - | - |
-| `formatted_schedule_day_only` | - | - | - | - | - |
-| `formatted_source_account_available_balance` | - | - | - | - | - |
-| `fx_destination_amount` | - | - | - | - | - |
-| `fx_destination_amount_minor_unit` | - | - | - | - | - |
-| `fx_destination_currency` | - | - | - | - | - |
-| `fx_quote_expires_at` | - | - | - | - | - |
-| `fx_quote_id` | - | - | - | - | - |
-| `fx_rate` | - | - | - | - | - |
-| `fx_use_destination_amount` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `documents` | - | - | - | - | - |
+| `events` | - | - | - | - | - |
+| `failedPayouts` | - | - | - | - | - |
+| `formattedAmount` | - | - | - | - | - |
+| `formattedFxDestinationAmount` | - | - | - | - | - |
+| `formattedSchedule` | - | - | - | - | - |
+| `formattedScheduleDayOnly` | - | - | - | - | - |
+| `formattedSourceAccountAvailableBalance` | - | - | - | - | - |
+| `fxDestinationAmount` | - | - | - | - | - |
+| `fxDestinationAmountMinorUnits` | - | - | - | - | - |
+| `fxDestinationCurrency` | - | - | - | - | - |
+| `fxQuoteExpiresAt` | - | - | - | - | - |
+| `fxQuoteID` | - | - | - | - | - |
+| `fxRate` | - | - | - | - | - |
+| `fxUseDestinationAmount` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `invoice_id` | - | - | - | - | - |
-| `is_archived` | - | - | - | - | - |
-| `is_failed` | - | - | - | - | - |
-| `is_settled` | - | - | - | - | - |
-| `is_submitted` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
-| `merchant_token_description` | - | - | - | - | - |
+| `invoiceID` | - | - | - | - | - |
+| `isArchived` | - | - | - | - | - |
+| `isFailed` | - | - | - | - | - |
+| `isSettled` | - | - | - | - | - |
+| `isSubmitted` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
+| `merchantTokenDescription` | - | - | - | - | - |
 | `nonce` | - | - | - | - | - |
-| `payment_processor` | - | - | - | - | - |
-| `payment_rail` | - | - | - | - | - |
-| `payout` | - | - | - | - | - |
-| `payrun_id` | - | - | - | - | - |
-| `payrun_name` | - | - | - | - | - |
+| `paymentProcessor` | - | - | - | - | - |
+| `paymentRail` | - | - | - | - | - |
+| `payouts` | - | - | - | - | - |
+| `payrunID` | - | - | - | - | - |
+| `payrunName` | - | - | - | - | - |
 | `reason` | - | - | - | - | - |
 | `rule` | - | - | - | - | - |
-| `schedule_date` | - | - | - | - | - |
+| `scheduleDate` | - | - | - | - | - |
 | `scheduled` | - | - | - | - | - |
-| `source_account_available_balance` | - | - | - | - | - |
-| `source_account_available_balance_minor_unit` | - | - | - | - | - |
-| `source_account_bic` | - | - | - | - | - |
-| `source_account_currency` | - | - | - | - | - |
-| `source_account_iban` | - | - | - | - | - |
-| `source_account_identifier` | - | - | - | - | - |
-| `source_account_name` | - | - | - | - | - |
-| `source_account_number` | - | - | - | - | - |
-| `source_account_sortcode` | - | - | - | - | - |
+| `sourceAccountAvailableBalance` | - | - | - | - | - |
+| `sourceAccountAvailableBalanceMinorUnits` | - | - | - | - | - |
+| `sourceAccountBic` | - | - | - | - | - |
+| `sourceAccountCurrency` | - | - | - | - | - |
+| `sourceAccountIban` | - | - | - | - | - |
+| `sourceAccountIdentifier` | - | - | - | - | - |
+| `sourceAccountName` | - | - | - | - | - |
+| `sourceAccountNumber` | - | - | - | - | - |
+| `sourceAccountSortcode` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
-| `tag` | - | - | - | - | - |
-| `tag_id` | - | - | - | - | - |
-| `their_reference` | - | - | - | - | - |
-| `topup_payrun_id` | - | - | - | - | - |
-| `transacted_amount` | - | - | - | - | - |
-| `transacted_fx_amount` | - | - | - | - | - |
-| `transacted_fx_rate` | - | - | - | - | - |
+| `tagIds` | - | - | - | - | - |
+| `tags` | - | - | - | - | - |
+| `theirReference` | - | - | - | - | - |
+| `topupPayrunID` | - | - | - | - | - |
+| `transactedAmount` | - | - | - | - | - |
+| `transactedFxAmount` | - | - | - | - | - |
+| `transactedFxRate` | - | - | - | - | - |
 | `type` | - | - | Yes | - | - |
-| `user_id` | - | - | - | - | - |
-| `your_reference` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `yourReference` | - | - | - | - | - |
 
 ### Operations
 
@@ -3254,7 +3253,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Payout.create({
   "beneficiary" => {}, # Hash
-  "source_account_identifier" => {}, # Hash
+  "sourceAccountIdentifier" => {}, # Hash
 })
 ```
 
@@ -3333,79 +3332,79 @@ payout_keyset_page = client.PayoutKeysetPage
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `String` | No |  |
+| `accountID` | `String` | No |  |
 | `amount` | `Float` | No |  |
-| `amount_minor_unit` | `Integer` | No |  |
-| `approve_payout_url` | `String` | No |  |
-| `approver_id` | `String` | No |  |
-| `authentication_method` | `Array` | No |  |
-| `authorisation` | `Array` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `batch_payout_id` | `String` | No |  |
+| `amountMinorUnits` | `Integer` | No |  |
+| `approvePayoutUrl` | `String` | No |  |
+| `approverID` | `String` | No |  |
+| `authenticationMethods` | `Array` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `batchPayoutID` | `String` | No |  |
 | `beneficiary` | `Hash` | Yes |  |
-| `can_authorise` | `Boolean` | No |  |
-| `can_process` | `Boolean` | No |  |
-| `can_update` | `Boolean` | No |  |
-| `charge_bearer` | `String` | No |  |
-| `created_by` | `String` | No |  |
-| `created_by_email_address` | `String` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
+| `canProcess` | `Boolean` | No |  |
+| `canUpdate` | `Boolean` | No |  |
+| `chargeBearer` | `String` | No |  |
+| `createdBy` | `String` | No |  |
+| `createdByEmailAddress` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `current_user_id` | `String` | No |  |
+| `currentUserID` | `String` | No |  |
 | `description` | `String` | No |  |
 | `destination` | `Hash` | No |  |
-| `document` | `Array` | No |  |
-| `event` | `Array` | No |  |
-| `formatted_amount` | `String` | No |  |
-| `formatted_fx_destination_amount` | `String` | No |  |
-| `formatted_schedule` | `String` | No |  |
-| `formatted_schedule_day_only` | `String` | No |  |
-| `formatted_source_account_available_balance` | `String` | No |  |
-| `fx_destination_amount` | `Float` | No |  |
-| `fx_destination_amount_minor_unit` | `Integer` | No |  |
-| `fx_destination_currency` | `String` | No |  |
-| `fx_quote_expires_at` | `String` | No |  |
-| `fx_quote_id` | `String` | No |  |
-| `fx_rate` | `Float` | No |  |
-| `fx_use_destination_amount` | `Boolean` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
+| `documents` | `Array` | No |  |
+| `events` | `Array` | No |  |
+| `formattedAmount` | `String` | No |  |
+| `formattedFxDestinationAmount` | `String` | No |  |
+| `formattedSchedule` | `String` | No |  |
+| `formattedScheduleDayOnly` | `String` | No |  |
+| `formattedSourceAccountAvailableBalance` | `String` | No |  |
+| `fxDestinationAmount` | `Float` | No |  |
+| `fxDestinationAmountMinorUnits` | `Integer` | No |  |
+| `fxDestinationCurrency` | `String` | No |  |
+| `fxQuoteExpiresAt` | `String` | No |  |
+| `fxQuoteID` | `String` | No |  |
+| `fxRate` | `Float` | No |  |
+| `fxUseDestinationAmount` | `Boolean` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `invoice_id` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_failed` | `Boolean` | No |  |
-| `is_settled` | `Boolean` | No |  |
-| `is_submitted` | `Boolean` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_token_description` | `String` | No |  |
+| `invoiceID` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isFailed` | `Boolean` | No |  |
+| `isSettled` | `Boolean` | No |  |
+| `isSubmitted` | `Boolean` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantTokenDescription` | `String` | No |  |
 | `nonce` | `String` | No |  |
-| `payment_processor` | `String` | No |  |
-| `payment_rail` | `String` | No |  |
-| `payrun_id` | `String` | No |  |
-| `payrun_name` | `String` | No |  |
+| `paymentProcessor` | `String` | No |  |
+| `paymentRail` | `String` | No |  |
+| `payrunID` | `String` | No |  |
+| `payrunName` | `String` | No |  |
 | `rule` | `Hash` | No |  |
-| `schedule_date` | `String` | No |  |
+| `scheduleDate` | `String` | No |  |
 | `scheduled` | `Boolean` | No |  |
-| `source_account_available_balance` | `Float` | No |  |
-| `source_account_available_balance_minor_unit` | `Integer` | No |  |
-| `source_account_bic` | `String` | No |  |
-| `source_account_currency` | `String` | No |  |
-| `source_account_iban` | `String` | No |  |
-| `source_account_identifier` | `Hash` | Yes |  |
-| `source_account_name` | `String` | No |  |
-| `source_account_number` | `String` | No |  |
-| `source_account_sortcode` | `String` | No |  |
+| `sourceAccountAvailableBalance` | `Float` | No |  |
+| `sourceAccountAvailableBalanceMinorUnits` | `Integer` | No |  |
+| `sourceAccountBic` | `String` | No |  |
+| `sourceAccountCurrency` | `String` | No |  |
+| `sourceAccountIban` | `String` | No |  |
+| `sourceAccountIdentifier` | `Hash` | Yes |  |
+| `sourceAccountName` | `String` | No |  |
+| `sourceAccountNumber` | `String` | No |  |
+| `sourceAccountSortcode` | `String` | No |  |
 | `status` | `String` | No |  |
-| `tag` | `Array` | No |  |
-| `their_reference` | `String` | No |  |
-| `topup_payrun_id` | `String` | No |  |
-| `transacted_amount` | `Float` | No |  |
-| `transacted_fx_amount` | `Float` | No |  |
-| `transacted_fx_rate` | `Float` | No |  |
+| `tags` | `Array` | No |  |
+| `theirReference` | `String` | No |  |
+| `topupPayrunID` | `String` | No |  |
+| `transactedAmount` | `Float` | No |  |
+| `transactedFxAmount` | `Float` | No |  |
+| `transactedFxRate` | `Float` | No |  |
 | `type` | `String` | No |  |
-| `user_id` | `String` | No |  |
-| `your_reference` | `String` | No |  |
+| `userID` | `String` | No |  |
+| `yourReference` | `String` | No |  |
 
 ### Operations
 
@@ -3452,18 +3451,6 @@ Return the entity name.
 ```ruby
 payout_metric = client.PayoutMetric
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `all` | `Float` | No |  |
-| `failed` | `Float` | No |  |
-| `in_progress` | `Float` | No |  |
-| `paid` | `Float` | No |  |
-| `pending_approval` | `Float` | No |  |
-| `scheduled` | `Float` | No |  |
-| `total_amounts_by_currency` | `Hash` | No |  |
 
 ### Operations
 
@@ -3515,38 +3502,38 @@ payrun = client.Payrun
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation` | `Array` | No |  |
-| `authorisation_date` | `String` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `batch_payout_id` | `String` | No |  |
-| `can_authorise` | `Boolean` | No |  |
-| `can_delete` | `Boolean` | No |  |
-| `can_edit` | `Boolean` | No |  |
-| `event` | `Array` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
+| `authorisationDate` | `String` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `batchPayoutID` | `String` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
+| `canDelete` | `Boolean` | No |  |
+| `canEdit` | `Boolean` | No |  |
+| `events` | `Array` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `invoice` | `Array` | No |  |
-| `invoices_minimal` | `Array` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `last_updated` | `String` | No |  |
-| `last_updated_by` | `Hash` | Yes |  |
-| `merchant_id` | `String` | No |  |
+| `invoices` | `Array` | No |  |
+| `invoicesMinimal` | `Array` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `lastUpdatedBy` | `Hash` | Yes |  |
+| `merchantID` | `String` | No |  |
 | `name` | `String` | No |  |
 | `nonce` | `String` | No |  |
-| `note` | `String` | No |  |
-| `payment` | `Array` | No |  |
-| `payout` | `Array` | No |  |
-| `payouts_count` | `Integer` | No |  |
+| `notes` | `String` | No |  |
+| `payments` | `Array` | No |  |
+| `payouts` | `Array` | No |  |
+| `payoutsCount` | `Integer` | No |  |
 | `reason` | `String` | No |  |
-| `schedule_date` | `String` | No |  |
-| `scheduled_date` | `String` | No |  |
-| `source_account` | `Array` | No |  |
+| `scheduleDate` | `String` | No |  |
+| `scheduledDate` | `String` | No |  |
+| `sourceAccounts` | `Array` | No |  |
 | `status` | `String` | No |  |
-| `total_eur` | `Float` | No |  |
-| `total_gbp` | `Float` | No |  |
-| `total_usd` | `Float` | No |  |
+| `totalEur` | `Float` | No |  |
+| `totalGbp` | `Float` | No |  |
+| `totalUsd` | `Float` | No |  |
 
 ### Operations
 
@@ -3557,7 +3544,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Payrun.create({
   "id" => "example_id", # String
-  "last_updated_by" => {}, # Hash
+  "lastUpdatedBy" => {}, # Hash
 })
 ```
 
@@ -3685,13 +3672,13 @@ report_result = client.ReportResult
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `content` | `String` | No |  |
-| `content_type` | `String` | No |  |
-| `last_completed_at` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `report_name` | `String` | No |  |
-| `report_type` | `String` | No |  |
-| `statement_number` | `Integer` | No |  |
+| `contentType` | `String` | No |  |
+| `contents` | `String` | No |  |
+| `lastCompletedAt` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `reportName` | `String` | No |  |
+| `reportType` | `String` | No |  |
+| `statementNumber` | `Integer` | No |  |
 
 ### Operations
 
@@ -3743,8 +3730,8 @@ role = client.Role
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `failed_role` | `Hash` | No |  |
-| `role` | `Array` | No |  |
+| `failedRoles` | `Hash` | No |  |
+| `roles` | `Array` | No |  |
 
 ### Operations
 
@@ -3799,76 +3786,76 @@ rule = client.Rule
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `account` | `Hash` | No |  |
-| `account_id` | `String` | No |  |
-| `approve_url` | `String` | No |  |
-| `approver_id` | `String` | No |  |
-| `authentication_method` | `Array` | No |  |
-| `authorisation` | `Array` | No |  |
-| `authorisers_completed_count` | `Integer` | No |  |
-| `authorisers_required_count` | `Integer` | No |  |
-| `can_authorise` | `Boolean` | No |  |
-| `created_by` | `Hash` | Yes |  |
+| `accountID` | `String` | No |  |
+| `approveUrl` | `String` | No |  |
+| `approverID` | `String` | No |  |
+| `authenticationMethods` | `Array` | No |  |
+| `authorisations` | `Array` | No |  |
+| `authorisersCompletedCount` | `Integer` | No |  |
+| `authorisersRequiredCount` | `Integer` | No |  |
+| `canAuthorise` | `Boolean` | No |  |
+| `createdBy` | `Hash` | Yes |  |
 | `description` | `String` | No |  |
-| `end_at` | `String` | No |  |
-| `has_current_user_authorised` | `Boolean` | No |  |
+| `endAt` | `String` | No |  |
+| `hasCurrentUserAuthorised` | `Boolean` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_disabled` | `Boolean` | No |  |
-| `last_executed_at` | `String` | No |  |
-| `last_run_at_transaction_date` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
+| `isDisabled` | `Boolean` | No |  |
+| `lastExecutedAt` | `String` | No |  |
+| `lastRunAtTransactionDate` | `String` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
 | `name` | `String` | No |  |
 | `nonce` | `String` | Yes |  |
-| `on_approved_web_hook_url` | `String` | No |  |
-| `on_execution_error_web_hook_url` | `String` | No |  |
-| `on_execution_success_web_hook_url` | `String` | No |  |
-| `start_at` | `String` | No |  |
+| `onApprovedWebHookUrl` | `String` | No |  |
+| `onExecutionErrorWebHookUrl` | `String` | No |  |
+| `onExecutionSuccessWebHookUrl` | `String` | No |  |
+| `startAt` | `String` | No |  |
 | `status` | `String` | No |  |
-| `sweep_action` | `Hash` | No |  |
-| `time_zone_id` | `String` | No |  |
-| `trigger_cron_expression` | `String` | No |  |
-| `trigger_on_pay_in` | `Boolean` | No |  |
-| `user_id` | `String` | No |  |
-| `web_hook_secret` | `String` | No |  |
+| `sweepAction` | `Hash` | No |  |
+| `timeZoneId` | `String` | No |  |
+| `triggerCronExpression` | `String` | No |  |
+| `triggerOnPayIn` | `Boolean` | No |  |
+| `userID` | `String` | No |  |
+| `webHookSecret` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
 | `account` | - | - | - | - | - |
-| `account_id` | - | - | - | - | - |
-| `approve_url` | - | - | - | - | - |
-| `approver_id` | - | - | - | - | - |
-| `authentication_method` | - | - | - | - | - |
-| `authorisation` | - | - | - | - | - |
-| `authorisers_completed_count` | - | - | - | - | - |
-| `authorisers_required_count` | - | - | - | - | - |
-| `can_authorise` | - | - | - | - | - |
-| `created_by` | - | - | - | - | - |
+| `accountID` | - | - | - | - | - |
+| `approveUrl` | - | - | - | - | - |
+| `approverID` | - | - | - | - | - |
+| `authenticationMethods` | - | - | - | - | - |
+| `authorisations` | - | - | - | - | - |
+| `authorisersCompletedCount` | - | - | - | - | - |
+| `authorisersRequiredCount` | - | - | - | - | - |
+| `canAuthorise` | - | - | - | - | - |
+| `createdBy` | - | - | - | - | - |
 | `description` | - | - | - | - | - |
-| `end_at` | - | - | - | - | - |
-| `has_current_user_authorised` | - | - | - | - | - |
+| `endAt` | - | - | - | - | - |
+| `hasCurrentUserAuthorised` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
 | `inserted` | - | - | - | - | - |
-| `is_disabled` | - | - | - | - | - |
-| `last_executed_at` | - | - | - | - | - |
-| `last_run_at_transaction_date` | - | - | - | - | - |
-| `last_updated` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
+| `isDisabled` | - | - | - | - | - |
+| `lastExecutedAt` | - | - | - | - | - |
+| `lastRunAtTransactionDate` | - | - | - | - | - |
+| `lastUpdated` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
 | `name` | - | - | Yes | - | - |
 | `nonce` | - | - | - | - | - |
-| `on_approved_web_hook_url` | - | - | - | - | - |
-| `on_execution_error_web_hook_url` | - | - | - | - | - |
-| `on_execution_success_web_hook_url` | - | - | - | - | - |
-| `start_at` | - | - | - | - | - |
+| `onApprovedWebHookUrl` | - | - | - | - | - |
+| `onExecutionErrorWebHookUrl` | - | - | - | - | - |
+| `onExecutionSuccessWebHookUrl` | - | - | - | - | - |
+| `startAt` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
-| `sweep_action` | - | - | Yes | - | - |
-| `time_zone_id` | - | - | - | - | - |
-| `trigger_cron_expression` | - | - | - | - | - |
-| `trigger_on_pay_in` | - | - | - | - | - |
-| `user_id` | - | - | - | - | - |
-| `web_hook_secret` | - | - | - | - | - |
+| `sweepAction` | - | - | Yes | - | - |
+| `timeZoneId` | - | - | - | - | - |
+| `triggerCronExpression` | - | - | - | - | - |
+| `triggerOnPayIn` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `webHookSecret` | - | - | - | - | - |
 
 ### Operations
 
@@ -3878,7 +3865,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Rule.create({
-  "created_by" => {}, # Hash
+  "createdBy" => {}, # Hash
   "nonce" => "example_nonce", # String
 })
 ```
@@ -3958,14 +3945,14 @@ rule_event = client.RuleEvent
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `error_message` | `String` | No |  |
+| `errorMessage` | `String` | No |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `is_authorise_to_enable` | `Boolean` | No |  |
+| `isAuthoriseToEnable` | `Boolean` | No |  |
 | `message` | `String` | No |  |
-| `raw_response` | `String` | No |  |
-| `rule_event_type` | `String` | No |  |
-| `rule_id` | `String` | No |  |
+| `rawResponse` | `String` | No |  |
+| `ruleEventType` | `String` | No |  |
+| `ruleID` | `String` | No |  |
 | `user` | `Hash` | Yes |  |
 
 ### Operations
@@ -4018,10 +4005,10 @@ tag = client.Tag
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `colour_hex` | `String` | No |  |
+| `colourHex` | `String` | No |  |
 | `description` | `String` | No |  |
 | `id` | `String` | No |  |
-| `merchant_id` | `String` | Yes |  |
+| `merchantID` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
 
 ### Operations
@@ -4033,6 +4020,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Tag.create({
   "merchant_id" => "example_merchant_id", # String
+  "merchantID" => "example_merchantID", # String
   "name" => "example_name", # String
 })
 ```
@@ -4141,59 +4129,59 @@ transaction = client.Transaction
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_id` | `String` | No |  |
-| `account_name` | `String` | No |  |
-| `account_sequence_number` | `Integer` | No |  |
-| `address_detail` | `Hash` | No |  |
+| `accountID` | `String` | No |  |
+| `accountName` | `String` | No |  |
+| `accountSequenceNumber` | `Integer` | No |  |
+| `addressDetails` | `Hash` | No |  |
 | `amount` | `Float` | No |  |
-| `amount_minor_unit` | `Integer` | No |  |
+| `amountMinorUnits` | `Integer` | No |  |
 | `balance` | `Float` | No |  |
-| `balance_minor_unit` | `Integer` | No |  |
-| `booking_date_time` | `String` | No |  |
-| `charge_detail` | `Hash` | No |  |
+| `balanceMinorUnits` | `Integer` | No |  |
+| `bookingDateTime` | `String` | No |  |
+| `chargeDetails` | `Hash` | No |  |
 | `content` | `Array` | No |  |
 | `counterparty` | `Hash` | No |  |
-| `counterparty_summary` | `String` | No |  |
+| `counterpartySummary` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `currency_exchange` | `Hash` | No |  |
+| `currencyExchange` | `Hash` | No |  |
 | `date` | `String` | No |  |
 | `description` | `String` | No |  |
 | `enrichment` | `Hash` | No |  |
-| `fx_amount` | `Float` | No |  |
-| `fx_currency` | `String` | No |  |
-| `fx_rate` | `Float` | No |  |
-| `gross_amount` | `Hash` | Yes |  |
+| `fxAmount` | `Float` | No |  |
+| `fxCurrency` | `String` | No |  |
+| `fxRate` | `Float` | No |  |
+| `grossAmount` | `Hash` | Yes |  |
 | `id` | `String` | No |  |
 | `inserted` | `String` | No |  |
-| `iso_bank_transaction_code` | `Hash` | No |  |
+| `isoBankTransactionCode` | `Hash` | No |  |
 | `merchant` | `Hash` | No |  |
-| `merchant_id` | `String` | No |  |
-| `page_number` | `Integer` | No |  |
-| `page_size` | `Integer` | No |  |
-| `payee_detail` | `Hash` | Yes |  |
-| `payer_detail` | `Hash` | Yes |  |
-| `payment_request_custom_field` | `Hash` | No |  |
-| `payment_request_id` | `String` | No |  |
-| `payout_id` | `String` | No |  |
-| `proprietary_bank_transaction_code` | `Hash` | No |  |
-| `raw_reference` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `pageNumber` | `Integer` | No |  |
+| `pageSize` | `Integer` | No |  |
+| `payeeDetails` | `Hash` | Yes |  |
+| `payerDetails` | `Hash` | Yes |  |
+| `paymentRequestCustomFields` | `Hash` | No |  |
+| `paymentRequestID` | `String` | No |  |
+| `payoutID` | `String` | No |  |
+| `proprietaryBankTransactionCode` | `Hash` | No |  |
+| `rawReference` | `String` | No |  |
 | `reference` | `String` | No |  |
-| `rule_id` | `String` | No |  |
-| `statement_reference` | `Array` | No |  |
+| `ruleID` | `String` | No |  |
+| `statementReferences` | `Array` | No |  |
 | `status` | `String` | No |  |
-| `supplementary_data` | `Object` | No |  |
-| `tag` | `Array` | No |  |
-| `their_reference` | `String` | No |  |
-| `total_page` | `Integer` | No |  |
-| `total_size` | `Integer` | No |  |
-| `transaction_amount` | `Hash` | Yes |  |
-| `transaction_date` | `String` | No |  |
-| `transaction_information` | `Array` | No |  |
-| `transaction_mutability` | `String` | No |  |
+| `supplementaryData` | `Object` | No |  |
+| `tags` | `Array` | No |  |
+| `theirReference` | `String` | No |  |
+| `totalPages` | `Integer` | No |  |
+| `totalSize` | `Integer` | No |  |
+| `transactionAmount` | `Hash` | Yes |  |
+| `transactionDate` | `String` | No |  |
+| `transactionInformation` | `Array` | No |  |
+| `transactionMutability` | `String` | No |  |
 | `type` | `String` | No |  |
-| `value_date_time` | `String` | No |  |
-| `virtual_iban` | `String` | No |  |
-| `your_reference` | `String` | No |  |
+| `valueDateTime` | `String` | No |  |
+| `virtualIBAN` | `String` | No |  |
+| `yourReference` | `String` | No |  |
 
 ### Operations
 
@@ -4204,10 +4192,10 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Transaction.create({
   "id" => "example_id", # String
-  "gross_amount" => {}, # Hash
-  "payee_detail" => {}, # Hash
-  "payer_detail" => {}, # Hash
-  "transaction_amount" => {}, # Hash
+  "grossAmount" => {}, # Hash
+  "payeeDetails" => {}, # Hash
+  "payerDetails" => {}, # Hash
+  "transactionAmount" => {}, # Hash
 })
 ```
 
@@ -4275,33 +4263,33 @@ user = client.User
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `client_session_timeout` | `Array` | No |  |
-| `email_address` | `String` | Yes |  |
-| `first_name` | `String` | Yes |  |
+| `clientSessionTimeouts` | `Array` | No |  |
+| `emailAddress` | `String` | Yes |  |
+| `firstName` | `String` | Yes |  |
 | `id` | `String` | No |  |
-| `last_name` | `String` | Yes |  |
-| `passkey_added` | `Boolean` | No |  |
-| `permission` | `Hash` | No |  |
+| `lastName` | `String` | Yes |  |
+| `passkeyAdded` | `Boolean` | No |  |
+| `permissions` | `Hash` | No |  |
 | `profile` | `String` | No |  |
-| `roles_with_scope` | `Array` | No |  |
-| `two_factor_enabled` | `Boolean` | No |  |
-| `user_invite_id` | `String` | No |  |
+| `rolesWithScope` | `Array` | No |  |
+| `twoFactorEnabled` | `Boolean` | No |  |
+| `userInviteID` | `String` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | update |
 | --- | --- | --- |
-| `client_session_timeout` | - | - |
-| `email_address` | - | Yes |
-| `first_name` | - | Yes |
+| `clientSessionTimeouts` | - | - |
+| `emailAddress` | - | Yes |
+| `firstName` | - | Yes |
 | `id` | - | - |
-| `last_name` | - | Yes |
-| `passkey_added` | - | - |
-| `permission` | - | - |
+| `lastName` | - | Yes |
+| `passkeyAdded` | - | - |
+| `permissions` | - | - |
 | `profile` | - | - |
-| `roles_with_scope` | - | - |
-| `two_factor_enabled` | - | - |
-| `user_invite_id` | - | - |
+| `rolesWithScope` | - | - |
+| `twoFactorEnabled` | - | - |
+| `userInviteID` | - | - |
 
 ### Operations
 
@@ -4364,55 +4352,55 @@ user_invite = client.UserInvite
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authorisation_status` | `Hash` | No |  |
-| `failed_user_invite` | `Hash` | No |  |
+| `authorisationStatus` | `Hash` | No |  |
+| `failedUserInvites` | `Hash` | No |  |
 | `id` | `String` | No |  |
-| `initial_role_id` | `String` | No |  |
-| `invitee_email_address` | `String` | No |  |
-| `invitee_first_name` | `String` | No |  |
-| `invitee_last_name` | `String` | No |  |
-| `inviter_email_address` | `String` | No |  |
-| `inviter_first_name` | `String` | No |  |
-| `inviter_last_name` | `String` | No |  |
-| `is_authorised` | `Boolean` | No |  |
-| `is_invitee_registered` | `Boolean` | No |  |
-| `last_invited` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_name` | `String` | No |  |
+| `initialRoleID` | `String` | No |  |
+| `inviteeEmailAddress` | `String` | No |  |
+| `inviteeFirstName` | `String` | No |  |
+| `inviteeLastName` | `String` | No |  |
+| `inviterEmailAddress` | `String` | No |  |
+| `inviterFirstName` | `String` | No |  |
+| `inviterLastName` | `String` | No |  |
+| `isAuthorised` | `Boolean` | No |  |
+| `isInviteeRegistered` | `Boolean` | No |  |
+| `lastInvited` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantName` | `String` | No |  |
 | `message` | `String` | No |  |
-| `registration_url` | `String` | No |  |
-| `send_invite_email` | `Boolean` | No |  |
+| `registrationUrl` | `String` | No |  |
+| `sendInviteEmail` | `Boolean` | No |  |
 | `status` | `String` | No |  |
 | `user` | `Hash` | Yes |  |
-| `user_id` | `String` | No |  |
-| `user_invite` | `Array` | No |  |
+| `userID` | `String` | No |  |
+| `userInvites` | `Array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `authorisation_status` | - | - | - | - | - |
-| `failed_user_invite` | - | - | - | - | - |
+| `authorisationStatus` | - | - | - | - | - |
+| `failedUserInvites` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `initial_role_id` | - | - | - | - | - |
-| `invitee_email_address` | - | - | Yes | - | - |
-| `invitee_first_name` | - | - | - | - | - |
-| `invitee_last_name` | - | - | - | - | - |
-| `inviter_email_address` | - | - | - | - | - |
-| `inviter_first_name` | - | - | - | - | - |
-| `inviter_last_name` | - | - | - | - | - |
-| `is_authorised` | - | - | - | - | - |
-| `is_invitee_registered` | - | - | - | - | - |
-| `last_invited` | - | - | - | - | - |
-| `merchant_id` | - | - | - | - | - |
-| `merchant_name` | - | - | - | - | - |
+| `initialRoleID` | - | - | - | - | - |
+| `inviteeEmailAddress` | - | - | Yes | - | - |
+| `inviteeFirstName` | - | - | - | - | - |
+| `inviteeLastName` | - | - | - | - | - |
+| `inviterEmailAddress` | - | - | - | - | - |
+| `inviterFirstName` | - | - | - | - | - |
+| `inviterLastName` | - | - | - | - | - |
+| `isAuthorised` | - | - | - | - | - |
+| `isInviteeRegistered` | - | - | - | - | - |
+| `lastInvited` | - | - | - | - | - |
+| `merchantID` | - | - | - | - | - |
+| `merchantName` | - | - | - | - | - |
 | `message` | - | - | - | - | - |
-| `registration_url` | - | - | - | - | - |
-| `send_invite_email` | - | - | - | - | - |
+| `registrationUrl` | - | - | - | - | - |
+| `sendInviteEmail` | - | - | - | - | - |
 | `status` | - | - | - | - | - |
 | `user` | - | - | - | - | - |
-| `user_id` | - | - | - | - | - |
-| `user_invite` | - | - | - | - | - |
+| `userID` | - | - | - | - | - |
+| `userInvites` | - | - | - | - | - |
 
 ### Operations
 
@@ -4501,46 +4489,46 @@ virtual = client.Virtual
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | `String` | No |  |
-| `account_supplier_name` | `String` | No |  |
-| `available_balance` | `Float` | No |  |
-| `available_balance_minor_unit` | `Integer` | No |  |
+| `accountName` | `String` | No |  |
+| `accountSupplierName` | `String` | No |  |
+| `availableBalance` | `Float` | No |  |
+| `availableBalanceMinorUnits` | `Integer` | No |  |
 | `balance` | `Float` | No |  |
-| `balance_minor_unit` | `Integer` | No |  |
-| `bank_name` | `String` | No |  |
-| `consent_id` | `String` | No |  |
-| `created_by` | `Hash` | Yes |  |
-| `created_by_display_name` | `String` | No |  |
+| `balanceMinorUnits` | `Integer` | No |  |
+| `bankName` | `String` | No |  |
+| `consentID` | `String` | No |  |
+| `createdBy` | `Hash` | Yes |  |
+| `createdByDisplayName` | `String` | No |  |
 | `currency` | `String` | No |  |
-| `default_payment_rail` | `String` | No |  |
-| `display_name` | `String` | No |  |
-| `expiry_date` | `String` | No |  |
-| `external_account_icon` | `String` | No |  |
+| `defaultPaymentRail` | `String` | No |  |
+| `displayName` | `String` | No |  |
+| `expiryDate` | `String` | No |  |
+| `externalAccountIcon` | `String` | No |  |
 | `id` | `String` | No |  |
 | `identifier` | `Hash` | Yes |  |
 | `inserted` | `String` | No |  |
-| `is_archived` | `Boolean` | No |  |
-| `is_connected_account` | `Boolean` | No |  |
-| `is_default` | `Boolean` | No |  |
-| `is_trust_account` | `Boolean` | No |  |
-| `is_virtual` | `Boolean` | No |  |
-| `last_transaction` | `Hash` | No |  |
-| `last_updated` | `String` | No |  |
-| `merchant_id` | `String` | No |  |
-| `merchant_name` | `String` | No |  |
+| `isArchived` | `Boolean` | No |  |
+| `isConnectedAccount` | `Boolean` | No |  |
+| `isDefault` | `Boolean` | No |  |
+| `isTrustAccount` | `Boolean` | No |  |
+| `isVirtual` | `Boolean` | No |  |
+| `lastTransaction` | `Hash` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `merchantID` | `String` | No |  |
+| `merchantName` | `String` | No |  |
 | `name` | `String` | Yes |  |
-| `physical_account_id` | `String` | No |  |
-| `rule` | `Array` | No |  |
-| `submitted_payouts_balance` | `Float` | No |  |
-| `submitted_payouts_balance_minor_unit` | `Integer` | No |  |
+| `physicalAccountID` | `String` | No |  |
+| `rules` | `Array` | No |  |
+| `submittedPayoutsBalance` | `Float` | No |  |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | No |  |
 | `summary` | `String` | No |  |
-| `supplier_sepa_instant_status` | `String` | No |  |
-| `xero_bank_feed_connection_status` | `String` | No |  |
-| `xero_bank_feed_last_synced_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failed_at` | `String` | No |  |
-| `xero_bank_feed_sync_last_failure_reason` | `String` | No |  |
-| `xero_bank_feed_sync_status` | `String` | No |  |
-| `xero_unsynchronised_transactions_count` | `Integer` | No |  |
+| `supplierSepaInstantStatus` | `String` | No |  |
+| `xeroBankFeedConnectionStatus` | `String` | No |  |
+| `xeroBankFeedLastSyncedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailedAt` | `String` | No |  |
+| `xeroBankFeedSyncLastFailureReason` | `String` | No |  |
+| `xeroBankFeedSyncStatus` | `String` | No |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | No |  |
 
 ### Operations
 
@@ -4551,7 +4539,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.Virtual.create({
   "account_id" => "example_account_id", # String
-  "created_by" => {}, # Hash
+  "createdBy" => {}, # Hash
   "identifier" => {}, # Hash
   "name" => "example_name", # String
 })
@@ -4609,14 +4597,14 @@ webhook = client.Webhook
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destination_url` | `String` | No |  |
-| `email_address` | `String` | No |  |
-| `failed_notification_email_address` | `String` | No |  |
+| `destinationUrl` | `String` | No |  |
+| `emailAddress` | `String` | No |  |
+| `failedNotificationEmailAddress` | `String` | No |  |
 | `id` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `merchant_id` | `String` | No |  |
-| `notification_method` | `String` | No |  |
-| `resource_type` | `Array` | No |  |
+| `isActive` | `Boolean` | No |  |
+| `merchantID` | `String` | No |  |
+| `notificationMethod` | `String` | No |  |
+| `resourceTypes` | `Array` | No |  |
 | `retry` | `Boolean` | No |  |
 | `secret` | `String` | No |  |
 | `version` | `Integer` | No |  |
@@ -4625,14 +4613,14 @@ webhook = client.Webhook
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `destination_url` | - | - | - | - | - |
-| `email_address` | - | - | - | - | - |
-| `failed_notification_email_address` | - | - | - | - | - |
+| `destinationUrl` | - | - | - | - | - |
+| `emailAddress` | - | - | - | - | - |
+| `failedNotificationEmailAddress` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `is_active` | - | - | - | - | - |
-| `merchant_id` | - | - | Yes | Yes | - |
-| `notification_method` | - | - | Yes | Yes | - |
-| `resource_type` | - | - | - | - | - |
+| `isActive` | - | - | - | - | - |
+| `merchantID` | - | - | Yes | Yes | - |
+| `notificationMethod` | - | - | Yes | Yes | - |
+| `resourceTypes` | - | - | - | - | - |
 | `retry` | - | - | - | - | - |
 | `secret` | - | - | - | - | - |
 | `version` | - | - | - | - | - |

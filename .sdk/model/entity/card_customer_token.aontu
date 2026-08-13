@@ -6,22 +6,22 @@ main: kit: entity: card_customer_token: {
 
   fields: [
     {
-      name: "card_type"
+      name: "cardType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_email_address"
+      name: "customerEmailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "expiry_month"
+      name: "expiryMonth"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "expiry_year"
+      name: "expiryYear"
       req: false
       type: "`$STRING`"
     }
@@ -36,27 +36,27 @@ main: kit: entity: card_customer_token: {
       type: "`$STRING`"
     }
     {
-      name: "last_four_digit"
+      name: "lastFourDigits"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "masked_card_number"
+      name: "maskedCardNumber"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }

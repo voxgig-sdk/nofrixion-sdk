@@ -62,7 +62,7 @@ describe('PaymentRequestMetricEntity', async () => {
     // LOAD
     const payment_request_metric_ref01_ent = client.PaymentRequestMetric()
     const payment_request_metric_ref01_match_dt0: any = {}
-    const payment_request_metric_ref01_data_dt0 = await payment_request_metric_ref01_ent.load(payment_request_metric_ref01_match_dt0)
+    const payment_request_metric_ref01_data_dt0 = (await payment_request_metric_ref01_ent.load(payment_request_metric_ref01_match_dt0)).data()
     assert(null != payment_request_metric_ref01_data_dt0)
 
 

@@ -2,45 +2,45 @@
   "existing": {
     "user": {
       "USER00": {
-        "client_session_timeout": [],
-        "email_address": "s6f",
-        "first_name": "s70",
+        "clientSessionTimeouts": [],
+        "emailAddress": "s6f",
+        "firstName": "s70",
         "id": "USER00",
-        "last_name": "s72",
-        "passkey_added": false,
-        "permission": {},
+        "lastName": "s72",
+        "passkeyAdded": false,
+        "permissions": {},
         "profile": "s75",
-        "roles_with_scope": [],
-        "two_factor_enabled": false,
-        "user_invite_id": "USER_INVITE01",
+        "rolesWithScope": [],
+        "twoFactorEnabled": false,
+        "userInviteID": "s78",
         "merchant_id": "MERCHANT01"
       },
       "USER01": {
-        "client_session_timeout": [],
-        "email_address": "sdd",
-        "first_name": "sde",
+        "clientSessionTimeouts": [],
+        "emailAddress": "sdd",
+        "firstName": "sde",
         "id": "USER01",
-        "last_name": "se0",
-        "passkey_added": false,
-        "permission": {},
+        "lastName": "se0",
+        "passkeyAdded": false,
+        "permissions": {},
         "profile": "se3",
-        "roles_with_scope": [],
-        "two_factor_enabled": false,
-        "user_invite_id": "USER_INVITE01",
+        "rolesWithScope": [],
+        "twoFactorEnabled": false,
+        "userInviteID": "se6",
         "merchant_id": "MERCHANT01"
       },
       "USER02": {
-        "client_session_timeout": [],
-        "email_address": "s14b",
-        "first_name": "s14c",
+        "clientSessionTimeouts": [],
+        "emailAddress": "s14b",
+        "firstName": "s14c",
         "id": "USER02",
-        "last_name": "s14e",
-        "passkey_added": false,
-        "permission": {},
+        "lastName": "s14e",
+        "passkeyAdded": false,
+        "permissions": {},
         "profile": "s151",
-        "roles_with_scope": [],
-        "two_factor_enabled": false,
-        "user_invite_id": "USER_INVITE01",
+        "rolesWithScope": [],
+        "twoFactorEnabled": false,
+        "userInviteID": "s154",
         "merchant_id": "MERCHANT01"
       }
     }
@@ -48,16 +48,16 @@
   "new": {
     "user": {
       "user_ref01": {
-        "client_session_timeout": [],
-        "email_address": "s1b9",
-        "first_name": "s1ba",
-        "last_name": "s1bc",
-        "passkey_added": false,
-        "permission": {},
+        "clientSessionTimeouts": [],
+        "emailAddress": "s1b9",
+        "firstName": "s1ba",
+        "lastName": "s1bc",
+        "passkeyAdded": false,
+        "permissions": {},
         "profile": "s1bf",
-        "roles_with_scope": [],
-        "two_factor_enabled": false,
-        "user_invite_id": "USER_INVITE01"
+        "rolesWithScope": [],
+        "twoFactorEnabled": false,
+        "userInviteID": "s1c2"
       }
     }
   }

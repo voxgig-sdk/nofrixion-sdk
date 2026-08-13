@@ -6,7 +6,7 @@ main: kit: entity: rule_event: {
 
   fields: [
     {
-      name: "error_message"
+      name: "errorMessage"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: rule_event: {
       type: "`$STRING`"
     }
     {
-      name: "is_authorise_to_enable"
+      name: "isAuthoriseToEnable"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -31,17 +31,17 @@ main: kit: entity: rule_event: {
       type: "`$STRING`"
     }
     {
-      name: "raw_response"
+      name: "rawResponse"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "rule_event_type"
+      name: "ruleEventType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "rule_id"
+      name: "ruleID"
       req: false
       type: "`$STRING`"
     }

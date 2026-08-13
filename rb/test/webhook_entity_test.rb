@@ -74,7 +74,7 @@ class WebhookEntityTest < Minitest::Test
     webhook_ref01_data["merchant_id"] = setup[:idmap]["merchant01"]
 
     webhook_ref01_data_result = webhook_ref01_ent.create(webhook_ref01_data, nil)
-    webhook_ref01_data = Helpers.to_map(webhook_ref01_data_result)
+    webhook_ref01_data = Helpers.to_map(webhook_ref01_data_result.respond_to?(:data_get) ? webhook_ref01_data_result.data_get : webhook_ref01_data_result)
     assert !webhook_ref01_data.nil?
     assert !webhook_ref01_data["id"].nil?
 
@@ -96,12 +96,12 @@ class WebhookEntityTest < Minitest::Test
       "id" => webhook_ref01_data["id"],
     }
 
-    webhook_ref01_markdef_up0_name = "destination_url"
+    webhook_ref01_markdef_up0_name = "destinationUrl"
     webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_#{setup[:now]}"
     webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
     webhook_ref01_resdata_up0_result = webhook_ref01_ent.update(webhook_ref01_data_up0_up, nil)
-    webhook_ref01_resdata_up0 = Helpers.to_map(webhook_ref01_resdata_up0_result)
+    webhook_ref01_resdata_up0 = Helpers.to_map(webhook_ref01_resdata_up0_result.respond_to?(:data_get) ? webhook_ref01_resdata_up0_result.data_get : webhook_ref01_resdata_up0_result)
     assert !webhook_ref01_resdata_up0.nil?
     assert_equal webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"]
     assert_equal webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value
@@ -111,7 +111,7 @@ class WebhookEntityTest < Minitest::Test
       "id" => webhook_ref01_data["id"],
     }
     webhook_ref01_data_dt0_loaded = webhook_ref01_ent.load(webhook_ref01_match_dt0, nil)
-    webhook_ref01_data_dt0_load_result = Helpers.to_map(webhook_ref01_data_dt0_loaded)
+    webhook_ref01_data_dt0_load_result = Helpers.to_map(webhook_ref01_data_dt0_loaded.respond_to?(:data_get) ? webhook_ref01_data_dt0_loaded.data_get : webhook_ref01_data_dt0_loaded)
     assert !webhook_ref01_data_dt0_load_result.nil?
     assert_equal webhook_ref01_data_dt0_load_result["id"], webhook_ref01_data["id"]
 

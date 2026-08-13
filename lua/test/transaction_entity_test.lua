@@ -85,7 +85,7 @@ describe("TransactionEntity", function()
 
     local transaction_ref01_data_result, err = transaction_ref01_ent:create(transaction_ref01_data, nil)
     assert.is_nil(err)
-    transaction_ref01_data = helpers.to_map(transaction_ref01_data_result)
+    transaction_ref01_data = helpers.to_map(type(transaction_ref01_data_result) == 'table' and transaction_ref01_data_result.data_get and transaction_ref01_data_result:data_get() or transaction_ref01_data_result)
     assert.is_not_nil(transaction_ref01_data)
     assert.is_not_nil(transaction_ref01_data["id"])
 
@@ -107,7 +107,7 @@ describe("TransactionEntity", function()
     }
     local transaction_ref01_data_dt0_loaded, err = transaction_ref01_ent:load(transaction_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local transaction_ref01_data_dt0_load_result = helpers.to_map(transaction_ref01_data_dt0_loaded)
+    local transaction_ref01_data_dt0_load_result = helpers.to_map(type(transaction_ref01_data_dt0_loaded) == 'table' and transaction_ref01_data_dt0_loaded.data_get and transaction_ref01_data_dt0_loaded:data_get() or transaction_ref01_data_dt0_loaded)
     assert.is_not_nil(transaction_ref01_data_dt0_load_result)
     assert.are.equal(transaction_ref01_data_dt0_load_result["id"], transaction_ref01_data["id"])
 

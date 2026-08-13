@@ -62,7 +62,7 @@ describe('TokenEntity', async () => {
     const token_ref01_ent = client.Token()
     let token_ref01_data = setup.data.new.token['token_ref01']
 
-    token_ref01_data = await token_ref01_ent.create(token_ref01_data)
+    token_ref01_data = (await token_ref01_ent.create(token_ref01_data)).data()
     assert(null != token_ref01_data)
 
 

@@ -37,7 +37,7 @@ class PaymentRequestResultEntity extends NofrixionEntityBase<PaymentRequestResul
 
 
 
-  async list(this: any, reqmatch?: PaymentRequestResultListMatch, ctrl?: Control): Promise<PaymentRequestResult[]> {
+  async list(this: any, reqmatch?: PaymentRequestResultListMatch, ctrl?: Control): Promise<PaymentRequestResultEntity[]> {
 
     const utility = this._utility
 

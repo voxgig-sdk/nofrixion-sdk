@@ -6,32 +6,32 @@ main: kit: entity: consent: {
 
   fields: [
     {
-      name: "authorisation_url"
+      name: "authorisationUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "callback_url"
+      name: "callbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "consent_id"
+      name: "consentID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "email_address"
+      name: "emailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "expiry_date"
+      name: "expiryDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "failure_callback_url"
+      name: "failureCallbackUrl"
       req: false
       type: "`$STRING`"
     }
@@ -46,7 +46,7 @@ main: kit: entity: consent: {
       type: "`$STRING`"
     }
     {
-      name: "institution_id"
+      name: "institutionID"
       op: {
         create: {
           req: true
@@ -57,17 +57,17 @@ main: kit: entity: consent: {
       type: "`$STRING`"
     }
     {
-      name: "is_connected_account"
+      name: "isConnectedAccounts"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_enabled"
+      name: "isEnabled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       op: {
         create: {
           req: true
@@ -83,7 +83,7 @@ main: kit: entity: consent: {
       type: "`$STRING`"
     }
     {
-      name: "success_web_hook_url"
+      name: "successWebHookUrl"
       req: false
       type: "`$STRING`"
     }

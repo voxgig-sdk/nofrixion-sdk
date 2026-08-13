@@ -34,18 +34,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = NofrixionSDK.test()
-const ruleevents = await client.RuleEvent().list()
-// ruleevents is an array of bare RuleEvent records populated with mock data
-console.log(ruleevents)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = NofrixionSDK.test({
+  entity: {
+    consent: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const consents = await client.Consent().list()
+// consents is an array of Consent entities, populated with mock data
+// — call consents[0].data() for the record itself
+console.log(consents)
 ```
 
 ### Python
 
 ```python
 client = NofrixionSDK.test()
-ruleevents = client.RuleEvent().list()
-print(ruleevents)
+consents = client.Consent().list()
+print(consents)
 ```
 
 ### PHP
@@ -53,16 +62,16 @@ print(ruleevents)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = NofrixionSDK::test([
-    "entity" => ["ruleevent" => ["test01" => []]],
+    "entity" => ["consent" => ["test01" => ["id" => "test01"]]],
 ]);
-$ruleevents = $client->RuleEvent()->list();
+$consents = $client->Consent()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.RuleEvent(nil).List(
+result, err := client.Consent(nil).List(
     nil, nil,
 )
 ```
@@ -72,16 +81,16 @@ result, err := client.RuleEvent(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = NofrixionSDK.test({
-  "entity" => { "ruleevent" => { "test01" => {} } },
+  "entity" => { "consent" => { "test01" => { "id" => "test01" } } },
 })
-ruleevents = client.RuleEvent.list()
+consents = client.Consent.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:RuleEvent():list()
+local results, err = client:Consent():list()
 ```
 
 ## Packages
@@ -108,7 +117,7 @@ const client = new NofrixionSDK({
   apikey: process.env.NOFRIXION_APIKEY,
 })
 
-// List all accounts (returns Account[])
+// List all accounts (returns AccountEntity[] — .data() for the record)
 const accounts = await client.Account().list()
 for (const account of accounts) {
   console.log(account)
@@ -159,43 +168,43 @@ The API exposes 49 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Account** | The Account entity (create, list, load, remove, update). | `/api/v1/accounts/{accountID}/{currency}` |
-| **Batch** | The Batch entity (create, load). | `/api/v1/payouts/batch` |
-| **Beneficiary** | The Beneficiary entity (create, list, load, remove, update). | `/api/v1/beneficiaries/authorise/{id}` |
+| **Account** | The Account entity (create, list, load, remove, update). | `/api/v1/accounts` |
+| **Batch** | The Batch entity (create, load). | `/api/v1/payouts/batch/{id}` |
+| **Beneficiary** | The Beneficiary entity (create, list, load, remove, update). | `/api/v1/beneficiaries` |
 | **BeneficiaryGroup** | The BeneficiaryGroup entity (list). | `/api/v1/merchants/{merchantID}/beneficiarygroups` |
 | **Card** | The Card entity (create). | `/api/v1/paymentrequests/{id}/card` |
 | **CardCustomerToken** | The CardCustomerToken entity (list, load, remove). | `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}` |
 | **CardPayment** | The CardPayment entity (create). | `/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}` |
 | **CardPublicKey** | The CardPublicKey entity (load). | `/api/v1/paymentrequests/{id}/card/publickey` |
-| **Consent** | The Consent entity (create, list, load, remove, update). | `/api/v1/openbanking/consents` |
+| **Consent** | The Consent entity (create, list, load, remove, update). | `/api/v1/openbanking/consents/{merchantID}/{email}` |
 | **Currency** | The Currency entity (list). | `/api/v1/currencies` |
 | **DirectDebitBatchSubmit** | The DirectDebitBatchSubmit entity (create). | `/api/v1/paymentrequests/directdebit/batchsubmit` |
 | **FxRate** | The FxRate entity (list, load). | `/api/v1/payouts/fxallheldrates/{source}/{destination}` |
 | **IPayment** | The IPayment entity (create). | `/api/v1/paymentrequests/payondemand` |
-| **Mandate** | The Mandate entity (create, load). | `/api/v1/mandates` |
-| **Merchant** | The Merchant entity (list, load, remove, update). | `/api/v1/merchants/{merchantID}/childmerchants` |
+| **Mandate** | The Mandate entity (create, load). | `/api/v1/mandates/{id}` |
+| **Merchant** | The Merchant entity (list, load, remove, update). | `/api/v1/merchants` |
 | **MerchantAuthorisationSetting** | The MerchantAuthorisationSetting entity (list). | `/api/v1/merchants/{merchantID}/authorisationsettings` |
 | **MerchantDirectDebitMandatePage** | The MerchantDirectDebitMandatePage entity (list). | `/api/v1/mandates` |
 | **MerchantPayByBankSetting** | The MerchantPayByBankSetting entity (list). | `/api/v1/merchants/{merchantID}/banksettings` |
 | **MerchantPaymentRequestTemplate** | The MerchantPaymentRequestTemplate entity (list, load, remove, update). | `/api/v1/paymentrequests/{merchantID}/templates` |
-| **MerchantToken** | The MerchantToken entity (create, list, load, update). | `/api/v1/tokens` |
+| **MerchantToken** | The MerchantToken entity (create, list, load, update). | `/api/v1/merchants/{merchantID}/tokens` |
 | **Metadata** | The Metadata entity (load). | `/api/v1/metadata/problemnotification` |
 | **NoFrixionVersion** | The NoFrixionVersion entity (load). | `/api/v1/metadata/version` |
 | **OpenBanking** | The OpenBanking entity (create, remove). | `/api/v1/openbanking/account/{accountID}/synchronise` |
 | **Payeeverification** | The Payeeverification entity (create). | `/api/v1/openbanking/payeeverification` |
-| **Payment** | The Payment entity (create, load, update). | `/api/v1/paymentrequests` |
+| **Payment** | The Payment entity (create, load, update). | `/api/v1/paymentrequests/{id}` |
 | **PaymentAccount** | The PaymentAccount entity (list). | `/api/v1/accounts/paged` |
 | **PaymentAccountMinimal** | The PaymentAccountMinimal entity (list). | `/api/v1/accounts/minimal` |
 | **PaymentInitiation** | The PaymentInitiation entity (create). | `/api/v1/paymentrequests/{id}/pisp` |
-| **PaymentRequest** | The PaymentRequest entity (create, list, load, remove, update). | `/api/v1/paymentrequests/{id}/directdebit` |
+| **PaymentRequest** | The PaymentRequest entity (create, list, load, remove, update). | `/api/v1/paymentrequests` |
 | **PaymentRequestEvent** | The PaymentRequestEvent entity (list). | `/api/v1/paymentrequests/{id}/events` |
 | **PaymentRequestMetric** | The PaymentRequestMetric entity (load). | `/api/v1/paymentrequests/metrics` |
 | **PaymentRequestMinimal** | The PaymentRequestMinimal entity (list). | `/api/v1/paymentrequests/{id}/minimal` |
 | **PaymentRequestResult** | The PaymentRequestResult entity (list). | `/api/v1/paymentrequests/{id}/result` |
-| **Payout** | The Payout entity (create, list, load, remove, update). | `/api/v1/payouts/batch/submit/{id}` |
+| **Payout** | The Payout entity (create, list, load, remove, update). | `/api/v1/payouts` |
 | **PayoutKeysetPage** | The PayoutKeysetPage entity (list). | `/api/v1/accounts/{accountID}/payouts/failed` |
 | **PayoutMetric** | The PayoutMetric entity (load). | `/api/v1/payouts/metrics` |
-| **Payrun** | The Payrun entity (create, list, load, remove, update). | `/api/v1/payruns/{id}/request-authorisation` |
+| **Payrun** | The Payrun entity (create, list, load, remove, update). | `/api/v1/payruns` |
 | **Report** | The Report entity (update). | `/api/v1/reports/{id}/initiate` |
 | **ReportResult** | The ReportResult entity (load). | `/api/v1/reports/{id}/result/{statementNumber}` |
 | **Role** | The Role entity (create). | `/api/v1/merchants/{merchantID}/roles/batchcreate` |
@@ -203,11 +212,11 @@ The API exposes 49 entities:
 | **RuleEvent** | The RuleEvent entity (list). | `/api/v1/rules/{id}/events` |
 | **Tag** | The Tag entity (create, list). | `/api/v1/merchants/{merchantID}/tags` |
 | **Token** | The Token entity (create, remove). | `/api/v1/tokens/authorise/{id}` |
-| **Transaction** | The Transaction entity (create, list, load, remove). | `/api/v1/transactions/{id}/tags` |
-| **User** | The User entity (list, update). | `/api/v1/user/{merchantID}/userspaged` |
-| **UserInvite** | The UserInvite entity (create, list, load, remove, update). | `/api/v1/userinvites/authorise/{id}` |
+| **Transaction** | The Transaction entity (create, list, load, remove). | `/api/v1/accounts/{accountID}/transactions` |
+| **User** | The User entity (list, update). | `/api/v1/merchants/{merchantID}/users` |
+| **UserInvite** | The UserInvite entity (create, list, load, remove, update). | `/api/v1/merchants/{merchantID}/userinvitespaged` |
 | **Virtual** | The Virtual entity (create, update). | `/api/v1/accounts/{accountID}/virtual` |
-| **Webhook** | The Webhook entity (create, list, load, remove, update). | `/api/v1/webhooks` |
+| **Webhook** | The Webhook entity (create, list, load, remove, update). | `/api/v1/merchants/{merchantID}/webhooks` |
 
 The operations available across these entities are **load**, **list**, **create**, **update**, **remove** — see each entity's
 own list above for exactly which it supports.
@@ -248,7 +257,7 @@ $client = new NofrixionSDK([
 $accounts = $client->Account()->list();
 print_r($accounts);
 
-// Load a specific account (returns the bare record; throws on error)
+// Load a specific account (returns the ENTITY; call data_get() for the record; throws on error)
 $account = $client->Account()->load(["id" => "example_id"]);
 print_r($account);
 ```
@@ -292,7 +301,7 @@ client = NofrixionSDK.new({
 accounts = client.Account.list
 puts accounts
 
-# Load a specific account (returns the bare record; raises on error)
+# Load a specific account (returns the ENTITY; call data_get for the record)
 account = client.Account.load({ "id" => "example_id" })
 puts account
 ```
@@ -431,6 +440,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api-sandbox.nofrixion.com](https://api-sandbox.nofrixion.com)
 

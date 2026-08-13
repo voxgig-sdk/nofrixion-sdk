@@ -83,7 +83,7 @@ class PaymentRequestEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.payment_request"), "payment_request_ref01"));
 
         $payment_request_ref01_data_result = $payment_request_ref01_ent->create($payment_request_ref01_data, null);
-        $payment_request_ref01_data = Helpers::to_map($payment_request_ref01_data_result);
+        $payment_request_ref01_data = Helpers::to_map(is_object($payment_request_ref01_data_result) && method_exists($payment_request_ref01_data_result, 'data_get') ? $payment_request_ref01_data_result->data_get() : $payment_request_ref01_data_result);
         $this->assertNotNull($payment_request_ref01_data);
         $this->assertNotNull($payment_request_ref01_data["id"]);
 
@@ -103,12 +103,12 @@ class PaymentRequestEntityTest extends TestCase
             "id" => $payment_request_ref01_data["id"],
         ];
 
-        $payment_request_ref01_markdef_up0_name = "base_origin_url";
+        $payment_request_ref01_markdef_up0_name = "baseOriginUrl";
         $payment_request_ref01_markdef_up0_value = "Mark01-payment_request_ref01_" . $setup["now"];
         $payment_request_ref01_data_up0_up[$payment_request_ref01_markdef_up0_name] = $payment_request_ref01_markdef_up0_value;
 
         $payment_request_ref01_resdata_up0_result = $payment_request_ref01_ent->update($payment_request_ref01_data_up0_up, null);
-        $payment_request_ref01_resdata_up0 = Helpers::to_map($payment_request_ref01_resdata_up0_result);
+        $payment_request_ref01_resdata_up0 = Helpers::to_map(is_object($payment_request_ref01_resdata_up0_result) && method_exists($payment_request_ref01_resdata_up0_result, 'data_get') ? $payment_request_ref01_resdata_up0_result->data_get() : $payment_request_ref01_resdata_up0_result);
         $this->assertNotNull($payment_request_ref01_resdata_up0);
         $this->assertEquals($payment_request_ref01_resdata_up0["id"], $payment_request_ref01_data_up0_up["id"]);
         $this->assertEquals($payment_request_ref01_resdata_up0[$payment_request_ref01_markdef_up0_name], $payment_request_ref01_markdef_up0_value);
@@ -118,7 +118,7 @@ class PaymentRequestEntityTest extends TestCase
             "id" => $payment_request_ref01_data["id"],
         ];
         $payment_request_ref01_data_dt0_loaded = $payment_request_ref01_ent->load($payment_request_ref01_match_dt0, null);
-        $payment_request_ref01_data_dt0_load_result = Helpers::to_map($payment_request_ref01_data_dt0_loaded);
+        $payment_request_ref01_data_dt0_load_result = Helpers::to_map(is_object($payment_request_ref01_data_dt0_loaded) && method_exists($payment_request_ref01_data_dt0_loaded, 'data_get') ? $payment_request_ref01_data_dt0_loaded->data_get() : $payment_request_ref01_data_dt0_loaded);
         $this->assertNotNull($payment_request_ref01_data_dt0_load_result);
         $this->assertEquals($payment_request_ref01_data_dt0_load_result["id"], $payment_request_ref01_data["id"]);
 

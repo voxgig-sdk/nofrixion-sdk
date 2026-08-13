@@ -59,7 +59,7 @@ func TestCardPaymentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		cardPaymentRef01Data = core.ToMapAny(cardPaymentRef01DataResult)
+		cardPaymentRef01Data = core.ToMapAny(entityData(cardPaymentRef01DataResult))
 		if cardPaymentRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

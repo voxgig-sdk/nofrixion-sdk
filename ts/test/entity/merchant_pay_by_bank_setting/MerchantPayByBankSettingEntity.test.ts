@@ -64,7 +64,7 @@ describe('MerchantPayByBankSettingEntity', async () => {
     const merchant_pay_by_bank_setting_ref01_match: any = {}
     merchant_pay_by_bank_setting_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const merchant_pay_by_bank_setting_ref01_list = await merchant_pay_by_bank_setting_ref01_ent.list(merchant_pay_by_bank_setting_ref01_match)
+    const merchant_pay_by_bank_setting_ref01_list = (await merchant_pay_by_bank_setting_ref01_ent.list(merchant_pay_by_bank_setting_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -45,7 +45,7 @@ class CardEntityTest extends TestCase
         $card_ref01_data["paymentrequest_id"] = $setup["idmap"]["paymentrequest01"];
 
         $card_ref01_data_result = $card_ref01_ent->create($card_ref01_data, null);
-        $card_ref01_data = Helpers::to_map($card_ref01_data_result);
+        $card_ref01_data = Helpers::to_map(is_object($card_ref01_data_result) && method_exists($card_ref01_data_result, 'data_get') ? $card_ref01_data_result->data_get() : $card_ref01_data_result);
         $this->assertNotNull($card_ref01_data);
 
     }

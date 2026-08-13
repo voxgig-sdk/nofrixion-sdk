@@ -59,7 +59,7 @@ func TestRoleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		roleRef01Data = core.ToMapAny(roleRef01DataResult)
+		roleRef01Data = core.ToMapAny(entityData(roleRef01DataResult))
 		if roleRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

@@ -83,7 +83,7 @@ describe("BeneficiaryEntity", function()
 
     local beneficiary_ref01_data_result, err = beneficiary_ref01_ent:create(beneficiary_ref01_data, nil)
     assert.is_nil(err)
-    beneficiary_ref01_data = helpers.to_map(beneficiary_ref01_data_result)
+    beneficiary_ref01_data = helpers.to_map(type(beneficiary_ref01_data_result) == 'table' and beneficiary_ref01_data_result.data_get and beneficiary_ref01_data_result:data_get() or beneficiary_ref01_data_result)
     assert.is_not_nil(beneficiary_ref01_data)
     assert.is_not_nil(beneficiary_ref01_data["id"])
 
@@ -106,13 +106,13 @@ describe("BeneficiaryEntity", function()
       id = beneficiary_ref01_data["id"],
     }
 
-    local beneficiary_ref01_markdef_up0_name = "approval_callback_url"
+    local beneficiary_ref01_markdef_up0_name = "approvalCallbackUrl"
     local beneficiary_ref01_markdef_up0_value = "Mark01-beneficiary_ref01_" .. tostring(setup.now)
     beneficiary_ref01_data_up0_up[beneficiary_ref01_markdef_up0_name] = beneficiary_ref01_markdef_up0_value
 
     local beneficiary_ref01_resdata_up0_result, err = beneficiary_ref01_ent:update(beneficiary_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local beneficiary_ref01_resdata_up0 = helpers.to_map(beneficiary_ref01_resdata_up0_result)
+    local beneficiary_ref01_resdata_up0 = helpers.to_map(type(beneficiary_ref01_resdata_up0_result) == 'table' and beneficiary_ref01_resdata_up0_result.data_get and beneficiary_ref01_resdata_up0_result:data_get() or beneficiary_ref01_resdata_up0_result)
     assert.is_not_nil(beneficiary_ref01_resdata_up0)
     assert.are.equal(beneficiary_ref01_resdata_up0["id"], beneficiary_ref01_data_up0_up["id"])
     assert.are.equal(beneficiary_ref01_resdata_up0[beneficiary_ref01_markdef_up0_name], beneficiary_ref01_markdef_up0_value)
@@ -123,7 +123,7 @@ describe("BeneficiaryEntity", function()
     }
     local beneficiary_ref01_data_dt0_loaded, err = beneficiary_ref01_ent:load(beneficiary_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local beneficiary_ref01_data_dt0_load_result = helpers.to_map(beneficiary_ref01_data_dt0_loaded)
+    local beneficiary_ref01_data_dt0_load_result = helpers.to_map(type(beneficiary_ref01_data_dt0_loaded) == 'table' and beneficiary_ref01_data_dt0_loaded.data_get and beneficiary_ref01_data_dt0_loaded:data_get() or beneficiary_ref01_data_dt0_loaded)
     assert.is_not_nil(beneficiary_ref01_data_dt0_load_result)
     assert.are.equal(beneficiary_ref01_data_dt0_load_result["id"], beneficiary_ref01_data["id"])
 

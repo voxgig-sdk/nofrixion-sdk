@@ -62,14 +62,14 @@ describe('MandateEntity', async () => {
     const mandate_ref01_ent = client.Mandate()
     let mandate_ref01_data = setup.data.new.mandate['mandate_ref01']
 
-    mandate_ref01_data = await mandate_ref01_ent.create(mandate_ref01_data)
+    mandate_ref01_data = (await mandate_ref01_ent.create(mandate_ref01_data)).data()
     assert(null != mandate_ref01_data.id)
 
 
     // LOAD
     const mandate_ref01_match_dt0: any = {}
     mandate_ref01_match_dt0.id = mandate_ref01_data.id
-    const mandate_ref01_data_dt0 = await mandate_ref01_ent.load(mandate_ref01_match_dt0)
+    const mandate_ref01_data_dt0 = (await mandate_ref01_ent.load(mandate_ref01_match_dt0)).data()
     assert(mandate_ref01_data_dt0.id === mandate_ref01_data.id)
 
 

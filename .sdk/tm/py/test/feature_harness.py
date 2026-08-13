@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import NofrixionControl
-from core.error import NofrixionError
-from core.result import NofrixionResult
-from core.spec import NofrixionSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import NofrixionControl
+from projectname_sdk.core.error import NofrixionError
+from projectname_sdk.core.result import NofrixionResult
+from projectname_sdk.core.spec import NofrixionSpec
 
 
 # True when this SDK was generated with the named feature.

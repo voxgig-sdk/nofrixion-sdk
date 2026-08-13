@@ -41,7 +41,7 @@ describe("PaymentEntity", function()
 
     local payment_ref01_data_result, err = payment_ref01_ent:create(payment_ref01_data, nil)
     assert.is_nil(err)
-    payment_ref01_data = helpers.to_map(payment_ref01_data_result)
+    payment_ref01_data = helpers.to_map(type(payment_ref01_data_result) == 'table' and payment_ref01_data_result.data_get and payment_ref01_data_result:data_get() or payment_ref01_data_result)
     assert.is_not_nil(payment_ref01_data)
     assert.is_not_nil(payment_ref01_data["id"])
 
@@ -50,13 +50,13 @@ describe("PaymentEntity", function()
       id = payment_ref01_data["id"],
     }
 
-    local payment_ref01_markdef_up0_name = "base_origin_url"
+    local payment_ref01_markdef_up0_name = "baseOriginUrl"
     local payment_ref01_markdef_up0_value = "Mark01-payment_ref01_" .. tostring(setup.now)
     payment_ref01_data_up0_up[payment_ref01_markdef_up0_name] = payment_ref01_markdef_up0_value
 
     local payment_ref01_resdata_up0_result, err = payment_ref01_ent:update(payment_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local payment_ref01_resdata_up0 = helpers.to_map(payment_ref01_resdata_up0_result)
+    local payment_ref01_resdata_up0 = helpers.to_map(type(payment_ref01_resdata_up0_result) == 'table' and payment_ref01_resdata_up0_result.data_get and payment_ref01_resdata_up0_result:data_get() or payment_ref01_resdata_up0_result)
     assert.is_not_nil(payment_ref01_resdata_up0)
     assert.are.equal(payment_ref01_resdata_up0["id"], payment_ref01_data_up0_up["id"])
     assert.are.equal(payment_ref01_resdata_up0[payment_ref01_markdef_up0_name], payment_ref01_markdef_up0_value)
@@ -67,7 +67,7 @@ describe("PaymentEntity", function()
     }
     local payment_ref01_data_dt0_loaded, err = payment_ref01_ent:load(payment_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local payment_ref01_data_dt0_load_result = helpers.to_map(payment_ref01_data_dt0_loaded)
+    local payment_ref01_data_dt0_load_result = helpers.to_map(type(payment_ref01_data_dt0_loaded) == 'table' and payment_ref01_data_dt0_loaded.data_get and payment_ref01_data_dt0_loaded:data_get() or payment_ref01_data_dt0_loaded)
     assert.is_not_nil(payment_ref01_data_dt0_load_result)
     assert.are.equal(payment_ref01_data_dt0_load_result["id"], payment_ref01_data["id"])
 

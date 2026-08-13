@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestAccountEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from nofrixion_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = NofrixionSDK.test(
@@ -80,7 +80,7 @@ class TestAccountEntity:
         account_ref01_data["account_id"] = setup["idmap"]["account01"]
         account_ref01_data["merchant_id"] = setup["idmap"]["merchant01"]
 
-        account_ref01_data = helpers.to_map(account_ref01_ent.create(account_ref01_data, None))
+        account_ref01_data = helpers.to_map(runner.entity_data(account_ref01_ent.create(account_ref01_data, None)))
         assert account_ref01_data is not None
         assert account_ref01_data["id"] is not None
 
@@ -102,11 +102,11 @@ class TestAccountEntity:
             "id": account_ref01_data["id"],
         }
 
-        account_ref01_markdef_up0_name = "account_id"
+        account_ref01_markdef_up0_name = "accountID"
         account_ref01_markdef_up0_value = "Mark01-account_ref01_" + str(setup["now"])
         account_ref01_data_up0_up[account_ref01_markdef_up0_name] = account_ref01_markdef_up0_value
 
-        account_ref01_resdata_up0 = helpers.to_map(account_ref01_ent.update(account_ref01_data_up0_up, None))
+        account_ref01_resdata_up0 = helpers.to_map(runner.entity_data(account_ref01_ent.update(account_ref01_data_up0_up, None)))
         assert account_ref01_resdata_up0 is not None
         assert account_ref01_resdata_up0["id"] == account_ref01_data_up0_up["id"]
         assert account_ref01_resdata_up0[account_ref01_markdef_up0_name] == account_ref01_markdef_up0_value
@@ -116,7 +116,7 @@ class TestAccountEntity:
             "id": account_ref01_data["id"],
         }
         account_ref01_data_dt0_loaded = account_ref01_ent.load(account_ref01_match_dt0, None)
-        account_ref01_data_dt0_load_result = helpers.to_map(account_ref01_data_dt0_loaded)
+        account_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(account_ref01_data_dt0_loaded))
         assert account_ref01_data_dt0_load_result is not None
         assert account_ref01_data_dt0_load_result["id"] == account_ref01_data["id"]
 

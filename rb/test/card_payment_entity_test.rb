@@ -38,7 +38,7 @@ class CardPaymentEntityTest < Minitest::Test
     card_payment_ref01_data["paymentrequest_id"] = setup[:idmap]["paymentrequest01"]
 
     card_payment_ref01_data_result = card_payment_ref01_ent.create(card_payment_ref01_data, nil)
-    card_payment_ref01_data = Helpers.to_map(card_payment_ref01_data_result)
+    card_payment_ref01_data = Helpers.to_map(card_payment_ref01_data_result.respond_to?(:data_get) ? card_payment_ref01_data_result.data_get : card_payment_ref01_data_result)
     assert !card_payment_ref01_data.nil?
 
   end

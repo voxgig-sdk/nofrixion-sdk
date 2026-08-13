@@ -62,7 +62,7 @@ describe('PayoutMetricEntity', async () => {
     // LOAD
     const payout_metric_ref01_ent = client.PayoutMetric()
     const payout_metric_ref01_match_dt0: any = {}
-    const payout_metric_ref01_data_dt0 = await payout_metric_ref01_ent.load(payout_metric_ref01_match_dt0)
+    const payout_metric_ref01_data_dt0 = (await payout_metric_ref01_ent.load(payout_metric_ref01_match_dt0)).data()
     assert(null != payout_metric_ref01_data_dt0)
 
 

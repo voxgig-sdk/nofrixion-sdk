@@ -6,72 +6,72 @@ main: kit: entity: card: {
 
   fields: [
     {
-      name: "authorized_amount"
+      name: "authorizedAmount"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "currency_code"
+      name: "currencyCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "is_payer_authentication_required"
+      name: "isPayerAuthenticationRequired"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_soft_decline"
+      name: "isSoftDecline"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "payer_authentication_access_token"
+      name: "payerAuthenticationAccessToken"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payer_authentication_merchant_data"
+      name: "payerAuthenticationMerchantData"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payer_authentication_url"
+      name: "payerAuthenticationUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payer_authentication_window_height"
+      name: "payerAuthenticationWindowHeight"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "payer_authentication_window_width"
+      name: "payerAuthenticationWindowWidth"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "payment_request_callback_url"
+      name: "paymentRequestCallbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_request_id"
+      name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "request_id"
+      name: "requestID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "response_code"
+      name: "responseCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "response_type"
+      name: "responseType"
       req: false
       type: "`$STRING`"
     }
@@ -81,12 +81,12 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
-      name: "three_ds_redirect_url"
+      name: "threeDSRedirectUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "transaction_id"
+      name: "transactionID"
       req: false
       type: "`$STRING`"
     }

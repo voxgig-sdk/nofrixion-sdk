@@ -58,7 +58,7 @@ func TestBatchEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		batchRef01Data = core.ToMapAny(batchRef01DataResult)
+		batchRef01Data = core.ToMapAny(entityData(batchRef01DataResult))
 		if batchRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -74,7 +74,7 @@ func TestBatchEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		batchRef01DataDt0LoadResult := core.ToMapAny(batchRef01DataDt0Loaded)
+		batchRef01DataDt0LoadResult := core.ToMapAny(entityData(batchRef01DataDt0Loaded))
 		if batchRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

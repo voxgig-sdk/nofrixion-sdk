@@ -63,7 +63,7 @@ describe('MerchantDirectDebitMandatePageEntity', async () => {
     const merchant_direct_debit_mandate_page_ref01_ent = client.MerchantDirectDebitMandatePage()
     const merchant_direct_debit_mandate_page_ref01_match: any = {}
 
-    const merchant_direct_debit_mandate_page_ref01_list = await merchant_direct_debit_mandate_page_ref01_ent.list(merchant_direct_debit_mandate_page_ref01_match)
+    const merchant_direct_debit_mandate_page_ref01_list = (await merchant_direct_debit_mandate_page_ref01_ent.list(merchant_direct_debit_mandate_page_ref01_match)).map((e: any) => e.data())
 
 
   })

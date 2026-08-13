@@ -95,7 +95,7 @@ class MerchantPaymentRequestTemplateEntityTest < Minitest::Test
     merchant_payment_request_template_ref01_data_up0_up[merchant_payment_request_template_ref01_markdef_up0_name] = merchant_payment_request_template_ref01_markdef_up0_value
 
     merchant_payment_request_template_ref01_resdata_up0_result = merchant_payment_request_template_ref01_ent.update(merchant_payment_request_template_ref01_data_up0_up, nil)
-    merchant_payment_request_template_ref01_resdata_up0 = Helpers.to_map(merchant_payment_request_template_ref01_resdata_up0_result)
+    merchant_payment_request_template_ref01_resdata_up0 = Helpers.to_map(merchant_payment_request_template_ref01_resdata_up0_result.respond_to?(:data_get) ? merchant_payment_request_template_ref01_resdata_up0_result.data_get : merchant_payment_request_template_ref01_resdata_up0_result)
     assert !merchant_payment_request_template_ref01_resdata_up0.nil?
     assert_equal merchant_payment_request_template_ref01_resdata_up0["id"], merchant_payment_request_template_ref01_data_up0_up["id"]
     assert_equal merchant_payment_request_template_ref01_resdata_up0[merchant_payment_request_template_ref01_markdef_up0_name], merchant_payment_request_template_ref01_markdef_up0_value
@@ -105,7 +105,7 @@ class MerchantPaymentRequestTemplateEntityTest < Minitest::Test
       "id" => merchant_payment_request_template_ref01_data["id"],
     }
     merchant_payment_request_template_ref01_data_dt0_loaded = merchant_payment_request_template_ref01_ent.load(merchant_payment_request_template_ref01_match_dt0, nil)
-    merchant_payment_request_template_ref01_data_dt0_load_result = Helpers.to_map(merchant_payment_request_template_ref01_data_dt0_loaded)
+    merchant_payment_request_template_ref01_data_dt0_load_result = Helpers.to_map(merchant_payment_request_template_ref01_data_dt0_loaded.respond_to?(:data_get) ? merchant_payment_request_template_ref01_data_dt0_loaded.data_get : merchant_payment_request_template_ref01_data_dt0_loaded)
     assert !merchant_payment_request_template_ref01_data_dt0_load_result.nil?
     assert_equal merchant_payment_request_template_ref01_data_dt0_load_result["id"], merchant_payment_request_template_ref01_data["id"]
 

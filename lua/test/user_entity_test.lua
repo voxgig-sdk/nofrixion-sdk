@@ -96,13 +96,13 @@ describe("UserEntity", function()
       id = user_ref01_data["id"],
     }
 
-    local user_ref01_markdef_up0_name = "email_address"
+    local user_ref01_markdef_up0_name = "emailAddress"
     local user_ref01_markdef_up0_value = "Mark01-user_ref01_" .. tostring(setup.now)
     user_ref01_data_up0_up[user_ref01_markdef_up0_name] = user_ref01_markdef_up0_value
 
     local user_ref01_resdata_up0_result, err = user_ref01_ent:update(user_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local user_ref01_resdata_up0 = helpers.to_map(user_ref01_resdata_up0_result)
+    local user_ref01_resdata_up0 = helpers.to_map(type(user_ref01_resdata_up0_result) == 'table' and user_ref01_resdata_up0_result.data_get and user_ref01_resdata_up0_result:data_get() or user_ref01_resdata_up0_result)
     assert.is_not_nil(user_ref01_resdata_up0)
     assert.are.equal(user_ref01_resdata_up0["id"], user_ref01_data_up0_up["id"])
     assert.are.equal(user_ref01_resdata_up0[user_ref01_markdef_up0_name], user_ref01_markdef_up0_value)

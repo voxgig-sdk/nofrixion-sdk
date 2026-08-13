@@ -107,7 +107,7 @@ func TestRuleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		ruleRef01Data = core.ToMapAny(ruleRef01DataResult)
+		ruleRef01Data = core.ToMapAny(entityData(ruleRef01DataResult))
 		if ruleRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -137,7 +137,7 @@ func TestRuleEntity(t *testing.T) {
 			"id": ruleRef01Data["id"],
 		}
 
-		ruleRef01MarkdefUp0Name := "account_id"
+		ruleRef01MarkdefUp0Name := "accountID"
 		ruleRef01MarkdefUp0Value := fmt.Sprintf("Mark01-rule_ref01_%d", setup.now)
 		ruleRef01DataUp0Up[ruleRef01MarkdefUp0Name] = ruleRef01MarkdefUp0Value
 
@@ -145,7 +145,7 @@ func TestRuleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		ruleRef01ResdataUp0 := core.ToMapAny(ruleRef01ResdataUp0Result)
+		ruleRef01ResdataUp0 := core.ToMapAny(entityData(ruleRef01ResdataUp0Result))
 		if ruleRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -164,7 +164,7 @@ func TestRuleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		ruleRef01DataDt0LoadResult := core.ToMapAny(ruleRef01DataDt0Loaded)
+		ruleRef01DataDt0LoadResult := core.ToMapAny(entityData(ruleRef01DataDt0Loaded))
 		if ruleRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

@@ -84,7 +84,7 @@ class TagEntityTest extends TestCase
         $tag_ref01_data["merchant_id"] = $setup["idmap"]["merchant01"];
 
         $tag_ref01_data_result = $tag_ref01_ent->create($tag_ref01_data, null);
-        $tag_ref01_data = Helpers::to_map($tag_ref01_data_result);
+        $tag_ref01_data = Helpers::to_map(is_object($tag_ref01_data_result) && method_exists($tag_ref01_data_result, 'data_get') ? $tag_ref01_data_result->data_get() : $tag_ref01_data_result);
         $this->assertNotNull($tag_ref01_data);
         $this->assertNotNull($tag_ref01_data["id"]);
 

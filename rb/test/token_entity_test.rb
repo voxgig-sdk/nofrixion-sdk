@@ -37,7 +37,7 @@ class TokenEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.token"), "token_ref01"))
 
     token_ref01_data_result = token_ref01_ent.create(token_ref01_data, nil)
-    token_ref01_data = Helpers.to_map(token_ref01_data_result)
+    token_ref01_data = Helpers.to_map(token_ref01_data_result.respond_to?(:data_get) ? token_ref01_data_result.data_get : token_ref01_data_result)
     assert !token_ref01_data.nil?
 
 

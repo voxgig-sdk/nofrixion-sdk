@@ -87,12 +87,12 @@ class UserEntityTest < Minitest::Test
       "id" => user_ref01_data["id"],
     }
 
-    user_ref01_markdef_up0_name = "email_address"
+    user_ref01_markdef_up0_name = "emailAddress"
     user_ref01_markdef_up0_value = "Mark01-user_ref01_#{setup[:now]}"
     user_ref01_data_up0_up[user_ref01_markdef_up0_name] = user_ref01_markdef_up0_value
 
     user_ref01_resdata_up0_result = user_ref01_ent.update(user_ref01_data_up0_up, nil)
-    user_ref01_resdata_up0 = Helpers.to_map(user_ref01_resdata_up0_result)
+    user_ref01_resdata_up0 = Helpers.to_map(user_ref01_resdata_up0_result.respond_to?(:data_get) ? user_ref01_resdata_up0_result.data_get : user_ref01_resdata_up0_result)
     assert !user_ref01_resdata_up0.nil?
     assert_equal user_ref01_resdata_up0["id"], user_ref01_data_up0_up["id"]
     assert_equal user_ref01_resdata_up0[user_ref01_markdef_up0_name], user_ref01_markdef_up0_value

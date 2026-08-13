@@ -6,57 +6,57 @@ main: kit: entity: beneficiary: {
 
   fields: [
     {
-      name: "approval_callback_url"
+      name: "approvalCallbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "authentication_method"
+      name: "authenticationMethods"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisation"
+      name: "authorisations"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisers_completed_count"
+      name: "authorisersCompletedCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "authorisers_required_count"
+      name: "authorisersRequiredCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "beneficiary"
+      name: "beneficiaries"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "beneficiary_event"
+      name: "beneficiaryEvents"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "can_authorise"
+      name: "canAuthorise"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "can_update"
+      name: "canUpdate"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "created_by"
+      name: "createdBy"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "created_by_email_address"
+      name: "createdByEmailAddress"
       req: false
       type: "`$STRING`"
     }
@@ -83,12 +83,12 @@ main: kit: entity: beneficiary: {
       type: "`$OBJECT`"
     }
     {
-      name: "failed_beneficiary"
+      name: "failedBeneficiaries"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "has_current_user_authorised"
+      name: "hasCurrentUserAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -103,22 +103,22 @@ main: kit: entity: beneficiary: {
       type: "`$STRING`"
     }
     {
-      name: "is_enabled"
+      name: "isEnabled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_authorised"
+      name: "lastAuthorised"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       op: {
         create: {
           req: true
@@ -145,17 +145,17 @@ main: kit: entity: beneficiary: {
       type: "`$STRING`"
     }
     {
-      name: "source_account"
+      name: "sourceAccountIDs"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "source_account_i_d"
+      name: "sourceAccounts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "their_reference"
+      name: "theirReference"
       req: false
       type: "`$STRING`"
     }

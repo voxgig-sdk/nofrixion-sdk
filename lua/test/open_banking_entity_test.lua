@@ -43,7 +43,7 @@ describe("OpenBankingEntity", function()
 
     local open_banking_ref01_data_result, err = open_banking_ref01_ent:create(open_banking_ref01_data, nil)
     assert.is_nil(err)
-    open_banking_ref01_data = helpers.to_map(open_banking_ref01_data_result)
+    open_banking_ref01_data = helpers.to_map(type(open_banking_ref01_data_result) == 'table' and open_banking_ref01_data_result.data_get and open_banking_ref01_data_result:data_get() or open_banking_ref01_data_result)
     assert.is_not_nil(open_banking_ref01_data)
 
 

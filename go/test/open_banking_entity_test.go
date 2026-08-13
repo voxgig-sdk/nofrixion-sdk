@@ -60,7 +60,7 @@ func TestOpenBankingEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		openBankingRef01Data = core.ToMapAny(openBankingRef01DataResult)
+		openBankingRef01Data = core.ToMapAny(entityData(openBankingRef01DataResult))
 		if openBankingRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

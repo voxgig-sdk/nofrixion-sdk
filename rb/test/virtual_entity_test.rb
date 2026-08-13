@@ -38,7 +38,7 @@ class VirtualEntityTest < Minitest::Test
     virtual_ref01_data["account_id"] = setup[:idmap]["account01"]
 
     virtual_ref01_data_result = virtual_ref01_ent.create(virtual_ref01_data, nil)
-    virtual_ref01_data = Helpers.to_map(virtual_ref01_data_result)
+    virtual_ref01_data = Helpers.to_map(virtual_ref01_data_result.respond_to?(:data_get) ? virtual_ref01_data_result.data_get : virtual_ref01_data_result)
     assert !virtual_ref01_data.nil?
     assert !virtual_ref01_data["id"].nil?
 
@@ -48,12 +48,12 @@ class VirtualEntityTest < Minitest::Test
       "account_id" => setup[:idmap]["account_id"],
     }
 
-    virtual_ref01_markdef_up0_name = "account_name"
+    virtual_ref01_markdef_up0_name = "accountName"
     virtual_ref01_markdef_up0_value = "Mark01-virtual_ref01_#{setup[:now]}"
     virtual_ref01_data_up0_up[virtual_ref01_markdef_up0_name] = virtual_ref01_markdef_up0_value
 
     virtual_ref01_resdata_up0_result = virtual_ref01_ent.update(virtual_ref01_data_up0_up, nil)
-    virtual_ref01_resdata_up0 = Helpers.to_map(virtual_ref01_resdata_up0_result)
+    virtual_ref01_resdata_up0 = Helpers.to_map(virtual_ref01_resdata_up0_result.respond_to?(:data_get) ? virtual_ref01_resdata_up0_result.data_get : virtual_ref01_resdata_up0_result)
     assert !virtual_ref01_resdata_up0.nil?
     assert_equal virtual_ref01_resdata_up0["id"], virtual_ref01_data_up0_up["id"]
     assert_equal virtual_ref01_resdata_up0[virtual_ref01_markdef_up0_name], virtual_ref01_markdef_up0_value

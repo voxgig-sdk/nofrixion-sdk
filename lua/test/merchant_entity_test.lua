@@ -96,13 +96,13 @@ describe("MerchantEntity", function()
       id = merchant_ref01_data["id"],
     }
 
-    local merchant_ref01_markdef_up0_name = "card_payment_processor"
+    local merchant_ref01_markdef_up0_name = "cardPaymentProcessor"
     local merchant_ref01_markdef_up0_value = "Mark01-merchant_ref01_" .. tostring(setup.now)
     merchant_ref01_data_up0_up[merchant_ref01_markdef_up0_name] = merchant_ref01_markdef_up0_value
 
     local merchant_ref01_resdata_up0_result, err = merchant_ref01_ent:update(merchant_ref01_data_up0_up, nil)
     assert.is_nil(err)
-    local merchant_ref01_resdata_up0 = helpers.to_map(merchant_ref01_resdata_up0_result)
+    local merchant_ref01_resdata_up0 = helpers.to_map(type(merchant_ref01_resdata_up0_result) == 'table' and merchant_ref01_resdata_up0_result.data_get and merchant_ref01_resdata_up0_result:data_get() or merchant_ref01_resdata_up0_result)
     assert.is_not_nil(merchant_ref01_resdata_up0)
     assert.are.equal(merchant_ref01_resdata_up0["id"], merchant_ref01_data_up0_up["id"])
     assert.are.equal(merchant_ref01_resdata_up0[merchant_ref01_markdef_up0_name], merchant_ref01_markdef_up0_value)
@@ -113,7 +113,7 @@ describe("MerchantEntity", function()
     }
     local merchant_ref01_data_dt0_loaded, err = merchant_ref01_ent:load(merchant_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local merchant_ref01_data_dt0_load_result = helpers.to_map(merchant_ref01_data_dt0_loaded)
+    local merchant_ref01_data_dt0_load_result = helpers.to_map(type(merchant_ref01_data_dt0_loaded) == 'table' and merchant_ref01_data_dt0_loaded.data_get and merchant_ref01_data_dt0_loaded:data_get() or merchant_ref01_data_dt0_loaded)
     assert.is_not_nil(merchant_ref01_data_dt0_load_result)
     assert.are.equal(merchant_ref01_data_dt0_load_result["id"], merchant_ref01_data["id"])
 

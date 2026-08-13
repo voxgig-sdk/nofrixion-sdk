@@ -6,27 +6,27 @@ main: kit: entity: merchant_token: {
 
   fields: [
     {
-      name: "authentication_method"
+      name: "authenticationMethods"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisation"
+      name: "authorisations"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "authorisers_completed_count"
+      name: "authorisersCompletedCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "authorisers_required_count"
+      name: "authorisersRequiredCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "can_authorise"
+      name: "canAuthorise"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -42,17 +42,17 @@ main: kit: entity: merchant_token: {
       type: "`$STRING`"
     }
     {
-      name: "expires_at"
+      name: "expiresAt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "has_current_user_authorised"
+      name: "hasCurrentUserAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "hmac_algorithm"
+      name: "hmacAlgorithm"
       req: false
       type: "`$STRING`"
     }
@@ -67,32 +67,32 @@ main: kit: entity: merchant_token: {
       type: "`$STRING`"
     }
     {
-      name: "ip_address_whitelist"
+      name: "ipAddressWhitelist"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_enabled"
+      name: "isEnabled"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_authorised"
+      name: "lastAuthorised"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       op: {
         create: {
           req: true
@@ -108,22 +108,22 @@ main: kit: entity: merchant_token: {
       type: "`$STRING`"
     }
     {
-      name: "permission_type"
+      name: "permissionTypes"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "request_signature_version"
+      name: "requestSignatureVersion"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "shared_secret_algorithm"
+      name: "sharedSecretAlgorithm"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "shared_secret_base64"
+      name: "sharedSecretBase64"
       req: false
       type: "`$STRING`"
     }

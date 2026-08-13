@@ -63,14 +63,14 @@ describe('PayrunEntity', async () => {
     let payrun_ref01_data = setup.data.new.payrun['payrun_ref01']
     payrun_ref01_data['merchant_i_d'] = setup.idmap['merchant_i_d01']
 
-    payrun_ref01_data = await payrun_ref01_ent.create(payrun_ref01_data)
+    payrun_ref01_data = (await payrun_ref01_ent.create(payrun_ref01_data)).data()
     assert(null != payrun_ref01_data.id)
 
 
     // LIST
     const payrun_ref01_match: any = {}
 
-    const payrun_ref01_list = await payrun_ref01_ent.list(payrun_ref01_match)
+    const payrun_ref01_list = (await payrun_ref01_ent.list(payrun_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(payrun_ref01_list, { id: payrun_ref01_data.id })))
 
@@ -79,10 +79,10 @@ describe('PayrunEntity', async () => {
     const payrun_ref01_data_up0: any = {}
     payrun_ref01_data_up0.id = payrun_ref01_data.id
 
-    const payrun_ref01_markdef_up0 = { name: 'authorisation_date', value: 'Mark01-payrun_ref01_' + setup.now }
+    const payrun_ref01_markdef_up0 = { name: 'authorisationDate', value: 'Mark01-payrun_ref01_' + setup.now }
     ;(payrun_ref01_data_up0 as any)[payrun_ref01_markdef_up0.name] = payrun_ref01_markdef_up0.value
 
-    const payrun_ref01_resdata_up0 = await payrun_ref01_ent.update(payrun_ref01_data_up0)
+    const payrun_ref01_resdata_up0 = (await payrun_ref01_ent.update(payrun_ref01_data_up0)).data()
     assert(payrun_ref01_resdata_up0.id === payrun_ref01_data_up0.id)
 
     assert((payrun_ref01_resdata_up0 as any)[payrun_ref01_markdef_up0.name] === payrun_ref01_markdef_up0.value)
@@ -91,7 +91,7 @@ describe('PayrunEntity', async () => {
     // LOAD
     const payrun_ref01_match_dt0: any = {}
     payrun_ref01_match_dt0.id = payrun_ref01_data.id
-    const payrun_ref01_data_dt0 = await payrun_ref01_ent.load(payrun_ref01_match_dt0)
+    const payrun_ref01_data_dt0 = (await payrun_ref01_ent.load(payrun_ref01_match_dt0)).data()
     assert(payrun_ref01_data_dt0.id === payrun_ref01_data.id)
 
 
@@ -103,7 +103,7 @@ describe('PayrunEntity', async () => {
     // LIST
     const payrun_ref01_match_rt0: any = {}
 
-    const payrun_ref01_list_rt0 = await payrun_ref01_ent.list(payrun_ref01_match_rt0)
+    const payrun_ref01_list_rt0 = (await payrun_ref01_ent.list(payrun_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(payrun_ref01_list_rt0, { id: payrun_ref01_data.id })))
 

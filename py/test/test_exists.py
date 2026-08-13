@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Nofrixion SDK exists test
 
 import pytest
 from nofrixion_sdk import NofrixionSDK

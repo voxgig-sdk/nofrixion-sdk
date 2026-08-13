@@ -6,22 +6,22 @@ main: kit: entity: merchant_pay_by_bank_setting: {
 
   fields: [
     {
-      name: "bank_country_code"
+      name: "bankCountryCodes"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "bank_id"
+      name: "bankID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "bank_name"
+      name: "bankName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "business_institution_id"
+      name: "businessInstitutionID"
       req: false
       type: "`$STRING`"
     }
@@ -41,7 +41,7 @@ main: kit: entity: merchant_pay_by_bank_setting: {
       type: "`$STRING`"
     }
     {
-      name: "message_image_url"
+      name: "messageImageUrl"
       req: false
       type: "`$STRING`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: merchant_pay_by_bank_setting: {
       type: "`$INTEGER`"
     }
     {
-      name: "personal_institution_id"
+      name: "personalInstitutionID"
       req: false
       type: "`$STRING`"
     }
@@ -61,12 +61,12 @@ main: kit: entity: merchant_pay_by_bank_setting: {
       type: "`$STRING`"
     }
     {
-      name: "warning_heading"
+      name: "warningHeading"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "warning_message"
+      name: "warningMessage"
       req: false
       type: "`$STRING`"
     }

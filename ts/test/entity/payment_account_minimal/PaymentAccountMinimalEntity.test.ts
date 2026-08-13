@@ -63,7 +63,7 @@ describe('PaymentAccountMinimalEntity', async () => {
     const payment_account_minimal_ref01_ent = client.PaymentAccountMinimal()
     const payment_account_minimal_ref01_match: any = {}
 
-    const payment_account_minimal_ref01_list = await payment_account_minimal_ref01_ent.list(payment_account_minimal_ref01_match)
+    const payment_account_minimal_ref01_list = (await payment_account_minimal_ref01_ent.list(payment_account_minimal_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -109,7 +109,7 @@ func TestAccountEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		accountRef01Data = core.ToMapAny(accountRef01DataResult)
+		accountRef01Data = core.ToMapAny(entityData(accountRef01DataResult))
 		if accountRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -141,7 +141,7 @@ func TestAccountEntity(t *testing.T) {
 			"id": accountRef01Data["id"],
 		}
 
-		accountRef01MarkdefUp0Name := "account_id"
+		accountRef01MarkdefUp0Name := "accountID"
 		accountRef01MarkdefUp0Value := fmt.Sprintf("Mark01-account_ref01_%d", setup.now)
 		accountRef01DataUp0Up[accountRef01MarkdefUp0Name] = accountRef01MarkdefUp0Value
 
@@ -149,7 +149,7 @@ func TestAccountEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		accountRef01ResdataUp0 := core.ToMapAny(accountRef01ResdataUp0Result)
+		accountRef01ResdataUp0 := core.ToMapAny(entityData(accountRef01ResdataUp0Result))
 		if accountRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -168,7 +168,7 @@ func TestAccountEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		accountRef01DataDt0LoadResult := core.ToMapAny(accountRef01DataDt0Loaded)
+		accountRef01DataDt0LoadResult := core.ToMapAny(entityData(accountRef01DataDt0Loaded))
 		if accountRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

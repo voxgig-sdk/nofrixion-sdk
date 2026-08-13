@@ -63,7 +63,7 @@ describe('WebhookEntity', async () => {
     let webhook_ref01_data = setup.data.new.webhook['webhook_ref01']
     webhook_ref01_data['merchant_id'] = setup.idmap['merchant01']
 
-    webhook_ref01_data = await webhook_ref01_ent.create(webhook_ref01_data)
+    webhook_ref01_data = (await webhook_ref01_ent.create(webhook_ref01_data)).data()
     assert(null != webhook_ref01_data.id)
 
 
@@ -71,7 +71,7 @@ describe('WebhookEntity', async () => {
     const webhook_ref01_match: any = {}
     webhook_ref01_match['merchant_id'] = setup.idmap['merchant01']
 
-    const webhook_ref01_list = await webhook_ref01_ent.list(webhook_ref01_match)
+    const webhook_ref01_list = (await webhook_ref01_ent.list(webhook_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(webhook_ref01_list, { id: webhook_ref01_data.id })))
 
@@ -80,10 +80,10 @@ describe('WebhookEntity', async () => {
     const webhook_ref01_data_up0: any = {}
     webhook_ref01_data_up0.id = webhook_ref01_data.id
 
-    const webhook_ref01_markdef_up0 = { name: 'destination_url', value: 'Mark01-webhook_ref01_' + setup.now }
+    const webhook_ref01_markdef_up0 = { name: 'destinationUrl', value: 'Mark01-webhook_ref01_' + setup.now }
     ;(webhook_ref01_data_up0 as any)[webhook_ref01_markdef_up0.name] = webhook_ref01_markdef_up0.value
 
-    const webhook_ref01_resdata_up0 = await webhook_ref01_ent.update(webhook_ref01_data_up0)
+    const webhook_ref01_resdata_up0 = (await webhook_ref01_ent.update(webhook_ref01_data_up0)).data()
     assert(webhook_ref01_resdata_up0.id === webhook_ref01_data_up0.id)
 
     assert((webhook_ref01_resdata_up0 as any)[webhook_ref01_markdef_up0.name] === webhook_ref01_markdef_up0.value)
@@ -92,7 +92,7 @@ describe('WebhookEntity', async () => {
     // LOAD
     const webhook_ref01_match_dt0: any = {}
     webhook_ref01_match_dt0.id = webhook_ref01_data.id
-    const webhook_ref01_data_dt0 = await webhook_ref01_ent.load(webhook_ref01_match_dt0)
+    const webhook_ref01_data_dt0 = (await webhook_ref01_ent.load(webhook_ref01_match_dt0)).data()
     assert(webhook_ref01_data_dt0.id === webhook_ref01_data.id)
 
 
@@ -105,7 +105,7 @@ describe('WebhookEntity', async () => {
     const webhook_ref01_match_rt0: any = {}
     webhook_ref01_match_rt0['merchant_id'] = setup.idmap['merchant01']
 
-    const webhook_ref01_list_rt0 = await webhook_ref01_ent.list(webhook_ref01_match_rt0)
+    const webhook_ref01_list_rt0 = (await webhook_ref01_ent.list(webhook_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(webhook_ref01_list_rt0, { id: webhook_ref01_data.id })))
 

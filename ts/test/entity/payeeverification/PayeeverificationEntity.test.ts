@@ -62,7 +62,7 @@ describe('PayeeverificationEntity', async () => {
     const payeeverification_ref01_ent = client.Payeeverification()
     let payeeverification_ref01_data = setup.data.new.payeeverification['payeeverification_ref01']
 
-    payeeverification_ref01_data = await payeeverification_ref01_ent.create(payeeverification_ref01_data)
+    payeeverification_ref01_data = (await payeeverification_ref01_ent.create(payeeverification_ref01_data)).data()
     assert(null != payeeverification_ref01_data)
 
 

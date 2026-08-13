@@ -11,32 +11,32 @@ main: kit: entity: payment_request_minimal: {
       type: "`$NUMBER`"
     }
     {
-      name: "amount_pending"
+      name: "amountPending"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_received"
+      name: "amountReceived"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "amount_refunded"
+      name: "amountRefunded"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "callback_url"
+      name: "callbackUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "card_stripe_payment_intent_secret"
+      name: "cardStripePaymentIntentSecret"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "country_code"
+      name: "countryCode"
       req: false
       type: "`$STRING`"
     }
@@ -46,7 +46,7 @@ main: kit: entity: payment_request_minimal: {
       type: "`$STRING`"
     }
     {
-      name: "custom_fields_to_display"
+      name: "customFieldsToDisplay"
       req: false
       type: "`$ARRAY`"
     }
@@ -56,17 +56,17 @@ main: kit: entity: payment_request_minimal: {
       type: "`$STRING`"
     }
     {
-      name: "due_date"
+      name: "dueDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "field_display_setting"
+      name: "fieldDisplaySettings"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "google_pay_merchant_id"
+      name: "googlePayMerchantID"
       req: false
       type: "`$STRING`"
     }
@@ -81,62 +81,62 @@ main: kit: entity: payment_request_minimal: {
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_logo_url_png"
+      name: "merchantLogoUrlPng"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_logo_url_svg"
+      name: "merchantLogoUrlSvg"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_name"
+      name: "merchantName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_short_name"
+      name: "merchantShortName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "partial_payment_method"
+      name: "partialPaymentMethod"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_attempt"
+      name: "paymentAttempts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payment_methods_list"
+      name: "paymentMethodsList"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payment_processor"
+      name: "paymentProcessor"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment_processor_key"
+      name: "paymentProcessorKey"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pisp_error"
+      name: "pispError"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "priority_bank_id"
+      name: "priorityBankID"
       req: false
       type: "`$STRING`"
     }
@@ -146,7 +146,7 @@ main: kit: entity: payment_request_minimal: {
       type: "`$STRING`"
     }
     {
-      name: "stripe_account_id"
+      name: "stripeAccountID"
       req: false
       type: "`$STRING`"
     }

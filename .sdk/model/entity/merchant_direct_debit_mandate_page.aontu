@@ -6,7 +6,7 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
 
   fields: [
     {
-      name: "approved_at"
+      name: "approvedAt"
       req: false
       type: "`$STRING`"
     }
@@ -16,47 +16,47 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
       type: "`$STRING`"
     }
     {
-      name: "customer_account_number"
+      name: "customerAccountNumber"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_city"
+      name: "customerCity"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_country_code"
+      name: "customerCountryCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_country_name"
+      name: "customerCountryName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_email_address"
+      name: "customerEmailAddress"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_first_name"
+      name: "customerFirstName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_iban"
+      name: "customerIban"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_last_name"
+      name: "customerLastName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "customer_sort_code"
+      name: "customerSortCode"
       req: false
       type: "`$STRING`"
     }
@@ -71,17 +71,17 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
       type: "`$STRING`"
     }
     {
-      name: "is_recurring"
+      name: "isRecurring"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
@@ -96,27 +96,27 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
       type: "`$STRING`"
     }
     {
-      name: "supplier_bank_account_id"
+      name: "supplierBankAccountID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_customer_id"
+      name: "supplierCustomerID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_mandate_id"
+      name: "supplierMandateID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_name"
+      name: "supplierName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supplier_status"
+      name: "supplierStatus"
       req: false
       type: "`$STRING`"
     }

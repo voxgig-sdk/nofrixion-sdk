@@ -6,52 +6,52 @@ main: kit: entity: payrun: {
 
   fields: [
     {
-      name: "authorisation"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "authorisation_date"
+      name: "authorisationDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "authorisers_completed_count"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "authorisers_required_count"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "batch_payout_id"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "can_authorise"
-      req: false
-      type: "`$BOOLEAN`"
-    }
-    {
-      name: "can_delete"
-      req: false
-      type: "`$BOOLEAN`"
-    }
-    {
-      name: "can_edit"
-      req: false
-      type: "`$BOOLEAN`"
-    }
-    {
-      name: "event"
+      name: "authorisations"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "has_current_user_authorised"
+      name: "authorisersCompletedCount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "authorisersRequiredCount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "batchPayoutID"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "canAuthorise"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "canDelete"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "canEdit"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "events"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "hasCurrentUserAuthorised"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -66,32 +66,32 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
-      name: "invoice"
+      name: "invoices"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "invoices_minimal"
+      name: "invoicesMinimal"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "is_archived"
+      name: "isArchived"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_updated_by"
+      name: "lastUpdatedBy"
       req: true
       type: "`$OBJECT`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: false
       type: "`$STRING`"
     }
@@ -106,22 +106,22 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
-      name: "note"
+      name: "notes"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "payment"
+      name: "payments"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payout"
+      name: "payouts"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "payouts_count"
+      name: "payoutsCount"
       req: false
       type: "`$INTEGER`"
     }
@@ -131,17 +131,17 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
-      name: "schedule_date"
+      name: "scheduleDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "scheduled_date"
+      name: "scheduledDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "source_account"
+      name: "sourceAccounts"
       req: false
       type: "`$ARRAY`"
     }
@@ -151,17 +151,17 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
-      name: "total_eur"
+      name: "totalEur"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "total_gbp"
+      name: "totalGbp"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "total_usd"
+      name: "totalUsd"
       req: false
       type: "`$NUMBER`"
     }

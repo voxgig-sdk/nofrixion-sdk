@@ -63,7 +63,7 @@ describe('ReportEntity', async () => {
     const report_ref01_ent = client.Report()
     const report_ref01_data_up0: any = {}
 
-    const report_ref01_resdata_up0 = await report_ref01_ent.update(report_ref01_data_up0)
+    const report_ref01_resdata_up0 = (await report_ref01_ent.update(report_ref01_data_up0)).data()
     assert(null != report_ref01_resdata_up0)
 
 

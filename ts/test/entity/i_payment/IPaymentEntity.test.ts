@@ -62,7 +62,7 @@ describe('IPaymentEntity', async () => {
     const i_payment_ref01_ent = client.IPayment()
     let i_payment_ref01_data = setup.data.new.i_payment['i_payment_ref01']
 
-    i_payment_ref01_data = await i_payment_ref01_ent.create(i_payment_ref01_data)
+    i_payment_ref01_data = (await i_payment_ref01_ent.create(i_payment_ref01_data)).data()
     assert(null != i_payment_ref01_data)
 
 

@@ -6,7 +6,7 @@ main: kit: entity: tag: {
 
   fields: [
     {
-      name: "colour_hex"
+      name: "colourHex"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: tag: {
       type: "`$STRING`"
     }
     {
-      name: "merchant_id"
+      name: "merchantID"
       req: true
       type: "`$STRING`"
     }

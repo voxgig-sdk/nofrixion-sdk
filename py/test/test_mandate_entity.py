@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from nofrixion_sdk.utility.voxgig_struct import voxgig_struct as vs
 from nofrixion_sdk import NofrixionSDK
-from core import helpers
+from nofrixion_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestMandateEntity:
         mandate_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.mandate"), "mandate_ref01"))
 
-        mandate_ref01_data = helpers.to_map(mandate_ref01_ent.create(mandate_ref01_data, None))
+        mandate_ref01_data = helpers.to_map(runner.entity_data(mandate_ref01_ent.create(mandate_ref01_data, None)))
         assert mandate_ref01_data is not None
         assert mandate_ref01_data["id"] is not None
 
@@ -53,7 +53,7 @@ class TestMandateEntity:
             "id": mandate_ref01_data["id"],
         }
         mandate_ref01_data_dt0_loaded = mandate_ref01_ent.load(mandate_ref01_match_dt0, None)
-        mandate_ref01_data_dt0_load_result = helpers.to_map(mandate_ref01_data_dt0_loaded)
+        mandate_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(mandate_ref01_data_dt0_loaded))
         assert mandate_ref01_data_dt0_load_result is not None
         assert mandate_ref01_data_dt0_load_result["id"] == mandate_ref01_data["id"]
 

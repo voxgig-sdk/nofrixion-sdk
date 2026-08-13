@@ -62,14 +62,14 @@ describe('PaymentRequestEntity', async () => {
     const payment_request_ref01_ent = client.PaymentRequest()
     let payment_request_ref01_data = setup.data.new.payment_request['payment_request_ref01']
 
-    payment_request_ref01_data = await payment_request_ref01_ent.create(payment_request_ref01_data)
+    payment_request_ref01_data = (await payment_request_ref01_ent.create(payment_request_ref01_data)).data()
     assert(null != payment_request_ref01_data.id)
 
 
     // LIST
     const payment_request_ref01_match: any = {}
 
-    const payment_request_ref01_list = await payment_request_ref01_ent.list(payment_request_ref01_match)
+    const payment_request_ref01_list = (await payment_request_ref01_ent.list(payment_request_ref01_match)).map((e: any) => e.data())
 
     assert(!isempty(select(payment_request_ref01_list, { id: payment_request_ref01_data.id })))
 
@@ -78,10 +78,10 @@ describe('PaymentRequestEntity', async () => {
     const payment_request_ref01_data_up0: any = {}
     payment_request_ref01_data_up0.id = payment_request_ref01_data.id
 
-    const payment_request_ref01_markdef_up0 = { name: 'base_origin_url', value: 'Mark01-payment_request_ref01_' + setup.now }
+    const payment_request_ref01_markdef_up0 = { name: 'baseOriginUrl', value: 'Mark01-payment_request_ref01_' + setup.now }
     ;(payment_request_ref01_data_up0 as any)[payment_request_ref01_markdef_up0.name] = payment_request_ref01_markdef_up0.value
 
-    const payment_request_ref01_resdata_up0 = await payment_request_ref01_ent.update(payment_request_ref01_data_up0)
+    const payment_request_ref01_resdata_up0 = (await payment_request_ref01_ent.update(payment_request_ref01_data_up0)).data()
     assert(payment_request_ref01_resdata_up0.id === payment_request_ref01_data_up0.id)
 
     assert((payment_request_ref01_resdata_up0 as any)[payment_request_ref01_markdef_up0.name] === payment_request_ref01_markdef_up0.value)
@@ -90,7 +90,7 @@ describe('PaymentRequestEntity', async () => {
     // LOAD
     const payment_request_ref01_match_dt0: any = {}
     payment_request_ref01_match_dt0.id = payment_request_ref01_data.id
-    const payment_request_ref01_data_dt0 = await payment_request_ref01_ent.load(payment_request_ref01_match_dt0)
+    const payment_request_ref01_data_dt0 = (await payment_request_ref01_ent.load(payment_request_ref01_match_dt0)).data()
     assert(payment_request_ref01_data_dt0.id === payment_request_ref01_data.id)
 
 
@@ -102,7 +102,7 @@ describe('PaymentRequestEntity', async () => {
     // LIST
     const payment_request_ref01_match_rt0: any = {}
 
-    const payment_request_ref01_list_rt0 = await payment_request_ref01_ent.list(payment_request_ref01_match_rt0)
+    const payment_request_ref01_list_rt0 = (await payment_request_ref01_ent.list(payment_request_ref01_match_rt0)).map((e: any) => e.data())
 
     assert(isempty(select(payment_request_ref01_list_rt0, { id: payment_request_ref01_data.id })))
 

@@ -6,12 +6,12 @@ main: kit: entity: payeeverification: {
 
   fields: [
     {
-      name: "account_name"
+      name: "accountName"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "account_number"
+      name: "accountNumber"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: payeeverification: {
       type: "`$STRING`"
     }
     {
-      name: "payee_verified_account_name"
+      name: "payeeVerifiedAccountName"
       req: false
       type: "`$STRING`"
     }
@@ -31,12 +31,12 @@ main: kit: entity: payeeverification: {
       type: "`$STRING`"
     }
     {
-      name: "secondary_identification"
+      name: "secondaryIdentification"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "sort_code"
+      name: "sortCode"
       req: false
       type: "`$STRING`"
     }

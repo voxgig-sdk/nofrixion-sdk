@@ -11,22 +11,22 @@ main: kit: entity: currency: {
       type: "`$STRING`"
     }
     {
-      name: "decimal"
+      name: "decimals"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "is_fiat"
+      name: "isFiat"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "iso4217_alpha_code"
+      name: "iso4217AlphaCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "iso4217_numeric_code"
+      name: "iso4217NumericCode"
       req: false
       type: "`$STRING`"
     }

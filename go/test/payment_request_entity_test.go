@@ -107,7 +107,7 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		paymentRequestRef01Data = core.ToMapAny(paymentRequestRef01DataResult)
+		paymentRequestRef01Data = core.ToMapAny(entityData(paymentRequestRef01DataResult))
 		if paymentRequestRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -137,7 +137,7 @@ func TestPaymentRequestEntity(t *testing.T) {
 			"id": paymentRequestRef01Data["id"],
 		}
 
-		paymentRequestRef01MarkdefUp0Name := "base_origin_url"
+		paymentRequestRef01MarkdefUp0Name := "baseOriginUrl"
 		paymentRequestRef01MarkdefUp0Value := fmt.Sprintf("Mark01-payment_request_ref01_%d", setup.now)
 		paymentRequestRef01DataUp0Up[paymentRequestRef01MarkdefUp0Name] = paymentRequestRef01MarkdefUp0Value
 
@@ -145,7 +145,7 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		paymentRequestRef01ResdataUp0 := core.ToMapAny(paymentRequestRef01ResdataUp0Result)
+		paymentRequestRef01ResdataUp0 := core.ToMapAny(entityData(paymentRequestRef01ResdataUp0Result))
 		if paymentRequestRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -164,7 +164,7 @@ func TestPaymentRequestEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		paymentRequestRef01DataDt0LoadResult := core.ToMapAny(paymentRequestRef01DataDt0Loaded)
+		paymentRequestRef01DataDt0LoadResult := core.ToMapAny(entityData(paymentRequestRef01DataDt0Loaded))
 		if paymentRequestRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

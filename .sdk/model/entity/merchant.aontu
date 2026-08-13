@@ -6,32 +6,32 @@ main: kit: entity: merchant: {
 
   fields: [
     {
-      name: "account_currency"
+      name: "accountCurrencies"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "can_have_trust_account"
+      name: "canHaveTrustAccounts"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "card_payment_processor"
+      name: "cardPaymentProcessor"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "company_id"
+      name: "companyID"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "display_qr_on_hosted_pay"
+      name: "displayQrOnHostedPay"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "hosted_pay_version"
+      name: "hostedPayVersion"
       req: false
       type: "`$INTEGER`"
     }
@@ -46,17 +46,17 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
-      name: "is_blocked"
+      name: "isBlocked"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_exited"
+      name: "isExited"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_suspended"
+      name: "isSuspended"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -66,17 +66,17 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
-      name: "logo_url_png"
+      name: "logoUrlPng"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "logo_url_svg"
+      name: "logoUrlSvg"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "merchant_category_code"
+      name: "merchantCategoryCode"
       req: false
       type: "`$STRING`"
     }
@@ -86,24 +86,24 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
-      name: "note"
+      name: "notes"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "parent_merchant"
+      name: "parentMerchant"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "payment_account"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "payment_account_limit"
+      name: "paymentAccountLimit"
       req: false
       type: "`$INTEGER`"
+    }
+    {
+      name: "paymentAccounts"
+      req: false
+      type: "`$ARRAY`"
     }
     {
       name: "reason"
@@ -111,42 +111,42 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
-      name: "short_name"
+      name: "shortName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "supported_payment_methods_list"
+      name: "supportedPaymentMethodsList"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "suspension_reason"
+      name: "suspensionReason"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "tag"
+      name: "tags"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "time_zone_id"
+      name: "timeZoneId"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "trading_name"
+      name: "tradingName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "web_hook_limit"
+      name: "webHookLimit"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "your_role_name"
+      name: "yourRoleName"
       req: false
       type: "`$STRING`"
     }

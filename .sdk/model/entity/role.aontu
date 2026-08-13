@@ -6,12 +6,12 @@ main: kit: entity: role: {
 
   fields: [
     {
-      name: "failed_role"
+      name: "failedRoles"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "role"
+      name: "roles"
       req: false
       type: "`$ARRAY`"
     }

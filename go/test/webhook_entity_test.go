@@ -108,7 +108,7 @@ func TestWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		webhookRef01Data = core.ToMapAny(webhookRef01DataResult)
+		webhookRef01Data = core.ToMapAny(entityData(webhookRef01DataResult))
 		if webhookRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -140,7 +140,7 @@ func TestWebhookEntity(t *testing.T) {
 			"id": webhookRef01Data["id"],
 		}
 
-		webhookRef01MarkdefUp0Name := "destination_url"
+		webhookRef01MarkdefUp0Name := "destinationUrl"
 		webhookRef01MarkdefUp0Value := fmt.Sprintf("Mark01-webhook_ref01_%d", setup.now)
 		webhookRef01DataUp0Up[webhookRef01MarkdefUp0Name] = webhookRef01MarkdefUp0Value
 
@@ -148,7 +148,7 @@ func TestWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		webhookRef01ResdataUp0 := core.ToMapAny(webhookRef01ResdataUp0Result)
+		webhookRef01ResdataUp0 := core.ToMapAny(entityData(webhookRef01ResdataUp0Result))
 		if webhookRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -167,7 +167,7 @@ func TestWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		webhookRef01DataDt0LoadResult := core.ToMapAny(webhookRef01DataDt0Loaded)
+		webhookRef01DataDt0LoadResult := core.ToMapAny(entityData(webhookRef01DataDt0Loaded))
 		if webhookRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}
