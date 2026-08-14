@@ -23,8 +23,8 @@ class NofrixionSDK:
         utility = NofrixionUtility()
         self._utility = utility
 
-        from nofrixion_sdk.config import make_config
-        config = make_config()
+        from nofrixion_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

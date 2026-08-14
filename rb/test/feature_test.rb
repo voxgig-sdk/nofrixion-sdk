@@ -15,7 +15,7 @@ require_relative "../Nofrixion_sdk"
 module NofrixionFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = NofrixionConfig.make_config["feature"]
+    f = NofrixionConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

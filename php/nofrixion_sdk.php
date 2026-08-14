@@ -40,7 +40,7 @@ class NofrixionSDK
         $utility = new NofrixionUtility();
         $this->_utility = $utility;
 
-        $config = NofrixionConfig::make_config();
+        $config = NofrixionConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

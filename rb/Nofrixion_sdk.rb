@@ -28,7 +28,7 @@ class NofrixionSDK
     utility = NofrixionUtility.new
     @_utility = utility
 
-    config = NofrixionConfig.make_config
+    config = NofrixionConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
