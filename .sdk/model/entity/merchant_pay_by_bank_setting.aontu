@@ -8,66 +8,79 @@ main: kit: entity: merchant_pay_by_bank_setting: {
     {
       name: "bankCountryCodes"
       req: false
+      short: "The list of country codes representing the banks the country supports."
       type: "`$ARRAY`"
     }
     {
       name: "bankID"
       req: false
+      short: "ID of the bank to be configured for the merchant."
       type: "`$STRING`"
     }
     {
       name: "bankName"
       req: false
+      short: "Name of the Bank/Institution."
       type: "`$STRING`"
     }
     {
       name: "businessInstitutionID"
       req: false
+      short: "ID that the processor uses to identify the bank (business accounts)."
       type: "`$STRING`"
     }
     {
       name: "currency"
       req: false
+      short: "Currency supported by the bank."
       type: "`$STRING`"
     }
     {
       name: "logo"
       req: false
+      short: "URL of the bank's logo."
       type: "`$STRING`"
     }
     {
       name: "message"
       req: false
+      short: "Message relating to specific bank."
       type: "`$STRING`"
     }
     {
       name: "messageImageUrl"
       req: false
+      short: "Optional image URL to be displayed with the message."
       type: "`$STRING`"
     }
     {
       name: "order"
       req: false
+      short: "Order in which this setting will appear in the UI."
       type: "`$INTEGER`"
     }
     {
       name: "personalInstitutionID"
       req: false
+      short: "ID that the processor uses to identify the bank (personal accounts)."
       type: "`$STRING`"
     }
     {
       name: "processor"
       req: false
+      short: "Name of the bank payment processor."
       type: "`$STRING`"
     }
     {
       name: "warningHeading"
       req: false
+      short: "The heading for a warning message related to the bank institution to be displayed to the user."
       type: "`$STRING`"
     }
     {
       name: "warningMessage"
       req: false
+      short: "The warning message related to the bank institution to be displayed to the user."
       type: "`$STRING`"
     }
   ]

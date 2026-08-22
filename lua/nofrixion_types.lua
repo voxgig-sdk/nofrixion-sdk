@@ -69,11 +69,65 @@
 ---@field merchant_id? string
 
 ---@class AccountListMatch
----@field merchant_id? string
+---@field accountBalances? table
+---@field accountID? string
+---@field accountIdentifications? table
+---@field accountName? string
+---@field accountNames? table
+---@field accountSupplierName? string
+---@field accountType? string
+---@field availableBalance? number
+---@field availableBalanceMinorUnits? number
+---@field balance? number
+---@field balanceMinorUnits? number
+---@field bankName? string
+---@field consentID? string
+---@field consolidatedAccountInformation? table
+---@field createdBy? table
+---@field createdByDisplayName? string
+---@field currency? string
+---@field defaultPaymentRail? string
+---@field description? string
+---@field details? string
+---@field displayName? string
+---@field expiryDate? string
+---@field externalAccountIcon? string
+---@field format? string
+---@field fromDate? string
+---@field id? string
+---@field identifier? table
+---@field inserted? string
+---@field isArchived? boolean
+---@field isConnectedAccount? boolean
+---@field isDefault? boolean
+---@field isTrustAccount? boolean
+---@field isVirtual? boolean
+---@field lastTransaction? table
+---@field lastUpdated? string
+---@field merchantID? string
+---@field merchantName? string
+---@field nickname? string
+---@field physicalAccountID? string
+---@field roleIDs? table
+---@field rules? table
+---@field submittedPayoutsBalance? number
+---@field submittedPayoutsBalanceMinorUnits? number
+---@field summary? string
+---@field supplierPhysicalAccountID? string
+---@field supplierSepaInstantStatus? string
+---@field toDate? string
+---@field type? string
+---@field usageType? string
+---@field xeroBankFeedConnectionStatus? string
+---@field xeroBankFeedLastSyncedAt? string
+---@field xeroBankFeedSyncLastFailedAt? string
+---@field xeroBankFeedSyncLastFailureReason? string
+---@field xeroBankFeedSyncStatus? string
+---@field xeroUnsynchronisedTransactionsCount? number
 
 ---@class AccountCreateData
----@field account_id? string
----@field currency? string
+---@field account_id string
+---@field currency string
 ---@field accountBalances? table
 ---@field accountID? string
 ---@field accountIdentifications? table
@@ -130,9 +184,7 @@
 ---@field xeroUnsynchronisedTransactionsCount? number
 
 ---@class AccountUpdateData
----@field account_id? string
----@field amount? number
----@field id? string
+---@field id string
 ---@field accountBalances? table
 ---@field accountID? string
 ---@field accountIdentifications? table
@@ -237,10 +289,35 @@
 ---@field merchant_id? string
 
 ---@class BeneficiaryListMatch
----@field merchant_id? string
+---@field approvalCallbackUrl? string
+---@field authenticationMethods? table
+---@field authorisations? table
+---@field authorisersCompletedCount? number
+---@field authorisersRequiredCount? number
+---@field beneficiaries? table
+---@field beneficiaryEvents? table
+---@field canAuthorise? boolean
+---@field canUpdate? boolean
+---@field createdBy? table
+---@field createdByEmailAddress? string
+---@field currency? string
+---@field destination? table
+---@field failedBeneficiaries? table
+---@field hasCurrentUserAuthorised? boolean
+---@field id? string
+---@field inserted? string
+---@field isEnabled? boolean
+---@field lastAuthorised? string
+---@field lastUpdated? string
+---@field merchantID? string
+---@field name? string
+---@field nonce? string
+---@field sourceAccountIDs? table
+---@field sourceAccounts? table
+---@field theirReference? string
 
 ---@class BeneficiaryCreateData
----@field id? string
+---@field id string
 ---@field approvalCallbackUrl? string
 ---@field authenticationMethods? table
 ---@field authorisations? table
@@ -369,9 +446,7 @@
 ---@field merchant_id string
 
 ---@class CardCustomerTokenRemoveMatch
----@field customer_email_address? string
----@field merchant_id? string
----@field id? string
+---@field id string
 
 ---@class CardPayment
 ---@field authorizedAmount? string
@@ -697,10 +772,8 @@
 ---@field yourRoleName? string
 
 ---@class MerchantRemoveMatch
----@field id? string
----@field user_id? string
----@field merchant_id? string
----@field tag_id? string
+---@field id string
+---@field user_id string
 
 ---@class MerchantAuthorisationSetting
 ---@field amountLower? number
@@ -937,9 +1010,7 @@
 ---@field account_id string
 
 ---@class OpenBankingRemoveMatch
----@field email? string
----@field merchant_id? string
----@field account_id? string
+---@field account_id string
 
 ---@class Payeeverification
 ---@field accountName string
@@ -1038,8 +1109,7 @@
 ---@field useHostedPaymentPage? boolean
 
 ---@class PaymentLoadMatch
----@field id? string
----@field order_id? string
+---@field id string
 
 ---@class PaymentCreateData
 ---@field addresses? table
@@ -1239,7 +1309,45 @@
 ---@field xeroUnsynchronisedTransactionsCount? number
 
 ---@class PaymentAccountListMatch
----@field account_id? string
+---@field accountName? string
+---@field accountSupplierName? string
+---@field availableBalance? number
+---@field availableBalanceMinorUnits? number
+---@field balance? number
+---@field balanceMinorUnits? number
+---@field bankName? string
+---@field consentID? string
+---@field createdBy? table
+---@field createdByDisplayName? string
+---@field currency? string
+---@field defaultPaymentRail? string
+---@field displayName? string
+---@field expiryDate? string
+---@field externalAccountIcon? string
+---@field id? string
+---@field identifier? table
+---@field inserted? string
+---@field isArchived? boolean
+---@field isConnectedAccount? boolean
+---@field isDefault? boolean
+---@field isTrustAccount? boolean
+---@field isVirtual? boolean
+---@field lastTransaction? table
+---@field lastUpdated? string
+---@field merchantID? string
+---@field merchantName? string
+---@field physicalAccountID? string
+---@field rules? table
+---@field submittedPayoutsBalance? number
+---@field submittedPayoutsBalanceMinorUnits? number
+---@field summary? string
+---@field supplierSepaInstantStatus? string
+---@field xeroBankFeedConnectionStatus? string
+---@field xeroBankFeedLastSyncedAt? string
+---@field xeroBankFeedSyncLastFailedAt? string
+---@field xeroBankFeedSyncLastFailureReason? string
+---@field xeroBankFeedSyncStatus? string
+---@field xeroUnsynchronisedTransactionsCount? number
 
 ---@class PaymentAccountMinimal
 ---@field accountName? string
@@ -1356,7 +1464,75 @@
 ---@field useHostedPaymentPage? boolean
 
 ---@class PaymentRequestLoadMatch
----@field paymentrequest_id? string
+---@field addresses? table
+---@field amount? number
+---@field amountPending? number
+---@field amountReceived? number
+---@field amountRefunded? number
+---@field autoSendReceipt? boolean
+---@field baseOriginUrl? string
+---@field callbackUrl? string
+---@field cardAuthorizeOnly? boolean
+---@field cardCreateToken? boolean
+---@field cardCreateTokenMode? string
+---@field cardIgnoreCVN? boolean
+---@field cardProcessorMerchantID? string
+---@field cardStripePaymentIntentID? string
+---@field cardStripePaymentIntentSecret? string
+---@field createdByUser? table
+---@field currency? string
+---@field customFields? table
+---@field customerEmailAddress? string
+---@field customerID? string
+---@field customerName? string
+---@field description? string
+---@field destinationAccount? table
+---@field directDebitPayment? table
+---@field doSimulateSettlementFailure? boolean
+---@field dueDate? string
+---@field errorDescription? string
+---@field events? table
+---@field failedPaymentRequests? table
+---@field failureCallbackUrl? string
+---@field fieldDisplaySettings? table
+---@field formattedAmount? string
+---@field hostedPayCheckoutUrl? string
+---@field id string
+---@field ignoreAddressVerification? boolean
+---@field inserted? string
+---@field insertedSortable? string
+---@field institution? string
+---@field isArchived? boolean
+---@field jwk? string
+---@field lastUpdated? string
+---@field lightningInvoice? string
+---@field lightningInvoiceExpiresAt? string
+---@field merchantDirectDebitMandateID? string
+---@field merchantID? string
+---@field merchantTokenDescription? string
+---@field notificationEmailAddresses? string
+---@field notificationRoleIDs? table
+---@field orderID? string
+---@field partialPaymentMethod? string
+---@field partialPaymentSteps? string
+---@field paymentAttempts? table
+---@field paymentInitiationID? string
+---@field paymentMethods? table
+---@field paymentProcessor? string
+---@field paymentRequests? table
+---@field payrunID? string
+---@field pispAccountID? string
+---@field priorityBankID? string
+---@field result? table
+---@field sandboxSettleDelayInSeconds? number
+---@field shippingAddress? table
+---@field status? string
+---@field successWebHookUrl? string
+---@field tags? table
+---@field title? string
+---@field tokenisedCards? table
+---@field transactions? table
+---@field useHostedPaymentPage? boolean
 
 ---@class PaymentRequestListMatch
 ---@field addresses? table
@@ -1430,7 +1606,6 @@
 ---@field useHostedPaymentPage? boolean
 
 ---@class PaymentRequestCreateData
----@field paymentrequest_id? string
 ---@field addresses? table
 ---@field amount? number
 ---@field amountPending? number
@@ -1754,17 +1929,91 @@
 ---@field yourReference? string
 
 ---@class PayoutLoadMatch
----@field amount? number
----@field destination? string
----@field source? string
----@field id? string
+---@field id string
 
 ---@class PayoutListMatch
----@field account_id? string
----@field merchant_id? string
+---@field accountID? string
+---@field allowIncomplete? boolean
+---@field amount? number
+---@field amountMinorUnits? number
+---@field approvePayoutUrl? string
+---@field approverID? string
+---@field authenticationMethods? table
+---@field authorisations? table
+---@field authorisersCompletedCount? number
+---@field authorisersRequiredCount? number
+---@field batchPayoutID? string
+---@field beneficiary? table
+---@field beneficiaryID? string
+---@field canAuthorise? boolean
+---@field canProcess? boolean
+---@field canUpdate? boolean
+---@field chargeBearer? string
+---@field createdBy? string
+---@field createdByEmailAddress? string
+---@field currency? string
+---@field currentUserID? string
+---@field description? string
+---@field destination? table
+---@field documents? table
+---@field events? table
+---@field failedPayouts? table
+---@field formattedAmount? string
+---@field formattedFxDestinationAmount? string
+---@field formattedSchedule? string
+---@field formattedScheduleDayOnly? string
+---@field formattedSourceAccountAvailableBalance? string
+---@field fxDestinationAmount? number
+---@field fxDestinationAmountMinorUnits? number
+---@field fxDestinationCurrency? string
+---@field fxQuoteExpiresAt? string
+---@field fxQuoteID? string
+---@field fxRate? number
+---@field fxUseDestinationAmount? boolean
+---@field hasCurrentUserAuthorised? boolean
+---@field id? string
+---@field inserted? string
+---@field invoiceID? string
+---@field isArchived? boolean
+---@field isFailed? boolean
+---@field isSettled? boolean
+---@field isSubmitted? boolean
+---@field lastUpdated? string
+---@field merchantID? string
+---@field merchantTokenDescription? string
+---@field nonce? string
+---@field paymentProcessor? string
+---@field paymentRail? string
+---@field payouts? table
+---@field payrunID? string
+---@field payrunName? string
+---@field reason? string
+---@field rule? table
+---@field scheduleDate? string
+---@field scheduled? boolean
+---@field sourceAccountAvailableBalance? number
+---@field sourceAccountAvailableBalanceMinorUnits? number
+---@field sourceAccountBic? string
+---@field sourceAccountCurrency? string
+---@field sourceAccountIban? string
+---@field sourceAccountIdentifier? table
+---@field sourceAccountName? string
+---@field sourceAccountNumber? string
+---@field sourceAccountSortcode? string
+---@field status? string
+---@field tagIds? table
+---@field tags? table
+---@field theirReference? string
+---@field topupPayrunID? string
+---@field transactedAmount? number
+---@field transactedFxAmount? number
+---@field transactedFxRate? number
+---@field type? string
+---@field userID? string
+---@field yourReference? string
 
 ---@class PayoutCreateData
----@field id? string
+---@field id string
 ---@field accountID? string
 ---@field allowIncomplete? boolean
 ---@field amount? number
@@ -2004,8 +2253,7 @@
 ---@field yourReference? string
 
 ---@class PayoutKeysetPageListMatch
----@field account_id? string
----@field merchant_id? string
+---@field merchant_id string
 
 ---@class PayoutMetric
 
@@ -2422,15 +2670,11 @@
 ---@field yourReference? string
 
 ---@class TransactionLoadMatch
----@field id? string
----@field sequence_number? number
----@field transaction_id? string
----@field account_id? string
+---@field id string
 
 ---@class TransactionListMatch
----@field account_id? string
----@field id? string
----@field merchant_id? string
+---@field account_id string
+---@field id string
 
 ---@class TransactionCreateData
 ---@field id string
@@ -2504,7 +2748,17 @@
 ---@field userInviteID? string
 
 ---@class UserListMatch
----@field merchant_id? string
+---@field clientSessionTimeouts? table
+---@field emailAddress? string
+---@field firstName? string
+---@field id? string
+---@field lastName? string
+---@field passkeyAdded? boolean
+---@field permissions? table
+---@field profile? string
+---@field rolesWithScope? table
+---@field twoFactorEnabled? boolean
+---@field userInviteID? string
 
 ---@class UserUpdateData
 ---@field id string
@@ -2544,14 +2798,13 @@
 ---@field userInvites? table
 
 ---@class UserInviteLoadMatch
----@field id? string
----@field userinvite_id? string
+---@field id string
 
 ---@class UserInviteListMatch
 ---@field merchant_id string
 
 ---@class UserInviteCreateData
----@field id? string
+---@field id string
 ---@field authorisationStatus? table
 ---@field failedUserInvites? table
 ---@field initialRoleID? string

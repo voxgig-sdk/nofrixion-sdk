@@ -8,31 +8,37 @@ main: kit: entity: payment_account_minimal: {
     {
       name: "accountName"
       req: false
+      short: "Name for the account"
       type: "`$STRING`"
     }
     {
       name: "availableBalance"
       req: false
+      short: "The current available balance of the account."
       type: "`$NUMBER`"
     }
     {
       name: "balance"
       req: false
+      short: "Balance of the account."
       type: "`$NUMBER`"
     }
     {
       name: "balanceMinorUnits"
       req: false
+      short: "Balance of the account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "currency"
       req: false
+      short: "Currency of the account in ISO 4217 format"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique id for the account."
       type: "`$STRING`"
     }
     {
@@ -43,21 +49,25 @@ main: kit: entity: payment_account_minimal: {
     {
       name: "isArchived"
       req: false
+      short: "Is the account archived"
       type: "`$BOOLEAN`"
     }
     {
       name: "isConnectedAccount"
       req: false
+      short: "Indicates if the payment account is an externally connected account."
       type: "`$BOOLEAN`"
     }
     {
       name: "merchantID"
       req: false
+      short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
       name: "submittedPayoutsBalance"
       req: false
+      short: "Total of the payouts that have been submitted for processing."
       type: "`$NUMBER`"
     }
   ]

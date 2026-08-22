@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Nofrixion',
+        slug: "nofrixion",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -36,7 +47,7 @@ class Config {
 
 
   options = {
-    base: 'https://api-sandbox.nofrixion.com',
+    base: "https://api-sandbox.nofrixion.com",
 
     auth: {
       prefix: 'Bearer',
@@ -204,58 +215,72 @@ class Config {
       "fields": [
         {
           "name": "accountBalances",
+          "short": "The various balances for the account.",
           "type": "`$ARRAY`"
         },
         {
           "name": "accountID",
+          "short": "ID of the account.",
           "type": "`$STRING`"
         },
         {
           "name": "accountIdentifications",
+          "short": "The canoncial identifiers for the account.",
           "type": "`$ARRAY`"
         },
         {
           "name": "accountName",
+          "short": "Name for the account",
           "type": "`$STRING`"
         },
         {
           "name": "accountNames",
+          "short": "Optional account names set by the account holder.",
           "type": "`$ARRAY`"
         },
         {
           "name": "accountSupplierName",
+          "short": "The payment account supplier name.",
           "type": "`$STRING`"
         },
         {
           "name": "accountType",
+          "short": "The type of account e.g.",
           "type": "`$STRING`"
         },
         {
           "name": "availableBalance",
+          "short": "The current available balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "availableBalanceMinorUnits",
+          "short": "The available balance expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "balance",
+          "short": "Balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balanceMinorUnits",
+          "short": "Balance of the account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "bankName",
+          "short": "The bank name for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "consentID",
+          "short": "The ID of the consent used to connect the external account.",
           "type": "`$STRING`"
         },
         {
           "name": "consolidatedAccountInformation",
+          "short": "Summary information regarding account balances of the overall account provided by the bank.",
           "type": "`$OBJECT`"
         },
         {
@@ -265,46 +290,57 @@ class Config {
         },
         {
           "name": "createdByDisplayName",
+          "short": "Either the name of the user, merchant token or api key that created the account",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency of the account in ISO 4217 format",
           "type": "`$STRING`"
         },
         {
           "name": "defaultPaymentRail",
+          "short": "Indicates the default payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Product name as defined by the financial institution for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "details",
+          "short": "Supplementary specifications that might be provided by the Bank.",
           "type": "`$STRING`"
         },
         {
           "name": "displayName",
+          "short": "Gets a unique display name for the payment account.",
           "type": "`$STRING`"
         },
         {
           "name": "expiryDate",
+          "short": "The date that the external account will expire",
           "type": "`$STRING`"
         },
         {
           "name": "externalAccountIcon",
+          "short": "The Icon for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "format",
+          "short": "File format to save the statement as.",
           "type": "`$STRING`"
         },
         {
           "name": "fromDate",
+          "short": "Minimum transaction date for the statement.",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique id for the account.",
           "type": "`$STRING`"
         },
         {
@@ -314,26 +350,32 @@ class Config {
         },
         {
           "name": "inserted",
+          "short": "Timestamp when the account was created.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the account is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isConnectedAccount",
+          "short": "Indicates if the payment account is an externally connected account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isDefault",
+          "short": "Is the default account",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isTrustAccount",
+          "short": "Indicates if the payment account is a trust account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isVirtual",
+          "short": "True if the account is a virtual account.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -342,58 +384,72 @@ class Config {
         },
         {
           "name": "lastUpdated",
+          "short": "Timestamp when the account was last updated.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantName",
+          "short": "The name of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "nickname",
+          "short": "Nickname of the account that was provided by the account owner.",
           "type": "`$STRING`"
         },
         {
           "name": "physicalAccountID",
+          "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
           "type": "`$STRING`"
         },
         {
           "name": "roleIDs",
+          "short": "Optional list of role IDs that will get access to the payment account when created.",
           "type": "`$ARRAY`"
         },
         {
           "name": "rules",
+          "short": "The list of rules associated with this account.",
           "type": "`$ARRAY`"
         },
         {
           "name": "submittedPayoutsBalance",
+          "short": "Total of the payouts that have been submitted for processing.",
           "type": "`$NUMBER`"
         },
         {
           "name": "submittedPayoutsBalanceMinorUnits",
+          "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "summary",
+          "short": "Gets a summary of the payments account's most important properties.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierPhysicalAccountID",
+          "short": "For internal use only.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierSepaInstantStatus",
+          "short": "Indicates the status of the SEPA Instant payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "toDate",
+          "short": "Maximum transaction date for the statement.",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Specifies the type of account e.g.",
           "type": "`$STRING`"
         },
         {
@@ -402,6 +458,7 @@ class Config {
         },
         {
           "name": "xeroBankFeedConnectionStatus",
+          "short": "States the status of the Xero bank feed connection, if applicable.",
           "type": "`$STRING`"
         },
         {
@@ -422,6 +479,7 @@ class Config {
         },
         {
           "name": "xeroUnsynchronisedTransactionsCount",
+          "short": "Indicates the number of unsynchronised transactions with Xero",
           "type": "`$INTEGER`"
         }
       ],
@@ -1227,6 +1285,7 @@ class Config {
       "fields": [
         {
           "name": "approveUrl",
+          "short": "This field is used when returning a batch payout record to a client.",
           "type": "`$STRING`"
         },
         {
@@ -1314,18 +1373,22 @@ class Config {
         },
         {
           "name": "authenticationMethods",
+          "short": "A list of authentication types allowed to authorise the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisations",
+          "short": "A list of users who have successfully authorised the latest version of the beneficiary.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the beneficiary.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this beneficiary.",
           "type": "`$INTEGER`"
         },
         {
@@ -1338,10 +1401,12 @@ class Config {
         },
         {
           "name": "canAuthorise",
+          "short": "True if the beneficiary can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "canUpdate",
+          "short": "True if the beneficiary can be updated by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1361,6 +1426,7 @@ class Config {
             }
           },
           "req": true,
+          "short": "Gets or Sets the currency.",
           "type": "`$STRING`"
         },
         {
@@ -1379,6 +1445,7 @@ class Config {
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -1409,6 +1476,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Gets or Sets the merchant id.",
           "type": "`$STRING`"
         },
         {
@@ -1419,6 +1487,7 @@ class Config {
             }
           },
           "req": true,
+          "short": "The descriptive name for the beneficiary.",
           "type": "`$STRING`"
         },
         {
@@ -1427,6 +1496,7 @@ class Config {
         },
         {
           "name": "sourceAccountIDs",
+          "short": "ID of the accounts which are authorised to act as a source for the beneficiary.",
           "type": "`$ARRAY`"
         },
         {
@@ -1435,6 +1505,7 @@ class Config {
         },
         {
           "name": "theirReference",
+          "short": "The reference that will be used by default as TheirReference when creating payouts to this beneficiary if no TheirReference is specified for the payout.",
           "type": "`$STRING`"
         }
       ],
@@ -1995,11 +2066,13 @@ class Config {
       "fields": [
         {
           "name": "groupMembers",
+          "short": "The existing group members.",
           "type": "`$ARRAY`"
         },
         {
           "name": "groupName",
           "req": true,
+          "short": "The descriptive name for the beneficiary group.",
           "type": "`$STRING`"
         },
         {
@@ -2008,15 +2081,18 @@ class Config {
         },
         {
           "name": "inserted",
+          "short": "Timestamp indicating when the group was created.",
           "type": "`$STRING`"
         },
         {
           "name": "lastUpdated",
+          "short": "Timestamp indicating when the group was last updated.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
           "req": true,
+          "short": "Gets or Sets the merchant id.",
           "type": "`$STRING`"
         }
       ],
@@ -2102,34 +2178,42 @@ class Config {
         },
         {
           "name": "isPayerAuthenticationRequired",
+          "short": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSoftDecline",
+          "short": "Gets set to true if the card processor flagged the transaction as having failed address or card security number verification.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "payerAuthenticationAccessToken",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationMerchantData",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the \"authenticationcallback\" method that gets called automatically after a successful payer authenticati…",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationUrl",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationWindowHeight",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
           "type": "`$INTEGER`"
         },
         {
           "name": "payerAuthenticationWindowWidth",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
           "type": "`$INTEGER`"
         },
         {
           "name": "paymentRequestCallbackUrl",
+          "short": "The callback URL that was set when the payment request was created.",
           "type": "`$STRING`"
         },
         {
@@ -2154,6 +2238,7 @@ class Config {
         },
         {
           "name": "threeDSRedirectUrl",
+          "short": "Checkout.com require a redirect for 3DS authentication.",
           "type": "`$STRING`"
         },
         {
@@ -2219,10 +2304,12 @@ class Config {
       "fields": [
         {
           "name": "cardType",
+          "short": "The type of the tokenised card, e.g.",
           "type": "`$STRING`"
         },
         {
           "name": "customerEmailAddress",
+          "short": "When creating a tokenised card the payer's email address must be supplied.",
           "type": "`$STRING`"
         },
         {
@@ -2235,6 +2322,7 @@ class Config {
         },
         {
           "name": "id",
+          "short": "The unique ID of the card token that has been stored for the customer.",
           "type": "`$STRING`"
         },
         {
@@ -2513,34 +2601,42 @@ class Config {
         },
         {
           "name": "isPayerAuthenticationRequired",
+          "short": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSoftDecline",
+          "short": "Gets set to true if the card processor flagged the transaction as having failed address or card security number verification.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "payerAuthenticationAccessToken",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationMerchantData",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the \"authenticationcallback\" method that gets called automatically after a successful payer authenticati…",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationUrl",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.",
           "type": "`$STRING`"
         },
         {
           "name": "payerAuthenticationWindowHeight",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
           "type": "`$INTEGER`"
         },
         {
           "name": "payerAuthenticationWindowWidth",
+          "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
           "type": "`$INTEGER`"
         },
         {
           "name": "paymentRequestCallbackUrl",
+          "short": "The callback URL that was set when the payment request was created.",
           "type": "`$STRING`"
         },
         {
@@ -2565,6 +2661,7 @@ class Config {
         },
         {
           "name": "threeDSRedirectUrl",
+          "short": "Checkout.com require a redirect for 3DS authentication.",
           "type": "`$STRING`"
         },
         {
@@ -2859,18 +2956,22 @@ class Config {
       "fields": [
         {
           "name": "authorisationUrl",
+          "short": "The URL the authorising user needs to be redirected to in order to get the open banking consent token.",
           "type": "`$STRING`"
         },
         {
           "name": "callbackUrl",
+          "short": "Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion.",
           "type": "`$STRING`"
         },
         {
           "name": "consentID",
+          "short": "The ID of the open banking consent.",
           "type": "`$STRING`"
         },
         {
           "name": "emailAddress",
+          "short": "The email address that identifies the end user that will be authorising the open banking consent request.",
           "type": "`$STRING`"
         },
         {
@@ -2879,6 +2980,7 @@ class Config {
         },
         {
           "name": "failureCallbackUrl",
+          "short": "Optional callback URL for open banking consent authorisation failure.",
           "type": "`$STRING`"
         },
         {
@@ -2897,10 +2999,12 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "The institution ID the open banking consent is being requested for.",
           "type": "`$STRING`"
         },
         {
           "name": "isConnectedAccounts",
+          "short": "Optional setting.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -2915,14 +3019,17 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "The ID of the merchant the consent token is being created to be used with.",
           "type": "`$STRING`"
         },
         {
           "name": "provider",
+          "short": "Lists the supported card and PIS processors.",
           "type": "`$STRING`"
         },
         {
           "name": "successWebHookUrl",
+          "short": "A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised.",
           "type": "`$STRING`"
         }
       ],
@@ -3199,10 +3306,12 @@ class Config {
       "fields": [
         {
           "name": "failedSubmissions",
+          "short": "Dictionary of failed submissions, keyed by the index (1-based) in the original request.",
           "type": "`$OBJECT`"
         },
         {
           "name": "successfulSubmissions",
+          "short": "List of successfully submitted direct debit payments.",
           "type": "`$ARRAY`"
         }
       ],
@@ -3245,6 +3354,7 @@ class Config {
         },
         {
           "name": "exchangeRate",
+          "short": "The price at which the transaction will buy the source currency using the destination currency.",
           "type": "`$NUMBER`"
         },
         {
@@ -3427,29 +3537,35 @@ class Config {
       "fields": [
         {
           "name": "accountNumber",
+          "short": "Account number of the customer's bank account in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "addressLine1",
           "req": true,
+          "short": "First line of the customer's address.",
           "type": "`$STRING`"
         },
         {
           "name": "addressLine2",
+          "short": "Second line of the customer's address.",
           "type": "`$STRING`"
         },
         {
           "name": "approvedAt",
+          "short": "Date at which the supplier approved this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "city",
           "req": true,
+          "short": "Customer's city.",
           "type": "`$STRING`"
         },
         {
           "name": "countryCode",
           "req": true,
+          "short": "2-character country code of the customer's bank account.",
           "type": "`$STRING`"
         },
         {
@@ -3460,77 +3576,95 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Currency of this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "customerAccountNumber",
+          "short": "Customer's account number in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCity",
+          "short": "Customer's city of residence.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCountryCode",
+          "short": "Customer's country of residence code.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCountryName",
+          "short": "Customer's country of residence.",
           "type": "`$STRING`"
         },
         {
           "name": "customerEmailAddress",
+          "short": "Customer's email address.",
           "type": "`$STRING`"
         },
         {
           "name": "customerFirstName",
+          "short": "Customer's first name.",
           "type": "`$STRING`"
         },
         {
           "name": "customerIban",
+          "short": "Customer's IBAN in case of EUR account.",
           "type": "`$STRING`"
         },
         {
           "name": "customerLastName",
+          "short": "Customer's last name.",
           "type": "`$STRING`"
         },
         {
           "name": "customerSortCode",
+          "short": "Customer's sort code in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "emailAddress",
           "req": true,
+          "short": "Customer's email address.",
           "type": "`$STRING`"
         },
         {
           "name": "firstName",
           "req": true,
+          "short": "Customer's first name.",
           "type": "`$STRING`"
         },
         {
           "name": "iban",
+          "short": "IBAN of the customer's bank account in case of EUR account.",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Internal ID of the mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "inserted",
+          "short": "The timestamp this mandate was created at.",
           "type": "`$STRING`"
         },
         {
           "name": "isRecurring",
+          "short": "Whether this mandate is single-use or recurring.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "lastName",
           "req": true,
+          "short": "Customer's last name.",
           "type": "`$STRING`"
         },
         {
           "name": "lastUpdated",
+          "short": "The timestamp this mandate was last updated at.",
           "type": "`$STRING`"
         },
         {
@@ -3541,43 +3675,53 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Internal ID of this mandate's merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "postalCode",
           "req": true,
+          "short": "Customer's postal code.",
           "type": "`$STRING`"
         },
         {
           "name": "reference",
+          "short": "Reference assigned to this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "sortCode",
+          "short": "Sort code of the customer's bank account in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "General status of this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierBankAccountID",
+          "short": "ID that the supplier assigned to this mandate's bank account.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierCustomerID",
+          "short": "ID that the supplier assigned to this mandate's customer.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierMandateID",
+          "short": "ID that the supplier assigned to this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierName",
+          "short": "Name of the supplier used to create this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierStatus",
+          "short": "Last status that the supplier reported for this mandate.",
           "type": "`$STRING`"
         }
       ],
@@ -3651,70 +3795,87 @@ class Config {
       "fields": [
         {
           "name": "accountCurrencies",
+          "short": "The list of currencies that the merchant has accounts for.",
           "type": "`$ARRAY`"
         },
         {
           "name": "canHaveTrustAccounts",
+          "short": "Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardPaymentProcessor",
+          "short": "Name of the card payment processor.",
           "type": "`$STRING`"
         },
         {
           "name": "companyID",
+          "short": "The Company ID recorded in the Compliance system.",
           "type": "`$STRING`"
         },
         {
           "name": "displayQrOnHostedPay",
+          "short": "Indicates if a QR Code containing the payment link should be displayed on the hosted payment page.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "hostedPayVersion",
+          "short": "The version of the hosted payment page to use with the merchant.",
           "type": "`$INTEGER`"
         },
         {
           "name": "id",
+          "short": "Unique ID for the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "inserted",
+          "short": "Timestamp the merchant was added to MoneyMoov.",
           "type": "`$STRING`"
         },
         {
           "name": "isBlocked",
+          "short": "The merchant is blocked from making payments (payouts).",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isExited",
+          "short": "The merchant has formally terminated their relationship and is no longer a customer.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSuspended",
+          "short": "The merchant has temporarily suspended their own account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "jurisdiction",
+          "short": "The jurisdiction the merchant entity is incorporated or established in.",
           "type": "`$STRING`"
         },
         {
           "name": "logoUrlPng",
+          "short": "The CDN URL of the merchant's logo in PNG format.",
           "type": "`$STRING`"
         },
         {
           "name": "logoUrlSvg",
+          "short": "The CDN URL of the merchant's logo in SVG format.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantCategoryCode",
+          "short": "The industry code that represents the merchant's primary trading activity.",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "The registered business name of the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "notes",
+          "short": "The notes field is an optional free text field that can be used to store any additional information about the merchant.",
           "type": "`$STRING`"
         },
         {
@@ -3723,6 +3884,7 @@ class Config {
         },
         {
           "name": "paymentAccountLimit",
+          "short": "The maximum number of payment accounts that can be created for the Merchant.",
           "type": "`$INTEGER`"
         },
         {
@@ -3731,38 +3893,47 @@ class Config {
         },
         {
           "name": "reason",
+          "short": "The reason for the suspension.",
           "type": "`$STRING`"
         },
         {
           "name": "shortName",
+          "short": "A URL friendly shortish name for the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "supportedPaymentMethodsList",
+          "short": "The payment methods that are configured and supported for this merchant.",
           "type": "`$ARRAY`"
         },
         {
           "name": "suspensionReason",
+          "short": "The reason for the suspension, provided by the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags that can be used on merchant entities such as payment requests.",
           "type": "`$ARRAY`"
         },
         {
           "name": "timeZoneId",
+          "short": "The IANA (Internet Assigned Numbers Authority) time zone identifier of the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "tradingName",
+          "short": "An optional trading name.",
           "type": "`$STRING`"
         },
         {
           "name": "webHookLimit",
+          "short": "The maximum number of web hooks that can be created for the Merchant.",
           "type": "`$INTEGER`"
         },
         {
           "name": "yourRoleName",
+          "short": "The name of the role for the identity that loaded the merchant record.",
           "type": "`$STRING`"
         }
       ],
@@ -4518,94 +4689,117 @@ class Config {
       "fields": [
         {
           "name": "approvedAt",
+          "short": "Date at which the supplier approved this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency of this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "customerAccountNumber",
+          "short": "Customer's account number in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCity",
+          "short": "Customer's city of residence.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCountryCode",
+          "short": "Customer's country of residence code.",
           "type": "`$STRING`"
         },
         {
           "name": "customerCountryName",
+          "short": "Customer's country of residence.",
           "type": "`$STRING`"
         },
         {
           "name": "customerEmailAddress",
+          "short": "Customer's email address.",
           "type": "`$STRING`"
         },
         {
           "name": "customerFirstName",
+          "short": "Customer's first name.",
           "type": "`$STRING`"
         },
         {
           "name": "customerIban",
+          "short": "Customer's IBAN in case of EUR account.",
           "type": "`$STRING`"
         },
         {
           "name": "customerLastName",
+          "short": "Customer's last name.",
           "type": "`$STRING`"
         },
         {
           "name": "customerSortCode",
+          "short": "Customer's sort code in case of GBP account.",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Internal ID of the mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "inserted",
+          "short": "The timestamp this mandate was created at.",
           "type": "`$STRING`"
         },
         {
           "name": "isRecurring",
+          "short": "Whether this mandate is single-use or recurring.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "lastUpdated",
+          "short": "The timestamp this mandate was last updated at.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
+          "short": "Internal ID of this mandate's merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "reference",
+          "short": "Reference assigned to this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "General status of this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierBankAccountID",
+          "short": "ID that the supplier assigned to this mandate's bank account.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierCustomerID",
+          "short": "ID that the supplier assigned to this mandate's customer.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierMandateID",
+          "short": "ID that the supplier assigned to this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierName",
+          "short": "Name of the supplier used to create this mandate.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierStatus",
+          "short": "Last status that the supplier reported for this mandate.",
           "type": "`$STRING`"
         }
       ],
@@ -4734,54 +4928,67 @@ class Config {
       "fields": [
         {
           "name": "bankCountryCodes",
+          "short": "The list of country codes representing the banks the country supports.",
           "type": "`$ARRAY`"
         },
         {
           "name": "bankID",
+          "short": "ID of the bank to be configured for the merchant.",
           "type": "`$STRING`"
         },
         {
           "name": "bankName",
+          "short": "Name of the Bank/Institution.",
           "type": "`$STRING`"
         },
         {
           "name": "businessInstitutionID",
+          "short": "ID that the processor uses to identify the bank (business accounts).",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency supported by the bank.",
           "type": "`$STRING`"
         },
         {
           "name": "logo",
+          "short": "URL of the bank's logo.",
           "type": "`$STRING`"
         },
         {
           "name": "message",
+          "short": "Message relating to specific bank.",
           "type": "`$STRING`"
         },
         {
           "name": "messageImageUrl",
+          "short": "Optional image URL to be displayed with the message.",
           "type": "`$STRING`"
         },
         {
           "name": "order",
+          "short": "Order in which this setting will appear in the UI.",
           "type": "`$INTEGER`"
         },
         {
           "name": "personalInstitutionID",
+          "short": "ID that the processor uses to identify the bank (personal accounts).",
           "type": "`$STRING`"
         },
         {
           "name": "processor",
+          "short": "Name of the bank payment processor.",
           "type": "`$STRING`"
         },
         {
           "name": "warningHeading",
+          "short": "The heading for a warning message related to the bank institution to be displayed to the user.",
           "type": "`$STRING`"
         },
         {
           "name": "warningMessage",
+          "short": "The warning message related to the bank institution to be displayed to the user.",
           "type": "`$STRING`"
         }
       ],
@@ -4879,10 +5086,12 @@ class Config {
         },
         {
           "name": "customFields",
+          "short": "A list of custom fields that can be included in the payment request template.",
           "type": "`$ARRAY`"
         },
         {
           "name": "defaultFields",
+          "short": "A list of default fields that are included in the payment request template.",
           "type": "`$ARRAY`"
         },
         {
@@ -5150,22 +5359,27 @@ class Config {
       "fields": [
         {
           "name": "authenticationMethods",
+          "short": "A list of authentication types allowed to authorise the merchant token.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisations",
+          "short": "A list of users who have successfully authorised the latest version of the beneficiary.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the merchant token.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this merchant token.",
           "type": "`$INTEGER`"
         },
         {
           "name": "canAuthorise",
+          "short": "True if the merchant token can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -5176,18 +5390,22 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Token description",
           "type": "`$STRING`"
         },
         {
           "name": "expiresAt",
+          "short": "Optional.",
           "type": "`$STRING`"
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "hmacAlgorithm",
+          "short": "Optional shared secret algorithm to use for HMAC authentication.",
           "type": "`$STRING`"
         },
         {
@@ -5200,14 +5418,17 @@ class Config {
         },
         {
           "name": "ipAddressWhitelist",
+          "short": "Optional.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the merchant token is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isEnabled",
+          "short": "If set to false the merchant token will not be accepted to authorise a request.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -5226,6 +5447,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "The merchant id to add to the token",
           "type": "`$STRING`"
         },
         {
@@ -5235,22 +5457,27 @@ class Config {
         },
         {
           "name": "permissionTypes",
+          "short": "The permissions that the merchant token supports.",
           "type": "`$ARRAY`"
         },
         {
           "name": "requestSignatureVersion",
+          "short": "Represent the version of the overall merchant token.",
           "type": "`$INTEGER`"
         },
         {
           "name": "sharedSecretAlgorithm",
+          "short": "Optional shared secret algorithm to use for HMAC authentication.",
           "type": "`$STRING`"
         },
         {
           "name": "sharedSecretBase64",
+          "short": "The base 64 encoded shared secret that is used for request authentication with an HMAC.",
           "type": "`$STRING`"
         },
         {
           "name": "token",
+          "short": "The JWT merchant token.",
           "type": "`$STRING`"
         }
       ],
@@ -5702,31 +5929,38 @@ class Config {
         {
           "name": "accountName",
           "req": true,
+          "short": "The name of the account to verify",
           "type": "`$STRING`"
         },
         {
           "name": "accountNumber",
+          "short": "The account number of the account to verify (for CoP checks)",
           "type": "`$STRING`"
         },
         {
           "name": "iban",
           "req": true,
+          "short": "The IBAN of the account to verify (for VoP checks)",
           "type": "`$STRING`"
         },
         {
           "name": "payeeVerifiedAccountName",
+          "short": "The verified account name of the payee, if available (in case of a close match)",
           "type": "`$STRING`"
         },
         {
           "name": "result",
+          "short": "The result of the payee verification",
           "type": "`$STRING`"
         },
         {
           "name": "secondaryIdentification",
+          "short": "Optional secondary identifier for the account to verify.",
           "type": "`$STRING`"
         },
         {
           "name": "sortCode",
+          "short": "The sort code of the account to verify (for CoP checks)",
           "type": "`$STRING`"
         }
       ],
@@ -5774,66 +6008,82 @@ class Config {
               "type": "`$NUMBER`"
             }
           },
+          "short": "The amount of money to request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountPending",
+          "short": "Total amount that has been authorised but not settled for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountReceived",
+          "short": "Total amount received for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountRefunded",
+          "short": "Total amount refunded for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "autoSendReceipt",
+          "short": "If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "baseOriginUrl",
+          "short": "For card payments the origin of the payment page needs to be set in advance.",
           "type": "`$STRING`"
         },
         {
           "name": "callbackUrl",
+          "short": "Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL.",
           "type": "`$STRING`"
         },
         {
           "name": "cardAuthorizeOnly",
+          "short": "For card payments the default behaviour is to authorise and capture the payment at the same time.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardCreateToken",
+          "short": "For card payments a payment attempt can be used to create a reusable token for subsequent payments.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardCreateTokenMode",
+          "short": "This specifies whether user consent will be taken before tokenising card or not.",
           "type": "`$STRING`"
         },
         {
           "name": "cardIgnoreCVN",
+          "short": "If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardNoPayerAuthentication",
+          "short": "If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent).",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardProcessorMerchantID",
+          "short": "Optional field that if specified indicates the processor merchant ID that should be used to process any card payments.",
           "type": "`$STRING`"
         },
         {
           "name": "cardStripePaymentIntentID",
+          "short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID.",
           "type": "`$STRING`"
         },
         {
           "name": "cardStripePaymentIntentSecret",
+          "short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret.",
           "type": "`$STRING`"
         },
         {
           "name": "cardTransmitRawDetails",
+          "short": "If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -5843,18 +6093,22 @@ class Config {
         },
         {
           "name": "currency",
+          "short": "The currency of the request.",
           "type": "`$STRING`"
         },
         {
           "name": "customFields",
+          "short": "A list of custom fields attached to the payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "customerEmailAddress",
+          "short": "Optional email address for the customer.",
           "type": "`$STRING`"
         },
         {
           "name": "customerID",
+          "short": "An optional customer identifier for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -5863,6 +6117,7 @@ class Config {
         },
         {
           "name": "description",
+          "short": "An optional description for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -5871,10 +6126,12 @@ class Config {
         },
         {
           "name": "directDebitPayment",
+          "short": "Contains information about a Direct Debit payment attempt for a payment request.",
           "type": "`$OBJECT`"
         },
         {
           "name": "dueDate",
+          "short": "The due date for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -5883,10 +6140,12 @@ class Config {
         },
         {
           "name": "failureCallbackUrl",
+          "short": "Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page.",
           "type": "`$STRING`"
         },
         {
           "name": "fieldDisplaySettings",
+          "short": "A list of field display settings that control which fields are displayed to the payer.",
           "type": "`$ARRAY`"
         },
         {
@@ -5895,6 +6154,7 @@ class Config {
         },
         {
           "name": "hostedPayCheckoutUrl",
+          "short": "This is a convenience link generated for payment requests whose merchants are using hosted payment pages.",
           "type": "`$STRING`"
         },
         {
@@ -5903,46 +6163,57 @@ class Config {
         },
         {
           "name": "ignoreAddressVerification",
+          "short": "If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "inserted",
+          "short": "The timestamp the payment request was created at.",
           "type": "`$STRING`"
         },
         {
           "name": "insertedSortable",
+          "short": "The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se…",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the payment request is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "jwk",
+          "short": "The jwk containing the public key used to verify the signature of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "lastUpdated",
+          "short": "The timestamp the payment request was last updated at.",
           "type": "`$STRING`"
         },
         {
           "name": "lightningInvoice",
+          "short": "Bitcoin Lightning invoice for the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "lightningInvoiceExpiresAt",
+          "short": "Date and time of expiration of the lightning invoice.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantDirectDebitMandateID",
+          "short": "Optional ID of the direct debit mandate associated with this payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant to create the payment request for.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantTokenDescription",
+          "short": "Description of the merchant token in case the Payment request was created using a merchant token.",
           "type": "`$STRING`"
         },
         {
@@ -5951,42 +6222,52 @@ class Config {
         },
         {
           "name": "notificationRoleIDs",
+          "short": "A list of roles whose members will receive notifications about this payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "orderID",
+          "short": "An optional order ID for the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "partialPaymentMethod",
+          "short": "The approach to use, or not, for accepting partial payments.",
           "type": "`$STRING`"
         },
         {
           "name": "partialPaymentSteps",
+          "short": "An optional comma separated list of partial payment amounts.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentAttempts",
+          "short": "The payment attempts made against this payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "paymentMethods",
+          "short": "The payment methods that the payment request supports.",
           "type": "`$ARRAY`"
         },
         {
           "name": "paymentProcessor",
+          "short": "If the card payment option is enabled this field indicates which card processor the merchant is set up to use.",
           "type": "`$STRING`"
         },
         {
           "name": "payrunID",
+          "short": "The ID of a payrun that needs an account top up.",
           "type": "`$STRING`"
         },
         {
           "name": "pispAccountID",
+          "short": "The payment account ID to use to receive payment initiation payments.",
           "type": "`$STRING`"
         },
         {
           "name": "priorityBankID",
+          "short": "The ID of the bank that is set as the priority bank for display on pay element.",
           "type": "`$STRING`"
         },
         {
@@ -5995,6 +6276,7 @@ class Config {
         },
         {
           "name": "sandboxSettleDelayInSeconds",
+          "short": "Sandbox only.",
           "type": "`$INTEGER`"
         },
         {
@@ -6003,62 +6285,77 @@ class Config {
         },
         {
           "name": "shippingAddressCity",
+          "short": "Optionally the city of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingAddressCountryCode",
+          "short": "Optionally the country code of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingAddressCounty",
+          "short": "Optionally the state or county of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingAddressLine1",
+          "short": "Optionally the first line of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingAddressLine2",
+          "short": "Optionally the second line of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingAddressPostCode",
+          "short": "Optionally the post code of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingEmail",
+          "short": "Optionally the shipping email address for the customer.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingFirstName",
+          "short": "Optionally the first name of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingLastName",
+          "short": "Optionally the last name of the customer's shipping address.",
           "type": "`$STRING`"
         },
         {
           "name": "shippingPhone",
+          "short": "Optionally the shipping phone number for the customer.",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "The current status of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "successWebHookUrl",
+          "short": "If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked.",
           "type": "`$STRING`"
         },
         {
           "name": "tagIds",
+          "short": "An optional list of tag ids to add to the payment request",
           "type": "`$ARRAY`"
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags attached to the payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "title",
+          "short": "A generic field to contain any additional data that the merchant wishes to store against the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -6071,6 +6368,7 @@ class Config {
         },
         {
           "name": "useHostedPaymentPage",
+          "short": "If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page.",
           "type": "`$BOOLEAN`"
         }
       ],
@@ -6232,34 +6530,42 @@ class Config {
       "fields": [
         {
           "name": "accountName",
+          "short": "Name for the account",
           "type": "`$STRING`"
         },
         {
           "name": "accountSupplierName",
+          "short": "The payment account supplier name.",
           "type": "`$STRING`"
         },
         {
           "name": "availableBalance",
+          "short": "The current available balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "availableBalanceMinorUnits",
+          "short": "The available balance expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "balance",
+          "short": "Balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balanceMinorUnits",
+          "short": "Balance of the account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "bankName",
+          "short": "The bank name for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "consentID",
+          "short": "The ID of the consent used to connect the external account.",
           "type": "`$STRING`"
         },
         {
@@ -6269,30 +6575,37 @@ class Config {
         },
         {
           "name": "createdByDisplayName",
+          "short": "Either the name of the user, merchant token or api key that created the account",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency of the account in ISO 4217 format",
           "type": "`$STRING`"
         },
         {
           "name": "defaultPaymentRail",
+          "short": "Indicates the default payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "displayName",
+          "short": "Gets a unique display name for the payment account.",
           "type": "`$STRING`"
         },
         {
           "name": "expiryDate",
+          "short": "The date that the external account will expire",
           "type": "`$STRING`"
         },
         {
           "name": "externalAccountIcon",
+          "short": "The Icon for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique id for the account.",
           "type": "`$STRING`"
         },
         {
@@ -6302,26 +6615,32 @@ class Config {
         },
         {
           "name": "inserted",
+          "short": "Timestamp when the account was created.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the account is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isConnectedAccount",
+          "short": "Indicates if the payment account is an externally connected account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isDefault",
+          "short": "Is the default account",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isTrustAccount",
+          "short": "Indicates if the payment account is a trust account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isVirtual",
+          "short": "True if the account is a virtual account.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -6330,42 +6649,52 @@ class Config {
         },
         {
           "name": "lastUpdated",
+          "short": "Timestamp when the account was last updated.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantName",
+          "short": "The name of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "physicalAccountID",
+          "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
           "type": "`$STRING`"
         },
         {
           "name": "rules",
+          "short": "The list of rules associated with this account.",
           "type": "`$ARRAY`"
         },
         {
           "name": "submittedPayoutsBalance",
+          "short": "Total of the payouts that have been submitted for processing.",
           "type": "`$NUMBER`"
         },
         {
           "name": "submittedPayoutsBalanceMinorUnits",
+          "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "summary",
+          "short": "Gets a summary of the payments account's most important properties.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierSepaInstantStatus",
+          "short": "Indicates the status of the SEPA Instant payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "xeroBankFeedConnectionStatus",
+          "short": "States the status of the Xero bank feed connection, if applicable.",
           "type": "`$STRING`"
         },
         {
@@ -6386,6 +6715,7 @@ class Config {
         },
         {
           "name": "xeroUnsynchronisedTransactionsCount",
+          "short": "Indicates the number of unsynchronised transactions with Xero",
           "type": "`$INTEGER`"
         }
       ],
@@ -6570,26 +6900,32 @@ class Config {
       "fields": [
         {
           "name": "accountName",
+          "short": "Name for the account",
           "type": "`$STRING`"
         },
         {
           "name": "availableBalance",
+          "short": "The current available balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balance",
+          "short": "Balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balanceMinorUnits",
+          "short": "Balance of the account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "currency",
+          "short": "Currency of the account in ISO 4217 format",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique id for the account.",
           "type": "`$STRING`"
         },
         {
@@ -6599,18 +6935,22 @@ class Config {
         },
         {
           "name": "isArchived",
+          "short": "Is the account archived",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isConnectedAccount",
+          "short": "Indicates if the payment account is an externally connected account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "submittedPayoutsBalance",
+          "short": "Total of the payouts that have been submitted for processing.",
           "type": "`$NUMBER`"
         }
       ],
@@ -6730,10 +7070,12 @@ class Config {
       "fields": [
         {
           "name": "paymentInitiationID",
+          "short": "The unique identifier of the payment initiation request.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentRequestCallbackUrl",
+          "short": "The callback URL that was set when the payment request was created.",
           "type": "`$STRING`"
         },
         {
@@ -6742,6 +7084,7 @@ class Config {
         },
         {
           "name": "redirectUrl",
+          "short": "A redirect URL for the user to authorise the payment initiation request at the ASPSP",
           "type": "`$STRING`"
         },
         {
@@ -6815,58 +7158,72 @@ class Config {
         },
         {
           "name": "amount",
+          "short": "The amount of money to request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountPending",
+          "short": "Total amount that has been authorised but not settled for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountReceived",
+          "short": "Total amount received for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountRefunded",
+          "short": "Total amount refunded for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "autoSendReceipt",
+          "short": "If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "baseOriginUrl",
+          "short": "For card payments the origin of the payment page needs to be set in advance.",
           "type": "`$STRING`"
         },
         {
           "name": "callbackUrl",
+          "short": "Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL.",
           "type": "`$STRING`"
         },
         {
           "name": "cardAuthorizeOnly",
+          "short": "For card payments the default behaviour is to authorise and capture the payment at the same time.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardCreateToken",
+          "short": "For card payments a payment attempt can be used to create a reusable token for subsequent payments.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardCreateTokenMode",
+          "short": "This specifies whether user consent will be taken before tokenising card or not.",
           "type": "`$STRING`"
         },
         {
           "name": "cardIgnoreCVN",
+          "short": "If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "cardProcessorMerchantID",
+          "short": "Optional field that if specified indicates the processor merchant ID that should be used to process any card payments.",
           "type": "`$STRING`"
         },
         {
           "name": "cardStripePaymentIntentID",
+          "short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID.",
           "type": "`$STRING`"
         },
         {
           "name": "cardStripePaymentIntentSecret",
+          "short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret.",
           "type": "`$STRING`"
         },
         {
@@ -6876,18 +7233,22 @@ class Config {
         },
         {
           "name": "currency",
+          "short": "The currency of the request.",
           "type": "`$STRING`"
         },
         {
           "name": "customFields",
+          "short": "A list of custom fields attached to the payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "customerEmailAddress",
+          "short": "Optional email address for the customer.",
           "type": "`$STRING`"
         },
         {
           "name": "customerID",
+          "short": "An optional customer identifier for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -6896,6 +7257,7 @@ class Config {
         },
         {
           "name": "description",
+          "short": "An optional description for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -6904,6 +7266,7 @@ class Config {
         },
         {
           "name": "directDebitPayment",
+          "short": "Contains information about a Direct Debit payment attempt for a payment request.",
           "type": "`$OBJECT`"
         },
         {
@@ -6912,6 +7275,7 @@ class Config {
         },
         {
           "name": "dueDate",
+          "short": "The due date for the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -6928,10 +7292,12 @@ class Config {
         },
         {
           "name": "failureCallbackUrl",
+          "short": "Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page.",
           "type": "`$STRING`"
         },
         {
           "name": "fieldDisplaySettings",
+          "short": "A list of field display settings that control which fields are displayed to the payer.",
           "type": "`$ARRAY`"
         },
         {
@@ -6940,6 +7306,7 @@ class Config {
         },
         {
           "name": "hostedPayCheckoutUrl",
+          "short": "This is a convenience link generated for payment requests whose merchants are using hosted payment pages.",
           "type": "`$STRING`"
         },
         {
@@ -6948,14 +7315,17 @@ class Config {
         },
         {
           "name": "ignoreAddressVerification",
+          "short": "If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "inserted",
+          "short": "The timestamp the payment request was created at.",
           "type": "`$STRING`"
         },
         {
           "name": "insertedSortable",
+          "short": "The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se…",
           "type": "`$STRING`"
         },
         {
@@ -6964,26 +7334,32 @@ class Config {
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the payment request is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "jwk",
+          "short": "The jwk containing the public key used to verify the signature of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "lastUpdated",
+          "short": "The timestamp the payment request was last updated at.",
           "type": "`$STRING`"
         },
         {
           "name": "lightningInvoice",
+          "short": "Bitcoin Lightning invoice for the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "lightningInvoiceExpiresAt",
+          "short": "Date and time of expiration of the lightning invoice.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantDirectDebitMandateID",
+          "short": "Optional ID of the direct debit mandate associated with this payment request.",
           "type": "`$STRING`"
         },
         {
@@ -6992,6 +7368,7 @@ class Config {
         },
         {
           "name": "merchantTokenDescription",
+          "short": "Description of the merchant token in case the Payment request was created using a merchant token.",
           "type": "`$STRING`"
         },
         {
@@ -7000,22 +7377,27 @@ class Config {
         },
         {
           "name": "notificationRoleIDs",
+          "short": "A list of roles whose members will receive notifications about this payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "orderID",
+          "short": "An optional order ID for the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "partialPaymentMethod",
+          "short": "The approach to use, or not, for accepting partial payments.",
           "type": "`$STRING`"
         },
         {
           "name": "partialPaymentSteps",
+          "short": "An optional comma separated list of partial payment amounts.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentAttempts",
+          "short": "The payment attempts made against this payment request.",
           "type": "`$ARRAY`"
         },
         {
@@ -7024,10 +7406,12 @@ class Config {
         },
         {
           "name": "paymentMethods",
+          "short": "The payment methods that the payment request supports.",
           "type": "`$ARRAY`"
         },
         {
           "name": "paymentProcessor",
+          "short": "If the card payment option is enabled this field indicates which card processor the merchant is set up to use.",
           "type": "`$STRING`"
         },
         {
@@ -7036,14 +7420,17 @@ class Config {
         },
         {
           "name": "payrunID",
+          "short": "The ID of a payrun that needs an account top up.",
           "type": "`$STRING`"
         },
         {
           "name": "pispAccountID",
+          "short": "The payment account ID to use to receive payment initiation payments.",
           "type": "`$STRING`"
         },
         {
           "name": "priorityBankID",
+          "short": "The ID of the bank that is set as the priority bank for display on pay element.",
           "type": "`$STRING`"
         },
         {
@@ -7052,6 +7439,7 @@ class Config {
         },
         {
           "name": "sandboxSettleDelayInSeconds",
+          "short": "Sandbox only.",
           "type": "`$INTEGER`"
         },
         {
@@ -7060,18 +7448,22 @@ class Config {
         },
         {
           "name": "status",
+          "short": "The current status of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "successWebHookUrl",
+          "short": "If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked.",
           "type": "`$STRING`"
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags attached to the payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "title",
+          "short": "A generic field to contain any additional data that the merchant wishes to store against the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -7084,6 +7476,7 @@ class Config {
         },
         {
           "name": "useHostedPaymentPage",
+          "short": "If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page.",
           "type": "`$BOOLEAN`"
         }
       ],
@@ -7562,30 +7955,37 @@ class Config {
         },
         {
           "name": "applePayTransactionID",
+          "short": "Transaction ID received in Apple pay token.",
           "type": "`$STRING`"
         },
         {
           "name": "cardAuthorizationResponseID",
+          "short": "For a successful card authorization this field will hold the response ID.",
           "type": "`$STRING`"
         },
         {
           "name": "cardExpiryMonth",
+          "short": "For card payment events this field holds the payer's card expiry month.",
           "type": "`$INTEGER`"
         },
         {
           "name": "cardExpiryYear",
+          "short": "For card payment events this field holds the payer's card expiry year.",
           "type": "`$INTEGER`"
         },
         {
           "name": "cardIssuer",
+          "short": "For card payment events this field holds the payer's card issuer.",
           "type": "`$STRING`"
         },
         {
           "name": "cardIssuerCountry",
+          "short": "For card payment events this field holds the payer's card issuer country of origin.",
           "type": "`$STRING`"
         },
         {
           "name": "cardLastFourDigits",
+          "short": "For card payment events this field holds the payer's card last four digits.",
           "type": "`$STRING`"
         },
         {
@@ -7594,10 +7994,12 @@ class Config {
         },
         {
           "name": "cardScheme",
+          "short": "For card payment events this field holds the scheme of the payer's card, e.g.",
           "type": "`$STRING`"
         },
         {
           "name": "cardTokenCustomerID",
+          "short": "If the option to create a reusable token for card payments was set this field contains the token the merchant can store to use for repeat payments.",
           "type": "`$STRING`"
         },
         {
@@ -7610,14 +8012,17 @@ class Config {
         },
         {
           "name": "directDebitPaymentID",
+          "short": "Payment ID issued by the Direct Debit supplier.",
           "type": "`$STRING`"
         },
         {
           "name": "directDebitPaymentReference",
+          "short": "Reference string issued by the Direct Debit supplier.",
           "type": "`$STRING`"
         },
         {
           "name": "drirectDebitMandateID",
+          "short": "The ID of the mandate that was used wehn requesting payment.",
           "type": "`$STRING`"
         },
         {
@@ -7642,22 +8047,27 @@ class Config {
         },
         {
           "name": "lightningInvoice",
+          "short": "For Bitcoin Lightning payments this field holds the invoice presented to the payer.",
           "type": "`$STRING`"
         },
         {
           "name": "lightningRHash",
+          "short": "For Bitcoin Lightning payments the hash of the invoice presented to the payer.",
           "type": "`$STRING`"
         },
         {
           "name": "originUrl",
+          "short": "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect back to the URL that initiated the attempt in the case of a failure condition.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentMethodType",
+          "short": "The type of payment method the event relates to, e.g.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentProcessorName",
+          "short": "If the event was for a card payment this is the name of the card processor, e.g.",
           "type": "`$STRING`"
         },
         {
@@ -7666,30 +8076,37 @@ class Config {
         },
         {
           "name": "pispBankStatus",
+          "short": "For payment initiation attempts some providers (e.g.",
           "type": "`$STRING`"
         },
         {
           "name": "pispPaymentInitiationID",
+          "short": "For a payment initiation this is the ID returned by the service provider initiating the payment for us.",
           "type": "`$STRING`"
         },
         {
           "name": "pispPaymentInstitutionName",
+          "short": "For a payment initiation this is the name of the financial institution that is used to initiate and authorise the payment.",
           "type": "`$STRING`"
         },
         {
           "name": "pispPaymentServiceProviderID",
+          "short": "For a payment initiation this is the service provider ID selected by the payer, typically the ID for the bank or similar financial institution.",
           "type": "`$STRING`"
         },
         {
           "name": "pispRedirectUrl",
+          "short": "For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us.",
           "type": "`$STRING`"
         },
         {
           "name": "reconciledTransactionID",
+          "short": "For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.",
           "type": "`$STRING`"
         },
         {
           "name": "refundPayoutID",
+          "short": "ID of the Payout that was created for refund.",
           "type": "`$STRING`"
         },
         {
@@ -7868,18 +8285,22 @@ class Config {
       "fields": [
         {
           "name": "amount",
+          "short": "The amount of money to request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountPending",
+          "short": "The amount of money that was authorised but has not arrived in the account yet.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountReceived",
+          "short": "The amount of money that has been received for this payment request.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountRefunded",
+          "short": "The amount of money that has been refunded for this payment request.",
           "type": "`$NUMBER`"
         },
         {
@@ -7892,22 +8313,27 @@ class Config {
         },
         {
           "name": "countryCode",
+          "short": "The country code associated with the payment.",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "The currency of the request.",
           "type": "`$STRING`"
         },
         {
           "name": "customFieldsToDisplay",
+          "short": "Custom fields to display to the customer.",
           "type": "`$ARRAY`"
         },
         {
           "name": "description",
+          "short": "An optional description for the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "dueDate",
+          "short": "The due date of the payment request.",
           "type": "`$STRING`"
         },
         {
@@ -7916,6 +8342,7 @@ class Config {
         },
         {
           "name": "googlePayMerchantID",
+          "short": "Merchant ID from Google Pay",
           "type": "`$STRING`"
         },
         {
@@ -7924,6 +8351,7 @@ class Config {
         },
         {
           "name": "jwk",
+          "short": "The jwk containing the public key",
           "type": "`$STRING`"
         },
         {
@@ -7952,22 +8380,27 @@ class Config {
         },
         {
           "name": "paymentAttempts",
+          "short": "The payment attempts for this payment request.",
           "type": "`$ARRAY`"
         },
         {
           "name": "paymentMethodsList",
+          "short": "The payment methods that the payment request supports.",
           "type": "`$ARRAY`"
         },
         {
           "name": "paymentProcessor",
+          "short": "The card processor",
           "type": "`$STRING`"
         },
         {
           "name": "paymentProcessorKey",
+          "short": "The card processors public key",
           "type": "`$STRING`"
         },
         {
           "name": "pispError",
+          "short": "This is the error returned from the bank which is recorded in payment request events.",
           "type": "`$STRING`"
         },
         {
@@ -7976,14 +8409,17 @@ class Config {
         },
         {
           "name": "status",
+          "short": "The status of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "stripeAccountID",
+          "short": "Account ID of connected customers in Stripe",
           "type": "`$STRING`"
         },
         {
           "name": "title",
+          "short": "The title of the payment request.",
           "type": "`$STRING`"
         }
       ],
@@ -8045,6 +8481,7 @@ class Config {
       "fields": [
         {
           "name": "amount",
+          "short": "The authorised payment amount.",
           "type": "`$NUMBER`"
         },
         {
@@ -8061,18 +8498,22 @@ class Config {
         },
         {
           "name": "currency",
+          "short": "The authorised payment currency.",
           "type": "`$STRING`"
         },
         {
           "name": "customerID",
+          "short": "The customer id",
           "type": "`$STRING`"
         },
         {
           "name": "paymentRequestID",
+          "short": "The ID of the payment request the result is for.",
           "type": "`$STRING`"
         },
         {
           "name": "payments",
+          "short": "The list of payment attempts that have been received for the payment request.",
           "type": "`$ARRAY`"
         },
         {
@@ -8081,10 +8522,12 @@ class Config {
         },
         {
           "name": "requestedAmount",
+          "short": "The full original payment amount requested.",
           "type": "`$NUMBER`"
         },
         {
           "name": "result",
+          "short": "The result of the payment attempt.",
           "type": "`$STRING`"
         }
       ],
@@ -8152,46 +8595,57 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Gets or Sets Account Id of sending account",
           "type": "`$STRING`"
         },
         {
           "name": "allowIncomplete",
+          "short": "If set to true the payout will get created even if the business validation rules fail.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "amount",
+          "short": "Gets or Sets payout amount",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountMinorUnits",
+          "short": "The payout amount expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "approvePayoutUrl",
+          "short": "This field is used when returning an payout record to a client.",
           "type": "`$STRING`"
         },
         {
           "name": "approverID",
+          "short": "Gets the User ID of person that approved the payout.",
           "type": "`$STRING`"
         },
         {
           "name": "authenticationMethods",
+          "short": "A list of authentication types allowed to authorise the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisations",
+          "short": "A list of the users who have successfully authorised the latest version of the payout and when.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the payout.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this payout.",
           "type": "`$INTEGER`"
         },
         {
           "name": "batchPayoutID",
+          "short": "The ID of the batch the payout is associated with.",
           "type": "`$STRING`"
         },
         {
@@ -8201,22 +8655,27 @@ class Config {
         },
         {
           "name": "beneficiaryID",
+          "short": "Optional.",
           "type": "`$STRING`"
         },
         {
           "name": "canAuthorise",
+          "short": "True if the payout can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "canProcess",
+          "short": "If set to true indicates the payout has been flagged as safe to process after transaction monitoring.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "canUpdate",
+          "short": "True if the payout can be updated by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "chargeBearer",
+          "short": "Optional field to set who should pay any fees for the payout.",
           "type": "`$STRING`"
         },
         {
@@ -8235,14 +8694,17 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Gets or Sets Currency of payout request",
           "type": "`$STRING`"
         },
         {
           "name": "currentUserID",
+          "short": "The ID of the user that requested access to the PayOut record.",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Gets or Sets description of payout request",
           "type": "`$STRING`"
         },
         {
@@ -8251,10 +8713,12 @@ class Config {
         },
         {
           "name": "documents",
+          "short": "Documents associated with the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "events",
+          "short": "The activity associated with the payout.",
           "type": "`$ARRAY`"
         },
         {
@@ -8263,10 +8727,12 @@ class Config {
         },
         {
           "name": "formattedAmount",
+          "short": "Currency and formatted amount string.",
           "type": "`$STRING`"
         },
         {
           "name": "formattedFxDestinationAmount",
+          "short": "FX destination currency and amount formatted string.",
           "type": "`$STRING`"
         },
         {
@@ -8279,42 +8745,52 @@ class Config {
         },
         {
           "name": "formattedSourceAccountAvailableBalance",
+          "short": "The available balance of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "fxDestinationAmount",
+          "short": "If specified this will be the amount sent to the payee.",
           "type": "`$NUMBER`"
         },
         {
           "name": "fxDestinationAmountMinorUnits",
+          "short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "fxDestinationCurrency",
+          "short": "For an FX payout this is the currency to send to the beneficiary.",
           "type": "`$STRING`"
         },
         {
           "name": "fxQuoteExpiresAt",
+          "short": "If an FX held rate quote ID is being used this is the time the quote expires.",
           "type": "`$STRING`"
         },
         {
           "name": "fxQuoteID",
+          "short": "Optional.",
           "type": "`$STRING`"
         },
         {
           "name": "fxRate",
+          "short": "For an FX payout this is the exchange rate to use for the payout.",
           "type": "`$NUMBER`"
         },
         {
           "name": "fxUseDestinationAmount",
+          "short": "For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the payout was loaded for a user and that user has already authorised the latest version of the payout.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "id",
+          "short": "The ID for the payout.",
           "type": "`$STRING`"
         },
         {
@@ -8323,22 +8799,27 @@ class Config {
         },
         {
           "name": "invoiceID",
+          "short": "Optional field to associate the payout with the invoice from an external application such as Xero.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the payout is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isFailed",
+          "short": "Set to true if a submitted payout subsequently fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSettled",
+          "short": "Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSubmitted",
+          "short": "Indicates whether the payout has been submitted for processing.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -8347,6 +8828,7 @@ class Config {
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
@@ -8359,10 +8841,12 @@ class Config {
         },
         {
           "name": "paymentProcessor",
+          "short": "The usptream payment processor for the payout.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentRail",
+          "short": "Optional field to indicate the payment rail to use for the payout.",
           "type": "`$STRING`"
         },
         {
@@ -8371,10 +8855,12 @@ class Config {
         },
         {
           "name": "payrunID",
+          "short": "The ID of the payrun that this payout is associated with.",
           "type": "`$STRING`"
         },
         {
           "name": "payrunName",
+          "short": "The name of the payrun that this payout is associated with.",
           "type": "`$STRING`"
         },
         {
@@ -8387,30 +8873,37 @@ class Config {
         },
         {
           "name": "scheduleDate",
+          "short": "The date the payout should be submitted.",
           "type": "`$STRING`"
         },
         {
           "name": "scheduled",
+          "short": "Should this payout be scheduled for a future date?",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "sourceAccountAvailableBalance",
+          "short": "The available balance of the account the payout is being made from.",
           "type": "`$NUMBER`"
         },
         {
           "name": "sourceAccountAvailableBalanceMinorUnits",
+          "short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "sourceAccountBic",
+          "short": "The BIC of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountCurrency",
+          "short": "The currency of the source account.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountIban",
+          "short": "The IBAN of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
@@ -8420,46 +8913,57 @@ class Config {
         },
         {
           "name": "sourceAccountName",
+          "short": "The name of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountNumber",
+          "short": "The account number of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountSortcode",
+          "short": "The sort code of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "Gets or Sets the status of payout request",
           "type": "`$STRING`"
         },
         {
           "name": "tagIds",
+          "short": "An optional list of tag ids to add to the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags attached to the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "theirReference",
+          "short": "Gets or Sets destination reference ID",
           "type": "`$STRING`"
         },
         {
           "name": "topupPayrunID",
+          "short": "The ID of a payrun that needs an account top up.",
           "type": "`$STRING`"
         },
         {
           "name": "transactedAmount",
+          "short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "transactedFxAmount",
+          "short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "transactedFxRate",
+          "short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
           "type": "`$NUMBER`"
         },
         {
@@ -8470,14 +8974,17 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Gets or Sets payout type",
           "type": "`$STRING`"
         },
         {
           "name": "userID",
+          "short": "Gets or Sets User ID of who created the payout request",
           "type": "`$STRING`"
         },
         {
           "name": "yourReference",
+          "short": "Gets or Sets your reference ID",
           "type": "`$STRING`"
         }
       ],
@@ -9391,42 +9898,52 @@ class Config {
       "fields": [
         {
           "name": "accountID",
+          "short": "Gets or Sets Account Id of sending account",
           "type": "`$STRING`"
         },
         {
           "name": "amount",
+          "short": "Gets or Sets payout amount",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountMinorUnits",
+          "short": "The payout amount expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "approvePayoutUrl",
+          "short": "This field is used when returning an payout record to a client.",
           "type": "`$STRING`"
         },
         {
           "name": "approverID",
+          "short": "Gets the User ID of person that approved the payout.",
           "type": "`$STRING`"
         },
         {
           "name": "authenticationMethods",
+          "short": "A list of authentication types allowed to authorise the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisations",
+          "short": "A list of the users who have successfully authorised the latest version of the payout and when.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the payout.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this payout.",
           "type": "`$INTEGER`"
         },
         {
           "name": "batchPayoutID",
+          "short": "The ID of the batch the payout is associated with.",
           "type": "`$STRING`"
         },
         {
@@ -9436,18 +9953,22 @@ class Config {
         },
         {
           "name": "canAuthorise",
+          "short": "True if the payout can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "canProcess",
+          "short": "If set to true indicates the payout has been flagged as safe to process after transaction monitoring.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "canUpdate",
+          "short": "True if the payout can be updated by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "chargeBearer",
+          "short": "Optional field to set who should pay any fees for the payout.",
           "type": "`$STRING`"
         },
         {
@@ -9460,14 +9981,17 @@ class Config {
         },
         {
           "name": "currency",
+          "short": "Gets or Sets Currency of payout request",
           "type": "`$STRING`"
         },
         {
           "name": "currentUserID",
+          "short": "The ID of the user that requested access to the PayOut record.",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Gets or Sets description of payout request",
           "type": "`$STRING`"
         },
         {
@@ -9476,18 +10000,22 @@ class Config {
         },
         {
           "name": "documents",
+          "short": "Documents associated with the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "events",
+          "short": "The activity associated with the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "formattedAmount",
+          "short": "Currency and formatted amount string.",
           "type": "`$STRING`"
         },
         {
           "name": "formattedFxDestinationAmount",
+          "short": "FX destination currency and amount formatted string.",
           "type": "`$STRING`"
         },
         {
@@ -9500,42 +10028,52 @@ class Config {
         },
         {
           "name": "formattedSourceAccountAvailableBalance",
+          "short": "The available balance of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "fxDestinationAmount",
+          "short": "If specified this will be the amount sent to the payee.",
           "type": "`$NUMBER`"
         },
         {
           "name": "fxDestinationAmountMinorUnits",
+          "short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "fxDestinationCurrency",
+          "short": "For an FX payout this is the currency to send to the beneficiary.",
           "type": "`$STRING`"
         },
         {
           "name": "fxQuoteExpiresAt",
+          "short": "If an FX held rate quote ID is being used this is the time the quote expires.",
           "type": "`$STRING`"
         },
         {
           "name": "fxQuoteID",
+          "short": "Optional.",
           "type": "`$STRING`"
         },
         {
           "name": "fxRate",
+          "short": "For an FX payout this is the exchange rate to use for the payout.",
           "type": "`$NUMBER`"
         },
         {
           "name": "fxUseDestinationAmount",
+          "short": "For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the payout was loaded for a user and that user has already authorised the latest version of the payout.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "id",
+          "short": "The ID for the payout.",
           "type": "`$STRING`"
         },
         {
@@ -9544,22 +10082,27 @@ class Config {
         },
         {
           "name": "invoiceID",
+          "short": "Optional field to associate the payout with the invoice from an external application such as Xero.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the payout is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isFailed",
+          "short": "Set to true if a submitted payout subsequently fails.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSettled",
+          "short": "Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isSubmitted",
+          "short": "Indicates whether the payout has been submitted for processing.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -9568,6 +10111,7 @@ class Config {
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
@@ -9580,18 +10124,22 @@ class Config {
         },
         {
           "name": "paymentProcessor",
+          "short": "The usptream payment processor for the payout.",
           "type": "`$STRING`"
         },
         {
           "name": "paymentRail",
+          "short": "Optional field to indicate the payment rail to use for the payout.",
           "type": "`$STRING`"
         },
         {
           "name": "payrunID",
+          "short": "The ID of the payrun that this payout is associated with.",
           "type": "`$STRING`"
         },
         {
           "name": "payrunName",
+          "short": "The name of the payrun that this payout is associated with.",
           "type": "`$STRING`"
         },
         {
@@ -9600,30 +10148,37 @@ class Config {
         },
         {
           "name": "scheduleDate",
+          "short": "The date the payout should be submitted.",
           "type": "`$STRING`"
         },
         {
           "name": "scheduled",
+          "short": "Should this payout be scheduled for a future date?",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "sourceAccountAvailableBalance",
+          "short": "The available balance of the account the payout is being made from.",
           "type": "`$NUMBER`"
         },
         {
           "name": "sourceAccountAvailableBalanceMinorUnits",
+          "short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "sourceAccountBic",
+          "short": "The BIC of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountCurrency",
+          "short": "The currency of the source account.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountIban",
+          "short": "The IBAN of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
@@ -9633,54 +10188,67 @@ class Config {
         },
         {
           "name": "sourceAccountName",
+          "short": "The name of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountNumber",
+          "short": "The account number of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "sourceAccountSortcode",
+          "short": "The sort code of the account the payout is being made from.",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "Gets or Sets the status of payout request",
           "type": "`$STRING`"
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags attached to the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "theirReference",
+          "short": "Gets or Sets destination reference ID",
           "type": "`$STRING`"
         },
         {
           "name": "topupPayrunID",
+          "short": "The ID of a payrun that needs an account top up.",
           "type": "`$STRING`"
         },
         {
           "name": "transactedAmount",
+          "short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "transactedFxAmount",
+          "short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "transactedFxRate",
+          "short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "type",
+          "short": "Gets or Sets payout type",
           "type": "`$STRING`"
         },
         {
           "name": "userID",
+          "short": "Gets or Sets User ID of who created the payout request",
           "type": "`$STRING`"
         },
         {
           "name": "yourReference",
+          "short": "Gets or Sets your reference ID",
           "type": "`$STRING`"
         }
       ],
@@ -9981,14 +10549,17 @@ class Config {
         },
         {
           "name": "authorisations",
+          "short": "A list of the users who have successfully authorised the latest version of the payrun and when.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the payrun.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this payrun.",
           "type": "`$INTEGER`"
         },
         {
@@ -9997,6 +10568,7 @@ class Config {
         },
         {
           "name": "canAuthorise",
+          "short": "True if the payrun can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10013,6 +10585,7 @@ class Config {
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10773,10 +11346,12 @@ class Config {
         },
         {
           "name": "accountID",
+          "short": "The ID of the account the rule will apply to.",
           "type": "`$STRING`"
         },
         {
           "name": "approveUrl",
+          "short": "If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule.",
           "type": "`$STRING`"
         },
         {
@@ -10785,22 +11360,27 @@ class Config {
         },
         {
           "name": "authenticationMethods",
+          "short": "A list of authentication types allowed to authorise the payout.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisations",
+          "short": "A list of the users who have successfully authorised the latest version of the rule and when.",
           "type": "`$ARRAY`"
         },
         {
           "name": "authorisersCompletedCount",
+          "short": "The number of distinct authorisers that have authorised the rule.",
           "type": "`$INTEGER`"
         },
         {
           "name": "authorisersRequiredCount",
+          "short": "The number of authorisers required for this rule.",
           "type": "`$INTEGER`"
         },
         {
           "name": "canAuthorise",
+          "short": "True if the rule can be authorised by the user who loaded it.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10810,14 +11390,17 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Arbitrary description for the rule.",
           "type": "`$STRING`"
         },
         {
           "name": "endAt",
+          "short": "Optional end time for rule executions.",
           "type": "`$STRING`"
         },
         {
           "name": "hasCurrentUserAuthorised",
+          "short": "True if the current user has authorised.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10830,6 +11413,7 @@ class Config {
         },
         {
           "name": "isDisabled",
+          "short": "If set to true the rule will be disabled from executing.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10838,6 +11422,7 @@ class Config {
         },
         {
           "name": "lastRunAtTransactionDate",
+          "short": "The most recent transaction date when the rule was last run.",
           "type": "`$STRING`"
         },
         {
@@ -10846,6 +11431,7 @@ class Config {
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
@@ -10856,6 +11442,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "A name to succinctly describe the rule.",
           "type": "`$STRING`"
         },
         {
@@ -10865,18 +11452,22 @@ class Config {
         },
         {
           "name": "onApprovedWebHookUrl",
+          "short": "Optional URL to receive an HTTP request with the rule details when the rule status changes to approved.",
           "type": "`$STRING`"
         },
         {
           "name": "onExecutionErrorWebHookUrl",
+          "short": "Optional URL to receive an HTTP request when a rule execution attempt fails.",
           "type": "`$STRING`"
         },
         {
           "name": "onExecutionSuccessWebHookUrl",
+          "short": "Optional URL to receive an HTTP request when a rule execution attempt succeeds.",
           "type": "`$STRING`"
         },
         {
           "name": "startAt",
+          "short": "Optional start time for rule executions.",
           "type": "`$STRING`"
         },
         {
@@ -10895,14 +11486,17 @@ class Config {
         },
         {
           "name": "timeZoneId",
+          "short": "If the rule should be executed on a recurring schedule this is the timezone that the CRON expression should be evaluated in.",
           "type": "`$STRING`"
         },
         {
           "name": "triggerCronExpression",
+          "short": "If the rule should be executed on a recurring schedule this is the expression that sets the schedule.",
           "type": "`$STRING`"
         },
         {
           "name": "triggerOnPayIn",
+          "short": "Set to true if the rule execution should be triggered when the account receives a pay in (credit).",
           "type": "`$BOOLEAN`"
         },
         {
@@ -10911,6 +11505,7 @@ class Config {
         },
         {
           "name": "webHookSecret",
+          "short": "If set this secret will be used to sign Web Hook requests.",
           "type": "`$STRING`"
         }
       ],
@@ -11480,14 +12075,17 @@ class Config {
       "fields": [
         {
           "name": "accountID",
+          "short": "The ID of the account the transaction belongs to.",
           "type": "`$STRING`"
         },
         {
           "name": "accountName",
+          "short": "The name of the account the transaction belongs to.",
           "type": "`$STRING`"
         },
         {
           "name": "accountSequenceNumber",
+          "short": "The sequence number of transaction on a per account basis.",
           "type": "`$INTEGER`"
         },
         {
@@ -11496,18 +12094,22 @@ class Config {
         },
         {
           "name": "amount",
+          "short": "Amount of the transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "amountMinorUnits",
+          "short": "Amount of the transaction expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "balance",
+          "short": "Balance left on the account after the transaction.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balanceMinorUnits",
+          "short": "Balance on the account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
@@ -11528,14 +12130,17 @@ class Config {
         },
         {
           "name": "counterpartySummary",
+          "short": "For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency of transaction.",
           "type": "`$STRING`"
         },
         {
           "name": "currencyExchange",
+          "short": "Provides details on the currency exchange.",
           "type": "`$OBJECT`"
         },
         {
@@ -11544,6 +12149,7 @@ class Config {
         },
         {
           "name": "description",
+          "short": "Description of the transaction.",
           "type": "`$STRING`"
         },
         {
@@ -11552,14 +12158,17 @@ class Config {
         },
         {
           "name": "fxAmount",
+          "short": "For an FX payout this is the amound in the FX currency.",
           "type": "`$NUMBER`"
         },
         {
           "name": "fxCurrency",
+          "short": "For an FX payout this is the currency that was received or that was instructed.",
           "type": "`$STRING`"
         },
         {
           "name": "fxRate",
+          "short": "For an FX payout this is the exchange rate between the transaction currency and the FX currency.",
           "type": "`$NUMBER`"
         },
         {
@@ -11569,10 +12178,12 @@ class Config {
         },
         {
           "name": "id",
+          "short": "Unique ID for the transaction.",
           "type": "`$STRING`"
         },
         {
           "name": "inserted",
+          "short": "Date when the transaction was inserted into the ledger.",
           "type": "`$STRING`"
         },
         {
@@ -11585,19 +12196,23 @@ class Config {
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "pageNumber",
+          "short": "Current page number.",
           "type": "`$INTEGER`"
         },
         {
           "name": "pageSize",
+          "short": "Page size",
           "type": "`$INTEGER`"
         },
         {
           "name": "payeeDetails",
           "req": true,
+          "short": "The Payee object contains details of the beneficiary, person or business.",
           "type": "`$OBJECT`"
         },
         {
@@ -11607,14 +12222,17 @@ class Config {
         },
         {
           "name": "paymentRequestCustomFields",
+          "short": "The custom fields that were attached to the payment request that resulted in this transaction.",
           "type": "`$OBJECT`"
         },
         {
           "name": "paymentRequestID",
+          "short": "For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request.",
           "type": "`$STRING`"
         },
         {
           "name": "payoutID",
+          "short": "ID of the payout that resulted in the transaction.",
           "type": "`$STRING`"
         },
         {
@@ -11623,6 +12241,7 @@ class Config {
         },
         {
           "name": "rawReference",
+          "short": "The raw payment reference details as received from the payment processor.",
           "type": "`$STRING`"
         },
         {
@@ -11631,6 +12250,7 @@ class Config {
         },
         {
           "name": "ruleID",
+          "short": "ID of the rule that resulted in the transaction.",
           "type": "`$STRING`"
         },
         {
@@ -11647,18 +12267,22 @@ class Config {
         },
         {
           "name": "tags",
+          "short": "An optional list of descriptive tags attached to the transaction.",
           "type": "`$ARRAY`"
         },
         {
           "name": "theirReference",
+          "short": "For a pay out the reference that the payer attached for the receiving party.",
           "type": "`$STRING`"
         },
         {
           "name": "totalPages",
+          "short": "Total pages",
           "type": "`$INTEGER`"
         },
         {
           "name": "totalSize",
+          "short": "Total count",
           "type": "`$INTEGER`"
         },
         {
@@ -11668,6 +12292,7 @@ class Config {
         },
         {
           "name": "transactionDate",
+          "short": "Date when the transaction occurred.",
           "type": "`$STRING`"
         },
         {
@@ -11680,6 +12305,7 @@ class Config {
         },
         {
           "name": "type",
+          "short": "Type of the transaction.",
           "type": "`$STRING`"
         },
         {
@@ -11688,10 +12314,12 @@ class Config {
         },
         {
           "name": "virtualIBAN",
+          "short": "If set it indicates the payin was to a virtual IBAN.",
           "type": "`$STRING`"
         },
         {
           "name": "yourReference",
+          "short": "For a pay in the reference the sending party attached.",
           "type": "`$STRING`"
         }
       ],
@@ -12513,6 +13141,7 @@ class Config {
       "fields": [
         {
           "name": "clientSessionTimeouts",
+          "short": "The number of seconds a session for this user should last before expiring.",
           "type": "`$ARRAY`"
         },
         {
@@ -12571,6 +13200,7 @@ class Config {
         },
         {
           "name": "userInviteID",
+          "short": "Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.",
           "type": "`$STRING`"
         }
       ],
@@ -12804,6 +13434,7 @@ class Config {
         },
         {
           "name": "initialRoleID",
+          "short": "The role ID to automatically assign to the merchant’s very first user.",
           "type": "`$STRING`"
         },
         {
@@ -12814,14 +13445,17 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Email address of the user being invited.",
           "type": "`$STRING`"
         },
         {
           "name": "inviteeFirstName",
+          "short": "First Name of the user being invited.",
           "type": "`$STRING`"
         },
         {
           "name": "inviteeLastName",
+          "short": "Last Name of the user being invited.",
           "type": "`$STRING`"
         },
         {
@@ -12838,10 +13472,12 @@ class Config {
         },
         {
           "name": "isAuthorised",
+          "short": "Will be set to true once the invite has met the authorisation requirements.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isInviteeRegistered",
+          "short": "If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -12850,6 +13486,7 @@ class Config {
         },
         {
           "name": "merchantID",
+          "short": "ID of the merchant the user is being invited to.",
           "type": "`$STRING`"
         },
         {
@@ -12866,6 +13503,7 @@ class Config {
         },
         {
           "name": "sendInviteEmail",
+          "short": "If set to true an email will be sent to the invitee with instructions on how to accept the invite.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -13198,34 +13836,42 @@ class Config {
       "fields": [
         {
           "name": "accountName",
+          "short": "Name for the account",
           "type": "`$STRING`"
         },
         {
           "name": "accountSupplierName",
+          "short": "The payment account supplier name.",
           "type": "`$STRING`"
         },
         {
           "name": "availableBalance",
+          "short": "The current available balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "availableBalanceMinorUnits",
+          "short": "The available balance expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "balance",
+          "short": "Balance of the account.",
           "type": "`$NUMBER`"
         },
         {
           "name": "balanceMinorUnits",
+          "short": "Balance of the account expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "bankName",
+          "short": "The bank name for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "consentID",
+          "short": "The ID of the consent used to connect the external account.",
           "type": "`$STRING`"
         },
         {
@@ -13235,30 +13881,37 @@ class Config {
         },
         {
           "name": "createdByDisplayName",
+          "short": "Either the name of the user, merchant token or api key that created the account",
           "type": "`$STRING`"
         },
         {
           "name": "currency",
+          "short": "Currency of the account in ISO 4217 format",
           "type": "`$STRING`"
         },
         {
           "name": "defaultPaymentRail",
+          "short": "Indicates the default payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "displayName",
+          "short": "Gets a unique display name for the payment account.",
           "type": "`$STRING`"
         },
         {
           "name": "expiryDate",
+          "short": "The date that the external account will expire",
           "type": "`$STRING`"
         },
         {
           "name": "externalAccountIcon",
+          "short": "The Icon for external accounts",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique id for the account.",
           "type": "`$STRING`"
         },
         {
@@ -13268,26 +13921,32 @@ class Config {
         },
         {
           "name": "inserted",
+          "short": "Timestamp when the account was created.",
           "type": "`$STRING`"
         },
         {
           "name": "isArchived",
+          "short": "Indicates whether the account is archived.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isConnectedAccount",
+          "short": "Indicates if the payment account is an externally connected account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isDefault",
+          "short": "Is the default account",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isTrustAccount",
+          "short": "Indicates if the payment account is a trust account.",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "isVirtual",
+          "short": "True if the account is a virtual account.",
           "type": "`$BOOLEAN`"
         },
         {
@@ -13296,47 +13955,58 @@ class Config {
         },
         {
           "name": "lastUpdated",
+          "short": "Timestamp when the account was last updated.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantID",
+          "short": "The ID of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "merchantName",
+          "short": "The name of the merchant that owns the account.",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "The name of the virtual account.",
           "type": "`$STRING`"
         },
         {
           "name": "physicalAccountID",
+          "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
           "type": "`$STRING`"
         },
         {
           "name": "rules",
+          "short": "The list of rules associated with this account.",
           "type": "`$ARRAY`"
         },
         {
           "name": "submittedPayoutsBalance",
+          "short": "Total of the payouts that have been submitted for processing.",
           "type": "`$NUMBER`"
         },
         {
           "name": "submittedPayoutsBalanceMinorUnits",
+          "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
           "type": "`$INTEGER`"
         },
         {
           "name": "summary",
+          "short": "Gets a summary of the payments account's most important properties.",
           "type": "`$STRING`"
         },
         {
           "name": "supplierSepaInstantStatus",
+          "short": "Indicates the status of the SEPA Instant payment rail for this account.",
           "type": "`$STRING`"
         },
         {
           "name": "xeroBankFeedConnectionStatus",
+          "short": "States the status of the Xero bank feed connection, if applicable.",
           "type": "`$STRING`"
         },
         {
@@ -13357,6 +14027,7 @@ class Config {
         },
         {
           "name": "xeroUnsynchronisedTransactionsCount",
+          "short": "Indicates the number of unsynchronised transactions with Xero",
           "type": "`$INTEGER`"
         }
       ],
@@ -13471,14 +14142,17 @@ class Config {
       "fields": [
         {
           "name": "destinationUrl",
+          "short": "The destination URL for the webhook.",
           "type": "`$STRING`"
         },
         {
           "name": "emailAddress",
+          "short": "The recipient email address(es) for notifications.",
           "type": "`$STRING`"
         },
         {
           "name": "failedNotificationEmailAddress",
+          "short": "The email address to which notifications about failed webhook deliveries will be sent.",
           "type": "`$STRING`"
         },
         {
@@ -13501,6 +14175,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "The ID of the merchant that the webhook is for.",
           "type": "`$STRING`"
         },
         {
@@ -13515,10 +14190,12 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "The type of notification that will be sent.",
           "type": "`$STRING`"
         },
         {
           "name": "resourceTypes",
+          "short": "The resource types that the webhook will be generated for.",
           "type": "`$ARRAY`"
         },
         {
@@ -13527,6 +14204,7 @@ class Config {
         },
         {
           "name": "secret",
+          "short": "The secret key required to authenticate webhook notifications.",
           "type": "`$STRING`"
         },
         {

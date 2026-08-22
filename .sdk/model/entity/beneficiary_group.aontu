@@ -8,11 +8,13 @@ main: kit: entity: beneficiary_group: {
     {
       name: "groupMembers"
       req: false
+      short: "The existing group members."
       type: "`$ARRAY`"
     }
     {
       name: "groupName"
       req: true
+      short: "The descriptive name for the beneficiary group."
       type: "`$STRING`"
     }
     {
@@ -23,16 +25,19 @@ main: kit: entity: beneficiary_group: {
     {
       name: "inserted"
       req: false
+      short: "Timestamp indicating when the group was created."
       type: "`$STRING`"
     }
     {
       name: "lastUpdated"
       req: false
+      short: "Timestamp indicating when the group was last updated."
       type: "`$STRING`"
     }
     {
       name: "merchantID"
       req: true
+      short: "Gets or Sets the merchant id."
       type: "`$STRING`"
     }
   ]

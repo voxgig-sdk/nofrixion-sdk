@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Nofrixion",
+			"slug": "nofrixion",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -84,58 +87,72 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountBalances",
+						"short": "The various balances for the account.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "accountID",
+						"short": "ID of the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountIdentifications",
+						"short": "The canoncial identifiers for the account.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "accountName",
+						"short": "Name for the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountNames",
+						"short": "Optional account names set by the account holder.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "accountSupplierName",
+						"short": "The payment account supplier name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountType",
+						"short": "The type of account e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "availableBalance",
+						"short": "The current available balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "availableBalanceMinorUnits",
+						"short": "The available balance expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "balance",
+						"short": "Balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balanceMinorUnits",
+						"short": "Balance of the account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bankName",
+						"short": "The bank name for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "consentID",
+						"short": "The ID of the consent used to connect the external account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "consolidatedAccountInformation",
+						"short": "Summary information regarding account balances of the overall account provided by the bank.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -145,46 +162,57 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "createdByDisplayName",
+						"short": "Either the name of the user, merchant token or api key that created the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of the account in ISO 4217 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "defaultPaymentRail",
+						"short": "Indicates the default payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Product name as defined by the financial institution for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "details",
+						"short": "Supplementary specifications that might be provided by the Bank.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "displayName",
+						"short": "Gets a unique display name for the payment account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "expiryDate",
+						"short": "The date that the external account will expire",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "externalAccountIcon",
+						"short": "The Icon for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "format",
+						"short": "File format to save the statement as.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fromDate",
+						"short": "Minimum transaction date for the statement.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique id for the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -194,26 +222,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Timestamp when the account was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the account is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isConnectedAccount",
+						"short": "Indicates if the payment account is an externally connected account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isDefault",
+						"short": "Is the default account",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isTrustAccount",
+						"short": "Indicates if the payment account is a trust account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isVirtual",
+						"short": "True if the account is a virtual account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -222,58 +256,72 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "Timestamp when the account was last updated.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantName",
+						"short": "The name of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nickname",
+						"short": "Nickname of the account that was provided by the account owner.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "physicalAccountID",
+						"short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "roleIDs",
+						"short": "Optional list of role IDs that will get access to the payment account when created.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "rules",
+						"short": "The list of rules associated with this account.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalance",
+						"short": "Total of the payouts that have been submitted for processing.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalanceMinorUnits",
+						"short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "summary",
+						"short": "Gets a summary of the payments account's most important properties.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierPhysicalAccountID",
+						"short": "For internal use only.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierSepaInstantStatus",
+						"short": "Indicates the status of the SEPA Instant payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "toDate",
+						"short": "Maximum transaction date for the statement.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Specifies the type of account e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -282,6 +330,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "xeroBankFeedConnectionStatus",
+						"short": "States the status of the Xero bank feed connection, if applicable.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -302,6 +351,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "xeroUnsynchronisedTransactionsCount",
+						"short": "Indicates the number of unsynchronised transactions with Xero",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -1107,6 +1157,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "approveUrl",
+						"short": "This field is used when returning a batch payout record to a client.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -1194,18 +1245,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "authenticationMethods",
+						"short": "A list of authentication types allowed to authorise the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of users who have successfully authorised the latest version of the beneficiary.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the beneficiary.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this beneficiary.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -1218,10 +1273,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the beneficiary can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canUpdate",
+						"short": "True if the beneficiary can be updated by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -1241,6 +1298,7 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Gets or Sets the currency.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -1259,6 +1317,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -1289,6 +1348,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Gets or Sets the merchant id.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -1299,6 +1359,7 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "The descriptive name for the beneficiary.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -1307,6 +1368,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sourceAccountIDs",
+						"short": "ID of the accounts which are authorised to act as a source for the beneficiary.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -1315,6 +1377,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "theirReference",
+						"short": "The reference that will be used by default as TheirReference when creating payouts to this beneficiary if no TheirReference is specified for the payout.",
 						"type": "`$STRING`",
 					},
 				},
@@ -1875,11 +1938,13 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "groupMembers",
+						"short": "The existing group members.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "groupName",
 						"req": true,
+						"short": "The descriptive name for the beneficiary group.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -1888,15 +1953,18 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Timestamp indicating when the group was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "Timestamp indicating when the group was last updated.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
 						"req": true,
+						"short": "Gets or Sets the merchant id.",
 						"type": "`$STRING`",
 					},
 				},
@@ -1982,34 +2050,42 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isPayerAuthenticationRequired",
+						"short": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSoftDecline",
+						"short": "Gets set to true if the card processor flagged the transaction as having failed address or card security number verification.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationAccessToken",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationMerchantData",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the \"authenticationcallback\" method that gets called automatically after a successful payer authenticati…",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationUrl",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationWindowHeight",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationWindowWidth",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "paymentRequestCallbackUrl",
+						"short": "The callback URL that was set when the payment request was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2034,6 +2110,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "threeDSRedirectUrl",
+						"short": "Checkout.com require a redirect for 3DS authentication.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2099,10 +2176,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "cardType",
+						"short": "The type of the tokenised card, e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerEmailAddress",
+						"short": "When creating a tokenised card the payer's email address must be supplied.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2115,6 +2194,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The unique ID of the card token that has been stored for the customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2393,34 +2473,42 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isPayerAuthenticationRequired",
+						"short": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSoftDecline",
+						"short": "Gets set to true if the card processor flagged the transaction as having failed address or card security number verification.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationAccessToken",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationMerchantData",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the \"authenticationcallback\" method that gets called automatically after a successful payer authenticati…",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationUrl",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationWindowHeight",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "payerAuthenticationWindowWidth",
+						"short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "paymentRequestCallbackUrl",
+						"short": "The callback URL that was set when the payment request was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2445,6 +2533,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "threeDSRedirectUrl",
+						"short": "Checkout.com require a redirect for 3DS authentication.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2739,18 +2828,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "authorisationUrl",
+						"short": "The URL the authorising user needs to be redirected to in order to get the open banking consent token.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "callbackUrl",
+						"short": "Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "consentID",
+						"short": "The ID of the open banking consent.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "emailAddress",
+						"short": "The email address that identifies the end user that will be authorising the open banking consent request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2759,6 +2852,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "failureCallbackUrl",
+						"short": "Optional callback URL for open banking consent authorisation failure.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -2777,10 +2871,12 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The institution ID the open banking consent is being requested for.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isConnectedAccounts",
+						"short": "Optional setting.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -2795,14 +2891,17 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The ID of the merchant the consent token is being created to be used with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "provider",
+						"short": "Lists the supported card and PIS processors.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "successWebHookUrl",
+						"short": "A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised.",
 						"type": "`$STRING`",
 					},
 				},
@@ -3079,10 +3178,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "failedSubmissions",
+						"short": "Dictionary of failed submissions, keyed by the index (1-based) in the original request.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "successfulSubmissions",
+						"short": "List of successfully submitted direct debit payments.",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -3125,6 +3226,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "exchangeRate",
+						"short": "The price at which the transaction will buy the source currency using the destination currency.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -3307,29 +3409,35 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountNumber",
+						"short": "Account number of the customer's bank account in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressLine1",
 						"req": true,
+						"short": "First line of the customer's address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressLine2",
+						"short": "Second line of the customer's address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "approvedAt",
+						"short": "Date at which the supplier approved this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "city",
 						"req": true,
+						"short": "Customer's city.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "countryCode",
 						"req": true,
+						"short": "2-character country code of the customer's bank account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -3340,77 +3448,95 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Currency of this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerAccountNumber",
+						"short": "Customer's account number in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCity",
+						"short": "Customer's city of residence.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCountryCode",
+						"short": "Customer's country of residence code.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCountryName",
+						"short": "Customer's country of residence.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerEmailAddress",
+						"short": "Customer's email address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerFirstName",
+						"short": "Customer's first name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerIban",
+						"short": "Customer's IBAN in case of EUR account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerLastName",
+						"short": "Customer's last name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerSortCode",
+						"short": "Customer's sort code in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "emailAddress",
 						"req": true,
+						"short": "Customer's email address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "firstName",
 						"req": true,
+						"short": "Customer's first name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "iban",
+						"short": "IBAN of the customer's bank account in case of EUR account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Internal ID of the mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "The timestamp this mandate was created at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isRecurring",
+						"short": "Whether this mandate is single-use or recurring.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "lastName",
 						"req": true,
+						"short": "Customer's last name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "The timestamp this mandate was last updated at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -3421,43 +3547,53 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Internal ID of this mandate's merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "postalCode",
 						"req": true,
+						"short": "Customer's postal code.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "reference",
+						"short": "Reference assigned to this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sortCode",
+						"short": "Sort code of the customer's bank account in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "General status of this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierBankAccountID",
+						"short": "ID that the supplier assigned to this mandate's bank account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierCustomerID",
+						"short": "ID that the supplier assigned to this mandate's customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierMandateID",
+						"short": "ID that the supplier assigned to this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierName",
+						"short": "Name of the supplier used to create this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierStatus",
+						"short": "Last status that the supplier reported for this mandate.",
 						"type": "`$STRING`",
 					},
 				},
@@ -3531,70 +3667,87 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountCurrencies",
+						"short": "The list of currencies that the merchant has accounts for.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "canHaveTrustAccounts",
+						"short": "Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardPaymentProcessor",
+						"short": "Name of the card payment processor.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "companyID",
+						"short": "The Company ID recorded in the Compliance system.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "displayQrOnHostedPay",
+						"short": "Indicates if a QR Code containing the payment link should be displayed on the hosted payment page.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "hostedPayVersion",
+						"short": "The version of the hosted payment page to use with the merchant.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique ID for the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Timestamp the merchant was added to MoneyMoov.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isBlocked",
+						"short": "The merchant is blocked from making payments (payouts).",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isExited",
+						"short": "The merchant has formally terminated their relationship and is no longer a customer.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSuspended",
+						"short": "The merchant has temporarily suspended their own account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "jurisdiction",
+						"short": "The jurisdiction the merchant entity is incorporated or established in.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "logoUrlPng",
+						"short": "The CDN URL of the merchant's logo in PNG format.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "logoUrlSvg",
+						"short": "The CDN URL of the merchant's logo in SVG format.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantCategoryCode",
+						"short": "The industry code that represents the merchant's primary trading activity.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The registered business name of the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "notes",
+						"short": "The notes field is an optional free text field that can be used to store any additional information about the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -3603,6 +3756,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentAccountLimit",
+						"short": "The maximum number of payment accounts that can be created for the Merchant.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -3611,38 +3765,47 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "reason",
+						"short": "The reason for the suspension.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shortName",
+						"short": "A URL friendly shortish name for the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supportedPaymentMethodsList",
+						"short": "The payment methods that are configured and supported for this merchant.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "suspensionReason",
+						"short": "The reason for the suspension, provided by the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags that can be used on merchant entities such as payment requests.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "timeZoneId",
+						"short": "The IANA (Internet Assigned Numbers Authority) time zone identifier of the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tradingName",
+						"short": "An optional trading name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "webHookLimit",
+						"short": "The maximum number of web hooks that can be created for the Merchant.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "yourRoleName",
+						"short": "The name of the role for the identity that loaded the merchant record.",
 						"type": "`$STRING`",
 					},
 				},
@@ -4398,94 +4561,117 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "approvedAt",
+						"short": "Date at which the supplier approved this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerAccountNumber",
+						"short": "Customer's account number in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCity",
+						"short": "Customer's city of residence.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCountryCode",
+						"short": "Customer's country of residence code.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerCountryName",
+						"short": "Customer's country of residence.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerEmailAddress",
+						"short": "Customer's email address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerFirstName",
+						"short": "Customer's first name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerIban",
+						"short": "Customer's IBAN in case of EUR account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerLastName",
+						"short": "Customer's last name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerSortCode",
+						"short": "Customer's sort code in case of GBP account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Internal ID of the mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "The timestamp this mandate was created at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isRecurring",
+						"short": "Whether this mandate is single-use or recurring.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "The timestamp this mandate was last updated at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "Internal ID of this mandate's merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "reference",
+						"short": "Reference assigned to this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "General status of this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierBankAccountID",
+						"short": "ID that the supplier assigned to this mandate's bank account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierCustomerID",
+						"short": "ID that the supplier assigned to this mandate's customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierMandateID",
+						"short": "ID that the supplier assigned to this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierName",
+						"short": "Name of the supplier used to create this mandate.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierStatus",
+						"short": "Last status that the supplier reported for this mandate.",
 						"type": "`$STRING`",
 					},
 				},
@@ -4614,54 +4800,67 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "bankCountryCodes",
+						"short": "The list of country codes representing the banks the country supports.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "bankID",
+						"short": "ID of the bank to be configured for the merchant.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "bankName",
+						"short": "Name of the Bank/Institution.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "businessInstitutionID",
+						"short": "ID that the processor uses to identify the bank (business accounts).",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency supported by the bank.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "logo",
+						"short": "URL of the bank's logo.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "message",
+						"short": "Message relating to specific bank.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "messageImageUrl",
+						"short": "Optional image URL to be displayed with the message.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "order",
+						"short": "Order in which this setting will appear in the UI.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "personalInstitutionID",
+						"short": "ID that the processor uses to identify the bank (personal accounts).",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "processor",
+						"short": "Name of the bank payment processor.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "warningHeading",
+						"short": "The heading for a warning message related to the bank institution to be displayed to the user.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "warningMessage",
+						"short": "The warning message related to the bank institution to be displayed to the user.",
 						"type": "`$STRING`",
 					},
 				},
@@ -4759,10 +4958,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "customFields",
+						"short": "A list of custom fields that can be included in the payment request template.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "defaultFields",
+						"short": "A list of default fields that are included in the payment request template.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -5030,22 +5231,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "authenticationMethods",
+						"short": "A list of authentication types allowed to authorise the merchant token.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of users who have successfully authorised the latest version of the beneficiary.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the merchant token.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this merchant token.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the merchant token can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -5056,18 +5262,22 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Token description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "expiresAt",
+						"short": "Optional.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "hmacAlgorithm",
+						"short": "Optional shared secret algorithm to use for HMAC authentication.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5080,14 +5290,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ipAddressWhitelist",
+						"short": "Optional.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the merchant token is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isEnabled",
+						"short": "If set to false the merchant token will not be accepted to authorise a request.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -5106,6 +5319,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The merchant id to add to the token",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5115,22 +5329,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "permissionTypes",
+						"short": "The permissions that the merchant token supports.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "requestSignatureVersion",
+						"short": "Represent the version of the overall merchant token.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "sharedSecretAlgorithm",
+						"short": "Optional shared secret algorithm to use for HMAC authentication.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sharedSecretBase64",
+						"short": "The base 64 encoded shared secret that is used for request authentication with an HMAC.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "token",
+						"short": "The JWT merchant token.",
 						"type": "`$STRING`",
 					},
 				},
@@ -5582,31 +5801,38 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "accountName",
 						"req": true,
+						"short": "The name of the account to verify",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountNumber",
+						"short": "The account number of the account to verify (for CoP checks)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "iban",
 						"req": true,
+						"short": "The IBAN of the account to verify (for VoP checks)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payeeVerifiedAccountName",
+						"short": "The verified account name of the payee, if available (in case of a close match)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "result",
+						"short": "The result of the payee verification",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "secondaryIdentification",
+						"short": "Optional secondary identifier for the account to verify.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sortCode",
+						"short": "The sort code of the account to verify (for CoP checks)",
 						"type": "`$STRING`",
 					},
 				},
@@ -5654,66 +5880,82 @@ func MakeConfig() map[string]any {
 								"type": "`$NUMBER`",
 							},
 						},
+						"short": "The amount of money to request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountPending",
+						"short": "Total amount that has been authorised but not settled for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountReceived",
+						"short": "Total amount received for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountRefunded",
+						"short": "Total amount refunded for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "autoSendReceipt",
+						"short": "If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "baseOriginUrl",
+						"short": "For card payments the origin of the payment page needs to be set in advance.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "callbackUrl",
+						"short": "Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardAuthorizeOnly",
+						"short": "For card payments the default behaviour is to authorise and capture the payment at the same time.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardCreateToken",
+						"short": "For card payments a payment attempt can be used to create a reusable token for subsequent payments.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardCreateTokenMode",
+						"short": "This specifies whether user consent will be taken before tokenising card or not.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardIgnoreCVN",
+						"short": "If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardNoPayerAuthentication",
+						"short": "If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent).",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardProcessorMerchantID",
+						"short": "Optional field that if specified indicates the processor merchant ID that should be used to process any card payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardStripePaymentIntentID",
+						"short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardStripePaymentIntentSecret",
+						"short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardTransmitRawDetails",
+						"short": "If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -5723,18 +5965,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "The currency of the request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customFields",
+						"short": "A list of custom fields attached to the payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "customerEmailAddress",
+						"short": "Optional email address for the customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerID",
+						"short": "An optional customer identifier for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5743,6 +5989,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "description",
+						"short": "An optional description for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5751,10 +5998,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "directDebitPayment",
+						"short": "Contains information about a Direct Debit payment attempt for a payment request.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "dueDate",
+						"short": "The due date for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5763,10 +6012,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "failureCallbackUrl",
+						"short": "Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fieldDisplaySettings",
+						"short": "A list of field display settings that control which fields are displayed to the payer.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -5775,6 +6026,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "hostedPayCheckoutUrl",
+						"short": "This is a convenience link generated for payment requests whose merchants are using hosted payment pages.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5783,46 +6035,57 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ignoreAddressVerification",
+						"short": "If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "The timestamp the payment request was created at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "insertedSortable",
+						"short": "The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se…",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the payment request is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "jwk",
+						"short": "The jwk containing the public key used to verify the signature of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "The timestamp the payment request was last updated at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lightningInvoice",
+						"short": "Bitcoin Lightning invoice for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lightningInvoiceExpiresAt",
+						"short": "Date and time of expiration of the lightning invoice.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantDirectDebitMandateID",
+						"short": "Optional ID of the direct debit mandate associated with this payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant to create the payment request for.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantTokenDescription",
+						"short": "Description of the merchant token in case the Payment request was created using a merchant token.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5831,42 +6094,52 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "notificationRoleIDs",
+						"short": "A list of roles whose members will receive notifications about this payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "orderID",
+						"short": "An optional order ID for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "partialPaymentMethod",
+						"short": "The approach to use, or not, for accepting partial payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "partialPaymentSteps",
+						"short": "An optional comma separated list of partial payment amounts.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentAttempts",
+						"short": "The payment attempts made against this payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "paymentMethods",
+						"short": "The payment methods that the payment request supports.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "paymentProcessor",
+						"short": "If the card payment option is enabled this field indicates which card processor the merchant is set up to use.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payrunID",
+						"short": "The ID of a payrun that needs an account top up.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispAccountID",
+						"short": "The payment account ID to use to receive payment initiation payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "priorityBankID",
+						"short": "The ID of the bank that is set as the priority bank for display on pay element.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5875,6 +6148,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sandboxSettleDelayInSeconds",
+						"short": "Sandbox only.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -5883,62 +6157,77 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "shippingAddressCity",
+						"short": "Optionally the city of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingAddressCountryCode",
+						"short": "Optionally the country code of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingAddressCounty",
+						"short": "Optionally the state or county of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingAddressLine1",
+						"short": "Optionally the first line of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingAddressLine2",
+						"short": "Optionally the second line of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingAddressPostCode",
+						"short": "Optionally the post code of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingEmail",
+						"short": "Optionally the shipping email address for the customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingFirstName",
+						"short": "Optionally the first name of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingLastName",
+						"short": "Optionally the last name of the customer's shipping address.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "shippingPhone",
+						"short": "Optionally the shipping phone number for the customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "The current status of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "successWebHookUrl",
+						"short": "If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tagIds",
+						"short": "An optional list of tag ids to add to the payment request",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags attached to the payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "A generic field to contain any additional data that the merchant wishes to store against the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -5951,6 +6240,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "useHostedPaymentPage",
+						"short": "If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page.",
 						"type": "`$BOOLEAN`",
 					},
 				},
@@ -6112,34 +6402,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountName",
+						"short": "Name for the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountSupplierName",
+						"short": "The payment account supplier name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "availableBalance",
+						"short": "The current available balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "availableBalanceMinorUnits",
+						"short": "The available balance expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "balance",
+						"short": "Balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balanceMinorUnits",
+						"short": "Balance of the account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bankName",
+						"short": "The bank name for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "consentID",
+						"short": "The ID of the consent used to connect the external account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6149,30 +6447,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "createdByDisplayName",
+						"short": "Either the name of the user, merchant token or api key that created the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of the account in ISO 4217 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "defaultPaymentRail",
+						"short": "Indicates the default payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "displayName",
+						"short": "Gets a unique display name for the payment account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "expiryDate",
+						"short": "The date that the external account will expire",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "externalAccountIcon",
+						"short": "The Icon for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique id for the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6182,26 +6487,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Timestamp when the account was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the account is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isConnectedAccount",
+						"short": "Indicates if the payment account is an externally connected account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isDefault",
+						"short": "Is the default account",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isTrustAccount",
+						"short": "Indicates if the payment account is a trust account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isVirtual",
+						"short": "True if the account is a virtual account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -6210,42 +6521,52 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "Timestamp when the account was last updated.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantName",
+						"short": "The name of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "physicalAccountID",
+						"short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rules",
+						"short": "The list of rules associated with this account.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalance",
+						"short": "Total of the payouts that have been submitted for processing.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalanceMinorUnits",
+						"short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "summary",
+						"short": "Gets a summary of the payments account's most important properties.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierSepaInstantStatus",
+						"short": "Indicates the status of the SEPA Instant payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "xeroBankFeedConnectionStatus",
+						"short": "States the status of the Xero bank feed connection, if applicable.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6266,6 +6587,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "xeroUnsynchronisedTransactionsCount",
+						"short": "Indicates the number of unsynchronised transactions with Xero",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -6450,26 +6772,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountName",
+						"short": "Name for the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "availableBalance",
+						"short": "The current available balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balance",
+						"short": "Balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balanceMinorUnits",
+						"short": "Balance of the account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of the account in ISO 4217 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique id for the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6479,18 +6807,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Is the account archived",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isConnectedAccount",
+						"short": "Indicates if the payment account is an externally connected account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalance",
+						"short": "Total of the payouts that have been submitted for processing.",
 						"type": "`$NUMBER`",
 					},
 				},
@@ -6610,10 +6942,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "paymentInitiationID",
+						"short": "The unique identifier of the payment initiation request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentRequestCallbackUrl",
+						"short": "The callback URL that was set when the payment request was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6622,6 +6956,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "redirectUrl",
+						"short": "A redirect URL for the user to authorise the payment initiation request at the ASPSP",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6695,58 +7030,72 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "amount",
+						"short": "The amount of money to request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountPending",
+						"short": "Total amount that has been authorised but not settled for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountReceived",
+						"short": "Total amount received for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountRefunded",
+						"short": "Total amount refunded for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "autoSendReceipt",
+						"short": "If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "baseOriginUrl",
+						"short": "For card payments the origin of the payment page needs to be set in advance.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "callbackUrl",
+						"short": "Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardAuthorizeOnly",
+						"short": "For card payments the default behaviour is to authorise and capture the payment at the same time.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardCreateToken",
+						"short": "For card payments a payment attempt can be used to create a reusable token for subsequent payments.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardCreateTokenMode",
+						"short": "This specifies whether user consent will be taken before tokenising card or not.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardIgnoreCVN",
+						"short": "If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "cardProcessorMerchantID",
+						"short": "Optional field that if specified indicates the processor merchant ID that should be used to process any card payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardStripePaymentIntentID",
+						"short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardStripePaymentIntentSecret",
+						"short": "If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6756,18 +7105,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "The currency of the request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customFields",
+						"short": "A list of custom fields attached to the payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "customerEmailAddress",
+						"short": "Optional email address for the customer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerID",
+						"short": "An optional customer identifier for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6776,6 +7129,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "description",
+						"short": "An optional description for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6784,6 +7138,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "directDebitPayment",
+						"short": "Contains information about a Direct Debit payment attempt for a payment request.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -6792,6 +7147,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "dueDate",
+						"short": "The due date for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6808,10 +7164,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "failureCallbackUrl",
+						"short": "Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fieldDisplaySettings",
+						"short": "A list of field display settings that control which fields are displayed to the payer.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -6820,6 +7178,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "hostedPayCheckoutUrl",
+						"short": "This is a convenience link generated for payment requests whose merchants are using hosted payment pages.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6828,14 +7187,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ignoreAddressVerification",
+						"short": "If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "The timestamp the payment request was created at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "insertedSortable",
+						"short": "The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se…",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6844,26 +7206,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the payment request is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "jwk",
+						"short": "The jwk containing the public key used to verify the signature of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "The timestamp the payment request was last updated at.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lightningInvoice",
+						"short": "Bitcoin Lightning invoice for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lightningInvoiceExpiresAt",
+						"short": "Date and time of expiration of the lightning invoice.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantDirectDebitMandateID",
+						"short": "Optional ID of the direct debit mandate associated with this payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6872,6 +7240,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantTokenDescription",
+						"short": "Description of the merchant token in case the Payment request was created using a merchant token.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6880,22 +7249,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "notificationRoleIDs",
+						"short": "A list of roles whose members will receive notifications about this payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "orderID",
+						"short": "An optional order ID for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "partialPaymentMethod",
+						"short": "The approach to use, or not, for accepting partial payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "partialPaymentSteps",
+						"short": "An optional comma separated list of partial payment amounts.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentAttempts",
+						"short": "The payment attempts made against this payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -6904,10 +7278,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentMethods",
+						"short": "The payment methods that the payment request supports.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "paymentProcessor",
+						"short": "If the card payment option is enabled this field indicates which card processor the merchant is set up to use.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6916,14 +7292,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "payrunID",
+						"short": "The ID of a payrun that needs an account top up.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispAccountID",
+						"short": "The payment account ID to use to receive payment initiation payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "priorityBankID",
+						"short": "The ID of the bank that is set as the priority bank for display on pay element.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6932,6 +7311,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sandboxSettleDelayInSeconds",
+						"short": "Sandbox only.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -6940,18 +7320,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "status",
+						"short": "The current status of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "successWebHookUrl",
+						"short": "If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags attached to the payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "A generic field to contain any additional data that the merchant wishes to store against the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -6964,6 +7348,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "useHostedPaymentPage",
+						"short": "If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page.",
 						"type": "`$BOOLEAN`",
 					},
 				},
@@ -7442,30 +7827,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "applePayTransactionID",
+						"short": "Transaction ID received in Apple pay token.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardAuthorizationResponseID",
+						"short": "For a successful card authorization this field will hold the response ID.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardExpiryMonth",
+						"short": "For card payment events this field holds the payer's card expiry month.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "cardExpiryYear",
+						"short": "For card payment events this field holds the payer's card expiry year.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "cardIssuer",
+						"short": "For card payment events this field holds the payer's card issuer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardIssuerCountry",
+						"short": "For card payment events this field holds the payer's card issuer country of origin.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardLastFourDigits",
+						"short": "For card payment events this field holds the payer's card last four digits.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7474,10 +7866,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "cardScheme",
+						"short": "For card payment events this field holds the scheme of the payer's card, e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardTokenCustomerID",
+						"short": "If the option to create a reusable token for card payments was set this field contains the token the merchant can store to use for repeat payments.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7490,14 +7884,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "directDebitPaymentID",
+						"short": "Payment ID issued by the Direct Debit supplier.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "directDebitPaymentReference",
+						"short": "Reference string issued by the Direct Debit supplier.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "drirectDebitMandateID",
+						"short": "The ID of the mandate that was used wehn requesting payment.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7522,22 +7919,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "lightningInvoice",
+						"short": "For Bitcoin Lightning payments this field holds the invoice presented to the payer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lightningRHash",
+						"short": "For Bitcoin Lightning payments the hash of the invoice presented to the payer.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originUrl",
+						"short": "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect back to the URL that initiated the attempt in the case of a failure condition.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentMethodType",
+						"short": "The type of payment method the event relates to, e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentProcessorName",
+						"short": "If the event was for a card payment this is the name of the card processor, e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7546,30 +7948,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "pispBankStatus",
+						"short": "For payment initiation attempts some providers (e.g.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispPaymentInitiationID",
+						"short": "For a payment initiation this is the ID returned by the service provider initiating the payment for us.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispPaymentInstitutionName",
+						"short": "For a payment initiation this is the name of the financial institution that is used to initiate and authorise the payment.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispPaymentServiceProviderID",
+						"short": "For a payment initiation this is the service provider ID selected by the payer, typically the ID for the bank or similar financial institution.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispRedirectUrl",
+						"short": "For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "reconciledTransactionID",
+						"short": "For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "refundPayoutID",
+						"short": "ID of the Payout that was created for refund.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7748,18 +8157,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "amount",
+						"short": "The amount of money to request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountPending",
+						"short": "The amount of money that was authorised but has not arrived in the account yet.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountReceived",
+						"short": "The amount of money that has been received for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountRefunded",
+						"short": "The amount of money that has been refunded for this payment request.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -7772,22 +8185,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "countryCode",
+						"short": "The country code associated with the payment.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "The currency of the request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customFieldsToDisplay",
+						"short": "Custom fields to display to the customer.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "An optional description for the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "dueDate",
+						"short": "The due date of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7796,6 +8214,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "googlePayMerchantID",
+						"short": "Merchant ID from Google Pay",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7804,6 +8223,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "jwk",
+						"short": "The jwk containing the public key",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7832,22 +8252,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentAttempts",
+						"short": "The payment attempts for this payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "paymentMethodsList",
+						"short": "The payment methods that the payment request supports.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "paymentProcessor",
+						"short": "The card processor",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentProcessorKey",
+						"short": "The card processors public key",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pispError",
+						"short": "This is the error returned from the bank which is recorded in payment request events.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -7856,14 +8281,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "status",
+						"short": "The status of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "stripeAccountID",
+						"short": "Account ID of connected customers in Stripe",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "The title of the payment request.",
 						"type": "`$STRING`",
 					},
 				},
@@ -7925,6 +8353,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "amount",
+						"short": "The authorised payment amount.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -7941,18 +8370,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "The authorised payment currency.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "customerID",
+						"short": "The customer id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentRequestID",
+						"short": "The ID of the payment request the result is for.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payments",
+						"short": "The list of payment attempts that have been received for the payment request.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -7961,10 +8394,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "requestedAmount",
+						"short": "The full original payment amount requested.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "result",
+						"short": "The result of the payment attempt.",
 						"type": "`$STRING`",
 					},
 				},
@@ -8032,46 +8467,57 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Gets or Sets Account Id of sending account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "allowIncomplete",
+						"short": "If set to true the payout will get created even if the business validation rules fail.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "amount",
+						"short": "Gets or Sets payout amount",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountMinorUnits",
+						"short": "The payout amount expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "approvePayoutUrl",
+						"short": "This field is used when returning an payout record to a client.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "approverID",
+						"short": "Gets the User ID of person that approved the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "authenticationMethods",
+						"short": "A list of authentication types allowed to authorise the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of the users who have successfully authorised the latest version of the payout and when.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the payout.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this payout.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "batchPayoutID",
+						"short": "The ID of the batch the payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8081,22 +8527,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "beneficiaryID",
+						"short": "Optional.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the payout can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canProcess",
+						"short": "If set to true indicates the payout has been flagged as safe to process after transaction monitoring.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canUpdate",
+						"short": "True if the payout can be updated by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "chargeBearer",
+						"short": "Optional field to set who should pay any fees for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8115,14 +8566,17 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Gets or Sets Currency of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currentUserID",
+						"short": "The ID of the user that requested access to the PayOut record.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Gets or Sets description of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8131,10 +8585,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "documents",
+						"short": "Documents associated with the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "events",
+						"short": "The activity associated with the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -8143,10 +8599,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "formattedAmount",
+						"short": "Currency and formatted amount string.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "formattedFxDestinationAmount",
+						"short": "FX destination currency and amount formatted string.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8159,42 +8617,52 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "formattedSourceAccountAvailableBalance",
+						"short": "The available balance of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxDestinationAmount",
+						"short": "If specified this will be the amount sent to the payee.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "fxDestinationAmountMinorUnits",
+						"short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "fxDestinationCurrency",
+						"short": "For an FX payout this is the currency to send to the beneficiary.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxQuoteExpiresAt",
+						"short": "If an FX held rate quote ID is being used this is the time the quote expires.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxQuoteID",
+						"short": "Optional.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxRate",
+						"short": "For an FX payout this is the exchange rate to use for the payout.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "fxUseDestinationAmount",
+						"short": "For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the payout was loaded for a user and that user has already authorised the latest version of the payout.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The ID for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8203,22 +8671,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "invoiceID",
+						"short": "Optional field to associate the payout with the invoice from an external application such as Xero.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the payout is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isFailed",
+						"short": "Set to true if a submitted payout subsequently fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSettled",
+						"short": "Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSubmitted",
+						"short": "Indicates whether the payout has been submitted for processing.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -8227,6 +8700,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8239,10 +8713,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentProcessor",
+						"short": "The usptream payment processor for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentRail",
+						"short": "Optional field to indicate the payment rail to use for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8251,10 +8727,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "payrunID",
+						"short": "The ID of the payrun that this payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payrunName",
+						"short": "The name of the payrun that this payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8267,30 +8745,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "scheduleDate",
+						"short": "The date the payout should be submitted.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "scheduled",
+						"short": "Should this payout be scheduled for a future date?",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "sourceAccountAvailableBalance",
+						"short": "The available balance of the account the payout is being made from.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "sourceAccountAvailableBalanceMinorUnits",
+						"short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "sourceAccountBic",
+						"short": "The BIC of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountCurrency",
+						"short": "The currency of the source account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountIban",
+						"short": "The IBAN of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -8300,46 +8785,57 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sourceAccountName",
+						"short": "The name of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountNumber",
+						"short": "The account number of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountSortcode",
+						"short": "The sort code of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Gets or Sets the status of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tagIds",
+						"short": "An optional list of tag ids to add to the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags attached to the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "theirReference",
+						"short": "Gets or Sets destination reference ID",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "topupPayrunID",
+						"short": "The ID of a payrun that needs an account top up.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "transactedAmount",
+						"short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "transactedFxAmount",
+						"short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "transactedFxRate",
+						"short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -8350,14 +8846,17 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Gets or Sets payout type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "userID",
+						"short": "Gets or Sets User ID of who created the payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "yourReference",
+						"short": "Gets or Sets your reference ID",
 						"type": "`$STRING`",
 					},
 				},
@@ -9271,42 +9770,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountID",
+						"short": "Gets or Sets Account Id of sending account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "amount",
+						"short": "Gets or Sets payout amount",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountMinorUnits",
+						"short": "The payout amount expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "approvePayoutUrl",
+						"short": "This field is used when returning an payout record to a client.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "approverID",
+						"short": "Gets the User ID of person that approved the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "authenticationMethods",
+						"short": "A list of authentication types allowed to authorise the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of the users who have successfully authorised the latest version of the payout and when.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the payout.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this payout.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "batchPayoutID",
+						"short": "The ID of the batch the payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9316,18 +9825,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the payout can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canProcess",
+						"short": "If set to true indicates the payout has been flagged as safe to process after transaction monitoring.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canUpdate",
+						"short": "True if the payout can be updated by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "chargeBearer",
+						"short": "Optional field to set who should pay any fees for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9340,14 +9853,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Gets or Sets Currency of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currentUserID",
+						"short": "The ID of the user that requested access to the PayOut record.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Gets or Sets description of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9356,18 +9872,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "documents",
+						"short": "Documents associated with the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "events",
+						"short": "The activity associated with the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "formattedAmount",
+						"short": "Currency and formatted amount string.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "formattedFxDestinationAmount",
+						"short": "FX destination currency and amount formatted string.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9380,42 +9900,52 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "formattedSourceAccountAvailableBalance",
+						"short": "The available balance of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxDestinationAmount",
+						"short": "If specified this will be the amount sent to the payee.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "fxDestinationAmountMinorUnits",
+						"short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "fxDestinationCurrency",
+						"short": "For an FX payout this is the currency to send to the beneficiary.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxQuoteExpiresAt",
+						"short": "If an FX held rate quote ID is being used this is the time the quote expires.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxQuoteID",
+						"short": "Optional.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxRate",
+						"short": "For an FX payout this is the exchange rate to use for the payout.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "fxUseDestinationAmount",
+						"short": "For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the payout was loaded for a user and that user has already authorised the latest version of the payout.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The ID for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9424,22 +9954,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "invoiceID",
+						"short": "Optional field to associate the payout with the invoice from an external application such as Xero.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the payout is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isFailed",
+						"short": "Set to true if a submitted payout subsequently fails.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSettled",
+						"short": "Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isSubmitted",
+						"short": "Indicates whether the payout has been submitted for processing.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -9448,6 +9983,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9460,18 +9996,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentProcessor",
+						"short": "The usptream payment processor for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "paymentRail",
+						"short": "Optional field to indicate the payment rail to use for the payout.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payrunID",
+						"short": "The ID of the payrun that this payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payrunName",
+						"short": "The name of the payrun that this payout is associated with.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9480,30 +10020,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "scheduleDate",
+						"short": "The date the payout should be submitted.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "scheduled",
+						"short": "Should this payout be scheduled for a future date?",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "sourceAccountAvailableBalance",
+						"short": "The available balance of the account the payout is being made from.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "sourceAccountAvailableBalanceMinorUnits",
+						"short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "sourceAccountBic",
+						"short": "The BIC of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountCurrency",
+						"short": "The currency of the source account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountIban",
+						"short": "The IBAN of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -9513,54 +10060,67 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sourceAccountName",
+						"short": "The name of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountNumber",
+						"short": "The account number of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sourceAccountSortcode",
+						"short": "The sort code of the account the payout is being made from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Gets or Sets the status of payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags attached to the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "theirReference",
+						"short": "Gets or Sets destination reference ID",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "topupPayrunID",
+						"short": "The ID of a payrun that needs an account top up.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "transactedAmount",
+						"short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "transactedFxAmount",
+						"short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "transactedFxRate",
+						"short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Gets or Sets payout type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "userID",
+						"short": "Gets or Sets User ID of who created the payout request",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "yourReference",
+						"short": "Gets or Sets your reference ID",
 						"type": "`$STRING`",
 					},
 				},
@@ -9861,14 +10421,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of the users who have successfully authorised the latest version of the payrun and when.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the payrun.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this payrun.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -9877,6 +10440,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the payrun can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -9893,6 +10457,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -10653,10 +11218,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "accountID",
+						"short": "The ID of the account the rule will apply to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "approveUrl",
+						"short": "If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -10665,22 +11232,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "authenticationMethods",
+						"short": "A list of authentication types allowed to authorise the payout.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisations",
+						"short": "A list of the users who have successfully authorised the latest version of the rule and when.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "authorisersCompletedCount",
+						"short": "The number of distinct authorisers that have authorised the rule.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "authorisersRequiredCount",
+						"short": "The number of authorisers required for this rule.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "canAuthorise",
+						"short": "True if the rule can be authorised by the user who loaded it.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -10690,14 +11262,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Arbitrary description for the rule.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "endAt",
+						"short": "Optional end time for rule executions.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "hasCurrentUserAuthorised",
+						"short": "True if the current user has authorised.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -10710,6 +11285,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isDisabled",
+						"short": "If set to true the rule will be disabled from executing.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -10718,6 +11294,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "lastRunAtTransactionDate",
+						"short": "The most recent transaction date when the rule was last run.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -10726,6 +11303,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -10736,6 +11314,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "A name to succinctly describe the rule.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -10745,18 +11324,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "onApprovedWebHookUrl",
+						"short": "Optional URL to receive an HTTP request with the rule details when the rule status changes to approved.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "onExecutionErrorWebHookUrl",
+						"short": "Optional URL to receive an HTTP request when a rule execution attempt fails.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "onExecutionSuccessWebHookUrl",
+						"short": "Optional URL to receive an HTTP request when a rule execution attempt succeeds.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "startAt",
+						"short": "Optional start time for rule executions.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -10775,14 +11358,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "timeZoneId",
+						"short": "If the rule should be executed on a recurring schedule this is the timezone that the CRON expression should be evaluated in.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "triggerCronExpression",
+						"short": "If the rule should be executed on a recurring schedule this is the expression that sets the schedule.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "triggerOnPayIn",
+						"short": "Set to true if the rule execution should be triggered when the account receives a pay in (credit).",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -10791,6 +11377,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "webHookSecret",
+						"short": "If set this secret will be used to sign Web Hook requests.",
 						"type": "`$STRING`",
 					},
 				},
@@ -11360,14 +11947,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountID",
+						"short": "The ID of the account the transaction belongs to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountName",
+						"short": "The name of the account the transaction belongs to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountSequenceNumber",
+						"short": "The sequence number of transaction on a per account basis.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -11376,18 +11966,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "amount",
+						"short": "Amount of the transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "amountMinorUnits",
+						"short": "Amount of the transaction expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "balance",
+						"short": "Balance left on the account after the transaction.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balanceMinorUnits",
+						"short": "Balance on the account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -11408,14 +12002,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "counterpartySummary",
+						"short": "For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currencyExchange",
+						"short": "Provides details on the currency exchange.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -11424,6 +12021,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Description of the transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11432,14 +12030,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "fxAmount",
+						"short": "For an FX payout this is the amound in the FX currency.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "fxCurrency",
+						"short": "For an FX payout this is the currency that was received or that was instructed.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fxRate",
+						"short": "For an FX payout this is the exchange rate between the transaction currency and the FX currency.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -11449,10 +12050,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique ID for the transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Date when the transaction was inserted into the ledger.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11465,19 +12068,23 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pageNumber",
+						"short": "Current page number.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "pageSize",
+						"short": "Page size",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "payeeDetails",
 						"req": true,
+						"short": "The Payee object contains details of the beneficiary, person or business.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -11487,14 +12094,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "paymentRequestCustomFields",
+						"short": "The custom fields that were attached to the payment request that resulted in this transaction.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "paymentRequestID",
+						"short": "For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "payoutID",
+						"short": "ID of the payout that resulted in the transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11503,6 +12113,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "rawReference",
+						"short": "The raw payment reference details as received from the payment processor.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11511,6 +12122,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ruleID",
+						"short": "ID of the rule that resulted in the transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11527,18 +12139,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "An optional list of descriptive tags attached to the transaction.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "theirReference",
+						"short": "For a pay out the reference that the payer attached for the receiving party.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "totalPages",
+						"short": "Total pages",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "totalSize",
+						"short": "Total count",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -11548,6 +12164,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "transactionDate",
+						"short": "Date when the transaction occurred.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11560,6 +12177,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of the transaction.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -11568,10 +12186,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "virtualIBAN",
+						"short": "If set it indicates the payin was to a virtual IBAN.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "yourReference",
+						"short": "For a pay in the reference the sending party attached.",
 						"type": "`$STRING`",
 					},
 				},
@@ -12393,6 +13013,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "clientSessionTimeouts",
+						"short": "The number of seconds a session for this user should last before expiring.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -12451,6 +13072,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "userInviteID",
+						"short": "Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.",
 						"type": "`$STRING`",
 					},
 				},
@@ -12684,6 +13306,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "initialRoleID",
+						"short": "The role ID to automatically assign to the merchant’s very first user.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -12694,14 +13317,17 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Email address of the user being invited.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inviteeFirstName",
+						"short": "First Name of the user being invited.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inviteeLastName",
+						"short": "Last Name of the user being invited.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -12718,10 +13344,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "isAuthorised",
+						"short": "Will be set to true once the invite has met the authorisation requirements.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isInviteeRegistered",
+						"short": "If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -12730,6 +13358,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "ID of the merchant the user is being invited to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -12746,6 +13375,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "sendInviteEmail",
+						"short": "If set to true an email will be sent to the invitee with instructions on how to accept the invite.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -13078,34 +13708,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accountName",
+						"short": "Name for the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "accountSupplierName",
+						"short": "The payment account supplier name.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "availableBalance",
+						"short": "The current available balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "availableBalanceMinorUnits",
+						"short": "The available balance expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "balance",
+						"short": "Balance of the account.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "balanceMinorUnits",
+						"short": "Balance of the account expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bankName",
+						"short": "The bank name for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "consentID",
+						"short": "The ID of the consent used to connect the external account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -13115,30 +13753,37 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "createdByDisplayName",
+						"short": "Either the name of the user, merchant token or api key that created the account",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency of the account in ISO 4217 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "defaultPaymentRail",
+						"short": "Indicates the default payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "displayName",
+						"short": "Gets a unique display name for the payment account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "expiryDate",
+						"short": "The date that the external account will expire",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "externalAccountIcon",
+						"short": "The Icon for external accounts",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique id for the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -13148,26 +13793,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "inserted",
+						"short": "Timestamp when the account was created.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isArchived",
+						"short": "Indicates whether the account is archived.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isConnectedAccount",
+						"short": "Indicates if the payment account is an externally connected account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isDefault",
+						"short": "Is the default account",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isTrustAccount",
+						"short": "Indicates if the payment account is a trust account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isVirtual",
+						"short": "True if the account is a virtual account.",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
@@ -13176,47 +13827,58 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "lastUpdated",
+						"short": "Timestamp when the account was last updated.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantID",
+						"short": "The ID of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "merchantName",
+						"short": "The name of the merchant that owns the account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "The name of the virtual account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "physicalAccountID",
+						"short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rules",
+						"short": "The list of rules associated with this account.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalance",
+						"short": "Total of the payouts that have been submitted for processing.",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "submittedPayoutsBalanceMinorUnits",
+						"short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "summary",
+						"short": "Gets a summary of the payments account's most important properties.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "supplierSepaInstantStatus",
+						"short": "Indicates the status of the SEPA Instant payment rail for this account.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "xeroBankFeedConnectionStatus",
+						"short": "States the status of the Xero bank feed connection, if applicable.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -13237,6 +13899,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "xeroUnsynchronisedTransactionsCount",
+						"short": "Indicates the number of unsynchronised transactions with Xero",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -13351,14 +14014,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "destinationUrl",
+						"short": "The destination URL for the webhook.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "emailAddress",
+						"short": "The recipient email address(es) for notifications.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "failedNotificationEmailAddress",
+						"short": "The email address to which notifications about failed webhook deliveries will be sent.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -13381,6 +14047,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The ID of the merchant that the webhook is for.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -13395,10 +14062,12 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The type of notification that will be sent.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "resourceTypes",
+						"short": "The resource types that the webhook will be generated for.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -13407,6 +14076,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "secret",
+						"short": "The secret key required to authenticate webhook notifications.",
 						"type": "`$STRING`",
 					},
 					map[string]any{

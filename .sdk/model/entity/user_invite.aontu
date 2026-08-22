@@ -23,6 +23,7 @@ main: kit: entity: user_invite: {
     {
       name: "initialRoleID"
       req: false
+      short: "The role ID to automatically assign to the merchant’s very first user."
       type: "`$STRING`"
     }
     {
@@ -34,16 +35,19 @@ main: kit: entity: user_invite: {
         }
       }
       req: false
+      short: "Email address of the user being invited."
       type: "`$STRING`"
     }
     {
       name: "inviteeFirstName"
       req: false
+      short: "First Name of the user being invited."
       type: "`$STRING`"
     }
     {
       name: "inviteeLastName"
       req: false
+      short: "Last Name of the user being invited."
       type: "`$STRING`"
     }
     {
@@ -64,11 +68,13 @@ main: kit: entity: user_invite: {
     {
       name: "isAuthorised"
       req: false
+      short: "Will be set to true once the invite has met the authorisation requirements."
       type: "`$BOOLEAN`"
     }
     {
       name: "isInviteeRegistered"
       req: false
+      short: "If true, indicates the invitee's email address corresponds to an existing MoneyMoov user."
       type: "`$BOOLEAN`"
     }
     {
@@ -79,6 +85,7 @@ main: kit: entity: user_invite: {
     {
       name: "merchantID"
       req: false
+      short: "ID of the merchant the user is being invited to."
       type: "`$STRING`"
     }
     {
@@ -99,6 +106,7 @@ main: kit: entity: user_invite: {
     {
       name: "sendInviteEmail"
       req: false
+      short: "If set to true an email will be sent to the invitee with instructions on how to accept the invite."
       type: "`$BOOLEAN`"
     }
     {

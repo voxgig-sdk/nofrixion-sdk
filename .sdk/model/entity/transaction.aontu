@@ -8,16 +8,19 @@ main: kit: entity: transaction: {
     {
       name: "accountID"
       req: false
+      short: "The ID of the account the transaction belongs to."
       type: "`$STRING`"
     }
     {
       name: "accountName"
       req: false
+      short: "The name of the account the transaction belongs to."
       type: "`$STRING`"
     }
     {
       name: "accountSequenceNumber"
       req: false
+      short: "The sequence number of transaction on a per account basis."
       type: "`$INTEGER`"
     }
     {
@@ -28,21 +31,25 @@ main: kit: entity: transaction: {
     {
       name: "amount"
       req: false
+      short: "Amount of the transaction."
       type: "`$NUMBER`"
     }
     {
       name: "amountMinorUnits"
       req: false
+      short: "Amount of the transaction expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "balance"
       req: false
+      short: "Balance left on the account after the transaction."
       type: "`$NUMBER`"
     }
     {
       name: "balanceMinorUnits"
       req: false
+      short: "Balance on the account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
@@ -68,16 +75,19 @@ main: kit: entity: transaction: {
     {
       name: "counterpartySummary"
       req: false
+      short: "For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty."
       type: "`$STRING`"
     }
     {
       name: "currency"
       req: false
+      short: "Currency of transaction."
       type: "`$STRING`"
     }
     {
       name: "currencyExchange"
       req: false
+      short: "Provides details on the currency exchange."
       type: "`$OBJECT`"
     }
     {
@@ -88,6 +98,7 @@ main: kit: entity: transaction: {
     {
       name: "description"
       req: false
+      short: "Description of the transaction."
       type: "`$STRING`"
     }
     {
@@ -98,16 +109,19 @@ main: kit: entity: transaction: {
     {
       name: "fxAmount"
       req: false
+      short: "For an FX payout this is the amound in the FX currency."
       type: "`$NUMBER`"
     }
     {
       name: "fxCurrency"
       req: false
+      short: "For an FX payout this is the currency that was received or that was instructed."
       type: "`$STRING`"
     }
     {
       name: "fxRate"
       req: false
+      short: "For an FX payout this is the exchange rate between the transaction currency and the FX currency."
       type: "`$NUMBER`"
     }
     {
@@ -118,11 +132,13 @@ main: kit: entity: transaction: {
     {
       name: "id"
       req: false
+      short: "Unique ID for the transaction."
       type: "`$STRING`"
     }
     {
       name: "inserted"
       req: false
+      short: "Date when the transaction was inserted into the ledger."
       type: "`$STRING`"
     }
     {
@@ -138,21 +154,25 @@ main: kit: entity: transaction: {
     {
       name: "merchantID"
       req: false
+      short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
       name: "pageNumber"
       req: false
+      short: "Current page number."
       type: "`$INTEGER`"
     }
     {
       name: "pageSize"
       req: false
+      short: "Page size"
       type: "`$INTEGER`"
     }
     {
       name: "payeeDetails"
       req: true
+      short: "The Payee object contains details of the beneficiary, person or business."
       type: "`$OBJECT`"
     }
     {
@@ -163,16 +183,19 @@ main: kit: entity: transaction: {
     {
       name: "paymentRequestCustomFields"
       req: false
+      short: "The custom fields that were attached to the payment request that resulted in this transaction."
       type: "`$OBJECT`"
     }
     {
       name: "paymentRequestID"
       req: false
+      short: "For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request."
       type: "`$STRING`"
     }
     {
       name: "payoutID"
       req: false
+      short: "ID of the payout that resulted in the transaction."
       type: "`$STRING`"
     }
     {
@@ -183,6 +206,7 @@ main: kit: entity: transaction: {
     {
       name: "rawReference"
       req: false
+      short: "The raw payment reference details as received from the payment processor."
       type: "`$STRING`"
     }
     {
@@ -193,6 +217,7 @@ main: kit: entity: transaction: {
     {
       name: "ruleID"
       req: false
+      short: "ID of the rule that resulted in the transaction."
       type: "`$STRING`"
     }
     {
@@ -213,21 +238,25 @@ main: kit: entity: transaction: {
     {
       name: "tags"
       req: false
+      short: "An optional list of descriptive tags attached to the transaction."
       type: "`$ARRAY`"
     }
     {
       name: "theirReference"
       req: false
+      short: "For a pay out the reference that the payer attached for the receiving party."
       type: "`$STRING`"
     }
     {
       name: "totalPages"
       req: false
+      short: "Total pages"
       type: "`$INTEGER`"
     }
     {
       name: "totalSize"
       req: false
+      short: "Total count"
       type: "`$INTEGER`"
     }
     {
@@ -238,6 +267,7 @@ main: kit: entity: transaction: {
     {
       name: "transactionDate"
       req: false
+      short: "Date when the transaction occurred."
       type: "`$STRING`"
     }
     {
@@ -253,6 +283,7 @@ main: kit: entity: transaction: {
     {
       name: "type"
       req: false
+      short: "Type of the transaction."
       type: "`$STRING`"
     }
     {
@@ -263,11 +294,13 @@ main: kit: entity: transaction: {
     {
       name: "virtualIBAN"
       req: false
+      short: "If set it indicates the payin was to a virtual IBAN."
       type: "`$STRING`"
     }
     {
       name: "yourReference"
       req: false
+      short: "For a pay in the reference the sending party attached."
       type: "`$STRING`"
     }
   ]

@@ -13,21 +13,25 @@ main: kit: entity: beneficiary: {
     {
       name: "authenticationMethods"
       req: false
+      short: "A list of authentication types allowed to authorise the payout."
       type: "`$ARRAY`"
     }
     {
       name: "authorisations"
       req: false
+      short: "A list of users who have successfully authorised the latest version of the beneficiary."
       type: "`$ARRAY`"
     }
     {
       name: "authorisersCompletedCount"
       req: false
+      short: "The number of distinct authorisers that have authorised the beneficiary."
       type: "`$INTEGER`"
     }
     {
       name: "authorisersRequiredCount"
       req: false
+      short: "The number of authorisers required for this beneficiary."
       type: "`$INTEGER`"
     }
     {
@@ -43,11 +47,13 @@ main: kit: entity: beneficiary: {
     {
       name: "canAuthorise"
       req: false
+      short: "True if the beneficiary can be authorised by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
       name: "canUpdate"
       req: false
+      short: "True if the beneficiary can be updated by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
@@ -69,6 +75,7 @@ main: kit: entity: beneficiary: {
         }
       }
       req: true
+      short: "Gets or Sets the currency."
       type: "`$STRING`"
     }
     {
@@ -90,6 +97,7 @@ main: kit: entity: beneficiary: {
     {
       name: "hasCurrentUserAuthorised"
       req: false
+      short: "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary."
       type: "`$BOOLEAN`"
     }
     {
@@ -126,6 +134,7 @@ main: kit: entity: beneficiary: {
         }
       }
       req: false
+      short: "Gets or Sets the merchant id."
       type: "`$STRING`"
     }
     {
@@ -137,6 +146,7 @@ main: kit: entity: beneficiary: {
         }
       }
       req: true
+      short: "The descriptive name for the beneficiary."
       type: "`$STRING`"
     }
     {
@@ -147,6 +157,7 @@ main: kit: entity: beneficiary: {
     {
       name: "sourceAccountIDs"
       req: false
+      short: "ID of the accounts which are authorised to act as a source for the beneficiary."
       type: "`$ARRAY`"
     }
     {
@@ -157,6 +168,7 @@ main: kit: entity: beneficiary: {
     {
       name: "theirReference"
       req: false
+      short: "The reference that will be used by default as TheirReference when creating payouts to this beneficiary if no TheirReference is specified for the payout."
       type: "`$STRING`"
     }
   ]

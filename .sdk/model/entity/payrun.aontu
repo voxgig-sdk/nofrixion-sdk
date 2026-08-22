@@ -13,16 +13,19 @@ main: kit: entity: payrun: {
     {
       name: "authorisations"
       req: false
+      short: "A list of the users who have successfully authorised the latest version of the payrun and when."
       type: "`$ARRAY`"
     }
     {
       name: "authorisersCompletedCount"
       req: false
+      short: "The number of distinct authorisers that have authorised the payrun."
       type: "`$INTEGER`"
     }
     {
       name: "authorisersRequiredCount"
       req: false
+      short: "The number of authorisers required for this payrun."
       type: "`$INTEGER`"
     }
     {
@@ -33,6 +36,7 @@ main: kit: entity: payrun: {
     {
       name: "canAuthorise"
       req: false
+      short: "True if the payrun can be authorised by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
@@ -53,6 +57,7 @@ main: kit: entity: payrun: {
     {
       name: "hasCurrentUserAuthorised"
       req: false
+      short: "True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun."
       type: "`$BOOLEAN`"
     }
     {

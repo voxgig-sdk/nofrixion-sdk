@@ -23,11 +23,13 @@ main: kit: entity: merchant_payment_request_template: {
     {
       name: "customFields"
       req: false
+      short: "A list of custom fields that can be included in the payment request template."
       type: "`$ARRAY`"
     }
     {
       name: "defaultFields"
       req: false
+      short: "A list of default fields that are included in the payment request template."
       type: "`$ARRAY`"
     }
     {

@@ -8,86 +8,103 @@ main: kit: entity: merchant: {
     {
       name: "accountCurrencies"
       req: false
+      short: "The list of currencies that the merchant has accounts for."
       type: "`$ARRAY`"
     }
     {
       name: "canHaveTrustAccounts"
       req: false
+      short: "Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks."
       type: "`$BOOLEAN`"
     }
     {
       name: "cardPaymentProcessor"
       req: false
+      short: "Name of the card payment processor."
       type: "`$STRING`"
     }
     {
       name: "companyID"
       req: false
+      short: "The Company ID recorded in the Compliance system."
       type: "`$STRING`"
     }
     {
       name: "displayQrOnHostedPay"
       req: false
+      short: "Indicates if a QR Code containing the payment link should be displayed on the hosted payment page."
       type: "`$BOOLEAN`"
     }
     {
       name: "hostedPayVersion"
       req: false
+      short: "The version of the hosted payment page to use with the merchant."
       type: "`$INTEGER`"
     }
     {
       name: "id"
       req: false
+      short: "Unique ID for the merchant."
       type: "`$STRING`"
     }
     {
       name: "inserted"
       req: false
+      short: "Timestamp the merchant was added to MoneyMoov."
       type: "`$STRING`"
     }
     {
       name: "isBlocked"
       req: false
+      short: "The merchant is blocked from making payments (payouts)."
       type: "`$BOOLEAN`"
     }
     {
       name: "isExited"
       req: false
+      short: "The merchant has formally terminated their relationship and is no longer a customer."
       type: "`$BOOLEAN`"
     }
     {
       name: "isSuspended"
       req: false
+      short: "The merchant has temporarily suspended their own account."
       type: "`$BOOLEAN`"
     }
     {
       name: "jurisdiction"
       req: false
+      short: "The jurisdiction the merchant entity is incorporated or established in."
       type: "`$STRING`"
     }
     {
       name: "logoUrlPng"
       req: false
+      short: "The CDN URL of the merchant's logo in PNG format."
       type: "`$STRING`"
     }
     {
       name: "logoUrlSvg"
       req: false
+      short: "The CDN URL of the merchant's logo in SVG format."
       type: "`$STRING`"
     }
     {
       name: "merchantCategoryCode"
       req: false
+      short: "The industry code that represents the merchant's primary trading activity."
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "The registered business name of the merchant."
       type: "`$STRING`"
     }
     {
       name: "notes"
       req: false
+      short: "The notes field is an optional free text field that can be used to store any additional information about the merchant."
       type: "`$STRING`"
     }
     {
@@ -98,6 +115,7 @@ main: kit: entity: merchant: {
     {
       name: "paymentAccountLimit"
       req: false
+      short: "The maximum number of payment accounts that can be created for the Merchant."
       type: "`$INTEGER`"
     }
     {
@@ -108,46 +126,55 @@ main: kit: entity: merchant: {
     {
       name: "reason"
       req: false
+      short: "The reason for the suspension."
       type: "`$STRING`"
     }
     {
       name: "shortName"
       req: false
+      short: "A URL friendly shortish name for the merchant."
       type: "`$STRING`"
     }
     {
       name: "supportedPaymentMethodsList"
       req: false
+      short: "The payment methods that are configured and supported for this merchant."
       type: "`$ARRAY`"
     }
     {
       name: "suspensionReason"
       req: false
+      short: "The reason for the suspension, provided by the merchant."
       type: "`$STRING`"
     }
     {
       name: "tags"
       req: false
+      short: "An optional list of descriptive tags that can be used on merchant entities such as payment requests."
       type: "`$ARRAY`"
     }
     {
       name: "timeZoneId"
       req: false
+      short: "The IANA (Internet Assigned Numbers Authority) time zone identifier of the merchant."
       type: "`$STRING`"
     }
     {
       name: "tradingName"
       req: false
+      short: "An optional trading name."
       type: "`$STRING`"
     }
     {
       name: "webHookLimit"
       req: false
+      short: "The maximum number of web hooks that can be created for the Merchant."
       type: "`$INTEGER`"
     }
     {
       name: "yourRoleName"
       req: false
+      short: "The name of the role for the identity that loaded the merchant record."
       type: "`$STRING`"
     }
   ]

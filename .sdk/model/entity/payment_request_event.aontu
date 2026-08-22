@@ -13,36 +13,43 @@ main: kit: entity: payment_request_event: {
     {
       name: "applePayTransactionID"
       req: false
+      short: "Transaction ID received in Apple pay token."
       type: "`$STRING`"
     }
     {
       name: "cardAuthorizationResponseID"
       req: false
+      short: "For a successful card authorization this field will hold the response ID."
       type: "`$STRING`"
     }
     {
       name: "cardExpiryMonth"
       req: false
+      short: "For card payment events this field holds the payer's card expiry month."
       type: "`$INTEGER`"
     }
     {
       name: "cardExpiryYear"
       req: false
+      short: "For card payment events this field holds the payer's card expiry year."
       type: "`$INTEGER`"
     }
     {
       name: "cardIssuer"
       req: false
+      short: "For card payment events this field holds the payer's card issuer."
       type: "`$STRING`"
     }
     {
       name: "cardIssuerCountry"
       req: false
+      short: "For card payment events this field holds the payer's card issuer country of origin."
       type: "`$STRING`"
     }
     {
       name: "cardLastFourDigits"
       req: false
+      short: "For card payment events this field holds the payer's card last four digits."
       type: "`$STRING`"
     }
     {
@@ -53,11 +60,13 @@ main: kit: entity: payment_request_event: {
     {
       name: "cardScheme"
       req: false
+      short: "For card payment events this field holds the scheme of the payer's card, e.g."
       type: "`$STRING`"
     }
     {
       name: "cardTokenCustomerID"
       req: false
+      short: "If the option to create a reusable token for card payments was set this field contains the token the merchant can store to use for repeat payments."
       type: "`$STRING`"
     }
     {
@@ -73,16 +82,19 @@ main: kit: entity: payment_request_event: {
     {
       name: "directDebitPaymentID"
       req: false
+      short: "Payment ID issued by the Direct Debit supplier."
       type: "`$STRING`"
     }
     {
       name: "directDebitPaymentReference"
       req: false
+      short: "Reference string issued by the Direct Debit supplier."
       type: "`$STRING`"
     }
     {
       name: "drirectDebitMandateID"
       req: false
+      short: "The ID of the mandate that was used wehn requesting payment."
       type: "`$STRING`"
     }
     {
@@ -113,26 +125,31 @@ main: kit: entity: payment_request_event: {
     {
       name: "lightningInvoice"
       req: false
+      short: "For Bitcoin Lightning payments this field holds the invoice presented to the payer."
       type: "`$STRING`"
     }
     {
       name: "lightningRHash"
       req: false
+      short: "For Bitcoin Lightning payments the hash of the invoice presented to the payer."
       type: "`$STRING`"
     }
     {
       name: "originUrl"
       req: false
+      short: "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect back to the URL that initiated the attempt in the case of a failure condition."
       type: "`$STRING`"
     }
     {
       name: "paymentMethodType"
       req: false
+      short: "The type of payment method the event relates to, e.g."
       type: "`$STRING`"
     }
     {
       name: "paymentProcessorName"
       req: false
+      short: "If the event was for a card payment this is the name of the card processor, e.g."
       type: "`$STRING`"
     }
     {
@@ -143,36 +160,43 @@ main: kit: entity: payment_request_event: {
     {
       name: "pispBankStatus"
       req: false
+      short: "For payment initiation attempts some providers (e.g."
       type: "`$STRING`"
     }
     {
       name: "pispPaymentInitiationID"
       req: false
+      short: "For a payment initiation this is the ID returned by the service provider initiating the payment for us."
       type: "`$STRING`"
     }
     {
       name: "pispPaymentInstitutionName"
       req: false
+      short: "For a payment initiation this is the name of the financial institution that is used to initiate and authorise the payment."
       type: "`$STRING`"
     }
     {
       name: "pispPaymentServiceProviderID"
       req: false
+      short: "For a payment initiation this is the service provider ID selected by the payer, typically the ID for the bank or similar financial institution."
       type: "`$STRING`"
     }
     {
       name: "pispRedirectUrl"
       req: false
+      short: "For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us."
       type: "`$STRING`"
     }
     {
       name: "reconciledTransactionID"
       req: false
+      short: "For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with."
       type: "`$STRING`"
     }
     {
       name: "refundPayoutID"
       req: false
+      short: "ID of the Payout that was created for refund."
       type: "`$STRING`"
     }
     {

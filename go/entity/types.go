@@ -80,13 +80,67 @@ type AccountLoadMatch struct {
 
 // AccountListMatch is the typed request payload for Account.ListTyped.
 type AccountListMatch struct {
-	MerchantId *string `json:"merchant_id,omitempty"`
+	AccountBalances *[]any `json:"accountBalances,omitempty"`
+	AccountID *string `json:"accountID,omitempty"`
+	AccountIdentifications *[]any `json:"accountIdentifications,omitempty"`
+	AccountName *string `json:"accountName,omitempty"`
+	AccountNames *[]any `json:"accountNames,omitempty"`
+	AccountSupplierName *string `json:"accountSupplierName,omitempty"`
+	AccountType *string `json:"accountType,omitempty"`
+	AvailableBalance *float64 `json:"availableBalance,omitempty"`
+	AvailableBalanceMinorUnits *int `json:"availableBalanceMinorUnits,omitempty"`
+	Balance *float64 `json:"balance,omitempty"`
+	BalanceMinorUnits *int `json:"balanceMinorUnits,omitempty"`
+	BankName *string `json:"bankName,omitempty"`
+	ConsentID *string `json:"consentID,omitempty"`
+	ConsolidatedAccountInformation *map[string]any `json:"consolidatedAccountInformation,omitempty"`
+	CreatedBy *map[string]any `json:"createdBy,omitempty"`
+	CreatedByDisplayName *string `json:"createdByDisplayName,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DefaultPaymentRail *string `json:"defaultPaymentRail,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Details *string `json:"details,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	ExpiryDate *string `json:"expiryDate,omitempty"`
+	ExternalAccountIcon *string `json:"externalAccountIcon,omitempty"`
+	Format *string `json:"format,omitempty"`
+	FromDate *string `json:"fromDate,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Identifier *map[string]any `json:"identifier,omitempty"`
+	Inserted *string `json:"inserted,omitempty"`
+	IsArchived *bool `json:"isArchived,omitempty"`
+	IsConnectedAccount *bool `json:"isConnectedAccount,omitempty"`
+	IsDefault *bool `json:"isDefault,omitempty"`
+	IsTrustAccount *bool `json:"isTrustAccount,omitempty"`
+	IsVirtual *bool `json:"isVirtual,omitempty"`
+	LastTransaction *map[string]any `json:"lastTransaction,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MerchantID *string `json:"merchantID,omitempty"`
+	MerchantName *string `json:"merchantName,omitempty"`
+	Nickname *string `json:"nickname,omitempty"`
+	PhysicalAccountID *string `json:"physicalAccountID,omitempty"`
+	RoleIDs *[]any `json:"roleIDs,omitempty"`
+	Rules *[]any `json:"rules,omitempty"`
+	SubmittedPayoutsBalance *float64 `json:"submittedPayoutsBalance,omitempty"`
+	SubmittedPayoutsBalanceMinorUnits *int `json:"submittedPayoutsBalanceMinorUnits,omitempty"`
+	Summary *string `json:"summary,omitempty"`
+	SupplierPhysicalAccountID *string `json:"supplierPhysicalAccountID,omitempty"`
+	SupplierSepaInstantStatus *string `json:"supplierSepaInstantStatus,omitempty"`
+	ToDate *string `json:"toDate,omitempty"`
+	Type *string `json:"type,omitempty"`
+	UsageType *string `json:"usageType,omitempty"`
+	XeroBankFeedConnectionStatus *string `json:"xeroBankFeedConnectionStatus,omitempty"`
+	XeroBankFeedLastSyncedAt *string `json:"xeroBankFeedLastSyncedAt,omitempty"`
+	XeroBankFeedSyncLastFailedAt *string `json:"xeroBankFeedSyncLastFailedAt,omitempty"`
+	XeroBankFeedSyncLastFailureReason *string `json:"xeroBankFeedSyncLastFailureReason,omitempty"`
+	XeroBankFeedSyncStatus *string `json:"xeroBankFeedSyncStatus,omitempty"`
+	XeroUnsynchronisedTransactionsCount *int `json:"xeroUnsynchronisedTransactionsCount,omitempty"`
 }
 
 // AccountCreateData is the typed request payload for Account.CreateTyped.
 type AccountCreateData struct {
-	AccountId *string `json:"account_id,omitempty"`
-	Currency *string `json:"currency,omitempty"`
+	AccountId string `json:"account_id"`
+	Currency string `json:"currency"`
 	AccountBalances *[]any `json:"accountBalances,omitempty"`
 	AccountID *string `json:"accountID,omitempty"`
 	AccountIdentifications *[]any `json:"accountIdentifications,omitempty"`
@@ -145,9 +199,7 @@ type AccountCreateData struct {
 
 // AccountUpdateData is the typed request payload for Account.UpdateTyped.
 type AccountUpdateData struct {
-	AccountId *string `json:"account_id,omitempty"`
-	Amount *float64 `json:"amount,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	AccountBalances *[]any `json:"accountBalances,omitempty"`
 	AccountID *string `json:"accountID,omitempty"`
 	AccountIdentifications *[]any `json:"accountIdentifications,omitempty"`
@@ -266,12 +318,37 @@ type BeneficiaryLoadMatch struct {
 
 // BeneficiaryListMatch is the typed request payload for Beneficiary.ListTyped.
 type BeneficiaryListMatch struct {
-	MerchantId *string `json:"merchant_id,omitempty"`
+	ApprovalCallbackUrl *string `json:"approvalCallbackUrl,omitempty"`
+	AuthenticationMethods *[]any `json:"authenticationMethods,omitempty"`
+	Authorisations *[]any `json:"authorisations,omitempty"`
+	AuthorisersCompletedCount *int `json:"authorisersCompletedCount,omitempty"`
+	AuthorisersRequiredCount *int `json:"authorisersRequiredCount,omitempty"`
+	Beneficiaries *[]any `json:"beneficiaries,omitempty"`
+	BeneficiaryEvents *[]any `json:"beneficiaryEvents,omitempty"`
+	CanAuthorise *bool `json:"canAuthorise,omitempty"`
+	CanUpdate *bool `json:"canUpdate,omitempty"`
+	CreatedBy *map[string]any `json:"createdBy,omitempty"`
+	CreatedByEmailAddress *string `json:"createdByEmailAddress,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	Destination *map[string]any `json:"destination,omitempty"`
+	FailedBeneficiaries *map[string]any `json:"failedBeneficiaries,omitempty"`
+	HasCurrentUserAuthorised *bool `json:"hasCurrentUserAuthorised,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Inserted *string `json:"inserted,omitempty"`
+	IsEnabled *bool `json:"isEnabled,omitempty"`
+	LastAuthorised *string `json:"lastAuthorised,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MerchantID *string `json:"merchantID,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Nonce *string `json:"nonce,omitempty"`
+	SourceAccountIDs *[]any `json:"sourceAccountIDs,omitempty"`
+	SourceAccounts *[]any `json:"sourceAccounts,omitempty"`
+	TheirReference *string `json:"theirReference,omitempty"`
 }
 
 // BeneficiaryCreateData is the typed request payload for Beneficiary.CreateTyped.
 type BeneficiaryCreateData struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	ApprovalCallbackUrl *string `json:"approvalCallbackUrl,omitempty"`
 	AuthenticationMethods *[]any `json:"authenticationMethods,omitempty"`
 	Authorisations *[]any `json:"authorisations,omitempty"`
@@ -420,9 +497,7 @@ type CardCustomerTokenListMatch struct {
 
 // CardCustomerTokenRemoveMatch is the typed request payload for CardCustomerToken.RemoveTyped.
 type CardCustomerTokenRemoveMatch struct {
-	CustomerEmailAddress *string `json:"customer_email_address,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // CardPayment is the typed data model for the card_payment entity.
@@ -802,10 +877,8 @@ type MerchantUpdateData struct {
 
 // MerchantRemoveMatch is the typed request payload for Merchant.RemoveTyped.
 type MerchantRemoveMatch struct {
-	Id *string `json:"id,omitempty"`
-	UserId *string `json:"user_id,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
-	TagId *string `json:"tag_id,omitempty"`
+	Id string `json:"id"`
+	UserId string `json:"user_id"`
 }
 
 // MerchantAuthorisationSetting is the typed data model for the merchant_authorisation_setting entity.
@@ -1088,9 +1161,7 @@ type OpenBankingCreateData struct {
 
 // OpenBankingRemoveMatch is the typed request payload for OpenBanking.RemoveTyped.
 type OpenBankingRemoveMatch struct {
-	Email *string `json:"email,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
-	AccountId *string `json:"account_id,omitempty"`
+	AccountId string `json:"account_id"`
 }
 
 // Payeeverification is the typed data model for the payeeverification entity.
@@ -1197,8 +1268,7 @@ type Payment struct {
 
 // PaymentLoadMatch is the typed request payload for Payment.LoadTyped.
 type PaymentLoadMatch struct {
-	Id *string `json:"id,omitempty"`
-	OrderId *string `json:"order_id,omitempty"`
+	Id string `json:"id"`
 }
 
 // PaymentCreateData is the typed request payload for Payment.CreateTyped.
@@ -1406,7 +1476,45 @@ type PaymentAccount struct {
 
 // PaymentAccountListMatch is the typed request payload for PaymentAccount.ListTyped.
 type PaymentAccountListMatch struct {
-	AccountId *string `json:"account_id,omitempty"`
+	AccountName *string `json:"accountName,omitempty"`
+	AccountSupplierName *string `json:"accountSupplierName,omitempty"`
+	AvailableBalance *float64 `json:"availableBalance,omitempty"`
+	AvailableBalanceMinorUnits *int `json:"availableBalanceMinorUnits,omitempty"`
+	Balance *float64 `json:"balance,omitempty"`
+	BalanceMinorUnits *int `json:"balanceMinorUnits,omitempty"`
+	BankName *string `json:"bankName,omitempty"`
+	ConsentID *string `json:"consentID,omitempty"`
+	CreatedBy *map[string]any `json:"createdBy,omitempty"`
+	CreatedByDisplayName *string `json:"createdByDisplayName,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DefaultPaymentRail *string `json:"defaultPaymentRail,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	ExpiryDate *string `json:"expiryDate,omitempty"`
+	ExternalAccountIcon *string `json:"externalAccountIcon,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Identifier *map[string]any `json:"identifier,omitempty"`
+	Inserted *string `json:"inserted,omitempty"`
+	IsArchived *bool `json:"isArchived,omitempty"`
+	IsConnectedAccount *bool `json:"isConnectedAccount,omitempty"`
+	IsDefault *bool `json:"isDefault,omitempty"`
+	IsTrustAccount *bool `json:"isTrustAccount,omitempty"`
+	IsVirtual *bool `json:"isVirtual,omitempty"`
+	LastTransaction *map[string]any `json:"lastTransaction,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MerchantID *string `json:"merchantID,omitempty"`
+	MerchantName *string `json:"merchantName,omitempty"`
+	PhysicalAccountID *string `json:"physicalAccountID,omitempty"`
+	Rules *[]any `json:"rules,omitempty"`
+	SubmittedPayoutsBalance *float64 `json:"submittedPayoutsBalance,omitempty"`
+	SubmittedPayoutsBalanceMinorUnits *int `json:"submittedPayoutsBalanceMinorUnits,omitempty"`
+	Summary *string `json:"summary,omitempty"`
+	SupplierSepaInstantStatus *string `json:"supplierSepaInstantStatus,omitempty"`
+	XeroBankFeedConnectionStatus *string `json:"xeroBankFeedConnectionStatus,omitempty"`
+	XeroBankFeedLastSyncedAt *string `json:"xeroBankFeedLastSyncedAt,omitempty"`
+	XeroBankFeedSyncLastFailedAt *string `json:"xeroBankFeedSyncLastFailedAt,omitempty"`
+	XeroBankFeedSyncLastFailureReason *string `json:"xeroBankFeedSyncLastFailureReason,omitempty"`
+	XeroBankFeedSyncStatus *string `json:"xeroBankFeedSyncStatus,omitempty"`
+	XeroUnsynchronisedTransactionsCount *int `json:"xeroUnsynchronisedTransactionsCount,omitempty"`
 }
 
 // PaymentAccountMinimal is the typed data model for the payment_account_minimal entity.
@@ -1535,7 +1643,75 @@ type PaymentRequest struct {
 
 // PaymentRequestLoadMatch is the typed request payload for PaymentRequest.LoadTyped.
 type PaymentRequestLoadMatch struct {
-	PaymentrequestId *string `json:"paymentrequest_id,omitempty"`
+	Addresses *[]any `json:"addresses,omitempty"`
+	Amount *float64 `json:"amount,omitempty"`
+	AmountPending *float64 `json:"amountPending,omitempty"`
+	AmountReceived *float64 `json:"amountReceived,omitempty"`
+	AmountRefunded *float64 `json:"amountRefunded,omitempty"`
+	AutoSendReceipt *bool `json:"autoSendReceipt,omitempty"`
+	BaseOriginUrl *string `json:"baseOriginUrl,omitempty"`
+	CallbackUrl *string `json:"callbackUrl,omitempty"`
+	CardAuthorizeOnly *bool `json:"cardAuthorizeOnly,omitempty"`
+	CardCreateToken *bool `json:"cardCreateToken,omitempty"`
+	CardCreateTokenMode *string `json:"cardCreateTokenMode,omitempty"`
+	CardIgnoreCVN *bool `json:"cardIgnoreCVN,omitempty"`
+	CardProcessorMerchantID *string `json:"cardProcessorMerchantID,omitempty"`
+	CardStripePaymentIntentID *string `json:"cardStripePaymentIntentID,omitempty"`
+	CardStripePaymentIntentSecret *string `json:"cardStripePaymentIntentSecret,omitempty"`
+	CreatedByUser *map[string]any `json:"createdByUser,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	CustomFields *[]any `json:"customFields,omitempty"`
+	CustomerEmailAddress *string `json:"customerEmailAddress,omitempty"`
+	CustomerID *string `json:"customerID,omitempty"`
+	CustomerName *string `json:"customerName,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DestinationAccount *map[string]any `json:"destinationAccount,omitempty"`
+	DirectDebitPayment *map[string]any `json:"directDebitPayment,omitempty"`
+	DoSimulateSettlementFailure *bool `json:"doSimulateSettlementFailure,omitempty"`
+	DueDate *string `json:"dueDate,omitempty"`
+	ErrorDescription *string `json:"errorDescription,omitempty"`
+	Events *[]any `json:"events,omitempty"`
+	FailedPaymentRequests *map[string]any `json:"failedPaymentRequests,omitempty"`
+	FailureCallbackUrl *string `json:"failureCallbackUrl,omitempty"`
+	FieldDisplaySettings *[]any `json:"fieldDisplaySettings,omitempty"`
+	FormattedAmount *string `json:"formattedAmount,omitempty"`
+	HostedPayCheckoutUrl *string `json:"hostedPayCheckoutUrl,omitempty"`
+	Id string `json:"id"`
+	IgnoreAddressVerification *bool `json:"ignoreAddressVerification,omitempty"`
+	Inserted *string `json:"inserted,omitempty"`
+	InsertedSortable *string `json:"insertedSortable,omitempty"`
+	Institution *string `json:"institution,omitempty"`
+	IsArchived *bool `json:"isArchived,omitempty"`
+	Jwk *string `json:"jwk,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	LightningInvoice *string `json:"lightningInvoice,omitempty"`
+	LightningInvoiceExpiresAt *string `json:"lightningInvoiceExpiresAt,omitempty"`
+	MerchantDirectDebitMandateID *string `json:"merchantDirectDebitMandateID,omitempty"`
+	MerchantID *string `json:"merchantID,omitempty"`
+	MerchantTokenDescription *string `json:"merchantTokenDescription,omitempty"`
+	NotificationEmailAddresses *string `json:"notificationEmailAddresses,omitempty"`
+	NotificationRoleIDs *[]any `json:"notificationRoleIDs,omitempty"`
+	OrderID *string `json:"orderID,omitempty"`
+	PartialPaymentMethod *string `json:"partialPaymentMethod,omitempty"`
+	PartialPaymentSteps *string `json:"partialPaymentSteps,omitempty"`
+	PaymentAttempts *[]any `json:"paymentAttempts,omitempty"`
+	PaymentInitiationID *string `json:"paymentInitiationID,omitempty"`
+	PaymentMethods *[]any `json:"paymentMethods,omitempty"`
+	PaymentProcessor *string `json:"paymentProcessor,omitempty"`
+	PaymentRequests *[]any `json:"paymentRequests,omitempty"`
+	PayrunID *string `json:"payrunID,omitempty"`
+	PispAccountID *string `json:"pispAccountID,omitempty"`
+	PriorityBankID *string `json:"priorityBankID,omitempty"`
+	Result *map[string]any `json:"result,omitempty"`
+	SandboxSettleDelayInSeconds *int `json:"sandboxSettleDelayInSeconds,omitempty"`
+	ShippingAddress *map[string]any `json:"shippingAddress,omitempty"`
+	Status *string `json:"status,omitempty"`
+	SuccessWebHookUrl *string `json:"successWebHookUrl,omitempty"`
+	Tags *[]any `json:"tags,omitempty"`
+	Title *string `json:"title,omitempty"`
+	TokenisedCards *[]any `json:"tokenisedCards,omitempty"`
+	Transactions *[]any `json:"transactions,omitempty"`
+	UseHostedPaymentPage *bool `json:"useHostedPaymentPage,omitempty"`
 }
 
 // PaymentRequestListMatch is the typed request payload for PaymentRequest.ListTyped.
@@ -1613,7 +1789,6 @@ type PaymentRequestListMatch struct {
 
 // PaymentRequestCreateData is the typed request payload for PaymentRequest.CreateTyped.
 type PaymentRequestCreateData struct {
-	PaymentrequestId *string `json:"paymentrequest_id,omitempty"`
 	Addresses *[]any `json:"addresses,omitempty"`
 	Amount *float64 `json:"amount,omitempty"`
 	AmountPending *float64 `json:"amountPending,omitempty"`
@@ -1961,21 +2136,95 @@ type Payout struct {
 
 // PayoutLoadMatch is the typed request payload for Payout.LoadTyped.
 type PayoutLoadMatch struct {
-	Amount *float64 `json:"amount,omitempty"`
-	Destination *string `json:"destination,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // PayoutListMatch is the typed request payload for Payout.ListTyped.
 type PayoutListMatch struct {
-	AccountId *string `json:"account_id,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
+	AccountID *string `json:"accountID,omitempty"`
+	AllowIncomplete *bool `json:"allowIncomplete,omitempty"`
+	Amount *float64 `json:"amount,omitempty"`
+	AmountMinorUnits *int `json:"amountMinorUnits,omitempty"`
+	ApprovePayoutUrl *string `json:"approvePayoutUrl,omitempty"`
+	ApproverID *string `json:"approverID,omitempty"`
+	AuthenticationMethods *[]any `json:"authenticationMethods,omitempty"`
+	Authorisations *[]any `json:"authorisations,omitempty"`
+	AuthorisersCompletedCount *int `json:"authorisersCompletedCount,omitempty"`
+	AuthorisersRequiredCount *int `json:"authorisersRequiredCount,omitempty"`
+	BatchPayoutID *string `json:"batchPayoutID,omitempty"`
+	Beneficiary *map[string]any `json:"beneficiary,omitempty"`
+	BeneficiaryID *string `json:"beneficiaryID,omitempty"`
+	CanAuthorise *bool `json:"canAuthorise,omitempty"`
+	CanProcess *bool `json:"canProcess,omitempty"`
+	CanUpdate *bool `json:"canUpdate,omitempty"`
+	ChargeBearer *string `json:"chargeBearer,omitempty"`
+	CreatedBy *string `json:"createdBy,omitempty"`
+	CreatedByEmailAddress *string `json:"createdByEmailAddress,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	CurrentUserID *string `json:"currentUserID,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Destination *map[string]any `json:"destination,omitempty"`
+	Documents *[]any `json:"documents,omitempty"`
+	Events *[]any `json:"events,omitempty"`
+	FailedPayouts *map[string]any `json:"failedPayouts,omitempty"`
+	FormattedAmount *string `json:"formattedAmount,omitempty"`
+	FormattedFxDestinationAmount *string `json:"formattedFxDestinationAmount,omitempty"`
+	FormattedSchedule *string `json:"formattedSchedule,omitempty"`
+	FormattedScheduleDayOnly *string `json:"formattedScheduleDayOnly,omitempty"`
+	FormattedSourceAccountAvailableBalance *string `json:"formattedSourceAccountAvailableBalance,omitempty"`
+	FxDestinationAmount *float64 `json:"fxDestinationAmount,omitempty"`
+	FxDestinationAmountMinorUnits *int `json:"fxDestinationAmountMinorUnits,omitempty"`
+	FxDestinationCurrency *string `json:"fxDestinationCurrency,omitempty"`
+	FxQuoteExpiresAt *string `json:"fxQuoteExpiresAt,omitempty"`
+	FxQuoteID *string `json:"fxQuoteID,omitempty"`
+	FxRate *float64 `json:"fxRate,omitempty"`
+	FxUseDestinationAmount *bool `json:"fxUseDestinationAmount,omitempty"`
+	HasCurrentUserAuthorised *bool `json:"hasCurrentUserAuthorised,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Inserted *string `json:"inserted,omitempty"`
+	InvoiceID *string `json:"invoiceID,omitempty"`
+	IsArchived *bool `json:"isArchived,omitempty"`
+	IsFailed *bool `json:"isFailed,omitempty"`
+	IsSettled *bool `json:"isSettled,omitempty"`
+	IsSubmitted *bool `json:"isSubmitted,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MerchantID *string `json:"merchantID,omitempty"`
+	MerchantTokenDescription *string `json:"merchantTokenDescription,omitempty"`
+	Nonce *string `json:"nonce,omitempty"`
+	PaymentProcessor *string `json:"paymentProcessor,omitempty"`
+	PaymentRail *string `json:"paymentRail,omitempty"`
+	Payouts *[]any `json:"payouts,omitempty"`
+	PayrunID *string `json:"payrunID,omitempty"`
+	PayrunName *string `json:"payrunName,omitempty"`
+	Reason *string `json:"reason,omitempty"`
+	Rule *map[string]any `json:"rule,omitempty"`
+	ScheduleDate *string `json:"scheduleDate,omitempty"`
+	Scheduled *bool `json:"scheduled,omitempty"`
+	SourceAccountAvailableBalance *float64 `json:"sourceAccountAvailableBalance,omitempty"`
+	SourceAccountAvailableBalanceMinorUnits *int `json:"sourceAccountAvailableBalanceMinorUnits,omitempty"`
+	SourceAccountBic *string `json:"sourceAccountBic,omitempty"`
+	SourceAccountCurrency *string `json:"sourceAccountCurrency,omitempty"`
+	SourceAccountIban *string `json:"sourceAccountIban,omitempty"`
+	SourceAccountIdentifier *map[string]any `json:"sourceAccountIdentifier,omitempty"`
+	SourceAccountName *string `json:"sourceAccountName,omitempty"`
+	SourceAccountNumber *string `json:"sourceAccountNumber,omitempty"`
+	SourceAccountSortcode *string `json:"sourceAccountSortcode,omitempty"`
+	Status *string `json:"status,omitempty"`
+	TagIds *[]any `json:"tagIds,omitempty"`
+	Tags *[]any `json:"tags,omitempty"`
+	TheirReference *string `json:"theirReference,omitempty"`
+	TopupPayrunID *string `json:"topupPayrunID,omitempty"`
+	TransactedAmount *float64 `json:"transactedAmount,omitempty"`
+	TransactedFxAmount *float64 `json:"transactedFxAmount,omitempty"`
+	TransactedFxRate *float64 `json:"transactedFxRate,omitempty"`
+	Type *string `json:"type,omitempty"`
+	UserID *string `json:"userID,omitempty"`
+	YourReference *string `json:"yourReference,omitempty"`
 }
 
 // PayoutCreateData is the typed request payload for Payout.CreateTyped.
 type PayoutCreateData struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	AccountID *string `json:"accountID,omitempty"`
 	AllowIncomplete *bool `json:"allowIncomplete,omitempty"`
 	Amount *float64 `json:"amount,omitempty"`
@@ -2223,8 +2472,7 @@ type PayoutKeysetPage struct {
 
 // PayoutKeysetPageListMatch is the typed request payload for PayoutKeysetPage.ListTyped.
 type PayoutKeysetPageListMatch struct {
-	AccountId *string `json:"account_id,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
+	MerchantId string `json:"merchant_id"`
 }
 
 // PayoutMetric is the typed data model for the payout_metric entity.
@@ -2701,17 +2949,13 @@ type Transaction struct {
 
 // TransactionLoadMatch is the typed request payload for Transaction.LoadTyped.
 type TransactionLoadMatch struct {
-	Id *string `json:"id,omitempty"`
-	SequenceNumber *int `json:"sequence_number,omitempty"`
-	TransactionId *string `json:"transaction_id,omitempty"`
-	AccountId *string `json:"account_id,omitempty"`
+	Id string `json:"id"`
 }
 
 // TransactionListMatch is the typed request payload for Transaction.ListTyped.
 type TransactionListMatch struct {
-	AccountId *string `json:"account_id,omitempty"`
-	Id *string `json:"id,omitempty"`
-	MerchantId *string `json:"merchant_id,omitempty"`
+	AccountId string `json:"account_id"`
+	Id string `json:"id"`
 }
 
 // TransactionCreateData is the typed request payload for Transaction.CreateTyped.
@@ -2793,7 +3037,17 @@ type User struct {
 
 // UserListMatch is the typed request payload for User.ListTyped.
 type UserListMatch struct {
-	MerchantId *string `json:"merchant_id,omitempty"`
+	ClientSessionTimeouts *[]any `json:"clientSessionTimeouts,omitempty"`
+	EmailAddress *string `json:"emailAddress,omitempty"`
+	FirstName *string `json:"firstName,omitempty"`
+	Id *string `json:"id,omitempty"`
+	LastName *string `json:"lastName,omitempty"`
+	PasskeyAdded *bool `json:"passkeyAdded,omitempty"`
+	Permissions *map[string]any `json:"permissions,omitempty"`
+	Profile *string `json:"profile,omitempty"`
+	RolesWithScope *[]any `json:"rolesWithScope,omitempty"`
+	TwoFactorEnabled *bool `json:"twoFactorEnabled,omitempty"`
+	UserInviteID *string `json:"userInviteID,omitempty"`
 }
 
 // UserUpdateData is the typed request payload for User.UpdateTyped.
@@ -2839,8 +3093,7 @@ type UserInvite struct {
 
 // UserInviteLoadMatch is the typed request payload for UserInvite.LoadTyped.
 type UserInviteLoadMatch struct {
-	Id *string `json:"id,omitempty"`
-	UserinviteId *string `json:"userinvite_id,omitempty"`
+	Id string `json:"id"`
 }
 
 // UserInviteListMatch is the typed request payload for UserInvite.ListTyped.
@@ -2850,7 +3103,7 @@ type UserInviteListMatch struct {
 
 // UserInviteCreateData is the typed request payload for UserInvite.CreateTyped.
 type UserInviteCreateData struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	AuthorisationStatus *map[string]any `json:"authorisationStatus,omitempty"`
 	FailedUserInvites *map[string]any `json:"failedUserInvites,omitempty"`
 	InitialRoleID *string `json:"initialRoleID,omitempty"`

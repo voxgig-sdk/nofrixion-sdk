@@ -8,11 +8,13 @@ main: kit: entity: payment_initiation: {
     {
       name: "paymentInitiationID"
       req: false
+      short: "The unique identifier of the payment initiation request."
       type: "`$STRING`"
     }
     {
       name: "paymentRequestCallbackUrl"
       req: false
+      short: "The callback URL that was set when the payment request was created."
       type: "`$STRING`"
     }
     {
@@ -23,6 +25,7 @@ main: kit: entity: payment_initiation: {
     {
       name: "redirectUrl"
       req: false
+      short: "A redirect URL for the user to authorise the payment initiation request at the ASPSP"
       type: "`$STRING`"
     }
     {

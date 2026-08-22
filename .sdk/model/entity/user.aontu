@@ -8,6 +8,7 @@ main: kit: entity: user: {
     {
       name: "clientSessionTimeouts"
       req: false
+      short: "The number of seconds a session for this user should last before expiring."
       type: "`$ARRAY`"
     }
     {
@@ -76,6 +77,7 @@ main: kit: entity: user: {
     {
       name: "userInviteID"
       req: false
+      short: "Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant."
       type: "`$STRING`"
     }
   ]

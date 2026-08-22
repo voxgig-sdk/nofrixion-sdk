@@ -8,11 +8,13 @@ main: kit: entity: direct_debit_batch_submit: {
     {
       name: "failedSubmissions"
       req: false
+      short: "Dictionary of failed submissions, keyed by the index (1-based) in the original request."
       type: "`$OBJECT`"
     }
     {
       name: "successfulSubmissions"
       req: false
+      short: "List of successfully submitted direct debit payments."
       type: "`$ARRAY`"
     }
   ]

@@ -13,6 +13,7 @@ main: kit: entity: fx_rate: {
     {
       name: "exchangeRate"
       req: false
+      short: "The price at which the transaction will buy the source currency using the destination currency."
       type: "`$NUMBER`"
     }
     {

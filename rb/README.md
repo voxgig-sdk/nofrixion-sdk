@@ -64,10 +64,10 @@ end
 
 ```ruby
 # create returns the ENTITY — call data_get for the created Account record.
-created = client.Account.create({ "createdBy" => {}, "identifier" => {} })
+created = client.Account.create({ "account_id" => "example_account_id", "currency" => "example_currency", "createdBy" => {}, "identifier" => {} })
 
 # Update — index the record via data_get (created.data_get["id"]).
-client.Account.update({ "id" => created.data_get["id"], "account_id" => "example_account_id", "amount" => 1 })
+client.Account.update({ "id" => created.data_get["id"], "accountBalances" => [], "accountID" => "example_accountID" })
 
 # Remove
 client.Account.remove({ "id" => created.data_get["id"] })
@@ -323,61 +323,61 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `accountBalances` |  |
-| `accountID` |  |
-| `accountIdentifications` |  |
-| `accountName` |  |
-| `accountNames` |  |
-| `accountSupplierName` |  |
-| `accountType` |  |
-| `availableBalance` |  |
-| `availableBalanceMinorUnits` |  |
-| `balance` |  |
-| `balanceMinorUnits` |  |
-| `bankName` |  |
-| `consentID` |  |
-| `consolidatedAccountInformation` |  |
+| `accountBalances` | The various balances for the account. |
+| `accountID` | ID of the account. |
+| `accountIdentifications` | The canoncial identifiers for the account. |
+| `accountName` | Name for the account |
+| `accountNames` | Optional account names set by the account holder. |
+| `accountSupplierName` | The payment account supplier name. |
+| `accountType` | The type of account e.g. |
+| `availableBalance` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | Balance of the account. |
+| `balanceMinorUnits` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | The bank name for external accounts |
+| `consentID` | The ID of the consent used to connect the external account. |
+| `consolidatedAccountInformation` | Summary information regarding account balances of the overall account provided by the bank. |
 | `createdBy` |  |
-| `createdByDisplayName` |  |
-| `currency` |  |
-| `defaultPaymentRail` |  |
-| `description` |  |
-| `details` |  |
-| `displayName` |  |
-| `expiryDate` |  |
-| `externalAccountIcon` |  |
-| `format` |  |
-| `fromDate` |  |
-| `id` |  |
+| `createdByDisplayName` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | Indicates the default payment rail for this account. |
+| `description` | Product name as defined by the financial institution for this account. |
+| `details` | Supplementary specifications that might be provided by the Bank. |
+| `displayName` | Gets a unique display name for the payment account. |
+| `expiryDate` | The date that the external account will expire |
+| `externalAccountIcon` | The Icon for external accounts |
+| `format` | File format to save the statement as. |
+| `fromDate` | Minimum transaction date for the statement. |
+| `id` | Unique id for the account. |
 | `identifier` |  |
-| `inserted` |  |
-| `isArchived` |  |
-| `isConnectedAccount` |  |
-| `isDefault` |  |
-| `isTrustAccount` |  |
-| `isVirtual` |  |
+| `inserted` | Timestamp when the account was created. |
+| `isArchived` | Indicates whether the account is archived. |
+| `isConnectedAccount` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | Is the default account |
+| `isTrustAccount` | Indicates if the payment account is a trust account. |
+| `isVirtual` | True if the account is a virtual account. |
 | `lastTransaction` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
-| `merchantName` |  |
-| `nickname` |  |
-| `physicalAccountID` |  |
-| `roleIDs` |  |
-| `rules` |  |
-| `submittedPayoutsBalance` |  |
-| `submittedPayoutsBalanceMinorUnits` |  |
-| `summary` |  |
-| `supplierPhysicalAccountID` |  |
-| `supplierSepaInstantStatus` |  |
-| `toDate` |  |
-| `type` |  |
+| `lastUpdated` | Timestamp when the account was last updated. |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `merchantName` | The name of the merchant that owns the account. |
+| `nickname` | Nickname of the account that was provided by the account owner. |
+| `physicalAccountID` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `roleIDs` | Optional list of role IDs that will get access to the payment account when created. |
+| `rules` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | Gets a summary of the payments account's most important properties. |
+| `supplierPhysicalAccountID` | For internal use only. |
+| `supplierSepaInstantStatus` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `toDate` | Maximum transaction date for the statement. |
+| `type` | Specifies the type of account e.g. |
 | `usageType` |  |
-| `xeroBankFeedConnectionStatus` |  |
+| `xeroBankFeedConnectionStatus` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` |  |
 | `xeroBankFeedSyncLastFailedAt` |  |
 | `xeroBankFeedSyncLastFailureReason` |  |
 | `xeroBankFeedSyncStatus` |  |
-| `xeroUnsynchronisedTransactionsCount` |  |
+| `xeroUnsynchronisedTransactionsCount` | Indicates the number of unsynchronised transactions with Xero |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -387,7 +387,7 @@ API path: `/api/v1/accounts/{accountID}/{currency}`
 
 | Field | Description |
 | --- | --- |
-| `approveUrl` |  |
+| `approveUrl` | This field is used when returning a batch payout record to a client. |
 | `id` |  |
 | `payouts` |  |
 
@@ -400,31 +400,31 @@ API path: `/api/v1/payouts/batch`
 | Field | Description |
 | --- | --- |
 | `approvalCallbackUrl` |  |
-| `authenticationMethods` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
+| `authenticationMethods` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | A list of users who have successfully authorised the latest version of the beneficiary. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the beneficiary. |
+| `authorisersRequiredCount` | The number of authorisers required for this beneficiary. |
 | `beneficiaries` |  |
 | `beneficiaryEvents` |  |
-| `canAuthorise` |  |
-| `canUpdate` |  |
+| `canAuthorise` | True if the beneficiary can be authorised by the user who loaded it. |
+| `canUpdate` | True if the beneficiary can be updated by the user who loaded it. |
 | `createdBy` |  |
 | `createdByEmailAddress` |  |
-| `currency` |  |
+| `currency` | Gets or Sets the currency. |
 | `destination` |  |
 | `failedBeneficiaries` |  |
-| `hasCurrentUserAuthorised` |  |
+| `hasCurrentUserAuthorised` | True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary. |
 | `id` |  |
 | `inserted` |  |
 | `isEnabled` |  |
 | `lastAuthorised` |  |
 | `lastUpdated` |  |
-| `merchantID` |  |
-| `name` |  |
+| `merchantID` | Gets or Sets the merchant id. |
+| `name` | The descriptive name for the beneficiary. |
 | `nonce` |  |
-| `sourceAccountIDs` |  |
+| `sourceAccountIDs` | ID of the accounts which are authorised to act as a source for the beneficiary. |
 | `sourceAccounts` |  |
-| `theirReference` |  |
+| `theirReference` | The reference that will be used by default as TheirReference when creating payouts to this beneficiary if no TheirReference is specified for the payout. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -434,12 +434,12 @@ API path: `/api/v1/beneficiaries/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `groupMembers` |  |
-| `groupName` |  |
+| `groupMembers` | The existing group members. |
+| `groupName` | The descriptive name for the beneficiary group. |
 | `id` |  |
-| `inserted` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
+| `inserted` | Timestamp indicating when the group was created. |
+| `lastUpdated` | Timestamp indicating when the group was last updated. |
+| `merchantID` | Gets or Sets the merchant id. |
 
 Operations: List.
 
@@ -451,20 +451,20 @@ API path: `/api/v1/merchants/{merchantID}/beneficiarygroups`
 | --- | --- |
 | `authorizedAmount` |  |
 | `currencyCode` |  |
-| `isPayerAuthenticationRequired` |  |
-| `isSoftDecline` |  |
-| `payerAuthenticationAccessToken` |  |
-| `payerAuthenticationMerchantData` |  |
-| `payerAuthenticationUrl` |  |
-| `payerAuthenticationWindowHeight` |  |
-| `payerAuthenticationWindowWidth` |  |
-| `paymentRequestCallbackUrl` |  |
+| `isPayerAuthenticationRequired` | Gets set to true if 3-D Secure payer authentication is required for a payment. |
+| `isSoftDecline` | Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. |
+| `payerAuthenticationAccessToken` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect. |
+| `payerAuthenticationMerchantData` | If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the "authenticationcallback" method that gets called automatically after a successful payer authenticati… |
+| `payerAuthenticationUrl` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank. |
+| `payerAuthenticationWindowHeight` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge. |
+| `payerAuthenticationWindowWidth` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge. |
+| `paymentRequestCallbackUrl` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` |  |
 | `requestID` |  |
 | `responseCode` |  |
 | `responseType` |  |
 | `status` |  |
-| `threeDSRedirectUrl` |  |
+| `threeDSRedirectUrl` | Checkout.com require a redirect for 3DS authentication. |
 | `transactionID` |  |
 
 Operations: Create.
@@ -475,11 +475,11 @@ API path: `/api/v1/paymentrequests/{id}/card`
 
 | Field | Description |
 | --- | --- |
-| `cardType` |  |
-| `customerEmailAddress` |  |
+| `cardType` | The type of the tokenised card, e.g. |
+| `customerEmailAddress` | When creating a tokenised card the payer's email address must be supplied. |
 | `expiryMonth` |  |
 | `expiryYear` |  |
-| `id` |  |
+| `id` | The unique ID of the card token that has been stored for the customer. |
 | `inserted` |  |
 | `lastFourDigits` |  |
 | `lastUpdated` |  |
@@ -497,20 +497,20 @@ API path: `/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEma
 | --- | --- |
 | `authorizedAmount` |  |
 | `currencyCode` |  |
-| `isPayerAuthenticationRequired` |  |
-| `isSoftDecline` |  |
-| `payerAuthenticationAccessToken` |  |
-| `payerAuthenticationMerchantData` |  |
-| `payerAuthenticationUrl` |  |
-| `payerAuthenticationWindowHeight` |  |
-| `payerAuthenticationWindowWidth` |  |
-| `paymentRequestCallbackUrl` |  |
+| `isPayerAuthenticationRequired` | Gets set to true if 3-D Secure payer authentication is required for a payment. |
+| `isSoftDecline` | Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. |
+| `payerAuthenticationAccessToken` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect. |
+| `payerAuthenticationMerchantData` | If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the "authenticationcallback" method that gets called automatically after a successful payer authenticati… |
+| `payerAuthenticationUrl` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank. |
+| `payerAuthenticationWindowHeight` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge. |
+| `payerAuthenticationWindowWidth` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge. |
+| `paymentRequestCallbackUrl` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` |  |
 | `requestID` |  |
 | `responseCode` |  |
 | `responseType` |  |
 | `status` |  |
-| `threeDSRedirectUrl` |  |
+| `threeDSRedirectUrl` | Checkout.com require a redirect for 3DS authentication. |
 | `transactionID` |  |
 
 Operations: Create.
@@ -531,20 +531,20 @@ API path: `/api/v1/paymentrequests/{id}/card/publickey`
 
 | Field | Description |
 | --- | --- |
-| `authorisationUrl` |  |
-| `callbackUrl` |  |
-| `consentID` |  |
-| `emailAddress` |  |
+| `authorisationUrl` | The URL the authorising user needs to be redirected to in order to get the open banking consent token. |
+| `callbackUrl` | Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion. |
+| `consentID` | The ID of the open banking consent. |
+| `emailAddress` | The email address that identifies the end user that will be authorising the open banking consent request. |
 | `expiryDate` |  |
-| `failureCallbackUrl` |  |
+| `failureCallbackUrl` | Optional callback URL for open banking consent authorisation failure. |
 | `id` |  |
 | `inserted` |  |
-| `institutionID` |  |
-| `isConnectedAccounts` |  |
+| `institutionID` | The institution ID the open banking consent is being requested for. |
+| `isConnectedAccounts` | Optional setting. |
 | `isEnabled` |  |
-| `merchantID` |  |
-| `provider` |  |
-| `successWebHookUrl` |  |
+| `merchantID` | The ID of the merchant the consent token is being created to be used with. |
+| `provider` | Lists the supported card and PIS processors. |
+| `successWebHookUrl` | A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -569,8 +569,8 @@ API path: `/api/v1/currencies`
 
 | Field | Description |
 | --- | --- |
-| `failedSubmissions` |  |
-| `successfulSubmissions` |  |
+| `failedSubmissions` | Dictionary of failed submissions, keyed by the index (1-based) in the original request. |
+| `successfulSubmissions` | List of successfully submitted direct debit payments. |
 
 Operations: Create.
 
@@ -581,7 +581,7 @@ API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 | Field | Description |
 | --- | --- |
 | `destinationCurrency` |  |
-| `exchangeRate` |  |
+| `exchangeRate` | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` |  |
 | `quoteID` |  |
 | `sourceCurrency` |  |
@@ -605,40 +605,40 @@ API path: `/api/v1/paymentrequests/payondemand`
 
 | Field | Description |
 | --- | --- |
-| `accountNumber` |  |
-| `addressLine1` |  |
-| `addressLine2` |  |
-| `approvedAt` |  |
-| `city` |  |
-| `countryCode` |  |
-| `currency` |  |
-| `customerAccountNumber` |  |
-| `customerCity` |  |
-| `customerCountryCode` |  |
-| `customerCountryName` |  |
-| `customerEmailAddress` |  |
-| `customerFirstName` |  |
-| `customerIban` |  |
-| `customerLastName` |  |
-| `customerSortCode` |  |
-| `emailAddress` |  |
-| `firstName` |  |
-| `iban` |  |
-| `id` |  |
-| `inserted` |  |
-| `isRecurring` |  |
-| `lastName` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
-| `postalCode` |  |
-| `reference` |  |
-| `sortCode` |  |
-| `status` |  |
-| `supplierBankAccountID` |  |
-| `supplierCustomerID` |  |
-| `supplierMandateID` |  |
-| `supplierName` |  |
-| `supplierStatus` |  |
+| `accountNumber` | Account number of the customer's bank account in case of GBP account. |
+| `addressLine1` | First line of the customer's address. |
+| `addressLine2` | Second line of the customer's address. |
+| `approvedAt` | Date at which the supplier approved this mandate. |
+| `city` | Customer's city. |
+| `countryCode` | 2-character country code of the customer's bank account. |
+| `currency` | Currency of this mandate. |
+| `customerAccountNumber` | Customer's account number in case of GBP account. |
+| `customerCity` | Customer's city of residence. |
+| `customerCountryCode` | Customer's country of residence code. |
+| `customerCountryName` | Customer's country of residence. |
+| `customerEmailAddress` | Customer's email address. |
+| `customerFirstName` | Customer's first name. |
+| `customerIban` | Customer's IBAN in case of EUR account. |
+| `customerLastName` | Customer's last name. |
+| `customerSortCode` | Customer's sort code in case of GBP account. |
+| `emailAddress` | Customer's email address. |
+| `firstName` | Customer's first name. |
+| `iban` | IBAN of the customer's bank account in case of EUR account. |
+| `id` | Internal ID of the mandate. |
+| `inserted` | The timestamp this mandate was created at. |
+| `isRecurring` | Whether this mandate is single-use or recurring. |
+| `lastName` | Customer's last name. |
+| `lastUpdated` | The timestamp this mandate was last updated at. |
+| `merchantID` | Internal ID of this mandate's merchant. |
+| `postalCode` | Customer's postal code. |
+| `reference` | Reference assigned to this mandate. |
+| `sortCode` | Sort code of the customer's bank account in case of GBP account. |
+| `status` | General status of this mandate. |
+| `supplierBankAccountID` | ID that the supplier assigned to this mandate's bank account. |
+| `supplierCustomerID` | ID that the supplier assigned to this mandate's customer. |
+| `supplierMandateID` | ID that the supplier assigned to this mandate. |
+| `supplierName` | Name of the supplier used to create this mandate. |
+| `supplierStatus` | Last status that the supplier reported for this mandate. |
 
 Operations: Create, Load.
 
@@ -648,35 +648,35 @@ API path: `/api/v1/mandates`
 
 | Field | Description |
 | --- | --- |
-| `accountCurrencies` |  |
-| `canHaveTrustAccounts` |  |
-| `cardPaymentProcessor` |  |
-| `companyID` |  |
-| `displayQrOnHostedPay` |  |
-| `hostedPayVersion` |  |
-| `id` |  |
-| `inserted` |  |
-| `isBlocked` |  |
-| `isExited` |  |
-| `isSuspended` |  |
-| `jurisdiction` |  |
-| `logoUrlPng` |  |
-| `logoUrlSvg` |  |
-| `merchantCategoryCode` |  |
-| `name` |  |
-| `notes` |  |
+| `accountCurrencies` | The list of currencies that the merchant has accounts for. |
+| `canHaveTrustAccounts` | Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks. |
+| `cardPaymentProcessor` | Name of the card payment processor. |
+| `companyID` | The Company ID recorded in the Compliance system. |
+| `displayQrOnHostedPay` | Indicates if a QR Code containing the payment link should be displayed on the hosted payment page. |
+| `hostedPayVersion` | The version of the hosted payment page to use with the merchant. |
+| `id` | Unique ID for the merchant. |
+| `inserted` | Timestamp the merchant was added to MoneyMoov. |
+| `isBlocked` | The merchant is blocked from making payments (payouts). |
+| `isExited` | The merchant has formally terminated their relationship and is no longer a customer. |
+| `isSuspended` | The merchant has temporarily suspended their own account. |
+| `jurisdiction` | The jurisdiction the merchant entity is incorporated or established in. |
+| `logoUrlPng` | The CDN URL of the merchant's logo in PNG format. |
+| `logoUrlSvg` | The CDN URL of the merchant's logo in SVG format. |
+| `merchantCategoryCode` | The industry code that represents the merchant's primary trading activity. |
+| `name` | The registered business name of the merchant. |
+| `notes` | The notes field is an optional free text field that can be used to store any additional information about the merchant. |
 | `parentMerchant` |  |
-| `paymentAccountLimit` |  |
+| `paymentAccountLimit` | The maximum number of payment accounts that can be created for the Merchant. |
 | `paymentAccounts` |  |
-| `reason` |  |
-| `shortName` |  |
-| `supportedPaymentMethodsList` |  |
-| `suspensionReason` |  |
-| `tags` |  |
-| `timeZoneId` |  |
-| `tradingName` |  |
-| `webHookLimit` |  |
-| `yourRoleName` |  |
+| `reason` | The reason for the suspension. |
+| `shortName` | A URL friendly shortish name for the merchant. |
+| `supportedPaymentMethodsList` | The payment methods that are configured and supported for this merchant. |
+| `suspensionReason` | The reason for the suspension, provided by the merchant. |
+| `tags` | An optional list of descriptive tags that can be used on merchant entities such as payment requests. |
+| `timeZoneId` | The IANA (Internet Assigned Numbers Authority) time zone identifier of the merchant. |
+| `tradingName` | An optional trading name. |
+| `webHookLimit` | The maximum number of web hooks that can be created for the Merchant. |
+| `yourRoleName` | The name of the role for the identity that loaded the merchant record. |
 
 Operations: List, Load, Remove, Update.
 
@@ -706,29 +706,29 @@ API path: `/api/v1/merchants/{merchantID}/authorisationsettings`
 
 | Field | Description |
 | --- | --- |
-| `approvedAt` |  |
-| `currency` |  |
-| `customerAccountNumber` |  |
-| `customerCity` |  |
-| `customerCountryCode` |  |
-| `customerCountryName` |  |
-| `customerEmailAddress` |  |
-| `customerFirstName` |  |
-| `customerIban` |  |
-| `customerLastName` |  |
-| `customerSortCode` |  |
-| `id` |  |
-| `inserted` |  |
-| `isRecurring` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
-| `reference` |  |
-| `status` |  |
-| `supplierBankAccountID` |  |
-| `supplierCustomerID` |  |
-| `supplierMandateID` |  |
-| `supplierName` |  |
-| `supplierStatus` |  |
+| `approvedAt` | Date at which the supplier approved this mandate. |
+| `currency` | Currency of this mandate. |
+| `customerAccountNumber` | Customer's account number in case of GBP account. |
+| `customerCity` | Customer's city of residence. |
+| `customerCountryCode` | Customer's country of residence code. |
+| `customerCountryName` | Customer's country of residence. |
+| `customerEmailAddress` | Customer's email address. |
+| `customerFirstName` | Customer's first name. |
+| `customerIban` | Customer's IBAN in case of EUR account. |
+| `customerLastName` | Customer's last name. |
+| `customerSortCode` | Customer's sort code in case of GBP account. |
+| `id` | Internal ID of the mandate. |
+| `inserted` | The timestamp this mandate was created at. |
+| `isRecurring` | Whether this mandate is single-use or recurring. |
+| `lastUpdated` | The timestamp this mandate was last updated at. |
+| `merchantID` | Internal ID of this mandate's merchant. |
+| `reference` | Reference assigned to this mandate. |
+| `status` | General status of this mandate. |
+| `supplierBankAccountID` | ID that the supplier assigned to this mandate's bank account. |
+| `supplierCustomerID` | ID that the supplier assigned to this mandate's customer. |
+| `supplierMandateID` | ID that the supplier assigned to this mandate. |
+| `supplierName` | Name of the supplier used to create this mandate. |
+| `supplierStatus` | Last status that the supplier reported for this mandate. |
 
 Operations: List.
 
@@ -738,19 +738,19 @@ API path: `/api/v1/mandates`
 
 | Field | Description |
 | --- | --- |
-| `bankCountryCodes` |  |
-| `bankID` |  |
-| `bankName` |  |
-| `businessInstitutionID` |  |
-| `currency` |  |
-| `logo` |  |
-| `message` |  |
-| `messageImageUrl` |  |
-| `order` |  |
-| `personalInstitutionID` |  |
-| `processor` |  |
-| `warningHeading` |  |
-| `warningMessage` |  |
+| `bankCountryCodes` | The list of country codes representing the banks the country supports. |
+| `bankID` | ID of the bank to be configured for the merchant. |
+| `bankName` | Name of the Bank/Institution. |
+| `businessInstitutionID` | ID that the processor uses to identify the bank (business accounts). |
+| `currency` | Currency supported by the bank. |
+| `logo` | URL of the bank's logo. |
+| `message` | Message relating to specific bank. |
+| `messageImageUrl` | Optional image URL to be displayed with the message. |
+| `order` | Order in which this setting will appear in the UI. |
+| `personalInstitutionID` | ID that the processor uses to identify the bank (personal accounts). |
+| `processor` | Name of the bank payment processor. |
+| `warningHeading` | The heading for a warning message related to the bank institution to be displayed to the user. |
+| `warningMessage` | The warning message related to the bank institution to be displayed to the user. |
 
 Operations: List.
 
@@ -763,8 +763,8 @@ API path: `/api/v1/merchants/{merchantID}/banksettings`
 | `bankPaymentOptions` |  |
 | `cardPaymentAddressOptions` |  |
 | `cardPaymentCaptureOptions` |  |
-| `customFields` |  |
-| `defaultFields` |  |
+| `customFields` | A list of custom fields that can be included in the payment request template. |
+| `defaultFields` | A list of default fields that are included in the payment request template. |
 | `description` |  |
 | `id` |  |
 | `inserted` |  |
@@ -785,29 +785,29 @@ API path: `/api/v1/paymentrequests/{merchantID}/templates`
 
 | Field | Description |
 | --- | --- |
-| `authenticationMethods` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
-| `canAuthorise` |  |
-| `description` |  |
-| `expiresAt` |  |
-| `hasCurrentUserAuthorised` |  |
-| `hmacAlgorithm` |  |
+| `authenticationMethods` | A list of authentication types allowed to authorise the merchant token. |
+| `authorisations` | A list of users who have successfully authorised the latest version of the beneficiary. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the merchant token. |
+| `authorisersRequiredCount` | The number of authorisers required for this merchant token. |
+| `canAuthorise` | True if the merchant token can be authorised by the user who loaded it. |
+| `description` | Token description |
+| `expiresAt` | Optional. |
+| `hasCurrentUserAuthorised` | True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary. |
+| `hmacAlgorithm` | Optional shared secret algorithm to use for HMAC authentication. |
 | `id` |  |
 | `inserted` |  |
-| `ipAddressWhitelist` |  |
-| `isArchived` |  |
-| `isEnabled` |  |
+| `ipAddressWhitelist` | Optional. |
+| `isArchived` | Indicates whether the merchant token is archived. |
+| `isEnabled` | If set to false the merchant token will not be accepted to authorise a request. |
 | `lastAuthorised` |  |
 | `lastUpdated` |  |
-| `merchantID` |  |
+| `merchantID` | The merchant id to add to the token |
 | `nonce` |  |
-| `permissionTypes` |  |
-| `requestSignatureVersion` |  |
-| `sharedSecretAlgorithm` |  |
-| `sharedSecretBase64` |  |
-| `token` |  |
+| `permissionTypes` | The permissions that the merchant token supports. |
+| `requestSignatureVersion` | Represent the version of the overall merchant token. |
+| `sharedSecretAlgorithm` | Optional shared secret algorithm to use for HMAC authentication. |
+| `sharedSecretBase64` | The base 64 encoded shared secret that is used for request authentication with an HMAC. |
+| `token` | The JWT merchant token. |
 
 Operations: Create, List, Load, Update.
 
@@ -848,13 +848,13 @@ API path: `/api/v1/openbanking/account/{accountID}/synchronise`
 
 | Field | Description |
 | --- | --- |
-| `accountName` |  |
-| `accountNumber` |  |
-| `iban` |  |
-| `payeeVerifiedAccountName` |  |
-| `result` |  |
-| `secondaryIdentification` |  |
-| `sortCode` |  |
+| `accountName` | The name of the account to verify |
+| `accountNumber` | The account number of the account to verify (for CoP checks) |
+| `iban` | The IBAN of the account to verify (for VoP checks) |
+| `payeeVerifiedAccountName` | The verified account name of the payee, if available (in case of a close match) |
+| `result` | The result of the payee verification |
+| `secondaryIdentification` | Optional secondary identifier for the account to verify. |
+| `sortCode` | The sort code of the account to verify (for CoP checks) |
 
 Operations: Create.
 
@@ -865,81 +865,81 @@ API path: `/api/v1/openbanking/payeeverification`
 | Field | Description |
 | --- | --- |
 | `addresses` |  |
-| `amount` |  |
-| `amountPending` |  |
-| `amountReceived` |  |
-| `amountRefunded` |  |
-| `autoSendReceipt` |  |
-| `baseOriginUrl` |  |
-| `callbackUrl` |  |
-| `cardAuthorizeOnly` |  |
-| `cardCreateToken` |  |
-| `cardCreateTokenMode` |  |
-| `cardIgnoreCVN` |  |
-| `cardNoPayerAuthentication` |  |
-| `cardProcessorMerchantID` |  |
-| `cardStripePaymentIntentID` |  |
-| `cardStripePaymentIntentSecret` |  |
-| `cardTransmitRawDetails` |  |
+| `amount` | The amount of money to request. |
+| `amountPending` | Total amount that has been authorised but not settled for this payment request. |
+| `amountReceived` | Total amount received for this payment request. |
+| `amountRefunded` | Total amount refunded for this payment request. |
+| `autoSendReceipt` | If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received. |
+| `baseOriginUrl` | For card payments the origin of the payment page needs to be set in advance. |
+| `callbackUrl` | Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL. |
+| `cardAuthorizeOnly` | For card payments the default behaviour is to authorise and capture the payment at the same time. |
+| `cardCreateToken` | For card payments a payment attempt can be used to create a reusable token for subsequent payments. |
+| `cardCreateTokenMode` | This specifies whether user consent will be taken before tokenising card or not. |
+| `cardIgnoreCVN` | If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails. |
+| `cardNoPayerAuthentication` | If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). |
+| `cardProcessorMerchantID` | Optional field that if specified indicates the processor merchant ID that should be used to process any card payments. |
+| `cardStripePaymentIntentID` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID. |
+| `cardStripePaymentIntentSecret` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret. |
+| `cardTransmitRawDetails` | If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised. |
 | `createdByUser` |  |
-| `currency` |  |
-| `customFields` |  |
-| `customerEmailAddress` |  |
-| `customerID` |  |
+| `currency` | The currency of the request. |
+| `customFields` | A list of custom fields attached to the payment request. |
+| `customerEmailAddress` | Optional email address for the customer. |
+| `customerID` | An optional customer identifier for the payment request. |
 | `customerName` |  |
-| `description` |  |
+| `description` | An optional description for the payment request. |
 | `destinationAccount` |  |
-| `directDebitPayment` |  |
-| `dueDate` |  |
+| `directDebitPayment` | Contains information about a Direct Debit payment attempt for a payment request. |
+| `dueDate` | The due date for the payment request. |
 | `events` |  |
-| `failureCallbackUrl` |  |
-| `fieldDisplaySettings` |  |
+| `failureCallbackUrl` | Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. |
+| `fieldDisplaySettings` | A list of field display settings that control which fields are displayed to the payer. |
 | `formattedAmount` |  |
-| `hostedPayCheckoutUrl` |  |
+| `hostedPayCheckoutUrl` | This is a convenience link generated for payment requests whose merchants are using hosted payment pages. |
 | `id` |  |
-| `ignoreAddressVerification` |  |
-| `inserted` |  |
-| `insertedSortable` |  |
-| `isArchived` |  |
-| `jwk` |  |
-| `lastUpdated` |  |
-| `lightningInvoice` |  |
-| `lightningInvoiceExpiresAt` |  |
-| `merchantDirectDebitMandateID` |  |
-| `merchantID` |  |
-| `merchantTokenDescription` |  |
+| `ignoreAddressVerification` | If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails. |
+| `inserted` | The timestamp the payment request was created at. |
+| `insertedSortable` | The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se… |
+| `isArchived` | Indicates whether the payment request is archived. |
+| `jwk` | The jwk containing the public key used to verify the signature of the payment request. |
+| `lastUpdated` | The timestamp the payment request was last updated at. |
+| `lightningInvoice` | Bitcoin Lightning invoice for the payment request. |
+| `lightningInvoiceExpiresAt` | Date and time of expiration of the lightning invoice. |
+| `merchantDirectDebitMandateID` | Optional ID of the direct debit mandate associated with this payment request. |
+| `merchantID` | The ID of the merchant to create the payment request for. |
+| `merchantTokenDescription` | Description of the merchant token in case the Payment request was created using a merchant token. |
 | `notificationEmailAddresses` |  |
-| `notificationRoleIDs` |  |
-| `orderID` |  |
-| `partialPaymentMethod` |  |
-| `partialPaymentSteps` |  |
-| `paymentAttempts` |  |
-| `paymentMethods` |  |
-| `paymentProcessor` |  |
-| `payrunID` |  |
-| `pispAccountID` |  |
-| `priorityBankID` |  |
+| `notificationRoleIDs` | A list of roles whose members will receive notifications about this payment request. |
+| `orderID` | An optional order ID for the payment request. |
+| `partialPaymentMethod` | The approach to use, or not, for accepting partial payments. |
+| `partialPaymentSteps` | An optional comma separated list of partial payment amounts. |
+| `paymentAttempts` | The payment attempts made against this payment request. |
+| `paymentMethods` | The payment methods that the payment request supports. |
+| `paymentProcessor` | If the card payment option is enabled this field indicates which card processor the merchant is set up to use. |
+| `payrunID` | The ID of a payrun that needs an account top up. |
+| `pispAccountID` | The payment account ID to use to receive payment initiation payments. |
+| `priorityBankID` | The ID of the bank that is set as the priority bank for display on pay element. |
 | `result` |  |
-| `sandboxSettleDelayInSeconds` |  |
+| `sandboxSettleDelayInSeconds` | Sandbox only. |
 | `shippingAddress` |  |
-| `shippingAddressCity` |  |
-| `shippingAddressCountryCode` |  |
-| `shippingAddressCounty` |  |
-| `shippingAddressLine1` |  |
-| `shippingAddressLine2` |  |
-| `shippingAddressPostCode` |  |
-| `shippingEmail` |  |
-| `shippingFirstName` |  |
-| `shippingLastName` |  |
-| `shippingPhone` |  |
-| `status` |  |
-| `successWebHookUrl` |  |
-| `tagIds` |  |
-| `tags` |  |
-| `title` |  |
+| `shippingAddressCity` | Optionally the city of the customer's shipping address. |
+| `shippingAddressCountryCode` | Optionally the country code of the customer's shipping address. |
+| `shippingAddressCounty` | Optionally the state or county of the customer's shipping address. |
+| `shippingAddressLine1` | Optionally the first line of the customer's shipping address. |
+| `shippingAddressLine2` | Optionally the second line of the customer's shipping address. |
+| `shippingAddressPostCode` | Optionally the post code of the customer's shipping address. |
+| `shippingEmail` | Optionally the shipping email address for the customer. |
+| `shippingFirstName` | Optionally the first name of the customer's shipping address. |
+| `shippingLastName` | Optionally the last name of the customer's shipping address. |
+| `shippingPhone` | Optionally the shipping phone number for the customer. |
+| `status` | The current status of the payment request. |
+| `successWebHookUrl` | If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. |
+| `tagIds` | An optional list of tag ids to add to the payment request |
+| `tags` | An optional list of descriptive tags attached to the payment request. |
+| `title` | A generic field to contain any additional data that the merchant wishes to store against the payment request. |
 | `tokenisedCards` |  |
 | `transactions` |  |
-| `useHostedPaymentPage` |  |
+| `useHostedPaymentPage` | If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page. |
 
 Operations: Create, Load, Update.
 
@@ -949,45 +949,45 @@ API path: `/api/v1/paymentrequests`
 
 | Field | Description |
 | --- | --- |
-| `accountName` |  |
-| `accountSupplierName` |  |
-| `availableBalance` |  |
-| `availableBalanceMinorUnits` |  |
-| `balance` |  |
-| `balanceMinorUnits` |  |
-| `bankName` |  |
-| `consentID` |  |
+| `accountName` | Name for the account |
+| `accountSupplierName` | The payment account supplier name. |
+| `availableBalance` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | Balance of the account. |
+| `balanceMinorUnits` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | The bank name for external accounts |
+| `consentID` | The ID of the consent used to connect the external account. |
 | `createdBy` |  |
-| `createdByDisplayName` |  |
-| `currency` |  |
-| `defaultPaymentRail` |  |
-| `displayName` |  |
-| `expiryDate` |  |
-| `externalAccountIcon` |  |
-| `id` |  |
+| `createdByDisplayName` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | Indicates the default payment rail for this account. |
+| `displayName` | Gets a unique display name for the payment account. |
+| `expiryDate` | The date that the external account will expire |
+| `externalAccountIcon` | The Icon for external accounts |
+| `id` | Unique id for the account. |
 | `identifier` |  |
-| `inserted` |  |
-| `isArchived` |  |
-| `isConnectedAccount` |  |
-| `isDefault` |  |
-| `isTrustAccount` |  |
-| `isVirtual` |  |
+| `inserted` | Timestamp when the account was created. |
+| `isArchived` | Indicates whether the account is archived. |
+| `isConnectedAccount` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | Is the default account |
+| `isTrustAccount` | Indicates if the payment account is a trust account. |
+| `isVirtual` | True if the account is a virtual account. |
 | `lastTransaction` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
-| `merchantName` |  |
-| `physicalAccountID` |  |
-| `rules` |  |
-| `submittedPayoutsBalance` |  |
-| `submittedPayoutsBalanceMinorUnits` |  |
-| `summary` |  |
-| `supplierSepaInstantStatus` |  |
-| `xeroBankFeedConnectionStatus` |  |
+| `lastUpdated` | Timestamp when the account was last updated. |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `merchantName` | The name of the merchant that owns the account. |
+| `physicalAccountID` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `rules` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | Gets a summary of the payments account's most important properties. |
+| `supplierSepaInstantStatus` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `xeroBankFeedConnectionStatus` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` |  |
 | `xeroBankFeedSyncLastFailedAt` |  |
 | `xeroBankFeedSyncLastFailureReason` |  |
 | `xeroBankFeedSyncStatus` |  |
-| `xeroUnsynchronisedTransactionsCount` |  |
+| `xeroUnsynchronisedTransactionsCount` | Indicates the number of unsynchronised transactions with Xero |
 
 Operations: List.
 
@@ -997,17 +997,17 @@ API path: `/api/v1/accounts/paged`
 
 | Field | Description |
 | --- | --- |
-| `accountName` |  |
-| `availableBalance` |  |
-| `balance` |  |
-| `balanceMinorUnits` |  |
-| `currency` |  |
-| `id` |  |
+| `accountName` | Name for the account |
+| `availableBalance` | The current available balance of the account. |
+| `balance` | Balance of the account. |
+| `balanceMinorUnits` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `currency` | Currency of the account in ISO 4217 format |
+| `id` | Unique id for the account. |
 | `identifier` |  |
-| `isArchived` |  |
-| `isConnectedAccount` |  |
-| `merchantID` |  |
-| `submittedPayoutsBalance` |  |
+| `isArchived` | Is the account archived |
+| `isConnectedAccount` | Indicates if the payment account is an externally connected account. |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `submittedPayoutsBalance` | Total of the payouts that have been submitted for processing. |
 
 Operations: List.
 
@@ -1017,10 +1017,10 @@ API path: `/api/v1/accounts/minimal`
 
 | Field | Description |
 | --- | --- |
-| `paymentInitiationID` |  |
-| `paymentRequestCallbackUrl` |  |
+| `paymentInitiationID` | The unique identifier of the payment initiation request. |
+| `paymentRequestCallbackUrl` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` |  |
-| `redirectUrl` |  |
+| `redirectUrl` | A redirect URL for the user to authorise the payment initiation request at the ASPSP |
 | `responseType` |  |
 | `specificErrorMessage` |  |
 
@@ -1033,74 +1033,74 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 | Field | Description |
 | --- | --- |
 | `addresses` |  |
-| `amount` |  |
-| `amountPending` |  |
-| `amountReceived` |  |
-| `amountRefunded` |  |
-| `autoSendReceipt` |  |
-| `baseOriginUrl` |  |
-| `callbackUrl` |  |
-| `cardAuthorizeOnly` |  |
-| `cardCreateToken` |  |
-| `cardCreateTokenMode` |  |
-| `cardIgnoreCVN` |  |
-| `cardProcessorMerchantID` |  |
-| `cardStripePaymentIntentID` |  |
-| `cardStripePaymentIntentSecret` |  |
+| `amount` | The amount of money to request. |
+| `amountPending` | Total amount that has been authorised but not settled for this payment request. |
+| `amountReceived` | Total amount received for this payment request. |
+| `amountRefunded` | Total amount refunded for this payment request. |
+| `autoSendReceipt` | If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received. |
+| `baseOriginUrl` | For card payments the origin of the payment page needs to be set in advance. |
+| `callbackUrl` | Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL. |
+| `cardAuthorizeOnly` | For card payments the default behaviour is to authorise and capture the payment at the same time. |
+| `cardCreateToken` | For card payments a payment attempt can be used to create a reusable token for subsequent payments. |
+| `cardCreateTokenMode` | This specifies whether user consent will be taken before tokenising card or not. |
+| `cardIgnoreCVN` | If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails. |
+| `cardProcessorMerchantID` | Optional field that if specified indicates the processor merchant ID that should be used to process any card payments. |
+| `cardStripePaymentIntentID` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID. |
+| `cardStripePaymentIntentSecret` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret. |
 | `createdByUser` |  |
-| `currency` |  |
-| `customFields` |  |
-| `customerEmailAddress` |  |
-| `customerID` |  |
+| `currency` | The currency of the request. |
+| `customFields` | A list of custom fields attached to the payment request. |
+| `customerEmailAddress` | Optional email address for the customer. |
+| `customerID` | An optional customer identifier for the payment request. |
 | `customerName` |  |
-| `description` |  |
+| `description` | An optional description for the payment request. |
 | `destinationAccount` |  |
-| `directDebitPayment` |  |
+| `directDebitPayment` | Contains information about a Direct Debit payment attempt for a payment request. |
 | `doSimulateSettlementFailure` |  |
-| `dueDate` |  |
+| `dueDate` | The due date for the payment request. |
 | `errorDescription` |  |
 | `events` |  |
 | `failedPaymentRequests` |  |
-| `failureCallbackUrl` |  |
-| `fieldDisplaySettings` |  |
+| `failureCallbackUrl` | Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. |
+| `fieldDisplaySettings` | A list of field display settings that control which fields are displayed to the payer. |
 | `formattedAmount` |  |
-| `hostedPayCheckoutUrl` |  |
+| `hostedPayCheckoutUrl` | This is a convenience link generated for payment requests whose merchants are using hosted payment pages. |
 | `id` |  |
-| `ignoreAddressVerification` |  |
-| `inserted` |  |
-| `insertedSortable` |  |
+| `ignoreAddressVerification` | If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails. |
+| `inserted` | The timestamp the payment request was created at. |
+| `insertedSortable` | The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se… |
 | `institution` |  |
-| `isArchived` |  |
-| `jwk` |  |
-| `lastUpdated` |  |
-| `lightningInvoice` |  |
-| `lightningInvoiceExpiresAt` |  |
-| `merchantDirectDebitMandateID` |  |
+| `isArchived` | Indicates whether the payment request is archived. |
+| `jwk` | The jwk containing the public key used to verify the signature of the payment request. |
+| `lastUpdated` | The timestamp the payment request was last updated at. |
+| `lightningInvoice` | Bitcoin Lightning invoice for the payment request. |
+| `lightningInvoiceExpiresAt` | Date and time of expiration of the lightning invoice. |
+| `merchantDirectDebitMandateID` | Optional ID of the direct debit mandate associated with this payment request. |
 | `merchantID` |  |
-| `merchantTokenDescription` |  |
+| `merchantTokenDescription` | Description of the merchant token in case the Payment request was created using a merchant token. |
 | `notificationEmailAddresses` |  |
-| `notificationRoleIDs` |  |
-| `orderID` |  |
-| `partialPaymentMethod` |  |
-| `partialPaymentSteps` |  |
-| `paymentAttempts` |  |
+| `notificationRoleIDs` | A list of roles whose members will receive notifications about this payment request. |
+| `orderID` | An optional order ID for the payment request. |
+| `partialPaymentMethod` | The approach to use, or not, for accepting partial payments. |
+| `partialPaymentSteps` | An optional comma separated list of partial payment amounts. |
+| `paymentAttempts` | The payment attempts made against this payment request. |
 | `paymentInitiationID` |  |
-| `paymentMethods` |  |
-| `paymentProcessor` |  |
+| `paymentMethods` | The payment methods that the payment request supports. |
+| `paymentProcessor` | If the card payment option is enabled this field indicates which card processor the merchant is set up to use. |
 | `paymentRequests` |  |
-| `payrunID` |  |
-| `pispAccountID` |  |
-| `priorityBankID` |  |
+| `payrunID` | The ID of a payrun that needs an account top up. |
+| `pispAccountID` | The payment account ID to use to receive payment initiation payments. |
+| `priorityBankID` | The ID of the bank that is set as the priority bank for display on pay element. |
 | `result` |  |
-| `sandboxSettleDelayInSeconds` |  |
+| `sandboxSettleDelayInSeconds` | Sandbox only. |
 | `shippingAddress` |  |
-| `status` |  |
-| `successWebHookUrl` |  |
-| `tags` |  |
-| `title` |  |
+| `status` | The current status of the payment request. |
+| `successWebHookUrl` | If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. |
+| `tags` | An optional list of descriptive tags attached to the payment request. |
+| `title` | A generic field to contain any additional data that the merchant wishes to store against the payment request. |
 | `tokenisedCards` |  |
 | `transactions` |  |
-| `useHostedPaymentPage` |  |
+| `useHostedPaymentPage` | If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1111,39 +1111,39 @@ API path: `/api/v1/paymentrequests/{id}/directdebit`
 | Field | Description |
 | --- | --- |
 | `amount` |  |
-| `applePayTransactionID` |  |
-| `cardAuthorizationResponseID` |  |
-| `cardExpiryMonth` |  |
-| `cardExpiryYear` |  |
-| `cardIssuer` |  |
-| `cardIssuerCountry` |  |
-| `cardLastFourDigits` |  |
+| `applePayTransactionID` | Transaction ID received in Apple pay token. |
+| `cardAuthorizationResponseID` | For a successful card authorization this field will hold the response ID. |
+| `cardExpiryMonth` | For card payment events this field holds the payer's card expiry month. |
+| `cardExpiryYear` | For card payment events this field holds the payer's card expiry year. |
+| `cardIssuer` | For card payment events this field holds the payer's card issuer. |
+| `cardIssuerCountry` | For card payment events this field holds the payer's card issuer country of origin. |
+| `cardLastFourDigits` | For card payment events this field holds the payer's card last four digits. |
 | `cardRequestID` |  |
-| `cardScheme` |  |
-| `cardTokenCustomerID` |  |
+| `cardScheme` | For card payment events this field holds the scheme of the payer's card, e.g. |
+| `cardTokenCustomerID` | If the option to create a reusable token for card payments was set this field contains the token the merchant can store to use for repeat payments. |
 | `cardTransactionID` |  |
 | `currency` |  |
-| `directDebitPaymentID` |  |
-| `directDebitPaymentReference` |  |
-| `drirectDebitMandateID` |  |
+| `directDebitPaymentID` | Payment ID issued by the Direct Debit supplier. |
+| `directDebitPaymentReference` | Reference string issued by the Direct Debit supplier. |
+| `drirectDebitMandateID` | The ID of the mandate that was used wehn requesting payment. |
 | `errorMessage` |  |
 | `errorReason` |  |
 | `eventType` |  |
 | `id` |  |
 | `inserted` |  |
-| `lightningInvoice` |  |
-| `lightningRHash` |  |
-| `originUrl` |  |
-| `paymentMethodType` |  |
-| `paymentProcessorName` |  |
+| `lightningInvoice` | For Bitcoin Lightning payments this field holds the invoice presented to the payer. |
+| `lightningRHash` | For Bitcoin Lightning payments the hash of the invoice presented to the payer. |
+| `originUrl` | Optional field that can be set by payment methods, such as pay by bank, that may want to redirect back to the URL that initiated the attempt in the case of a failure condition. |
+| `paymentMethodType` | The type of payment method the event relates to, e.g. |
+| `paymentProcessorName` | If the event was for a card payment this is the name of the card processor, e.g. |
 | `paymentRequestID` |  |
-| `pispBankStatus` |  |
-| `pispPaymentInitiationID` |  |
-| `pispPaymentInstitutionName` |  |
-| `pispPaymentServiceProviderID` |  |
-| `pispRedirectUrl` |  |
-| `reconciledTransactionID` |  |
-| `refundPayoutID` |  |
+| `pispBankStatus` | For payment initiation attempts some providers (e.g. |
+| `pispPaymentInitiationID` | For a payment initiation this is the ID returned by the service provider initiating the payment for us. |
+| `pispPaymentInstitutionName` | For a payment initiation this is the name of the financial institution that is used to initiate and authorise the payment. |
+| `pispPaymentServiceProviderID` | For a payment initiation this is the service provider ID selected by the payer, typically the ID for the bank or similar financial institution. |
+| `pispRedirectUrl` | For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. |
+| `reconciledTransactionID` | For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with. |
+| `refundPayoutID` | ID of the Payout that was created for refund. |
 | `status` |  |
 | `walletName` |  |
 
@@ -1164,36 +1164,36 @@ API path: `/api/v1/paymentrequests/metrics`
 
 | Field | Description |
 | --- | --- |
-| `amount` |  |
-| `amountPending` |  |
-| `amountReceived` |  |
-| `amountRefunded` |  |
+| `amount` | The amount of money to request. |
+| `amountPending` | The amount of money that was authorised but has not arrived in the account yet. |
+| `amountReceived` | The amount of money that has been received for this payment request. |
+| `amountRefunded` | The amount of money that has been refunded for this payment request. |
 | `callbackUrl` |  |
 | `cardStripePaymentIntentSecret` |  |
-| `countryCode` |  |
-| `currency` |  |
-| `customFieldsToDisplay` |  |
-| `description` |  |
-| `dueDate` |  |
+| `countryCode` | The country code associated with the payment. |
+| `currency` | The currency of the request. |
+| `customFieldsToDisplay` | Custom fields to display to the customer. |
+| `description` | An optional description for the payment request. |
+| `dueDate` | The due date of the payment request. |
 | `fieldDisplaySettings` |  |
-| `googlePayMerchantID` |  |
+| `googlePayMerchantID` | Merchant ID from Google Pay |
 | `id` |  |
-| `jwk` |  |
+| `jwk` | The jwk containing the public key |
 | `merchantID` |  |
 | `merchantLogoUrlPng` |  |
 | `merchantLogoUrlSvg` |  |
 | `merchantName` |  |
 | `merchantShortName` |  |
 | `partialPaymentMethod` |  |
-| `paymentAttempts` |  |
-| `paymentMethodsList` |  |
-| `paymentProcessor` |  |
-| `paymentProcessorKey` |  |
-| `pispError` |  |
+| `paymentAttempts` | The payment attempts for this payment request. |
+| `paymentMethodsList` | The payment methods that the payment request supports. |
+| `paymentProcessor` | The card processor |
+| `paymentProcessorKey` | The card processors public key |
+| `pispError` | This is the error returned from the bank which is recorded in payment request events. |
 | `priorityBankID` |  |
-| `status` |  |
-| `stripeAccountID` |  |
-| `title` |  |
+| `status` | The status of the payment request. |
+| `stripeAccountID` | Account ID of connected customers in Stripe |
+| `title` | The title of the payment request. |
 
 Operations: List.
 
@@ -1203,17 +1203,17 @@ API path: `/api/v1/paymentrequests/{id}/minimal`
 
 | Field | Description |
 | --- | --- |
-| `amount` |  |
+| `amount` | The authorised payment amount. |
 | `amountPending` |  |
 | `amountReceived` |  |
 | `amountRefunded` |  |
-| `currency` |  |
-| `customerID` |  |
-| `paymentRequestID` |  |
-| `payments` |  |
+| `currency` | The authorised payment currency. |
+| `customerID` | The customer id |
+| `paymentRequestID` | The ID of the payment request the result is for. |
+| `payments` | The list of payment attempts that have been received for the payment request. |
 | `pispAuthorizations` |  |
-| `requestedAmount` |  |
-| `result` |  |
+| `requestedAmount` | The full original payment amount requested. |
+| `result` | The result of the payment attempt. |
 
 Operations: List.
 
@@ -1223,85 +1223,85 @@ API path: `/api/v1/paymentrequests/{id}/result`
 
 | Field | Description |
 | --- | --- |
-| `accountID` |  |
-| `allowIncomplete` |  |
-| `amount` |  |
-| `amountMinorUnits` |  |
-| `approvePayoutUrl` |  |
-| `approverID` |  |
-| `authenticationMethods` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
-| `batchPayoutID` |  |
+| `accountID` | Gets or Sets Account Id of sending account |
+| `allowIncomplete` | If set to true the payout will get created even if the business validation rules fail. |
+| `amount` | Gets or Sets payout amount |
+| `amountMinorUnits` | The payout amount expressed in the currency’s minor units (e.g. |
+| `approvePayoutUrl` | This field is used when returning an payout record to a client. |
+| `approverID` | Gets the User ID of person that approved the payout. |
+| `authenticationMethods` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | A list of the users who have successfully authorised the latest version of the payout and when. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the payout. |
+| `authorisersRequiredCount` | The number of authorisers required for this payout. |
+| `batchPayoutID` | The ID of the batch the payout is associated with. |
 | `beneficiary` |  |
-| `beneficiaryID` |  |
-| `canAuthorise` |  |
-| `canProcess` |  |
-| `canUpdate` |  |
-| `chargeBearer` |  |
+| `beneficiaryID` | Optional. |
+| `canAuthorise` | True if the payout can be authorised by the user who loaded it. |
+| `canProcess` | If set to true indicates the payout has been flagged as safe to process after transaction monitoring. |
+| `canUpdate` | True if the payout can be updated by the user who loaded it. |
+| `chargeBearer` | Optional field to set who should pay any fees for the payout. |
 | `createdBy` |  |
 | `createdByEmailAddress` |  |
-| `currency` |  |
-| `currentUserID` |  |
-| `description` |  |
+| `currency` | Gets or Sets Currency of payout request |
+| `currentUserID` | The ID of the user that requested access to the PayOut record. |
+| `description` | Gets or Sets description of payout request |
 | `destination` |  |
-| `documents` |  |
-| `events` |  |
+| `documents` | Documents associated with the payout. |
+| `events` | The activity associated with the payout. |
 | `failedPayouts` |  |
-| `formattedAmount` |  |
-| `formattedFxDestinationAmount` |  |
+| `formattedAmount` | Currency and formatted amount string. |
+| `formattedFxDestinationAmount` | FX destination currency and amount formatted string. |
 | `formattedSchedule` |  |
 | `formattedScheduleDayOnly` |  |
-| `formattedSourceAccountAvailableBalance` |  |
-| `fxDestinationAmount` |  |
-| `fxDestinationAmountMinorUnits` |  |
-| `fxDestinationCurrency` |  |
-| `fxQuoteExpiresAt` |  |
-| `fxQuoteID` |  |
-| `fxRate` |  |
-| `fxUseDestinationAmount` |  |
-| `hasCurrentUserAuthorised` |  |
-| `id` |  |
+| `formattedSourceAccountAvailableBalance` | The available balance of the account the payout is being made from. |
+| `fxDestinationAmount` | If specified this will be the amount sent to the payee. |
+| `fxDestinationAmountMinorUnits` | The payout FxDestinationAmount expressed in the currency’s minor units (e.g. |
+| `fxDestinationCurrency` | For an FX payout this is the currency to send to the beneficiary. |
+| `fxQuoteExpiresAt` | If an FX held rate quote ID is being used this is the time the quote expires. |
+| `fxQuoteID` | Optional. |
+| `fxRate` | For an FX payout this is the exchange rate to use for the payout. |
+| `fxUseDestinationAmount` | For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated. |
+| `hasCurrentUserAuthorised` | True if the payout was loaded for a user and that user has already authorised the latest version of the payout. |
+| `id` | The ID for the payout. |
 | `inserted` |  |
-| `invoiceID` |  |
-| `isArchived` |  |
-| `isFailed` |  |
-| `isSettled` |  |
-| `isSubmitted` |  |
+| `invoiceID` | Optional field to associate the payout with the invoice from an external application such as Xero. |
+| `isArchived` | Indicates whether the payout is archived. |
+| `isFailed` | Set to true if a submitted payout subsequently fails. |
+| `isSettled` | Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger. |
+| `isSubmitted` | Indicates whether the payout has been submitted for processing. |
 | `lastUpdated` |  |
-| `merchantID` |  |
+| `merchantID` | The ID of the merchant that owns the account. |
 | `merchantTokenDescription` |  |
 | `nonce` |  |
-| `paymentProcessor` |  |
-| `paymentRail` |  |
+| `paymentProcessor` | The usptream payment processor for the payout. |
+| `paymentRail` | Optional field to indicate the payment rail to use for the payout. |
 | `payouts` |  |
-| `payrunID` |  |
-| `payrunName` |  |
+| `payrunID` | The ID of the payrun that this payout is associated with. |
+| `payrunName` | The name of the payrun that this payout is associated with. |
 | `reason` |  |
 | `rule` |  |
-| `scheduleDate` |  |
-| `scheduled` |  |
-| `sourceAccountAvailableBalance` |  |
-| `sourceAccountAvailableBalanceMinorUnits` |  |
-| `sourceAccountBic` |  |
-| `sourceAccountCurrency` |  |
-| `sourceAccountIban` |  |
+| `scheduleDate` | The date the payout should be submitted. |
+| `scheduled` | Should this payout be scheduled for a future date? |
+| `sourceAccountAvailableBalance` | The available balance of the account the payout is being made from. |
+| `sourceAccountAvailableBalanceMinorUnits` | The available balance of the source account expressed in the currency’s minor units (e.g. |
+| `sourceAccountBic` | The BIC of the account the payout is being made from. |
+| `sourceAccountCurrency` | The currency of the source account. |
+| `sourceAccountIban` | The IBAN of the account the payout is being made from. |
 | `sourceAccountIdentifier` |  |
-| `sourceAccountName` |  |
-| `sourceAccountNumber` |  |
-| `sourceAccountSortcode` |  |
-| `status` |  |
-| `tagIds` |  |
-| `tags` |  |
-| `theirReference` |  |
-| `topupPayrunID` |  |
-| `transactedAmount` |  |
-| `transactedFxAmount` |  |
-| `transactedFxRate` |  |
-| `type` |  |
-| `userID` |  |
-| `yourReference` |  |
+| `sourceAccountName` | The name of the account the payout is being made from. |
+| `sourceAccountNumber` | The account number of the account the payout is being made from. |
+| `sourceAccountSortcode` | The sort code of the account the payout is being made from. |
+| `status` | Gets or Sets the status of payout request |
+| `tagIds` | An optional list of tag ids to add to the payout. |
+| `tags` | An optional list of descriptive tags attached to the payout. |
+| `theirReference` | Gets or Sets destination reference ID |
+| `topupPayrunID` | The ID of a payrun that needs an account top up. |
+| `transactedAmount` | The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction. |
+| `transactedFxAmount` | The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction. |
+| `transactedFxRate` | The actual FX rate applied during settlement, as recorded on the associated transaction. |
+| `type` | Gets or Sets payout type |
+| `userID` | Gets or Sets User ID of who created the payout request |
+| `yourReference` | Gets or Sets your reference ID |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1311,79 +1311,79 @@ API path: `/api/v1/payouts/batch/submit/{id}`
 
 | Field | Description |
 | --- | --- |
-| `accountID` |  |
-| `amount` |  |
-| `amountMinorUnits` |  |
-| `approvePayoutUrl` |  |
-| `approverID` |  |
-| `authenticationMethods` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
-| `batchPayoutID` |  |
+| `accountID` | Gets or Sets Account Id of sending account |
+| `amount` | Gets or Sets payout amount |
+| `amountMinorUnits` | The payout amount expressed in the currency’s minor units (e.g. |
+| `approvePayoutUrl` | This field is used when returning an payout record to a client. |
+| `approverID` | Gets the User ID of person that approved the payout. |
+| `authenticationMethods` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | A list of the users who have successfully authorised the latest version of the payout and when. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the payout. |
+| `authorisersRequiredCount` | The number of authorisers required for this payout. |
+| `batchPayoutID` | The ID of the batch the payout is associated with. |
 | `beneficiary` |  |
-| `canAuthorise` |  |
-| `canProcess` |  |
-| `canUpdate` |  |
-| `chargeBearer` |  |
+| `canAuthorise` | True if the payout can be authorised by the user who loaded it. |
+| `canProcess` | If set to true indicates the payout has been flagged as safe to process after transaction monitoring. |
+| `canUpdate` | True if the payout can be updated by the user who loaded it. |
+| `chargeBearer` | Optional field to set who should pay any fees for the payout. |
 | `createdBy` |  |
 | `createdByEmailAddress` |  |
-| `currency` |  |
-| `currentUserID` |  |
-| `description` |  |
+| `currency` | Gets or Sets Currency of payout request |
+| `currentUserID` | The ID of the user that requested access to the PayOut record. |
+| `description` | Gets or Sets description of payout request |
 | `destination` |  |
-| `documents` |  |
-| `events` |  |
-| `formattedAmount` |  |
-| `formattedFxDestinationAmount` |  |
+| `documents` | Documents associated with the payout. |
+| `events` | The activity associated with the payout. |
+| `formattedAmount` | Currency and formatted amount string. |
+| `formattedFxDestinationAmount` | FX destination currency and amount formatted string. |
 | `formattedSchedule` |  |
 | `formattedScheduleDayOnly` |  |
-| `formattedSourceAccountAvailableBalance` |  |
-| `fxDestinationAmount` |  |
-| `fxDestinationAmountMinorUnits` |  |
-| `fxDestinationCurrency` |  |
-| `fxQuoteExpiresAt` |  |
-| `fxQuoteID` |  |
-| `fxRate` |  |
-| `fxUseDestinationAmount` |  |
-| `hasCurrentUserAuthorised` |  |
-| `id` |  |
+| `formattedSourceAccountAvailableBalance` | The available balance of the account the payout is being made from. |
+| `fxDestinationAmount` | If specified this will be the amount sent to the payee. |
+| `fxDestinationAmountMinorUnits` | The payout FxDestinationAmount expressed in the currency’s minor units (e.g. |
+| `fxDestinationCurrency` | For an FX payout this is the currency to send to the beneficiary. |
+| `fxQuoteExpiresAt` | If an FX held rate quote ID is being used this is the time the quote expires. |
+| `fxQuoteID` | Optional. |
+| `fxRate` | For an FX payout this is the exchange rate to use for the payout. |
+| `fxUseDestinationAmount` | For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated. |
+| `hasCurrentUserAuthorised` | True if the payout was loaded for a user and that user has already authorised the latest version of the payout. |
+| `id` | The ID for the payout. |
 | `inserted` |  |
-| `invoiceID` |  |
-| `isArchived` |  |
-| `isFailed` |  |
-| `isSettled` |  |
-| `isSubmitted` |  |
+| `invoiceID` | Optional field to associate the payout with the invoice from an external application such as Xero. |
+| `isArchived` | Indicates whether the payout is archived. |
+| `isFailed` | Set to true if a submitted payout subsequently fails. |
+| `isSettled` | Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger. |
+| `isSubmitted` | Indicates whether the payout has been submitted for processing. |
 | `lastUpdated` |  |
-| `merchantID` |  |
+| `merchantID` | The ID of the merchant that owns the account. |
 | `merchantTokenDescription` |  |
 | `nonce` |  |
-| `paymentProcessor` |  |
-| `paymentRail` |  |
-| `payrunID` |  |
-| `payrunName` |  |
+| `paymentProcessor` | The usptream payment processor for the payout. |
+| `paymentRail` | Optional field to indicate the payment rail to use for the payout. |
+| `payrunID` | The ID of the payrun that this payout is associated with. |
+| `payrunName` | The name of the payrun that this payout is associated with. |
 | `rule` |  |
-| `scheduleDate` |  |
-| `scheduled` |  |
-| `sourceAccountAvailableBalance` |  |
-| `sourceAccountAvailableBalanceMinorUnits` |  |
-| `sourceAccountBic` |  |
-| `sourceAccountCurrency` |  |
-| `sourceAccountIban` |  |
+| `scheduleDate` | The date the payout should be submitted. |
+| `scheduled` | Should this payout be scheduled for a future date? |
+| `sourceAccountAvailableBalance` | The available balance of the account the payout is being made from. |
+| `sourceAccountAvailableBalanceMinorUnits` | The available balance of the source account expressed in the currency’s minor units (e.g. |
+| `sourceAccountBic` | The BIC of the account the payout is being made from. |
+| `sourceAccountCurrency` | The currency of the source account. |
+| `sourceAccountIban` | The IBAN of the account the payout is being made from. |
 | `sourceAccountIdentifier` |  |
-| `sourceAccountName` |  |
-| `sourceAccountNumber` |  |
-| `sourceAccountSortcode` |  |
-| `status` |  |
-| `tags` |  |
-| `theirReference` |  |
-| `topupPayrunID` |  |
-| `transactedAmount` |  |
-| `transactedFxAmount` |  |
-| `transactedFxRate` |  |
-| `type` |  |
-| `userID` |  |
-| `yourReference` |  |
+| `sourceAccountName` | The name of the account the payout is being made from. |
+| `sourceAccountNumber` | The account number of the account the payout is being made from. |
+| `sourceAccountSortcode` | The sort code of the account the payout is being made from. |
+| `status` | Gets or Sets the status of payout request |
+| `tags` | An optional list of descriptive tags attached to the payout. |
+| `theirReference` | Gets or Sets destination reference ID |
+| `topupPayrunID` | The ID of a payrun that needs an account top up. |
+| `transactedAmount` | The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction. |
+| `transactedFxAmount` | The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction. |
+| `transactedFxRate` | The actual FX rate applied during settlement, as recorded on the associated transaction. |
+| `type` | Gets or Sets payout type |
+| `userID` | Gets or Sets User ID of who created the payout request |
+| `yourReference` | Gets or Sets your reference ID |
 
 Operations: List.
 
@@ -1403,15 +1403,15 @@ API path: `/api/v1/payouts/metrics`
 | Field | Description |
 | --- | --- |
 | `authorisationDate` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
+| `authorisations` | A list of the users who have successfully authorised the latest version of the payrun and when. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the payrun. |
+| `authorisersRequiredCount` | The number of authorisers required for this payrun. |
 | `batchPayoutID` |  |
-| `canAuthorise` |  |
+| `canAuthorise` | True if the payrun can be authorised by the user who loaded it. |
 | `canDelete` |  |
 | `canEdit` |  |
 | `events` |  |
-| `hasCurrentUserAuthorised` |  |
+| `hasCurrentUserAuthorised` | True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun. |
 | `id` |  |
 | `inserted` |  |
 | `invoices` |  |
@@ -1480,38 +1480,38 @@ API path: `/api/v1/merchants/{merchantID}/roles/batchcreate`
 | Field | Description |
 | --- | --- |
 | `account` |  |
-| `accountID` |  |
-| `approveUrl` |  |
+| `accountID` | The ID of the account the rule will apply to. |
+| `approveUrl` | If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule. |
 | `approverID` |  |
-| `authenticationMethods` |  |
-| `authorisations` |  |
-| `authorisersCompletedCount` |  |
-| `authorisersRequiredCount` |  |
-| `canAuthorise` |  |
+| `authenticationMethods` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | A list of the users who have successfully authorised the latest version of the rule and when. |
+| `authorisersCompletedCount` | The number of distinct authorisers that have authorised the rule. |
+| `authorisersRequiredCount` | The number of authorisers required for this rule. |
+| `canAuthorise` | True if the rule can be authorised by the user who loaded it. |
 | `createdBy` |  |
-| `description` |  |
-| `endAt` |  |
-| `hasCurrentUserAuthorised` |  |
+| `description` | Arbitrary description for the rule. |
+| `endAt` | Optional end time for rule executions. |
+| `hasCurrentUserAuthorised` | True if the current user has authorised. |
 | `id` |  |
 | `inserted` |  |
-| `isDisabled` |  |
+| `isDisabled` | If set to true the rule will be disabled from executing. |
 | `lastExecutedAt` |  |
-| `lastRunAtTransactionDate` |  |
+| `lastRunAtTransactionDate` | The most recent transaction date when the rule was last run. |
 | `lastUpdated` |  |
-| `merchantID` |  |
-| `name` |  |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `name` | A name to succinctly describe the rule. |
 | `nonce` |  |
-| `onApprovedWebHookUrl` |  |
-| `onExecutionErrorWebHookUrl` |  |
-| `onExecutionSuccessWebHookUrl` |  |
-| `startAt` |  |
+| `onApprovedWebHookUrl` | Optional URL to receive an HTTP request with the rule details when the rule status changes to approved. |
+| `onExecutionErrorWebHookUrl` | Optional URL to receive an HTTP request when a rule execution attempt fails. |
+| `onExecutionSuccessWebHookUrl` | Optional URL to receive an HTTP request when a rule execution attempt succeeds. |
+| `startAt` | Optional start time for rule executions. |
 | `status` |  |
 | `sweepAction` |  |
-| `timeZoneId` |  |
-| `triggerCronExpression` |  |
-| `triggerOnPayIn` |  |
+| `timeZoneId` | If the rule should be executed on a recurring schedule this is the timezone that the CRON expression should be evaluated in. |
+| `triggerCronExpression` | If the rule should be executed on a recurring schedule this is the expression that sets the schedule. |
+| `triggerOnPayIn` | Set to true if the rule execution should be triggered when the account receives a pay in (credit). |
 | `userID` |  |
-| `webHookSecret` |  |
+| `webHookSecret` | If set this secret will be used to sign Web Hook requests. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1562,59 +1562,59 @@ API path: `/api/v1/tokens/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `accountID` |  |
-| `accountName` |  |
-| `accountSequenceNumber` |  |
+| `accountID` | The ID of the account the transaction belongs to. |
+| `accountName` | The name of the account the transaction belongs to. |
+| `accountSequenceNumber` | The sequence number of transaction on a per account basis. |
 | `addressDetails` |  |
-| `amount` |  |
-| `amountMinorUnits` |  |
-| `balance` |  |
-| `balanceMinorUnits` |  |
+| `amount` | Amount of the transaction. |
+| `amountMinorUnits` | Amount of the transaction expressed in the currency’s minor units (e.g. |
+| `balance` | Balance left on the account after the transaction. |
+| `balanceMinorUnits` | Balance on the account expressed in the currency’s minor units (e.g. |
 | `bookingDateTime` |  |
 | `chargeDetails` |  |
 | `content` |  |
 | `counterparty` |  |
-| `counterpartySummary` |  |
-| `currency` |  |
-| `currencyExchange` |  |
+| `counterpartySummary` | For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty. |
+| `currency` | Currency of transaction. |
+| `currencyExchange` | Provides details on the currency exchange. |
 | `date` |  |
-| `description` |  |
+| `description` | Description of the transaction. |
 | `enrichment` |  |
-| `fxAmount` |  |
-| `fxCurrency` |  |
-| `fxRate` |  |
+| `fxAmount` | For an FX payout this is the amound in the FX currency. |
+| `fxCurrency` | For an FX payout this is the currency that was received or that was instructed. |
+| `fxRate` | For an FX payout this is the exchange rate between the transaction currency and the FX currency. |
 | `grossAmount` |  |
-| `id` |  |
-| `inserted` |  |
+| `id` | Unique ID for the transaction. |
+| `inserted` | Date when the transaction was inserted into the ledger. |
 | `isoBankTransactionCode` |  |
 | `merchant` |  |
-| `merchantID` |  |
-| `pageNumber` |  |
-| `pageSize` |  |
-| `payeeDetails` |  |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `pageNumber` | Current page number. |
+| `pageSize` | Page size |
+| `payeeDetails` | The Payee object contains details of the beneficiary, person or business. |
 | `payerDetails` |  |
-| `paymentRequestCustomFields` |  |
-| `paymentRequestID` |  |
-| `payoutID` |  |
+| `paymentRequestCustomFields` | The custom fields that were attached to the payment request that resulted in this transaction. |
+| `paymentRequestID` | For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request. |
+| `payoutID` | ID of the payout that resulted in the transaction. |
 | `proprietaryBankTransactionCode` |  |
-| `rawReference` |  |
+| `rawReference` | The raw payment reference details as received from the payment processor. |
 | `reference` |  |
-| `ruleID` |  |
+| `ruleID` | ID of the rule that resulted in the transaction. |
 | `statementReferences` |  |
 | `status` |  |
 | `supplementaryData` |  |
-| `tags` |  |
-| `theirReference` |  |
-| `totalPages` |  |
-| `totalSize` |  |
+| `tags` | An optional list of descriptive tags attached to the transaction. |
+| `theirReference` | For a pay out the reference that the payer attached for the receiving party. |
+| `totalPages` | Total pages |
+| `totalSize` | Total count |
 | `transactionAmount` |  |
-| `transactionDate` |  |
+| `transactionDate` | Date when the transaction occurred. |
 | `transactionInformation` |  |
 | `transactionMutability` |  |
-| `type` |  |
+| `type` | Type of the transaction. |
 | `valueDateTime` |  |
-| `virtualIBAN` |  |
-| `yourReference` |  |
+| `virtualIBAN` | If set it indicates the payin was to a virtual IBAN. |
+| `yourReference` | For a pay in the reference the sending party attached. |
 
 Operations: Create, List, Load, Remove.
 
@@ -1624,7 +1624,7 @@ API path: `/api/v1/transactions/{id}/tags`
 
 | Field | Description |
 | --- | --- |
-| `clientSessionTimeouts` |  |
+| `clientSessionTimeouts` | The number of seconds a session for this user should last before expiring. |
 | `emailAddress` |  |
 | `firstName` |  |
 | `id` |  |
@@ -1634,7 +1634,7 @@ API path: `/api/v1/transactions/{id}/tags`
 | `profile` |  |
 | `rolesWithScope` |  |
 | `twoFactorEnabled` |  |
-| `userInviteID` |  |
+| `userInviteID` | Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant. |
 
 Operations: List, Update.
 
@@ -1647,21 +1647,21 @@ API path: `/api/v1/user/{merchantID}/userspaged`
 | `authorisationStatus` |  |
 | `failedUserInvites` |  |
 | `id` |  |
-| `initialRoleID` |  |
-| `inviteeEmailAddress` |  |
-| `inviteeFirstName` |  |
-| `inviteeLastName` |  |
+| `initialRoleID` | The role ID to automatically assign to the merchant’s very first user. |
+| `inviteeEmailAddress` | Email address of the user being invited. |
+| `inviteeFirstName` | First Name of the user being invited. |
+| `inviteeLastName` | Last Name of the user being invited. |
 | `inviterEmailAddress` |  |
 | `inviterFirstName` |  |
 | `inviterLastName` |  |
-| `isAuthorised` |  |
-| `isInviteeRegistered` |  |
+| `isAuthorised` | Will be set to true once the invite has met the authorisation requirements. |
+| `isInviteeRegistered` | If true, indicates the invitee's email address corresponds to an existing MoneyMoov user. |
 | `lastInvited` |  |
-| `merchantID` |  |
+| `merchantID` | ID of the merchant the user is being invited to. |
 | `merchantName` |  |
 | `message` |  |
 | `registrationUrl` |  |
-| `sendInviteEmail` |  |
+| `sendInviteEmail` | If set to true an email will be sent to the invitee with instructions on how to accept the invite. |
 | `status` |  |
 | `user` |  |
 | `userID` |  |
@@ -1675,46 +1675,46 @@ API path: `/api/v1/userinvites/authorise/{id}`
 
 | Field | Description |
 | --- | --- |
-| `accountName` |  |
-| `accountSupplierName` |  |
-| `availableBalance` |  |
-| `availableBalanceMinorUnits` |  |
-| `balance` |  |
-| `balanceMinorUnits` |  |
-| `bankName` |  |
-| `consentID` |  |
+| `accountName` | Name for the account |
+| `accountSupplierName` | The payment account supplier name. |
+| `availableBalance` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | Balance of the account. |
+| `balanceMinorUnits` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | The bank name for external accounts |
+| `consentID` | The ID of the consent used to connect the external account. |
 | `createdBy` |  |
-| `createdByDisplayName` |  |
-| `currency` |  |
-| `defaultPaymentRail` |  |
-| `displayName` |  |
-| `expiryDate` |  |
-| `externalAccountIcon` |  |
-| `id` |  |
+| `createdByDisplayName` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | Indicates the default payment rail for this account. |
+| `displayName` | Gets a unique display name for the payment account. |
+| `expiryDate` | The date that the external account will expire |
+| `externalAccountIcon` | The Icon for external accounts |
+| `id` | Unique id for the account. |
 | `identifier` |  |
-| `inserted` |  |
-| `isArchived` |  |
-| `isConnectedAccount` |  |
-| `isDefault` |  |
-| `isTrustAccount` |  |
-| `isVirtual` |  |
+| `inserted` | Timestamp when the account was created. |
+| `isArchived` | Indicates whether the account is archived. |
+| `isConnectedAccount` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | Is the default account |
+| `isTrustAccount` | Indicates if the payment account is a trust account. |
+| `isVirtual` | True if the account is a virtual account. |
 | `lastTransaction` |  |
-| `lastUpdated` |  |
-| `merchantID` |  |
-| `merchantName` |  |
-| `name` |  |
-| `physicalAccountID` |  |
-| `rules` |  |
-| `submittedPayoutsBalance` |  |
-| `submittedPayoutsBalanceMinorUnits` |  |
-| `summary` |  |
-| `supplierSepaInstantStatus` |  |
-| `xeroBankFeedConnectionStatus` |  |
+| `lastUpdated` | Timestamp when the account was last updated. |
+| `merchantID` | The ID of the merchant that owns the account. |
+| `merchantName` | The name of the merchant that owns the account. |
+| `name` | The name of the virtual account. |
+| `physicalAccountID` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `rules` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | Gets a summary of the payments account's most important properties. |
+| `supplierSepaInstantStatus` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `xeroBankFeedConnectionStatus` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` |  |
 | `xeroBankFeedSyncLastFailedAt` |  |
 | `xeroBankFeedSyncLastFailureReason` |  |
 | `xeroBankFeedSyncStatus` |  |
-| `xeroUnsynchronisedTransactionsCount` |  |
+| `xeroUnsynchronisedTransactionsCount` | Indicates the number of unsynchronised transactions with Xero |
 
 Operations: Create, Update.
 
@@ -1724,16 +1724,16 @@ API path: `/api/v1/accounts/{accountID}/virtual`
 
 | Field | Description |
 | --- | --- |
-| `destinationUrl` |  |
-| `emailAddress` |  |
-| `failedNotificationEmailAddress` |  |
+| `destinationUrl` | The destination URL for the webhook. |
+| `emailAddress` | The recipient email address(es) for notifications. |
+| `failedNotificationEmailAddress` | The email address to which notifications about failed webhook deliveries will be sent. |
 | `id` |  |
 | `isActive` |  |
-| `merchantID` |  |
-| `notificationMethod` |  |
-| `resourceTypes` |  |
+| `merchantID` | The ID of the merchant that the webhook is for. |
+| `notificationMethod` | The type of notification that will be sent. |
+| `resourceTypes` | The resource types that the webhook will be generated for. |
 | `retry` |  |
-| `secret` |  |
+| `secret` | The secret key required to authenticate webhook notifications. |
 | `version` |  |
 
 Operations: Create, List, Load, Remove, Update.
@@ -1763,61 +1763,61 @@ Create an instance: `account = client.Account`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountBalances` | `Array` |  |
-| `accountID` | `String` |  |
-| `accountIdentifications` | `Array` |  |
-| `accountName` | `String` |  |
-| `accountNames` | `Array` |  |
-| `accountSupplierName` | `String` |  |
-| `accountType` | `String` |  |
-| `availableBalance` | `Float` |  |
-| `availableBalanceMinorUnits` | `Integer` |  |
-| `balance` | `Float` |  |
-| `balanceMinorUnits` | `Integer` |  |
-| `bankName` | `String` |  |
-| `consentID` | `String` |  |
-| `consolidatedAccountInformation` | `Hash` |  |
+| `accountBalances` | `Array` | The various balances for the account. |
+| `accountID` | `String` | ID of the account. |
+| `accountIdentifications` | `Array` | The canoncial identifiers for the account. |
+| `accountName` | `String` | Name for the account |
+| `accountNames` | `Array` | Optional account names set by the account holder. |
+| `accountSupplierName` | `String` | The payment account supplier name. |
+| `accountType` | `String` | The type of account e.g. |
+| `availableBalance` | `Float` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | `Integer` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | `Float` | Balance of the account. |
+| `balanceMinorUnits` | `Integer` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | `String` | The bank name for external accounts |
+| `consentID` | `String` | The ID of the consent used to connect the external account. |
+| `consolidatedAccountInformation` | `Hash` | Summary information regarding account balances of the overall account provided by the bank. |
 | `createdBy` | `Hash` |  |
-| `createdByDisplayName` | `String` |  |
-| `currency` | `String` |  |
-| `defaultPaymentRail` | `String` |  |
-| `description` | `String` |  |
-| `details` | `String` |  |
-| `displayName` | `String` |  |
-| `expiryDate` | `String` |  |
-| `externalAccountIcon` | `String` |  |
-| `format` | `String` |  |
-| `fromDate` | `String` |  |
-| `id` | `String` |  |
+| `createdByDisplayName` | `String` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | `String` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | `String` | Indicates the default payment rail for this account. |
+| `description` | `String` | Product name as defined by the financial institution for this account. |
+| `details` | `String` | Supplementary specifications that might be provided by the Bank. |
+| `displayName` | `String` | Gets a unique display name for the payment account. |
+| `expiryDate` | `String` | The date that the external account will expire |
+| `externalAccountIcon` | `String` | The Icon for external accounts |
+| `format` | `String` | File format to save the statement as. |
+| `fromDate` | `String` | Minimum transaction date for the statement. |
+| `id` | `String` | Unique id for the account. |
 | `identifier` | `Hash` |  |
-| `inserted` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isConnectedAccount` | `Boolean` |  |
-| `isDefault` | `Boolean` |  |
-| `isTrustAccount` | `Boolean` |  |
-| `isVirtual` | `Boolean` |  |
+| `inserted` | `String` | Timestamp when the account was created. |
+| `isArchived` | `Boolean` | Indicates whether the account is archived. |
+| `isConnectedAccount` | `Boolean` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | `Boolean` | Is the default account |
+| `isTrustAccount` | `Boolean` | Indicates if the payment account is a trust account. |
+| `isVirtual` | `Boolean` | True if the account is a virtual account. |
 | `lastTransaction` | `Hash` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `merchantName` | `String` |  |
-| `nickname` | `String` |  |
-| `physicalAccountID` | `String` |  |
-| `roleIDs` | `Array` |  |
-| `rules` | `Array` |  |
-| `submittedPayoutsBalance` | `Float` |  |
-| `submittedPayoutsBalanceMinorUnits` | `Integer` |  |
-| `summary` | `String` |  |
-| `supplierPhysicalAccountID` | `String` |  |
-| `supplierSepaInstantStatus` | `String` |  |
-| `toDate` | `String` |  |
-| `type` | `String` |  |
+| `lastUpdated` | `String` | Timestamp when the account was last updated. |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `merchantName` | `String` | The name of the merchant that owns the account. |
+| `nickname` | `String` | Nickname of the account that was provided by the account owner. |
+| `physicalAccountID` | `String` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `roleIDs` | `Array` | Optional list of role IDs that will get access to the payment account when created. |
+| `rules` | `Array` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | `Float` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | `String` | Gets a summary of the payments account's most important properties. |
+| `supplierPhysicalAccountID` | `String` | For internal use only. |
+| `supplierSepaInstantStatus` | `String` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `toDate` | `String` | Maximum transaction date for the statement. |
+| `type` | `String` | Specifies the type of account e.g. |
 | `usageType` | `String` |  |
-| `xeroBankFeedConnectionStatus` | `String` |  |
+| `xeroBankFeedConnectionStatus` | `String` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailureReason` | `String` |  |
 | `xeroBankFeedSyncStatus` | `String` |  |
-| `xeroUnsynchronisedTransactionsCount` | `Integer` |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | Indicates the number of unsynchronised transactions with Xero |
 
 #### Example: Load
 
@@ -1837,6 +1837,8 @@ accounts = client.Account.list
 
 ```ruby
 account = client.Account.create({
+  "account_id" => "example_account_id", # String
+  "currency" => "example_currency", # String
   "createdBy" => {}, # Hash
   "identifier" => {}, # Hash
 })
@@ -1858,7 +1860,7 @@ Create an instance: `batch = client.Batch`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approveUrl` | `String` |  |
+| `approveUrl` | `String` | This field is used when returning a batch payout record to a client. |
 | `id` | `String` |  |
 | `payouts` | `Array` |  |
 
@@ -1896,31 +1898,31 @@ Create an instance: `beneficiary = client.Beneficiary`
 | Field | Type | Description |
 | --- | --- | --- |
 | `approvalCallbackUrl` | `String` |  |
-| `authenticationMethods` | `Array` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
+| `authenticationMethods` | `Array` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | `Array` | A list of users who have successfully authorised the latest version of the beneficiary. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the beneficiary. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this beneficiary. |
 | `beneficiaries` | `Array` |  |
 | `beneficiaryEvents` | `Array` |  |
-| `canAuthorise` | `Boolean` |  |
-| `canUpdate` | `Boolean` |  |
+| `canAuthorise` | `Boolean` | True if the beneficiary can be authorised by the user who loaded it. |
+| `canUpdate` | `Boolean` | True if the beneficiary can be updated by the user who loaded it. |
 | `createdBy` | `Hash` |  |
 | `createdByEmailAddress` | `String` |  |
-| `currency` | `String` |  |
+| `currency` | `String` | Gets or Sets the currency. |
 | `destination` | `Hash` |  |
 | `failedBeneficiaries` | `Hash` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary. |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
 | `isEnabled` | `Boolean` |  |
 | `lastAuthorised` | `String` |  |
 | `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `name` | `String` |  |
+| `merchantID` | `String` | Gets or Sets the merchant id. |
+| `name` | `String` | The descriptive name for the beneficiary. |
 | `nonce` | `String` |  |
-| `sourceAccountIDs` | `Array` |  |
+| `sourceAccountIDs` | `Array` | ID of the accounts which are authorised to act as a source for the beneficiary. |
 | `sourceAccounts` | `Array` |  |
-| `theirReference` | `String` |  |
+| `theirReference` | `String` | The reference that will be used by default as TheirReference when creating payouts to this beneficiary if no TheirReference is specified for the payout. |
 
 #### Example: Load
 
@@ -1940,6 +1942,7 @@ beneficiarys = client.Beneficiary.list
 
 ```ruby
 beneficiary = client.Beneficiary.create({
+  "id" => "example_id", # String
   "createdBy" => {}, # Hash
   "currency" => "example_currency", # String
   "name" => "example_name", # String
@@ -1961,12 +1964,12 @@ Create an instance: `beneficiary_group = client.BeneficiaryGroup`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `groupMembers` | `Array` |  |
-| `groupName` | `String` |  |
+| `groupMembers` | `Array` | The existing group members. |
+| `groupName` | `String` | The descriptive name for the beneficiary group. |
 | `id` | `String` |  |
-| `inserted` | `String` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
+| `inserted` | `String` | Timestamp indicating when the group was created. |
+| `lastUpdated` | `String` | Timestamp indicating when the group was last updated. |
+| `merchantID` | `String` | Gets or Sets the merchant id. |
 
 #### Example: List
 
@@ -1992,20 +1995,20 @@ Create an instance: `card = client.Card`
 | --- | --- | --- |
 | `authorizedAmount` | `String` |  |
 | `currencyCode` | `String` |  |
-| `isPayerAuthenticationRequired` | `Boolean` |  |
-| `isSoftDecline` | `Boolean` |  |
-| `payerAuthenticationAccessToken` | `String` |  |
-| `payerAuthenticationMerchantData` | `String` |  |
-| `payerAuthenticationUrl` | `String` |  |
-| `payerAuthenticationWindowHeight` | `Integer` |  |
-| `payerAuthenticationWindowWidth` | `Integer` |  |
-| `paymentRequestCallbackUrl` | `String` |  |
+| `isPayerAuthenticationRequired` | `Boolean` | Gets set to true if 3-D Secure payer authentication is required for a payment. |
+| `isSoftDecline` | `Boolean` | Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. |
+| `payerAuthenticationAccessToken` | `String` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect. |
+| `payerAuthenticationMerchantData` | `String` | If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the "authenticationcallback" method that gets called automatically after a successful payer authenticati… |
+| `payerAuthenticationUrl` | `String` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank. |
+| `payerAuthenticationWindowHeight` | `Integer` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge. |
+| `payerAuthenticationWindowWidth` | `Integer` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge. |
+| `paymentRequestCallbackUrl` | `String` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` | `String` |  |
 | `requestID` | `String` |  |
 | `responseCode` | `String` |  |
 | `responseType` | `String` |  |
 | `status` | `String` |  |
-| `threeDSRedirectUrl` | `String` |  |
+| `threeDSRedirectUrl` | `String` | Checkout.com require a redirect for 3DS authentication. |
 | `transactionID` | `String` |  |
 
 #### Example: Create
@@ -2033,11 +2036,11 @@ Create an instance: `card_customer_token = client.CardCustomerToken`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardType` | `String` |  |
-| `customerEmailAddress` | `String` |  |
+| `cardType` | `String` | The type of the tokenised card, e.g. |
+| `customerEmailAddress` | `String` | When creating a tokenised card the payer's email address must be supplied. |
 | `expiryMonth` | `String` |  |
 | `expiryYear` | `String` |  |
-| `id` | `String` |  |
+| `id` | `String` | The unique ID of the card token that has been stored for the customer. |
 | `inserted` | `String` |  |
 | `lastFourDigits` | `String` |  |
 | `lastUpdated` | `String` |  |
@@ -2076,20 +2079,20 @@ Create an instance: `card_payment = client.CardPayment`
 | --- | --- | --- |
 | `authorizedAmount` | `String` |  |
 | `currencyCode` | `String` |  |
-| `isPayerAuthenticationRequired` | `Boolean` |  |
-| `isSoftDecline` | `Boolean` |  |
-| `payerAuthenticationAccessToken` | `String` |  |
-| `payerAuthenticationMerchantData` | `String` |  |
-| `payerAuthenticationUrl` | `String` |  |
-| `payerAuthenticationWindowHeight` | `Integer` |  |
-| `payerAuthenticationWindowWidth` | `Integer` |  |
-| `paymentRequestCallbackUrl` | `String` |  |
+| `isPayerAuthenticationRequired` | `Boolean` | Gets set to true if 3-D Secure payer authentication is required for a payment. |
+| `isSoftDecline` | `Boolean` | Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. |
+| `payerAuthenticationAccessToken` | `String` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect. |
+| `payerAuthenticationMerchantData` | `String` | If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the "authenticationcallback" method that gets called automatically after a successful payer authenticati… |
+| `payerAuthenticationUrl` | `String` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank. |
+| `payerAuthenticationWindowHeight` | `Integer` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge. |
+| `payerAuthenticationWindowWidth` | `Integer` | If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge. |
+| `paymentRequestCallbackUrl` | `String` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` | `String` |  |
 | `requestID` | `String` |  |
 | `responseCode` | `String` |  |
 | `responseType` | `String` |  |
 | `status` | `String` |  |
-| `threeDSRedirectUrl` | `String` |  |
+| `threeDSRedirectUrl` | `String` | Checkout.com require a redirect for 3DS authentication. |
 | `transactionID` | `String` |  |
 
 #### Example: Create
@@ -2143,20 +2146,20 @@ Create an instance: `consent = client.Consent`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authorisationUrl` | `String` |  |
-| `callbackUrl` | `String` |  |
-| `consentID` | `String` |  |
-| `emailAddress` | `String` |  |
+| `authorisationUrl` | `String` | The URL the authorising user needs to be redirected to in order to get the open banking consent token. |
+| `callbackUrl` | `String` | Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion. |
+| `consentID` | `String` | The ID of the open banking consent. |
+| `emailAddress` | `String` | The email address that identifies the end user that will be authorising the open banking consent request. |
 | `expiryDate` | `String` |  |
-| `failureCallbackUrl` | `String` |  |
+| `failureCallbackUrl` | `String` | Optional callback URL for open banking consent authorisation failure. |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
-| `institutionID` | `String` |  |
-| `isConnectedAccounts` | `Boolean` |  |
+| `institutionID` | `String` | The institution ID the open banking consent is being requested for. |
+| `isConnectedAccounts` | `Boolean` | Optional setting. |
 | `isEnabled` | `Boolean` |  |
-| `merchantID` | `String` |  |
-| `provider` | `String` |  |
-| `successWebHookUrl` | `String` |  |
+| `merchantID` | `String` | The ID of the merchant the consent token is being created to be used with. |
+| `provider` | `String` | Lists the supported card and PIS processors. |
+| `successWebHookUrl` | `String` | A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. |
 
 #### Example: Load
 
@@ -2223,8 +2226,8 @@ Create an instance: `direct_debit_batch_submit = client.DirectDebitBatchSubmit`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `failedSubmissions` | `Hash` |  |
-| `successfulSubmissions` | `Array` |  |
+| `failedSubmissions` | `Hash` | Dictionary of failed submissions, keyed by the index (1-based) in the original request. |
+| `successfulSubmissions` | `Array` | List of successfully submitted direct debit payments. |
 
 #### Example: Create
 
@@ -2250,7 +2253,7 @@ Create an instance: `fx_rate = client.FxRate`
 | Field | Type | Description |
 | --- | --- | --- |
 | `destinationCurrency` | `String` |  |
-| `exchangeRate` | `Float` |  |
+| `exchangeRate` | `Float` | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `String` |  |
 | `quoteID` | `String` |  |
 | `sourceCurrency` | `String` |  |
@@ -2310,40 +2313,40 @@ Create an instance: `mandate = client.Mandate`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountNumber` | `String` |  |
-| `addressLine1` | `String` |  |
-| `addressLine2` | `String` |  |
-| `approvedAt` | `String` |  |
-| `city` | `String` |  |
-| `countryCode` | `String` |  |
-| `currency` | `String` |  |
-| `customerAccountNumber` | `String` |  |
-| `customerCity` | `String` |  |
-| `customerCountryCode` | `String` |  |
-| `customerCountryName` | `String` |  |
-| `customerEmailAddress` | `String` |  |
-| `customerFirstName` | `String` |  |
-| `customerIban` | `String` |  |
-| `customerLastName` | `String` |  |
-| `customerSortCode` | `String` |  |
-| `emailAddress` | `String` |  |
-| `firstName` | `String` |  |
-| `iban` | `String` |  |
-| `id` | `String` |  |
-| `inserted` | `String` |  |
-| `isRecurring` | `Boolean` |  |
-| `lastName` | `String` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `postalCode` | `String` |  |
-| `reference` | `String` |  |
-| `sortCode` | `String` |  |
-| `status` | `String` |  |
-| `supplierBankAccountID` | `String` |  |
-| `supplierCustomerID` | `String` |  |
-| `supplierMandateID` | `String` |  |
-| `supplierName` | `String` |  |
-| `supplierStatus` | `String` |  |
+| `accountNumber` | `String` | Account number of the customer's bank account in case of GBP account. |
+| `addressLine1` | `String` | First line of the customer's address. |
+| `addressLine2` | `String` | Second line of the customer's address. |
+| `approvedAt` | `String` | Date at which the supplier approved this mandate. |
+| `city` | `String` | Customer's city. |
+| `countryCode` | `String` | 2-character country code of the customer's bank account. |
+| `currency` | `String` | Currency of this mandate. |
+| `customerAccountNumber` | `String` | Customer's account number in case of GBP account. |
+| `customerCity` | `String` | Customer's city of residence. |
+| `customerCountryCode` | `String` | Customer's country of residence code. |
+| `customerCountryName` | `String` | Customer's country of residence. |
+| `customerEmailAddress` | `String` | Customer's email address. |
+| `customerFirstName` | `String` | Customer's first name. |
+| `customerIban` | `String` | Customer's IBAN in case of EUR account. |
+| `customerLastName` | `String` | Customer's last name. |
+| `customerSortCode` | `String` | Customer's sort code in case of GBP account. |
+| `emailAddress` | `String` | Customer's email address. |
+| `firstName` | `String` | Customer's first name. |
+| `iban` | `String` | IBAN of the customer's bank account in case of EUR account. |
+| `id` | `String` | Internal ID of the mandate. |
+| `inserted` | `String` | The timestamp this mandate was created at. |
+| `isRecurring` | `Boolean` | Whether this mandate is single-use or recurring. |
+| `lastName` | `String` | Customer's last name. |
+| `lastUpdated` | `String` | The timestamp this mandate was last updated at. |
+| `merchantID` | `String` | Internal ID of this mandate's merchant. |
+| `postalCode` | `String` | Customer's postal code. |
+| `reference` | `String` | Reference assigned to this mandate. |
+| `sortCode` | `String` | Sort code of the customer's bank account in case of GBP account. |
+| `status` | `String` | General status of this mandate. |
+| `supplierBankAccountID` | `String` | ID that the supplier assigned to this mandate's bank account. |
+| `supplierCustomerID` | `String` | ID that the supplier assigned to this mandate's customer. |
+| `supplierMandateID` | `String` | ID that the supplier assigned to this mandate. |
+| `supplierName` | `String` | Name of the supplier used to create this mandate. |
+| `supplierStatus` | `String` | Last status that the supplier reported for this mandate. |
 
 #### Example: Load
 
@@ -2384,35 +2387,35 @@ Create an instance: `merchant = client.Merchant`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountCurrencies` | `Array` |  |
-| `canHaveTrustAccounts` | `Boolean` |  |
-| `cardPaymentProcessor` | `String` |  |
-| `companyID` | `String` |  |
-| `displayQrOnHostedPay` | `Boolean` |  |
-| `hostedPayVersion` | `Integer` |  |
-| `id` | `String` |  |
-| `inserted` | `String` |  |
-| `isBlocked` | `Boolean` |  |
-| `isExited` | `Boolean` |  |
-| `isSuspended` | `Boolean` |  |
-| `jurisdiction` | `String` |  |
-| `logoUrlPng` | `String` |  |
-| `logoUrlSvg` | `String` |  |
-| `merchantCategoryCode` | `String` |  |
-| `name` | `String` |  |
-| `notes` | `String` |  |
+| `accountCurrencies` | `Array` | The list of currencies that the merchant has accounts for. |
+| `canHaveTrustAccounts` | `Boolean` | Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks. |
+| `cardPaymentProcessor` | `String` | Name of the card payment processor. |
+| `companyID` | `String` | The Company ID recorded in the Compliance system. |
+| `displayQrOnHostedPay` | `Boolean` | Indicates if a QR Code containing the payment link should be displayed on the hosted payment page. |
+| `hostedPayVersion` | `Integer` | The version of the hosted payment page to use with the merchant. |
+| `id` | `String` | Unique ID for the merchant. |
+| `inserted` | `String` | Timestamp the merchant was added to MoneyMoov. |
+| `isBlocked` | `Boolean` | The merchant is blocked from making payments (payouts). |
+| `isExited` | `Boolean` | The merchant has formally terminated their relationship and is no longer a customer. |
+| `isSuspended` | `Boolean` | The merchant has temporarily suspended their own account. |
+| `jurisdiction` | `String` | The jurisdiction the merchant entity is incorporated or established in. |
+| `logoUrlPng` | `String` | The CDN URL of the merchant's logo in PNG format. |
+| `logoUrlSvg` | `String` | The CDN URL of the merchant's logo in SVG format. |
+| `merchantCategoryCode` | `String` | The industry code that represents the merchant's primary trading activity. |
+| `name` | `String` | The registered business name of the merchant. |
+| `notes` | `String` | The notes field is an optional free text field that can be used to store any additional information about the merchant. |
 | `parentMerchant` | `Hash` |  |
-| `paymentAccountLimit` | `Integer` |  |
+| `paymentAccountLimit` | `Integer` | The maximum number of payment accounts that can be created for the Merchant. |
 | `paymentAccounts` | `Array` |  |
-| `reason` | `String` |  |
-| `shortName` | `String` |  |
-| `supportedPaymentMethodsList` | `Array` |  |
-| `suspensionReason` | `String` |  |
-| `tags` | `Array` |  |
-| `timeZoneId` | `String` |  |
-| `tradingName` | `String` |  |
-| `webHookLimit` | `Integer` |  |
-| `yourRoleName` | `String` |  |
+| `reason` | `String` | The reason for the suspension. |
+| `shortName` | `String` | A URL friendly shortish name for the merchant. |
+| `supportedPaymentMethodsList` | `Array` | The payment methods that are configured and supported for this merchant. |
+| `suspensionReason` | `String` | The reason for the suspension, provided by the merchant. |
+| `tags` | `Array` | An optional list of descriptive tags that can be used on merchant entities such as payment requests. |
+| `timeZoneId` | `String` | The IANA (Internet Assigned Numbers Authority) time zone identifier of the merchant. |
+| `tradingName` | `String` | An optional trading name. |
+| `webHookLimit` | `Integer` | The maximum number of web hooks that can be created for the Merchant. |
+| `yourRoleName` | `String` | The name of the role for the identity that loaded the merchant record. |
 
 #### Example: Load
 
@@ -2477,29 +2480,29 @@ Create an instance: `merchant_direct_debit_mandate_page = client.MerchantDirectD
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approvedAt` | `String` |  |
-| `currency` | `String` |  |
-| `customerAccountNumber` | `String` |  |
-| `customerCity` | `String` |  |
-| `customerCountryCode` | `String` |  |
-| `customerCountryName` | `String` |  |
-| `customerEmailAddress` | `String` |  |
-| `customerFirstName` | `String` |  |
-| `customerIban` | `String` |  |
-| `customerLastName` | `String` |  |
-| `customerSortCode` | `String` |  |
-| `id` | `String` |  |
-| `inserted` | `String` |  |
-| `isRecurring` | `Boolean` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `reference` | `String` |  |
-| `status` | `String` |  |
-| `supplierBankAccountID` | `String` |  |
-| `supplierCustomerID` | `String` |  |
-| `supplierMandateID` | `String` |  |
-| `supplierName` | `String` |  |
-| `supplierStatus` | `String` |  |
+| `approvedAt` | `String` | Date at which the supplier approved this mandate. |
+| `currency` | `String` | Currency of this mandate. |
+| `customerAccountNumber` | `String` | Customer's account number in case of GBP account. |
+| `customerCity` | `String` | Customer's city of residence. |
+| `customerCountryCode` | `String` | Customer's country of residence code. |
+| `customerCountryName` | `String` | Customer's country of residence. |
+| `customerEmailAddress` | `String` | Customer's email address. |
+| `customerFirstName` | `String` | Customer's first name. |
+| `customerIban` | `String` | Customer's IBAN in case of EUR account. |
+| `customerLastName` | `String` | Customer's last name. |
+| `customerSortCode` | `String` | Customer's sort code in case of GBP account. |
+| `id` | `String` | Internal ID of the mandate. |
+| `inserted` | `String` | The timestamp this mandate was created at. |
+| `isRecurring` | `Boolean` | Whether this mandate is single-use or recurring. |
+| `lastUpdated` | `String` | The timestamp this mandate was last updated at. |
+| `merchantID` | `String` | Internal ID of this mandate's merchant. |
+| `reference` | `String` | Reference assigned to this mandate. |
+| `status` | `String` | General status of this mandate. |
+| `supplierBankAccountID` | `String` | ID that the supplier assigned to this mandate's bank account. |
+| `supplierCustomerID` | `String` | ID that the supplier assigned to this mandate's customer. |
+| `supplierMandateID` | `String` | ID that the supplier assigned to this mandate. |
+| `supplierName` | `String` | Name of the supplier used to create this mandate. |
+| `supplierStatus` | `String` | Last status that the supplier reported for this mandate. |
 
 #### Example: List
 
@@ -2523,19 +2526,19 @@ Create an instance: `merchant_pay_by_bank_setting = client.MerchantPayByBankSett
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bankCountryCodes` | `Array` |  |
-| `bankID` | `String` |  |
-| `bankName` | `String` |  |
-| `businessInstitutionID` | `String` |  |
-| `currency` | `String` |  |
-| `logo` | `String` |  |
-| `message` | `String` |  |
-| `messageImageUrl` | `String` |  |
-| `order` | `Integer` |  |
-| `personalInstitutionID` | `String` |  |
-| `processor` | `String` |  |
-| `warningHeading` | `String` |  |
-| `warningMessage` | `String` |  |
+| `bankCountryCodes` | `Array` | The list of country codes representing the banks the country supports. |
+| `bankID` | `String` | ID of the bank to be configured for the merchant. |
+| `bankName` | `String` | Name of the Bank/Institution. |
+| `businessInstitutionID` | `String` | ID that the processor uses to identify the bank (business accounts). |
+| `currency` | `String` | Currency supported by the bank. |
+| `logo` | `String` | URL of the bank's logo. |
+| `message` | `String` | Message relating to specific bank. |
+| `messageImageUrl` | `String` | Optional image URL to be displayed with the message. |
+| `order` | `Integer` | Order in which this setting will appear in the UI. |
+| `personalInstitutionID` | `String` | ID that the processor uses to identify the bank (personal accounts). |
+| `processor` | `String` | Name of the bank payment processor. |
+| `warningHeading` | `String` | The heading for a warning message related to the bank institution to be displayed to the user. |
+| `warningMessage` | `String` | The warning message related to the bank institution to be displayed to the user. |
 
 #### Example: List
 
@@ -2565,8 +2568,8 @@ Create an instance: `merchant_payment_request_template = client.MerchantPaymentR
 | `bankPaymentOptions` | `Hash` |  |
 | `cardPaymentAddressOptions` | `Hash` |  |
 | `cardPaymentCaptureOptions` | `Hash` |  |
-| `customFields` | `Array` |  |
-| `defaultFields` | `Array` |  |
+| `customFields` | `Array` | A list of custom fields that can be included in the payment request template. |
+| `defaultFields` | `Array` | A list of default fields that are included in the payment request template. |
 | `description` | `String` |  |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
@@ -2611,29 +2614,29 @@ Create an instance: `merchant_token = client.MerchantToken`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authenticationMethods` | `Array` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
-| `canAuthorise` | `Boolean` |  |
-| `description` | `String` |  |
-| `expiresAt` | `String` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
-| `hmacAlgorithm` | `String` |  |
+| `authenticationMethods` | `Array` | A list of authentication types allowed to authorise the merchant token. |
+| `authorisations` | `Array` | A list of users who have successfully authorised the latest version of the beneficiary. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the merchant token. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this merchant token. |
+| `canAuthorise` | `Boolean` | True if the merchant token can be authorised by the user who loaded it. |
+| `description` | `String` | Token description |
+| `expiresAt` | `String` | Optional. |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary. |
+| `hmacAlgorithm` | `String` | Optional shared secret algorithm to use for HMAC authentication. |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
-| `ipAddressWhitelist` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isEnabled` | `Boolean` |  |
+| `ipAddressWhitelist` | `String` | Optional. |
+| `isArchived` | `Boolean` | Indicates whether the merchant token is archived. |
+| `isEnabled` | `Boolean` | If set to false the merchant token will not be accepted to authorise a request. |
 | `lastAuthorised` | `String` |  |
 | `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
+| `merchantID` | `String` | The merchant id to add to the token |
 | `nonce` | `String` |  |
-| `permissionTypes` | `Array` |  |
-| `requestSignatureVersion` | `Integer` |  |
-| `sharedSecretAlgorithm` | `String` |  |
-| `sharedSecretBase64` | `String` |  |
-| `token` | `String` |  |
+| `permissionTypes` | `Array` | The permissions that the merchant token supports. |
+| `requestSignatureVersion` | `Integer` | Represent the version of the overall merchant token. |
+| `sharedSecretAlgorithm` | `String` | Optional shared secret algorithm to use for HMAC authentication. |
+| `sharedSecretBase64` | `String` | The base 64 encoded shared secret that is used for request authentication with an HMAC. |
+| `token` | `String` | The JWT merchant token. |
 
 #### Example: Load
 
@@ -2737,13 +2740,13 @@ Create an instance: `payeeverification = client.Payeeverification`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountName` | `String` |  |
-| `accountNumber` | `String` |  |
-| `iban` | `String` |  |
-| `payeeVerifiedAccountName` | `String` |  |
-| `result` | `String` |  |
-| `secondaryIdentification` | `String` |  |
-| `sortCode` | `String` |  |
+| `accountName` | `String` | The name of the account to verify |
+| `accountNumber` | `String` | The account number of the account to verify (for CoP checks) |
+| `iban` | `String` | The IBAN of the account to verify (for VoP checks) |
+| `payeeVerifiedAccountName` | `String` | The verified account name of the payee, if available (in case of a close match) |
+| `result` | `String` | The result of the payee verification |
+| `secondaryIdentification` | `String` | Optional secondary identifier for the account to verify. |
+| `sortCode` | `String` | The sort code of the account to verify (for CoP checks) |
 
 #### Example: Create
 
@@ -2772,81 +2775,81 @@ Create an instance: `payment = client.Payment`
 | Field | Type | Description |
 | --- | --- | --- |
 | `addresses` | `Array` |  |
-| `amount` | `Float` |  |
-| `amountPending` | `Float` |  |
-| `amountReceived` | `Float` |  |
-| `amountRefunded` | `Float` |  |
-| `autoSendReceipt` | `Boolean` |  |
-| `baseOriginUrl` | `String` |  |
-| `callbackUrl` | `String` |  |
-| `cardAuthorizeOnly` | `Boolean` |  |
-| `cardCreateToken` | `Boolean` |  |
-| `cardCreateTokenMode` | `String` |  |
-| `cardIgnoreCVN` | `Boolean` |  |
-| `cardNoPayerAuthentication` | `Boolean` |  |
-| `cardProcessorMerchantID` | `String` |  |
-| `cardStripePaymentIntentID` | `String` |  |
-| `cardStripePaymentIntentSecret` | `String` |  |
-| `cardTransmitRawDetails` | `Boolean` |  |
+| `amount` | `Float` | The amount of money to request. |
+| `amountPending` | `Float` | Total amount that has been authorised but not settled for this payment request. |
+| `amountReceived` | `Float` | Total amount received for this payment request. |
+| `amountRefunded` | `Float` | Total amount refunded for this payment request. |
+| `autoSendReceipt` | `Boolean` | If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received. |
+| `baseOriginUrl` | `String` | For card payments the origin of the payment page needs to be set in advance. |
+| `callbackUrl` | `String` | Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL. |
+| `cardAuthorizeOnly` | `Boolean` | For card payments the default behaviour is to authorise and capture the payment at the same time. |
+| `cardCreateToken` | `Boolean` | For card payments a payment attempt can be used to create a reusable token for subsequent payments. |
+| `cardCreateTokenMode` | `String` | This specifies whether user consent will be taken before tokenising card or not. |
+| `cardIgnoreCVN` | `Boolean` | If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails. |
+| `cardNoPayerAuthentication` | `Boolean` | If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). |
+| `cardProcessorMerchantID` | `String` | Optional field that if specified indicates the processor merchant ID that should be used to process any card payments. |
+| `cardStripePaymentIntentID` | `String` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID. |
+| `cardStripePaymentIntentSecret` | `String` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret. |
+| `cardTransmitRawDetails` | `Boolean` | If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised. |
 | `createdByUser` | `Hash` |  |
-| `currency` | `String` |  |
-| `customFields` | `Array` |  |
-| `customerEmailAddress` | `String` |  |
-| `customerID` | `String` |  |
+| `currency` | `String` | The currency of the request. |
+| `customFields` | `Array` | A list of custom fields attached to the payment request. |
+| `customerEmailAddress` | `String` | Optional email address for the customer. |
+| `customerID` | `String` | An optional customer identifier for the payment request. |
 | `customerName` | `String` |  |
-| `description` | `String` |  |
+| `description` | `String` | An optional description for the payment request. |
 | `destinationAccount` | `Hash` |  |
-| `directDebitPayment` | `Hash` |  |
-| `dueDate` | `String` |  |
+| `directDebitPayment` | `Hash` | Contains information about a Direct Debit payment attempt for a payment request. |
+| `dueDate` | `String` | The due date for the payment request. |
 | `events` | `Array` |  |
-| `failureCallbackUrl` | `String` |  |
-| `fieldDisplaySettings` | `Array` |  |
+| `failureCallbackUrl` | `String` | Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. |
+| `fieldDisplaySettings` | `Array` | A list of field display settings that control which fields are displayed to the payer. |
 | `formattedAmount` | `String` |  |
-| `hostedPayCheckoutUrl` | `String` |  |
+| `hostedPayCheckoutUrl` | `String` | This is a convenience link generated for payment requests whose merchants are using hosted payment pages. |
 | `id` | `String` |  |
-| `ignoreAddressVerification` | `Boolean` |  |
-| `inserted` | `String` |  |
-| `insertedSortable` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `jwk` | `String` |  |
-| `lastUpdated` | `String` |  |
-| `lightningInvoice` | `String` |  |
-| `lightningInvoiceExpiresAt` | `String` |  |
-| `merchantDirectDebitMandateID` | `String` |  |
-| `merchantID` | `String` |  |
-| `merchantTokenDescription` | `String` |  |
+| `ignoreAddressVerification` | `Boolean` | If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails. |
+| `inserted` | `String` | The timestamp the payment request was created at. |
+| `insertedSortable` | `String` | The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se… |
+| `isArchived` | `Boolean` | Indicates whether the payment request is archived. |
+| `jwk` | `String` | The jwk containing the public key used to verify the signature of the payment request. |
+| `lastUpdated` | `String` | The timestamp the payment request was last updated at. |
+| `lightningInvoice` | `String` | Bitcoin Lightning invoice for the payment request. |
+| `lightningInvoiceExpiresAt` | `String` | Date and time of expiration of the lightning invoice. |
+| `merchantDirectDebitMandateID` | `String` | Optional ID of the direct debit mandate associated with this payment request. |
+| `merchantID` | `String` | The ID of the merchant to create the payment request for. |
+| `merchantTokenDescription` | `String` | Description of the merchant token in case the Payment request was created using a merchant token. |
 | `notificationEmailAddresses` | `String` |  |
-| `notificationRoleIDs` | `Array` |  |
-| `orderID` | `String` |  |
-| `partialPaymentMethod` | `String` |  |
-| `partialPaymentSteps` | `String` |  |
-| `paymentAttempts` | `Array` |  |
-| `paymentMethods` | `Array` |  |
-| `paymentProcessor` | `String` |  |
-| `payrunID` | `String` |  |
-| `pispAccountID` | `String` |  |
-| `priorityBankID` | `String` |  |
+| `notificationRoleIDs` | `Array` | A list of roles whose members will receive notifications about this payment request. |
+| `orderID` | `String` | An optional order ID for the payment request. |
+| `partialPaymentMethod` | `String` | The approach to use, or not, for accepting partial payments. |
+| `partialPaymentSteps` | `String` | An optional comma separated list of partial payment amounts. |
+| `paymentAttempts` | `Array` | The payment attempts made against this payment request. |
+| `paymentMethods` | `Array` | The payment methods that the payment request supports. |
+| `paymentProcessor` | `String` | If the card payment option is enabled this field indicates which card processor the merchant is set up to use. |
+| `payrunID` | `String` | The ID of a payrun that needs an account top up. |
+| `pispAccountID` | `String` | The payment account ID to use to receive payment initiation payments. |
+| `priorityBankID` | `String` | The ID of the bank that is set as the priority bank for display on pay element. |
 | `result` | `Hash` |  |
-| `sandboxSettleDelayInSeconds` | `Integer` |  |
+| `sandboxSettleDelayInSeconds` | `Integer` | Sandbox only. |
 | `shippingAddress` | `Hash` |  |
-| `shippingAddressCity` | `String` |  |
-| `shippingAddressCountryCode` | `String` |  |
-| `shippingAddressCounty` | `String` |  |
-| `shippingAddressLine1` | `String` |  |
-| `shippingAddressLine2` | `String` |  |
-| `shippingAddressPostCode` | `String` |  |
-| `shippingEmail` | `String` |  |
-| `shippingFirstName` | `String` |  |
-| `shippingLastName` | `String` |  |
-| `shippingPhone` | `String` |  |
-| `status` | `String` |  |
-| `successWebHookUrl` | `String` |  |
-| `tagIds` | `Array` |  |
-| `tags` | `Array` |  |
-| `title` | `String` |  |
+| `shippingAddressCity` | `String` | Optionally the city of the customer's shipping address. |
+| `shippingAddressCountryCode` | `String` | Optionally the country code of the customer's shipping address. |
+| `shippingAddressCounty` | `String` | Optionally the state or county of the customer's shipping address. |
+| `shippingAddressLine1` | `String` | Optionally the first line of the customer's shipping address. |
+| `shippingAddressLine2` | `String` | Optionally the second line of the customer's shipping address. |
+| `shippingAddressPostCode` | `String` | Optionally the post code of the customer's shipping address. |
+| `shippingEmail` | `String` | Optionally the shipping email address for the customer. |
+| `shippingFirstName` | `String` | Optionally the first name of the customer's shipping address. |
+| `shippingLastName` | `String` | Optionally the last name of the customer's shipping address. |
+| `shippingPhone` | `String` | Optionally the shipping phone number for the customer. |
+| `status` | `String` | The current status of the payment request. |
+| `successWebHookUrl` | `String` | If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. |
+| `tagIds` | `Array` | An optional list of tag ids to add to the payment request |
+| `tags` | `Array` | An optional list of descriptive tags attached to the payment request. |
+| `title` | `String` | A generic field to contain any additional data that the merchant wishes to store against the payment request. |
 | `tokenisedCards` | `Array` |  |
 | `transactions` | `Array` |  |
-| `useHostedPaymentPage` | `Boolean` |  |
+| `useHostedPaymentPage` | `Boolean` | If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page. |
 
 #### Example: Load
 
@@ -2878,45 +2881,45 @@ Create an instance: `payment_account = client.PaymentAccount`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountName` | `String` |  |
-| `accountSupplierName` | `String` |  |
-| `availableBalance` | `Float` |  |
-| `availableBalanceMinorUnits` | `Integer` |  |
-| `balance` | `Float` |  |
-| `balanceMinorUnits` | `Integer` |  |
-| `bankName` | `String` |  |
-| `consentID` | `String` |  |
+| `accountName` | `String` | Name for the account |
+| `accountSupplierName` | `String` | The payment account supplier name. |
+| `availableBalance` | `Float` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | `Integer` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | `Float` | Balance of the account. |
+| `balanceMinorUnits` | `Integer` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | `String` | The bank name for external accounts |
+| `consentID` | `String` | The ID of the consent used to connect the external account. |
 | `createdBy` | `Hash` |  |
-| `createdByDisplayName` | `String` |  |
-| `currency` | `String` |  |
-| `defaultPaymentRail` | `String` |  |
-| `displayName` | `String` |  |
-| `expiryDate` | `String` |  |
-| `externalAccountIcon` | `String` |  |
-| `id` | `String` |  |
+| `createdByDisplayName` | `String` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | `String` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | `String` | Indicates the default payment rail for this account. |
+| `displayName` | `String` | Gets a unique display name for the payment account. |
+| `expiryDate` | `String` | The date that the external account will expire |
+| `externalAccountIcon` | `String` | The Icon for external accounts |
+| `id` | `String` | Unique id for the account. |
 | `identifier` | `Hash` |  |
-| `inserted` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isConnectedAccount` | `Boolean` |  |
-| `isDefault` | `Boolean` |  |
-| `isTrustAccount` | `Boolean` |  |
-| `isVirtual` | `Boolean` |  |
+| `inserted` | `String` | Timestamp when the account was created. |
+| `isArchived` | `Boolean` | Indicates whether the account is archived. |
+| `isConnectedAccount` | `Boolean` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | `Boolean` | Is the default account |
+| `isTrustAccount` | `Boolean` | Indicates if the payment account is a trust account. |
+| `isVirtual` | `Boolean` | True if the account is a virtual account. |
 | `lastTransaction` | `Hash` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `merchantName` | `String` |  |
-| `physicalAccountID` | `String` |  |
-| `rules` | `Array` |  |
-| `submittedPayoutsBalance` | `Float` |  |
-| `submittedPayoutsBalanceMinorUnits` | `Integer` |  |
-| `summary` | `String` |  |
-| `supplierSepaInstantStatus` | `String` |  |
-| `xeroBankFeedConnectionStatus` | `String` |  |
+| `lastUpdated` | `String` | Timestamp when the account was last updated. |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `merchantName` | `String` | The name of the merchant that owns the account. |
+| `physicalAccountID` | `String` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `rules` | `Array` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | `Float` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | `String` | Gets a summary of the payments account's most important properties. |
+| `supplierSepaInstantStatus` | `String` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `xeroBankFeedConnectionStatus` | `String` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailureReason` | `String` |  |
 | `xeroBankFeedSyncStatus` | `String` |  |
-| `xeroUnsynchronisedTransactionsCount` | `Integer` |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | Indicates the number of unsynchronised transactions with Xero |
 
 #### Example: List
 
@@ -2940,17 +2943,17 @@ Create an instance: `payment_account_minimal = client.PaymentAccountMinimal`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountName` | `String` |  |
-| `availableBalance` | `Float` |  |
-| `balance` | `Float` |  |
-| `balanceMinorUnits` | `Integer` |  |
-| `currency` | `String` |  |
-| `id` | `String` |  |
+| `accountName` | `String` | Name for the account |
+| `availableBalance` | `Float` | The current available balance of the account. |
+| `balance` | `Float` | Balance of the account. |
+| `balanceMinorUnits` | `Integer` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `currency` | `String` | Currency of the account in ISO 4217 format |
+| `id` | `String` | Unique id for the account. |
 | `identifier` | `Hash` |  |
-| `isArchived` | `Boolean` |  |
-| `isConnectedAccount` | `Boolean` |  |
-| `merchantID` | `String` |  |
-| `submittedPayoutsBalance` | `Float` |  |
+| `isArchived` | `Boolean` | Is the account archived |
+| `isConnectedAccount` | `Boolean` | Indicates if the payment account is an externally connected account. |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `submittedPayoutsBalance` | `Float` | Total of the payouts that have been submitted for processing. |
 
 #### Example: List
 
@@ -2974,10 +2977,10 @@ Create an instance: `payment_initiation = client.PaymentInitiation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `paymentInitiationID` | `String` |  |
-| `paymentRequestCallbackUrl` | `String` |  |
+| `paymentInitiationID` | `String` | The unique identifier of the payment initiation request. |
+| `paymentRequestCallbackUrl` | `String` | The callback URL that was set when the payment request was created. |
 | `paymentRequestID` | `String` |  |
-| `redirectUrl` | `String` |  |
+| `redirectUrl` | `String` | A redirect URL for the user to authorise the payment initiation request at the ASPSP |
 | `responseType` | `String` |  |
 | `specificErrorMessage` | `String` |  |
 
@@ -3009,80 +3012,80 @@ Create an instance: `payment_request = client.PaymentRequest`
 | Field | Type | Description |
 | --- | --- | --- |
 | `addresses` | `Array` |  |
-| `amount` | `Float` |  |
-| `amountPending` | `Float` |  |
-| `amountReceived` | `Float` |  |
-| `amountRefunded` | `Float` |  |
-| `autoSendReceipt` | `Boolean` |  |
-| `baseOriginUrl` | `String` |  |
-| `callbackUrl` | `String` |  |
-| `cardAuthorizeOnly` | `Boolean` |  |
-| `cardCreateToken` | `Boolean` |  |
-| `cardCreateTokenMode` | `String` |  |
-| `cardIgnoreCVN` | `Boolean` |  |
-| `cardProcessorMerchantID` | `String` |  |
-| `cardStripePaymentIntentID` | `String` |  |
-| `cardStripePaymentIntentSecret` | `String` |  |
+| `amount` | `Float` | The amount of money to request. |
+| `amountPending` | `Float` | Total amount that has been authorised but not settled for this payment request. |
+| `amountReceived` | `Float` | Total amount received for this payment request. |
+| `amountRefunded` | `Float` | Total amount refunded for this payment request. |
+| `autoSendReceipt` | `Boolean` | If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received. |
+| `baseOriginUrl` | `String` | For card payments the origin of the payment page needs to be set in advance. |
+| `callbackUrl` | `String` | Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL. |
+| `cardAuthorizeOnly` | `Boolean` | For card payments the default behaviour is to authorise and capture the payment at the same time. |
+| `cardCreateToken` | `Boolean` | For card payments a payment attempt can be used to create a reusable token for subsequent payments. |
+| `cardCreateTokenMode` | `String` | This specifies whether user consent will be taken before tokenising card or not. |
+| `cardIgnoreCVN` | `Boolean` | If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails. |
+| `cardProcessorMerchantID` | `String` | Optional field that if specified indicates the processor merchant ID that should be used to process any card payments. |
+| `cardStripePaymentIntentID` | `String` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent ID. |
+| `cardStripePaymentIntentSecret` | `String` | If Stripe is being used as the card payment processor this property is used to hold the Stripe payment intent client secret. |
 | `createdByUser` | `Hash` |  |
-| `currency` | `String` |  |
-| `customFields` | `Array` |  |
-| `customerEmailAddress` | `String` |  |
-| `customerID` | `String` |  |
+| `currency` | `String` | The currency of the request. |
+| `customFields` | `Array` | A list of custom fields attached to the payment request. |
+| `customerEmailAddress` | `String` | Optional email address for the customer. |
+| `customerID` | `String` | An optional customer identifier for the payment request. |
 | `customerName` | `String` |  |
-| `description` | `String` |  |
+| `description` | `String` | An optional description for the payment request. |
 | `destinationAccount` | `Hash` |  |
-| `directDebitPayment` | `Hash` |  |
+| `directDebitPayment` | `Hash` | Contains information about a Direct Debit payment attempt for a payment request. |
 | `doSimulateSettlementFailure` | `Boolean` |  |
-| `dueDate` | `String` |  |
+| `dueDate` | `String` | The due date for the payment request. |
 | `errorDescription` | `String` |  |
 | `events` | `Array` |  |
 | `failedPaymentRequests` | `Hash` |  |
-| `failureCallbackUrl` | `String` |  |
-| `fieldDisplaySettings` | `Array` |  |
+| `failureCallbackUrl` | `String` | Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. |
+| `fieldDisplaySettings` | `Array` | A list of field display settings that control which fields are displayed to the payer. |
 | `formattedAmount` | `String` |  |
-| `hostedPayCheckoutUrl` | `String` |  |
+| `hostedPayCheckoutUrl` | `String` | This is a convenience link generated for payment requests whose merchants are using hosted payment pages. |
 | `id` | `String` |  |
-| `ignoreAddressVerification` | `Boolean` |  |
-| `inserted` | `String` |  |
-| `insertedSortable` | `String` |  |
+| `ignoreAddressVerification` | `Boolean` | If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails. |
+| `inserted` | `String` | The timestamp the payment request was created at. |
+| `insertedSortable` | `String` | The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#se… |
 | `institution` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `jwk` | `String` |  |
-| `lastUpdated` | `String` |  |
-| `lightningInvoice` | `String` |  |
-| `lightningInvoiceExpiresAt` | `String` |  |
-| `merchantDirectDebitMandateID` | `String` |  |
+| `isArchived` | `Boolean` | Indicates whether the payment request is archived. |
+| `jwk` | `String` | The jwk containing the public key used to verify the signature of the payment request. |
+| `lastUpdated` | `String` | The timestamp the payment request was last updated at. |
+| `lightningInvoice` | `String` | Bitcoin Lightning invoice for the payment request. |
+| `lightningInvoiceExpiresAt` | `String` | Date and time of expiration of the lightning invoice. |
+| `merchantDirectDebitMandateID` | `String` | Optional ID of the direct debit mandate associated with this payment request. |
 | `merchantID` | `String` |  |
-| `merchantTokenDescription` | `String` |  |
+| `merchantTokenDescription` | `String` | Description of the merchant token in case the Payment request was created using a merchant token. |
 | `notificationEmailAddresses` | `String` |  |
-| `notificationRoleIDs` | `Array` |  |
-| `orderID` | `String` |  |
-| `partialPaymentMethod` | `String` |  |
-| `partialPaymentSteps` | `String` |  |
-| `paymentAttempts` | `Array` |  |
+| `notificationRoleIDs` | `Array` | A list of roles whose members will receive notifications about this payment request. |
+| `orderID` | `String` | An optional order ID for the payment request. |
+| `partialPaymentMethod` | `String` | The approach to use, or not, for accepting partial payments. |
+| `partialPaymentSteps` | `String` | An optional comma separated list of partial payment amounts. |
+| `paymentAttempts` | `Array` | The payment attempts made against this payment request. |
 | `paymentInitiationID` | `String` |  |
-| `paymentMethods` | `Array` |  |
-| `paymentProcessor` | `String` |  |
+| `paymentMethods` | `Array` | The payment methods that the payment request supports. |
+| `paymentProcessor` | `String` | If the card payment option is enabled this field indicates which card processor the merchant is set up to use. |
 | `paymentRequests` | `Array` |  |
-| `payrunID` | `String` |  |
-| `pispAccountID` | `String` |  |
-| `priorityBankID` | `String` |  |
+| `payrunID` | `String` | The ID of a payrun that needs an account top up. |
+| `pispAccountID` | `String` | The payment account ID to use to receive payment initiation payments. |
+| `priorityBankID` | `String` | The ID of the bank that is set as the priority bank for display on pay element. |
 | `result` | `Hash` |  |
-| `sandboxSettleDelayInSeconds` | `Integer` |  |
+| `sandboxSettleDelayInSeconds` | `Integer` | Sandbox only. |
 | `shippingAddress` | `Hash` |  |
-| `status` | `String` |  |
-| `successWebHookUrl` | `String` |  |
-| `tags` | `Array` |  |
-| `title` | `String` |  |
+| `status` | `String` | The current status of the payment request. |
+| `successWebHookUrl` | `String` | If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. |
+| `tags` | `Array` | An optional list of descriptive tags attached to the payment request. |
+| `title` | `String` | A generic field to contain any additional data that the merchant wishes to store against the payment request. |
 | `tokenisedCards` | `Array` |  |
 | `transactions` | `Array` |  |
-| `useHostedPaymentPage` | `Boolean` |  |
+| `useHostedPaymentPage` | `Boolean` | If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page. |
 
 #### Example: Load
 
 ```ruby
 # load returns the ENTITY — call data_get for the PaymentRequest record (raises on error).
-payment_request = client.PaymentRequest.load()
+payment_request = client.PaymentRequest.load({ "id" => "payment_request_id" })
 ```
 
 #### Example: List
@@ -3116,39 +3119,39 @@ Create an instance: `payment_request_event = client.PaymentRequestEvent`
 | Field | Type | Description |
 | --- | --- | --- |
 | `amount` | `Float` |  |
-| `applePayTransactionID` | `String` |  |
-| `cardAuthorizationResponseID` | `String` |  |
-| `cardExpiryMonth` | `Integer` |  |
-| `cardExpiryYear` | `Integer` |  |
-| `cardIssuer` | `String` |  |
-| `cardIssuerCountry` | `String` |  |
-| `cardLastFourDigits` | `String` |  |
+| `applePayTransactionID` | `String` | Transaction ID received in Apple pay token. |
+| `cardAuthorizationResponseID` | `String` | For a successful card authorization this field will hold the response ID. |
+| `cardExpiryMonth` | `Integer` | For card payment events this field holds the payer's card expiry month. |
+| `cardExpiryYear` | `Integer` | For card payment events this field holds the payer's card expiry year. |
+| `cardIssuer` | `String` | For card payment events this field holds the payer's card issuer. |
+| `cardIssuerCountry` | `String` | For card payment events this field holds the payer's card issuer country of origin. |
+| `cardLastFourDigits` | `String` | For card payment events this field holds the payer's card last four digits. |
 | `cardRequestID` | `String` |  |
-| `cardScheme` | `String` |  |
-| `cardTokenCustomerID` | `String` |  |
+| `cardScheme` | `String` | For card payment events this field holds the scheme of the payer's card, e.g. |
+| `cardTokenCustomerID` | `String` | If the option to create a reusable token for card payments was set this field contains the token the merchant can store to use for repeat payments. |
 | `cardTransactionID` | `String` |  |
 | `currency` | `String` |  |
-| `directDebitPaymentID` | `String` |  |
-| `directDebitPaymentReference` | `String` |  |
-| `drirectDebitMandateID` | `String` |  |
+| `directDebitPaymentID` | `String` | Payment ID issued by the Direct Debit supplier. |
+| `directDebitPaymentReference` | `String` | Reference string issued by the Direct Debit supplier. |
+| `drirectDebitMandateID` | `String` | The ID of the mandate that was used wehn requesting payment. |
 | `errorMessage` | `String` |  |
 | `errorReason` | `String` |  |
 | `eventType` | `String` |  |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
-| `lightningInvoice` | `String` |  |
-| `lightningRHash` | `String` |  |
-| `originUrl` | `String` |  |
-| `paymentMethodType` | `String` |  |
-| `paymentProcessorName` | `String` |  |
+| `lightningInvoice` | `String` | For Bitcoin Lightning payments this field holds the invoice presented to the payer. |
+| `lightningRHash` | `String` | For Bitcoin Lightning payments the hash of the invoice presented to the payer. |
+| `originUrl` | `String` | Optional field that can be set by payment methods, such as pay by bank, that may want to redirect back to the URL that initiated the attempt in the case of a failure condition. |
+| `paymentMethodType` | `String` | The type of payment method the event relates to, e.g. |
+| `paymentProcessorName` | `String` | If the event was for a card payment this is the name of the card processor, e.g. |
 | `paymentRequestID` | `String` |  |
-| `pispBankStatus` | `String` |  |
-| `pispPaymentInitiationID` | `String` |  |
-| `pispPaymentInstitutionName` | `String` |  |
-| `pispPaymentServiceProviderID` | `String` |  |
-| `pispRedirectUrl` | `String` |  |
-| `reconciledTransactionID` | `String` |  |
-| `refundPayoutID` | `String` |  |
+| `pispBankStatus` | `String` | For payment initiation attempts some providers (e.g. |
+| `pispPaymentInitiationID` | `String` | For a payment initiation this is the ID returned by the service provider initiating the payment for us. |
+| `pispPaymentInstitutionName` | `String` | For a payment initiation this is the name of the financial institution that is used to initiate and authorise the payment. |
+| `pispPaymentServiceProviderID` | `String` | For a payment initiation this is the service provider ID selected by the payer, typically the ID for the bank or similar financial institution. |
+| `pispRedirectUrl` | `String` | For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. |
+| `reconciledTransactionID` | `String` | For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with. |
+| `refundPayoutID` | `String` | ID of the Payout that was created for refund. |
 | `status` | `String` |  |
 | `walletName` | `String` |  |
 
@@ -3192,36 +3195,36 @@ Create an instance: `payment_request_minimal = client.PaymentRequestMinimal`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount` | `Float` |  |
-| `amountPending` | `Float` |  |
-| `amountReceived` | `Float` |  |
-| `amountRefunded` | `Float` |  |
+| `amount` | `Float` | The amount of money to request. |
+| `amountPending` | `Float` | The amount of money that was authorised but has not arrived in the account yet. |
+| `amountReceived` | `Float` | The amount of money that has been received for this payment request. |
+| `amountRefunded` | `Float` | The amount of money that has been refunded for this payment request. |
 | `callbackUrl` | `String` |  |
 | `cardStripePaymentIntentSecret` | `String` |  |
-| `countryCode` | `String` |  |
-| `currency` | `String` |  |
-| `customFieldsToDisplay` | `Array` |  |
-| `description` | `String` |  |
-| `dueDate` | `String` |  |
+| `countryCode` | `String` | The country code associated with the payment. |
+| `currency` | `String` | The currency of the request. |
+| `customFieldsToDisplay` | `Array` | Custom fields to display to the customer. |
+| `description` | `String` | An optional description for the payment request. |
+| `dueDate` | `String` | The due date of the payment request. |
 | `fieldDisplaySettings` | `Array` |  |
-| `googlePayMerchantID` | `String` |  |
+| `googlePayMerchantID` | `String` | Merchant ID from Google Pay |
 | `id` | `String` |  |
-| `jwk` | `String` |  |
+| `jwk` | `String` | The jwk containing the public key |
 | `merchantID` | `String` |  |
 | `merchantLogoUrlPng` | `String` |  |
 | `merchantLogoUrlSvg` | `String` |  |
 | `merchantName` | `String` |  |
 | `merchantShortName` | `String` |  |
 | `partialPaymentMethod` | `String` |  |
-| `paymentAttempts` | `Array` |  |
-| `paymentMethodsList` | `Array` |  |
-| `paymentProcessor` | `String` |  |
-| `paymentProcessorKey` | `String` |  |
-| `pispError` | `String` |  |
+| `paymentAttempts` | `Array` | The payment attempts for this payment request. |
+| `paymentMethodsList` | `Array` | The payment methods that the payment request supports. |
+| `paymentProcessor` | `String` | The card processor |
+| `paymentProcessorKey` | `String` | The card processors public key |
+| `pispError` | `String` | This is the error returned from the bank which is recorded in payment request events. |
 | `priorityBankID` | `String` |  |
-| `status` | `String` |  |
-| `stripeAccountID` | `String` |  |
-| `title` | `String` |  |
+| `status` | `String` | The status of the payment request. |
+| `stripeAccountID` | `String` | Account ID of connected customers in Stripe |
+| `title` | `String` | The title of the payment request. |
 
 #### Example: List
 
@@ -3245,17 +3248,17 @@ Create an instance: `payment_request_result = client.PaymentRequestResult`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount` | `Float` |  |
+| `amount` | `Float` | The authorised payment amount. |
 | `amountPending` | `Float` |  |
 | `amountReceived` | `Float` |  |
 | `amountRefunded` | `Float` |  |
-| `currency` | `String` |  |
-| `customerID` | `String` |  |
-| `paymentRequestID` | `String` |  |
-| `payments` | `Array` |  |
+| `currency` | `String` | The authorised payment currency. |
+| `customerID` | `String` | The customer id |
+| `paymentRequestID` | `String` | The ID of the payment request the result is for. |
+| `payments` | `Array` | The list of payment attempts that have been received for the payment request. |
 | `pispAuthorizations` | `Array` |  |
-| `requestedAmount` | `Float` |  |
-| `result` | `String` |  |
+| `requestedAmount` | `Float` | The full original payment amount requested. |
+| `result` | `String` | The result of the payment attempt. |
 
 #### Example: List
 
@@ -3283,85 +3286,85 @@ Create an instance: `payout = client.Payout`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountID` | `String` |  |
-| `allowIncomplete` | `Boolean` |  |
-| `amount` | `Float` |  |
-| `amountMinorUnits` | `Integer` |  |
-| `approvePayoutUrl` | `String` |  |
-| `approverID` | `String` |  |
-| `authenticationMethods` | `Array` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
-| `batchPayoutID` | `String` |  |
+| `accountID` | `String` | Gets or Sets Account Id of sending account |
+| `allowIncomplete` | `Boolean` | If set to true the payout will get created even if the business validation rules fail. |
+| `amount` | `Float` | Gets or Sets payout amount |
+| `amountMinorUnits` | `Integer` | The payout amount expressed in the currency’s minor units (e.g. |
+| `approvePayoutUrl` | `String` | This field is used when returning an payout record to a client. |
+| `approverID` | `String` | Gets the User ID of person that approved the payout. |
+| `authenticationMethods` | `Array` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | `Array` | A list of the users who have successfully authorised the latest version of the payout and when. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the payout. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this payout. |
+| `batchPayoutID` | `String` | The ID of the batch the payout is associated with. |
 | `beneficiary` | `Hash` |  |
-| `beneficiaryID` | `String` |  |
-| `canAuthorise` | `Boolean` |  |
-| `canProcess` | `Boolean` |  |
-| `canUpdate` | `Boolean` |  |
-| `chargeBearer` | `String` |  |
+| `beneficiaryID` | `String` | Optional. |
+| `canAuthorise` | `Boolean` | True if the payout can be authorised by the user who loaded it. |
+| `canProcess` | `Boolean` | If set to true indicates the payout has been flagged as safe to process after transaction monitoring. |
+| `canUpdate` | `Boolean` | True if the payout can be updated by the user who loaded it. |
+| `chargeBearer` | `String` | Optional field to set who should pay any fees for the payout. |
 | `createdBy` | `String` |  |
 | `createdByEmailAddress` | `String` |  |
-| `currency` | `String` |  |
-| `currentUserID` | `String` |  |
-| `description` | `String` |  |
+| `currency` | `String` | Gets or Sets Currency of payout request |
+| `currentUserID` | `String` | The ID of the user that requested access to the PayOut record. |
+| `description` | `String` | Gets or Sets description of payout request |
 | `destination` | `Hash` |  |
-| `documents` | `Array` |  |
-| `events` | `Array` |  |
+| `documents` | `Array` | Documents associated with the payout. |
+| `events` | `Array` | The activity associated with the payout. |
 | `failedPayouts` | `Hash` |  |
-| `formattedAmount` | `String` |  |
-| `formattedFxDestinationAmount` | `String` |  |
+| `formattedAmount` | `String` | Currency and formatted amount string. |
+| `formattedFxDestinationAmount` | `String` | FX destination currency and amount formatted string. |
 | `formattedSchedule` | `String` |  |
 | `formattedScheduleDayOnly` | `String` |  |
-| `formattedSourceAccountAvailableBalance` | `String` |  |
-| `fxDestinationAmount` | `Float` |  |
-| `fxDestinationAmountMinorUnits` | `Integer` |  |
-| `fxDestinationCurrency` | `String` |  |
-| `fxQuoteExpiresAt` | `String` |  |
-| `fxQuoteID` | `String` |  |
-| `fxRate` | `Float` |  |
-| `fxUseDestinationAmount` | `Boolean` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
-| `id` | `String` |  |
+| `formattedSourceAccountAvailableBalance` | `String` | The available balance of the account the payout is being made from. |
+| `fxDestinationAmount` | `Float` | If specified this will be the amount sent to the payee. |
+| `fxDestinationAmountMinorUnits` | `Integer` | The payout FxDestinationAmount expressed in the currency’s minor units (e.g. |
+| `fxDestinationCurrency` | `String` | For an FX payout this is the currency to send to the beneficiary. |
+| `fxQuoteExpiresAt` | `String` | If an FX held rate quote ID is being used this is the time the quote expires. |
+| `fxQuoteID` | `String` | Optional. |
+| `fxRate` | `Float` | For an FX payout this is the exchange rate to use for the payout. |
+| `fxUseDestinationAmount` | `Boolean` | For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated. |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the payout was loaded for a user and that user has already authorised the latest version of the payout. |
+| `id` | `String` | The ID for the payout. |
 | `inserted` | `String` |  |
-| `invoiceID` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isFailed` | `Boolean` |  |
-| `isSettled` | `Boolean` |  |
-| `isSubmitted` | `Boolean` |  |
+| `invoiceID` | `String` | Optional field to associate the payout with the invoice from an external application such as Xero. |
+| `isArchived` | `Boolean` | Indicates whether the payout is archived. |
+| `isFailed` | `Boolean` | Set to true if a submitted payout subsequently fails. |
+| `isSettled` | `Boolean` | Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger. |
+| `isSubmitted` | `Boolean` | Indicates whether the payout has been submitted for processing. |
 | `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
 | `merchantTokenDescription` | `String` |  |
 | `nonce` | `String` |  |
-| `paymentProcessor` | `String` |  |
-| `paymentRail` | `String` |  |
+| `paymentProcessor` | `String` | The usptream payment processor for the payout. |
+| `paymentRail` | `String` | Optional field to indicate the payment rail to use for the payout. |
 | `payouts` | `Array` |  |
-| `payrunID` | `String` |  |
-| `payrunName` | `String` |  |
+| `payrunID` | `String` | The ID of the payrun that this payout is associated with. |
+| `payrunName` | `String` | The name of the payrun that this payout is associated with. |
 | `reason` | `String` |  |
 | `rule` | `Hash` |  |
-| `scheduleDate` | `String` |  |
-| `scheduled` | `Boolean` |  |
-| `sourceAccountAvailableBalance` | `Float` |  |
-| `sourceAccountAvailableBalanceMinorUnits` | `Integer` |  |
-| `sourceAccountBic` | `String` |  |
-| `sourceAccountCurrency` | `String` |  |
-| `sourceAccountIban` | `String` |  |
+| `scheduleDate` | `String` | The date the payout should be submitted. |
+| `scheduled` | `Boolean` | Should this payout be scheduled for a future date? |
+| `sourceAccountAvailableBalance` | `Float` | The available balance of the account the payout is being made from. |
+| `sourceAccountAvailableBalanceMinorUnits` | `Integer` | The available balance of the source account expressed in the currency’s minor units (e.g. |
+| `sourceAccountBic` | `String` | The BIC of the account the payout is being made from. |
+| `sourceAccountCurrency` | `String` | The currency of the source account. |
+| `sourceAccountIban` | `String` | The IBAN of the account the payout is being made from. |
 | `sourceAccountIdentifier` | `Hash` |  |
-| `sourceAccountName` | `String` |  |
-| `sourceAccountNumber` | `String` |  |
-| `sourceAccountSortcode` | `String` |  |
-| `status` | `String` |  |
-| `tagIds` | `Array` |  |
-| `tags` | `Array` |  |
-| `theirReference` | `String` |  |
-| `topupPayrunID` | `String` |  |
-| `transactedAmount` | `Float` |  |
-| `transactedFxAmount` | `Float` |  |
-| `transactedFxRate` | `Float` |  |
-| `type` | `String` |  |
-| `userID` | `String` |  |
-| `yourReference` | `String` |  |
+| `sourceAccountName` | `String` | The name of the account the payout is being made from. |
+| `sourceAccountNumber` | `String` | The account number of the account the payout is being made from. |
+| `sourceAccountSortcode` | `String` | The sort code of the account the payout is being made from. |
+| `status` | `String` | Gets or Sets the status of payout request |
+| `tagIds` | `Array` | An optional list of tag ids to add to the payout. |
+| `tags` | `Array` | An optional list of descriptive tags attached to the payout. |
+| `theirReference` | `String` | Gets or Sets destination reference ID |
+| `topupPayrunID` | `String` | The ID of a payrun that needs an account top up. |
+| `transactedAmount` | `Float` | The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction. |
+| `transactedFxAmount` | `Float` | The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction. |
+| `transactedFxRate` | `Float` | The actual FX rate applied during settlement, as recorded on the associated transaction. |
+| `type` | `String` | Gets or Sets payout type |
+| `userID` | `String` | Gets or Sets User ID of who created the payout request |
+| `yourReference` | `String` | Gets or Sets your reference ID |
 
 #### Example: Load
 
@@ -3381,6 +3384,7 @@ payouts = client.Payout.list
 
 ```ruby
 payout = client.Payout.create({
+  "id" => "example_id", # String
   "beneficiary" => {}, # Hash
   "sourceAccountIdentifier" => {}, # Hash
 })
@@ -3401,79 +3405,79 @@ Create an instance: `payout_keyset_page = client.PayoutKeysetPage`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountID` | `String` |  |
-| `amount` | `Float` |  |
-| `amountMinorUnits` | `Integer` |  |
-| `approvePayoutUrl` | `String` |  |
-| `approverID` | `String` |  |
-| `authenticationMethods` | `Array` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
-| `batchPayoutID` | `String` |  |
+| `accountID` | `String` | Gets or Sets Account Id of sending account |
+| `amount` | `Float` | Gets or Sets payout amount |
+| `amountMinorUnits` | `Integer` | The payout amount expressed in the currency’s minor units (e.g. |
+| `approvePayoutUrl` | `String` | This field is used when returning an payout record to a client. |
+| `approverID` | `String` | Gets the User ID of person that approved the payout. |
+| `authenticationMethods` | `Array` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | `Array` | A list of the users who have successfully authorised the latest version of the payout and when. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the payout. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this payout. |
+| `batchPayoutID` | `String` | The ID of the batch the payout is associated with. |
 | `beneficiary` | `Hash` |  |
-| `canAuthorise` | `Boolean` |  |
-| `canProcess` | `Boolean` |  |
-| `canUpdate` | `Boolean` |  |
-| `chargeBearer` | `String` |  |
+| `canAuthorise` | `Boolean` | True if the payout can be authorised by the user who loaded it. |
+| `canProcess` | `Boolean` | If set to true indicates the payout has been flagged as safe to process after transaction monitoring. |
+| `canUpdate` | `Boolean` | True if the payout can be updated by the user who loaded it. |
+| `chargeBearer` | `String` | Optional field to set who should pay any fees for the payout. |
 | `createdBy` | `String` |  |
 | `createdByEmailAddress` | `String` |  |
-| `currency` | `String` |  |
-| `currentUserID` | `String` |  |
-| `description` | `String` |  |
+| `currency` | `String` | Gets or Sets Currency of payout request |
+| `currentUserID` | `String` | The ID of the user that requested access to the PayOut record. |
+| `description` | `String` | Gets or Sets description of payout request |
 | `destination` | `Hash` |  |
-| `documents` | `Array` |  |
-| `events` | `Array` |  |
-| `formattedAmount` | `String` |  |
-| `formattedFxDestinationAmount` | `String` |  |
+| `documents` | `Array` | Documents associated with the payout. |
+| `events` | `Array` | The activity associated with the payout. |
+| `formattedAmount` | `String` | Currency and formatted amount string. |
+| `formattedFxDestinationAmount` | `String` | FX destination currency and amount formatted string. |
 | `formattedSchedule` | `String` |  |
 | `formattedScheduleDayOnly` | `String` |  |
-| `formattedSourceAccountAvailableBalance` | `String` |  |
-| `fxDestinationAmount` | `Float` |  |
-| `fxDestinationAmountMinorUnits` | `Integer` |  |
-| `fxDestinationCurrency` | `String` |  |
-| `fxQuoteExpiresAt` | `String` |  |
-| `fxQuoteID` | `String` |  |
-| `fxRate` | `Float` |  |
-| `fxUseDestinationAmount` | `Boolean` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
-| `id` | `String` |  |
+| `formattedSourceAccountAvailableBalance` | `String` | The available balance of the account the payout is being made from. |
+| `fxDestinationAmount` | `Float` | If specified this will be the amount sent to the payee. |
+| `fxDestinationAmountMinorUnits` | `Integer` | The payout FxDestinationAmount expressed in the currency’s minor units (e.g. |
+| `fxDestinationCurrency` | `String` | For an FX payout this is the currency to send to the beneficiary. |
+| `fxQuoteExpiresAt` | `String` | If an FX held rate quote ID is being used this is the time the quote expires. |
+| `fxQuoteID` | `String` | Optional. |
+| `fxRate` | `Float` | For an FX payout this is the exchange rate to use for the payout. |
+| `fxUseDestinationAmount` | `Boolean` | For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated. |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the payout was loaded for a user and that user has already authorised the latest version of the payout. |
+| `id` | `String` | The ID for the payout. |
 | `inserted` | `String` |  |
-| `invoiceID` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isFailed` | `Boolean` |  |
-| `isSettled` | `Boolean` |  |
-| `isSubmitted` | `Boolean` |  |
+| `invoiceID` | `String` | Optional field to associate the payout with the invoice from an external application such as Xero. |
+| `isArchived` | `Boolean` | Indicates whether the payout is archived. |
+| `isFailed` | `Boolean` | Set to true if a submitted payout subsequently fails. |
+| `isSettled` | `Boolean` | Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger. |
+| `isSubmitted` | `Boolean` | Indicates whether the payout has been submitted for processing. |
 | `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
 | `merchantTokenDescription` | `String` |  |
 | `nonce` | `String` |  |
-| `paymentProcessor` | `String` |  |
-| `paymentRail` | `String` |  |
-| `payrunID` | `String` |  |
-| `payrunName` | `String` |  |
+| `paymentProcessor` | `String` | The usptream payment processor for the payout. |
+| `paymentRail` | `String` | Optional field to indicate the payment rail to use for the payout. |
+| `payrunID` | `String` | The ID of the payrun that this payout is associated with. |
+| `payrunName` | `String` | The name of the payrun that this payout is associated with. |
 | `rule` | `Hash` |  |
-| `scheduleDate` | `String` |  |
-| `scheduled` | `Boolean` |  |
-| `sourceAccountAvailableBalance` | `Float` |  |
-| `sourceAccountAvailableBalanceMinorUnits` | `Integer` |  |
-| `sourceAccountBic` | `String` |  |
-| `sourceAccountCurrency` | `String` |  |
-| `sourceAccountIban` | `String` |  |
+| `scheduleDate` | `String` | The date the payout should be submitted. |
+| `scheduled` | `Boolean` | Should this payout be scheduled for a future date? |
+| `sourceAccountAvailableBalance` | `Float` | The available balance of the account the payout is being made from. |
+| `sourceAccountAvailableBalanceMinorUnits` | `Integer` | The available balance of the source account expressed in the currency’s minor units (e.g. |
+| `sourceAccountBic` | `String` | The BIC of the account the payout is being made from. |
+| `sourceAccountCurrency` | `String` | The currency of the source account. |
+| `sourceAccountIban` | `String` | The IBAN of the account the payout is being made from. |
 | `sourceAccountIdentifier` | `Hash` |  |
-| `sourceAccountName` | `String` |  |
-| `sourceAccountNumber` | `String` |  |
-| `sourceAccountSortcode` | `String` |  |
-| `status` | `String` |  |
-| `tags` | `Array` |  |
-| `theirReference` | `String` |  |
-| `topupPayrunID` | `String` |  |
-| `transactedAmount` | `Float` |  |
-| `transactedFxAmount` | `Float` |  |
-| `transactedFxRate` | `Float` |  |
-| `type` | `String` |  |
-| `userID` | `String` |  |
-| `yourReference` | `String` |  |
+| `sourceAccountName` | `String` | The name of the account the payout is being made from. |
+| `sourceAccountNumber` | `String` | The account number of the account the payout is being made from. |
+| `sourceAccountSortcode` | `String` | The sort code of the account the payout is being made from. |
+| `status` | `String` | Gets or Sets the status of payout request |
+| `tags` | `Array` | An optional list of descriptive tags attached to the payout. |
+| `theirReference` | `String` | Gets or Sets destination reference ID |
+| `topupPayrunID` | `String` | The ID of a payrun that needs an account top up. |
+| `transactedAmount` | `Float` | The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction. |
+| `transactedFxAmount` | `Float` | The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction. |
+| `transactedFxRate` | `Float` | The actual FX rate applied during settlement, as recorded on the associated transaction. |
+| `type` | `String` | Gets or Sets payout type |
+| `userID` | `String` | Gets or Sets User ID of who created the payout request |
+| `yourReference` | `String` | Gets or Sets your reference ID |
 
 #### Example: List
 
@@ -3520,15 +3524,15 @@ Create an instance: `payrun = client.Payrun`
 | Field | Type | Description |
 | --- | --- | --- |
 | `authorisationDate` | `String` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
+| `authorisations` | `Array` | A list of the users who have successfully authorised the latest version of the payrun and when. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the payrun. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this payrun. |
 | `batchPayoutID` | `String` |  |
-| `canAuthorise` | `Boolean` |  |
+| `canAuthorise` | `Boolean` | True if the payrun can be authorised by the user who loaded it. |
 | `canDelete` | `Boolean` |  |
 | `canEdit` | `Boolean` |  |
 | `events` | `Array` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun. |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
 | `invoices` | `Array` |  |
@@ -3662,38 +3666,38 @@ Create an instance: `rule = client.Rule`
 | Field | Type | Description |
 | --- | --- | --- |
 | `account` | `Hash` |  |
-| `accountID` | `String` |  |
-| `approveUrl` | `String` |  |
+| `accountID` | `String` | The ID of the account the rule will apply to. |
+| `approveUrl` | `String` | If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule. |
 | `approverID` | `String` |  |
-| `authenticationMethods` | `Array` |  |
-| `authorisations` | `Array` |  |
-| `authorisersCompletedCount` | `Integer` |  |
-| `authorisersRequiredCount` | `Integer` |  |
-| `canAuthorise` | `Boolean` |  |
+| `authenticationMethods` | `Array` | A list of authentication types allowed to authorise the payout. |
+| `authorisations` | `Array` | A list of the users who have successfully authorised the latest version of the rule and when. |
+| `authorisersCompletedCount` | `Integer` | The number of distinct authorisers that have authorised the rule. |
+| `authorisersRequiredCount` | `Integer` | The number of authorisers required for this rule. |
+| `canAuthorise` | `Boolean` | True if the rule can be authorised by the user who loaded it. |
 | `createdBy` | `Hash` |  |
-| `description` | `String` |  |
-| `endAt` | `String` |  |
-| `hasCurrentUserAuthorised` | `Boolean` |  |
+| `description` | `String` | Arbitrary description for the rule. |
+| `endAt` | `String` | Optional end time for rule executions. |
+| `hasCurrentUserAuthorised` | `Boolean` | True if the current user has authorised. |
 | `id` | `String` |  |
 | `inserted` | `String` |  |
-| `isDisabled` | `Boolean` |  |
+| `isDisabled` | `Boolean` | If set to true the rule will be disabled from executing. |
 | `lastExecutedAt` | `String` |  |
-| `lastRunAtTransactionDate` | `String` |  |
+| `lastRunAtTransactionDate` | `String` | The most recent transaction date when the rule was last run. |
 | `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `name` | `String` |  |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `name` | `String` | A name to succinctly describe the rule. |
 | `nonce` | `String` |  |
-| `onApprovedWebHookUrl` | `String` |  |
-| `onExecutionErrorWebHookUrl` | `String` |  |
-| `onExecutionSuccessWebHookUrl` | `String` |  |
-| `startAt` | `String` |  |
+| `onApprovedWebHookUrl` | `String` | Optional URL to receive an HTTP request with the rule details when the rule status changes to approved. |
+| `onExecutionErrorWebHookUrl` | `String` | Optional URL to receive an HTTP request when a rule execution attempt fails. |
+| `onExecutionSuccessWebHookUrl` | `String` | Optional URL to receive an HTTP request when a rule execution attempt succeeds. |
+| `startAt` | `String` | Optional start time for rule executions. |
 | `status` | `String` |  |
 | `sweepAction` | `Hash` |  |
-| `timeZoneId` | `String` |  |
-| `triggerCronExpression` | `String` |  |
-| `triggerOnPayIn` | `Boolean` |  |
+| `timeZoneId` | `String` | If the rule should be executed on a recurring schedule this is the timezone that the CRON expression should be evaluated in. |
+| `triggerCronExpression` | `String` | If the rule should be executed on a recurring schedule this is the expression that sets the schedule. |
+| `triggerOnPayIn` | `Boolean` | Set to true if the rule execution should be triggered when the account receives a pay in (credit). |
 | `userID` | `String` |  |
-| `webHookSecret` | `String` |  |
+| `webHookSecret` | `String` | If set this secret will be used to sign Web Hook requests. |
 
 #### Example: Load
 
@@ -3827,59 +3831,59 @@ Create an instance: `transaction = client.Transaction`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountID` | `String` |  |
-| `accountName` | `String` |  |
-| `accountSequenceNumber` | `Integer` |  |
+| `accountID` | `String` | The ID of the account the transaction belongs to. |
+| `accountName` | `String` | The name of the account the transaction belongs to. |
+| `accountSequenceNumber` | `Integer` | The sequence number of transaction on a per account basis. |
 | `addressDetails` | `Hash` |  |
-| `amount` | `Float` |  |
-| `amountMinorUnits` | `Integer` |  |
-| `balance` | `Float` |  |
-| `balanceMinorUnits` | `Integer` |  |
+| `amount` | `Float` | Amount of the transaction. |
+| `amountMinorUnits` | `Integer` | Amount of the transaction expressed in the currency’s minor units (e.g. |
+| `balance` | `Float` | Balance left on the account after the transaction. |
+| `balanceMinorUnits` | `Integer` | Balance on the account expressed in the currency’s minor units (e.g. |
 | `bookingDateTime` | `String` |  |
 | `chargeDetails` | `Hash` |  |
 | `content` | `Array` |  |
 | `counterparty` | `Hash` |  |
-| `counterpartySummary` | `String` |  |
-| `currency` | `String` |  |
-| `currencyExchange` | `Hash` |  |
+| `counterpartySummary` | `String` | For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty. |
+| `currency` | `String` | Currency of transaction. |
+| `currencyExchange` | `Hash` | Provides details on the currency exchange. |
 | `date` | `String` |  |
-| `description` | `String` |  |
+| `description` | `String` | Description of the transaction. |
 | `enrichment` | `Hash` |  |
-| `fxAmount` | `Float` |  |
-| `fxCurrency` | `String` |  |
-| `fxRate` | `Float` |  |
+| `fxAmount` | `Float` | For an FX payout this is the amound in the FX currency. |
+| `fxCurrency` | `String` | For an FX payout this is the currency that was received or that was instructed. |
+| `fxRate` | `Float` | For an FX payout this is the exchange rate between the transaction currency and the FX currency. |
 | `grossAmount` | `Hash` |  |
-| `id` | `String` |  |
-| `inserted` | `String` |  |
+| `id` | `String` | Unique ID for the transaction. |
+| `inserted` | `String` | Date when the transaction was inserted into the ledger. |
 | `isoBankTransactionCode` | `Hash` |  |
 | `merchant` | `Hash` |  |
-| `merchantID` | `String` |  |
-| `pageNumber` | `Integer` |  |
-| `pageSize` | `Integer` |  |
-| `payeeDetails` | `Hash` |  |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `pageNumber` | `Integer` | Current page number. |
+| `pageSize` | `Integer` | Page size |
+| `payeeDetails` | `Hash` | The Payee object contains details of the beneficiary, person or business. |
 | `payerDetails` | `Hash` |  |
-| `paymentRequestCustomFields` | `Hash` |  |
-| `paymentRequestID` | `String` |  |
-| `payoutID` | `String` |  |
+| `paymentRequestCustomFields` | `Hash` | The custom fields that were attached to the payment request that resulted in this transaction. |
+| `paymentRequestID` | `String` | For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request. |
+| `payoutID` | `String` | ID of the payout that resulted in the transaction. |
 | `proprietaryBankTransactionCode` | `Hash` |  |
-| `rawReference` | `String` |  |
+| `rawReference` | `String` | The raw payment reference details as received from the payment processor. |
 | `reference` | `String` |  |
-| `ruleID` | `String` |  |
+| `ruleID` | `String` | ID of the rule that resulted in the transaction. |
 | `statementReferences` | `Array` |  |
 | `status` | `String` |  |
 | `supplementaryData` | `Object` |  |
-| `tags` | `Array` |  |
-| `theirReference` | `String` |  |
-| `totalPages` | `Integer` |  |
-| `totalSize` | `Integer` |  |
+| `tags` | `Array` | An optional list of descriptive tags attached to the transaction. |
+| `theirReference` | `String` | For a pay out the reference that the payer attached for the receiving party. |
+| `totalPages` | `Integer` | Total pages |
+| `totalSize` | `Integer` | Total count |
 | `transactionAmount` | `Hash` |  |
-| `transactionDate` | `String` |  |
+| `transactionDate` | `String` | Date when the transaction occurred. |
 | `transactionInformation` | `Array` |  |
 | `transactionMutability` | `String` |  |
-| `type` | `String` |  |
+| `type` | `String` | Type of the transaction. |
 | `valueDateTime` | `String` |  |
-| `virtualIBAN` | `String` |  |
-| `yourReference` | `String` |  |
+| `virtualIBAN` | `String` | If set it indicates the payin was to a virtual IBAN. |
+| `yourReference` | `String` | For a pay in the reference the sending party attached. |
 
 #### Example: Load
 
@@ -3923,7 +3927,7 @@ Create an instance: `user = client.User`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `clientSessionTimeouts` | `Array` |  |
+| `clientSessionTimeouts` | `Array` | The number of seconds a session for this user should last before expiring. |
 | `emailAddress` | `String` |  |
 | `firstName` | `String` |  |
 | `id` | `String` |  |
@@ -3933,7 +3937,7 @@ Create an instance: `user = client.User`
 | `profile` | `String` |  |
 | `rolesWithScope` | `Array` |  |
 | `twoFactorEnabled` | `Boolean` |  |
-| `userInviteID` | `String` |  |
+| `userInviteID` | `String` | Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant. |
 
 #### Example: List
 
@@ -3964,21 +3968,21 @@ Create an instance: `user_invite = client.UserInvite`
 | `authorisationStatus` | `Hash` |  |
 | `failedUserInvites` | `Hash` |  |
 | `id` | `String` |  |
-| `initialRoleID` | `String` |  |
-| `inviteeEmailAddress` | `String` |  |
-| `inviteeFirstName` | `String` |  |
-| `inviteeLastName` | `String` |  |
+| `initialRoleID` | `String` | The role ID to automatically assign to the merchant’s very first user. |
+| `inviteeEmailAddress` | `String` | Email address of the user being invited. |
+| `inviteeFirstName` | `String` | First Name of the user being invited. |
+| `inviteeLastName` | `String` | Last Name of the user being invited. |
 | `inviterEmailAddress` | `String` |  |
 | `inviterFirstName` | `String` |  |
 | `inviterLastName` | `String` |  |
-| `isAuthorised` | `Boolean` |  |
-| `isInviteeRegistered` | `Boolean` |  |
+| `isAuthorised` | `Boolean` | Will be set to true once the invite has met the authorisation requirements. |
+| `isInviteeRegistered` | `Boolean` | If true, indicates the invitee's email address corresponds to an existing MoneyMoov user. |
 | `lastInvited` | `String` |  |
-| `merchantID` | `String` |  |
+| `merchantID` | `String` | ID of the merchant the user is being invited to. |
 | `merchantName` | `String` |  |
 | `message` | `String` |  |
 | `registrationUrl` | `String` |  |
-| `sendInviteEmail` | `Boolean` |  |
+| `sendInviteEmail` | `Boolean` | If set to true an email will be sent to the invitee with instructions on how to accept the invite. |
 | `status` | `String` |  |
 | `user` | `Hash` |  |
 | `userID` | `String` |  |
@@ -4002,6 +4006,7 @@ user_invites = client.UserInvite.list
 
 ```ruby
 user_invite = client.UserInvite.create({
+  "id" => "example_id", # String
   "user" => {}, # Hash
 })
 ```
@@ -4022,46 +4027,46 @@ Create an instance: `virtual = client.Virtual`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accountName` | `String` |  |
-| `accountSupplierName` | `String` |  |
-| `availableBalance` | `Float` |  |
-| `availableBalanceMinorUnits` | `Integer` |  |
-| `balance` | `Float` |  |
-| `balanceMinorUnits` | `Integer` |  |
-| `bankName` | `String` |  |
-| `consentID` | `String` |  |
+| `accountName` | `String` | Name for the account |
+| `accountSupplierName` | `String` | The payment account supplier name. |
+| `availableBalance` | `Float` | The current available balance of the account. |
+| `availableBalanceMinorUnits` | `Integer` | The available balance expressed in the currency’s minor units (e.g. |
+| `balance` | `Float` | Balance of the account. |
+| `balanceMinorUnits` | `Integer` | Balance of the account expressed in the currency’s minor units (e.g. |
+| `bankName` | `String` | The bank name for external accounts |
+| `consentID` | `String` | The ID of the consent used to connect the external account. |
 | `createdBy` | `Hash` |  |
-| `createdByDisplayName` | `String` |  |
-| `currency` | `String` |  |
-| `defaultPaymentRail` | `String` |  |
-| `displayName` | `String` |  |
-| `expiryDate` | `String` |  |
-| `externalAccountIcon` | `String` |  |
-| `id` | `String` |  |
+| `createdByDisplayName` | `String` | Either the name of the user, merchant token or api key that created the account |
+| `currency` | `String` | Currency of the account in ISO 4217 format |
+| `defaultPaymentRail` | `String` | Indicates the default payment rail for this account. |
+| `displayName` | `String` | Gets a unique display name for the payment account. |
+| `expiryDate` | `String` | The date that the external account will expire |
+| `externalAccountIcon` | `String` | The Icon for external accounts |
+| `id` | `String` | Unique id for the account. |
 | `identifier` | `Hash` |  |
-| `inserted` | `String` |  |
-| `isArchived` | `Boolean` |  |
-| `isConnectedAccount` | `Boolean` |  |
-| `isDefault` | `Boolean` |  |
-| `isTrustAccount` | `Boolean` |  |
-| `isVirtual` | `Boolean` |  |
+| `inserted` | `String` | Timestamp when the account was created. |
+| `isArchived` | `Boolean` | Indicates whether the account is archived. |
+| `isConnectedAccount` | `Boolean` | Indicates if the payment account is an externally connected account. |
+| `isDefault` | `Boolean` | Is the default account |
+| `isTrustAccount` | `Boolean` | Indicates if the payment account is a trust account. |
+| `isVirtual` | `Boolean` | True if the account is a virtual account. |
 | `lastTransaction` | `Hash` |  |
-| `lastUpdated` | `String` |  |
-| `merchantID` | `String` |  |
-| `merchantName` | `String` |  |
-| `name` | `String` |  |
-| `physicalAccountID` | `String` |  |
-| `rules` | `Array` |  |
-| `submittedPayoutsBalance` | `Float` |  |
-| `submittedPayoutsBalanceMinorUnits` | `Integer` |  |
-| `summary` | `String` |  |
-| `supplierSepaInstantStatus` | `String` |  |
-| `xeroBankFeedConnectionStatus` | `String` |  |
+| `lastUpdated` | `String` | Timestamp when the account was last updated. |
+| `merchantID` | `String` | The ID of the merchant that owns the account. |
+| `merchantName` | `String` | The name of the merchant that owns the account. |
+| `name` | `String` | The name of the virtual account. |
+| `physicalAccountID` | `String` | For virtual accounts this is the ID of the physical account that the virtual account is linked to. |
+| `rules` | `Array` | The list of rules associated with this account. |
+| `submittedPayoutsBalance` | `Float` | Total of the payouts that have been submitted for processing. |
+| `submittedPayoutsBalanceMinorUnits` | `Integer` | The balance of the submitted payouts expressed in the currency’s minor units (e.g. |
+| `summary` | `String` | Gets a summary of the payments account's most important properties. |
+| `supplierSepaInstantStatus` | `String` | Indicates the status of the SEPA Instant payment rail for this account. |
+| `xeroBankFeedConnectionStatus` | `String` | States the status of the Xero bank feed connection, if applicable. |
 | `xeroBankFeedLastSyncedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailedAt` | `String` |  |
 | `xeroBankFeedSyncLastFailureReason` | `String` |  |
 | `xeroBankFeedSyncStatus` | `String` |  |
-| `xeroUnsynchronisedTransactionsCount` | `Integer` |  |
+| `xeroUnsynchronisedTransactionsCount` | `Integer` | Indicates the number of unsynchronised transactions with Xero |
 
 #### Example: Create
 
@@ -4093,16 +4098,16 @@ Create an instance: `webhook = client.Webhook`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destinationUrl` | `String` |  |
-| `emailAddress` | `String` |  |
-| `failedNotificationEmailAddress` | `String` |  |
+| `destinationUrl` | `String` | The destination URL for the webhook. |
+| `emailAddress` | `String` | The recipient email address(es) for notifications. |
+| `failedNotificationEmailAddress` | `String` | The email address to which notifications about failed webhook deliveries will be sent. |
 | `id` | `String` |  |
 | `isActive` | `Boolean` |  |
-| `merchantID` | `String` |  |
-| `notificationMethod` | `String` |  |
-| `resourceTypes` | `Array` |  |
+| `merchantID` | `String` | The ID of the merchant that the webhook is for. |
+| `notificationMethod` | `String` | The type of notification that will be sent. |
+| `resourceTypes` | `Array` | The resource types that the webhook will be generated for. |
 | `retry` | `Boolean` |  |
-| `secret` | `String` |  |
+| `secret` | `String` | The secret key required to authenticate webhook notifications. |
 | `version` | `Integer` |  |
 
 #### Example: Load

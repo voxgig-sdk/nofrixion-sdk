@@ -8,51 +8,61 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "accountID"
       req: false
+      short: "Gets or Sets Account Id of sending account"
       type: "`$STRING`"
     }
     {
       name: "amount"
       req: false
+      short: "Gets or Sets payout amount"
       type: "`$NUMBER`"
     }
     {
       name: "amountMinorUnits"
       req: false
+      short: "The payout amount expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "approvePayoutUrl"
       req: false
+      short: "This field is used when returning an payout record to a client."
       type: "`$STRING`"
     }
     {
       name: "approverID"
       req: false
+      short: "Gets the User ID of person that approved the payout."
       type: "`$STRING`"
     }
     {
       name: "authenticationMethods"
       req: false
+      short: "A list of authentication types allowed to authorise the payout."
       type: "`$ARRAY`"
     }
     {
       name: "authorisations"
       req: false
+      short: "A list of the users who have successfully authorised the latest version of the payout and when."
       type: "`$ARRAY`"
     }
     {
       name: "authorisersCompletedCount"
       req: false
+      short: "The number of distinct authorisers that have authorised the payout."
       type: "`$INTEGER`"
     }
     {
       name: "authorisersRequiredCount"
       req: false
+      short: "The number of authorisers required for this payout."
       type: "`$INTEGER`"
     }
     {
       name: "batchPayoutID"
       req: false
+      short: "The ID of the batch the payout is associated with."
       type: "`$STRING`"
     }
     {
@@ -63,21 +73,25 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "canAuthorise"
       req: false
+      short: "True if the payout can be authorised by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
       name: "canProcess"
       req: false
+      short: "If set to true indicates the payout has been flagged as safe to process after transaction monitoring."
       type: "`$BOOLEAN`"
     }
     {
       name: "canUpdate"
       req: false
+      short: "True if the payout can be updated by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
       name: "chargeBearer"
       req: false
+      short: "Optional field to set who should pay any fees for the payout."
       type: "`$STRING`"
     }
     {
@@ -93,16 +107,19 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "currency"
       req: false
+      short: "Gets or Sets Currency of payout request"
       type: "`$STRING`"
     }
     {
       name: "currentUserID"
       req: false
+      short: "The ID of the user that requested access to the PayOut record."
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Gets or Sets description of payout request"
       type: "`$STRING`"
     }
     {
@@ -113,21 +130,25 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "documents"
       req: false
+      short: "Documents associated with the payout."
       type: "`$ARRAY`"
     }
     {
       name: "events"
       req: false
+      short: "The activity associated with the payout."
       type: "`$ARRAY`"
     }
     {
       name: "formattedAmount"
       req: false
+      short: "Currency and formatted amount string."
       type: "`$STRING`"
     }
     {
       name: "formattedFxDestinationAmount"
       req: false
+      short: "FX destination currency and amount formatted string."
       type: "`$STRING`"
     }
     {
@@ -143,51 +164,61 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "formattedSourceAccountAvailableBalance"
       req: false
+      short: "The available balance of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
       name: "fxDestinationAmount"
       req: false
+      short: "If specified this will be the amount sent to the payee."
       type: "`$NUMBER`"
     }
     {
       name: "fxDestinationAmountMinorUnits"
       req: false
+      short: "The payout FxDestinationAmount expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "fxDestinationCurrency"
       req: false
+      short: "For an FX payout this is the currency to send to the beneficiary."
       type: "`$STRING`"
     }
     {
       name: "fxQuoteExpiresAt"
       req: false
+      short: "If an FX held rate quote ID is being used this is the time the quote expires."
       type: "`$STRING`"
     }
     {
       name: "fxQuoteID"
       req: false
+      short: "Optional."
       type: "`$STRING`"
     }
     {
       name: "fxRate"
       req: false
+      short: "For an FX payout this is the exchange rate to use for the payout."
       type: "`$NUMBER`"
     }
     {
       name: "fxUseDestinationAmount"
       req: false
+      short: "For a multi-currency payout this indicates how the Amount and FxDestinationAmount are treated."
       type: "`$BOOLEAN`"
     }
     {
       name: "hasCurrentUserAuthorised"
       req: false
+      short: "True if the payout was loaded for a user and that user has already authorised the latest version of the payout."
       type: "`$BOOLEAN`"
     }
     {
       name: "id"
       req: false
+      short: "The ID for the payout."
       type: "`$STRING`"
     }
     {
@@ -198,26 +229,31 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "invoiceID"
       req: false
+      short: "Optional field to associate the payout with the invoice from an external application such as Xero."
       type: "`$STRING`"
     }
     {
       name: "isArchived"
       req: false
+      short: "Indicates whether the payout is archived."
       type: "`$BOOLEAN`"
     }
     {
       name: "isFailed"
       req: false
+      short: "Set to true if a submitted payout subsequently fails."
       type: "`$BOOLEAN`"
     }
     {
       name: "isSettled"
       req: false
+      short: "Set to true if a payout was successfully processed and the corresponding transaction has been recorded on the ledger."
       type: "`$BOOLEAN`"
     }
     {
       name: "isSubmitted"
       req: false
+      short: "Indicates whether the payout has been submitted for processing."
       type: "`$BOOLEAN`"
     }
     {
@@ -228,6 +264,7 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "merchantID"
       req: false
+      short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
@@ -243,21 +280,25 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "paymentProcessor"
       req: false
+      short: "The usptream payment processor for the payout."
       type: "`$STRING`"
     }
     {
       name: "paymentRail"
       req: false
+      short: "Optional field to indicate the payment rail to use for the payout."
       type: "`$STRING`"
     }
     {
       name: "payrunID"
       req: false
+      short: "The ID of the payrun that this payout is associated with."
       type: "`$STRING`"
     }
     {
       name: "payrunName"
       req: false
+      short: "The name of the payrun that this payout is associated with."
       type: "`$STRING`"
     }
     {
@@ -268,36 +309,43 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "scheduleDate"
       req: false
+      short: "The date the payout should be submitted."
       type: "`$STRING`"
     }
     {
       name: "scheduled"
       req: false
+      short: "Should this payout be scheduled for a future date?"
       type: "`$BOOLEAN`"
     }
     {
       name: "sourceAccountAvailableBalance"
       req: false
+      short: "The available balance of the account the payout is being made from."
       type: "`$NUMBER`"
     }
     {
       name: "sourceAccountAvailableBalanceMinorUnits"
       req: false
+      short: "The available balance of the source account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "sourceAccountBic"
       req: false
+      short: "The BIC of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
       name: "sourceAccountCurrency"
       req: false
+      short: "The currency of the source account."
       type: "`$STRING`"
     }
     {
       name: "sourceAccountIban"
       req: false
+      short: "The IBAN of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
@@ -308,66 +356,79 @@ main: kit: entity: payout_keyset_page: {
     {
       name: "sourceAccountName"
       req: false
+      short: "The name of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
       name: "sourceAccountNumber"
       req: false
+      short: "The account number of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
       name: "sourceAccountSortcode"
       req: false
+      short: "The sort code of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "Gets or Sets the status of payout request"
       type: "`$STRING`"
     }
     {
       name: "tags"
       req: false
+      short: "An optional list of descriptive tags attached to the payout."
       type: "`$ARRAY`"
     }
     {
       name: "theirReference"
       req: false
+      short: "Gets or Sets destination reference ID"
       type: "`$STRING`"
     }
     {
       name: "topupPayrunID"
       req: false
+      short: "The ID of a payrun that needs an account top up."
       type: "`$STRING`"
     }
     {
       name: "transactedAmount"
       req: false
+      short: "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction."
       type: "`$NUMBER`"
     }
     {
       name: "transactedFxAmount"
       req: false
+      short: "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction."
       type: "`$NUMBER`"
     }
     {
       name: "transactedFxRate"
       req: false
+      short: "The actual FX rate applied during settlement, as recorded on the associated transaction."
       type: "`$NUMBER`"
     }
     {
       name: "type"
       req: false
+      short: "Gets or Sets payout type"
       type: "`$STRING`"
     }
     {
       name: "userID"
       req: false
+      short: "Gets or Sets User ID of who created the payout request"
       type: "`$STRING`"
     }
     {
       name: "yourReference"
       req: false
+      short: "Gets or Sets your reference ID"
       type: "`$STRING`"
     }
   ]

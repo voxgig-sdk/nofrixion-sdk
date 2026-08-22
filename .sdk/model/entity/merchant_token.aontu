@@ -8,26 +8,31 @@ main: kit: entity: merchant_token: {
     {
       name: "authenticationMethods"
       req: false
+      short: "A list of authentication types allowed to authorise the merchant token."
       type: "`$ARRAY`"
     }
     {
       name: "authorisations"
       req: false
+      short: "A list of users who have successfully authorised the latest version of the beneficiary."
       type: "`$ARRAY`"
     }
     {
       name: "authorisersCompletedCount"
       req: false
+      short: "The number of distinct authorisers that have authorised the merchant token."
       type: "`$INTEGER`"
     }
     {
       name: "authorisersRequiredCount"
       req: false
+      short: "The number of authorisers required for this merchant token."
       type: "`$INTEGER`"
     }
     {
       name: "canAuthorise"
       req: false
+      short: "True if the merchant token can be authorised by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
@@ -39,21 +44,25 @@ main: kit: entity: merchant_token: {
         }
       }
       req: false
+      short: "Token description"
       type: "`$STRING`"
     }
     {
       name: "expiresAt"
       req: false
+      short: "Optional."
       type: "`$STRING`"
     }
     {
       name: "hasCurrentUserAuthorised"
       req: false
+      short: "True if the beneficiary was loaded for a user and that user has already authorised the latest version of the beneficiary."
       type: "`$BOOLEAN`"
     }
     {
       name: "hmacAlgorithm"
       req: false
+      short: "Optional shared secret algorithm to use for HMAC authentication."
       type: "`$STRING`"
     }
     {
@@ -69,16 +78,19 @@ main: kit: entity: merchant_token: {
     {
       name: "ipAddressWhitelist"
       req: false
+      short: "Optional."
       type: "`$STRING`"
     }
     {
       name: "isArchived"
       req: false
+      short: "Indicates whether the merchant token is archived."
       type: "`$BOOLEAN`"
     }
     {
       name: "isEnabled"
       req: false
+      short: "If set to false the merchant token will not be accepted to authorise a request."
       type: "`$BOOLEAN`"
     }
     {
@@ -100,6 +112,7 @@ main: kit: entity: merchant_token: {
         }
       }
       req: false
+      short: "The merchant id to add to the token"
       type: "`$STRING`"
     }
     {
@@ -110,26 +123,31 @@ main: kit: entity: merchant_token: {
     {
       name: "permissionTypes"
       req: false
+      short: "The permissions that the merchant token supports."
       type: "`$ARRAY`"
     }
     {
       name: "requestSignatureVersion"
       req: false
+      short: "Represent the version of the overall merchant token."
       type: "`$INTEGER`"
     }
     {
       name: "sharedSecretAlgorithm"
       req: false
+      short: "Optional shared secret algorithm to use for HMAC authentication."
       type: "`$STRING`"
     }
     {
       name: "sharedSecretBase64"
       req: false
+      short: "The base 64 encoded shared secret that is used for request authentication with an HMAC."
       type: "`$STRING`"
     }
     {
       name: "token"
       req: false
+      short: "The JWT merchant token."
       type: "`$STRING`"
     }
   ]

@@ -8,116 +8,139 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
     {
       name: "approvedAt"
       req: false
+      short: "Date at which the supplier approved this mandate."
       type: "`$STRING`"
     }
     {
       name: "currency"
       req: false
+      short: "Currency of this mandate."
       type: "`$STRING`"
     }
     {
       name: "customerAccountNumber"
       req: false
+      short: "Customer's account number in case of GBP account."
       type: "`$STRING`"
     }
     {
       name: "customerCity"
       req: false
+      short: "Customer's city of residence."
       type: "`$STRING`"
     }
     {
       name: "customerCountryCode"
       req: false
+      short: "Customer's country of residence code."
       type: "`$STRING`"
     }
     {
       name: "customerCountryName"
       req: false
+      short: "Customer's country of residence."
       type: "`$STRING`"
     }
     {
       name: "customerEmailAddress"
       req: false
+      short: "Customer's email address."
       type: "`$STRING`"
     }
     {
       name: "customerFirstName"
       req: false
+      short: "Customer's first name."
       type: "`$STRING`"
     }
     {
       name: "customerIban"
       req: false
+      short: "Customer's IBAN in case of EUR account."
       type: "`$STRING`"
     }
     {
       name: "customerLastName"
       req: false
+      short: "Customer's last name."
       type: "`$STRING`"
     }
     {
       name: "customerSortCode"
       req: false
+      short: "Customer's sort code in case of GBP account."
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Internal ID of the mandate."
       type: "`$STRING`"
     }
     {
       name: "inserted"
       req: false
+      short: "The timestamp this mandate was created at."
       type: "`$STRING`"
     }
     {
       name: "isRecurring"
       req: false
+      short: "Whether this mandate is single-use or recurring."
       type: "`$BOOLEAN`"
     }
     {
       name: "lastUpdated"
       req: false
+      short: "The timestamp this mandate was last updated at."
       type: "`$STRING`"
     }
     {
       name: "merchantID"
       req: false
+      short: "Internal ID of this mandate's merchant."
       type: "`$STRING`"
     }
     {
       name: "reference"
       req: false
+      short: "Reference assigned to this mandate."
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "General status of this mandate."
       type: "`$STRING`"
     }
     {
       name: "supplierBankAccountID"
       req: false
+      short: "ID that the supplier assigned to this mandate's bank account."
       type: "`$STRING`"
     }
     {
       name: "supplierCustomerID"
       req: false
+      short: "ID that the supplier assigned to this mandate's customer."
       type: "`$STRING`"
     }
     {
       name: "supplierMandateID"
       req: false
+      short: "ID that the supplier assigned to this mandate."
       type: "`$STRING`"
     }
     {
       name: "supplierName"
       req: false
+      short: "Name of the supplier used to create this mandate."
       type: "`$STRING`"
     }
     {
       name: "supplierStatus"
       req: false
+      short: "Last status that the supplier reported for this mandate."
       type: "`$STRING`"
     }
   ]

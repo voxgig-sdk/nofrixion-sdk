@@ -8,16 +8,19 @@ main: kit: entity: webhook: {
     {
       name: "destinationUrl"
       req: false
+      short: "The destination URL for the webhook."
       type: "`$STRING`"
     }
     {
       name: "emailAddress"
       req: false
+      short: "The recipient email address(es) for notifications."
       type: "`$STRING`"
     }
     {
       name: "failedNotificationEmailAddress"
       req: false
+      short: "The email address to which notifications about failed webhook deliveries will be sent."
       type: "`$STRING`"
     }
     {
@@ -43,6 +46,7 @@ main: kit: entity: webhook: {
         }
       }
       req: false
+      short: "The ID of the merchant that the webhook is for."
       type: "`$STRING`"
     }
     {
@@ -58,11 +62,13 @@ main: kit: entity: webhook: {
         }
       }
       req: false
+      short: "The type of notification that will be sent."
       type: "`$STRING`"
     }
     {
       name: "resourceTypes"
       req: false
+      short: "The resource types that the webhook will be generated for."
       type: "`$ARRAY`"
     }
     {
@@ -73,6 +79,7 @@ main: kit: entity: webhook: {
     {
       name: "secret"
       req: false
+      short: "The secret key required to authenticate webhook notifications."
       type: "`$STRING`"
     }
     {

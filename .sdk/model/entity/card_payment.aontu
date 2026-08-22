@@ -18,41 +18,49 @@ main: kit: entity: card_payment: {
     {
       name: "isPayerAuthenticationRequired"
       req: false
+      short: "Gets set to true if 3-D Secure payer authentication is required for a payment."
       type: "`$BOOLEAN`"
     }
     {
       name: "isSoftDecline"
       req: false
+      short: "Gets set to true if the card processor flagged the transaction as having failed address or card security number verification."
       type: "`$BOOLEAN`"
     }
     {
       name: "payerAuthenticationAccessToken"
       req: false
+      short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect."
       type: "`$STRING`"
     }
     {
       name: "payerAuthenticationMerchantData"
       req: false
+      short: "If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the \"authenticationcallback\" method that gets called automatically after a successful payer authenticati…"
       type: "`$STRING`"
     }
     {
       name: "payerAuthenticationUrl"
       req: false
+      short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank."
       type: "`$STRING`"
     }
     {
       name: "payerAuthenticationWindowHeight"
       req: false
+      short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge."
       type: "`$INTEGER`"
     }
     {
       name: "payerAuthenticationWindowWidth"
       req: false
+      short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge."
       type: "`$INTEGER`"
     }
     {
       name: "paymentRequestCallbackUrl"
       req: false
+      short: "The callback URL that was set when the payment request was created."
       type: "`$STRING`"
     }
     {
@@ -83,6 +91,7 @@ main: kit: entity: card_payment: {
     {
       name: "threeDSRedirectUrl"
       req: false
+      short: "Checkout.com require a redirect for 3DS authentication."
       type: "`$STRING`"
     }
     {

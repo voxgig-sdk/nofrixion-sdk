@@ -8,11 +8,13 @@ main: kit: entity: card_customer_token: {
     {
       name: "cardType"
       req: false
+      short: "The type of the tokenised card, e.g."
       type: "`$STRING`"
     }
     {
       name: "customerEmailAddress"
       req: false
+      short: "When creating a tokenised card the payer's email address must be supplied."
       type: "`$STRING`"
     }
     {
@@ -28,6 +30,7 @@ main: kit: entity: card_customer_token: {
     {
       name: "id"
       req: false
+      short: "The unique ID of the card token that has been stored for the customer."
       type: "`$STRING`"
     }
     {

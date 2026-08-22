@@ -8,6 +8,7 @@ main: kit: entity: payment_request_result: {
     {
       name: "amount"
       req: false
+      short: "The authorised payment amount."
       type: "`$NUMBER`"
     }
     {
@@ -28,21 +29,25 @@ main: kit: entity: payment_request_result: {
     {
       name: "currency"
       req: false
+      short: "The authorised payment currency."
       type: "`$STRING`"
     }
     {
       name: "customerID"
       req: false
+      short: "The customer id"
       type: "`$STRING`"
     }
     {
       name: "paymentRequestID"
       req: false
+      short: "The ID of the payment request the result is for."
       type: "`$STRING`"
     }
     {
       name: "payments"
       req: false
+      short: "The list of payment attempts that have been received for the payment request."
       type: "`$ARRAY`"
     }
     {
@@ -53,11 +58,13 @@ main: kit: entity: payment_request_result: {
     {
       name: "requestedAmount"
       req: false
+      short: "The full original payment amount requested."
       type: "`$NUMBER`"
     }
     {
       name: "result"
       req: false
+      short: "The result of the payment attempt."
       type: "`$STRING`"
     }
   ]

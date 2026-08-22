@@ -13,11 +13,13 @@ main: kit: entity: rule: {
     {
       name: "accountID"
       req: false
+      short: "The ID of the account the rule will apply to."
       type: "`$STRING`"
     }
     {
       name: "approveUrl"
       req: false
+      short: "If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule."
       type: "`$STRING`"
     }
     {
@@ -28,26 +30,31 @@ main: kit: entity: rule: {
     {
       name: "authenticationMethods"
       req: false
+      short: "A list of authentication types allowed to authorise the payout."
       type: "`$ARRAY`"
     }
     {
       name: "authorisations"
       req: false
+      short: "A list of the users who have successfully authorised the latest version of the rule and when."
       type: "`$ARRAY`"
     }
     {
       name: "authorisersCompletedCount"
       req: false
+      short: "The number of distinct authorisers that have authorised the rule."
       type: "`$INTEGER`"
     }
     {
       name: "authorisersRequiredCount"
       req: false
+      short: "The number of authorisers required for this rule."
       type: "`$INTEGER`"
     }
     {
       name: "canAuthorise"
       req: false
+      short: "True if the rule can be authorised by the user who loaded it."
       type: "`$BOOLEAN`"
     }
     {
@@ -58,16 +65,19 @@ main: kit: entity: rule: {
     {
       name: "description"
       req: false
+      short: "Arbitrary description for the rule."
       type: "`$STRING`"
     }
     {
       name: "endAt"
       req: false
+      short: "Optional end time for rule executions."
       type: "`$STRING`"
     }
     {
       name: "hasCurrentUserAuthorised"
       req: false
+      short: "True if the current user has authorised."
       type: "`$BOOLEAN`"
     }
     {
@@ -83,6 +93,7 @@ main: kit: entity: rule: {
     {
       name: "isDisabled"
       req: false
+      short: "If set to true the rule will be disabled from executing."
       type: "`$BOOLEAN`"
     }
     {
@@ -93,6 +104,7 @@ main: kit: entity: rule: {
     {
       name: "lastRunAtTransactionDate"
       req: false
+      short: "The most recent transaction date when the rule was last run."
       type: "`$STRING`"
     }
     {
@@ -103,6 +115,7 @@ main: kit: entity: rule: {
     {
       name: "merchantID"
       req: false
+      short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
@@ -114,6 +127,7 @@ main: kit: entity: rule: {
         }
       }
       req: false
+      short: "A name to succinctly describe the rule."
       type: "`$STRING`"
     }
     {
@@ -124,21 +138,25 @@ main: kit: entity: rule: {
     {
       name: "onApprovedWebHookUrl"
       req: false
+      short: "Optional URL to receive an HTTP request with the rule details when the rule status changes to approved."
       type: "`$STRING`"
     }
     {
       name: "onExecutionErrorWebHookUrl"
       req: false
+      short: "Optional URL to receive an HTTP request when a rule execution attempt fails."
       type: "`$STRING`"
     }
     {
       name: "onExecutionSuccessWebHookUrl"
       req: false
+      short: "Optional URL to receive an HTTP request when a rule execution attempt succeeds."
       type: "`$STRING`"
     }
     {
       name: "startAt"
       req: false
+      short: "Optional start time for rule executions."
       type: "`$STRING`"
     }
     {
@@ -160,16 +178,19 @@ main: kit: entity: rule: {
     {
       name: "timeZoneId"
       req: false
+      short: "If the rule should be executed on a recurring schedule this is the timezone that the CRON expression should be evaluated in."
       type: "`$STRING`"
     }
     {
       name: "triggerCronExpression"
       req: false
+      short: "If the rule should be executed on a recurring schedule this is the expression that sets the schedule."
       type: "`$STRING`"
     }
     {
       name: "triggerOnPayIn"
       req: false
+      short: "Set to true if the rule execution should be triggered when the account receives a pay in (credit)."
       type: "`$BOOLEAN`"
     }
     {
@@ -180,6 +201,7 @@ main: kit: entity: rule: {
     {
       name: "webHookSecret"
       req: false
+      short: "If set this secret will be used to sign Web Hook requests."
       type: "`$STRING`"
     }
   ]
