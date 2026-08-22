@@ -1,0 +1,83 @@
+# Entity: payeeverification
+
+main: kit: entity: payeeverification: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accountName"
+      req: true
+      short: "The name of the account to verify"
+      type: "`$STRING`"
+    }
+    {
+      name: "accountNumber"
+      req: false
+      short: "The account number of the account to verify (for CoP checks)"
+      type: "`$STRING`"
+    }
+    {
+      name: "iban"
+      req: true
+      short: "The IBAN of the account to verify (for VoP checks)"
+      type: "`$STRING`"
+    }
+    {
+      name: "payeeVerifiedAccountName"
+      req: false
+      short: "The verified account name of the payee, if available (in case of a close match)"
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: false
+      short: "The result of the payee verification"
+      type: "`$STRING`"
+    }
+    {
+      name: "secondaryIdentification"
+      req: false
+      short: "Optional secondary identifier for the account to verify."
+      type: "`$STRING`"
+    }
+    {
+      name: "sortCode"
+      req: false
+      short: "The sort code of the account to verify (for CoP checks)"
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "payeeverification"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v1/openbanking/payeeverification"
+          parts: [
+            "api"
+            "v1"
+            "openbanking"
+            "payeeverification"
+          ]
+          transform: {
+            req: {
+              accountName: "`reqdata.account_name`"
+              accountNumber: "`reqdata.account_number`"
+              iban: "`reqdata.iban`"
+              secondaryIdentification: "`reqdata.secondary_identification`"
+              sortCode: "`reqdata.sort_code`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

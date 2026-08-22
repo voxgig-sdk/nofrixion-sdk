@@ -1,0 +1,432 @@
+# Entity: payment_account
+
+main: kit: entity: payment_account: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accountName"
+      req: false
+      short: "Name for the account"
+      type: "`$STRING`"
+    }
+    {
+      name: "accountSupplierName"
+      req: false
+      short: "The payment account supplier name."
+      type: "`$STRING`"
+    }
+    {
+      name: "availableBalance"
+      req: false
+      short: "The current available balance of the account."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "availableBalanceMinorUnits"
+      req: false
+      short: "The available balance expressed in the currency’s minor units (e.g."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "balance"
+      req: false
+      short: "Balance of the account."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balanceMinorUnits"
+      req: false
+      short: "Balance of the account expressed in the currency’s minor units (e.g."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bankName"
+      req: false
+      short: "The bank name for external accounts"
+      type: "`$STRING`"
+    }
+    {
+      name: "consentID"
+      req: false
+      short: "The ID of the consent used to connect the external account."
+      type: "`$STRING`"
+    }
+    {
+      name: "createdBy"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "createdByDisplayName"
+      req: false
+      short: "Either the name of the user, merchant token or api key that created the account"
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      short: "Currency of the account in ISO 4217 format"
+      type: "`$STRING`"
+    }
+    {
+      name: "defaultPaymentRail"
+      req: false
+      short: "Indicates the default payment rail for this account."
+      type: "`$STRING`"
+    }
+    {
+      name: "displayName"
+      req: false
+      short: "Gets a unique display name for the payment account."
+      type: "`$STRING`"
+    }
+    {
+      name: "expiryDate"
+      req: false
+      short: "The date that the external account will expire"
+      type: "`$STRING`"
+    }
+    {
+      name: "externalAccountIcon"
+      req: false
+      short: "The Icon for external accounts"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "Unique id for the account."
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "inserted"
+      req: false
+      short: "Timestamp when the account was created."
+      type: "`$STRING`"
+    }
+    {
+      name: "isArchived"
+      req: false
+      short: "Indicates whether the account is archived."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "isConnectedAccount"
+      req: false
+      short: "Indicates if the payment account is an externally connected account."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "isDefault"
+      req: false
+      short: "Is the default account"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "isTrustAccount"
+      req: false
+      short: "Indicates if the payment account is a trust account."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "isVirtual"
+      req: false
+      short: "True if the account is a virtual account."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "lastTransaction"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "lastUpdated"
+      req: false
+      short: "Timestamp when the account was last updated."
+      type: "`$STRING`"
+    }
+    {
+      name: "merchantID"
+      req: false
+      short: "The ID of the merchant that owns the account."
+      type: "`$STRING`"
+    }
+    {
+      name: "merchantName"
+      req: false
+      short: "The name of the merchant that owns the account."
+      type: "`$STRING`"
+    }
+    {
+      name: "physicalAccountID"
+      req: false
+      short: "For virtual accounts this is the ID of the physical account that the virtual account is linked to."
+      type: "`$STRING`"
+    }
+    {
+      name: "rules"
+      req: false
+      short: "The list of rules associated with this account."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "submittedPayoutsBalance"
+      req: false
+      short: "Total of the payouts that have been submitted for processing."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "submittedPayoutsBalanceMinorUnits"
+      req: false
+      short: "The balance of the submitted payouts expressed in the currency’s minor units (e.g."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "summary"
+      req: false
+      short: "Gets a summary of the payments account's most important properties."
+      type: "`$STRING`"
+    }
+    {
+      name: "supplierSepaInstantStatus"
+      req: false
+      short: "Indicates the status of the SEPA Instant payment rail for this account."
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroBankFeedConnectionStatus"
+      req: false
+      short: "States the status of the Xero bank feed connection, if applicable."
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroBankFeedLastSyncedAt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroBankFeedSyncLastFailedAt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroBankFeedSyncLastFailureReason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroBankFeedSyncStatus"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "xeroUnsynchronisedTransactionsCount"
+      req: false
+      short: "Indicates the number of unsynchronised transactions with Xero"
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "payment_account"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "connected_account"
+                orig: "connected_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_child_merchant"
+                orig: "include_child_merchant"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_archived"
+                orig: "only_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_connect_account"
+                orig: "only_connect_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/paged"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "paged"
+          ]
+          select: {
+            exist: [
+              "connected_account"
+              "currency"
+              "include_archived"
+              "include_child_merchant"
+              "merchant_id"
+              "only_archived"
+              "only_connect_account"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.content`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/{accountID}/virtual"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "{account_id}"
+            "virtual"
+          ]
+          rename: {
+            param: {
+              accountID: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "page_number"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.content`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

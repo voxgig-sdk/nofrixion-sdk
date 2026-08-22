@@ -149,7 +149,20 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                accountID: string;
+                                format: string;
+                                fromDate: string;
+                                toDate: string;
+                                accountName?: undefined;
+                                accountType?: undefined;
+                                currency?: undefined;
+                                isTrustAccount?: undefined;
+                                merchantID?: undefined;
+                                physicalAccountID?: undefined;
+                                roleIDs?: undefined;
+                                supplierPhysicalAccountID?: undefined;
+                            };
                             res: string;
                         };
                     } | {
@@ -165,7 +178,20 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                accountName: string;
+                                accountType: string;
+                                currency: string;
+                                isTrustAccount: string;
+                                merchantID: string;
+                                physicalAccountID: string;
+                                roleIDs: string;
+                                supplierPhysicalAccountID: string;
+                                accountID?: undefined;
+                                format?: undefined;
+                                fromDate?: undefined;
+                                toDate?: undefined;
+                            };
                             res: string;
                         };
                         rename?: undefined;
@@ -508,6 +534,31 @@ declare class Config {
                             res: string;
                         };
                         rename?: undefined;
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                accountID: string;
+                                accountName: string;
+                            };
+                            res: string;
+                        };
+                        rename?: undefined;
                     })[];
                 };
             };
@@ -669,7 +720,15 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                currency: string;
+                                destination: string;
+                                id: string;
+                                merchantID: string;
+                                name: string;
+                                sourceAccountIDs: string;
+                                theirReference: string;
+                            };
                             res: string;
                         };
                     } | {
@@ -879,7 +938,7 @@ declare class Config {
                 update: {
                     input: string;
                     name: string;
-                    points: {
+                    points: ({
                         args: {
                             params: {
                                 kind: string;
@@ -900,7 +959,34 @@ declare class Config {
                             req: string;
                             res: string;
                         };
-                    }[];
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                currency: string;
+                                destination: string;
+                                name: string;
+                                sourceAccountIDs: string;
+                                theirReference: string;
+                            };
+                            res: string;
+                        };
+                    })[];
                 };
             };
             relations: {
@@ -1331,7 +1417,15 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                callbackUrl: string;
+                                emailAddress: string;
+                                failureCallbackUrl: string;
+                                institutionID: string;
+                                isConnectedAccounts: string;
+                                merchantID: string;
+                                successWebHookUrl: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -1656,7 +1750,23 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                accountNumber: string;
+                                addressLine1: string;
+                                addressLine2: string;
+                                city: string;
+                                countryCode: string;
+                                currency: string;
+                                emailAddress: string;
+                                firstName: string;
+                                iban: string;
+                                isRecurring: string;
+                                lastName: string;
+                                merchantID: string;
+                                postalCode: string;
+                                reference: string;
+                                sortCode: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -1967,7 +2077,14 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                logoUrlPng: string;
+                                logoUrlSvg: string;
+                                notes: string;
+                                paymentAccountLimit: string;
+                                shortName: string;
+                                reason?: undefined;
+                            };
                             res: string;
                         };
                     } | {
@@ -1995,7 +2112,14 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                reason: string;
+                                logoUrlPng?: undefined;
+                                logoUrlSvg?: undefined;
+                                notes?: undefined;
+                                paymentAccountLimit?: undefined;
+                                shortName?: undefined;
+                            };
                             res: string;
                         };
                     })[];
@@ -2291,7 +2415,13 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                description: string;
+                                id: string;
+                                merchantID: string;
+                                name: string;
+                                template: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -2345,7 +2475,13 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                description: string;
+                                hmacAlgorithm: string;
+                                ipAddressWhitelist: string;
+                                merchantID: string;
+                                permissionTypes: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -2434,7 +2570,12 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                description: string;
+                                ipAddressWhitelist: string;
+                                merchantID: string;
+                                permissionTypes: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -2647,7 +2788,13 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                accountName: string;
+                                accountNumber: string;
+                                iban: string;
+                                secondaryIdentification: string;
+                                sortCode: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -2701,7 +2848,54 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                amount: string;
+                                autoSendReceipt: string;
+                                callbackUrl: string;
+                                cardAuthorizeOnly: string;
+                                cardCreateToken: string;
+                                cardCreateTokenMode: string;
+                                cardIgnoreCVN: string;
+                                cardNoPayerAuthentication: string;
+                                cardProcessorMerchantID: string;
+                                cardTransmitRawDetails: string;
+                                currency: string;
+                                customFields: string;
+                                customerEmailAddress: string;
+                                customerID: string;
+                                description: string;
+                                dueDate: string;
+                                failureCallbackUrl: string;
+                                fieldDisplaySettings: string;
+                                ignoreAddressVerification: string;
+                                merchantDirectDebitMandateID: string;
+                                merchantID: string;
+                                notificationEmailAddresses: string;
+                                notificationRoleIDs: string;
+                                orderID: string;
+                                partialPaymentMethod: string;
+                                partialPaymentSteps: string;
+                                paymentMethods: string;
+                                payrunID: string;
+                                pispAccountID: string;
+                                priorityBankID: string;
+                                sandboxSettleDelayInSeconds: string;
+                                shippingAddressCity: string;
+                                shippingAddressCountryCode: string;
+                                shippingAddressCounty: string;
+                                shippingAddressLine1: string;
+                                shippingAddressLine2: string;
+                                shippingAddressPostCode: string;
+                                shippingEmail: string;
+                                shippingFirstName: string;
+                                shippingLastName: string;
+                                shippingPhone: string;
+                                successWebHookUrl: string;
+                                tagIds: string;
+                                tags: string;
+                                title: string;
+                                useHostedPaymentPage: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -2788,7 +2982,45 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                amount: string;
+                                autoSendReceipt: string;
+                                baseOriginUrl: string;
+                                callbackUrl: string;
+                                cardAuthorizeOnly: string;
+                                cardCreateToken: string;
+                                cardCreateTokenMode: string;
+                                cardIgnoreCVN: string;
+                                cardProcessorMerchantID: string;
+                                currency: string;
+                                customFields: string;
+                                customerEmailAddress: string;
+                                customerID: string;
+                                description: string;
+                                dueDate: string;
+                                failureCallbackUrl: string;
+                                ignoreAddressVerification: string;
+                                lightningInvoice: string;
+                                lightningInvoiceExpiresAt: string;
+                                notificationEmailAddresses: string;
+                                orderID: string;
+                                partialPaymentSteps: string;
+                                paymentMethods: string;
+                                pispAccountID: string;
+                                shippingAddressCity: string;
+                                shippingAddressCountryCode: string;
+                                shippingAddressCounty: string;
+                                shippingAddressLine1: string;
+                                shippingAddressLine2: string;
+                                shippingAddressPostCode: string;
+                                shippingEmail: string;
+                                shippingFirstName: string;
+                                shippingLastName: string;
+                                shippingPhone: string;
+                                successWebHookUrl: string;
+                                tagIds: string;
+                                title: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -3236,7 +3468,13 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                amount: string;
+                                doSimulateSettlementFailure: string;
+                                errorDescription: string;
+                                institution: string;
+                                paymentInitiationID: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -3509,7 +3747,32 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                accountID: string;
+                                allowIncomplete: string;
+                                amount: string;
+                                batchPayoutID: string;
+                                beneficiaryID: string;
+                                chargeBearer: string;
+                                currency: string;
+                                description: string;
+                                destination: string;
+                                documents: string;
+                                fxDestinationAmount: string;
+                                fxDestinationCurrency: string;
+                                fxQuoteID: string;
+                                fxUseDestinationAmount: string;
+                                invoiceID: string;
+                                paymentRail: string;
+                                scheduleDate: string;
+                                scheduled: string;
+                                tagIds: string;
+                                tags: string;
+                                theirReference: string;
+                                topupPayrunID: string;
+                                type: string;
+                                yourReference: string;
+                            };
                             res: string;
                         };
                     } | {
@@ -3526,6 +3789,47 @@ declare class Config {
                         };
                         transform: {
                             req: string;
+                            res: string;
+                        };
+                    } | {
+                        args: {
+                            params?: undefined;
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            $action: string;
+                            exist?: undefined;
+                        };
+                        transform: {
+                            req: {
+                                accountID: string;
+                                allowIncomplete: string;
+                                amount: string;
+                                batchPayoutID: string;
+                                beneficiaryID: string;
+                                chargeBearer: string;
+                                currency: string;
+                                description: string;
+                                destination: string;
+                                documents: string;
+                                fxDestinationAmount: string;
+                                fxDestinationCurrency: string;
+                                fxQuoteID: string;
+                                fxUseDestinationAmount: string;
+                                invoiceID: string;
+                                paymentRail: string;
+                                scheduleDate: string;
+                                scheduled: string;
+                                tagIds: string;
+                                tags: string;
+                                theirReference: string;
+                                topupPayrunID: string;
+                                type: string;
+                                yourReference: string;
+                            };
                             res: string;
                         };
                     })[];
@@ -3756,7 +4060,7 @@ declare class Config {
                 update: {
                     input: string;
                     name: string;
-                    points: {
+                    points: ({
                         args: {
                             params: {
                                 kind: string;
@@ -3777,7 +4081,91 @@ declare class Config {
                             req: string;
                             res: string;
                         };
-                    }[];
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                reason: string;
+                                accountID?: undefined;
+                                allowIncomplete?: undefined;
+                                amount?: undefined;
+                                chargeBearer?: undefined;
+                                currency?: undefined;
+                                description?: undefined;
+                                destination?: undefined;
+                                fxDestinationAmount?: undefined;
+                                fxDestinationCurrency?: undefined;
+                                fxQuoteID?: undefined;
+                                fxUseDestinationAmount?: undefined;
+                                paymentRail?: undefined;
+                                scheduleDate?: undefined;
+                                scheduled?: undefined;
+                                tagIds?: undefined;
+                                tags?: undefined;
+                                theirReference?: undefined;
+                                type?: undefined;
+                                yourReference?: undefined;
+                            };
+                            res: string;
+                        };
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                accountID: string;
+                                allowIncomplete: string;
+                                amount: string;
+                                chargeBearer: string;
+                                currency: string;
+                                description: string;
+                                destination: string;
+                                fxDestinationAmount: string;
+                                fxDestinationCurrency: string;
+                                fxQuoteID: string;
+                                fxUseDestinationAmount: string;
+                                paymentRail: string;
+                                scheduleDate: string;
+                                scheduled: string;
+                                tagIds: string;
+                                tags: string;
+                                theirReference: string;
+                                type: string;
+                                yourReference: string;
+                                reason?: undefined;
+                            };
+                            res: string;
+                        };
+                    })[];
                 };
             };
             relations: {
@@ -3975,7 +4363,42 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                id: string;
+                                notes: string;
+                                scheduledDate: string;
+                                invoices?: undefined;
+                                name?: undefined;
+                            };
+                            res: string;
+                        };
+                        rename?: undefined;
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            $action: string;
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                scheduledDate: string;
+                                id?: undefined;
+                                notes?: undefined;
+                                invoices?: undefined;
+                                name?: undefined;
+                            };
                             res: string;
                         };
                         rename?: undefined;
@@ -4003,7 +4426,13 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                invoices: string;
+                                name: string;
+                                id?: undefined;
+                                notes?: undefined;
+                                scheduledDate?: undefined;
+                            };
                             res: string;
                         };
                     })[];
@@ -4137,7 +4566,14 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                id: string;
+                                invoices: string;
+                                name: string;
+                                scheduledDate: string;
+                                sourceAccounts: string;
+                                reason?: undefined;
+                            };
                             res: string;
                         };
                     } | {
@@ -4160,6 +4596,35 @@ declare class Config {
                         };
                         transform: {
                             req: string;
+                            res: string;
+                        };
+                    } | {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            $action: string;
+                            exist: string[];
+                        };
+                        transform: {
+                            req: {
+                                id: string;
+                                reason: string;
+                                invoices?: undefined;
+                                name?: undefined;
+                                scheduledDate?: undefined;
+                                sourceAccounts?: undefined;
+                            };
                             res: string;
                         };
                     })[];
@@ -4348,7 +4813,22 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                accountID: string;
+                                description: string;
+                                endAt: string;
+                                isDisabled: string;
+                                name: string;
+                                onApprovedWebHookUrl: string;
+                                onExecutionErrorWebHookUrl: string;
+                                onExecutionSuccessWebHookUrl: string;
+                                startAt: string;
+                                sweepAction: string;
+                                timeZoneId: string;
+                                triggerCronExpression: string;
+                                triggerOnPayIn: string;
+                                webHookSecret: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -4465,7 +4945,22 @@ declare class Config {
                             $action?: undefined;
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                accountID: string;
+                                description: string;
+                                endAt: string;
+                                isDisabled: string;
+                                name: string;
+                                onApprovedWebHookUrl: string;
+                                onExecutionErrorWebHookUrl: string;
+                                onExecutionSuccessWebHookUrl: string;
+                                startAt: string;
+                                sweepAction: string;
+                                timeZoneId: string;
+                                triggerCronExpression: string;
+                                triggerOnPayIn: string;
+                                webHookSecret: string;
+                            };
                             res: string;
                         };
                     } | {
@@ -4591,7 +5086,13 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                colourHex: string;
+                                description: string;
+                                id: string;
+                                merchantID: string;
+                                name: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -5241,7 +5742,13 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                emailAddress: string;
+                                firstName: string;
+                                lastName: string;
+                                profile: string;
+                                userInviteID: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -5306,6 +5813,28 @@ declare class Config {
                         };
                         transform: {
                             req: string;
+                            res: string;
+                        };
+                    } | {
+                        args: {
+                            params?: undefined;
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        parts: string[];
+                        select: {
+                            exist?: undefined;
+                        };
+                        transform: {
+                            req: {
+                                initialRoleID: string;
+                                inviteeEmailAddress: string;
+                                inviteeFirstName: string;
+                                inviteeLastName: string;
+                                merchantID: string;
+                                sendInviteEmail: string;
+                            };
                             res: string;
                         };
                     } | {
@@ -5529,7 +6058,9 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                name: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -5561,7 +6092,9 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                name: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -5610,7 +6143,18 @@ declare class Config {
                         parts: string[];
                         select: {};
                         transform: {
-                            req: string;
+                            req: {
+                                destinationUrl: string;
+                                emailAddress: string;
+                                failedNotificationEmailAddress: string;
+                                id: string;
+                                isActive: string;
+                                merchantID: string;
+                                notificationMethod: string;
+                                resourceTypes: string;
+                                retry: string;
+                                secret: string;
+                            };
                             res: string;
                         };
                     }[];
@@ -5724,7 +6268,18 @@ declare class Config {
                             exist: string[];
                         };
                         transform: {
-                            req: string;
+                            req: {
+                                destinationUrl: string;
+                                emailAddress: string;
+                                failedNotificationEmailAddress: string;
+                                id: string;
+                                isActive: string;
+                                merchantID: string;
+                                notificationMethod: string;
+                                resourceTypes: string;
+                                retry: string;
+                                secret: string;
+                            };
                             res: string;
                         };
                     }[];

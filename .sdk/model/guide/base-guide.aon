@@ -1,0 +1,1147 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 49
+  metrics: count: path: 157
+  metrics: count: method: 187
+
+  entity: account: {
+    path: "/api/v1/accounts": {
+      op: create: method: *POST
+      op: create: transform: req: "accountName": *("`reqdata.account_name`")|top
+      op: create: transform: req: "accountType": *("`reqdata.account_type`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "isTrustAccount": *("`reqdata.is_trust_account`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "physicalAccountID": *("`reqdata.physical_account_id`")|top
+      op: create: transform: req: "roleIDs": *("`reqdata.role_i_d`")|top
+      op: create: transform: req: "supplierPhysicalAccountID": *("`reqdata.supplier_physical_account_id`")|top
+      op: list: method: *GET
+    }
+    path: "/api/v1/accounts/archive/{id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/accounts/export": {
+      action: "export": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/accounts/statements": {
+      action: "statement": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/accounts/unarchive/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/accounts/{accountID}": {
+      rename: param: "accountID": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/accounts/{accountID}/statements": {
+      action: "statement": {}
+      rename: param: "accountID": *"account_id"
+      op: create: method: *POST
+      op: create: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: create: transform: req: "format": *("`reqdata.format`")|top
+      op: create: transform: req: "fromDate": *("`reqdata.from_date`")|top
+      op: create: transform: req: "toDate": *("`reqdata.to_date`")|top
+    }
+    path: "/api/v1/accounts/{accountID}/statements/{id}": {
+      rename: param: "accountID": *"account_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/accounts/{accountID}/topup/{amount}": {
+      rename: param: "accountID": *"account_id"
+      op: update: method: *PUT
+    }
+    path: "/api/v1/accounts/{accountID}/transactions/export": {
+      action: "transaction_export": {}
+      rename: param: "accountID": *"account_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/accounts/{accountID}/{currency}": {
+      rename: param: "accountID": *"account_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/accounts/{id}": {
+      op: update: method: *PUT
+      op: update: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: update: transform: req: "accountName": *("`reqdata.account_name`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/accounts": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/accounts/{accountID}": {
+      rename: param: "accountID": *"id"
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/openbanking/accounts/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: batch: {
+    path: "/api/v1/payouts/batch": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/batch/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: beneficiary: {
+    path: "/api/v1/beneficiaries": {
+      op: create: method: *POST
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "destination": *("`reqdata.destination`")|top
+      op: create: transform: req: "id": *("`reqdata.id`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "sourceAccountIDs": *("`reqdata.source_account_i_d`")|top
+      op: create: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/beneficiaries/authorise/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/beneficiaries/batchcreate": {
+      action: "batchcreate": {}
+      op: create: method: *POST
+    }
+    path: "/api/v1/beneficiaries/disable/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/beneficiaries/enable/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/beneficiaries/export": {
+      action: "export": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/beneficiaries/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "currency": *("`reqdata.currency`")|top
+      op: update: transform: req: "destination": *("`reqdata.destination`")|top
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+      op: update: transform: req: "sourceAccountIDs": *("`reqdata.source_account_i_d`")|top
+      op: update: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/beneficiaries": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/beneficiaries/{id}": {
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: beneficiary_group: {
+    path: "/api/v1/merchants/{merchantID}/beneficiarygroups": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: card: {
+    path: "/api/v1/paymentrequests/{id}/card": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: card_customer_token: {
+    path: "/api/v1/paymentrequests/card/customertokens/removeall/{customerEmailAddress}": {
+      rename: param: "customerEmailAddress": *"customer_email_address"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/paymentrequests/card/customertokens/removeall/{merchantID}/{customerEmailAddress}": {
+      rename: param: "customerEmailAddress": *"customer_email_address"
+      rename: param: "merchantID": *"merchant_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/paymentrequests/card/customertokens/{customerEmailAddress}": {
+      rename: param: "customerEmailAddress": *"customer_email_address"
+      op: load: method: *GET
+    }
+    path: "/api/v1/paymentrequests/card/customertokens/{id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}": {
+      rename: param: "customerEmailAddress": *"customer_email_address"
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: card_payment: {
+    path: "/api/v1/paymentrequests/{id}/card/capture": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/paywithtoken": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}": {
+      rename: param: "id": *"paymentrequest_id"
+      rename: param: "partialRefundAmount": *"partial_refund_amount"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/void": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/card/voidpaymentrequest": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: card_public_key: {
+    path: "/api/v1/paymentrequests/{id}/card/publickey": {
+      rename: param: "id": *"paymentrequest_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: consent: {
+    path: "/api/v1/openbanking/consents": {
+      op: create: method: *POST
+      op: create: transform: req: "callbackUrl": *("`reqdata.callback_url`")|top
+      op: create: transform: req: "emailAddress": *("`reqdata.email_address`")|top
+      op: create: transform: req: "failureCallbackUrl": *("`reqdata.failure_callback_url`")|top
+      op: create: transform: req: "institutionID": *("`reqdata.institution_id`")|top
+      op: create: transform: req: "isConnectedAccounts": *("`reqdata.is_connected_account`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "successWebHookUrl": *("`reqdata.success_web_hook_url`")|top
+    }
+    path: "/api/v1/openbanking/consents/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/openbanking/consents/{merchantID}/{email}": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: currency: {
+    path: "/api/v1/currencies": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: direct_debit_batch_submit: {
+    path: "/api/v1/paymentrequests/directdebit/batchsubmit": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: fx_rate: {
+    path: "/api/v1/payouts/fxallheldrates/{source}/{destination}": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}": {
+      rename: param: "validForMinutes": *"valid_for_minute"
+      op: load: method: *GET
+    }
+  }
+
+  entity: i_payment: {
+    path: "/api/v1/paymentrequests/payondemand": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: mandate: {
+    path: "/api/v1/mandates": {
+      op: create: method: *POST
+      op: create: transform: req: "accountNumber": *("`reqdata.account_number`")|top
+      op: create: transform: req: "addressLine1": *("`reqdata.address_line1`")|top
+      op: create: transform: req: "addressLine2": *("`reqdata.address_line2`")|top
+      op: create: transform: req: "city": *("`reqdata.city`")|top
+      op: create: transform: req: "countryCode": *("`reqdata.country_code`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "emailAddress": *("`reqdata.email_address`")|top
+      op: create: transform: req: "firstName": *("`reqdata.first_name`")|top
+      op: create: transform: req: "iban": *("`reqdata.iban`")|top
+      op: create: transform: req: "isRecurring": *("`reqdata.is_recurring`")|top
+      op: create: transform: req: "lastName": *("`reqdata.last_name`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "postalCode": *("`reqdata.postal_code`")|top
+      op: create: transform: req: "reference": *("`reqdata.reference`")|top
+      op: create: transform: req: "sortCode": *("`reqdata.sort_code`")|top
+    }
+    path: "/api/v1/mandates/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: merchant: {
+    path: "/api/v1/merchants": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/paged": {
+      action: "paged": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}": {
+      rename: param: "merchantID": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+      op: update: transform: req: "logoUrlPng": *("`reqdata.logo_url_png`")|top
+      op: update: transform: req: "logoUrlSvg": *("`reqdata.logo_url_svg`")|top
+      op: update: transform: req: "notes": *("`reqdata.note`")|top
+      op: update: transform: req: "paymentAccountLimit": *("`reqdata.payment_account_limit`")|top
+      op: update: transform: req: "shortName": *("`reqdata.short_name`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/beneficiaries/export": {
+      action: "beneficiary_export": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/childmerchants": {
+      action: "childmerchant": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts/export": {
+      action: "payout_export": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/tags/{tagID}": {
+      rename: param: "merchantID": *"merchant_id"
+      rename: param: "tagID": *"tag_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/merchants/{merchantId}/suspend": {
+      action: "suspend": {}
+      rename: param: "merchantId": *"id"
+      op: update: method: *PUT
+      op: update: transform: req: "reason": *("`reqdata.reason`")|top
+    }
+    path: "/api/v1/merchants/{merchantId}/users/{userId}": {
+      rename: param: "merchantId": *"id"
+      rename: param: "userId": *"user_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/metadata/whoamimerchant": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamimerchantsigned": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamimerchantwhitelist": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: merchant_authorisation_setting: {
+    path: "/api/v1/merchants/{merchantID}/authorisationsettings": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: merchant_direct_debit_mandate_page: {
+    path: "/api/v1/mandates": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: merchant_pay_by_bank_setting: {
+    path: "/api/v1/merchants/{merchantID}/banksettings": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.payByBankSettings`")|top
+    }
+  }
+
+  entity: merchant_payment_request_template: {
+    path: "/api/v1/paymentrequests/{merchantID}/templates": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}": {
+      rename: param: "merchantID": *"paymentrequest_id"
+      rename: param: "templateID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.template`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.template`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.template`")|top
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "id": *("`reqdata.id`")|top
+      op: update: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+      op: update: transform: req: "template": *("`reqdata.template`")|top
+    }
+  }
+
+  entity: merchant_token: {
+    path: "/api/v1/merchants/{merchantID}/tokens": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/tokens": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "hmacAlgorithm": *("`reqdata.hmac_algorithm`")|top
+      op: create: transform: req: "ipAddressWhitelist": *("`reqdata.ip_address_whitelist`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "permissionTypes": *("`reqdata.permission_type`")|top
+    }
+    path: "/api/v1/tokens/{id}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "ipAddressWhitelist": *("`reqdata.ip_address_whitelist`")|top
+      op: update: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: update: transform: req: "permissionTypes": *("`reqdata.permission_type`")|top
+    }
+  }
+
+  entity: metadata: {
+    path: "/api/v1/metadata/problem": {
+      action: "problem": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/metadata/problemnotification": {
+      action: "problemnotification": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: no_frixion_version: {
+    path: "/api/v1/metadata/version": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: open_banking: {
+    path: "/api/v1/openbanking/account/{accountID}": {
+      rename: param: "accountID": *"account_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/openbanking/account/{accountID}/synchronise": {
+      rename: param: "accountID": *"account_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/openbanking/consents/{merchantID}/{email}": {
+      rename: param: "merchantID": *"merchant_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: payeeverification: {
+    path: "/api/v1/openbanking/payeeverification": {
+      op: create: method: *POST
+      op: create: transform: req: "accountName": *("`reqdata.account_name`")|top
+      op: create: transform: req: "accountNumber": *("`reqdata.account_number`")|top
+      op: create: transform: req: "iban": *("`reqdata.iban`")|top
+      op: create: transform: req: "secondaryIdentification": *("`reqdata.secondary_identification`")|top
+      op: create: transform: req: "sortCode": *("`reqdata.sort_code`")|top
+    }
+  }
+
+  entity: payment: {
+    path: "/api/v1/paymentrequests": {
+      op: create: method: *POST
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "autoSendReceipt": *("`reqdata.auto_send_receipt`")|top
+      op: create: transform: req: "callbackUrl": *("`reqdata.callback_url`")|top
+      op: create: transform: req: "cardAuthorizeOnly": *("`reqdata.card_authorize_only`")|top
+      op: create: transform: req: "cardCreateToken": *("`reqdata.card_create_token`")|top
+      op: create: transform: req: "cardCreateTokenMode": *("`reqdata.card_create_token_mode`")|top
+      op: create: transform: req: "cardIgnoreCVN": *("`reqdata.card_ignore_cvn`")|top
+      op: create: transform: req: "cardNoPayerAuthentication": *("`reqdata.card_no_payer_authentication`")|top
+      op: create: transform: req: "cardProcessorMerchantID": *("`reqdata.card_processor_merchant_id`")|top
+      op: create: transform: req: "cardTransmitRawDetails": *("`reqdata.card_transmit_raw_detail`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "customFields": *("`reqdata.custom_field`")|top
+      op: create: transform: req: "customerEmailAddress": *("`reqdata.customer_email_address`")|top
+      op: create: transform: req: "customerID": *("`reqdata.customer_id`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "dueDate": *("`reqdata.due_date`")|top
+      op: create: transform: req: "failureCallbackUrl": *("`reqdata.failure_callback_url`")|top
+      op: create: transform: req: "fieldDisplaySettings": *("`reqdata.field_display_setting`")|top
+      op: create: transform: req: "ignoreAddressVerification": *("`reqdata.ignore_address_verification`")|top
+      op: create: transform: req: "merchantDirectDebitMandateID": *("`reqdata.merchant_direct_debit_mandate_id`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "notificationEmailAddresses": *("`reqdata.notification_email_address`")|top
+      op: create: transform: req: "notificationRoleIDs": *("`reqdata.notification_role_i_d`")|top
+      op: create: transform: req: "orderID": *("`reqdata.order_id`")|top
+      op: create: transform: req: "partialPaymentMethod": *("`reqdata.partial_payment_method`")|top
+      op: create: transform: req: "partialPaymentSteps": *("`reqdata.partial_payment_step`")|top
+      op: create: transform: req: "paymentMethods": *("`reqdata.payment_method`")|top
+      op: create: transform: req: "payrunID": *("`reqdata.payrun_id`")|top
+      op: create: transform: req: "pispAccountID": *("`reqdata.pisp_account_id`")|top
+      op: create: transform: req: "priorityBankID": *("`reqdata.priority_bank_id`")|top
+      op: create: transform: req: "sandboxSettleDelayInSeconds": *("`reqdata.sandbox_settle_delay_in_second`")|top
+      op: create: transform: req: "shippingAddressCity": *("`reqdata.shipping_address_city`")|top
+      op: create: transform: req: "shippingAddressCountryCode": *("`reqdata.shipping_address_country_code`")|top
+      op: create: transform: req: "shippingAddressCounty": *("`reqdata.shipping_address_county`")|top
+      op: create: transform: req: "shippingAddressLine1": *("`reqdata.shipping_address_line1`")|top
+      op: create: transform: req: "shippingAddressLine2": *("`reqdata.shipping_address_line2`")|top
+      op: create: transform: req: "shippingAddressPostCode": *("`reqdata.shipping_address_post_code`")|top
+      op: create: transform: req: "shippingEmail": *("`reqdata.shipping_email`")|top
+      op: create: transform: req: "shippingFirstName": *("`reqdata.shipping_first_name`")|top
+      op: create: transform: req: "shippingLastName": *("`reqdata.shipping_last_name`")|top
+      op: create: transform: req: "shippingPhone": *("`reqdata.shipping_phone`")|top
+      op: create: transform: req: "successWebHookUrl": *("`reqdata.success_web_hook_url`")|top
+      op: create: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: create: transform: req: "tags": *("`reqdata.tag`")|top
+      op: create: transform: req: "title": *("`reqdata.title`")|top
+      op: create: transform: req: "useHostedPaymentPage": *("`reqdata.use_hosted_payment_page`")|top
+    }
+    path: "/api/v1/paymentrequests/getbyorderid/{orderID}": {
+      rename: param: "orderID": *"order_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/paymentrequests/{id}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+      op: update: transform: req: "amount": *("`reqdata.amount`")|top
+      op: update: transform: req: "autoSendReceipt": *("`reqdata.auto_send_receipt`")|top
+      op: update: transform: req: "baseOriginUrl": *("`reqdata.base_origin_url`")|top
+      op: update: transform: req: "callbackUrl": *("`reqdata.callback_url`")|top
+      op: update: transform: req: "cardAuthorizeOnly": *("`reqdata.card_authorize_only`")|top
+      op: update: transform: req: "cardCreateToken": *("`reqdata.card_create_token`")|top
+      op: update: transform: req: "cardCreateTokenMode": *("`reqdata.card_create_token_mode`")|top
+      op: update: transform: req: "cardIgnoreCVN": *("`reqdata.card_ignore_cvn`")|top
+      op: update: transform: req: "cardProcessorMerchantID": *("`reqdata.card_processor_merchant_id`")|top
+      op: update: transform: req: "currency": *("`reqdata.currency`")|top
+      op: update: transform: req: "customFields": *("`reqdata.custom_field`")|top
+      op: update: transform: req: "customerEmailAddress": *("`reqdata.customer_email_address`")|top
+      op: update: transform: req: "customerID": *("`reqdata.customer_id`")|top
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "dueDate": *("`reqdata.due_date`")|top
+      op: update: transform: req: "failureCallbackUrl": *("`reqdata.failure_callback_url`")|top
+      op: update: transform: req: "ignoreAddressVerification": *("`reqdata.ignore_address_verification`")|top
+      op: update: transform: req: "lightningInvoice": *("`reqdata.lightning_invoice`")|top
+      op: update: transform: req: "lightningInvoiceExpiresAt": *("`reqdata.lightning_invoice_expires_at`")|top
+      op: update: transform: req: "notificationEmailAddresses": *("`reqdata.notification_email_address`")|top
+      op: update: transform: req: "orderID": *("`reqdata.order_id`")|top
+      op: update: transform: req: "partialPaymentSteps": *("`reqdata.partial_payment_step`")|top
+      op: update: transform: req: "paymentMethods": *("`reqdata.payment_method`")|top
+      op: update: transform: req: "pispAccountID": *("`reqdata.pisp_account_id`")|top
+      op: update: transform: req: "shippingAddressCity": *("`reqdata.shipping_address_city`")|top
+      op: update: transform: req: "shippingAddressCountryCode": *("`reqdata.shipping_address_country_code`")|top
+      op: update: transform: req: "shippingAddressCounty": *("`reqdata.shipping_address_county`")|top
+      op: update: transform: req: "shippingAddressLine1": *("`reqdata.shipping_address_line1`")|top
+      op: update: transform: req: "shippingAddressLine2": *("`reqdata.shipping_address_line2`")|top
+      op: update: transform: req: "shippingAddressPostCode": *("`reqdata.shipping_address_post_code`")|top
+      op: update: transform: req: "shippingEmail": *("`reqdata.shipping_email`")|top
+      op: update: transform: req: "shippingFirstName": *("`reqdata.shipping_first_name`")|top
+      op: update: transform: req: "shippingLastName": *("`reqdata.shipping_last_name`")|top
+      op: update: transform: req: "shippingPhone": *("`reqdata.shipping_phone`")|top
+      op: update: transform: req: "successWebHookUrl": *("`reqdata.success_web_hook_url`")|top
+      op: update: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: update: transform: req: "title": *("`reqdata.title`")|top
+    }
+  }
+
+  entity: payment_account: {
+    path: "/api/v1/accounts/paged": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/accounts/{accountID}/virtual": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: payment_account_minimal: {
+    path: "/api/v1/accounts/minimal": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: payment_initiation: {
+    path: "/api/v1/paymentrequests/{id}/pisp": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: payment_request: {
+    path: "/api/v1/paymentrequests": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/paymentrequests/batchcreate": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/export": {
+      op: load: method: *GET
+    }
+    path: "/api/v1/paymentrequests/{id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/paymentrequests/{id}/directdebit": {
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
+    path: "/api/v1/paymentrequests/{id}/pisp/sandboxcallback": {
+      rename: param: "id": *"paymentrequest_id"
+      op: update: method: *PUT
+      op: update: transform: req: "amount": *("`reqdata.amount`")|top
+      op: update: transform: req: "doSimulateSettlementFailure": *("`reqdata.do_simulate_settlement_failure`")|top
+      op: update: transform: req: "errorDescription": *("`reqdata.error_description`")|top
+      op: update: transform: req: "institution": *("`reqdata.institution`")|top
+      op: update: transform: req: "paymentInitiationID": *("`reqdata.payment_initiation_id`")|top
+    }
+    path: "/api/v1/paymentrequests/{id}/receipt": {
+      rename: param: "id": *"paymentrequest_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: payment_request_event: {
+    path: "/api/v1/paymentrequests/{id}/events": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_request_metric: {
+    path: "/api/v1/paymentrequests/metrics": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.totalAmountsByCurrency`")|top
+    }
+  }
+
+  entity: payment_request_minimal: {
+    path: "/api/v1/paymentrequests/{id}/minimal": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_request_result: {
+    path: "/api/v1/paymentrequests/{id}/result": {
+      rename: param: "id": *"paymentrequest_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: payout: {
+    path: "/api/v1/accounts/{accountID}/payouts": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/payouts": {
+      op: create: method: *POST
+      op: create: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: create: transform: req: "allowIncomplete": *("`reqdata.allow_incomplete`")|top
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "batchPayoutID": *("`reqdata.batch_payout_id`")|top
+      op: create: transform: req: "beneficiaryID": *("`reqdata.beneficiary_id`")|top
+      op: create: transform: req: "chargeBearer": *("`reqdata.charge_bearer`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "destination": *("`reqdata.destination`")|top
+      op: create: transform: req: "documents": *("`reqdata.document`")|top
+      op: create: transform: req: "fxDestinationAmount": *("`reqdata.fx_destination_amount`")|top
+      op: create: transform: req: "fxDestinationCurrency": *("`reqdata.fx_destination_currency`")|top
+      op: create: transform: req: "fxQuoteID": *("`reqdata.fx_quote_id`")|top
+      op: create: transform: req: "fxUseDestinationAmount": *("`reqdata.fx_use_destination_amount`")|top
+      op: create: transform: req: "invoiceID": *("`reqdata.invoice_id`")|top
+      op: create: transform: req: "paymentRail": *("`reqdata.payment_rail`")|top
+      op: create: transform: req: "scheduleDate": *("`reqdata.schedule_date`")|top
+      op: create: transform: req: "scheduled": *("`reqdata.scheduled`")|top
+      op: create: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: create: transform: req: "tags": *("`reqdata.tag`")|top
+      op: create: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+      op: create: transform: req: "topupPayrunID": *("`reqdata.topup_payrun_id`")|top
+      op: create: transform: req: "type": *("`reqdata.type`")|top
+      op: create: transform: req: "yourReference": *("`reqdata.your_reference`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/payouts/batch/submit/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/batchcreate": {
+      action: "batchcreate": {}
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/batchdelete": {
+      action: "batchdelete": {}
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/payouts/cancel/{id}": {
+      op: update: method: *PUT
+    }
+    path: "/api/v1/payouts/export": {
+      action: "export": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/payouts/fxquote/{source}/{destination}/{amount}": {
+      op: load: method: *GET
+    }
+    path: "/api/v1/payouts/reject/{id}": {
+      op: update: method: *PUT
+      op: update: transform: req: "reason": *("`reqdata.reason`")|top
+    }
+    path: "/api/v1/payouts/send": {
+      action: "send": {}
+      op: create: method: *POST
+      op: create: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: create: transform: req: "allowIncomplete": *("`reqdata.allow_incomplete`")|top
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "batchPayoutID": *("`reqdata.batch_payout_id`")|top
+      op: create: transform: req: "beneficiaryID": *("`reqdata.beneficiary_id`")|top
+      op: create: transform: req: "chargeBearer": *("`reqdata.charge_bearer`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "destination": *("`reqdata.destination`")|top
+      op: create: transform: req: "documents": *("`reqdata.document`")|top
+      op: create: transform: req: "fxDestinationAmount": *("`reqdata.fx_destination_amount`")|top
+      op: create: transform: req: "fxDestinationCurrency": *("`reqdata.fx_destination_currency`")|top
+      op: create: transform: req: "fxQuoteID": *("`reqdata.fx_quote_id`")|top
+      op: create: transform: req: "fxUseDestinationAmount": *("`reqdata.fx_use_destination_amount`")|top
+      op: create: transform: req: "invoiceID": *("`reqdata.invoice_id`")|top
+      op: create: transform: req: "paymentRail": *("`reqdata.payment_rail`")|top
+      op: create: transform: req: "scheduleDate": *("`reqdata.schedule_date`")|top
+      op: create: transform: req: "scheduled": *("`reqdata.scheduled`")|top
+      op: create: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: create: transform: req: "tags": *("`reqdata.tag`")|top
+      op: create: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+      op: create: transform: req: "topupPayrunID": *("`reqdata.topup_payrun_id`")|top
+      op: create: transform: req: "type": *("`reqdata.type`")|top
+      op: create: transform: req: "yourReference": *("`reqdata.your_reference`")|top
+    }
+    path: "/api/v1/payouts/sendbeneficiary": {
+      action: "sendbeneficiary": {}
+      op: create: method: *POST
+      op: create: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: create: transform: req: "allowIncomplete": *("`reqdata.allow_incomplete`")|top
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "batchPayoutID": *("`reqdata.batch_payout_id`")|top
+      op: create: transform: req: "beneficiaryID": *("`reqdata.beneficiary_id`")|top
+      op: create: transform: req: "chargeBearer": *("`reqdata.charge_bearer`")|top
+      op: create: transform: req: "currency": *("`reqdata.currency`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "destination": *("`reqdata.destination`")|top
+      op: create: transform: req: "documents": *("`reqdata.document`")|top
+      op: create: transform: req: "fxDestinationAmount": *("`reqdata.fx_destination_amount`")|top
+      op: create: transform: req: "fxDestinationCurrency": *("`reqdata.fx_destination_currency`")|top
+      op: create: transform: req: "fxQuoteID": *("`reqdata.fx_quote_id`")|top
+      op: create: transform: req: "fxUseDestinationAmount": *("`reqdata.fx_use_destination_amount`")|top
+      op: create: transform: req: "invoiceID": *("`reqdata.invoice_id`")|top
+      op: create: transform: req: "paymentRail": *("`reqdata.payment_rail`")|top
+      op: create: transform: req: "scheduleDate": *("`reqdata.schedule_date`")|top
+      op: create: transform: req: "scheduled": *("`reqdata.scheduled`")|top
+      op: create: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: create: transform: req: "tags": *("`reqdata.tag`")|top
+      op: create: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+      op: create: transform: req: "topupPayrunID": *("`reqdata.topup_payrun_id`")|top
+      op: create: transform: req: "type": *("`reqdata.type`")|top
+      op: create: transform: req: "yourReference": *("`reqdata.your_reference`")|top
+    }
+    path: "/api/v1/payouts/submit/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/payouts/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: update: transform: req: "allowIncomplete": *("`reqdata.allow_incomplete`")|top
+      op: update: transform: req: "amount": *("`reqdata.amount`")|top
+      op: update: transform: req: "chargeBearer": *("`reqdata.charge_bearer`")|top
+      op: update: transform: req: "currency": *("`reqdata.currency`")|top
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "destination": *("`reqdata.destination`")|top
+      op: update: transform: req: "fxDestinationAmount": *("`reqdata.fx_destination_amount`")|top
+      op: update: transform: req: "fxDestinationCurrency": *("`reqdata.fx_destination_currency`")|top
+      op: update: transform: req: "fxQuoteID": *("`reqdata.fx_quote_id`")|top
+      op: update: transform: req: "fxUseDestinationAmount": *("`reqdata.fx_use_destination_amount`")|top
+      op: update: transform: req: "paymentRail": *("`reqdata.payment_rail`")|top
+      op: update: transform: req: "scheduleDate": *("`reqdata.schedule_date`")|top
+      op: update: transform: req: "scheduled": *("`reqdata.scheduled`")|top
+      op: update: transform: req: "tagIds": *("`reqdata.tag_id`")|top
+      op: update: transform: req: "tags": *("`reqdata.tag`")|top
+      op: update: transform: req: "theirReference": *("`reqdata.their_reference`")|top
+      op: update: transform: req: "type": *("`reqdata.type`")|top
+      op: update: transform: req: "yourReference": *("`reqdata.your_reference`")|top
+    }
+    path: "/api/v1/payouts/{id}/proof": {
+      action: "proof": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: payout_keyset_page: {
+    path: "/api/v1/accounts/{accountID}/payouts/failed": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/merchants/{merchantID}/payouts/failed": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/payouts/{merchantID}/failed": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: payout_metric: {
+    path: "/api/v1/payouts/metrics": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.totalAmountsByCurrency`")|top
+    }
+  }
+
+  entity: payrun: {
+    path: "/api/v1/payruns": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/payruns/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "id": *("`reqdata.id`")|top
+      op: update: transform: req: "invoices": *("`reqdata.invoice`")|top
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+      op: update: transform: req: "scheduledDate": *("`reqdata.scheduled_date`")|top
+      op: update: transform: req: "sourceAccounts": *("`reqdata.source_account`")|top
+    }
+    path: "/api/v1/payruns/{id}/archive": {
+      action: "archive": {}
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/payruns/{id}/cancel": {
+      action: "cancel": {}
+      op: update: method: *PUT
+    }
+    path: "/api/v1/payruns/{id}/reject": {
+      action: "reject": {}
+      op: update: method: *PUT
+      op: update: transform: req: "id": *("`reqdata.id`")|top
+      op: update: transform: req: "reason": *("`reqdata.reason`")|top
+    }
+    path: "/api/v1/payruns/{id}/request-authorisation": {
+      action: "request_authorisation": {}
+      op: create: method: *POST
+      op: create: transform: req: "id": *("`reqdata.id`")|top
+      op: create: transform: req: "notes": *("`reqdata.note`")|top
+      op: create: transform: req: "scheduledDate": *("`reqdata.scheduled_date`")|top
+    }
+    path: "/api/v1/payruns/{id}/submit": {
+      action: "submit": {}
+      op: create: method: *POST
+      op: create: transform: req: "scheduledDate": *("`reqdata.scheduled_date`")|top
+    }
+    path: "/api/v1/payruns/{id}/unarchive": {
+      action: "unarchive": {}
+      op: update: method: *PUT
+    }
+    path: "/api/v1/payruns/{merchantID}": {
+      rename: param: "merchantID": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "invoices": *("`reqdata.invoice`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+    }
+  }
+
+  entity: report: {
+    path: "/api/v1/reports/{id}/initiate": {
+      action: "initiate": {}
+      op: update: method: *PUT
+    }
+  }
+
+  entity: report_result: {
+    path: "/api/v1/reports/{id}/result/{statementNumber}": {
+      rename: param: "id": *"report_id"
+      rename: param: "statementNumber": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: role: {
+    path: "/api/v1/merchants/{merchantID}/roles/batchcreate": {
+      action: "batchcreate": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: rule: {
+    path: "/api/v1/rules": {
+      op: create: method: *POST
+      op: create: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "endAt": *("`reqdata.end_at`")|top
+      op: create: transform: req: "isDisabled": *("`reqdata.is_disabled`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "onApprovedWebHookUrl": *("`reqdata.on_approved_web_hook_url`")|top
+      op: create: transform: req: "onExecutionErrorWebHookUrl": *("`reqdata.on_execution_error_web_hook_url`")|top
+      op: create: transform: req: "onExecutionSuccessWebHookUrl": *("`reqdata.on_execution_success_web_hook_url`")|top
+      op: create: transform: req: "startAt": *("`reqdata.start_at`")|top
+      op: create: transform: req: "sweepAction": *("`reqdata.sweep_action`")|top
+      op: create: transform: req: "timeZoneId": *("`reqdata.time_zone_id`")|top
+      op: create: transform: req: "triggerCronExpression": *("`reqdata.trigger_cron_expression`")|top
+      op: create: transform: req: "triggerOnPayIn": *("`reqdata.trigger_on_pay_in`")|top
+      op: create: transform: req: "webHookSecret": *("`reqdata.web_hook_secret`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/rules/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "accountID": *("`reqdata.account_id`")|top
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "endAt": *("`reqdata.end_at`")|top
+      op: update: transform: req: "isDisabled": *("`reqdata.is_disabled`")|top
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+      op: update: transform: req: "onApprovedWebHookUrl": *("`reqdata.on_approved_web_hook_url`")|top
+      op: update: transform: req: "onExecutionErrorWebHookUrl": *("`reqdata.on_execution_error_web_hook_url`")|top
+      op: update: transform: req: "onExecutionSuccessWebHookUrl": *("`reqdata.on_execution_success_web_hook_url`")|top
+      op: update: transform: req: "startAt": *("`reqdata.start_at`")|top
+      op: update: transform: req: "sweepAction": *("`reqdata.sweep_action`")|top
+      op: update: transform: req: "timeZoneId": *("`reqdata.time_zone_id`")|top
+      op: update: transform: req: "triggerCronExpression": *("`reqdata.trigger_cron_expression`")|top
+      op: update: transform: req: "triggerOnPayIn": *("`reqdata.trigger_on_pay_in`")|top
+      op: update: transform: req: "webHookSecret": *("`reqdata.web_hook_secret`")|top
+    }
+    path: "/api/v1/rules/{id}/disable": {
+      action: "disable": {}
+      op: update: method: *PUT
+    }
+  }
+
+  entity: rule_event: {
+    path: "/api/v1/rules/{id}/events": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: tag: {
+    path: "/api/v1/merchants/{merchantID}/tags": {
+      rename: param: "merchantID": *"merchant_id"
+      op: create: method: *POST
+      op: create: transform: req: "colourHex": *("`reqdata.colour_hex`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "id": *("`reqdata.id`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: token: {
+    path: "/api/v1/tokens/authorise/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/tokens/{id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: transaction: {
+    path: "/api/v1/accounts/{accountID}/transactions": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/accounts/{accountID}/transactions/{id}": {
+      rename: param: "accountID": *"account_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/transactions": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/openbanking/transactions/{id}/{accountID}": {
+      rename: param: "accountID": *"account_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/transactions": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/transactions/detail/{id}": {
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{accountID}": {
+      rename: param: "accountID": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{accountID}/export": {
+      action: "export": {}
+      rename: param: "accountID": *"account_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{accountID}/from/{sequenceNumber}": {
+      rename: param: "accountID": *"transaction_id"
+      rename: param: "sequenceNumber": *"sequence_number"
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{id}/proof": {
+      action: "proof": {}
+      op: load: method: *GET
+    }
+    path: "/api/v1/transactions/{id}/tag": {
+      action: "tag": {}
+      op: remove: method: *DELETE
+    }
+    path: "/api/v1/transactions/{id}/tags": {
+      action: "tag": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: user: {
+    path: "/api/v1/merchants/{merchantID}/users": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoami": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/metadata/whoamitrustedapp": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/user": {
+      op: list: method: *GET
+    }
+    path: "/api/v1/user/{id}": {
+      op: update: method: *PUT
+      op: update: transform: req: "emailAddress": *("`reqdata.email_address`")|top
+      op: update: transform: req: "firstName": *("`reqdata.first_name`")|top
+      op: update: transform: req: "lastName": *("`reqdata.last_name`")|top
+      op: update: transform: req: "profile": *("`reqdata.profile`")|top
+      op: update: transform: req: "userInviteID": *("`reqdata.user_invite_id`")|top
+    }
+    path: "/api/v1/user/{merchantID}/userspaged": {
+      action: "userspaged": {}
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+  }
+
+  entity: user_invite: {
+    path: "/api/v1/merchants/{merchantID}/userinvitespaged": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.content`")|top
+    }
+    path: "/api/v1/userinvites": {
+      op: create: method: *POST
+      op: create: transform: req: "initialRoleID": *("`reqdata.initial_role_id`")|top
+      op: create: transform: req: "inviteeEmailAddress": *("`reqdata.invitee_email_address`")|top
+      op: create: transform: req: "inviteeFirstName": *("`reqdata.invitee_first_name`")|top
+      op: create: transform: req: "inviteeLastName": *("`reqdata.invitee_last_name`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "sendInviteEmail": *("`reqdata.send_invite_email`")|top
+    }
+    path: "/api/v1/userinvites/authorise/{id}": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/userinvites/batchcreate": {
+      op: create: method: *POST
+    }
+    path: "/api/v1/userinvites/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/api/v1/userinvites/{id}/details": {
+      rename: param: "id": *"userinvite_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: virtual: {
+    path: "/api/v1/accounts/{accountID}/virtual": {
+      rename: param: "accountID": *"account_id"
+      op: create: method: *POST
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+    }
+    path: "/api/v1/accounts/{accountID}/virtual/{virtualAccountID}": {
+      rename: param: "accountID": *"account_id"
+      rename: param: "virtualAccountID": *"id"
+      op: update: method: *PUT
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+    }
+  }
+
+  entity: webhook: {
+    path: "/api/v1/merchants/{merchantID}/webhooks": {
+      rename: param: "merchantID": *"merchant_id"
+      op: list: method: *GET
+    }
+    path: "/api/v1/merchants/{merchantID}/webhooks/{id}": {
+      rename: param: "merchantID": *"merchant_id"
+      op: load: method: *GET
+    }
+    path: "/api/v1/webhooks": {
+      op: create: method: *POST
+      op: create: transform: req: "destinationUrl": *("`reqdata.destination_url`")|top
+      op: create: transform: req: "emailAddress": *("`reqdata.email_address`")|top
+      op: create: transform: req: "failedNotificationEmailAddress": *("`reqdata.failed_notification_email_address`")|top
+      op: create: transform: req: "id": *("`reqdata.id`")|top
+      op: create: transform: req: "isActive": *("`reqdata.is_active`")|top
+      op: create: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: create: transform: req: "notificationMethod": *("`reqdata.notification_method`")|top
+      op: create: transform: req: "resourceTypes": *("`reqdata.resource_type`")|top
+      op: create: transform: req: "retry": *("`reqdata.retry`")|top
+      op: create: transform: req: "secret": *("`reqdata.secret`")|top
+    }
+    path: "/api/v1/webhooks/{id}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "destinationUrl": *("`reqdata.destination_url`")|top
+      op: update: transform: req: "emailAddress": *("`reqdata.email_address`")|top
+      op: update: transform: req: "failedNotificationEmailAddress": *("`reqdata.failed_notification_email_address`")|top
+      op: update: transform: req: "id": *("`reqdata.id`")|top
+      op: update: transform: req: "isActive": *("`reqdata.is_active`")|top
+      op: update: transform: req: "merchantID": *("`reqdata.merchant_id`")|top
+      op: update: transform: req: "notificationMethod": *("`reqdata.notification_method`")|top
+      op: update: transform: req: "resourceTypes": *("`reqdata.resource_type`")|top
+      op: update: transform: req: "retry": *("`reqdata.retry`")|top
+      op: update: transform: req: "secret": *("`reqdata.secret`")|top
+    }
+    path: "/api/v1/webhooks/{merchantID}": {
+      rename: param: "merchantID": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

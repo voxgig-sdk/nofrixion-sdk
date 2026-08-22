@@ -30,7 +30,7 @@ class Config {
   main = {
     name: 'Nofrixion',
         slug: "nofrixion",
-    version: "0.0.1",
+    version: "0.1.1",
     target: "ts",
 
   }
@@ -568,7 +568,12 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "format": "`reqdata.format`",
+                  "fromDate": "`reqdata.from_date`",
+                  "toDate": "`reqdata.to_date`"
+                },
                 "res": "`body`"
               }
             },
@@ -584,7 +589,16 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountName": "`reqdata.account_name`",
+                  "accountType": "`reqdata.account_type`",
+                  "currency": "`reqdata.currency`",
+                  "isTrustAccount": "`reqdata.is_trust_account`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "physicalAccountID": "`reqdata.physical_account_id`",
+                  "roleIDs": "`reqdata.role_i_d`",
+                  "supplierPhysicalAccountID": "`reqdata.supplier_physical_account_id`"
+                },
                 "res": "`body`"
               }
             }
@@ -1259,7 +1273,10 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "accountName": "`reqdata.account_name`"
+                },
                 "res": "`body`"
               }
             }
@@ -1559,7 +1576,15 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "currency": "`reqdata.currency`",
+                  "destination": "`reqdata.destination`",
+                  "id": "`reqdata.id`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "name": "`reqdata.name`",
+                  "sourceAccountIDs": "`reqdata.source_account_i_d`",
+                  "theirReference": "`reqdata.their_reference`"
+                },
                 "res": "`body`"
               }
             },
@@ -1664,7 +1689,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -1753,7 +1778,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -2047,7 +2072,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "currency": "`reqdata.currency`",
+                  "destination": "`reqdata.destination`",
+                  "name": "`reqdata.name`",
+                  "sourceAccountIDs": "`reqdata.source_account_i_d`",
+                  "theirReference": "`reqdata.their_reference`"
+                },
                 "res": "`body`"
               }
             }
@@ -2152,7 +2183,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -3052,7 +3083,15 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "callbackUrl": "`reqdata.callback_url`",
+                  "emailAddress": "`reqdata.email_address`",
+                  "failureCallbackUrl": "`reqdata.failure_callback_url`",
+                  "institutionID": "`reqdata.institution_id`",
+                  "isConnectedAccounts": "`reqdata.is_connected_account`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "successWebHookUrl": "`reqdata.success_web_hook_url`"
+                },
                 "res": "`body`"
               }
             }
@@ -3743,7 +3782,23 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountNumber": "`reqdata.account_number`",
+                  "addressLine1": "`reqdata.address_line1`",
+                  "addressLine2": "`reqdata.address_line2`",
+                  "city": "`reqdata.city`",
+                  "countryCode": "`reqdata.country_code`",
+                  "currency": "`reqdata.currency`",
+                  "emailAddress": "`reqdata.email_address`",
+                  "firstName": "`reqdata.first_name`",
+                  "iban": "`reqdata.iban`",
+                  "isRecurring": "`reqdata.is_recurring`",
+                  "lastName": "`reqdata.last_name`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "postalCode": "`reqdata.postal_code`",
+                  "reference": "`reqdata.reference`",
+                  "sortCode": "`reqdata.sort_code`"
+                },
                 "res": "`body`"
               }
             }
@@ -4010,7 +4065,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -4072,7 +4127,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -4524,7 +4579,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "logoUrlPng": "`reqdata.logo_url_png`",
+                  "logoUrlSvg": "`reqdata.logo_url_svg`",
+                  "notes": "`reqdata.note`",
+                  "paymentAccountLimit": "`reqdata.payment_account_limit`",
+                  "shortName": "`reqdata.short_name`"
+                },
                 "res": "`body`"
               }
             },
@@ -4562,7 +4623,9 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "reason": "`reqdata.reason`"
+                },
                 "res": "`body`"
               }
             }
@@ -4914,7 +4977,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -5056,7 +5119,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.payByBankSettings`"
               }
             }
           ]
@@ -5235,7 +5298,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.template`"
               }
             }
           ]
@@ -5288,7 +5351,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.template`"
               }
             }
           ]
@@ -5340,8 +5403,14 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
+                "req": {
+                  "description": "`reqdata.description`",
+                  "id": "`reqdata.id`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "name": "`reqdata.name`",
+                  "template": "`reqdata.template`"
+                },
+                "res": "`body.template`"
               }
             }
           ]
@@ -5499,7 +5568,13 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "description": "`reqdata.description`",
+                  "hmacAlgorithm": "`reqdata.hmac_algorithm`",
+                  "ipAddressWhitelist": "`reqdata.ip_address_whitelist`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "permissionTypes": "`reqdata.permission_type`"
+                },
                 "res": "`body`"
               }
             }
@@ -5559,7 +5634,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -5632,7 +5707,12 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "description": "`reqdata.description`",
+                  "ipAddressWhitelist": "`reqdata.ip_address_whitelist`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "permissionTypes": "`reqdata.permission_type`"
+                },
                 "res": "`body`"
               }
             }
@@ -5983,7 +6063,13 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountName": "`reqdata.account_name`",
+                  "accountNumber": "`reqdata.account_number`",
+                  "iban": "`reqdata.iban`",
+                  "secondaryIdentification": "`reqdata.secondary_identification`",
+                  "sortCode": "`reqdata.sort_code`"
+                },
                 "res": "`body`"
               }
             }
@@ -6390,7 +6476,54 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "amount": "`reqdata.amount`",
+                  "autoSendReceipt": "`reqdata.auto_send_receipt`",
+                  "callbackUrl": "`reqdata.callback_url`",
+                  "cardAuthorizeOnly": "`reqdata.card_authorize_only`",
+                  "cardCreateToken": "`reqdata.card_create_token`",
+                  "cardCreateTokenMode": "`reqdata.card_create_token_mode`",
+                  "cardIgnoreCVN": "`reqdata.card_ignore_cvn`",
+                  "cardNoPayerAuthentication": "`reqdata.card_no_payer_authentication`",
+                  "cardProcessorMerchantID": "`reqdata.card_processor_merchant_id`",
+                  "cardTransmitRawDetails": "`reqdata.card_transmit_raw_detail`",
+                  "currency": "`reqdata.currency`",
+                  "customFields": "`reqdata.custom_field`",
+                  "customerEmailAddress": "`reqdata.customer_email_address`",
+                  "customerID": "`reqdata.customer_id`",
+                  "description": "`reqdata.description`",
+                  "dueDate": "`reqdata.due_date`",
+                  "failureCallbackUrl": "`reqdata.failure_callback_url`",
+                  "fieldDisplaySettings": "`reqdata.field_display_setting`",
+                  "ignoreAddressVerification": "`reqdata.ignore_address_verification`",
+                  "merchantDirectDebitMandateID": "`reqdata.merchant_direct_debit_mandate_id`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "notificationEmailAddresses": "`reqdata.notification_email_address`",
+                  "notificationRoleIDs": "`reqdata.notification_role_i_d`",
+                  "orderID": "`reqdata.order_id`",
+                  "partialPaymentMethod": "`reqdata.partial_payment_method`",
+                  "partialPaymentSteps": "`reqdata.partial_payment_step`",
+                  "paymentMethods": "`reqdata.payment_method`",
+                  "payrunID": "`reqdata.payrun_id`",
+                  "pispAccountID": "`reqdata.pisp_account_id`",
+                  "priorityBankID": "`reqdata.priority_bank_id`",
+                  "sandboxSettleDelayInSeconds": "`reqdata.sandbox_settle_delay_in_second`",
+                  "shippingAddressCity": "`reqdata.shipping_address_city`",
+                  "shippingAddressCountryCode": "`reqdata.shipping_address_country_code`",
+                  "shippingAddressCounty": "`reqdata.shipping_address_county`",
+                  "shippingAddressLine1": "`reqdata.shipping_address_line1`",
+                  "shippingAddressLine2": "`reqdata.shipping_address_line2`",
+                  "shippingAddressPostCode": "`reqdata.shipping_address_post_code`",
+                  "shippingEmail": "`reqdata.shipping_email`",
+                  "shippingFirstName": "`reqdata.shipping_first_name`",
+                  "shippingLastName": "`reqdata.shipping_last_name`",
+                  "shippingPhone": "`reqdata.shipping_phone`",
+                  "successWebHookUrl": "`reqdata.success_web_hook_url`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "tags": "`reqdata.tag`",
+                  "title": "`reqdata.title`",
+                  "useHostedPaymentPage": "`reqdata.use_hosted_payment_page`"
+                },
                 "res": "`body`"
               }
             }
@@ -6511,7 +6644,45 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "amount": "`reqdata.amount`",
+                  "autoSendReceipt": "`reqdata.auto_send_receipt`",
+                  "baseOriginUrl": "`reqdata.base_origin_url`",
+                  "callbackUrl": "`reqdata.callback_url`",
+                  "cardAuthorizeOnly": "`reqdata.card_authorize_only`",
+                  "cardCreateToken": "`reqdata.card_create_token`",
+                  "cardCreateTokenMode": "`reqdata.card_create_token_mode`",
+                  "cardIgnoreCVN": "`reqdata.card_ignore_cvn`",
+                  "cardProcessorMerchantID": "`reqdata.card_processor_merchant_id`",
+                  "currency": "`reqdata.currency`",
+                  "customFields": "`reqdata.custom_field`",
+                  "customerEmailAddress": "`reqdata.customer_email_address`",
+                  "customerID": "`reqdata.customer_id`",
+                  "description": "`reqdata.description`",
+                  "dueDate": "`reqdata.due_date`",
+                  "failureCallbackUrl": "`reqdata.failure_callback_url`",
+                  "ignoreAddressVerification": "`reqdata.ignore_address_verification`",
+                  "lightningInvoice": "`reqdata.lightning_invoice`",
+                  "lightningInvoiceExpiresAt": "`reqdata.lightning_invoice_expires_at`",
+                  "notificationEmailAddresses": "`reqdata.notification_email_address`",
+                  "orderID": "`reqdata.order_id`",
+                  "partialPaymentSteps": "`reqdata.partial_payment_step`",
+                  "paymentMethods": "`reqdata.payment_method`",
+                  "pispAccountID": "`reqdata.pisp_account_id`",
+                  "shippingAddressCity": "`reqdata.shipping_address_city`",
+                  "shippingAddressCountryCode": "`reqdata.shipping_address_country_code`",
+                  "shippingAddressCounty": "`reqdata.shipping_address_county`",
+                  "shippingAddressLine1": "`reqdata.shipping_address_line1`",
+                  "shippingAddressLine2": "`reqdata.shipping_address_line2`",
+                  "shippingAddressPostCode": "`reqdata.shipping_address_post_code`",
+                  "shippingEmail": "`reqdata.shipping_email`",
+                  "shippingFirstName": "`reqdata.shipping_first_name`",
+                  "shippingLastName": "`reqdata.shipping_last_name`",
+                  "shippingPhone": "`reqdata.shipping_phone`",
+                  "successWebHookUrl": "`reqdata.success_web_hook_url`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "title": "`reqdata.title`"
+                },
                 "res": "`body`"
               }
             }
@@ -6827,7 +6998,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -6882,7 +7053,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -7056,7 +7227,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -7683,7 +7854,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -7931,7 +8102,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "amount": "`reqdata.amount`",
+                  "doSimulateSettlementFailure": "`reqdata.do_simulate_settlement_failure`",
+                  "errorDescription": "`reqdata.error_description`",
+                  "institution": "`reqdata.institution`",
+                  "paymentInitiationID": "`reqdata.payment_initiation_id`"
+                },
                 "res": "`body`"
               }
             }
@@ -8271,7 +8448,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.totalAmountsByCurrency`"
               }
             }
           ]
@@ -9071,7 +9248,32 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "allowIncomplete": "`reqdata.allow_incomplete`",
+                  "amount": "`reqdata.amount`",
+                  "batchPayoutID": "`reqdata.batch_payout_id`",
+                  "beneficiaryID": "`reqdata.beneficiary_id`",
+                  "chargeBearer": "`reqdata.charge_bearer`",
+                  "currency": "`reqdata.currency`",
+                  "description": "`reqdata.description`",
+                  "destination": "`reqdata.destination`",
+                  "documents": "`reqdata.document`",
+                  "fxDestinationAmount": "`reqdata.fx_destination_amount`",
+                  "fxDestinationCurrency": "`reqdata.fx_destination_currency`",
+                  "fxQuoteID": "`reqdata.fx_quote_id`",
+                  "fxUseDestinationAmount": "`reqdata.fx_use_destination_amount`",
+                  "invoiceID": "`reqdata.invoice_id`",
+                  "paymentRail": "`reqdata.payment_rail`",
+                  "scheduleDate": "`reqdata.schedule_date`",
+                  "scheduled": "`reqdata.scheduled`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "tags": "`reqdata.tag`",
+                  "theirReference": "`reqdata.their_reference`",
+                  "topupPayrunID": "`reqdata.topup_payrun_id`",
+                  "type": "`reqdata.type`",
+                  "yourReference": "`reqdata.your_reference`"
+                },
                 "res": "`body`"
               }
             },
@@ -9109,7 +9311,32 @@ class Config {
                 "$action": "send"
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "allowIncomplete": "`reqdata.allow_incomplete`",
+                  "amount": "`reqdata.amount`",
+                  "batchPayoutID": "`reqdata.batch_payout_id`",
+                  "beneficiaryID": "`reqdata.beneficiary_id`",
+                  "chargeBearer": "`reqdata.charge_bearer`",
+                  "currency": "`reqdata.currency`",
+                  "description": "`reqdata.description`",
+                  "destination": "`reqdata.destination`",
+                  "documents": "`reqdata.document`",
+                  "fxDestinationAmount": "`reqdata.fx_destination_amount`",
+                  "fxDestinationCurrency": "`reqdata.fx_destination_currency`",
+                  "fxQuoteID": "`reqdata.fx_quote_id`",
+                  "fxUseDestinationAmount": "`reqdata.fx_use_destination_amount`",
+                  "invoiceID": "`reqdata.invoice_id`",
+                  "paymentRail": "`reqdata.payment_rail`",
+                  "scheduleDate": "`reqdata.schedule_date`",
+                  "scheduled": "`reqdata.scheduled`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "tags": "`reqdata.tag`",
+                  "theirReference": "`reqdata.their_reference`",
+                  "topupPayrunID": "`reqdata.topup_payrun_id`",
+                  "type": "`reqdata.type`",
+                  "yourReference": "`reqdata.your_reference`"
+                },
                 "res": "`body`"
               }
             },
@@ -9128,7 +9355,32 @@ class Config {
                 "$action": "sendbeneficiary"
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "allowIncomplete": "`reqdata.allow_incomplete`",
+                  "amount": "`reqdata.amount`",
+                  "batchPayoutID": "`reqdata.batch_payout_id`",
+                  "beneficiaryID": "`reqdata.beneficiary_id`",
+                  "chargeBearer": "`reqdata.charge_bearer`",
+                  "currency": "`reqdata.currency`",
+                  "description": "`reqdata.description`",
+                  "destination": "`reqdata.destination`",
+                  "documents": "`reqdata.document`",
+                  "fxDestinationAmount": "`reqdata.fx_destination_amount`",
+                  "fxDestinationCurrency": "`reqdata.fx_destination_currency`",
+                  "fxQuoteID": "`reqdata.fx_quote_id`",
+                  "fxUseDestinationAmount": "`reqdata.fx_use_destination_amount`",
+                  "invoiceID": "`reqdata.invoice_id`",
+                  "paymentRail": "`reqdata.payment_rail`",
+                  "scheduleDate": "`reqdata.schedule_date`",
+                  "scheduled": "`reqdata.scheduled`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "tags": "`reqdata.tag`",
+                  "theirReference": "`reqdata.their_reference`",
+                  "topupPayrunID": "`reqdata.topup_payrun_id`",
+                  "type": "`reqdata.type`",
+                  "yourReference": "`reqdata.your_reference`"
+                },
                 "res": "`body`"
               }
             }
@@ -9249,7 +9501,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -9365,7 +9617,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -9481,7 +9733,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -9842,7 +10094,9 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "reason": "`reqdata.reason`"
+                },
                 "res": "`body`"
               }
             },
@@ -9873,7 +10127,27 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "allowIncomplete": "`reqdata.allow_incomplete`",
+                  "amount": "`reqdata.amount`",
+                  "chargeBearer": "`reqdata.charge_bearer`",
+                  "currency": "`reqdata.currency`",
+                  "description": "`reqdata.description`",
+                  "destination": "`reqdata.destination`",
+                  "fxDestinationAmount": "`reqdata.fx_destination_amount`",
+                  "fxDestinationCurrency": "`reqdata.fx_destination_currency`",
+                  "fxQuoteID": "`reqdata.fx_quote_id`",
+                  "fxUseDestinationAmount": "`reqdata.fx_use_destination_amount`",
+                  "paymentRail": "`reqdata.payment_rail`",
+                  "scheduleDate": "`reqdata.schedule_date`",
+                  "scheduled": "`reqdata.scheduled`",
+                  "tagIds": "`reqdata.tag_id`",
+                  "tags": "`reqdata.tag`",
+                  "theirReference": "`reqdata.their_reference`",
+                  "type": "`reqdata.type`",
+                  "yourReference": "`reqdata.your_reference`"
+                },
                 "res": "`body`"
               }
             }
@@ -10310,7 +10584,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -10365,7 +10639,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -10419,7 +10693,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -10531,7 +10805,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.totalAmountsByCurrency`"
               }
             }
           ]
@@ -10713,7 +10987,11 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "id": "`reqdata.id`",
+                  "notes": "`reqdata.note`",
+                  "scheduledDate": "`reqdata.scheduled_date`"
+                },
                 "res": "`body`"
               }
             },
@@ -10746,7 +11024,9 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "scheduledDate": "`reqdata.scheduled_date`"
+                },
                 "res": "`body`"
               }
             },
@@ -10782,7 +11062,10 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "invoices": "`reqdata.invoice`",
+                  "name": "`reqdata.name`"
+                },
                 "res": "`body`"
               }
             }
@@ -10875,7 +11158,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -11018,7 +11301,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "id": "`reqdata.id`",
+                  "invoices": "`reqdata.invoice`",
+                  "name": "`reqdata.name`",
+                  "scheduledDate": "`reqdata.scheduled_date`",
+                  "sourceAccounts": "`reqdata.source_account`"
+                },
                 "res": "`body`"
               }
             },
@@ -11084,7 +11373,10 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "id": "`reqdata.id`",
+                  "reason": "`reqdata.reason`"
+                },
                 "res": "`body`"
               }
             },
@@ -11527,7 +11819,22 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "description": "`reqdata.description`",
+                  "endAt": "`reqdata.end_at`",
+                  "isDisabled": "`reqdata.is_disabled`",
+                  "name": "`reqdata.name`",
+                  "onApprovedWebHookUrl": "`reqdata.on_approved_web_hook_url`",
+                  "onExecutionErrorWebHookUrl": "`reqdata.on_execution_error_web_hook_url`",
+                  "onExecutionSuccessWebHookUrl": "`reqdata.on_execution_success_web_hook_url`",
+                  "startAt": "`reqdata.start_at`",
+                  "sweepAction": "`reqdata.sweep_action`",
+                  "timeZoneId": "`reqdata.time_zone_id`",
+                  "triggerCronExpression": "`reqdata.trigger_cron_expression`",
+                  "triggerOnPayIn": "`reqdata.trigger_on_pay_in`",
+                  "webHookSecret": "`reqdata.web_hook_secret`"
+                },
                 "res": "`body`"
               }
             }
@@ -11601,7 +11908,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -11711,7 +12018,22 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "accountID": "`reqdata.account_id`",
+                  "description": "`reqdata.description`",
+                  "endAt": "`reqdata.end_at`",
+                  "isDisabled": "`reqdata.is_disabled`",
+                  "name": "`reqdata.name`",
+                  "onApprovedWebHookUrl": "`reqdata.on_approved_web_hook_url`",
+                  "onExecutionErrorWebHookUrl": "`reqdata.on_execution_error_web_hook_url`",
+                  "onExecutionSuccessWebHookUrl": "`reqdata.on_execution_success_web_hook_url`",
+                  "startAt": "`reqdata.start_at`",
+                  "sweepAction": "`reqdata.sweep_action`",
+                  "timeZoneId": "`reqdata.time_zone_id`",
+                  "triggerCronExpression": "`reqdata.trigger_cron_expression`",
+                  "triggerOnPayIn": "`reqdata.trigger_on_pay_in`",
+                  "webHookSecret": "`reqdata.web_hook_secret`"
+                },
                 "res": "`body`"
               }
             },
@@ -11855,7 +12177,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -11929,7 +12251,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "colourHex": "`reqdata.colour_hex`",
+                  "description": "`reqdata.description`",
+                  "id": "`reqdata.id`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "name": "`reqdata.name`"
+                },
                 "res": "`body`"
               }
             }
@@ -12468,7 +12796,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -12626,7 +12954,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -12684,7 +13012,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -13277,7 +13605,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             },
             {
@@ -13400,7 +13728,13 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "emailAddress": "`reqdata.email_address`",
+                  "firstName": "`reqdata.first_name`",
+                  "lastName": "`reqdata.last_name`",
+                  "profile": "`reqdata.profile`",
+                  "userInviteID": "`reqdata.user_invite_id`"
+                },
                 "res": "`body`"
               }
             }
@@ -13574,7 +13908,14 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "initialRoleID": "`reqdata.initial_role_id`",
+                  "inviteeEmailAddress": "`reqdata.invitee_email_address`",
+                  "inviteeFirstName": "`reqdata.invitee_first_name`",
+                  "inviteeLastName": "`reqdata.invitee_last_name`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "sendInviteEmail": "`reqdata.send_invite_email`"
+                },
                 "res": "`body`"
               }
             },
@@ -13667,7 +14008,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.content`"
               }
             }
           ]
@@ -14070,7 +14411,9 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "name": "`reqdata.name`"
+                },
                 "res": "`body`"
               }
             }
@@ -14123,7 +14466,9 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "name": "`reqdata.name`"
+                },
                 "res": "`body`"
               }
             }
@@ -14230,7 +14575,18 @@ class Config {
               ],
               "select": {},
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "destinationUrl": "`reqdata.destination_url`",
+                  "emailAddress": "`reqdata.email_address`",
+                  "failedNotificationEmailAddress": "`reqdata.failed_notification_email_address`",
+                  "id": "`reqdata.id`",
+                  "isActive": "`reqdata.is_active`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "notificationMethod": "`reqdata.notification_method`",
+                  "resourceTypes": "`reqdata.resource_type`",
+                  "retry": "`reqdata.retry`",
+                  "secret": "`reqdata.secret`"
+                },
                 "res": "`body`"
               }
             }
@@ -14435,7 +14791,18 @@ class Config {
                 ]
               },
               "transform": {
-                "req": "`reqdata`",
+                "req": {
+                  "destinationUrl": "`reqdata.destination_url`",
+                  "emailAddress": "`reqdata.email_address`",
+                  "failedNotificationEmailAddress": "`reqdata.failed_notification_email_address`",
+                  "id": "`reqdata.id`",
+                  "isActive": "`reqdata.is_active`",
+                  "merchantID": "`reqdata.merchant_id`",
+                  "notificationMethod": "`reqdata.notification_method`",
+                  "resourceTypes": "`reqdata.resource_type`",
+                  "retry": "`reqdata.retry`",
+                  "secret": "`reqdata.secret`"
+                },
                 "res": "`body`"
               }
             }

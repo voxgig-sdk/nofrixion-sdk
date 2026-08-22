@@ -1,0 +1,199 @@
+# Entity: payment_account_minimal
+
+main: kit: entity: payment_account_minimal: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accountName"
+      req: false
+      short: "Name for the account"
+      type: "`$STRING`"
+    }
+    {
+      name: "availableBalance"
+      req: false
+      short: "The current available balance of the account."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balance"
+      req: false
+      short: "Balance of the account."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "balanceMinorUnits"
+      req: false
+      short: "Balance of the account expressed in the currency’s minor units (e.g."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "currency"
+      req: false
+      short: "Currency of the account in ISO 4217 format"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "Unique id for the account."
+      type: "`$STRING`"
+    }
+    {
+      name: "identifier"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "isArchived"
+      req: false
+      short: "Is the account archived"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "isConnectedAccount"
+      req: false
+      short: "Indicates if the payment account is an externally connected account."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "merchantID"
+      req: false
+      short: "The ID of the merchant that owns the account."
+      type: "`$STRING`"
+    }
+    {
+      name: "submittedPayoutsBalance"
+      req: false
+      short: "Total of the payouts that have been submitted for processing."
+      type: "`$NUMBER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "payment_account_minimal"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "connected_account"
+                orig: "connected_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "currency"
+                orig: "currency"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_archived"
+                orig: "include_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_archived"
+                orig: "only_archived"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "only_connect_account"
+                orig: "only_connect_account"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page_number"
+                orig: "page_number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/accounts/minimal"
+          parts: [
+            "api"
+            "v1"
+            "accounts"
+            "minimal"
+          ]
+          select: {
+            exist: [
+              "connected_account"
+              "currency"
+              "include_archived"
+              "merchant_id"
+              "only_archived"
+              "only_connect_account"
+              "page_number"
+              "page_size"
+              "search"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.content`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

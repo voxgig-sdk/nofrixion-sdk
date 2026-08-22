@@ -1,0 +1,311 @@
+# Entity: merchant_payment_request_template
+
+main: kit: entity: merchant_payment_request_template: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "bankPaymentOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "cardPaymentAddressOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "cardPaymentCaptureOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "customFields"
+      req: false
+      short: "A list of custom fields that can be included in the payment request template."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "defaultFields"
+      req: false
+      short: "A list of default fields that are included in the payment request template."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "inserted"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lastUpdated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchantID"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notificationOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "paymentMethods"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "paymentTerms"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "priorityBankOptions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "template"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "merchant_payment_request_template"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "merchant_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{merchant_id}"
+            "templates"
+          ]
+          rename: {
+            param: {
+              merchantID: "merchant_id"
+            }
+          }
+          select: {
+            exist: [
+              "merchant_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "template_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "templates"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "paymentrequest_id"
+              templateID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "paymentrequest_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.template`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "template_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "templates"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "paymentrequest_id"
+              templateID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "paymentrequest_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.template`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "template_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "paymentrequest_id"
+                orig: "merchant_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
+          parts: [
+            "api"
+            "v1"
+            "paymentrequests"
+            "{paymentrequest_id}"
+            "templates"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              merchantID: "paymentrequest_id"
+              templateID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "paymentrequest_id"
+            ]
+          }
+          transform: {
+            req: {
+              description: "`reqdata.description`"
+              id: "`reqdata.id`"
+              merchantID: "`reqdata.merchant_id`"
+              name: "`reqdata.name`"
+              template: "`reqdata.template`"
+            }
+            res: "`body.template`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "paymentrequest"
+      ]
+    ]
+  }
+
+
+
+}
