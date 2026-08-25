@@ -46,7 +46,13 @@ class TokenEntityTest extends TestCase
         $token_ref01_data_result = $token_ref01_ent->create($token_ref01_data, null);
         $token_ref01_data = Helpers::to_map(is_object($token_ref01_data_result) && method_exists($token_ref01_data_result, 'data_get') ? $token_ref01_data_result->data_get() : $token_ref01_data_result);
         $this->assertNotNull($token_ref01_data);
+        $this->assertNotNull($token_ref01_data["id"]);
 
+        // REMOVE
+        $token_ref01_match_rm0 = [
+            "id" => $token_ref01_data["id"],
+        ];
+        $token_ref01_ent->remove($token_ref01_match_rm0, null);
 
     }
 }

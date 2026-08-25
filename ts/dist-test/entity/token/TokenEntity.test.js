@@ -75,7 +75,10 @@ const utility_1 = require("../../utility");
         const token_ref01_ent = client.Token();
         let token_ref01_data = setup.data.new.token['token_ref01'];
         token_ref01_data = (await token_ref01_ent.create(token_ref01_data)).data();
-        (0, node_assert_1.default)(null != token_ref01_data);
+        (0, node_assert_1.default)(null != token_ref01_data.id);
+        // REMOVE
+        const token_ref01_match_rm0 = { id: token_ref01_data.id };
+        await token_ref01_ent.remove(token_ref01_match_rm0);
     });
 });
 function basicSetup(extra) {

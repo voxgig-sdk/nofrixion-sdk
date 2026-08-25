@@ -49,11 +49,13 @@ class ReportEntityTest extends TestCase
         // UPDATE
         $report_ref01_ent = $client->Report(null);
         $report_ref01_data_up0_up = [
+            "id" => $report_ref01_data["id"],
         ];
 
         $report_ref01_resdata_up0_result = $report_ref01_ent->update($report_ref01_data_up0_up, null);
         $report_ref01_resdata_up0 = Helpers::to_map(is_object($report_ref01_resdata_up0_result) && method_exists($report_ref01_resdata_up0_result, 'data_get') ? $report_ref01_resdata_up0_result->data_get() : $report_ref01_resdata_up0_result);
         $this->assertNotNull($report_ref01_resdata_up0);
+        $this->assertEquals($report_ref01_resdata_up0["id"], $report_ref01_data_up0_up["id"]);
 
     }
 }

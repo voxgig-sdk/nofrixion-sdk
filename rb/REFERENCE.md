@@ -3624,6 +3624,12 @@ Return the entity name.
 report = client.Report
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `update(reqdata, ctrl = nil) -> result`
@@ -3679,6 +3685,7 @@ report_result = client.ReportResult
 | --- | --- | --- | --- |
 | `contentType` | `String` | No |  |
 | `contents` | `String` | No |  |
+| `id` | `String` | No |  |
 | `lastCompletedAt` | `String` | No |  |
 | `merchantID` | `String` | No |  |
 | `reportName` | `String` | No |  |
@@ -4073,6 +4080,12 @@ Return the entity name.
 ```ruby
 token = client.Token
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

@@ -9237,8 +9237,13 @@ PayrunRemoveMatch = Struct.new(
 )
 
 # Report entity data model.
-class Report
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Report = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Report#update.
 #
@@ -9255,6 +9260,9 @@ ReportUpdateData = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] contents
+#   @return [String, nil]
+#
+# @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] lastCompletedAt
@@ -9274,6 +9282,7 @@ ReportUpdateData = Struct.new(
 ReportResult = Struct.new(
   :contentType,
   :contents,
+  :id,
   :lastCompletedAt,
   :merchantID,
   :reportName,
@@ -10005,8 +10014,13 @@ TagCreateData = Struct.new(
 )
 
 # Token entity data model.
-class Token
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Token = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Token#create.
 #

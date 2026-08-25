@@ -11290,7 +11290,12 @@ local function make_config()
         },
       },
       ["report"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "report",
         ["op"] = {
           ["update"] = {
@@ -11345,6 +11350,10 @@ local function make_config()
           },
           {
             ["name"] = "contents",
+            ["type"] = "`$STRING`",
+          },
+          {
+            ["name"] = "id",
             ["type"] = "`$STRING`",
           },
           {
@@ -12185,7 +12194,12 @@ local function make_config()
         },
       },
       ["token"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "token",
         ["op"] = {
           ["create"] = {

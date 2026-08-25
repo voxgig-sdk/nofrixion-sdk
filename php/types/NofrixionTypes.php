@@ -2755,6 +2755,7 @@ class PayrunRemoveMatch
 /** Report entity data model. */
 class Report
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Report#update. */
@@ -2768,6 +2769,7 @@ class ReportResult
 {
     public ?string $contentType = null;
     public ?string $contents = null;
+    public ?string $id = null;
     public ?string $lastCompletedAt = null;
     public ?string $merchantID = null;
     public ?string $reportName = null;
@@ -3011,6 +3013,7 @@ class TagCreateData
 /** Token entity data model. */
 class Token
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Token#create. */

@@ -2639,6 +2639,7 @@ type PayrunRemoveMatch struct {
 
 // Report is the typed data model for the report entity.
 type Report struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // ReportUpdateData is the typed request payload for Report.UpdateTyped.
@@ -2650,6 +2651,7 @@ type ReportUpdateData struct {
 type ReportResult struct {
 	ContentType *string `json:"contentType,omitempty"`
 	Contents *string `json:"contents,omitempty"`
+	Id *string `json:"id,omitempty"`
 	LastCompletedAt *string `json:"lastCompletedAt,omitempty"`
 	MerchantID *string `json:"merchantID,omitempty"`
 	ReportName *string `json:"reportName,omitempty"`
@@ -2878,6 +2880,7 @@ type TagCreateData struct {
 
 // Token is the typed data model for the token entity.
 type Token struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // TokenCreateData is the typed request payload for Token.CreateTyped.

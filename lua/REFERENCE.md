@@ -3621,6 +3621,12 @@ Return the entity name.
 local report = client:Report(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -3676,6 +3682,7 @@ local report_result = client:ReportResult(nil)
 | --- | --- | --- | --- |
 | `contentType` | `string` | No |  |
 | `contents` | `string` | No |  |
+| `id` | `string` | No |  |
 | `lastCompletedAt` | `string` | No |  |
 | `merchantID` | `string` | No |  |
 | `reportName` | `string` | No |  |
@@ -4070,6 +4077,12 @@ Return the entity name.
 ```lua
 local token = client:Token(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

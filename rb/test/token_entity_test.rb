@@ -39,7 +39,13 @@ class TokenEntityTest < Minitest::Test
     token_ref01_data_result = token_ref01_ent.create(token_ref01_data, nil)
     token_ref01_data = Helpers.to_map(token_ref01_data_result.respond_to?(:data_get) ? token_ref01_data_result.data_get : token_ref01_data_result)
     assert !token_ref01_data.nil?
+    assert !token_ref01_data["id"].nil?
 
+    # REMOVE
+    token_ref01_match_rm0 = {
+      "id" => token_ref01_data["id"],
+    }
+    token_ref01_ent.remove(token_ref01_match_rm0, nil)
 
   end
 end

@@ -4097,6 +4097,12 @@ Return a copy of the entity options.
 const report = client.Report()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -4170,6 +4176,7 @@ const report_result = client.ReportResult()
 | --- | --- | --- | --- |
 | `contentType` | `string` | No |  |
 | `contents` | `string` | No |  |
+| `id` | `string` | No |  |
 | `lastCompletedAt` | `string` | No |  |
 | `merchantID` | `string` | No |  |
 | `reportName` | `string` | No |  |
@@ -4594,6 +4601,12 @@ Return a copy of the entity options.
 ```ts
 const token = client.Token()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

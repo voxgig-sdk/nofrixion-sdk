@@ -48,9 +48,13 @@ class ReportResultEntityTest extends TestCase
 
         // LOAD
         $report_result_ref01_ent = $client->ReportResult(null);
-        $report_result_ref01_match_dt0 = [];
+        $report_result_ref01_match_dt0 = [
+            "id" => $report_result_ref01_data["id"],
+        ];
         $report_result_ref01_data_dt0_loaded = $report_result_ref01_ent->load($report_result_ref01_match_dt0, null);
-        $this->assertNotNull($report_result_ref01_data_dt0_loaded);
+        $report_result_ref01_data_dt0_load_result = Helpers::to_map(is_object($report_result_ref01_data_dt0_loaded) && method_exists($report_result_ref01_data_dt0_loaded, 'data_get') ? $report_result_ref01_data_dt0_loaded->data_get() : $report_result_ref01_data_dt0_loaded);
+        $this->assertNotNull($report_result_ref01_data_dt0_load_result);
+        $this->assertEquals($report_result_ref01_data_dt0_load_result["id"], $report_result_ref01_data["id"]);
 
     }
 }

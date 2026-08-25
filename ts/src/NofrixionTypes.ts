@@ -2606,6 +2606,7 @@ export interface PayrunRemoveMatch {
 }
 
 export interface Report {
+  id?: string
 }
 
 export interface ReportUpdateData {
@@ -2621,6 +2622,7 @@ export interface ReportUpdateData {
 export interface ReportResult {
   contentType?: string
   contents?: string
+  id?: string
   lastCompletedAt?: string
   merchantID?: string
   reportName?: string
@@ -2846,6 +2848,7 @@ export interface TagCreateData {
 }
 
 export interface Token {
+  id?: string
 }
 
 export interface TokenCreateData {

@@ -62,7 +62,18 @@ func TestTokenEntity(t *testing.T) {
 		if tokenRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if tokenRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
+		// REMOVE
+		tokenRef01MatchRm0 := map[string]any{
+			"id": tokenRef01Data["id"],
+		}
+		_, err = tokenRef01Ent.Remove(tokenRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 	})
 }

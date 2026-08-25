@@ -72,9 +72,12 @@ const utility_1 = require("../../utility");
         const isempty = struct.isempty;
         const select = struct.select;
         let report_result_ref01_data = Object.values(setup.data.existing.report_result)[0];
-        // LOAD: skipped — no entity id field and load requires path params.
-        // Entity-var is declared here so later flow steps still compile.
+        // LOAD
         const report_result_ref01_ent = client.ReportResult();
+        const report_result_ref01_match_dt0 = {};
+        report_result_ref01_match_dt0.id = report_result_ref01_data.id;
+        const report_result_ref01_data_dt0 = (await report_result_ref01_ent.load(report_result_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(report_result_ref01_data_dt0.id === report_result_ref01_data.id);
     });
 });
 function basicSetup(extra) {

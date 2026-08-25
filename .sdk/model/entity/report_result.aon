@@ -16,6 +16,11 @@ main: kit: entity: report_result: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "lastCompletedAt"
       req: false
       type: "`$STRING`"
@@ -41,6 +46,11 @@ main: kit: entity: report_result: {
       type: "`$INTEGER`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "report_result"
   op: {

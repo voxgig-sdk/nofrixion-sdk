@@ -3623,6 +3623,12 @@ Return the entity name.
 $report = $client->Report();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -3678,6 +3684,7 @@ $report_result = $client->ReportResult();
 | --- | --- | --- | --- |
 | `contentType` | `string` | No |  |
 | `contents` | `string` | No |  |
+| `id` | `string` | No |  |
 | `lastCompletedAt` | `string` | No |  |
 | `merchantID` | `string` | No |  |
 | `reportName` | `string` | No |  |
@@ -4072,6 +4079,12 @@ Return the entity name.
 ```php
 $token = $client->Token();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

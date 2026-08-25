@@ -2402,6 +2402,7 @@
 ---@field id string
 
 ---@class Report
+---@field id? string
 
 ---@class ReportUpdateData
 ---@field id string
@@ -2409,6 +2410,7 @@
 ---@class ReportResult
 ---@field contentType? string
 ---@field contents? string
+---@field id? string
 ---@field lastCompletedAt? string
 ---@field merchantID? string
 ---@field reportName? string
@@ -2607,6 +2609,7 @@
 ---@field name string
 
 ---@class Token
+---@field id? string
 
 ---@class TokenCreateData
 ---@field id string

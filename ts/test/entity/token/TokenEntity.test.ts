@@ -63,9 +63,13 @@ describe('TokenEntity', async () => {
     let token_ref01_data = setup.data.new.token['token_ref01']
 
     token_ref01_data = (await token_ref01_ent.create(token_ref01_data)).data()
-    assert(null != token_ref01_data)
+    assert(null != token_ref01_data.id)
 
 
+    // REMOVE
+    const token_ref01_match_rm0: any = { id: token_ref01_data.id }
+    await token_ref01_ent.remove(token_ref01_match_rm0)
+  
 
   })
 })

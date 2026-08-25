@@ -11316,7 +11316,12 @@ class NofrixionConfig
           ],
         ],
         'report' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'report',
           'op' => [
             'update' => [
@@ -11371,6 +11376,10 @@ class NofrixionConfig
             ],
             [
               'name' => 'contents',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [
@@ -12211,7 +12220,12 @@ class NofrixionConfig
           ],
         ],
         'token' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'token',
           'op' => [
             'create' => [

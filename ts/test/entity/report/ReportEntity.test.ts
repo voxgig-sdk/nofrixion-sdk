@@ -62,9 +62,10 @@ describe('ReportEntity', async () => {
     // UPDATE
     const report_ref01_ent = client.Report()
     const report_ref01_data_up0: any = {}
+    report_ref01_data_up0.id = report_ref01_data.id
 
     const report_ref01_resdata_up0 = (await report_ref01_ent.update(report_ref01_data_up0)).data()
-    assert(null != report_ref01_resdata_up0)
+    assert(report_ref01_resdata_up0.id === report_ref01_data_up0.id)
 
 
   })

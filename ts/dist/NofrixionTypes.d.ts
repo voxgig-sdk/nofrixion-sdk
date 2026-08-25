@@ -2424,6 +2424,7 @@ export interface PayrunRemoveMatch {
     [action: string]: any;
 }
 export interface Report {
+    id?: string;
 }
 export interface ReportUpdateData {
     id: string;
@@ -2433,6 +2434,7 @@ export interface ReportUpdateData {
 export interface ReportResult {
     contentType?: string;
     contents?: string;
+    id?: string;
     lastCompletedAt?: string;
     merchantID?: string;
     reportName?: string;
@@ -2635,6 +2637,7 @@ export interface TagCreateData {
     name: string;
 }
 export interface Token {
+    id?: string;
 }
 export interface TokenCreateData {
     id: string;

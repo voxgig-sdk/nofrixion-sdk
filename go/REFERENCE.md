@@ -3756,6 +3756,12 @@ report := client.Report(nil)
 fmt.Println(report.GetName()) // "report"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Update(reqdata, ctrl map[string]any) (any, error)`
@@ -3810,6 +3816,7 @@ fmt.Println(reportResult.GetName()) // "report_result"
 | --- | --- | --- | --- |
 | `contentType` | `string` | No |  |
 | `contents` | `string` | No |  |
+| `id` | `string` | No |  |
 | `lastCompletedAt` | `string` | No |  |
 | `merchantID` | `string` | No |  |
 | `reportName` | `string` | No |  |
@@ -4219,6 +4226,12 @@ Return the entity name.
 token := client.Token(nil)
 fmt.Println(token.GetName()) // "token"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

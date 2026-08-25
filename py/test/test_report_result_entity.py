@@ -48,9 +48,13 @@ class TestReportResultEntity:
 
         # LOAD
         report_result_ref01_ent = client.ReportResult(None)
-        report_result_ref01_match_dt0 = {}
+        report_result_ref01_match_dt0 = {
+            "id": report_result_ref01_data["id"],
+        }
         report_result_ref01_data_dt0_loaded = report_result_ref01_ent.load(report_result_ref01_match_dt0, None)
-        assert report_result_ref01_data_dt0_loaded is not None
+        report_result_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(report_result_ref01_data_dt0_loaded))
+        assert report_result_ref01_data_dt0_load_result is not None
+        assert report_result_ref01_data_dt0_load_result["id"] == report_result_ref01_data["id"]
 
 
 

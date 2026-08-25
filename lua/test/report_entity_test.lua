@@ -45,12 +45,14 @@ describe("ReportEntity", function()
     -- UPDATE
     local report_ref01_ent = client:Report(nil)
     local report_ref01_data_up0_up = {
+      id = report_ref01_data["id"],
     }
 
     local report_ref01_resdata_up0_result, err = report_ref01_ent:update(report_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local report_ref01_resdata_up0 = helpers.to_map(type(report_ref01_resdata_up0_result) == 'table' and report_ref01_resdata_up0_result.data_get and report_ref01_resdata_up0_result:data_get() or report_ref01_resdata_up0_result)
     assert.is_not_nil(report_ref01_resdata_up0)
+    assert.are.equal(report_ref01_resdata_up0["id"], report_ref01_data_up0_up["id"])
 
   end)
 end)

@@ -3625,6 +3625,12 @@ Return the entity name.
 report = client.Report()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -3679,6 +3685,7 @@ report_result = client.ReportResult()
 | --- | --- | --- | --- |
 | `contentType` | `str` | No |  |
 | `contents` | `str` | No |  |
+| `id` | `str` | No |  |
 | `lastCompletedAt` | `str` | No |  |
 | `merchantID` | `str` | No |  |
 | `reportName` | `str` | No |  |
@@ -4074,6 +4081,12 @@ Return the entity name.
 ```python
 token = client.Token()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

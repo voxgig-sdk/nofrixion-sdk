@@ -44,10 +44,14 @@ describe("ReportResultEntity", function()
 
     -- LOAD
     local report_result_ref01_ent = client:ReportResult(nil)
-    local report_result_ref01_match_dt0 = {}
+    local report_result_ref01_match_dt0 = {
+      id = report_result_ref01_data["id"],
+    }
     local report_result_ref01_data_dt0_loaded, err = report_result_ref01_ent:load(report_result_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(report_result_ref01_data_dt0_loaded)
+    local report_result_ref01_data_dt0_load_result = helpers.to_map(type(report_result_ref01_data_dt0_loaded) == 'table' and report_result_ref01_data_dt0_loaded.data_get and report_result_ref01_data_dt0_loaded:data_get() or report_result_ref01_data_dt0_loaded)
+    assert.is_not_nil(report_result_ref01_data_dt0_load_result)
+    assert.are.equal(report_result_ref01_data_dt0_load_result["id"], report_result_ref01_data["id"])
 
   end)
 end)

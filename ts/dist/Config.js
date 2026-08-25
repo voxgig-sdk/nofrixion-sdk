@@ -11303,7 +11303,12 @@ class Config {
             }
         },
         "report": {
-            "fields": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "`$STRING`"
+                }
+            ],
             "name": "report",
             "op": {
                 "update": {
@@ -11358,6 +11363,10 @@ class Config {
                 },
                 {
                     "name": "contents",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "id",
                     "type": "`$STRING`"
                 },
                 {
@@ -12198,7 +12207,12 @@ class Config {
             }
         },
         "token": {
-            "fields": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "`$STRING`"
+                }
+            ],
             "name": "token",
             "op": {
                 "create": {

@@ -62,6 +62,7 @@ func TestReportEntity(t *testing.T) {
 		// UPDATE
 		reportRef01Ent := client.Report(nil)
 		reportRef01DataUp0Up := map[string]any{
+			"id": reportRef01Data["id"],
 		}
 
 		reportRef01ResdataUp0Result, err := reportRef01Ent.Update(reportRef01DataUp0Up, nil)
@@ -71,6 +72,9 @@ func TestReportEntity(t *testing.T) {
 		reportRef01ResdataUp0 := core.ToMapAny(entityData(reportRef01ResdataUp0Result))
 		if reportRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
+		}
+		if reportRef01ResdataUp0["id"] != reportRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
 		}
 
 	})

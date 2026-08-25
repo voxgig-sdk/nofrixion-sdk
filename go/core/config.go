@@ -11294,7 +11294,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"report": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "report",
 				"op": map[string]any{
 					"update": map[string]any{
@@ -11349,6 +11354,10 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "contents",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -12189,7 +12198,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"token": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "token",
 				"op": map[string]any{
 					"create": map[string]any{

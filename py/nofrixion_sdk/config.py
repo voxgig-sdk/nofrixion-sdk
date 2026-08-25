@@ -11311,7 +11311,12 @@ def make_config():
         },
       },
       "report": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "report",
         "op": {
           "update": {
@@ -11366,6 +11371,10 @@ def make_config():
           },
           {
             "name": "contents",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {
@@ -12206,7 +12215,12 @@ def make_config():
         },
       },
       "token": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "token",
         "op": {
           "create": {

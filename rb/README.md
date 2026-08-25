@@ -1443,6 +1443,7 @@ API path: `/api/v1/payruns/{id}/request-authorisation`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Update.
 
@@ -1454,6 +1455,7 @@ API path: `/api/v1/reports/{id}/initiate`
 | --- | --- |
 | `contentType` |  |
 | `contents` |  |
+| `id` |  |
 | `lastCompletedAt` |  |
 | `merchantID` |  |
 | `reportName` |  |
@@ -1553,6 +1555,7 @@ API path: `/api/v1/merchants/{merchantID}/tags`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Create, Remove.
 
@@ -3590,6 +3593,12 @@ Create an instance: `report = client.Report`
 | --- | --- |
 | `update(data)` | Update an existing entity. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
+
 
 ### ReportResult
 
@@ -3607,6 +3616,7 @@ Create an instance: `report_result = client.ReportResult`
 | --- | --- | --- |
 | `contentType` | `String` |  |
 | `contents` | `String` |  |
+| `id` | `String` |  |
 | `lastCompletedAt` | `String` |  |
 | `merchantID` | `String` |  |
 | `reportName` | `String` |  |
@@ -3804,6 +3814,12 @@ Create an instance: `token = client.Token`
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
 | `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
 
 #### Example: Create
 

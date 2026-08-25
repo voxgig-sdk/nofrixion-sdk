@@ -75,8 +75,9 @@ const utility_1 = require("../../utility");
         // UPDATE
         const report_ref01_ent = client.Report();
         const report_ref01_data_up0 = {};
+        report_ref01_data_up0.id = report_ref01_data.id;
         const report_ref01_resdata_up0 = (await report_ref01_ent.update(report_ref01_data_up0)).data();
-        (0, node_assert_1.default)(null != report_ref01_resdata_up0);
+        (0, node_assert_1.default)(report_ref01_resdata_up0.id === report_ref01_data_up0.id);
     });
 });
 function basicSetup(extra) {

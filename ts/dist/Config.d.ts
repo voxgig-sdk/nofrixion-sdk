@@ -4636,7 +4636,10 @@ declare class Config {
             };
         };
         report: {
-            fields: never[];
+            fields: {
+                name: string;
+                type: string;
+            }[];
             name: string;
             op: {
                 update: {
@@ -5135,7 +5138,10 @@ declare class Config {
             };
         };
         token: {
-            fields: never[];
+            fields: {
+                name: string;
+                type: string;
+            }[];
             name: string;
             op: {
                 create: {

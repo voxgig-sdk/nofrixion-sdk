@@ -46,7 +46,13 @@ class TestTokenEntity:
 
         token_ref01_data = helpers.to_map(runner.entity_data(token_ref01_ent.create(token_ref01_data, None)))
         assert token_ref01_data is not None
+        assert token_ref01_data["id"] is not None
 
+        # REMOVE
+        token_ref01_match_rm0 = {
+            "id": token_ref01_data["id"],
+        }
+        token_ref01_ent.remove(token_ref01_match_rm0, None)
 
 
 

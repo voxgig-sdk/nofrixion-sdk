@@ -49,10 +49,12 @@ class TestReportEntity:
         # UPDATE
         report_ref01_ent = client.Report(None)
         report_ref01_data_up0_up = {
+            "id": report_ref01_data["id"],
         }
 
         report_ref01_resdata_up0 = helpers.to_map(runner.entity_data(report_ref01_ent.update(report_ref01_data_up0_up, None)))
         assert report_ref01_resdata_up0 is not None
+        assert report_ref01_resdata_up0["id"] == report_ref01_data_up0_up["id"]
 
 
 

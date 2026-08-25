@@ -41,9 +41,13 @@ class ReportResultEntityTest < Minitest::Test
 
     # LOAD
     report_result_ref01_ent = client.ReportResult(nil)
-    report_result_ref01_match_dt0 = {}
+    report_result_ref01_match_dt0 = {
+      "id" => report_result_ref01_data["id"],
+    }
     report_result_ref01_data_dt0_loaded = report_result_ref01_ent.load(report_result_ref01_match_dt0, nil)
-    assert !report_result_ref01_data_dt0_loaded.nil?
+    report_result_ref01_data_dt0_load_result = Helpers.to_map(report_result_ref01_data_dt0_loaded.respond_to?(:data_get) ? report_result_ref01_data_dt0_loaded.data_get : report_result_ref01_data_dt0_loaded)
+    assert !report_result_ref01_data_dt0_load_result.nil?
+    assert_equal report_result_ref01_data_dt0_load_result["id"], report_result_ref01_data["id"]
 
   end
 end

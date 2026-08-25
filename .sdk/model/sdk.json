@@ -13737,7 +13737,18 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": [
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
           "name": "report",
           "op": {
             "update": {
@@ -13806,6 +13817,12 @@
             },
             {
               "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
               "name": "lastCompletedAt",
               "req": false,
               "type": "`$STRING`"
@@ -13835,6 +13852,10 @@
               "type": "`$INTEGER`"
             }
           ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
           "name": "report_result",
           "op": {
             "load": {
@@ -14816,7 +14837,18 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": [
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
           "name": "token",
           "op": {
             "create": {

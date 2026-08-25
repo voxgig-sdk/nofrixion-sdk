@@ -2653,8 +2653,8 @@ class PayrunRemoveMatch(TypedDict):
     id: str
 
 
-class Report(TypedDict):
-    pass
+class Report(TypedDict, total=False):
+    id: str
 
 
 class ReportUpdateData(TypedDict):
@@ -2664,6 +2664,7 @@ class ReportUpdateData(TypedDict):
 class ReportResult(TypedDict, total=False):
     contentType: str
     contents: str
+    id: str
     lastCompletedAt: str
     merchantID: str
     reportName: str
@@ -2897,8 +2898,8 @@ class TagCreateData(TagCreateDataRequired, total=False):
     id: str
 
 
-class Token(TypedDict):
-    pass
+class Token(TypedDict, total=False):
+    id: str
 
 
 class TokenCreateData(TypedDict):

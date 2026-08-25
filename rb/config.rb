@@ -11302,7 +11302,12 @@ module NofrixionConfig
           },
         },
         "report" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "report",
           "op" => {
             "update" => {
@@ -11357,6 +11362,10 @@ module NofrixionConfig
             },
             {
               "name" => "contents",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {
@@ -12197,7 +12206,12 @@ module NofrixionConfig
           },
         },
         "token" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "token",
           "op" => {
             "create" => {
