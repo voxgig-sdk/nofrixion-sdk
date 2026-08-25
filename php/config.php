@@ -42,6 +42,7 @@ class NofrixionConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
