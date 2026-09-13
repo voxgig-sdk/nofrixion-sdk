@@ -46,12 +46,14 @@ main: kit: entity: card_payment: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "payerAuthenticationWindowHeight"
       req: false
       short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "payerAuthenticationWindowWidth"
       req: false
       short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge."
@@ -64,6 +66,7 @@ main: kit: entity: card_payment: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
@@ -80,6 +83,7 @@ main: kit: entity: card_payment: {
     }
     {
       name: "responseType"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -127,21 +131,35 @@ main: kit: entity: card_payment: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "refund"
-            "{partial_refund_amount}"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
               partialRefundAmount: "partial_refund_amount"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "refund"
+            }
+            {
+              var: "partial_refund_amount"
+            }
+          ]
           select: {
             exist: [
               "partial_refund_amount"
@@ -167,19 +185,31 @@ main: kit: entity: card_payment: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card/capture"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "capture"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "capture"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"
@@ -204,19 +234,31 @@ main: kit: entity: card_payment: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card/paywithtoken"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "paywithtoken"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "paywithtoken"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"
@@ -241,19 +283,31 @@ main: kit: entity: card_payment: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card/void"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "void"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "void"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"
@@ -278,19 +332,31 @@ main: kit: entity: card_payment: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card/voidpaymentrequest"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "voidpaymentrequest"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "voidpaymentrequest"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

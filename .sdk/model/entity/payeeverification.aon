@@ -57,11 +57,19 @@ main: kit: entity: payeeverification: {
         {
           method: "POST"
           orig: "/api/v1/openbanking/payeeverification"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "payeeverification"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "payeeverification"
+            }
           ]
           transform: {
             req: {

@@ -7,6 +7,7 @@ main: kit: entity: report_result: {
   fields: [
     {
       name: "contentType"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -21,11 +22,13 @@ main: kit: entity: report_result: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastCompletedAt"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       type: "`$STRING`"
@@ -41,6 +44,7 @@ main: kit: entity: report_result: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "statementNumber"
       req: false
       type: "`$INTEGER`"
@@ -78,20 +82,32 @@ main: kit: entity: report_result: {
           }
           method: "GET"
           orig: "/api/v1/reports/{id}/result/{statementNumber}"
-          parts: [
-            "api"
-            "v1"
-            "reports"
-            "{report_id}"
-            "result"
-            "{id}"
-          ]
           rename: {
             param: {
               id: "report_id"
               statementNumber: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "reports"
+            }
+            {
+              var: "report_id"
+            }
+            {
+              lit: "result"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

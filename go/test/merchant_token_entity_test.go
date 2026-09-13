@@ -101,7 +101,7 @@ func TestMerchantTokenEntity(t *testing.T) {
 		// CREATE
 		merchantTokenRef01Ent := client.MerchantToken(nil)
 		merchantTokenRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "merchant_token"}, setup.data), "merchant_token_ref01"))
+			vs.GetPath(setup.data, []any{"new", "merchant_token"}), "merchant_token_ref01"))
 		merchantTokenRef01Data["merchant_id"] = setup.idmap["merchant01"]
 
 		merchantTokenRef01DataResult, err := merchantTokenRef01Ent.Create(merchantTokenRef01Data, nil)
@@ -202,7 +202,7 @@ func merchant_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"merchant_token01", "merchant_token02", "merchant_token03", "merchant01", "merchant02", "merchant03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -222,7 +222,7 @@ func merchant_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_MERCHANT_TOKEN_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_MERCHANT_TOKEN_ENTID"])
@@ -231,11 +231,23 @@ func merchant_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

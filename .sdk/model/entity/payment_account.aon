@@ -18,25 +18,32 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "availableBalance"
+      readOnly: true
       req: false
       short: "The current available balance of the account."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "availableBalanceMinorUnits"
+      readOnly: true
       req: false
       short: "The available balance expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
+      format: "double"
       name: "balance"
       req: false
       short: "Balance of the account."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "balanceMinorUnits"
+      readOnly: true
       req: false
       short: "Balance of the account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
@@ -48,6 +55,7 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "consentID"
       req: false
       short: "The ID of the consent used to connect the external account."
@@ -78,11 +86,13 @@ main: kit: entity: payment_account: {
     }
     {
       name: "displayName"
+      readOnly: true
       req: false
       short: "Gets a unique display name for the payment account."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "expiryDate"
       req: false
       short: "The date that the external account will expire"
@@ -95,6 +105,7 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "Unique id for the account."
@@ -106,6 +117,7 @@ main: kit: entity: payment_account: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       short: "Timestamp when the account was created."
@@ -137,6 +149,7 @@ main: kit: entity: payment_account: {
     }
     {
       name: "isVirtual"
+      readOnly: true
       req: false
       short: "True if the account is a virtual account."
       type: "`$BOOLEAN`"
@@ -147,12 +160,14 @@ main: kit: entity: payment_account: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       short: "Timestamp when the account was last updated."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "The ID of the merchant that owns the account."
@@ -165,6 +180,7 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "physicalAccountID"
       req: false
       short: "For virtual accounts this is the ID of the physical account that the virtual account is linked to."
@@ -177,19 +193,23 @@ main: kit: entity: payment_account: {
       type: "`$ARRAY`"
     }
     {
+      format: "double"
       name: "submittedPayoutsBalance"
       req: false
       short: "Total of the payouts that have been submitted for processing."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "submittedPayoutsBalanceMinorUnits"
+      readOnly: true
       req: false
       short: "The balance of the submitted payouts expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
       name: "summary"
+      readOnly: true
       req: false
       short: "Gets a summary of the payments account's most important properties."
       type: "`$STRING`"
@@ -207,11 +227,13 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "xeroBankFeedLastSyncedAt"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "xeroBankFeedSyncLastFailedAt"
       req: false
       type: "`$STRING`"
@@ -227,6 +249,7 @@ main: kit: entity: payment_account: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "xeroUnsynchronisedTransactionsCount"
       req: false
       short: "Indicates the number of unsynchronised transactions with Xero"
@@ -333,11 +356,19 @@ main: kit: entity: payment_account: {
           }
           method: "GET"
           orig: "/api/v1/accounts/paged"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "paged"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              lit: "paged"
+            }
           ]
           select: {
             exist: [
@@ -391,18 +422,28 @@ main: kit: entity: payment_account: {
           }
           method: "GET"
           orig: "/api/v1/accounts/{accountID}/virtual"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "{account_id}"
-            "virtual"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "virtual"
+            }
+          ]
           select: {
             exist: [
               "account_id"

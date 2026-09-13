@@ -6,6 +6,7 @@ main: kit: entity: payrun: {
 
   fields: [
     {
+      format: "date-time"
       name: "authorisationDate"
       req: false
       type: "`$STRING`"
@@ -17,18 +18,21 @@ main: kit: entity: payrun: {
       type: "`$ARRAY`"
     }
     {
+      format: "int32"
       name: "authorisersCompletedCount"
       req: false
       short: "The number of distinct authorisers that have authorised the payrun."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "authorisersRequiredCount"
       req: false
       short: "The number of authorisers required for this payrun."
       type: "`$INTEGER`"
     }
     {
+      format: "uuid"
       name: "batchPayoutID"
       req: false
       type: "`$STRING`"
@@ -41,11 +45,13 @@ main: kit: entity: payrun: {
     }
     {
       name: "canDelete"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
     {
       name: "canEdit"
+      readOnly: true
       req: false
       type: "`$BOOLEAN`"
     }
@@ -61,11 +67,13 @@ main: kit: entity: payrun: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -86,6 +94,7 @@ main: kit: entity: payrun: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
@@ -96,6 +105,7 @@ main: kit: entity: payrun: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       type: "`$STRING`"
@@ -126,6 +136,7 @@ main: kit: entity: payrun: {
       type: "`$ARRAY`"
     }
     {
+      format: "int32"
       name: "payoutsCount"
       req: false
       type: "`$INTEGER`"
@@ -136,11 +147,13 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "scheduleDate"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "scheduledDate"
       req: false
       type: "`$STRING`"
@@ -156,16 +169,19 @@ main: kit: entity: payrun: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "totalEur"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "totalGbp"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "totalUsd"
       req: false
       type: "`$NUMBER`"
@@ -196,12 +212,22 @@ main: kit: entity: payrun: {
           }
           method: "POST"
           orig: "/api/v1/payruns/{id}/request-authorisation"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "request-authorisation"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "request-authorisation"
+            }
           ]
           select: {
             "$action": "request_authorisation"
@@ -232,12 +258,22 @@ main: kit: entity: payrun: {
           }
           method: "POST"
           orig: "/api/v1/payruns/{id}/submit"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "submit"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "submit"
+            }
           ]
           select: {
             "$action": "submit"
@@ -266,17 +302,25 @@ main: kit: entity: payrun: {
           }
           method: "POST"
           orig: "/api/v1/payruns/{merchantID}"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -366,10 +410,16 @@ main: kit: entity: payrun: {
           }
           method: "GET"
           orig: "/api/v1/payruns"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
           ]
           select: {
             exist: [
@@ -408,11 +458,19 @@ main: kit: entity: payrun: {
           }
           method: "GET"
           orig: "/api/v1/payruns/{id}"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -443,11 +501,19 @@ main: kit: entity: payrun: {
           }
           method: "DELETE"
           orig: "/api/v1/payruns/{id}"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -473,12 +539,22 @@ main: kit: entity: payrun: {
           }
           method: "DELETE"
           orig: "/api/v1/payruns/{id}/archive"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "archive"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive"
+            }
           ]
           select: {
             "$action": "archive"
@@ -510,11 +586,19 @@ main: kit: entity: payrun: {
           }
           method: "PUT"
           orig: "/api/v1/payruns/{id}"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -546,12 +630,22 @@ main: kit: entity: payrun: {
           }
           method: "PUT"
           orig: "/api/v1/payruns/{id}/cancel"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "cancel"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "cancel"
+            }
           ]
           select: {
             "$action": "cancel"
@@ -578,12 +672,22 @@ main: kit: entity: payrun: {
           }
           method: "PUT"
           orig: "/api/v1/payruns/{id}/reject"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "reject"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "reject"
+            }
           ]
           select: {
             "$action": "reject"
@@ -613,12 +717,22 @@ main: kit: entity: payrun: {
           }
           method: "PUT"
           orig: "/api/v1/payruns/{id}/unarchive"
-          parts: [
-            "api"
-            "v1"
-            "payruns"
-            "{id}"
-            "unarchive"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payruns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "unarchive"
+            }
           ]
           select: {
             "$action": "unarchive"

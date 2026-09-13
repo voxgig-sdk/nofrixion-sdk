@@ -99,7 +99,7 @@ func TestMerchantPaymentRequestTemplateEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		merchantPaymentRequestTemplateRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.merchant_payment_request_template", setup.data)))
+		merchantPaymentRequestTemplateRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.merchant_payment_request_template")))
 		var merchantPaymentRequestTemplateRef01Data map[string]any
 		if len(merchantPaymentRequestTemplateRef01DataRaw) > 0 {
 			merchantPaymentRequestTemplateRef01Data = core.ToMapAny(merchantPaymentRequestTemplateRef01DataRaw[0][1])
@@ -191,7 +191,7 @@ func merchant_payment_request_templateBasicSetup(extra map[string]any) *entityTe
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"merchant_payment_request_template01", "merchant_payment_request_template02", "merchant_payment_request_template03", "paymentrequest01", "paymentrequest02", "paymentrequest03", "merchant01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -211,7 +211,7 @@ func merchant_payment_request_templateBasicSetup(extra map[string]any) *entityTe
 		"NOFRIXION_TEST_MERCHANT_PAYMENT_REQUEST_TEMPLATE_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_MERCHANT_PAYMENT_REQUEST_TEMPLATE_ENTID"])
@@ -224,11 +224,23 @@ func merchant_payment_request_templateBasicSetup(extra map[string]any) *entityTe
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

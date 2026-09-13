@@ -36,12 +36,22 @@ main: kit: entity: report: {
           }
           method: "PUT"
           orig: "/api/v1/reports/{id}/initiate"
-          parts: [
-            "api"
-            "v1"
-            "reports"
-            "{id}"
-            "initiate"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "reports"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "initiate"
+            }
           ]
           select: {
             "$action": "initiate"

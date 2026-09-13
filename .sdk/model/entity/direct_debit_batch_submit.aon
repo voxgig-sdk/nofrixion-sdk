@@ -27,12 +27,22 @@ main: kit: entity: direct_debit_batch_submit: {
         {
           method: "POST"
           orig: "/api/v1/paymentrequests/directdebit/batchsubmit"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "directdebit"
-            "batchsubmit"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "directdebit"
+            }
+            {
+              lit: "batchsubmit"
+            }
           ]
           transform: {
             req: "`reqdata`"

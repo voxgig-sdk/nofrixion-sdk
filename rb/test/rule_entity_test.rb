@@ -165,7 +165,7 @@ def rule_basic_setup(extra)
     "NOFRIXION_TEST_RULE_ENTID" => idmap,
     "NOFRIXION_TEST_LIVE" => "FALSE",
     "NOFRIXION_TEST_EXPLAIN" => "FALSE",
-    "NOFRIXION_APIKEY" => "NONE",
+    "NOFRIXION_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -176,6 +176,9 @@ def rule_basic_setup(extra)
 
   if env["NOFRIXION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["NOFRIXION_APIKEY"],
       },

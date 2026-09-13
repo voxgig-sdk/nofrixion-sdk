@@ -78,6 +78,7 @@
         "tokenisedCards": [],
         "transactions": [],
         "useHostedPaymentPage": false,
+        "paymentrequest_id": "PAYMENTREQUEST01",
         "order_id": "ORDER01"
       },
       "PAYMENT01": {
@@ -157,6 +158,7 @@
         "tokenisedCards": [],
         "transactions": [],
         "useHostedPaymentPage": false,
+        "paymentrequest_id": "PAYMENTREQUEST01",
         "order_id": "ORDER01"
       },
       "PAYMENT02": {
@@ -236,6 +238,7 @@
         "tokenisedCards": [],
         "transactions": [],
         "useHostedPaymentPage": false,
+        "paymentrequest_id": "PAYMENTREQUEST01",
         "order_id": "ORDER01"
       }
     }

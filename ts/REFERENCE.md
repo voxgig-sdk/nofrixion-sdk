@@ -1634,6 +1634,7 @@ const fx_rate = client.FxRate()
 | `destinationCurrency` | `string` | No |  |
 | `exchangeRate` | `number` | No | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `string` | No |  |
+| `id` | `string` | No |  |
 | `quoteID` | `string` | No |  |
 | `sourceCurrency` | `string` | No |  |
 
@@ -2452,7 +2453,7 @@ const result = await client.Metadata().load({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Metadata().load()
+const result = await client.Metadata().load({ id: 'metadata_id' })
 ```
 
 ### Common Methods
@@ -2540,6 +2541,32 @@ Return a copy of the entity options.
 
 ```ts
 const open_banking = client.OpenBanking()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `synchronise` | `/api/v1/openbanking/account/{accountID}/synchronise` | `client.OpenBanking().create({ $action: 'synchronise', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+OpenBanking record — check the API definition for its shape.
+
+```ts
+const result = await client.OpenBanking().create({
+  $action: 'synchronise',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -2816,6 +2843,26 @@ const payment = client.Payment()
 | `tokenisedCards` | - | - | - |
 | `transactions` | - | - | - |
 | `useHostedPaymentPage` | - | - | - |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `directdebit` | `/api/v1/paymentrequests/{id}/directdebit` | `client.Payment().create({ $action: 'directdebit', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Payment record — check the API definition for its shape.
+
+```ts
+const result = await client.Payment().create({
+  $action: 'directdebit',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -3186,7 +3233,7 @@ const results = await client.PaymentRequest().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.PaymentRequest().load({ id: 'payment_request_id' })
+const result = await client.PaymentRequest().load()
 ```
 
 #### `remove(match: object, ctrl?: object)`
@@ -3194,7 +3241,7 @@ const result = await client.PaymentRequest().load({ id: 'payment_request_id' })
 Remove the entity matching the given criteria.
 
 ```ts
-const result = await client.PaymentRequest().remove({ id: 'payment_request_id' })
+const result = await client.PaymentRequest().remove({ id: 'id' })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -3203,7 +3250,6 @@ Update an existing entity. The data must include the entity `id`.
 
 ```ts
 const result = await client.PaymentRequest().update({
-  id: 'payment_request_id',
   paymentrequest_id: 'paymentrequest_id',
   // Fields to update
 })
@@ -5288,4 +5334,42 @@ const client = new NofrixionSDK({
   }
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

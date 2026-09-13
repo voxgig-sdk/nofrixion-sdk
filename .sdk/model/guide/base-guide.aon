@@ -439,6 +439,7 @@ guide: {
       op: remove: method: *DELETE
     }
     path: "/api/v1/openbanking/account/{accountID}/synchronise": {
+      action: "synchronise": {}
       rename: param: "accountID": *"account_id"
       op: create: method: *POST
     }
@@ -554,6 +555,11 @@ guide: {
       op: update: transform: req: "tagIds": *("`reqdata.tag_id`")|top
       op: update: transform: req: "title": *("`reqdata.title`")|top
     }
+    path: "/api/v1/paymentrequests/{id}/directdebit": {
+      action: "directdebit": {}
+      rename: param: "id": *"paymentrequest_id"
+      op: create: method: *POST
+    }
   }
 
   entity: payment_account: {
@@ -595,10 +601,6 @@ guide: {
     }
     path: "/api/v1/paymentrequests/{id}": {
       op: remove: method: *DELETE
-    }
-    path: "/api/v1/paymentrequests/{id}/directdebit": {
-      rename: param: "id": *"paymentrequest_id"
-      op: create: method: *POST
     }
     path: "/api/v1/paymentrequests/{id}/pisp/sandboxcallback": {
       rename: param: "id": *"paymentrequest_id"

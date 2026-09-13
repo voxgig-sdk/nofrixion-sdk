@@ -1258,6 +1258,7 @@ fmt.Println(fxRate.GetName()) // "fx_rate"
 | `destinationCurrency` | `string` | No |  |
 | `exchangeRate` | `float64` | No | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `string` | No |  |
+| `id` | `string` | No |  |
 | `quoteID` | `string` | No |  |
 | `sourceCurrency` | `string` | No |  |
 
@@ -2084,7 +2085,7 @@ fmt.Println(metadata.GetName()) // "metadata"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Metadata(nil).Load(nil, nil)
+result, err := client.Metadata(nil).Load(map[string]any{"id": "metadata_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2175,6 +2176,12 @@ Return the entity name.
 openBanking := client.OpenBanking(nil)
 fmt.Println(openBanking.GetName()) // "open_banking"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -2832,7 +2839,7 @@ fmt.Println(results)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.PaymentRequest(nil).Load(map[string]any{"id": "payment_request_id"}, nil)
+result, err := client.PaymentRequest(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -2859,7 +2866,6 @@ Update an existing entity. The data must include the entity `id`.
 
 ```go
 result, err := client.PaymentRequest(nil).Update(map[string]any{
-    "id": "payment_request_id",
     "paymentrequest_id": "paymentrequest_id",
     // Fields to update
 }, nil)
@@ -2874,7 +2880,7 @@ fmt.Println(result)
 Remove the entity matching the given criteria.
 
 ```go
-result, err := client.PaymentRequest(nil).Remove(map[string]any{"id": "payment_request_id"}, nil)
+result, err := client.PaymentRequest(nil).Remove(map[string]any{"id": "id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -4931,4 +4937,42 @@ client := sdk.NewNofrixionSDK(map[string]any{
     },
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

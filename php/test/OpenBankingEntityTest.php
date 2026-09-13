@@ -48,7 +48,13 @@ class OpenBankingEntityTest extends TestCase
         $open_banking_ref01_data_result = $open_banking_ref01_ent->create($open_banking_ref01_data, null);
         $open_banking_ref01_data = Helpers::to_map(is_object($open_banking_ref01_data_result) && method_exists($open_banking_ref01_data_result, 'data_get') ? $open_banking_ref01_data_result->data_get() : $open_banking_ref01_data_result);
         $this->assertNotNull($open_banking_ref01_data);
+        $this->assertNotNull($open_banking_ref01_data["id"]);
 
+        // REMOVE
+        $open_banking_ref01_match_rm0 = [
+            "id" => $open_banking_ref01_data["id"],
+        ];
+        $open_banking_ref01_ent->remove($open_banking_ref01_match_rm0, null);
 
     }
 }
@@ -82,7 +88,7 @@ function open_banking_basic_setup($extra)
         "NOFRIXION_TEST_OPEN_BANKING_ENTID" => $idmap,
         "NOFRIXION_TEST_LIVE" => "FALSE",
         "NOFRIXION_TEST_EXPLAIN" => "FALSE",
-        "NOFRIXION_APIKEY" => "NONE",
+        "NOFRIXION_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -93,12 +99,27 @@ function open_banking_basic_setup($extra)
 
     if ($env["NOFRIXION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["NOFRIXION_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
-        $client = new NofrixionSDK(Helpers::to_map($merged_opts));
+        // "?? []" because merge legitimately answers with a stdClass when every
+        // contributing entry is an EMPTY map - an SDK with no apikey and no
+        // server variables generates an empty middle entry, so that is the
+        // common case, not the edge one. to_map returns null for a non-array by
+        // design, and the constructor takes a non-nullable array, so without the
+        // fallback every such SDK died on "must be of type array, null given"
+        // the moment live mode was switched on. Offline mode never reaches this
+        // branch, which is why the offline suite stayed green.
+        $client = new NofrixionSDK(Helpers::to_map($merged_opts) ?? []);
     }
 
     $live = $env["NOFRIXION_TEST_LIVE"] === "TRUE";

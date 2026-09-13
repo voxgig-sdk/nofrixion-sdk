@@ -12,19 +12,24 @@ main: kit: entity: payment_account_minimal: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "availableBalance"
+      readOnly: true
       req: false
       short: "The current available balance of the account."
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "balance"
       req: false
       short: "Balance of the account."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "balanceMinorUnits"
+      readOnly: true
       req: false
       short: "Balance of the account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
@@ -36,6 +41,7 @@ main: kit: entity: payment_account_minimal: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "Unique id for the account."
@@ -59,12 +65,14 @@ main: kit: entity: payment_account_minimal: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "submittedPayoutsBalance"
       req: false
       short: "Total of the payouts that have been submitted for processing."
@@ -165,11 +173,19 @@ main: kit: entity: payment_account_minimal: {
           }
           method: "GET"
           orig: "/api/v1/accounts/minimal"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "minimal"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              lit: "minimal"
+            }
           ]
           select: {
             exist: [

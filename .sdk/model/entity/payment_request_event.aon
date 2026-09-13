@@ -6,6 +6,7 @@ main: kit: entity: payment_request_event: {
 
   fields: [
     {
+      format: "double"
       name: "amount"
       req: true
       type: "`$NUMBER`"
@@ -23,12 +24,14 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "cardExpiryMonth"
       req: false
       short: "For card payment events this field holds the payer's card expiry month."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "cardExpiryYear"
       req: false
       short: "For card payment events this field holds the payer's card expiry year."
@@ -92,6 +95,7 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "drirectDebitMandateID"
       req: false
       short: "The ID of the mandate that was used wehn requesting payment."
@@ -113,11 +117,13 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -142,6 +148,7 @@ main: kit: entity: payment_request_event: {
     }
     {
       name: "paymentMethodType"
+      readOnly: true
       req: false
       short: "The type of payment method the event relates to, e.g."
       type: "`$STRING`"
@@ -153,6 +160,7 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
@@ -188,12 +196,14 @@ main: kit: entity: payment_request_event: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "reconciledTransactionID"
       req: false
       short: "For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "refundPayoutID"
       req: false
       short: "ID of the Payout that was created for refund."
@@ -235,18 +245,28 @@ main: kit: entity: payment_request_event: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/{id}/events"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "events"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "events"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

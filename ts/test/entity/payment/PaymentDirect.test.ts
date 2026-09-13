@@ -1,6 +1,4 @@
 
-const envlocal = __dirname + '/../../../.env.local'
-require('dotenv').config({ quiet: true, path: [envlocal] })
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
@@ -10,10 +8,19 @@ import { NofrixionSDK } from '../../..'
 
 import {
   envOverride,
+  liveClientOptions,
   liveDelay,
+  loadEnvLocal,
   maybeSkipControl,
   skipIfMissingIds,
 } from '../../utility'
+
+
+// AFTER the imports on purpose: TypeScript hoists `import` above any
+// statement in the emitted CommonJS, so a loader placed above them would
+// run only after every imported module had already been evaluated - and
+// anything reading process.env at module scope would miss these values.
+loadEnvLocal(__dirname + '/../../../.env.local')
 
 
 describe('PaymentDirect', async () => {
@@ -84,15 +91,18 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'NOFRIXION_TEST_PAYMENT_ENTID': {},
     'NOFRIXION_TEST_LIVE': 'FALSE',
-    'NOFRIXION_APIKEY': 'NONE',
+    'NOFRIXION_APIKEY': '',
   })
 
   const live = 'TRUE' === env.NOFRIXION_TEST_LIVE
 
   if (live) {
-    const client = new NofrixionSDK({
+    // Merged so the generated fields win: sdk-test-control.json's
+    // test.client.options adds to the live client, it does not redirect it.
+    const client = new NofrixionSDK(
+      Object.assign({}, liveClientOptions(), {
       apikey: env.NOFRIXION_APIKEY,
-    })
+      }))
 
     let idmap: any = env['NOFRIXION_TEST_PAYMENT_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {

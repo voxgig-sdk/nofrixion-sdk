@@ -252,226 +252,22 @@ AccountLoadMatch = Struct.new(
 
 # Request payload for Account#list.
 #
-# @!attribute [rw] accountBalances
-#   @return [Array, nil]
-#
-# @!attribute [rw] accountID
-#   @return [String, nil]
-#
-# @!attribute [rw] accountIdentifications
-#   @return [Array, nil]
-#
-# @!attribute [rw] accountName
-#   @return [String, nil]
-#
-# @!attribute [rw] accountNames
-#   @return [Array, nil]
-#
-# @!attribute [rw] accountSupplierName
-#   @return [String, nil]
-#
-# @!attribute [rw] accountType
-#   @return [String, nil]
-#
-# @!attribute [rw] availableBalance
-#   @return [Float, nil]
-#
-# @!attribute [rw] availableBalanceMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] balance
-#   @return [Float, nil]
-#
-# @!attribute [rw] balanceMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] bankName
-#   @return [String, nil]
-#
-# @!attribute [rw] consentID
-#   @return [String, nil]
-#
-# @!attribute [rw] consolidatedAccountInformation
-#   @return [Hash, nil]
-#
-# @!attribute [rw] createdBy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] createdByDisplayName
-#   @return [String, nil]
-#
-# @!attribute [rw] currency
-#   @return [String, nil]
-#
-# @!attribute [rw] defaultPaymentRail
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] details
-#   @return [String, nil]
-#
-# @!attribute [rw] displayName
-#   @return [String, nil]
-#
-# @!attribute [rw] expiryDate
-#   @return [String, nil]
-#
-# @!attribute [rw] externalAccountIcon
-#   @return [String, nil]
-#
-# @!attribute [rw] format
-#   @return [String, nil]
-#
-# @!attribute [rw] fromDate
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] identifier
-#   @return [Hash, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] isArchived
+# @!attribute [rw] connected_account
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] isConnectedAccount
+# @!attribute [rw] include_archived
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] isDefault
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
+#
+# @!attribute [rw] only_connect_account
 #   @return [Boolean, nil]
-#
-# @!attribute [rw] isTrustAccount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isVirtual
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastTransaction
-#   @return [Hash, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantName
-#   @return [String, nil]
-#
-# @!attribute [rw] nickname
-#   @return [String, nil]
-#
-# @!attribute [rw] physicalAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] roleIDs
-#   @return [Array, nil]
-#
-# @!attribute [rw] rules
-#   @return [Array, nil]
-#
-# @!attribute [rw] submittedPayoutsBalance
-#   @return [Float, nil]
-#
-# @!attribute [rw] submittedPayoutsBalanceMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] summary
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierPhysicalAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierSepaInstantStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] toDate
-#   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] usageType
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedConnectionStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedLastSyncedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncLastFailedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncLastFailureReason
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroUnsynchronisedTransactionsCount
-#   @return [Integer, nil]
 AccountListMatch = Struct.new(
-  :accountBalances,
-  :accountID,
-  :accountIdentifications,
-  :accountName,
-  :accountNames,
-  :accountSupplierName,
-  :accountType,
-  :availableBalance,
-  :availableBalanceMinorUnits,
-  :balance,
-  :balanceMinorUnits,
-  :bankName,
-  :consentID,
-  :consolidatedAccountInformation,
-  :createdBy,
-  :createdByDisplayName,
-  :currency,
-  :defaultPaymentRail,
-  :description,
-  :details,
-  :displayName,
-  :expiryDate,
-  :externalAccountIcon,
-  :format,
-  :fromDate,
-  :id,
-  :identifier,
-  :inserted,
-  :isArchived,
-  :isConnectedAccount,
-  :isDefault,
-  :isTrustAccount,
-  :isVirtual,
-  :lastTransaction,
-  :lastUpdated,
-  :merchantID,
-  :merchantName,
-  :nickname,
-  :physicalAccountID,
-  :roleIDs,
-  :rules,
-  :submittedPayoutsBalance,
-  :submittedPayoutsBalanceMinorUnits,
-  :summary,
-  :supplierPhysicalAccountID,
-  :supplierSepaInstantStatus,
-  :toDate,
-  :type,
-  :usageType,
-  :xeroBankFeedConnectionStatus,
-  :xeroBankFeedLastSyncedAt,
-  :xeroBankFeedSyncLastFailedAt,
-  :xeroBankFeedSyncLastFailureReason,
-  :xeroBankFeedSyncStatus,
-  :xeroUnsynchronisedTransactionsCount,
+  :connected_account,
+  :include_archived,
+  :merchant_id,
+  :only_connect_account,
   keyword_init: true
 )
 
@@ -1105,110 +901,38 @@ BeneficiaryLoadMatch = Struct.new(
 
 # Request payload for Beneficiary#list.
 #
-# @!attribute [rw] approvalCallbackUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] authenticationMethods
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisations
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisersCompletedCount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] authorisersRequiredCount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] beneficiaries
-#   @return [Array, nil]
-#
-# @!attribute [rw] beneficiaryEvents
-#   @return [Array, nil]
-#
-# @!attribute [rw] canAuthorise
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] canUpdate
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] createdBy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] createdByEmailAddress
-#   @return [String, nil]
-#
 # @!attribute [rw] currency
 #   @return [String, nil]
 #
-# @!attribute [rw] destination
-#   @return [Hash, nil]
-#
-# @!attribute [rw] failedBeneficiaries
-#   @return [Hash, nil]
-#
-# @!attribute [rw] hasCurrentUserAuthorised
+# @!attribute [rw] include_disabled
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] inserted
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search
 #   @return [String, nil]
 #
-# @!attribute [rw] isEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastAuthorised
+# @!attribute [rw] sort
 #   @return [String, nil]
 #
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] nonce
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccountIDs
-#   @return [Array, nil]
-#
-# @!attribute [rw] sourceAccounts
-#   @return [Array, nil]
-#
-# @!attribute [rw] theirReference
+# @!attribute [rw] source_account_id
 #   @return [String, nil]
 BeneficiaryListMatch = Struct.new(
-  :approvalCallbackUrl,
-  :authenticationMethods,
-  :authorisations,
-  :authorisersCompletedCount,
-  :authorisersRequiredCount,
-  :beneficiaries,
-  :beneficiaryEvents,
-  :canAuthorise,
-  :canUpdate,
-  :createdBy,
-  :createdByEmailAddress,
   :currency,
-  :destination,
-  :failedBeneficiaries,
-  :hasCurrentUserAuthorised,
-  :id,
-  :inserted,
-  :isEnabled,
-  :lastAuthorised,
-  :lastUpdated,
-  :merchantID,
-  :name,
-  :nonce,
-  :sourceAccountIDs,
-  :sourceAccounts,
-  :theirReference,
+  :include_disabled,
+  :merchant_id,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
+  :source_account_id,
   keyword_init: true
 )
 
@@ -1472,8 +1196,16 @@ BeneficiaryGroup = Struct.new(
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
+#
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 BeneficiaryGroupListMatch = Struct.new(
   :merchant_id,
+  :page_number,
+  :page_size,
   keyword_init: true
 )
 
@@ -2124,30 +1856,10 @@ Currency = Struct.new(
 
 # Request payload for Currency#list.
 #
-# @!attribute [rw] code
-#   @return [String, nil]
-#
-# @!attribute [rw] decimals
-#   @return [Integer, nil]
-#
-# @!attribute [rw] isFiat
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] iso4217AlphaCode
-#   @return [String, nil]
-#
-# @!attribute [rw] iso4217NumericCode
-#   @return [String, nil]
-#
-# @!attribute [rw] symbol
+# @!attribute [rw] capability
 #   @return [String, nil]
 CurrencyListMatch = Struct.new(
-  :code,
-  :decimals,
-  :isFiat,
-  :iso4217AlphaCode,
-  :iso4217NumericCode,
-  :symbol,
+  :capability,
   keyword_init: true
 )
 
@@ -2188,6 +1900,9 @@ DirectDebitBatchSubmitCreateData = Struct.new(
 # @!attribute [rw] expiryTime
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] quoteID
 #   @return [String, nil]
 #
@@ -2197,6 +1912,7 @@ FxRate = Struct.new(
   :destinationCurrency,
   :exchangeRate,
   :expiryTime,
+  :id,
   :quoteID,
   :sourceCurrency,
   keyword_init: true
@@ -3091,98 +2807,54 @@ MerchantDirectDebitMandatePage = Struct.new(
 
 # Request payload for MerchantDirectDebitMandatePage#list.
 #
-# @!attribute [rw] approvedAt
-#   @return [String, nil]
-#
 # @!attribute [rw] currency
 #   @return [String, nil]
 #
-# @!attribute [rw] customerAccountNumber
+# @!attribute [rw] from_date
 #   @return [String, nil]
 #
-# @!attribute [rw] customerCity
+# @!attribute [rw] mandate_i_d
+#   @return [Array, nil]
+#
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] customerCountryCode
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search
 #   @return [String, nil]
 #
-# @!attribute [rw] customerCountryName
-#   @return [String, nil]
+# @!attribute [rw] size
+#   @return [Integer, nil]
 #
-# @!attribute [rw] customerEmailAddress
-#   @return [String, nil]
-#
-# @!attribute [rw] customerFirstName
-#   @return [String, nil]
-#
-# @!attribute [rw] customerIban
-#   @return [String, nil]
-#
-# @!attribute [rw] customerLastName
-#   @return [String, nil]
-#
-# @!attribute [rw] customerSortCode
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] isRecurring
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] reference
+# @!attribute [rw] sort
 #   @return [String, nil]
 #
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] supplierBankAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierCustomerID
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierMandateID
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierName
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierStatus
+# @!attribute [rw] to_date
 #   @return [String, nil]
 MerchantDirectDebitMandatePageListMatch = Struct.new(
-  :approvedAt,
   :currency,
-  :customerAccountNumber,
-  :customerCity,
-  :customerCountryCode,
-  :customerCountryName,
-  :customerEmailAddress,
-  :customerFirstName,
-  :customerIban,
-  :customerLastName,
-  :customerSortCode,
-  :id,
-  :inserted,
-  :isRecurring,
-  :lastUpdated,
-  :merchantID,
-  :reference,
+  :from_date,
+  :mandate_i_d,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :page,
+  :search,
+  :size,
+  :sort,
   :status,
-  :supplierBankAccountID,
-  :supplierCustomerID,
-  :supplierMandateID,
-  :supplierName,
-  :supplierStatus,
+  :to_date,
   keyword_init: true
 )
 
@@ -3247,8 +2919,20 @@ MerchantPayByBankSetting = Struct.new(
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
+#
+# @!attribute [rw] country_code
+#   @return [String, nil]
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] open_banking_operation
+#   @return [String, nil]
 MerchantPayByBankSettingListMatch = Struct.new(
   :merchant_id,
+  :country_code,
+  :currency,
+  :open_banking_operation,
   keyword_init: true
 )
 
@@ -3539,8 +3223,16 @@ MerchantTokenLoadMatch = Struct.new(
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
+#
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 MerchantTokenListMatch = Struct.new(
   :merchant_id,
+  :page_number,
+  :page_size,
   keyword_init: true
 )
 
@@ -3743,8 +3435,21 @@ class Metadata
 end
 
 # Request payload for Metadata#load.
-class MetadataLoadMatch
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] secret
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
+MetadataLoadMatch = Struct.new(
+  :id,
+  :secret,
+  :url,
+  keyword_init: true
+)
 
 # NoFrixionVersion entity data model.
 #
@@ -3789,15 +3494,24 @@ NoFrixionVersionLoadMatch = Struct.new(
 )
 
 # OpenBanking entity data model.
-class OpenBanking
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+OpenBanking = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for OpenBanking#create.
 #
 # @!attribute [rw] account_id
 #   @return [String]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 OpenBankingCreateData = Struct.new(
   :account_id,
+  :id,
   keyword_init: true
 )
 
@@ -4189,8 +3903,12 @@ Payment = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] include_event
+#   @return [Boolean, nil]
 PaymentLoadMatch = Struct.new(
   :id,
+  :include_event,
   keyword_init: true
 )
 
@@ -4975,162 +4693,50 @@ PaymentAccount = Struct.new(
 
 # Request payload for PaymentAccount#list.
 #
-# @!attribute [rw] accountName
-#   @return [String, nil]
-#
-# @!attribute [rw] accountSupplierName
-#   @return [String, nil]
-#
-# @!attribute [rw] availableBalance
-#   @return [Float, nil]
-#
-# @!attribute [rw] availableBalanceMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] balance
-#   @return [Float, nil]
-#
-# @!attribute [rw] balanceMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] bankName
-#   @return [String, nil]
-#
-# @!attribute [rw] consentID
-#   @return [String, nil]
-#
-# @!attribute [rw] createdBy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] createdByDisplayName
-#   @return [String, nil]
+# @!attribute [rw] connected_account
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] currency
-#   @return [String, nil]
-#
-# @!attribute [rw] defaultPaymentRail
-#   @return [String, nil]
-#
-# @!attribute [rw] displayName
-#   @return [String, nil]
-#
-# @!attribute [rw] expiryDate
-#   @return [String, nil]
-#
-# @!attribute [rw] externalAccountIcon
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] identifier
-#   @return [Hash, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] isArchived
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isConnectedAccount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isDefault
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isTrustAccount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isVirtual
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastTransaction
-#   @return [Hash, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantName
-#   @return [String, nil]
-#
-# @!attribute [rw] physicalAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] rules
 #   @return [Array, nil]
 #
-# @!attribute [rw] submittedPayoutsBalance
-#   @return [Float, nil]
+# @!attribute [rw] include_archived
+#   @return [Boolean, nil]
 #
-# @!attribute [rw] submittedPayoutsBalanceMinorUnits
+# @!attribute [rw] include_child_merchant
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
+#
+# @!attribute [rw] only_archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] only_connect_account
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page_number
 #   @return [Integer, nil]
 #
-# @!attribute [rw] summary
-#   @return [String, nil]
-#
-# @!attribute [rw] supplierSepaInstantStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedConnectionStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedLastSyncedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncLastFailedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncLastFailureReason
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroBankFeedSyncStatus
-#   @return [String, nil]
-#
-# @!attribute [rw] xeroUnsynchronisedTransactionsCount
+# @!attribute [rw] page_size
 #   @return [Integer, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 PaymentAccountListMatch = Struct.new(
-  :accountName,
-  :accountSupplierName,
-  :availableBalance,
-  :availableBalanceMinorUnits,
-  :balance,
-  :balanceMinorUnits,
-  :bankName,
-  :consentID,
-  :createdBy,
-  :createdByDisplayName,
+  :connected_account,
   :currency,
-  :defaultPaymentRail,
-  :displayName,
-  :expiryDate,
-  :externalAccountIcon,
-  :id,
-  :identifier,
-  :inserted,
-  :isArchived,
-  :isConnectedAccount,
-  :isDefault,
-  :isTrustAccount,
-  :isVirtual,
-  :lastTransaction,
-  :lastUpdated,
-  :merchantID,
-  :merchantName,
-  :physicalAccountID,
-  :rules,
-  :submittedPayoutsBalance,
-  :submittedPayoutsBalanceMinorUnits,
-  :summary,
-  :supplierSepaInstantStatus,
-  :xeroBankFeedConnectionStatus,
-  :xeroBankFeedLastSyncedAt,
-  :xeroBankFeedSyncLastFailedAt,
-  :xeroBankFeedSyncLastFailureReason,
-  :xeroBankFeedSyncStatus,
-  :xeroUnsynchronisedTransactionsCount,
+  :include_archived,
+  :include_child_merchant,
+  :merchant_id,
+  :only_archived,
+  :only_connect_account,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
   keyword_init: true
 )
 
@@ -5185,50 +4791,46 @@ PaymentAccountMinimal = Struct.new(
 
 # Request payload for PaymentAccountMinimal#list.
 #
-# @!attribute [rw] accountName
-#   @return [String, nil]
-#
-# @!attribute [rw] availableBalance
-#   @return [Float, nil]
-#
-# @!attribute [rw] balance
-#   @return [Float, nil]
-#
-# @!attribute [rw] balanceMinorUnits
-#   @return [Integer, nil]
+# @!attribute [rw] connected_account
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] currency
-#   @return [String, nil]
+#   @return [Array, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] identifier
-#   @return [Hash, nil]
-#
-# @!attribute [rw] isArchived
+# @!attribute [rw] include_archived
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] isConnectedAccount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] merchantID
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] submittedPayoutsBalance
-#   @return [Float, nil]
+# @!attribute [rw] only_archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] only_connect_account
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 PaymentAccountMinimalListMatch = Struct.new(
-  :accountName,
-  :availableBalance,
-  :balance,
-  :balanceMinorUnits,
+  :connected_account,
   :currency,
-  :id,
-  :identifier,
-  :isArchived,
-  :isConnectedAccount,
-  :merchantID,
-  :submittedPayoutsBalance,
+  :include_archived,
+  :merchant_id,
+  :only_archived,
+  :only_connect_account,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
   keyword_init: true
 )
 
@@ -5577,563 +5179,123 @@ PaymentRequest = Struct.new(
 
 # Request payload for PaymentRequest#load.
 #
-# @!attribute [rw] addresses
-#   @return [Array, nil]
-#
-# @!attribute [rw] amount
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountPending
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountReceived
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountRefunded
-#   @return [Float, nil]
-#
-# @!attribute [rw] autoSendReceipt
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] baseOriginUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] callbackUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] cardAuthorizeOnly
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardCreateToken
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardCreateTokenMode
-#   @return [String, nil]
-#
-# @!attribute [rw] cardIgnoreCVN
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardProcessorMerchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] cardStripePaymentIntentID
-#   @return [String, nil]
-#
-# @!attribute [rw] cardStripePaymentIntentSecret
-#   @return [String, nil]
-#
-# @!attribute [rw] createdByUser
-#   @return [Hash, nil]
-#
 # @!attribute [rw] currency
 #   @return [String, nil]
 #
-# @!attribute [rw] customFields
-#   @return [Array, nil]
-#
-# @!attribute [rw] customerEmailAddress
+# @!attribute [rw] from_date
 #   @return [String, nil]
 #
-# @!attribute [rw] customerID
-#   @return [String, nil]
-#
-# @!attribute [rw] customerName
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] destinationAccount
-#   @return [Hash, nil]
-#
-# @!attribute [rw] directDebitPayment
-#   @return [Hash, nil]
-#
-# @!attribute [rw] doSimulateSettlementFailure
+# @!attribute [rw] include_archived
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] dueDate
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] errorDescription
-#   @return [String, nil]
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
 #
-# @!attribute [rw] events
-#   @return [Array, nil]
-#
-# @!attribute [rw] failedPaymentRequests
-#   @return [Hash, nil]
-#
-# @!attribute [rw] failureCallbackUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] fieldDisplaySettings
-#   @return [Array, nil]
-#
-# @!attribute [rw] formattedAmount
-#   @return [String, nil]
-#
-# @!attribute [rw] hostedPayCheckoutUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] ignoreAddressVerification
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] insertedSortable
-#   @return [String, nil]
-#
-# @!attribute [rw] institution
-#   @return [String, nil]
-#
-# @!attribute [rw] isArchived
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] jwk
-#   @return [String, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] lightningInvoice
-#   @return [String, nil]
-#
-# @!attribute [rw] lightningInvoiceExpiresAt
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantDirectDebitMandateID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantTokenDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] notificationEmailAddresses
-#   @return [String, nil]
-#
-# @!attribute [rw] notificationRoleIDs
-#   @return [Array, nil]
-#
-# @!attribute [rw] orderID
-#   @return [String, nil]
-#
-# @!attribute [rw] partialPaymentMethod
-#   @return [String, nil]
-#
-# @!attribute [rw] partialPaymentSteps
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentAttempts
-#   @return [Array, nil]
-#
-# @!attribute [rw] paymentInitiationID
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentMethods
-#   @return [Array, nil]
-#
-# @!attribute [rw] paymentProcessor
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentRequests
-#   @return [Array, nil]
-#
-# @!attribute [rw] payrunID
-#   @return [String, nil]
-#
-# @!attribute [rw] pispAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] priorityBankID
-#   @return [String, nil]
-#
-# @!attribute [rw] result
-#   @return [Hash, nil]
-#
-# @!attribute [rw] sandboxSettleDelayInSeconds
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] shippingAddress
-#   @return [Hash, nil]
+# @!attribute [rw] payment_method
+#   @return [Array, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 #
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] successWebHookUrl
+# @!attribute [rw] tag
+#   @return [Array, nil]
+#
+# @!attribute [rw] to_date
 #   @return [String, nil]
-#
-# @!attribute [rw] tags
-#   @return [Array, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] tokenisedCards
-#   @return [Array, nil]
-#
-# @!attribute [rw] transactions
-#   @return [Array, nil]
-#
-# @!attribute [rw] useHostedPaymentPage
-#   @return [Boolean, nil]
 PaymentRequestLoadMatch = Struct.new(
-  :addresses,
-  :amount,
-  :amountPending,
-  :amountReceived,
-  :amountRefunded,
-  :autoSendReceipt,
-  :baseOriginUrl,
-  :callbackUrl,
-  :cardAuthorizeOnly,
-  :cardCreateToken,
-  :cardCreateTokenMode,
-  :cardIgnoreCVN,
-  :cardProcessorMerchantID,
-  :cardStripePaymentIntentID,
-  :cardStripePaymentIntentSecret,
-  :createdByUser,
   :currency,
-  :customFields,
-  :customerEmailAddress,
-  :customerID,
-  :customerName,
-  :description,
-  :destinationAccount,
-  :directDebitPayment,
-  :doSimulateSettlementFailure,
-  :dueDate,
-  :errorDescription,
-  :events,
-  :failedPaymentRequests,
-  :failureCallbackUrl,
-  :fieldDisplaySettings,
-  :formattedAmount,
-  :hostedPayCheckoutUrl,
-  :id,
-  :ignoreAddressVerification,
-  :inserted,
-  :insertedSortable,
-  :institution,
-  :isArchived,
-  :jwk,
-  :lastUpdated,
-  :lightningInvoice,
-  :lightningInvoiceExpiresAt,
-  :merchantDirectDebitMandateID,
-  :merchantID,
-  :merchantTokenDescription,
-  :notificationEmailAddresses,
-  :notificationRoleIDs,
-  :orderID,
-  :partialPaymentMethod,
-  :partialPaymentSteps,
-  :paymentAttempts,
-  :paymentInitiationID,
-  :paymentMethods,
-  :paymentProcessor,
-  :paymentRequests,
-  :payrunID,
-  :pispAccountID,
-  :priorityBankID,
-  :result,
-  :sandboxSettleDelayInSeconds,
-  :shippingAddress,
+  :from_date,
+  :include_archived,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :page,
+  :payment_method,
+  :search,
+  :size,
+  :sort,
   :status,
-  :successWebHookUrl,
-  :tags,
-  :title,
-  :tokenisedCards,
-  :transactions,
-  :useHostedPaymentPage,
+  :tag,
+  :to_date,
   keyword_init: true
 )
 
 # Request payload for PaymentRequest#list.
 #
-# @!attribute [rw] addresses
-#   @return [Array, nil]
-#
-# @!attribute [rw] amount
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountPending
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountReceived
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountRefunded
-#   @return [Float, nil]
-#
-# @!attribute [rw] autoSendReceipt
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] baseOriginUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] callbackUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] cardAuthorizeOnly
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardCreateToken
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardCreateTokenMode
-#   @return [String, nil]
-#
-# @!attribute [rw] cardIgnoreCVN
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] cardProcessorMerchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] cardStripePaymentIntentID
-#   @return [String, nil]
-#
-# @!attribute [rw] cardStripePaymentIntentSecret
-#   @return [String, nil]
-#
-# @!attribute [rw] createdByUser
-#   @return [Hash, nil]
-#
 # @!attribute [rw] currency
 #   @return [String, nil]
 #
-# @!attribute [rw] customFields
-#   @return [Array, nil]
-#
-# @!attribute [rw] customerEmailAddress
+# @!attribute [rw] from_date
 #   @return [String, nil]
 #
-# @!attribute [rw] customerID
-#   @return [String, nil]
-#
-# @!attribute [rw] customerName
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] destinationAccount
-#   @return [Hash, nil]
-#
-# @!attribute [rw] directDebitPayment
-#   @return [Hash, nil]
-#
-# @!attribute [rw] doSimulateSettlementFailure
+# @!attribute [rw] include_archived
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] dueDate
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] errorDescription
-#   @return [String, nil]
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
 #
-# @!attribute [rw] events
-#   @return [Array, nil]
-#
-# @!attribute [rw] failedPaymentRequests
-#   @return [Hash, nil]
-#
-# @!attribute [rw] failureCallbackUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] fieldDisplaySettings
-#   @return [Array, nil]
-#
-# @!attribute [rw] formattedAmount
-#   @return [String, nil]
-#
-# @!attribute [rw] hostedPayCheckoutUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] ignoreAddressVerification
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] insertedSortable
-#   @return [String, nil]
-#
-# @!attribute [rw] institution
-#   @return [String, nil]
-#
-# @!attribute [rw] isArchived
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] jwk
-#   @return [String, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] lightningInvoice
-#   @return [String, nil]
-#
-# @!attribute [rw] lightningInvoiceExpiresAt
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantDirectDebitMandateID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantTokenDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] notificationEmailAddresses
-#   @return [String, nil]
-#
-# @!attribute [rw] notificationRoleIDs
-#   @return [Array, nil]
-#
-# @!attribute [rw] orderID
-#   @return [String, nil]
-#
-# @!attribute [rw] partialPaymentMethod
-#   @return [String, nil]
-#
-# @!attribute [rw] partialPaymentSteps
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentAttempts
-#   @return [Array, nil]
-#
-# @!attribute [rw] paymentInitiationID
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentMethods
-#   @return [Array, nil]
-#
-# @!attribute [rw] paymentProcessor
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentRequests
-#   @return [Array, nil]
-#
-# @!attribute [rw] payrunID
-#   @return [String, nil]
-#
-# @!attribute [rw] pispAccountID
-#   @return [String, nil]
-#
-# @!attribute [rw] priorityBankID
-#   @return [String, nil]
-#
-# @!attribute [rw] result
-#   @return [Hash, nil]
-#
-# @!attribute [rw] sandboxSettleDelayInSeconds
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] shippingAddress
-#   @return [Hash, nil]
+# @!attribute [rw] payment_method
+#   @return [Array, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 #
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] successWebHookUrl
+# @!attribute [rw] tag
+#   @return [Array, nil]
+#
+# @!attribute [rw] to_date
 #   @return [String, nil]
-#
-# @!attribute [rw] tags
-#   @return [Array, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] tokenisedCards
-#   @return [Array, nil]
-#
-# @!attribute [rw] transactions
-#   @return [Array, nil]
-#
-# @!attribute [rw] useHostedPaymentPage
-#   @return [Boolean, nil]
 PaymentRequestListMatch = Struct.new(
-  :addresses,
-  :amount,
-  :amountPending,
-  :amountReceived,
-  :amountRefunded,
-  :autoSendReceipt,
-  :baseOriginUrl,
-  :callbackUrl,
-  :cardAuthorizeOnly,
-  :cardCreateToken,
-  :cardCreateTokenMode,
-  :cardIgnoreCVN,
-  :cardProcessorMerchantID,
-  :cardStripePaymentIntentID,
-  :cardStripePaymentIntentSecret,
-  :createdByUser,
   :currency,
-  :customFields,
-  :customerEmailAddress,
-  :customerID,
-  :customerName,
-  :description,
-  :destinationAccount,
-  :directDebitPayment,
-  :doSimulateSettlementFailure,
-  :dueDate,
-  :errorDescription,
-  :events,
-  :failedPaymentRequests,
-  :failureCallbackUrl,
-  :fieldDisplaySettings,
-  :formattedAmount,
-  :hostedPayCheckoutUrl,
-  :id,
-  :ignoreAddressVerification,
-  :inserted,
-  :insertedSortable,
-  :institution,
-  :isArchived,
-  :jwk,
-  :lastUpdated,
-  :lightningInvoice,
-  :lightningInvoiceExpiresAt,
-  :merchantDirectDebitMandateID,
-  :merchantID,
-  :merchantTokenDescription,
-  :notificationEmailAddresses,
-  :notificationRoleIDs,
-  :orderID,
-  :partialPaymentMethod,
-  :partialPaymentSteps,
-  :paymentAttempts,
-  :paymentInitiationID,
-  :paymentMethods,
-  :paymentProcessor,
-  :paymentRequests,
-  :payrunID,
-  :pispAccountID,
-  :priorityBankID,
-  :result,
-  :sandboxSettleDelayInSeconds,
-  :shippingAddress,
+  :from_date,
+  :include_archived,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :page,
+  :payment_method,
+  :search,
+  :size,
+  :sort,
   :status,
-  :successWebHookUrl,
-  :tags,
-  :title,
-  :tokenisedCards,
-  :transactions,
-  :useHostedPaymentPage,
+  :tag,
+  :to_date,
   keyword_init: true
 )
 
@@ -6875,8 +6037,49 @@ class PaymentRequestMetric
 end
 
 # Request payload for PaymentRequestMetric#load.
-class PaymentRequestMetricLoadMatch
-end
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] from_date
+#   @return [String, nil]
+#
+# @!attribute [rw] include_archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
+#
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] payment_method
+#   @return [Array, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] tag
+#   @return [Array, nil]
+#
+# @!attribute [rw] to_date
+#   @return [String, nil]
+PaymentRequestMetricLoadMatch = Struct.new(
+  :currency,
+  :from_date,
+  :include_archived,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :payment_method,
+  :search,
+  :tag,
+  :to_date,
+  keyword_init: true
+)
 
 # PaymentRequestMinimal entity data model.
 #
@@ -7402,322 +6605,58 @@ PayoutLoadMatch = Struct.new(
 
 # Request payload for Payout#list.
 #
-# @!attribute [rw] accountID
-#   @return [String, nil]
-#
-# @!attribute [rw] allowIncomplete
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] amount
-#   @return [Float, nil]
-#
-# @!attribute [rw] amountMinorUnits
-#   @return [Integer, nil]
-#
-# @!attribute [rw] approvePayoutUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] approverID
-#   @return [String, nil]
-#
-# @!attribute [rw] authenticationMethods
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisations
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisersCompletedCount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] authorisersRequiredCount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] batchPayoutID
-#   @return [String, nil]
-#
-# @!attribute [rw] beneficiary
-#   @return [Hash, nil]
-#
-# @!attribute [rw] beneficiaryID
-#   @return [String, nil]
-#
-# @!attribute [rw] canAuthorise
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] canProcess
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] canUpdate
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] chargeBearer
-#   @return [String, nil]
-#
-# @!attribute [rw] createdBy
-#   @return [String, nil]
-#
-# @!attribute [rw] createdByEmailAddress
-#   @return [String, nil]
-#
 # @!attribute [rw] currency
 #   @return [String, nil]
 #
-# @!attribute [rw] currentUserID
+# @!attribute [rw] from_date
 #   @return [String, nil]
 #
-# @!attribute [rw] description
-#   @return [String, nil]
+# @!attribute [rw] include_archived
+#   @return [Boolean, nil]
 #
-# @!attribute [rw] destination
-#   @return [Hash, nil]
-#
-# @!attribute [rw] documents
-#   @return [Array, nil]
-#
-# @!attribute [rw] events
-#   @return [Array, nil]
-#
-# @!attribute [rw] failedPayouts
-#   @return [Hash, nil]
-#
-# @!attribute [rw] formattedAmount
-#   @return [String, nil]
-#
-# @!attribute [rw] formattedFxDestinationAmount
-#   @return [String, nil]
-#
-# @!attribute [rw] formattedSchedule
-#   @return [String, nil]
-#
-# @!attribute [rw] formattedScheduleDayOnly
-#   @return [String, nil]
-#
-# @!attribute [rw] formattedSourceAccountAvailableBalance
-#   @return [String, nil]
-#
-# @!attribute [rw] fxDestinationAmount
+# @!attribute [rw] max_amount
 #   @return [Float, nil]
 #
-# @!attribute [rw] fxDestinationAmountMinorUnits
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
+#
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] page_number
 #   @return [Integer, nil]
 #
-# @!attribute [rw] fxDestinationCurrency
-#   @return [String, nil]
-#
-# @!attribute [rw] fxQuoteExpiresAt
-#   @return [String, nil]
-#
-# @!attribute [rw] fxQuoteID
-#   @return [String, nil]
-#
-# @!attribute [rw] fxRate
-#   @return [Float, nil]
-#
-# @!attribute [rw] fxUseDestinationAmount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] hasCurrentUserAuthorised
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] invoiceID
-#   @return [String, nil]
-#
-# @!attribute [rw] isArchived
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isFailed
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isSettled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isSubmitted
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantTokenDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] nonce
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentProcessor
-#   @return [String, nil]
-#
-# @!attribute [rw] paymentRail
-#   @return [String, nil]
-#
-# @!attribute [rw] payouts
-#   @return [Array, nil]
-#
-# @!attribute [rw] payrunID
-#   @return [String, nil]
-#
-# @!attribute [rw] payrunName
-#   @return [String, nil]
-#
-# @!attribute [rw] reason
-#   @return [String, nil]
-#
-# @!attribute [rw] rule
-#   @return [Hash, nil]
-#
-# @!attribute [rw] scheduleDate
-#   @return [String, nil]
-#
-# @!attribute [rw] scheduled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] sourceAccountAvailableBalance
-#   @return [Float, nil]
-#
-# @!attribute [rw] sourceAccountAvailableBalanceMinorUnits
+# @!attribute [rw] page_size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] sourceAccountBic
+# @!attribute [rw] search
 #   @return [String, nil]
 #
-# @!attribute [rw] sourceAccountCurrency
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccountIban
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccountIdentifier
-#   @return [Hash, nil]
-#
-# @!attribute [rw] sourceAccountName
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccountNumber
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccountSortcode
+# @!attribute [rw] sort
 #   @return [String, nil]
 #
 # @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] tagIds
 #   @return [Array, nil]
 #
-# @!attribute [rw] tags
+# @!attribute [rw] tag
 #   @return [Array, nil]
 #
-# @!attribute [rw] theirReference
-#   @return [String, nil]
-#
-# @!attribute [rw] topupPayrunID
-#   @return [String, nil]
-#
-# @!attribute [rw] transactedAmount
-#   @return [Float, nil]
-#
-# @!attribute [rw] transactedFxAmount
-#   @return [Float, nil]
-#
-# @!attribute [rw] transactedFxRate
-#   @return [Float, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] userID
-#   @return [String, nil]
-#
-# @!attribute [rw] yourReference
+# @!attribute [rw] to_date
 #   @return [String, nil]
 PayoutListMatch = Struct.new(
-  :accountID,
-  :allowIncomplete,
-  :amount,
-  :amountMinorUnits,
-  :approvePayoutUrl,
-  :approverID,
-  :authenticationMethods,
-  :authorisations,
-  :authorisersCompletedCount,
-  :authorisersRequiredCount,
-  :batchPayoutID,
-  :beneficiary,
-  :beneficiaryID,
-  :canAuthorise,
-  :canProcess,
-  :canUpdate,
-  :chargeBearer,
-  :createdBy,
-  :createdByEmailAddress,
   :currency,
-  :currentUserID,
-  :description,
-  :destination,
-  :documents,
-  :events,
-  :failedPayouts,
-  :formattedAmount,
-  :formattedFxDestinationAmount,
-  :formattedSchedule,
-  :formattedScheduleDayOnly,
-  :formattedSourceAccountAvailableBalance,
-  :fxDestinationAmount,
-  :fxDestinationAmountMinorUnits,
-  :fxDestinationCurrency,
-  :fxQuoteExpiresAt,
-  :fxQuoteID,
-  :fxRate,
-  :fxUseDestinationAmount,
-  :hasCurrentUserAuthorised,
-  :id,
-  :inserted,
-  :invoiceID,
-  :isArchived,
-  :isFailed,
-  :isSettled,
-  :isSubmitted,
-  :lastUpdated,
-  :merchantID,
-  :merchantTokenDescription,
-  :nonce,
-  :paymentProcessor,
-  :paymentRail,
-  :payouts,
-  :payrunID,
-  :payrunName,
-  :reason,
-  :rule,
-  :scheduleDate,
-  :scheduled,
-  :sourceAccountAvailableBalance,
-  :sourceAccountAvailableBalanceMinorUnits,
-  :sourceAccountBic,
-  :sourceAccountCurrency,
-  :sourceAccountIban,
-  :sourceAccountIdentifier,
-  :sourceAccountName,
-  :sourceAccountNumber,
-  :sourceAccountSortcode,
+  :from_date,
+  :include_archived,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
   :status,
-  :tagIds,
-  :tags,
-  :theirReference,
-  :topupPayrunID,
-  :transactedAmount,
-  :transactedFxAmount,
-  :transactedFxRate,
-  :type,
-  :userID,
-  :yourReference,
+  :tag,
+  :to_date,
   keyword_init: true
 )
 
@@ -8673,8 +7612,16 @@ PayoutKeysetPage = Struct.new(
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
+#
+# @!attribute [rw] from_date_utc
+#   @return [String, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 PayoutKeysetPageListMatch = Struct.new(
   :merchant_id,
+  :from_date_utc,
+  :page_size,
   keyword_init: true
 )
 
@@ -8683,8 +7630,45 @@ class PayoutMetric
 end
 
 # Request payload for PayoutMetric#load.
-class PayoutMetricLoadMatch
-end
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] from_date
+#   @return [String, nil]
+#
+# @!attribute [rw] include_archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
+#
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] tag
+#   @return [Array, nil]
+#
+# @!attribute [rw] to_date
+#   @return [String, nil]
+PayoutMetricLoadMatch = Struct.new(
+  :currency,
+  :from_date,
+  :include_archived,
+  :max_amount,
+  :merchant_id,
+  :min_amount,
+  :search,
+  :tag,
+  :to_date,
+  keyword_init: true
+)
 
 # Payrun entity data model.
 #
@@ -8830,134 +7814,42 @@ PayrunLoadMatch = Struct.new(
 
 # Request payload for Payrun#list.
 #
-# @!attribute [rw] authorisationDate
+# @!attribute [rw] from_date
 #   @return [String, nil]
 #
-# @!attribute [rw] authorisations
-#   @return [Array, nil]
+# @!attribute [rw] merchant_id
+#   @return [String, nil]
 #
-# @!attribute [rw] authorisersCompletedCount
+# @!attribute [rw] only_archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page_number
 #   @return [Integer, nil]
 #
-# @!attribute [rw] authorisersRequiredCount
+# @!attribute [rw] page_size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] batchPayoutID
+# @!attribute [rw] search
 #   @return [String, nil]
 #
-# @!attribute [rw] canAuthorise
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] canDelete
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] canEdit
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] events
-#   @return [Array, nil]
-#
-# @!attribute [rw] hasCurrentUserAuthorised
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] sort
 #   @return [String, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] invoices
-#   @return [Array, nil]
-#
-# @!attribute [rw] invoicesMinimal
-#   @return [Array, nil]
-#
-# @!attribute [rw] isArchived
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] lastUpdatedBy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] nonce
-#   @return [String, nil]
-#
-# @!attribute [rw] notes
-#   @return [String, nil]
-#
-# @!attribute [rw] payments
-#   @return [Array, nil]
-#
-# @!attribute [rw] payouts
-#   @return [Array, nil]
-#
-# @!attribute [rw] payoutsCount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] reason
-#   @return [String, nil]
-#
-# @!attribute [rw] scheduleDate
-#   @return [String, nil]
-#
-# @!attribute [rw] scheduledDate
-#   @return [String, nil]
-#
-# @!attribute [rw] sourceAccounts
-#   @return [Array, nil]
 #
 # @!attribute [rw] status
+#   @return [Array, nil]
+#
+# @!attribute [rw] to_date
 #   @return [String, nil]
-#
-# @!attribute [rw] totalEur
-#   @return [Float, nil]
-#
-# @!attribute [rw] totalGbp
-#   @return [Float, nil]
-#
-# @!attribute [rw] totalUsd
-#   @return [Float, nil]
 PayrunListMatch = Struct.new(
-  :authorisationDate,
-  :authorisations,
-  :authorisersCompletedCount,
-  :authorisersRequiredCount,
-  :batchPayoutID,
-  :canAuthorise,
-  :canDelete,
-  :canEdit,
-  :events,
-  :hasCurrentUserAuthorised,
-  :id,
-  :inserted,
-  :invoices,
-  :invoicesMinimal,
-  :isArchived,
-  :lastUpdated,
-  :lastUpdatedBy,
-  :merchantID,
-  :name,
-  :nonce,
-  :notes,
-  :payments,
-  :payouts,
-  :payoutsCount,
-  :reason,
-  :scheduleDate,
-  :scheduledDate,
-  :sourceAccounts,
+  :from_date,
+  :merchant_id,
+  :only_archived,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
   :status,
-  :totalEur,
-  :totalGbp,
-  :totalUsd,
+  :to_date,
   keyword_init: true
 )
 
@@ -9482,138 +8374,30 @@ RuleLoadMatch = Struct.new(
 
 # Request payload for Rule#list.
 #
-# @!attribute [rw] account
-#   @return [Hash, nil]
+# @!attribute [rw] archived_only
+#   @return [Boolean, nil]
 #
-# @!attribute [rw] accountID
+# @!attribute [rw] merchant_id
 #   @return [String, nil]
 #
-# @!attribute [rw] approveUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] approverID
-#   @return [String, nil]
-#
-# @!attribute [rw] authenticationMethods
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisations
-#   @return [Array, nil]
-#
-# @!attribute [rw] authorisersCompletedCount
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] authorisersRequiredCount
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] canAuthorise
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] createdBy
-#   @return [Hash, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] endAt
-#   @return [String, nil]
-#
-# @!attribute [rw] hasCurrentUserAuthorised
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] inserted
-#   @return [String, nil]
-#
-# @!attribute [rw] isDisabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] lastExecutedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] lastRunAtTransactionDate
-#   @return [String, nil]
-#
-# @!attribute [rw] lastUpdated
-#   @return [String, nil]
-#
-# @!attribute [rw] merchantID
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] nonce
-#   @return [String, nil]
-#
-# @!attribute [rw] onApprovedWebHookUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] onExecutionErrorWebHookUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] onExecutionSuccessWebHookUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] startAt
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] sweepAction
-#   @return [Hash, nil]
-#
-# @!attribute [rw] timeZoneId
-#   @return [String, nil]
-#
-# @!attribute [rw] triggerCronExpression
-#   @return [String, nil]
-#
-# @!attribute [rw] triggerOnPayIn
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] userID
-#   @return [String, nil]
-#
-# @!attribute [rw] webHookSecret
+# @!attribute [rw] sort
 #   @return [String, nil]
 RuleListMatch = Struct.new(
-  :account,
-  :accountID,
-  :approveUrl,
-  :approverID,
-  :authenticationMethods,
-  :authorisations,
-  :authorisersCompletedCount,
-  :authorisersRequiredCount,
-  :canAuthorise,
-  :createdBy,
-  :description,
-  :endAt,
-  :hasCurrentUserAuthorised,
-  :id,
-  :inserted,
-  :isDisabled,
-  :lastExecutedAt,
-  :lastRunAtTransactionDate,
-  :lastUpdated,
-  :merchantID,
-  :name,
-  :nonce,
-  :onApprovedWebHookUrl,
-  :onExecutionErrorWebHookUrl,
-  :onExecutionSuccessWebHookUrl,
-  :startAt,
-  :status,
-  :sweepAction,
-  :timeZoneId,
-  :triggerCronExpression,
-  :triggerOnPayIn,
-  :userID,
-  :webHookSecret,
+  :archived_only,
+  :merchant_id,
+  :page,
+  :search,
+  :size,
+  :sort,
   keyword_init: true
 )
 
@@ -9945,8 +8729,20 @@ RuleEvent = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] event_type
+#   @return [Array, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] size
+#   @return [Integer, nil]
 RuleEventListMatch = Struct.new(
   :id,
+  :event_type,
+  :page,
+  :size,
   keyword_init: true
 )
 
@@ -10261,8 +9057,44 @@ Transaction = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] credit_type
+#   @return [String, nil]
+#
+# @!attribute [rw] from_date
+#   @return [String, nil]
+#
+# @!attribute [rw] max_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] min_amount
+#   @return [Float, nil]
+#
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
+#
+# @!attribute [rw] to_date
+#   @return [String, nil]
 TransactionLoadMatch = Struct.new(
   :id,
+  :credit_type,
+  :from_date,
+  :max_amount,
+  :min_amount,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
+  :to_date,
   keyword_init: true
 )
 
@@ -10273,9 +9105,29 @@ TransactionLoadMatch = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] offset
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort_inserted_ascending
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] transaction_from
+#   @return [String, nil]
+#
+# @!attribute [rw] transaction_to
+#   @return [String, nil]
 TransactionListMatch = Struct.new(
   :account_id,
   :id,
+  :limit,
+  :offset,
+  :sort_inserted_ascending,
+  :transaction_from,
+  :transaction_to,
   keyword_init: true
 )
 
@@ -10500,8 +9352,12 @@ TransactionCreateData = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] tag_id
+#   @return [String, nil]
 TransactionRemoveMatch = Struct.new(
   :id,
+  :tag_id,
   keyword_init: true
 )
 
@@ -10758,8 +9614,24 @@ UserInviteLoadMatch = Struct.new(
 #
 # @!attribute [rw] merchant_id
 #   @return [String]
+#
+# @!attribute [rw] page_number
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 UserInviteListMatch = Struct.new(
   :merchant_id,
+  :page_number,
+  :page_size,
+  :search,
+  :sort,
   keyword_init: true
 )
 

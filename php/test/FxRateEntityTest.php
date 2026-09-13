@@ -96,9 +96,13 @@ class FxRateEntityTest extends TestCase
         $this->assertIsArray($fx_rate_ref01_list_result);
 
         // LOAD
-        $fx_rate_ref01_match_dt0 = [];
+        $fx_rate_ref01_match_dt0 = [
+            "id" => $fx_rate_ref01_data["id"],
+        ];
         $fx_rate_ref01_data_dt0_loaded = $fx_rate_ref01_ent->load($fx_rate_ref01_match_dt0, null);
-        $this->assertNotNull($fx_rate_ref01_data_dt0_loaded);
+        $fx_rate_ref01_data_dt0_load_result = Helpers::to_map(is_object($fx_rate_ref01_data_dt0_loaded) && method_exists($fx_rate_ref01_data_dt0_loaded, 'data_get') ? $fx_rate_ref01_data_dt0_loaded->data_get() : $fx_rate_ref01_data_dt0_loaded);
+        $this->assertNotNull($fx_rate_ref01_data_dt0_load_result);
+        $this->assertEquals($fx_rate_ref01_data_dt0_load_result["id"], $fx_rate_ref01_data["id"]);
 
     }
 }
@@ -132,7 +136,7 @@ function fx_rate_basic_setup($extra)
         "NOFRIXION_TEST_FX_RATE_ENTID" => $idmap,
         "NOFRIXION_TEST_LIVE" => "FALSE",
         "NOFRIXION_TEST_EXPLAIN" => "FALSE",
-        "NOFRIXION_APIKEY" => "NONE",
+        "NOFRIXION_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -143,12 +147,27 @@ function fx_rate_basic_setup($extra)
 
     if ($env["NOFRIXION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["NOFRIXION_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
-        $client = new NofrixionSDK(Helpers::to_map($merged_opts));
+        // "?? []" because merge legitimately answers with a stdClass when every
+        // contributing entry is an EMPTY map - an SDK with no apikey and no
+        // server variables generates an empty middle entry, so that is the
+        // common case, not the edge one. to_map returns null for a non-array by
+        // design, and the constructor takes a non-nullable array, so without the
+        // fallback every such SDK died on "must be of type array, null given"
+        // the moment live mode was switched on. Offline mode never reaches this
+        // branch, which is why the offline suite stayed green.
+        $client = new NofrixionSDK(Helpers::to_map($merged_opts) ?? []);
     }
 
     $live = $env["NOFRIXION_TEST_LIVE"] === "TRUE";

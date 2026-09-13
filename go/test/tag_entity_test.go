@@ -100,7 +100,7 @@ func TestTagEntity(t *testing.T) {
 		// CREATE
 		tagRef01Ent := client.Tag(nil)
 		tagRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "tag"}, setup.data), "tag_ref01"))
+			vs.GetPath(setup.data, []any{"new", "tag"}), "tag_ref01"))
 		tagRef01Data["merchant_id"] = setup.idmap["merchant01"]
 
 		tagRef01DataResult, err := tagRef01Ent.Create(tagRef01Data, nil)
@@ -161,7 +161,7 @@ func tagBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"tag01", "tag02", "tag03", "merchant01", "merchant02", "merchant03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -181,7 +181,7 @@ func tagBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_TAG_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_TAG_ENTID"])
@@ -190,11 +190,23 @@ func tagBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

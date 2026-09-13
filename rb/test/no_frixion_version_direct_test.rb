@@ -61,15 +61,17 @@ def no_frixion_version_direct_setup(mockres)
   env = Runner.env_override({
     "NOFRIXION_TEST_NO_FRIXION_VERSION_ENTID" => {},
     "NOFRIXION_TEST_LIVE" => "FALSE",
-    "NOFRIXION_APIKEY" => "NONE",
+    "NOFRIXION_APIKEY" => "",
   })
 
   live = env["NOFRIXION_TEST_LIVE"] == "TRUE"
 
   if live
-    merged_opts = {
+    # Merged so the generated fields win: sdk-test-control.json's
+    # test.client.options adds to the live client, it does not redirect it.
+    merged_opts = Runner.live_client_options.merge({
       "apikey" => env["NOFRIXION_APIKEY"],
-    }
+    })
     client = NofrixionSDK.new(merged_opts)
     return {
       client: client,

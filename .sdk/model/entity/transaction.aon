@@ -6,6 +6,7 @@ main: kit: entity: transaction: {
 
   fields: [
     {
+      format: "uuid"
       name: "accountID"
       req: false
       short: "The ID of the account the transaction belongs to."
@@ -18,6 +19,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "accountSequenceNumber"
       req: false
       short: "The sequence number of transaction on a per account basis."
@@ -29,30 +31,37 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "double"
       name: "amount"
       req: false
       short: "Amount of the transaction."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "amountMinorUnits"
+      readOnly: true
       req: false
       short: "Amount of the transaction expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
+      format: "double"
       name: "balance"
       req: false
       short: "Balance left on the account after the transaction."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "balanceMinorUnits"
+      readOnly: true
       req: false
       short: "Balance on the account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
     }
     {
+      format: "date-time"
       name: "bookingDateTime"
       req: false
       type: "`$STRING`"
@@ -91,6 +100,7 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "date"
       req: false
       type: "`$STRING`"
@@ -107,6 +117,7 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "double"
       name: "fxAmount"
       req: false
       short: "For an FX payout this is the amound in the FX currency."
@@ -119,6 +130,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "fxRate"
       req: false
       short: "For an FX payout this is the exchange rate between the transaction currency and the FX currency."
@@ -130,12 +142,14 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "Unique ID for the transaction."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       short: "Date when the transaction was inserted into the ledger."
@@ -152,18 +166,21 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "The ID of the merchant that owns the account."
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "pageNumber"
       req: false
       short: "Current page number."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "pageSize"
       req: false
       short: "Page size"
@@ -187,12 +204,14 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       short: "For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "payoutID"
       req: false
       short: "ID of the payout that resulted in the transaction."
@@ -215,6 +234,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "ruleID"
       req: false
       short: "ID of the rule that resulted in the transaction."
@@ -248,12 +268,14 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
+      format: "int64"
       name: "totalPages"
       req: false
       short: "Total pages"
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "totalSize"
       req: false
       short: "Total count"
@@ -265,6 +287,7 @@ main: kit: entity: transaction: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "transactionDate"
       req: false
       short: "Date when the transaction occurred."
@@ -287,6 +310,7 @@ main: kit: entity: transaction: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "valueDateTime"
       req: false
       type: "`$STRING`"
@@ -329,12 +353,22 @@ main: kit: entity: transaction: {
           }
           method: "POST"
           orig: "/api/v1/transactions/{id}/tags"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{id}"
-            "tags"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "tags"
+            }
           ]
           select: {
             "$action": "tag"
@@ -432,18 +466,28 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/accounts/{accountID}/transactions"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "{account_id}"
-            "transactions"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "transactions"
+            }
+          ]
           select: {
             exist: [
               "account_id"
@@ -521,19 +565,31 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/openbanking/transactions/{id}/{accountID}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "transactions"
-            "{id}"
-            "{account_id}"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+            {
+              var: "account_id"
+            }
+          ]
           select: {
             exist: [
               "account_id"
@@ -602,18 +658,28 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/transactions"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "transactions"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "transactions"
+            }
+          ]
           select: {
             exist: [
               "from_date"
@@ -672,10 +738,16 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
           ]
           select: {
             exist: [
@@ -776,18 +848,28 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions/{accountID}/export"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{account_id}"
-            "export"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "export"
+            }
+          ]
           select: {
             "$action": "export"
             exist: [
@@ -888,17 +970,25 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions/{accountID}"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{id}"
-          ]
           rename: {
             param: {
               accountID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "credit_type"
@@ -950,20 +1040,32 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions/{accountID}/from/{sequenceNumber}"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{transaction_id}"
-            "from"
-            "{sequence_number}"
-          ]
           rename: {
             param: {
               accountID: "transaction_id"
               sequenceNumber: "sequence_number"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "transaction_id"
+            }
+            {
+              lit: "from"
+            }
+            {
+              var: "sequence_number"
+            }
+          ]
           select: {
             exist: [
               "page_size"
@@ -997,19 +1099,31 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/accounts/{accountID}/transactions/{id}"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "{account_id}"
-            "transactions"
-            "{id}"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "account_id"
@@ -1035,12 +1149,22 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions/detail/{id}"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "detail"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              lit: "detail"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -1066,12 +1190,22 @@ main: kit: entity: transaction: {
           }
           method: "GET"
           orig: "/api/v1/transactions/{id}/proof"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{id}"
-            "proof"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "proof"
+            }
           ]
           select: {
             "$action": "proof"
@@ -1112,12 +1246,22 @@ main: kit: entity: transaction: {
           }
           method: "DELETE"
           orig: "/api/v1/transactions/{id}/tag"
-          parts: [
-            "api"
-            "v1"
-            "transactions"
-            "{id}"
-            "tag"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "tag"
+            }
           ]
           select: {
             "$action": "tag"

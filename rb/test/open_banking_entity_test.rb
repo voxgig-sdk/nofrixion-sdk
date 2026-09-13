@@ -41,7 +41,13 @@ class OpenBankingEntityTest < Minitest::Test
     open_banking_ref01_data_result = open_banking_ref01_ent.create(open_banking_ref01_data, nil)
     open_banking_ref01_data = Helpers.to_map(open_banking_ref01_data_result.respond_to?(:data_get) ? open_banking_ref01_data_result.data_get : open_banking_ref01_data_result)
     assert !open_banking_ref01_data.nil?
+    assert !open_banking_ref01_data["id"].nil?
 
+    # REMOVE
+    open_banking_ref01_match_rm0 = {
+      "id" => open_banking_ref01_data["id"],
+    }
+    open_banking_ref01_ent.remove(open_banking_ref01_match_rm0, nil)
 
   end
 end
@@ -79,7 +85,7 @@ def open_banking_basic_setup(extra)
     "NOFRIXION_TEST_OPEN_BANKING_ENTID" => idmap,
     "NOFRIXION_TEST_LIVE" => "FALSE",
     "NOFRIXION_TEST_EXPLAIN" => "FALSE",
-    "NOFRIXION_APIKEY" => "NONE",
+    "NOFRIXION_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -90,6 +96,9 @@ def open_banking_basic_setup(extra)
 
   if env["NOFRIXION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["NOFRIXION_APIKEY"],
       },

@@ -1,6 +1,14 @@
 # Nofrixion SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -109,6 +117,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uuid",
             "name": "accountID",
             "short": "ID of the account.",
             "type": "`$STRING`",
@@ -139,22 +148,29 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "availableBalance",
+            "readOnly": True,
             "short": "The current available balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "availableBalanceMinorUnits",
+            "readOnly": True,
             "short": "The available balance expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "balance",
             "short": "Balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "balanceMinorUnits",
+            "readOnly": True,
             "short": "Balance of the account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -164,6 +180,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "consentID",
             "short": "The ID of the consent used to connect the external account.",
             "type": "`$STRING`",
@@ -205,10 +222,12 @@ def make_config():
           },
           {
             "name": "displayName",
+            "readOnly": True,
             "short": "Gets a unique display name for the payment account.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "expiryDate",
             "short": "The date that the external account will expire",
             "type": "`$STRING`",
@@ -224,11 +243,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "fromDate",
             "short": "Minimum transaction date for the statement.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique id for the account.",
             "type": "`$STRING`",
@@ -239,6 +260,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Timestamp when the account was created.",
             "type": "`$STRING`",
@@ -265,6 +287,7 @@ def make_config():
           },
           {
             "name": "isVirtual",
+            "readOnly": True,
             "short": "True if the account is a virtual account.",
             "type": "`$BOOLEAN`",
           },
@@ -273,11 +296,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "Timestamp when the account was last updated.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -293,6 +318,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "physicalAccountID",
             "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
             "type": "`$STRING`",
@@ -308,21 +334,26 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "submittedPayoutsBalance",
             "short": "Total of the payouts that have been submitted for processing.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "submittedPayoutsBalanceMinorUnits",
+            "readOnly": True,
             "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
             "name": "summary",
+            "readOnly": True,
             "short": "Gets a summary of the payments account's most important properties.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "supplierPhysicalAccountID",
             "short": "For internal use only.",
             "type": "`$STRING`",
@@ -333,6 +364,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "toDate",
             "short": "Maximum transaction date for the statement.",
             "type": "`$STRING`",
@@ -352,10 +384,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedLastSyncedAt",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedSyncLastFailedAt",
             "type": "`$STRING`",
           },
@@ -368,11 +402,16 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "xeroUnsynchronisedTransactionsCount",
             "short": "Indicates the number of unsynchronised transactions with Xero",
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "account",
         "op": {
           "create": {
@@ -401,18 +440,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/accounts/{accountID}/{currency}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "{currency}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "var": "currency",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -423,6 +472,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "{currency}",
+                ],
               },
               {
                 "args": {
@@ -439,18 +495,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/accounts/{accountID}/statements",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "statements",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "statements",
+                  },
+                ],
                 "select": {
                   "$action": "statement",
                   "exist": [
@@ -466,16 +532,29 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "statements",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/accounts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -491,6 +570,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                ],
               },
             ],
           },
@@ -533,10 +617,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -550,6 +640,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                ],
               },
               {
                 "args": {
@@ -575,18 +670,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/accounts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "accounts",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "connected_account",
@@ -597,6 +702,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "accounts",
+                ],
               },
             ],
           },
@@ -683,11 +795,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "export",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "export",
+                  },
                 ],
                 "select": {
                   "$action": "export",
@@ -709,6 +829,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -782,19 +908,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/transactions/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "transactions",
-                  "export",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "lit": "export",
+                  },
+                ],
                 "select": {
                   "$action": "transaction_export",
                   "exist": [
@@ -814,6 +952,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "transactions",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -837,19 +983,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/statements/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "statements",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "statements",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -860,6 +1018,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "statements",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -883,20 +1049,32 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/accounts/{accountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "accounts",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "id",
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -907,6 +1085,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "accounts",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -923,17 +1109,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -943,6 +1137,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -959,12 +1159,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/openbanking/accounts/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "accounts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -975,17 +1185,32 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "accounts",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/statements",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "statements",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "statements",
+                  },
                 ],
                 "select": {
                   "$action": "statement",
@@ -994,6 +1219,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "statements",
+                ],
               },
             ],
           },
@@ -1016,12 +1247,22 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/accounts/archive/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "archive",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "archive",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1032,17 +1273,32 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "archive",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/accounts/statements",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "statements",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "statements",
+                  },
                 ],
                 "select": {
                   "$action": "statement",
@@ -1051,6 +1307,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "statements",
+                ],
               },
             ],
           },
@@ -1080,19 +1342,31 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/accounts/{accountID}/topup/{amount}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "topup",
-                  "{amount}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "topup",
+                  },
+                  {
+                    "var": "amount",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -1103,6 +1377,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "topup",
+                  "{amount}",
+                ],
               },
               {
                 "args": {
@@ -1119,12 +1401,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/accounts/unarchive/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "unarchive",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "unarchive",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1135,6 +1427,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "unarchive",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -1151,11 +1450,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/accounts/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1169,6 +1476,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1196,6 +1509,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -1204,6 +1518,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "batch",
         "op": {
           "create": {
@@ -1215,17 +1533,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/batch",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "batch",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "batch",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "batch",
+                ],
               },
             ],
           },
@@ -1248,12 +1580,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/batch/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "batch",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "batch",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1264,6 +1606,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "batch",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1289,11 +1638,13 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the beneficiary.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this beneficiary.",
             "type": "`$INTEGER`",
@@ -1356,10 +1707,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -1368,14 +1721,17 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastAuthorised",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "op": {
               "create": {
@@ -1416,6 +1772,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "beneficiary",
         "op": {
           "create": {
@@ -1437,12 +1797,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/beneficiaries/authorise/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "authorise",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "authorise",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1453,16 +1823,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "authorise",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/beneficiaries",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -1477,17 +1860,30 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/beneficiaries/batchcreate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "batchcreate",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "batchcreate",
+                  },
                 ],
                 "select": {
                   "$action": "batchcreate",
@@ -1496,6 +1892,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "batchcreate",
+                ],
               },
             ],
           },
@@ -1560,10 +1962,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/beneficiaries",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1581,6 +1989,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                ],
               },
               {
                 "args": {
@@ -1642,18 +2055,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/beneficiaries",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "beneficiaries",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "currency",
@@ -1670,6 +2093,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "beneficiaries",
+                ],
               },
             ],
           },
@@ -1728,11 +2158,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/beneficiaries/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "export",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "export",
+                  },
                 ],
                 "select": {
                   "$action": "export",
@@ -1750,6 +2188,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -1773,19 +2217,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/beneficiaries/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "beneficiaries",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -1796,6 +2252,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "beneficiaries",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -1812,11 +2276,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/beneficiaries/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1827,6 +2299,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1849,11 +2327,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/beneficiaries/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1864,6 +2350,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1886,12 +2378,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/beneficiaries/disable/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "disable",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "disable",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1902,6 +2404,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "disable",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -1918,12 +2427,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/beneficiaries/enable/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "enable",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "enable",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1934,6 +2453,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "enable",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -1950,11 +2476,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/beneficiaries/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "beneficiaries",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1971,6 +2505,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "beneficiaries",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1997,26 +2537,34 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Timestamp indicating when the group was created.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "Timestamp indicating when the group was last updated.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "req": True,
             "short": "Gets or Sets the merchant id.",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "beneficiary_group",
         "op": {
           "list": {
@@ -2052,18 +2600,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/beneficiarygroups",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "beneficiarygroups",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "beneficiarygroups",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -2075,6 +2633,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "beneficiarygroups",
+                ],
               },
             ],
           },
@@ -2123,11 +2688,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "payerAuthenticationWindowHeight",
             "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "payerAuthenticationWindowWidth",
             "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
             "type": "`$INTEGER`",
@@ -2138,6 +2705,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
@@ -2151,6 +2719,7 @@ def make_config():
           },
           {
             "name": "responseType",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -2188,18 +2757,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2209,6 +2788,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                ],
               },
             ],
           },
@@ -2229,6 +2815,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "customerEmailAddress",
             "short": "When creating a tokenised card the payer's email address must be supplied.",
             "type": "`$STRING`",
@@ -2242,11 +2829,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "The unique ID of the card token that has been stored for the customer.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -2255,6 +2844,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
@@ -2263,14 +2853,20 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "card_customer_token",
         "op": {
           "list": {
@@ -2299,21 +2895,35 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "card",
-                  "customertokens",
-                  "{merchant_id}",
-                  "{customer_email_address}",
-                ],
                 "rename": {
                   "param": {
                     "customerEmailAddress": "customer_email_address",
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "customertokens",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "var": "customer_email_address",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "customer_email_address",
@@ -2324,6 +2934,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "card",
+                  "customertokens",
+                  "{merchant_id}",
+                  "{customer_email_address}",
+                ],
               },
             ],
           },
@@ -2346,19 +2965,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/card/customertokens/{customerEmailAddress}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "card",
-                  "customertokens",
-                  "{customer_email_address}",
-                ],
                 "rename": {
                   "param": {
                     "customerEmailAddress": "customer_email_address",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "customertokens",
+                  },
+                  {
+                    "var": "customer_email_address",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "customer_email_address",
@@ -2368,6 +2999,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "card",
+                  "customertokens",
+                  "{customer_email_address}",
+                ],
               },
             ],
           },
@@ -2397,22 +3036,38 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/paymentrequests/card/customertokens/removeall/{merchantID}/{customerEmailAddress}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "card",
-                  "customertokens",
-                  "removeall",
-                  "{merchant_id}",
-                  "{customer_email_address}",
-                ],
                 "rename": {
                   "param": {
                     "customerEmailAddress": "customer_email_address",
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "customertokens",
+                  },
+                  {
+                    "lit": "removeall",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "var": "customer_email_address",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "customer_email_address",
@@ -2423,6 +3078,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "card",
+                  "customertokens",
+                  "removeall",
+                  "{merchant_id}",
+                  "{customer_email_address}",
+                ],
               },
               {
                 "args": {
@@ -2439,20 +3104,34 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/paymentrequests/card/customertokens/removeall/{customerEmailAddress}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "card",
-                  "customertokens",
-                  "removeall",
-                  "{customer_email_address}",
-                ],
                 "rename": {
                   "param": {
                     "customerEmailAddress": "customer_email_address",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "customertokens",
+                  },
+                  {
+                    "lit": "removeall",
+                  },
+                  {
+                    "var": "customer_email_address",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "customer_email_address",
@@ -2462,6 +3141,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "card",
+                  "customertokens",
+                  "removeall",
+                  "{customer_email_address}",
+                ],
               },
               {
                 "args": {
@@ -2478,13 +3166,25 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/paymentrequests/card/customertokens/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "card",
-                  "customertokens",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "customertokens",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2495,6 +3195,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "card",
+                  "customertokens",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -2546,11 +3254,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "payerAuthenticationWindowHeight",
             "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "payerAuthenticationWindowWidth",
             "short": "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge.",
             "type": "`$INTEGER`",
@@ -2561,6 +3271,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
@@ -2574,6 +3285,7 @@ def make_config():
           },
           {
             "name": "responseType",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -2618,21 +3330,35 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "refund",
-                  "{partial_refund_amount}",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                     "partialRefundAmount": "partial_refund_amount",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "refund",
+                  },
+                  {
+                    "var": "partial_refund_amount",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "partial_refund_amount",
@@ -2643,6 +3369,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "refund",
+                  "{partial_refund_amount}",
+                ],
               },
               {
                 "args": {
@@ -2659,19 +3394,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card/capture",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "capture",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "capture",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2681,6 +3428,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "capture",
+                ],
               },
               {
                 "args": {
@@ -2697,19 +3452,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card/paywithtoken",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "paywithtoken",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "paywithtoken",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2719,6 +3486,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "paywithtoken",
+                ],
               },
               {
                 "args": {
@@ -2735,19 +3510,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card/void",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "void",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "void",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2757,6 +3544,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "void",
+                ],
               },
               {
                 "args": {
@@ -2773,19 +3568,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/card/voidpaymentrequest",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "voidpaymentrequest",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "voidpaymentrequest",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2795,6 +3602,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "voidpaymentrequest",
+                ],
               },
             ],
           },
@@ -2839,19 +3654,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}/card/publickey",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "card",
-                  "publickey",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "card",
+                  },
+                  {
+                    "lit": "publickey",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -2861,6 +3688,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "card",
+                  "publickey",
+                ],
               },
             ],
           },
@@ -2886,16 +3721,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "consentID",
             "short": "The ID of the open banking consent.",
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "emailAddress",
             "short": "The email address that identifies the end user that will be authorising the open banking consent request.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "expiryDate",
             "type": "`$STRING`",
           },
@@ -2905,10 +3743,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -2933,6 +3773,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "op": {
               "create": {
@@ -2954,6 +3795,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "consent",
         "op": {
           "create": {
@@ -2965,11 +3810,19 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/openbanking/consents",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -2984,6 +3837,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                ],
               },
             ],
           },
@@ -3013,19 +3872,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/openbanking/consents/{merchantID}/{email}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
-                  "{merchant_id}",
-                  "{email}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "var": "email",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "email",
@@ -3036,6 +3907,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                  "{merchant_id}",
+                  "{email}",
+                ],
               },
             ],
           },
@@ -3058,12 +3937,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/openbanking/consents/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3074,6 +3963,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -3096,12 +3992,22 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/openbanking/consents/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3112,6 +4018,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -3134,12 +4047,22 @@ def make_config():
                 "kind": "http",
                 "method": "PATCH",
                 "orig": "/api/v1/openbanking/consents/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3150,6 +4073,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -3169,6 +4099,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "decimals",
             "type": "`$INTEGER`",
           },
@@ -3209,10 +4140,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/currencies",
-                "parts": [
-                  "api",
-                  "v1",
-                  "currencies",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "currencies",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3223,6 +4160,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "currencies",
+                ],
               },
             ],
           },
@@ -3255,6 +4197,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/directdebit/batchsubmit",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "directdebit",
+                  },
+                  {
+                    "lit": "batchsubmit",
+                  },
+                ],
+                "select": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
@@ -3262,11 +4226,6 @@ def make_config():
                   "directdebit",
                   "batchsubmit",
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
               },
             ],
           },
@@ -3282,12 +4241,18 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "exchangeRate",
             "short": "The price at which the transaction will buy the source currency using the destination currency.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "date-time",
             "name": "expiryTime",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {
@@ -3299,6 +4264,16 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "source",
+            "destination",
+            "valid_for_minute",
+          ],
+          "sep": "/",
+        },
         "name": "fx_rate",
         "op": {
           "list": {
@@ -3327,13 +4302,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/fxallheldrates/{source}/{destination}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "fxallheldrates",
-                  "{source}",
-                  "{destination}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "fxallheldrates",
+                  },
+                  {
+                    "var": "source",
+                  },
+                  {
+                    "var": "destination",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3345,6 +4332,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "fxallheldrates",
+                  "{source}",
+                  "{destination}",
+                ],
               },
             ],
           },
@@ -3381,20 +4376,34 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "fxheldrate",
-                  "{source}",
-                  "{destination}",
-                  "{valid_for_minute}",
-                ],
                 "rename": {
                   "param": {
                     "validForMinutes": "valid_for_minute",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "fxheldrate",
+                  },
+                  {
+                    "var": "source",
+                  },
+                  {
+                    "var": "destination",
+                  },
+                  {
+                    "var": "valid_for_minute",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "destination",
@@ -3406,6 +4415,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "fxheldrate",
+                  "{source}",
+                  "{destination}",
+                  "{valid_for_minute}",
+                ],
               },
             ],
           },
@@ -3424,11 +4442,13 @@ def make_config():
       "i_payment": {
         "fields": [
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
           {
             "name": "responseType",
+            "readOnly": True,
             "type": "`$STRING`",
           },
         ],
@@ -3443,17 +4463,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/payondemand",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "payondemand",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "payondemand",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "payondemand",
+                ],
               },
             ],
           },
@@ -3481,6 +4515,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "approvedAt",
             "short": "Date at which the supplier approved this mandate.",
             "type": "`$STRING`",
@@ -3554,6 +4589,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "emailAddress",
             "req": True,
             "short": "Customer's email address.",
@@ -3571,11 +4607,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Internal ID of the mandate.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "The timestamp this mandate was created at.",
             "type": "`$STRING`",
@@ -3592,11 +4630,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "The timestamp this mandate was last updated at.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "op": {
               "create": {
@@ -3654,6 +4694,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "mandate",
         "op": {
           "create": {
@@ -3665,10 +4709,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/mandates",
-                "parts": [
-                  "api",
-                  "v1",
-                  "mandates",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "mandates",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -3691,6 +4741,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "mandates",
+                ],
               },
             ],
           },
@@ -3713,11 +4768,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/mandates/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "mandates",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "mandates",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3728,6 +4791,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "mandates",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -3754,6 +4823,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "companyID",
             "short": "The Company ID recorded in the Compliance system.",
             "type": "`$STRING`",
@@ -3764,16 +4834,19 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "int32",
             "name": "hostedPayVersion",
             "short": "The version of the hosted payment page to use with the merchant.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique ID for the merchant.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Timestamp the merchant was added to MoneyMoov.",
             "type": "`$STRING`",
@@ -3828,6 +4901,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "int32",
             "name": "paymentAccountLimit",
             "short": "The maximum number of payment accounts that can be created for the Merchant.",
             "type": "`$INTEGER`",
@@ -3872,6 +4946,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "webHookLimit",
             "short": "The maximum number of web hooks that can be created for the Merchant.",
             "type": "`$INTEGER`",
@@ -3882,6 +4957,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "merchant",
         "op": {
           "list": {
@@ -3931,18 +5010,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/childmerchants",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "childmerchants",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "childmerchants",
+                  },
+                ],
                 "select": {
                   "$action": "childmerchant",
                   "exist": [
@@ -3957,6 +5046,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "childmerchants",
+                ],
               },
               {
                 "args": {
@@ -3999,11 +5095,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/paged",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "paged",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "lit": "paged",
+                  },
                 ],
                 "select": {
                   "$action": "paged",
@@ -4019,73 +5123,132 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "paged",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/whoamimerchant",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "whoamimerchant",
+                  },
+                ],
+                "select": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
                   "metadata",
                   "whoamimerchant",
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/whoamimerchantsigned",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "whoamimerchantsigned",
+                  },
+                ],
+                "select": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
                   "metadata",
                   "whoamimerchantsigned",
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/whoamimerchantwhitelist",
-                "parts": [
-                  "api",
-                  "v1",
-                  "metadata",
-                  "whoamimerchantwhitelist",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "whoamimerchantwhitelist",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "metadata",
+                  "whoamimerchantwhitelist",
+                ],
               },
             ],
           },
@@ -4176,19 +5339,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/payouts/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "payouts",
-                  "export",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "export",
+                  },
+                ],
                 "select": {
                   "$action": "payout_export",
                   "exist": [
@@ -4210,6 +5385,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "payouts",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -4265,19 +5448,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/beneficiaries/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "beneficiaries",
-                  "export",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "beneficiaries",
+                  },
+                  {
+                    "lit": "export",
+                  },
+                ],
                 "select": {
                   "$action": "beneficiary_export",
                   "exist": [
@@ -4294,6 +5489,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "beneficiaries",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -4310,17 +5513,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -4330,6 +5541,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -4359,20 +5576,32 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/merchants/{merchantId}/users/{userId}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{id}",
-                  "users",
-                  "{user_id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantId": "id",
                     "userId": "user_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "users",
+                  },
+                  {
+                    "var": "user_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -4383,6 +5612,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{id}",
+                  "users",
+                  "{user_id}",
+                ],
               },
               {
                 "args": {
@@ -4406,20 +5643,32 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/merchants/{merchantID}/tags/{tagID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "tags",
-                  "{tag_id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                     "tagID": "tag_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "tags",
+                  },
+                  {
+                    "var": "tag_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -4430,6 +5679,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "tags",
+                  "{tag_id}",
+                ],
               },
             ],
           },
@@ -4452,17 +5709,25 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/merchants/{merchantID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -4478,6 +5743,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -4494,18 +5765,28 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/merchants/{merchantId}/suspend",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{id}",
-                  "suspend",
-                ],
                 "rename": {
                   "param": {
                     "merchantId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "suspend",
+                  },
+                ],
                 "select": {
                   "$action": "suspend",
                   "exist": [
@@ -4518,6 +5799,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{id}",
+                  "suspend",
+                ],
               },
             ],
           },
@@ -4540,10 +5828,12 @@ def make_config():
       "merchant_authorisation_setting": {
         "fields": [
           {
+            "format": "double",
             "name": "amountLower",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountUpper",
             "type": "`$NUMBER`",
           },
@@ -4556,10 +5846,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -4568,14 +5860,17 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "numberOfAuthorisers",
             "type": "`$INTEGER`",
           },
@@ -4584,6 +5879,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "merchant_authorisation_setting",
         "op": {
           "list": {
@@ -4605,18 +5904,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/authorisationsettings",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "authorisationsettings",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "authorisationsettings",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -4626,6 +5935,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "authorisationsettings",
+                ],
               },
             ],
           },
@@ -4641,6 +5957,7 @@ def make_config():
       "merchant_direct_debit_mandate_page": {
         "fields": [
           {
+            "format": "date-time",
             "name": "approvedAt",
             "short": "Date at which the supplier approved this mandate.",
             "type": "`$STRING`",
@@ -4696,11 +6013,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Internal ID of the mandate.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "The timestamp this mandate was created at.",
             "type": "`$STRING`",
@@ -4711,11 +6030,13 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "The timestamp this mandate was last updated at.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "Internal ID of this mandate's merchant.",
             "type": "`$STRING`",
@@ -4756,6 +6077,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "merchant_direct_debit_mandate_page",
         "op": {
           "list": {
@@ -4844,10 +6169,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/mandates",
-                "parts": [
-                  "api",
-                  "v1",
-                  "mandates",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "mandates",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -4869,6 +6200,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "mandates",
+                ],
               },
             ],
           },
@@ -4885,6 +6221,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uuid",
             "name": "bankID",
             "short": "ID of the bank to be configured for the merchant.",
             "type": "`$STRING`",
@@ -4920,6 +6257,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "order",
             "short": "Order in which this setting will appear in the UI.",
             "type": "`$INTEGER`",
@@ -4987,18 +6325,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/banksettings",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "banksettings",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "banksettings",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "country_code",
@@ -5011,6 +6359,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.payByBankSettings`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "banksettings",
+                ],
               },
             ],
           },
@@ -5053,18 +6408,22 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
@@ -5095,6 +6454,10 @@ def make_config():
             "type": "`$OBJECT`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "merchant_payment_request_template",
         "op": {
           "list": {
@@ -5116,18 +6479,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{merchantID}/templates",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{merchant_id}",
-                  "templates",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "templates",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -5137,6 +6510,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{merchant_id}",
+                  "templates",
+                ],
               },
             ],
           },
@@ -5166,20 +6546,32 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "templates",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "paymentrequest_id",
                     "templateID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "templates",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5190,6 +6582,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.template`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "templates",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5219,20 +6619,32 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "templates",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "paymentrequest_id",
                     "templateID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "templates",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5243,6 +6655,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.template`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "templates",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5272,20 +6692,32 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/paymentrequests/{merchantID}/templates/{templateID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "templates",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "paymentrequest_id",
                     "templateID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "templates",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5302,6 +6734,14 @@ def make_config():
                   },
                   "res": "`body.template`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "templates",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5327,11 +6767,13 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the merchant token.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this merchant token.",
             "type": "`$INTEGER`",
@@ -5353,6 +6795,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "expiresAt",
             "short": "Optional.",
             "type": "`$STRING`",
@@ -5368,10 +6811,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -5391,14 +6836,17 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastAuthorised",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "op": {
               "create": {
@@ -5420,6 +6868,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "requestSignatureVersion",
             "short": "Represent the version of the overall merchant token.",
             "type": "`$INTEGER`",
@@ -5440,6 +6889,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "merchant_token",
         "op": {
           "create": {
@@ -5451,10 +6904,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/tokens",
-                "parts": [
-                  "api",
-                  "v1",
-                  "tokens",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -5467,6 +6926,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "tokens",
+                ],
               },
             ],
           },
@@ -5503,18 +6967,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/tokens",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "tokens",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -5526,6 +7000,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "tokens",
+                ],
               },
             ],
           },
@@ -5548,11 +7029,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/tokens/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "tokens",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -5563,6 +7052,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "tokens",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5585,11 +7080,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/tokens/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "tokens",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -5605,6 +7108,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "tokens",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5651,11 +7160,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/problemnotification",
-                "parts": [
-                  "api",
-                  "v1",
-                  "metadata",
-                  "problemnotification",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "problemnotification",
+                  },
                 ],
                 "select": {
                   "$action": "problemnotification",
@@ -5669,17 +7186,31 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "metadata",
+                  "problemnotification",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/problem",
-                "parts": [
-                  "api",
-                  "v1",
-                  "metadata",
-                  "problem",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "problem",
+                  },
                 ],
                 "select": {
                   "$action": "problem",
@@ -5688,6 +7219,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "metadata",
+                  "problem",
+                ],
               },
             ],
           },
@@ -5699,14 +7236,17 @@ def make_config():
       "no_frixion_version": {
         "fields": [
           {
+            "format": "int32",
             "name": "buildVersion",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "majorVersion",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "minorVersion",
             "type": "`$INTEGER`",
           },
@@ -5726,17 +7266,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/version",
-                "parts": [
-                  "api",
-                  "v1",
-                  "metadata",
-                  "version",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "version",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "metadata",
+                  "version",
+                ],
               },
             ],
           },
@@ -5746,7 +7300,21 @@ def make_config():
         },
       },
       "open_banking": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "merchant_id",
+            "email",
+          ],
+          "sep": "/",
+        },
         "name": "open_banking",
         "op": {
           "create": {
@@ -5768,20 +7336,33 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/openbanking/account/{accountID}/synchronise",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "account",
-                  "{account_id}",
-                  "synchronise",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "account",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "synchronise",
+                  },
+                ],
                 "select": {
+                  "$action": "synchronise",
                   "exist": [
                     "account_id",
                   ],
@@ -5790,6 +7371,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "account",
+                  "{account_id}",
+                  "synchronise",
+                ],
               },
             ],
           },
@@ -5819,19 +7408,31 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/openbanking/consents/{merchantID}/{email}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "consents",
-                  "{merchant_id}",
-                  "{email}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "consents",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "var": "email",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "email",
@@ -5842,6 +7443,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "consents",
+                  "{merchant_id}",
+                  "{email}",
+                ],
               },
               {
                 "args": {
@@ -5858,18 +7467,28 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/openbanking/account/{accountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "account",
-                  "{account_id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "account",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -5879,6 +7498,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "account",
+                  "{account_id}",
+                ],
               },
             ],
           },
@@ -5945,11 +7571,19 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/openbanking/payeeverification",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "payeeverification",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "payeeverification",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -5962,6 +7596,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "payeeverification",
+                ],
               },
             ],
           },
@@ -5977,6 +7617,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "amount",
             "op": {
               "create": {
@@ -5988,16 +7629,19 @@ def make_config():
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountPending",
             "short": "Total amount that has been authorised but not settled for this payment request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountReceived",
             "short": "Total amount received for this payment request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountRefunded",
             "short": "Total amount refunded for this payment request.",
             "type": "`$NUMBER`",
@@ -6078,6 +7722,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "email",
             "name": "customerEmailAddress",
             "short": "Optional email address for the customer.",
             "type": "`$STRING`",
@@ -6089,6 +7734,7 @@ def make_config():
           },
           {
             "name": "customerName",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -6106,6 +7752,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "dueDate",
             "short": "The due date for the payment request.",
             "type": "`$STRING`",
@@ -6126,6 +7773,7 @@ def make_config():
           },
           {
             "name": "formattedAmount",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -6134,6 +7782,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -6143,6 +7792,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "The timestamp the payment request was created at.",
             "type": "`$STRING`",
@@ -6163,6 +7813,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "The timestamp the payment request was last updated at.",
             "type": "`$STRING`",
@@ -6173,16 +7824,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lightningInvoiceExpiresAt",
             "short": "Date and time of expiration of the lightning invoice.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantDirectDebitMandateID",
             "short": "Optional ID of the direct debit mandate associated with this payment request.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant to create the payment request for.",
             "type": "`$STRING`",
@@ -6193,6 +7847,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "notificationEmailAddresses",
             "type": "`$STRING`",
           },
@@ -6218,6 +7873,7 @@ def make_config():
           },
           {
             "name": "paymentAttempts",
+            "readOnly": True,
             "short": "The payment attempts made against this payment request.",
             "type": "`$ARRAY`",
           },
@@ -6232,16 +7888,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "payrunID",
             "short": "The ID of a payrun that needs an account top up.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "pispAccountID",
             "short": "The payment account ID to use to receive payment initiation payments.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "priorityBankID",
             "short": "The ID of the bank that is set as the priority bank for display on pay element.",
             "type": "`$STRING`",
@@ -6251,6 +7910,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "int32",
             "name": "sandboxSettleDelayInSeconds",
             "short": "Sandbox only.",
             "type": "`$INTEGER`",
@@ -6290,6 +7950,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "shippingEmail",
             "short": "Optionally the shipping email address for the customer.",
             "type": "`$STRING`",
@@ -6348,6 +8009,10 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment",
         "op": {
           "create": {
@@ -6355,14 +8020,91 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "paymentrequest_id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                  "query": [
+                    {
+                      "kind": "query",
+                      "name": "mandate_id",
+                      "orig": "mandate_id",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "query",
+                      "name": "submit_after",
+                      "orig": "submit_after",
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
                 "kind": "http",
                 "method": "POST",
-                "orig": "/api/v1/paymentrequests",
+                "orig": "/api/v1/paymentrequests/{id}/directdebit",
+                "rename": {
+                  "param": {
+                    "id": "paymentrequest_id",
+                  },
+                },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "directdebit",
+                  },
+                ],
+                "select": {
+                  "$action": "directdebit",
+                  "exist": [
+                    "mandate_id",
+                    "paymentrequest_id",
+                    "submit_after",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
                   "paymentrequests",
+                  "{paymentrequest_id}",
+                  "directdebit",
+                ],
+              },
+              {
+                "args": {},
+                "kind": "http",
+                "method": "POST",
+                "orig": "/api/v1/paymentrequests",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -6416,6 +8158,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                ],
               },
             ],
           },
@@ -6447,11 +8194,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6463,6 +8218,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -6479,18 +8240,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/getbyorderid/{orderID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "getbyorderid",
-                  "{order_id}",
-                ],
                 "rename": {
                   "param": {
                     "orderID": "order_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "getbyorderid",
+                  },
+                  {
+                    "var": "order_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "order_id",
@@ -6500,6 +8271,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "getbyorderid",
+                  "{order_id}",
+                ],
               },
             ],
           },
@@ -6522,11 +8300,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/paymentrequests/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6575,6 +8361,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -6583,6 +8375,9 @@ def make_config():
           "ancestors": [
             [
               "getbyorderid",
+            ],
+            [
+              "paymentrequest",
             ],
           ],
         },
@@ -6600,22 +8395,29 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "availableBalance",
+            "readOnly": True,
             "short": "The current available balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "availableBalanceMinorUnits",
+            "readOnly": True,
             "short": "The available balance expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "balance",
             "short": "Balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "balanceMinorUnits",
+            "readOnly": True,
             "short": "Balance of the account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -6625,6 +8427,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "consentID",
             "short": "The ID of the consent used to connect the external account.",
             "type": "`$STRING`",
@@ -6651,10 +8454,12 @@ def make_config():
           },
           {
             "name": "displayName",
+            "readOnly": True,
             "short": "Gets a unique display name for the payment account.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "expiryDate",
             "short": "The date that the external account will expire",
             "type": "`$STRING`",
@@ -6665,6 +8470,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique id for the account.",
             "type": "`$STRING`",
@@ -6675,6 +8481,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Timestamp when the account was created.",
             "type": "`$STRING`",
@@ -6701,6 +8508,7 @@ def make_config():
           },
           {
             "name": "isVirtual",
+            "readOnly": True,
             "short": "True if the account is a virtual account.",
             "type": "`$BOOLEAN`",
           },
@@ -6709,11 +8517,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "Timestamp when the account was last updated.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -6724,6 +8534,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "physicalAccountID",
             "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
             "type": "`$STRING`",
@@ -6734,17 +8545,21 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "submittedPayoutsBalance",
             "short": "Total of the payouts that have been submitted for processing.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "submittedPayoutsBalanceMinorUnits",
+            "readOnly": True,
             "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
             "name": "summary",
+            "readOnly": True,
             "short": "Gets a summary of the payments account's most important properties.",
             "type": "`$STRING`",
           },
@@ -6759,10 +8574,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedLastSyncedAt",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedSyncLastFailedAt",
             "type": "`$STRING`",
           },
@@ -6775,11 +8592,16 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "xeroUnsynchronisedTransactionsCount",
             "short": "Indicates the number of unsynchronised transactions with Xero",
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment_account",
         "op": {
           "list": {
@@ -6865,11 +8687,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/paged",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "paged",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "paged",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6890,6 +8720,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "paged",
+                ],
               },
               {
                 "args": {
@@ -6922,18 +8758,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/virtual",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "virtual",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "virtual",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -6945,6 +8791,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "virtual",
+                ],
               },
             ],
           },
@@ -6965,17 +8818,22 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "availableBalance",
+            "readOnly": True,
             "short": "The current available balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "balance",
             "short": "Balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "balanceMinorUnits",
+            "readOnly": True,
             "short": "Balance of the account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -6985,6 +8843,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique id for the account.",
             "type": "`$STRING`",
@@ -7005,16 +8864,22 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "submittedPayoutsBalance",
             "short": "Total of the payouts that have been submitted for processing.",
             "type": "`$NUMBER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment_account_minimal",
         "op": {
           "list": {
@@ -7095,11 +8960,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/minimal",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "minimal",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "lit": "minimal",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7119,6 +8992,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "minimal",
+                ],
               },
             ],
           },
@@ -7140,6 +9019,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
@@ -7150,6 +9030,7 @@ def make_config():
           },
           {
             "name": "responseType",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -7178,18 +9059,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/{id}/pisp",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "pisp",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "pisp",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -7199,6 +9090,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "pisp",
+                ],
               },
             ],
           },
@@ -7218,21 +9116,25 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "amount",
             "short": "The amount of money to request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountPending",
             "short": "Total amount that has been authorised but not settled for this payment request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountReceived",
             "short": "Total amount received for this payment request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountRefunded",
             "short": "Total amount refunded for this payment request.",
             "type": "`$NUMBER`",
@@ -7303,6 +9205,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "email",
             "name": "customerEmailAddress",
             "short": "Optional email address for the customer.",
             "type": "`$STRING`",
@@ -7314,6 +9217,7 @@ def make_config():
           },
           {
             "name": "customerName",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -7335,6 +9239,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "dueDate",
             "short": "The due date for the payment request.",
             "type": "`$STRING`",
@@ -7363,6 +9268,7 @@ def make_config():
           },
           {
             "name": "formattedAmount",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -7371,6 +9277,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -7380,6 +9287,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "The timestamp the payment request was created at.",
             "type": "`$STRING`",
@@ -7404,6 +9312,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "The timestamp the payment request was last updated at.",
             "type": "`$STRING`",
@@ -7414,16 +9323,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lightningInvoiceExpiresAt",
             "short": "Date and time of expiration of the lightning invoice.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantDirectDebitMandateID",
             "short": "Optional ID of the direct debit mandate associated with this payment request.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
@@ -7458,6 +9370,7 @@ def make_config():
           },
           {
             "name": "paymentAttempts",
+            "readOnly": True,
             "short": "The payment attempts made against this payment request.",
             "type": "`$ARRAY`",
           },
@@ -7480,16 +9393,19 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uuid",
             "name": "payrunID",
             "short": "The ID of a payrun that needs an account top up.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "pispAccountID",
             "short": "The payment account ID to use to receive payment initiation payments.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "priorityBankID",
             "short": "The ID of the bank that is set as the priority bank for display on pay element.",
             "type": "`$STRING`",
@@ -7499,6 +9415,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "int32",
             "name": "sandboxSettleDelayInSeconds",
             "short": "Sandbox only.",
             "type": "`$INTEGER`",
@@ -7541,6 +9458,10 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment_request",
         "op": {
           "create": {
@@ -7548,74 +9469,35 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "paymentrequest_id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "mandate_id",
-                      "orig": "mandate_id",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "submit_after",
-                      "orig": "submit_after",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
-                "kind": "http",
-                "method": "POST",
-                "orig": "/api/v1/paymentrequests/{id}/directdebit",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "directdebit",
-                ],
-                "rename": {
-                  "param": {
-                    "id": "paymentrequest_id",
-                  },
-                },
-                "select": {
-                  "exist": [
-                    "mandate_id",
-                    "paymentrequest_id",
-                    "submit_after",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-              },
-              {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/paymentrequests/batchcreate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "batchcreate",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "batchcreate",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "batchcreate",
+                ],
               },
             ],
           },
@@ -7719,10 +9601,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7746,6 +9634,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                ],
               },
             ],
           },
@@ -7849,11 +9742,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "export",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "export",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7877,6 +9778,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -7893,18 +9800,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}/receipt",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "receipt",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "receipt",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -7914,6 +9831,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "receipt",
+                ],
               },
             ],
           },
@@ -7936,11 +9860,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/paymentrequests/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7951,6 +9883,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -7973,19 +9911,31 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/paymentrequests/{id}/pisp/sandboxcallback",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "pisp",
-                  "sandboxcallback",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "pisp",
+                  },
+                  {
+                    "lit": "sandboxcallback",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -8001,6 +9951,14 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "pisp",
+                  "sandboxcallback",
+                ],
               },
             ],
           },
@@ -8016,6 +9974,7 @@ def make_config():
       "payment_request_event": {
         "fields": [
           {
+            "format": "double",
             "name": "amount",
             "req": True,
             "type": "`$NUMBER`",
@@ -8031,11 +9990,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "cardExpiryMonth",
             "short": "For card payment events this field holds the payer's card expiry month.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "cardExpiryYear",
             "short": "For card payment events this field holds the payer's card expiry year.",
             "type": "`$INTEGER`",
@@ -8088,6 +10049,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "drirectDebitMandateID",
             "short": "The ID of the mandate that was used wehn requesting payment.",
             "type": "`$STRING`",
@@ -8105,10 +10067,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -8129,6 +10093,7 @@ def make_config():
           },
           {
             "name": "paymentMethodType",
+            "readOnly": True,
             "short": "The type of payment method the event relates to, e.g.",
             "type": "`$STRING`",
           },
@@ -8138,6 +10103,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "type": "`$STRING`",
           },
@@ -8167,11 +10133,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "reconciledTransactionID",
             "short": "For settlement events (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "refundPayoutID",
             "short": "ID of the Payout that was created for refund.",
             "type": "`$STRING`",
@@ -8185,6 +10153,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment_request_event",
         "op": {
           "list": {
@@ -8206,18 +10178,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}/events",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "events",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "events",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -8227,6 +10209,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "events",
+                ],
               },
             ],
           },
@@ -8316,11 +10305,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/metrics",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "metrics",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -8340,6 +10337,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.totalAmountsByCurrency`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "metrics",
+                ],
               },
             ],
           },
@@ -8351,21 +10354,25 @@ def make_config():
       "payment_request_minimal": {
         "fields": [
           {
+            "format": "double",
             "name": "amount",
             "short": "The amount of money to request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountPending",
             "short": "The amount of money that was authorised but has not arrived in the account yet.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountReceived",
             "short": "The amount of money that has been received for this payment request.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountRefunded",
             "short": "The amount of money that has been refunded for this payment request.",
             "type": "`$NUMBER`",
@@ -8399,6 +10406,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "dueDate",
             "short": "The due date of the payment request.",
             "type": "`$STRING`",
@@ -8413,6 +10421,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -8422,6 +10431,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
@@ -8471,6 +10481,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "priorityBankID",
             "type": "`$STRING`",
           },
@@ -8490,6 +10501,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payment_request_minimal",
         "op": {
           "list": {
@@ -8511,18 +10526,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}/minimal",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "minimal",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "minimal",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -8532,6 +10557,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "minimal",
+                ],
               },
             ],
           },
@@ -8547,19 +10579,23 @@ def make_config():
       "payment_request_result": {
         "fields": [
           {
+            "format": "double",
             "name": "amount",
             "short": "The authorised payment amount.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountPending",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountReceived",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "amountRefunded",
             "type": "`$NUMBER`",
           },
@@ -8574,6 +10610,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "short": "The ID of the payment request the result is for.",
             "type": "`$STRING`",
@@ -8588,6 +10625,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "requestedAmount",
             "short": "The full original payment amount requested.",
             "type": "`$NUMBER`",
@@ -8619,18 +10657,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/paymentrequests/{id}/result",
-                "parts": [
-                  "api",
-                  "v1",
-                  "paymentrequests",
-                  "{paymentrequest_id}",
-                  "result",
-                ],
                 "rename": {
                   "param": {
                     "id": "paymentrequest_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "paymentrequests",
+                  },
+                  {
+                    "var": "paymentrequest_id",
+                  },
+                  {
+                    "lit": "result",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "paymentrequest_id",
@@ -8640,6 +10688,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "paymentrequests",
+                  "{paymentrequest_id}",
+                  "result",
+                ],
               },
             ],
           },
@@ -8655,6 +10710,7 @@ def make_config():
       "payout": {
         "fields": [
           {
+            "format": "uuid",
             "name": "accountID",
             "op": {
               "create": {
@@ -8671,12 +10727,15 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "double",
             "name": "amount",
             "short": "Gets or Sets payout amount",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "amountMinorUnits",
+            "readOnly": True,
             "short": "The payout amount expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -8686,6 +10745,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "approverID",
             "short": "Gets the User ID of person that approved the payout.",
             "type": "`$STRING`",
@@ -8701,16 +10761,19 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the payout.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this payout.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "uuid",
             "name": "batchPayoutID",
             "short": "The ID of the batch the payout is associated with.",
             "type": "`$STRING`",
@@ -8721,6 +10784,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "beneficiaryID",
             "short": "Optional.",
             "type": "`$STRING`",
@@ -8765,6 +10829,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "currentUserID",
             "short": "The ID of the user that requested access to the PayOut record.",
             "type": "`$STRING`",
@@ -8794,34 +10859,42 @@ def make_config():
           },
           {
             "name": "formattedAmount",
+            "readOnly": True,
             "short": "Currency and formatted amount string.",
             "type": "`$STRING`",
           },
           {
             "name": "formattedFxDestinationAmount",
+            "readOnly": True,
             "short": "FX destination currency and amount formatted string.",
             "type": "`$STRING`",
           },
           {
             "name": "formattedSchedule",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
             "name": "formattedScheduleDayOnly",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
             "name": "formattedSourceAccountAvailableBalance",
+            "readOnly": True,
             "short": "The available balance of the account the payout is being made from.",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "fxDestinationAmount",
             "short": "If specified this will be the amount sent to the payee.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "fxDestinationAmountMinorUnits",
+            "readOnly": True,
             "short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -8831,6 +10904,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "fxQuoteExpiresAt",
             "short": "If an FX held rate quote ID is being used this is the time the quote expires.",
             "type": "`$STRING`",
@@ -8841,6 +10915,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "fxRate",
             "short": "For an FX payout this is the exchange rate to use for the payout.",
             "type": "`$NUMBER`",
@@ -8856,11 +10931,13 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "The ID for the payout.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -8890,10 +10967,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -8921,6 +11000,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uuid",
             "name": "payrunID",
             "short": "The ID of the payrun that this payout is associated with.",
             "type": "`$STRING`",
@@ -8939,6 +11019,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "scheduleDate",
             "short": "The date the payout should be submitted.",
             "type": "`$STRING`",
@@ -8949,12 +11030,15 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "double",
             "name": "sourceAccountAvailableBalance",
             "short": "The available balance of the account the payout is being made from.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "sourceAccountAvailableBalanceMinorUnits",
+            "readOnly": True,
             "short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -9014,21 +11098,25 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "topupPayrunID",
             "short": "The ID of a payrun that needs an account top up.",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "transactedAmount",
             "short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "transactedFxAmount",
             "short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "transactedFxRate",
             "short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
             "type": "`$NUMBER`",
@@ -9045,6 +11133,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "userID",
             "short": "Gets or Sets User ID of who created the payout request",
             "type": "`$STRING`",
@@ -9055,6 +11144,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payout",
         "op": {
           "create": {
@@ -9076,13 +11169,25 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/batch/submit/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "batch",
-                  "submit",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "batch",
+                  },
+                  {
+                    "lit": "submit",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9093,6 +11198,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "batch",
+                  "submit",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -9109,12 +11222,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/submit/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "submit",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "submit",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9125,16 +11248,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "submit",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -9166,17 +11302,30 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/batchcreate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "batchcreate",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "batchcreate",
+                  },
                 ],
                 "select": {
                   "$action": "batchcreate",
@@ -9185,17 +11334,31 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "batchcreate",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/send",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "send",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "send",
+                  },
                 ],
                 "select": {
                   "$action": "send",
@@ -9229,17 +11392,31 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "send",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payouts/sendbeneficiary",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "sendbeneficiary",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "sendbeneficiary",
+                  },
                 ],
                 "select": {
                   "$action": "sendbeneficiary",
@@ -9273,6 +11450,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "sendbeneficiary",
+                ],
               },
             ],
           },
@@ -9367,10 +11550,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9393,6 +11582,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                ],
               },
               {
                 "args": {
@@ -9477,18 +11671,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/payouts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "payouts",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -9509,6 +11713,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "payouts",
+                ],
               },
               {
                 "args": {
@@ -9593,18 +11804,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/payouts",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "payouts",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "currency",
@@ -9625,6 +11846,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "payouts",
+                ],
               },
             ],
           },
@@ -9719,11 +11947,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "export",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "export",
+                  },
                 ],
                 "select": {
                   "$action": "export",
@@ -9747,6 +11983,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -9777,14 +12019,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/fxquote/{source}/{destination}/{amount}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "fxquote",
-                  "{source}",
-                  "{destination}",
-                  "{amount}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "fxquote",
+                  },
+                  {
+                    "var": "source",
+                  },
+                  {
+                    "var": "destination",
+                  },
+                  {
+                    "var": "amount",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9797,6 +12053,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "fxquote",
+                  "{source}",
+                  "{destination}",
+                  "{amount}",
+                ],
               },
               {
                 "args": {
@@ -9813,11 +12078,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9828,6 +12101,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -9844,12 +12123,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/{id}/proof",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "{id}",
-                  "proof",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "proof",
+                  },
                 ],
                 "select": {
                   "$action": "proof",
@@ -9861,6 +12150,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "{id}",
+                  "proof",
+                ],
               },
             ],
           },
@@ -9883,11 +12179,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/payouts/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9898,17 +12202,31 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/payouts/batchdelete",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "batchdelete",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "batchdelete",
+                  },
                 ],
                 "select": {
                   "$action": "batchdelete",
@@ -9917,6 +12235,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "batchdelete",
+                ],
               },
             ],
           },
@@ -9939,12 +12263,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payouts/cancel/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "cancel",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "cancel",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9955,6 +12289,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "cancel",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -9971,12 +12312,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payouts/reject/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "reject",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "reject",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -9989,6 +12340,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "reject",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -10005,11 +12363,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payouts/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -10040,6 +12406,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -10061,17 +12433,21 @@ def make_config():
       "payout_keyset_page": {
         "fields": [
           {
+            "format": "uuid",
             "name": "accountID",
             "short": "Gets or Sets Account Id of sending account",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "amount",
             "short": "Gets or Sets payout amount",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "amountMinorUnits",
+            "readOnly": True,
             "short": "The payout amount expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -10081,6 +12457,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "approverID",
             "short": "Gets the User ID of person that approved the payout.",
             "type": "`$STRING`",
@@ -10096,16 +12473,19 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the payout.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this payout.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "uuid",
             "name": "batchPayoutID",
             "short": "The ID of the batch the payout is associated with.",
             "type": "`$STRING`",
@@ -10149,6 +12529,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "currentUserID",
             "short": "The ID of the user that requested access to the PayOut record.",
             "type": "`$STRING`",
@@ -10174,34 +12555,42 @@ def make_config():
           },
           {
             "name": "formattedAmount",
+            "readOnly": True,
             "short": "Currency and formatted amount string.",
             "type": "`$STRING`",
           },
           {
             "name": "formattedFxDestinationAmount",
+            "readOnly": True,
             "short": "FX destination currency and amount formatted string.",
             "type": "`$STRING`",
           },
           {
             "name": "formattedSchedule",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
             "name": "formattedScheduleDayOnly",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
             "name": "formattedSourceAccountAvailableBalance",
+            "readOnly": True,
             "short": "The available balance of the account the payout is being made from.",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "fxDestinationAmount",
             "short": "If specified this will be the amount sent to the payee.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "fxDestinationAmountMinorUnits",
+            "readOnly": True,
             "short": "The payout FxDestinationAmount expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -10211,6 +12600,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "fxQuoteExpiresAt",
             "short": "If an FX held rate quote ID is being used this is the time the quote expires.",
             "type": "`$STRING`",
@@ -10221,6 +12611,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "fxRate",
             "short": "For an FX payout this is the exchange rate to use for the payout.",
             "type": "`$NUMBER`",
@@ -10236,11 +12627,13 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "The ID for the payout.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -10270,10 +12663,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -10297,6 +12692,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "payrunID",
             "short": "The ID of the payrun that this payout is associated with.",
             "type": "`$STRING`",
@@ -10311,6 +12707,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "scheduleDate",
             "short": "The date the payout should be submitted.",
             "type": "`$STRING`",
@@ -10321,12 +12718,15 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "double",
             "name": "sourceAccountAvailableBalance",
             "short": "The available balance of the account the payout is being made from.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "sourceAccountAvailableBalanceMinorUnits",
+            "readOnly": True,
             "short": "The available balance of the source account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -10381,21 +12781,25 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "topupPayrunID",
             "short": "The ID of a payrun that needs an account top up.",
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "transactedAmount",
             "short": "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "transactedFxAmount",
             "short": "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "transactedFxRate",
             "short": "The actual FX rate applied during settlement, as recorded on the associated transaction.",
             "type": "`$NUMBER`",
@@ -10406,6 +12810,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "userID",
             "short": "Gets or Sets User ID of who created the payout request",
             "type": "`$STRING`",
@@ -10416,6 +12821,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payout_keyset_page",
         "op": {
           "list": {
@@ -10452,19 +12861,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/payouts/failed",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "payouts",
-                  "failed",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "failed",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -10476,6 +12897,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "payouts",
+                  "failed",
+                ],
               },
               {
                 "args": {
@@ -10507,19 +12936,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/payouts/failed",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "payouts",
-                  "failed",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "failed",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "from_date_utc",
@@ -10531,6 +12972,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "payouts",
+                  "failed",
+                ],
               },
               {
                 "args": {
@@ -10562,18 +13011,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/{merchantID}/failed",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "{merchant_id}",
-                  "failed",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "failed",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "from_date_utc",
@@ -10585,6 +13044,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "{merchant_id}",
+                  "failed",
+                ],
               },
             ],
           },
@@ -10674,11 +13140,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payouts/metrics",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payouts",
-                  "metrics",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payouts",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -10697,6 +13171,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.totalAmountsByCurrency`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payouts",
+                  "metrics",
+                ],
               },
             ],
           },
@@ -10708,6 +13188,7 @@ def make_config():
       "payrun": {
         "fields": [
           {
+            "format": "date-time",
             "name": "authorisationDate",
             "type": "`$STRING`",
           },
@@ -10717,16 +13198,19 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the payrun.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this payrun.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "uuid",
             "name": "batchPayoutID",
             "type": "`$STRING`",
           },
@@ -10737,10 +13221,12 @@ def make_config():
           },
           {
             "name": "canDelete",
+            "readOnly": True,
             "type": "`$BOOLEAN`",
           },
           {
             "name": "canEdit",
+            "readOnly": True,
             "type": "`$BOOLEAN`",
           },
           {
@@ -10753,10 +13239,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -10773,6 +13261,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
@@ -10782,6 +13271,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
@@ -10806,6 +13296,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "payoutsCount",
             "type": "`$INTEGER`",
           },
@@ -10814,10 +13305,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "scheduleDate",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "scheduledDate",
             "type": "`$STRING`",
           },
@@ -10830,18 +13323,25 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "totalEur",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "totalGbp",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "totalUsd",
             "type": "`$NUMBER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "payrun",
         "op": {
           "create": {
@@ -10863,12 +13363,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payruns/{id}/request-authorisation",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "request-authorisation",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "request-authorisation",
+                  },
                 ],
                 "select": {
                   "$action": "request_authorisation",
@@ -10884,6 +13394,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "request-authorisation",
+                ],
               },
               {
                 "args": {
@@ -10900,12 +13417,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payruns/{id}/submit",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "submit",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "submit",
+                  },
                 ],
                 "select": {
                   "$action": "submit",
@@ -10919,6 +13446,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "submit",
+                ],
               },
               {
                 "args": {
@@ -10935,17 +13469,25 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/payruns/{merchantID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -10958,6 +13500,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -11028,10 +13576,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payruns",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11050,6 +13604,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                ],
               },
             ],
           },
@@ -11072,11 +13631,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/payruns/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11087,6 +13654,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -11109,11 +13682,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/payruns/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11124,6 +13705,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -11140,12 +13727,22 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/payruns/{id}/archive",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "archive",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "archive",
+                  },
                 ],
                 "select": {
                   "$action": "archive",
@@ -11157,6 +13754,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "archive",
+                ],
               },
             ],
           },
@@ -11179,11 +13783,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payruns/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11200,6 +13812,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -11216,12 +13834,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payruns/{id}/cancel",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "cancel",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "cancel",
+                  },
                 ],
                 "select": {
                   "$action": "cancel",
@@ -11233,6 +13861,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "cancel",
+                ],
               },
               {
                 "args": {
@@ -11249,12 +13884,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payruns/{id}/reject",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "reject",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "reject",
+                  },
                 ],
                 "select": {
                   "$action": "reject",
@@ -11269,6 +13914,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "reject",
+                ],
               },
               {
                 "args": {
@@ -11285,12 +13937,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/payruns/{id}/unarchive",
-                "parts": [
-                  "api",
-                  "v1",
-                  "payruns",
-                  "{id}",
-                  "unarchive",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "payruns",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "unarchive",
+                  },
                 ],
                 "select": {
                   "$action": "unarchive",
@@ -11302,6 +13964,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "payruns",
+                  "{id}",
+                  "unarchive",
+                ],
               },
             ],
           },
@@ -11317,6 +13986,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "report",
         "op": {
           "update": {
@@ -11338,12 +14011,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/reports/{id}/initiate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "reports",
-                  "{id}",
-                  "initiate",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "reports",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "initiate",
+                  },
                 ],
                 "select": {
                   "$action": "initiate",
@@ -11355,6 +14038,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "reports",
+                  "{id}",
+                  "initiate",
+                ],
               },
             ],
           },
@@ -11367,6 +14057,7 @@ def make_config():
         "fields": [
           {
             "name": "contentType",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -11378,10 +14069,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastCompletedAt",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "type": "`$STRING`",
           },
@@ -11394,10 +14087,15 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "statementNumber",
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "report_result",
         "op": {
           "load": {
@@ -11426,20 +14124,32 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/reports/{id}/result/{statementNumber}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "reports",
-                  "{report_id}",
-                  "result",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "id": "report_id",
                     "statementNumber": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "reports",
+                  },
+                  {
+                    "var": "report_id",
+                  },
+                  {
+                    "lit": "result",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -11450,6 +14160,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "reports",
+                  "{report_id}",
+                  "result",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -11494,19 +14212,31 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/merchants/{merchantID}/roles/batchcreate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "roles",
-                  "batchcreate",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "roles",
+                  },
+                  {
+                    "lit": "batchcreate",
+                  },
+                ],
                 "select": {
                   "$action": "batchcreate",
                   "exist": [
@@ -11517,6 +14247,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "roles",
+                  "batchcreate",
+                ],
               },
             ],
           },
@@ -11536,6 +14274,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "accountID",
             "short": "The ID of the account the rule will apply to.",
             "type": "`$STRING`",
@@ -11546,6 +14285,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "approverID",
             "type": "`$STRING`",
           },
@@ -11560,11 +14300,13 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "int32",
             "name": "authorisersCompletedCount",
             "short": "The number of distinct authorisers that have authorised the rule.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "authorisersRequiredCount",
             "short": "The number of authorisers required for this rule.",
             "type": "`$INTEGER`",
@@ -11585,6 +14327,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "endAt",
             "short": "Optional end time for rule executions.",
             "type": "`$STRING`",
@@ -11595,10 +14338,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -11608,19 +14353,23 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastExecutedAt",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastRunAtTransactionDate",
             "short": "The most recent transaction date when the rule was last run.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -11657,6 +14406,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "startAt",
             "short": "Optional start time for rule executions.",
             "type": "`$STRING`",
@@ -11691,6 +14441,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "userID",
             "type": "`$STRING`",
           },
@@ -11700,6 +14451,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "rule",
         "op": {
           "create": {
@@ -11711,10 +14466,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/rules",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -11736,6 +14497,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                ],
               },
             ],
           },
@@ -11790,10 +14556,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/rules",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11809,6 +14581,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                ],
               },
             ],
           },
@@ -11831,11 +14608,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/rules/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11846,6 +14631,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -11868,11 +14659,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/rules/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11883,6 +14682,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -11905,11 +14710,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/rules/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -11935,6 +14748,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -11951,12 +14770,22 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/rules/{id}/disable",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
-                  "{id}",
-                  "disable",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "disable",
+                  },
                 ],
                 "select": {
                   "$action": "disable",
@@ -11968,6 +14797,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                  "{id}",
+                  "disable",
+                ],
               },
             ],
           },
@@ -11983,10 +14819,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "type": "`$STRING`",
           },
@@ -12007,6 +14845,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "ruleID",
             "type": "`$STRING`",
           },
@@ -12016,6 +14855,10 @@ def make_config():
             "type": "`$OBJECT`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "rule_event",
         "op": {
           "list": {
@@ -12059,12 +14902,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/rules/{id}/events",
-                "parts": [
-                  "api",
-                  "v1",
-                  "rules",
-                  "{id}",
-                  "events",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "rules",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "events",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -12078,6 +14931,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "rules",
+                  "{id}",
+                  "events",
+                ],
               },
             ],
           },
@@ -12097,10 +14957,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "req": True,
             "type": "`$STRING`",
@@ -12111,6 +14973,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "tag",
         "op": {
           "create": {
@@ -12132,18 +14998,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/merchants/{merchantID}/tags",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "tags",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "tags",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -12159,6 +15035,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "tags",
+                ],
               },
             ],
           },
@@ -12181,18 +15064,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/tags",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "tags",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "tags",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -12202,6 +15095,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "tags",
+                ],
               },
             ],
           },
@@ -12221,6 +15121,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "token",
         "op": {
           "create": {
@@ -12242,12 +15146,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/tokens/authorise/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "tokens",
-                  "authorise",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
+                  {
+                    "lit": "authorise",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -12258,6 +15172,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "tokens",
+                  "authorise",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -12280,11 +15201,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/tokens/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "tokens",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "tokens",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -12295,6 +15224,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "tokens",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -12306,6 +15241,7 @@ def make_config():
       "transaction": {
         "fields": [
           {
+            "format": "uuid",
             "name": "accountID",
             "short": "The ID of the account the transaction belongs to.",
             "type": "`$STRING`",
@@ -12316,6 +15252,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "accountSequenceNumber",
             "short": "The sequence number of transaction on a per account basis.",
             "type": "`$INTEGER`",
@@ -12325,26 +15262,33 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "double",
             "name": "amount",
             "short": "Amount of the transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "amountMinorUnits",
+            "readOnly": True,
             "short": "Amount of the transaction expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "balance",
             "short": "Balance left on the account after the transaction.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "balanceMinorUnits",
+            "readOnly": True,
             "short": "Balance on the account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "date-time",
             "name": "bookingDateTime",
             "type": "`$STRING`",
           },
@@ -12376,6 +15320,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "date",
             "type": "`$STRING`",
           },
@@ -12389,6 +15334,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "double",
             "name": "fxAmount",
             "short": "For an FX payout this is the amound in the FX currency.",
             "type": "`$NUMBER`",
@@ -12399,6 +15345,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "fxRate",
             "short": "For an FX payout this is the exchange rate between the transaction currency and the FX currency.",
             "type": "`$NUMBER`",
@@ -12409,11 +15356,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique ID for the transaction.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Date when the transaction was inserted into the ledger.",
             "type": "`$STRING`",
@@ -12427,16 +15376,19 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "pageNumber",
             "short": "Current page number.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "pageSize",
             "short": "Page size",
             "type": "`$INTEGER`",
@@ -12458,11 +15410,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "paymentRequestID",
             "short": "For Pay by Bank and Direct Debit transactions this will contain the ID of the payment request.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "payoutID",
             "short": "ID of the payout that resulted in the transaction.",
             "type": "`$STRING`",
@@ -12481,6 +15435,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "ruleID",
             "short": "ID of the rule that resulted in the transaction.",
             "type": "`$STRING`",
@@ -12508,11 +15463,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int64",
             "name": "totalPages",
             "short": "Total pages",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "totalSize",
             "short": "Total count",
             "type": "`$INTEGER`",
@@ -12523,6 +15480,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "transactionDate",
             "short": "Date when the transaction occurred.",
             "type": "`$STRING`",
@@ -12541,6 +15499,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "valueDateTime",
             "type": "`$STRING`",
           },
@@ -12555,6 +15514,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "transaction",
         "op": {
           "create": {
@@ -12576,12 +15539,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/transactions/{id}/tags",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{id}",
-                  "tags",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "tags",
+                  },
                 ],
                 "select": {
                   "$action": "tag",
@@ -12593,6 +15566,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{id}",
+                  "tags",
+                ],
               },
             ],
           },
@@ -12672,18 +15652,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/transactions",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "transactions",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -12702,6 +15692,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "transactions",
+                ],
               },
               {
                 "args": {
@@ -12757,19 +15754,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/openbanking/transactions/{id}/{accountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "openbanking",
-                  "transactions",
-                  "{id}",
-                  "{account_id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "openbanking",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -12785,6 +15794,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "openbanking",
+                  "transactions",
+                  "{id}",
+                  "{account_id}",
+                ],
               },
               {
                 "args": {
@@ -12834,18 +15851,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/transactions",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "transactions",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "from_date",
@@ -12860,6 +15887,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "transactions",
+                ],
               },
               {
                 "args": {
@@ -12900,10 +15934,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -12918,6 +15958,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                ],
               },
             ],
           },
@@ -12997,18 +16042,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions/{accountID}/export",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{account_id}",
-                  "export",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "export",
+                  },
+                ],
                 "select": {
                   "$action": "export",
                   "exist": [
@@ -13028,6 +16083,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{account_id}",
+                  "export",
+                ],
               },
               {
                 "args": {
@@ -13101,17 +16163,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions/{accountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "credit_type",
@@ -13130,6 +16200,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -13163,20 +16239,32 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions/{accountID}/from/{sequenceNumber}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{transaction_id}",
-                  "from",
-                  "{sequence_number}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "transaction_id",
                     "sequenceNumber": "sequence_number",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "transaction_id",
+                  },
+                  {
+                    "lit": "from",
+                  },
+                  {
+                    "var": "sequence_number",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "page_size",
@@ -13188,6 +16276,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{transaction_id}",
+                  "from",
+                  "{sequence_number}",
+                ],
               },
               {
                 "args": {
@@ -13211,19 +16307,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/accounts/{accountID}/transactions/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "transactions",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -13234,6 +16342,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "transactions",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -13250,12 +16366,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions/detail/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "detail",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "lit": "detail",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -13266,6 +16392,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "detail",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -13282,12 +16415,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/transactions/{id}/proof",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{id}",
-                  "proof",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "proof",
+                  },
                 ],
                 "select": {
                   "$action": "proof",
@@ -13299,6 +16442,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{id}",
+                  "proof",
+                ],
               },
             ],
           },
@@ -13329,12 +16479,22 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/transactions/{id}/tag",
-                "parts": [
-                  "api",
-                  "v1",
-                  "transactions",
-                  "{id}",
-                  "tag",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transactions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "tag",
+                  },
                 ],
                 "select": {
                   "$action": "tag",
@@ -13347,6 +16507,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "transactions",
+                  "{id}",
+                  "tag",
+                ],
               },
             ],
           },
@@ -13377,6 +16544,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "email",
             "name": "emailAddress",
             "op": {
               "update": {
@@ -13397,6 +16565,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -13431,11 +16600,16 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "userInviteID",
             "short": "Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "user",
         "op": {
           "list": {
@@ -13485,18 +16659,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/user/{merchantID}/userspaged",
-                "parts": [
-                  "api",
-                  "v1",
-                  "user",
-                  "{merchant_id}",
-                  "userspaged",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "user",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "userspaged",
+                  },
+                ],
                 "select": {
                   "$action": "userspaged",
                   "exist": [
@@ -13511,6 +16695,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "user",
+                  "{merchant_id}",
+                  "userspaged",
+                ],
               },
               {
                 "args": {
@@ -13527,18 +16718,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/users",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "users",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "users",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -13548,56 +16749,102 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "users",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/whoami",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "whoami",
+                  },
+                ],
+                "select": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
                   "metadata",
                   "whoami",
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/metadata/whoamitrustedapp",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "metadata",
+                  },
+                  {
+                    "lit": "whoamitrustedapp",
+                  },
+                ],
+                "select": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
                 "parts": [
                   "api",
                   "v1",
                   "metadata",
                   "whoamitrustedapp",
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/user",
-                "parts": [
-                  "api",
-                  "v1",
-                  "user",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "user",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "user",
+                ],
               },
             ],
           },
@@ -13620,11 +16867,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/user/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "user",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "user",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -13641,6 +16896,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "user",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -13667,15 +16928,18 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "initialRoleID",
             "short": "The role ID to automatically assign to the merchant’s very first user.",
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "inviteeEmailAddress",
             "op": {
               "create": {
@@ -13719,10 +16983,12 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "lastInvited",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "ID of the merchant the user is being invited to.",
             "type": "`$STRING`",
@@ -13746,6 +17012,7 @@ def make_config():
           },
           {
             "name": "status",
+            "readOnly": True,
             "type": "`$STRING`",
           },
           {
@@ -13754,6 +17021,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "uuid",
             "name": "userID",
             "type": "`$STRING`",
           },
@@ -13762,6 +17030,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "user_invite",
         "op": {
           "create": {
@@ -13783,12 +17055,22 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/userinvites/authorise/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "authorise",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "lit": "authorise",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -13799,16 +17081,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "authorise",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/userinvites",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -13822,23 +17117,42 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/userinvites/batchcreate",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "batchcreate",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "lit": "batchcreate",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "batchcreate",
+                ],
               },
             ],
           },
@@ -13889,18 +17203,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/userinvitespaged",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "userinvitespaged",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "userinvitespaged",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -13914,6 +17238,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.content`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "userinvitespaged",
+                ],
               },
             ],
           },
@@ -13936,11 +17267,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/userinvites/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -13951,6 +17290,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -13967,18 +17312,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/userinvites/{id}/details",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "{userinvite_id}",
-                  "details",
-                ],
                 "rename": {
                   "param": {
                     "id": "userinvite_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "var": "userinvite_id",
+                  },
+                  {
+                    "lit": "details",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "userinvite_id",
@@ -13988,6 +17343,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "{userinvite_id}",
+                  "details",
+                ],
               },
             ],
           },
@@ -14010,11 +17372,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/userinvites/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -14025,6 +17395,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -14047,11 +17423,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/userinvites/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "userinvites",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "userinvites",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -14062,6 +17446,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "userinvites",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -14090,22 +17480,29 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "availableBalance",
+            "readOnly": True,
             "short": "The current available balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "availableBalanceMinorUnits",
+            "readOnly": True,
             "short": "The available balance expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "balance",
             "short": "Balance of the account.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "balanceMinorUnits",
+            "readOnly": True,
             "short": "Balance of the account expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
@@ -14115,6 +17512,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "consentID",
             "short": "The ID of the consent used to connect the external account.",
             "type": "`$STRING`",
@@ -14141,10 +17539,12 @@ def make_config():
           },
           {
             "name": "displayName",
+            "readOnly": True,
             "short": "Gets a unique display name for the payment account.",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "expiryDate",
             "short": "The date that the external account will expire",
             "type": "`$STRING`",
@@ -14155,6 +17555,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "short": "Unique id for the account.",
             "type": "`$STRING`",
@@ -14165,6 +17566,7 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "inserted",
             "short": "Timestamp when the account was created.",
             "type": "`$STRING`",
@@ -14191,6 +17593,7 @@ def make_config():
           },
           {
             "name": "isVirtual",
+            "readOnly": True,
             "short": "True if the account is a virtual account.",
             "type": "`$BOOLEAN`",
           },
@@ -14199,11 +17602,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "short": "Timestamp when the account was last updated.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "short": "The ID of the merchant that owns the account.",
             "type": "`$STRING`",
@@ -14220,6 +17625,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "physicalAccountID",
             "short": "For virtual accounts this is the ID of the physical account that the virtual account is linked to.",
             "type": "`$STRING`",
@@ -14230,17 +17636,21 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "double",
             "name": "submittedPayoutsBalance",
             "short": "Total of the payouts that have been submitted for processing.",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "submittedPayoutsBalanceMinorUnits",
+            "readOnly": True,
             "short": "The balance of the submitted payouts expressed in the currency’s minor units (e.g.",
             "type": "`$INTEGER`",
           },
           {
             "name": "summary",
+            "readOnly": True,
             "short": "Gets a summary of the payments account's most important properties.",
             "type": "`$STRING`",
           },
@@ -14255,10 +17665,12 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedLastSyncedAt",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "xeroBankFeedSyncLastFailedAt",
             "type": "`$STRING`",
           },
@@ -14271,11 +17683,16 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "xeroUnsynchronisedTransactionsCount",
             "short": "Indicates the number of unsynchronised transactions with Xero",
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "virtual",
         "op": {
           "create": {
@@ -14297,18 +17714,28 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/accounts/{accountID}/virtual",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "virtual",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "virtual",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -14320,6 +17747,13 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "virtual",
+                ],
               },
             ],
           },
@@ -14349,20 +17783,32 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/accounts/{accountID}/virtual/{virtualAccountID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "accounts",
-                  "{account_id}",
-                  "virtual",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "accountID": "account_id",
                     "virtualAccountID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "accounts",
+                  },
+                  {
+                    "var": "account_id",
+                  },
+                  {
+                    "lit": "virtual",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "account_id",
@@ -14375,6 +17821,14 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "accounts",
+                  "{account_id}",
+                  "virtual",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -14395,16 +17849,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "emailAddress",
             "short": "The recipient email address(es) for notifications.",
             "type": "`$STRING`",
           },
           {
+            "format": "email",
             "name": "failedNotificationEmailAddress",
             "short": "The email address to which notifications about failed webhook deliveries will be sent.",
             "type": "`$STRING`",
           },
           {
+            "format": "uuid",
             "name": "id",
             "type": "`$STRING`",
           },
@@ -14413,6 +17870,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uuid",
             "name": "merchantID",
             "op": {
               "create": {
@@ -14457,10 +17915,15 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "int32",
             "name": "version",
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "webhook",
         "op": {
           "create": {
@@ -14472,10 +17935,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v1/webhooks",
-                "parts": [
-                  "api",
-                  "v1",
-                  "webhooks",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
                 ],
                 "select": {},
                 "transform": {
@@ -14493,6 +17962,11 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "webhooks",
+                ],
               },
             ],
           },
@@ -14515,18 +17989,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/webhooks",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "webhooks",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "merchant_id",
@@ -14536,6 +18020,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "webhooks",
+                ],
               },
             ],
           },
@@ -14565,19 +18056,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/merchants/{merchantID}/webhooks/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "merchants",
-                  "{merchant_id}",
-                  "webhooks",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "merchant_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "merchants",
+                  },
+                  {
+                    "var": "merchant_id",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -14588,6 +18091,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "merchants",
+                  "{merchant_id}",
+                  "webhooks",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -14604,17 +18115,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v1/webhooks/{merchantID}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "webhooks",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "merchantID": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -14624,6 +18143,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "webhooks",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -14646,11 +18171,19 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/api/v1/webhooks/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "webhooks",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -14661,6 +18194,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "webhooks",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -14683,11 +18222,19 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/v1/webhooks/{id}",
-                "parts": [
-                  "api",
-                  "v1",
-                  "webhooks",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -14709,6 +18256,12 @@ def make_config():
                   },
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v1",
+                  "webhooks",
+                  "{id}",
+                ],
               },
             ],
           },

@@ -606,6 +606,7 @@ API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 | `"destinationCurrency"` |  |
 | `"exchangeRate"` | The price at which the transaction will buy the source currency using the destination currency. |
 | `"expiryTime"` |  |
+| `"id"` |  |
 | `"quoteID"` |  |
 | `"sourceCurrency"` |  |
 
@@ -862,6 +863,7 @@ API path: `/api/v1/metadata/version`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Create, Remove.
 
@@ -966,7 +968,7 @@ API path: `/api/v1/openbanking/payeeverification`
 
 Operations: Create, Load, Update.
 
-API path: `/api/v1/paymentrequests`
+API path: `/api/v1/paymentrequests/{id}/directdebit`
 
 #### PaymentAccount
 
@@ -1127,7 +1129,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 
 Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/paymentrequests/{id}/directdebit`
+API path: `/api/v1/paymentrequests/batchcreate`
 
 #### PaymentRequestEvent
 
@@ -2345,6 +2347,7 @@ Create an instance: `fxRate := client.FxRate(nil)`
 | `destinationCurrency` | `string` |  |
 | `exchangeRate` | `float64` | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `string` |  |
+| `id` | `string` |  |
 | `quoteID` | `string` |  |
 | `sourceCurrency` | `string` |  |
 
@@ -2812,7 +2815,7 @@ Create an instance: `metadata := client.Metadata(nil)`
 #### Example: Load
 
 ```go
-metadata, err := client.Metadata(nil).Load(nil, nil)
+metadata, err := client.Metadata(nil).Load(map[string]any{"id": "metadata_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -2860,6 +2863,12 @@ Create an instance: `openBanking := client.OpenBanking(nil)`
 | --- | --- |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Create
 
@@ -3253,7 +3262,7 @@ Create an instance: `paymentRequest := client.PaymentRequest(nil)`
 #### Example: Load
 
 ```go
-paymentRequest, err := client.PaymentRequest(nil).Load(map[string]any{"id": "payment_request_id"}, nil)
+paymentRequest, err := client.PaymentRequest(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -4428,6 +4437,29 @@ if err != nil {
 }
 fmt.Println(result)
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

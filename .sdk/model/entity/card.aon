@@ -46,12 +46,14 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "payerAuthenticationWindowHeight"
       req: false
       short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested height of the iframe used to hold the challenge."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "payerAuthenticationWindowWidth"
       req: false
       short: "If a card payment response indicates a 3-D Secure payer authentication is required this field holds the requested width of the iframe used to hold the challenge."
@@ -64,6 +66,7 @@ main: kit: entity: card: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
@@ -80,6 +83,7 @@ main: kit: entity: card: {
     }
     {
       name: "responseType"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -120,18 +124,28 @@ main: kit: entity: card: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/card"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

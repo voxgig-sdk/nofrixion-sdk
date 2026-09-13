@@ -119,14 +119,22 @@ func payout_keyset_pageDirectSetup(mockres any) *payout_keyset_pageDirectSetupRe
 	env := envOverride(map[string]any{
 		"NOFRIXION_TEST_PAYOUT_KEYSET_PAGE_ENTID": map[string]any{},
 		"NOFRIXION_TEST_LIVE":    "FALSE",
-		"NOFRIXION_APIKEY":       "NONE",
+		"NOFRIXION_APIKEY":       "",
 	})
 
 	live := env["NOFRIXION_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["NOFRIXION_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewNofrixionSDK(mergedOpts)
 

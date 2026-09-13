@@ -11,6 +11,7 @@ main: kit: entity: rule: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "accountID"
       req: false
       short: "The ID of the account the rule will apply to."
@@ -23,6 +24,7 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "approverID"
       req: false
       type: "`$STRING`"
@@ -40,12 +42,14 @@ main: kit: entity: rule: {
       type: "`$ARRAY`"
     }
     {
+      format: "int32"
       name: "authorisersCompletedCount"
       req: false
       short: "The number of distinct authorisers that have authorised the rule."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "authorisersRequiredCount"
       req: false
       short: "The number of authorisers required for this rule."
@@ -69,6 +73,7 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "endAt"
       req: false
       short: "Optional end time for rule executions."
@@ -81,11 +86,13 @@ main: kit: entity: rule: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -97,22 +104,26 @@ main: kit: entity: rule: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastExecutedAt"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastRunAtTransactionDate"
       req: false
       short: "The most recent transaction date when the rule was last run."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "The ID of the merchant that owns the account."
@@ -154,6 +165,7 @@ main: kit: entity: rule: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "startAt"
       req: false
       short: "Optional start time for rule executions."
@@ -194,6 +206,7 @@ main: kit: entity: rule: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "userID"
       req: false
       type: "`$STRING`"
@@ -219,10 +232,16 @@ main: kit: entity: rule: {
         {
           method: "POST"
           orig: "/api/v1/rules"
-          parts: [
-            "api"
-            "v1"
-            "rules"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
           ]
           transform: {
             req: {
@@ -301,10 +320,16 @@ main: kit: entity: rule: {
           }
           method: "GET"
           orig: "/api/v1/rules"
-          parts: [
-            "api"
-            "v1"
-            "rules"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
           ]
           select: {
             exist: [
@@ -340,11 +365,19 @@ main: kit: entity: rule: {
           }
           method: "GET"
           orig: "/api/v1/rules/{id}"
-          parts: [
-            "api"
-            "v1"
-            "rules"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -375,11 +408,19 @@ main: kit: entity: rule: {
           }
           method: "DELETE"
           orig: "/api/v1/rules/{id}"
-          parts: [
-            "api"
-            "v1"
-            "rules"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -410,11 +451,19 @@ main: kit: entity: rule: {
           }
           method: "PUT"
           orig: "/api/v1/rules/{id}"
-          parts: [
-            "api"
-            "v1"
-            "rules"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -455,12 +504,22 @@ main: kit: entity: rule: {
           }
           method: "PUT"
           orig: "/api/v1/rules/{id}/disable"
-          parts: [
-            "api"
-            "v1"
-            "rules"
-            "{id}"
-            "disable"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "disable"
+            }
           ]
           select: {
             "$action": "disable"

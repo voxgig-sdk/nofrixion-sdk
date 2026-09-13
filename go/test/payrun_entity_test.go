@@ -101,7 +101,7 @@ func TestPayrunEntity(t *testing.T) {
 		// CREATE
 		payrunRef01Ent := client.Payrun(nil)
 		payrunRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "payrun"}, setup.data), "payrun_ref01"))
+			vs.GetPath(setup.data, []any{"new", "payrun"}), "payrun_ref01"))
 		payrunRef01Data["merchant_i_d"] = setup.idmap["merchant_i_d01"]
 
 		payrunRef01DataResult, err := payrunRef01Ent.Create(payrunRef01Data, nil)
@@ -226,7 +226,7 @@ func payrunBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"payrun01", "payrun02", "payrun03", "merchant_i_d01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -246,7 +246,7 @@ func payrunBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_PAYRUN_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_PAYRUN_ENTID"])
@@ -255,11 +255,23 @@ func payrunBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

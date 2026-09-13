@@ -1203,6 +1203,7 @@ $fx_rate = $client->FxRate();
 | `destinationCurrency` | `string` | No |  |
 | `exchangeRate` | `float` | No | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `string` | No |  |
+| `id` | `string` | No |  |
 | `quoteID` | `string` | No |  |
 | `sourceCurrency` | `string` | No |  |
 
@@ -1994,7 +1995,7 @@ $metadata = $client->Metadata();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Metadata()->load();
+$result = $client->Metadata()->load(["id" => "metadata_id"]);
 ```
 
 ### Common Methods
@@ -2087,6 +2088,12 @@ Return the entity name.
 ```php
 $open_banking = $client->OpenBanking();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -2744,7 +2751,7 @@ $results = $client->PaymentRequest()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->PaymentRequest()->load(["id" => "payment_request_id"]);
+$result = $client->PaymentRequest()->load();
 ```
 
 #### `remove(array $reqmatch, ?array $ctrl = null): mixed`
@@ -2752,7 +2759,7 @@ $result = $client->PaymentRequest()->load(["id" => "payment_request_id"]);
 Remove the entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->PaymentRequest()->remove(["id" => "payment_request_id"]);
+$result = $client->PaymentRequest()->remove(["id" => "id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -2761,7 +2768,6 @@ Update an existing entity. The data must include the entity `id`. Throws on erro
 
 ```php
 $result = $client->PaymentRequest()->update([
-  "id" => "payment_request_id",
   "paymentrequest_id" => "paymentrequest_id",
   // Fields to update
 ]);
@@ -4735,4 +4741,42 @@ $client = new NofrixionSDK([
   ],
 ]);
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

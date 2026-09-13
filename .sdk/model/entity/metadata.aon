@@ -37,11 +37,19 @@ main: kit: entity: metadata: {
           }
           method: "GET"
           orig: "/api/v1/metadata/problemnotification"
-          parts: [
-            "api"
-            "v1"
-            "metadata"
-            "problemnotification"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "problemnotification"
+            }
           ]
           select: {
             "$action": "problemnotification"
@@ -59,11 +67,19 @@ main: kit: entity: metadata: {
         {
           method: "GET"
           orig: "/api/v1/metadata/problem"
-          parts: [
-            "api"
-            "v1"
-            "metadata"
-            "problem"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "problem"
+            }
           ]
           select: {
             "$action": "problem"

@@ -18,6 +18,7 @@ main: kit: entity: payment_initiation: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
@@ -30,6 +31,7 @@ main: kit: entity: payment_initiation: {
     }
     {
       name: "responseType"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -59,18 +61,28 @@ main: kit: entity: payment_initiation: {
           }
           method: "POST"
           orig: "/api/v1/paymentrequests/{id}/pisp"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "pisp"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "pisp"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

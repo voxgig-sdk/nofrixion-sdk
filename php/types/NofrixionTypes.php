@@ -83,61 +83,10 @@ class AccountLoadMatch
 /** Request payload for Account#list. */
 class AccountListMatch
 {
-    public ?array $accountBalances = null;
-    public ?string $accountID = null;
-    public ?array $accountIdentifications = null;
-    public ?string $accountName = null;
-    public ?array $accountNames = null;
-    public ?string $accountSupplierName = null;
-    public ?string $accountType = null;
-    public ?float $availableBalance = null;
-    public ?int $availableBalanceMinorUnits = null;
-    public ?float $balance = null;
-    public ?int $balanceMinorUnits = null;
-    public ?string $bankName = null;
-    public ?string $consentID = null;
-    public ?array $consolidatedAccountInformation = null;
-    public ?array $createdBy = null;
-    public ?string $createdByDisplayName = null;
-    public ?string $currency = null;
-    public ?string $defaultPaymentRail = null;
-    public ?string $description = null;
-    public ?string $details = null;
-    public ?string $displayName = null;
-    public ?string $expiryDate = null;
-    public ?string $externalAccountIcon = null;
-    public ?string $format = null;
-    public ?string $fromDate = null;
-    public ?string $id = null;
-    public ?array $identifier = null;
-    public ?string $inserted = null;
-    public ?bool $isArchived = null;
-    public ?bool $isConnectedAccount = null;
-    public ?bool $isDefault = null;
-    public ?bool $isTrustAccount = null;
-    public ?bool $isVirtual = null;
-    public ?array $lastTransaction = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $merchantName = null;
-    public ?string $nickname = null;
-    public ?string $physicalAccountID = null;
-    public ?array $roleIDs = null;
-    public ?array $rules = null;
-    public ?float $submittedPayoutsBalance = null;
-    public ?int $submittedPayoutsBalanceMinorUnits = null;
-    public ?string $summary = null;
-    public ?string $supplierPhysicalAccountID = null;
-    public ?string $supplierSepaInstantStatus = null;
-    public ?string $toDate = null;
-    public ?string $type = null;
-    public ?string $usageType = null;
-    public ?string $xeroBankFeedConnectionStatus = null;
-    public ?string $xeroBankFeedLastSyncedAt = null;
-    public ?string $xeroBankFeedSyncLastFailedAt = null;
-    public ?string $xeroBankFeedSyncLastFailureReason = null;
-    public ?string $xeroBankFeedSyncStatus = null;
-    public ?int $xeroUnsynchronisedTransactionsCount = null;
+    public ?bool $connected_account = null;
+    public ?bool $include_archived = null;
+    public ?string $merchant_id = null;
+    public ?bool $only_connect_account = null;
 }
 
 /** Request payload for Account#create. */
@@ -330,32 +279,14 @@ class BeneficiaryLoadMatch
 /** Request payload for Beneficiary#list. */
 class BeneficiaryListMatch
 {
-    public ?string $approvalCallbackUrl = null;
-    public ?array $authenticationMethods = null;
-    public ?array $authorisations = null;
-    public ?int $authorisersCompletedCount = null;
-    public ?int $authorisersRequiredCount = null;
-    public ?array $beneficiaries = null;
-    public ?array $beneficiaryEvents = null;
-    public ?bool $canAuthorise = null;
-    public ?bool $canUpdate = null;
-    public ?array $createdBy = null;
-    public ?string $createdByEmailAddress = null;
     public ?string $currency = null;
-    public ?array $destination = null;
-    public ?array $failedBeneficiaries = null;
-    public ?bool $hasCurrentUserAuthorised = null;
-    public ?string $id = null;
-    public ?string $inserted = null;
-    public ?bool $isEnabled = null;
-    public ?string $lastAuthorised = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $name = null;
-    public ?string $nonce = null;
-    public ?array $sourceAccountIDs = null;
-    public ?array $sourceAccounts = null;
-    public ?string $theirReference = null;
+    public ?bool $include_disabled = null;
+    public ?string $merchant_id = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
+    public ?string $source_account_id = null;
 }
 
 /** Request payload for Beneficiary#create. */
@@ -441,6 +372,8 @@ class BeneficiaryGroup
 class BeneficiaryGroupListMatch
 {
     public string $merchant_id;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
 }
 
 /** Card entity data model. */
@@ -671,12 +604,7 @@ class Currency
 /** Request payload for Currency#list. */
 class CurrencyListMatch
 {
-    public ?string $code = null;
-    public ?int $decimals = null;
-    public ?bool $isFiat = null;
-    public ?string $iso4217AlphaCode = null;
-    public ?string $iso4217NumericCode = null;
-    public ?string $symbol = null;
+    public ?string $capability = null;
 }
 
 /** DirectDebitBatchSubmit entity data model. */
@@ -699,6 +627,7 @@ class FxRate
     public ?string $destinationCurrency = null;
     public ?float $exchangeRate = null;
     public ?string $expiryTime = null;
+    public ?string $id = null;
     public ?string $quoteID = null;
     public ?string $sourceCurrency = null;
 }
@@ -984,29 +913,18 @@ class MerchantDirectDebitMandatePage
 /** Request payload for MerchantDirectDebitMandatePage#list. */
 class MerchantDirectDebitMandatePageListMatch
 {
-    public ?string $approvedAt = null;
     public ?string $currency = null;
-    public ?string $customerAccountNumber = null;
-    public ?string $customerCity = null;
-    public ?string $customerCountryCode = null;
-    public ?string $customerCountryName = null;
-    public ?string $customerEmailAddress = null;
-    public ?string $customerFirstName = null;
-    public ?string $customerIban = null;
-    public ?string $customerLastName = null;
-    public ?string $customerSortCode = null;
-    public ?string $id = null;
-    public ?string $inserted = null;
-    public ?bool $isRecurring = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $reference = null;
+    public ?string $from_date = null;
+    public ?array $mandate_i_d = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?int $page = null;
+    public ?string $search = null;
+    public ?int $size = null;
+    public ?string $sort = null;
     public ?string $status = null;
-    public ?string $supplierBankAccountID = null;
-    public ?string $supplierCustomerID = null;
-    public ?string $supplierMandateID = null;
-    public ?string $supplierName = null;
-    public ?string $supplierStatus = null;
+    public ?string $to_date = null;
 }
 
 /** MerchantPayByBankSetting entity data model. */
@@ -1031,6 +949,9 @@ class MerchantPayByBankSetting
 class MerchantPayByBankSettingListMatch
 {
     public string $merchant_id;
+    public ?string $country_code = null;
+    public ?string $currency = null;
+    public ?string $open_banking_operation = null;
 }
 
 /** MerchantPaymentRequestTemplate entity data model. */
@@ -1134,6 +1055,8 @@ class MerchantTokenLoadMatch
 class MerchantTokenListMatch
 {
     public string $merchant_id;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
 }
 
 /** Request payload for MerchantToken#create. */
@@ -1200,6 +1123,9 @@ class Metadata
 /** Request payload for Metadata#load. */
 class MetadataLoadMatch
 {
+    public ?string $id = null;
+    public ?string $secret = null;
+    public ?string $url = null;
 }
 
 /** NoFrixionVersion entity data model. */
@@ -1223,12 +1149,14 @@ class NoFrixionVersionLoadMatch
 /** OpenBanking entity data model. */
 class OpenBanking
 {
+    public ?string $id = null;
 }
 
 /** Request payload for OpenBanking#create. */
 class OpenBankingCreateData
 {
     public string $account_id;
+    public ?string $id = null;
 }
 
 /** Request payload for OpenBanking#remove. */
@@ -1346,6 +1274,7 @@ class Payment
 class PaymentLoadMatch
 {
     public string $id;
+    public ?bool $include_event = null;
 }
 
 /** Request payload for Payment#create. */
@@ -1557,45 +1486,17 @@ class PaymentAccount
 /** Request payload for PaymentAccount#list. */
 class PaymentAccountListMatch
 {
-    public ?string $accountName = null;
-    public ?string $accountSupplierName = null;
-    public ?float $availableBalance = null;
-    public ?int $availableBalanceMinorUnits = null;
-    public ?float $balance = null;
-    public ?int $balanceMinorUnits = null;
-    public ?string $bankName = null;
-    public ?string $consentID = null;
-    public ?array $createdBy = null;
-    public ?string $createdByDisplayName = null;
-    public ?string $currency = null;
-    public ?string $defaultPaymentRail = null;
-    public ?string $displayName = null;
-    public ?string $expiryDate = null;
-    public ?string $externalAccountIcon = null;
-    public ?string $id = null;
-    public ?array $identifier = null;
-    public ?string $inserted = null;
-    public ?bool $isArchived = null;
-    public ?bool $isConnectedAccount = null;
-    public ?bool $isDefault = null;
-    public ?bool $isTrustAccount = null;
-    public ?bool $isVirtual = null;
-    public ?array $lastTransaction = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $merchantName = null;
-    public ?string $physicalAccountID = null;
-    public ?array $rules = null;
-    public ?float $submittedPayoutsBalance = null;
-    public ?int $submittedPayoutsBalanceMinorUnits = null;
-    public ?string $summary = null;
-    public ?string $supplierSepaInstantStatus = null;
-    public ?string $xeroBankFeedConnectionStatus = null;
-    public ?string $xeroBankFeedLastSyncedAt = null;
-    public ?string $xeroBankFeedSyncLastFailedAt = null;
-    public ?string $xeroBankFeedSyncLastFailureReason = null;
-    public ?string $xeroBankFeedSyncStatus = null;
-    public ?int $xeroUnsynchronisedTransactionsCount = null;
+    public ?bool $connected_account = null;
+    public ?array $currency = null;
+    public ?bool $include_archived = null;
+    public ?bool $include_child_merchant = null;
+    public ?string $merchant_id = null;
+    public ?bool $only_archived = null;
+    public ?bool $only_connect_account = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
 }
 
 /** PaymentAccountMinimal entity data model. */
@@ -1617,17 +1518,16 @@ class PaymentAccountMinimal
 /** Request payload for PaymentAccountMinimal#list. */
 class PaymentAccountMinimalListMatch
 {
-    public ?string $accountName = null;
-    public ?float $availableBalance = null;
-    public ?float $balance = null;
-    public ?int $balanceMinorUnits = null;
-    public ?string $currency = null;
-    public ?string $id = null;
-    public ?array $identifier = null;
-    public ?bool $isArchived = null;
-    public ?bool $isConnectedAccount = null;
-    public ?string $merchantID = null;
-    public ?float $submittedPayoutsBalance = null;
+    public ?bool $connected_account = null;
+    public ?array $currency = null;
+    public ?bool $include_archived = null;
+    public ?string $merchant_id = null;
+    public ?bool $only_archived = null;
+    public ?bool $only_connect_account = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
 }
 
 /** PaymentInitiation entity data model. */
@@ -1730,149 +1630,39 @@ class PaymentRequest
 /** Request payload for PaymentRequest#load. */
 class PaymentRequestLoadMatch
 {
-    public ?array $addresses = null;
-    public ?float $amount = null;
-    public ?float $amountPending = null;
-    public ?float $amountReceived = null;
-    public ?float $amountRefunded = null;
-    public ?bool $autoSendReceipt = null;
-    public ?string $baseOriginUrl = null;
-    public ?string $callbackUrl = null;
-    public ?bool $cardAuthorizeOnly = null;
-    public ?bool $cardCreateToken = null;
-    public ?string $cardCreateTokenMode = null;
-    public ?bool $cardIgnoreCVN = null;
-    public ?string $cardProcessorMerchantID = null;
-    public ?string $cardStripePaymentIntentID = null;
-    public ?string $cardStripePaymentIntentSecret = null;
-    public ?array $createdByUser = null;
     public ?string $currency = null;
-    public ?array $customFields = null;
-    public ?string $customerEmailAddress = null;
-    public ?string $customerID = null;
-    public ?string $customerName = null;
-    public ?string $description = null;
-    public ?array $destinationAccount = null;
-    public ?array $directDebitPayment = null;
-    public ?bool $doSimulateSettlementFailure = null;
-    public ?string $dueDate = null;
-    public ?string $errorDescription = null;
-    public ?array $events = null;
-    public ?array $failedPaymentRequests = null;
-    public ?string $failureCallbackUrl = null;
-    public ?array $fieldDisplaySettings = null;
-    public ?string $formattedAmount = null;
-    public ?string $hostedPayCheckoutUrl = null;
-    public string $id;
-    public ?bool $ignoreAddressVerification = null;
-    public ?string $inserted = null;
-    public ?string $insertedSortable = null;
-    public ?string $institution = null;
-    public ?bool $isArchived = null;
-    public ?string $jwk = null;
-    public ?string $lastUpdated = null;
-    public ?string $lightningInvoice = null;
-    public ?string $lightningInvoiceExpiresAt = null;
-    public ?string $merchantDirectDebitMandateID = null;
-    public ?string $merchantID = null;
-    public ?string $merchantTokenDescription = null;
-    public ?string $notificationEmailAddresses = null;
-    public ?array $notificationRoleIDs = null;
-    public ?string $orderID = null;
-    public ?string $partialPaymentMethod = null;
-    public ?string $partialPaymentSteps = null;
-    public ?array $paymentAttempts = null;
-    public ?string $paymentInitiationID = null;
-    public ?array $paymentMethods = null;
-    public ?string $paymentProcessor = null;
-    public ?array $paymentRequests = null;
-    public ?string $payrunID = null;
-    public ?string $pispAccountID = null;
-    public ?string $priorityBankID = null;
-    public ?array $result = null;
-    public ?int $sandboxSettleDelayInSeconds = null;
-    public ?array $shippingAddress = null;
+    public ?string $from_date = null;
+    public ?bool $include_archived = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?int $page = null;
+    public ?array $payment_method = null;
+    public ?string $search = null;
+    public ?int $size = null;
+    public ?string $sort = null;
     public ?string $status = null;
-    public ?string $successWebHookUrl = null;
-    public ?array $tags = null;
-    public ?string $title = null;
-    public ?array $tokenisedCards = null;
-    public ?array $transactions = null;
-    public ?bool $useHostedPaymentPage = null;
+    public ?array $tag = null;
+    public ?string $to_date = null;
 }
 
 /** Request payload for PaymentRequest#list. */
 class PaymentRequestListMatch
 {
-    public ?array $addresses = null;
-    public ?float $amount = null;
-    public ?float $amountPending = null;
-    public ?float $amountReceived = null;
-    public ?float $amountRefunded = null;
-    public ?bool $autoSendReceipt = null;
-    public ?string $baseOriginUrl = null;
-    public ?string $callbackUrl = null;
-    public ?bool $cardAuthorizeOnly = null;
-    public ?bool $cardCreateToken = null;
-    public ?string $cardCreateTokenMode = null;
-    public ?bool $cardIgnoreCVN = null;
-    public ?string $cardProcessorMerchantID = null;
-    public ?string $cardStripePaymentIntentID = null;
-    public ?string $cardStripePaymentIntentSecret = null;
-    public ?array $createdByUser = null;
     public ?string $currency = null;
-    public ?array $customFields = null;
-    public ?string $customerEmailAddress = null;
-    public ?string $customerID = null;
-    public ?string $customerName = null;
-    public ?string $description = null;
-    public ?array $destinationAccount = null;
-    public ?array $directDebitPayment = null;
-    public ?bool $doSimulateSettlementFailure = null;
-    public ?string $dueDate = null;
-    public ?string $errorDescription = null;
-    public ?array $events = null;
-    public ?array $failedPaymentRequests = null;
-    public ?string $failureCallbackUrl = null;
-    public ?array $fieldDisplaySettings = null;
-    public ?string $formattedAmount = null;
-    public ?string $hostedPayCheckoutUrl = null;
-    public ?string $id = null;
-    public ?bool $ignoreAddressVerification = null;
-    public ?string $inserted = null;
-    public ?string $insertedSortable = null;
-    public ?string $institution = null;
-    public ?bool $isArchived = null;
-    public ?string $jwk = null;
-    public ?string $lastUpdated = null;
-    public ?string $lightningInvoice = null;
-    public ?string $lightningInvoiceExpiresAt = null;
-    public ?string $merchantDirectDebitMandateID = null;
-    public ?string $merchantID = null;
-    public ?string $merchantTokenDescription = null;
-    public ?string $notificationEmailAddresses = null;
-    public ?array $notificationRoleIDs = null;
-    public ?string $orderID = null;
-    public ?string $partialPaymentMethod = null;
-    public ?string $partialPaymentSteps = null;
-    public ?array $paymentAttempts = null;
-    public ?string $paymentInitiationID = null;
-    public ?array $paymentMethods = null;
-    public ?string $paymentProcessor = null;
-    public ?array $paymentRequests = null;
-    public ?string $payrunID = null;
-    public ?string $pispAccountID = null;
-    public ?string $priorityBankID = null;
-    public ?array $result = null;
-    public ?int $sandboxSettleDelayInSeconds = null;
-    public ?array $shippingAddress = null;
+    public ?string $from_date = null;
+    public ?bool $include_archived = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?int $page = null;
+    public ?array $payment_method = null;
+    public ?string $search = null;
+    public ?int $size = null;
+    public ?string $sort = null;
     public ?string $status = null;
-    public ?string $successWebHookUrl = null;
-    public ?array $tags = null;
-    public ?string $title = null;
-    public ?array $tokenisedCards = null;
-    public ?array $transactions = null;
-    public ?bool $useHostedPaymentPage = null;
+    public ?array $tag = null;
+    public ?string $to_date = null;
 }
 
 /** Request payload for PaymentRequest#create. */
@@ -2085,6 +1875,16 @@ class PaymentRequestMetric
 /** Request payload for PaymentRequestMetric#load. */
 class PaymentRequestMetricLoadMatch
 {
+    public ?string $currency = null;
+    public ?string $from_date = null;
+    public ?bool $include_archived = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?array $payment_method = null;
+    public ?string $search = null;
+    public ?array $tag = null;
+    public ?string $to_date = null;
 }
 
 /** PaymentRequestMinimal entity data model. */
@@ -2243,85 +2043,19 @@ class PayoutLoadMatch
 /** Request payload for Payout#list. */
 class PayoutListMatch
 {
-    public ?string $accountID = null;
-    public ?bool $allowIncomplete = null;
-    public ?float $amount = null;
-    public ?int $amountMinorUnits = null;
-    public ?string $approvePayoutUrl = null;
-    public ?string $approverID = null;
-    public ?array $authenticationMethods = null;
-    public ?array $authorisations = null;
-    public ?int $authorisersCompletedCount = null;
-    public ?int $authorisersRequiredCount = null;
-    public ?string $batchPayoutID = null;
-    public ?array $beneficiary = null;
-    public ?string $beneficiaryID = null;
-    public ?bool $canAuthorise = null;
-    public ?bool $canProcess = null;
-    public ?bool $canUpdate = null;
-    public ?string $chargeBearer = null;
-    public ?string $createdBy = null;
-    public ?string $createdByEmailAddress = null;
     public ?string $currency = null;
-    public ?string $currentUserID = null;
-    public ?string $description = null;
-    public ?array $destination = null;
-    public ?array $documents = null;
-    public ?array $events = null;
-    public ?array $failedPayouts = null;
-    public ?string $formattedAmount = null;
-    public ?string $formattedFxDestinationAmount = null;
-    public ?string $formattedSchedule = null;
-    public ?string $formattedScheduleDayOnly = null;
-    public ?string $formattedSourceAccountAvailableBalance = null;
-    public ?float $fxDestinationAmount = null;
-    public ?int $fxDestinationAmountMinorUnits = null;
-    public ?string $fxDestinationCurrency = null;
-    public ?string $fxQuoteExpiresAt = null;
-    public ?string $fxQuoteID = null;
-    public ?float $fxRate = null;
-    public ?bool $fxUseDestinationAmount = null;
-    public ?bool $hasCurrentUserAuthorised = null;
-    public ?string $id = null;
-    public ?string $inserted = null;
-    public ?string $invoiceID = null;
-    public ?bool $isArchived = null;
-    public ?bool $isFailed = null;
-    public ?bool $isSettled = null;
-    public ?bool $isSubmitted = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $merchantTokenDescription = null;
-    public ?string $nonce = null;
-    public ?string $paymentProcessor = null;
-    public ?string $paymentRail = null;
-    public ?array $payouts = null;
-    public ?string $payrunID = null;
-    public ?string $payrunName = null;
-    public ?string $reason = null;
-    public ?array $rule = null;
-    public ?string $scheduleDate = null;
-    public ?bool $scheduled = null;
-    public ?float $sourceAccountAvailableBalance = null;
-    public ?int $sourceAccountAvailableBalanceMinorUnits = null;
-    public ?string $sourceAccountBic = null;
-    public ?string $sourceAccountCurrency = null;
-    public ?string $sourceAccountIban = null;
-    public ?array $sourceAccountIdentifier = null;
-    public ?string $sourceAccountName = null;
-    public ?string $sourceAccountNumber = null;
-    public ?string $sourceAccountSortcode = null;
-    public ?string $status = null;
-    public ?array $tagIds = null;
-    public ?array $tags = null;
-    public ?string $theirReference = null;
-    public ?string $topupPayrunID = null;
-    public ?float $transactedAmount = null;
-    public ?float $transactedFxAmount = null;
-    public ?float $transactedFxRate = null;
-    public ?string $type = null;
-    public ?string $userID = null;
-    public ?string $yourReference = null;
+    public ?string $from_date = null;
+    public ?bool $include_archived = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
+    public ?array $status = null;
+    public ?array $tag = null;
+    public ?string $to_date = null;
 }
 
 /** Request payload for Payout#create. */
@@ -2580,6 +2314,8 @@ class PayoutKeysetPage
 class PayoutKeysetPageListMatch
 {
     public string $merchant_id;
+    public ?string $from_date_utc = null;
+    public ?int $page_size = null;
 }
 
 /** PayoutMetric entity data model. */
@@ -2590,6 +2326,15 @@ class PayoutMetric
 /** Request payload for PayoutMetric#load. */
 class PayoutMetricLoadMatch
 {
+    public ?string $currency = null;
+    public ?string $from_date = null;
+    public ?bool $include_archived = null;
+    public ?float $max_amount = null;
+    public ?string $merchant_id = null;
+    public ?float $min_amount = null;
+    public ?string $search = null;
+    public ?array $tag = null;
+    public ?string $to_date = null;
 }
 
 /** Payrun entity data model. */
@@ -2638,38 +2383,15 @@ class PayrunLoadMatch
 /** Request payload for Payrun#list. */
 class PayrunListMatch
 {
-    public ?string $authorisationDate = null;
-    public ?array $authorisations = null;
-    public ?int $authorisersCompletedCount = null;
-    public ?int $authorisersRequiredCount = null;
-    public ?string $batchPayoutID = null;
-    public ?bool $canAuthorise = null;
-    public ?bool $canDelete = null;
-    public ?bool $canEdit = null;
-    public ?array $events = null;
-    public ?bool $hasCurrentUserAuthorised = null;
-    public ?string $id = null;
-    public ?string $inserted = null;
-    public ?array $invoices = null;
-    public ?array $invoicesMinimal = null;
-    public ?bool $isArchived = null;
-    public ?string $lastUpdated = null;
-    public ?array $lastUpdatedBy = null;
-    public ?string $merchantID = null;
-    public ?string $name = null;
-    public ?string $nonce = null;
-    public ?string $notes = null;
-    public ?array $payments = null;
-    public ?array $payouts = null;
-    public ?int $payoutsCount = null;
-    public ?string $reason = null;
-    public ?string $scheduleDate = null;
-    public ?string $scheduledDate = null;
-    public ?array $sourceAccounts = null;
-    public ?string $status = null;
-    public ?float $totalEur = null;
-    public ?float $totalGbp = null;
-    public ?float $totalUsd = null;
+    public ?string $from_date = null;
+    public ?string $merchant_id = null;
+    public ?bool $only_archived = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
+    public ?array $status = null;
+    public ?string $to_date = null;
 }
 
 /** Request payload for Payrun#create. */
@@ -2846,39 +2568,12 @@ class RuleLoadMatch
 /** Request payload for Rule#list. */
 class RuleListMatch
 {
-    public ?array $account = null;
-    public ?string $accountID = null;
-    public ?string $approveUrl = null;
-    public ?string $approverID = null;
-    public ?array $authenticationMethods = null;
-    public ?array $authorisations = null;
-    public ?int $authorisersCompletedCount = null;
-    public ?int $authorisersRequiredCount = null;
-    public ?bool $canAuthorise = null;
-    public ?array $createdBy = null;
-    public ?string $description = null;
-    public ?string $endAt = null;
-    public ?bool $hasCurrentUserAuthorised = null;
-    public ?string $id = null;
-    public ?string $inserted = null;
-    public ?bool $isDisabled = null;
-    public ?string $lastExecutedAt = null;
-    public ?string $lastRunAtTransactionDate = null;
-    public ?string $lastUpdated = null;
-    public ?string $merchantID = null;
-    public ?string $name = null;
-    public ?string $nonce = null;
-    public ?string $onApprovedWebHookUrl = null;
-    public ?string $onExecutionErrorWebHookUrl = null;
-    public ?string $onExecutionSuccessWebHookUrl = null;
-    public ?string $startAt = null;
-    public ?string $status = null;
-    public ?array $sweepAction = null;
-    public ?string $timeZoneId = null;
-    public ?string $triggerCronExpression = null;
-    public ?bool $triggerOnPayIn = null;
-    public ?string $userID = null;
-    public ?string $webHookSecret = null;
+    public ?bool $archived_only = null;
+    public ?string $merchant_id = null;
+    public ?int $page = null;
+    public ?string $search = null;
+    public ?int $size = null;
+    public ?string $sort = null;
 }
 
 /** Request payload for Rule#create. */
@@ -2981,6 +2676,9 @@ class RuleEvent
 class RuleEventListMatch
 {
     public string $id;
+    public ?array $event_type = null;
+    public ?int $page = null;
+    public ?int $size = null;
 }
 
 /** Tag entity data model. */
@@ -3090,6 +2788,15 @@ class Transaction
 class TransactionLoadMatch
 {
     public string $id;
+    public ?string $credit_type = null;
+    public ?string $from_date = null;
+    public ?float $max_amount = null;
+    public ?float $min_amount = null;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
+    public ?string $to_date = null;
 }
 
 /** Request payload for Transaction#list. */
@@ -3097,6 +2804,11 @@ class TransactionListMatch
 {
     public string $account_id;
     public string $id;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public ?bool $sort_inserted_ascending = null;
+    public ?string $transaction_from = null;
+    public ?string $transaction_to = null;
 }
 
 /** Request payload for Transaction#create. */
@@ -3161,6 +2873,7 @@ class TransactionCreateData
 class TransactionRemoveMatch
 {
     public string $id;
+    public ?string $tag_id = null;
 }
 
 /** User entity data model. */
@@ -3248,6 +2961,10 @@ class UserInviteLoadMatch
 class UserInviteListMatch
 {
     public string $merchant_id;
+    public ?int $page_number = null;
+    public ?int $page_size = null;
+    public ?string $search = null;
+    public ?string $sort = null;
 }
 
 /** Request payload for UserInvite#create. */

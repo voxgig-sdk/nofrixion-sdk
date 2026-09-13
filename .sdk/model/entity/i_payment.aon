@@ -6,12 +6,14 @@ main: kit: entity: i_payment: {
 
   fields: [
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
     }
     {
       name: "responseType"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -25,11 +27,19 @@ main: kit: entity: i_payment: {
         {
           method: "POST"
           orig: "/api/v1/paymentrequests/payondemand"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "payondemand"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "payondemand"
+            }
           ]
           transform: {
             req: "`reqdata`"

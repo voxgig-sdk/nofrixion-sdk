@@ -12,18 +12,21 @@ main: kit: entity: webhook: {
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "emailAddress"
       req: false
       short: "The recipient email address(es) for notifications."
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "failedNotificationEmailAddress"
       req: false
       short: "The email address to which notifications about failed webhook deliveries will be sent."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
@@ -34,6 +37,7 @@ main: kit: entity: webhook: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       op: {
         create: {
@@ -83,6 +87,7 @@ main: kit: entity: webhook: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "version"
       req: false
       type: "`$INTEGER`"
@@ -102,10 +107,16 @@ main: kit: entity: webhook: {
         {
           method: "POST"
           orig: "/api/v1/webhooks"
-          parts: [
-            "api"
-            "v1"
-            "webhooks"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "webhooks"
+            }
           ]
           transform: {
             req: {
@@ -142,18 +153,28 @@ main: kit: entity: webhook: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/webhooks"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "webhooks"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "webhooks"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"
@@ -190,19 +211,31 @@ main: kit: entity: webhook: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/webhooks/{id}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "webhooks"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -228,17 +261,25 @@ main: kit: entity: webhook: {
           }
           method: "GET"
           orig: "/api/v1/webhooks/{merchantID}"
-          parts: [
-            "api"
-            "v1"
-            "webhooks"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -268,11 +309,19 @@ main: kit: entity: webhook: {
           }
           method: "DELETE"
           orig: "/api/v1/webhooks/{id}"
-          parts: [
-            "api"
-            "v1"
-            "webhooks"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -303,11 +352,19 @@ main: kit: entity: webhook: {
           }
           method: "PUT"
           orig: "/api/v1/webhooks/{id}"
-          parts: [
-            "api"
-            "v1"
-            "webhooks"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

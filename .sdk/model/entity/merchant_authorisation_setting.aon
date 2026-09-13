@@ -6,11 +6,13 @@ main: kit: entity: merchant_authorisation_setting: {
 
   fields: [
     {
+      format: "double"
       name: "amountLower"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "amountUpper"
       req: false
       type: "`$NUMBER`"
@@ -26,11 +28,13 @@ main: kit: entity: merchant_authorisation_setting: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -41,16 +45,19 @@ main: kit: entity: merchant_authorisation_setting: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "numberOfAuthorisers"
       req: false
       type: "`$INTEGER`"
@@ -86,18 +93,28 @@ main: kit: entity: merchant_authorisation_setting: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/authorisationsettings"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "authorisationsettings"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "authorisationsettings"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"

@@ -593,6 +593,7 @@ API path: `/api/v1/paymentrequests/directdebit/batchsubmit`
 | `destinationCurrency` |  |
 | `exchangeRate` | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` |  |
+| `id` |  |
 | `quoteID` |  |
 | `sourceCurrency` |  |
 
@@ -849,6 +850,7 @@ API path: `/api/v1/metadata/version`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Create, Remove.
 
@@ -953,7 +955,7 @@ API path: `/api/v1/openbanking/payeeverification`
 
 Operations: Create, Load, Update.
 
-API path: `/api/v1/paymentrequests`
+API path: `/api/v1/paymentrequests/{id}/directdebit`
 
 #### PaymentAccount
 
@@ -1114,7 +1116,7 @@ API path: `/api/v1/paymentrequests/{id}/pisp`
 
 Operations: Create, List, Load, Remove, Update.
 
-API path: `/api/v1/paymentrequests/{id}/directdebit`
+API path: `/api/v1/paymentrequests/batchcreate`
 
 #### PaymentRequestEvent
 
@@ -2268,6 +2270,7 @@ Create an instance: `$fx_rate = $client->FxRate();`
 | `destinationCurrency` | `string` |  |
 | `exchangeRate` | `float` | The price at which the transaction will buy the source currency using the destination currency. |
 | `expiryTime` | `string` |  |
+| `id` | `string` |  |
 | `quoteID` | `string` |  |
 | `sourceCurrency` | `string` |  |
 
@@ -2688,7 +2691,7 @@ Create an instance: `$metadata = $client->Metadata();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Metadata record (throws on error).
-$metadata = $client->Metadata()->load();
+$metadata = $client->Metadata()->load(["id" => "metadata_id"]);
 ```
 
 
@@ -2729,6 +2732,12 @@ Create an instance: `$open_banking = $client->OpenBanking();`
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
 | `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Create
 
@@ -3098,7 +3107,7 @@ Create an instance: `$payment_request = $client->PaymentRequest();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the PaymentRequest record (throws on error).
-$payment_request = $client->PaymentRequest()->load(["id" => "payment_request_id"]);
+$payment_request = $client->PaymentRequest()->load();
 ```
 
 #### Example: List
@@ -4156,6 +4165,29 @@ $webhooks = $client->Webhook()->list();
 $webhook = $client->Webhook()->create([
 ]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

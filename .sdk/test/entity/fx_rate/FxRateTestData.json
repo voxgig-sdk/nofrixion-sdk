@@ -2,48 +2,48 @@
   "existing": {
     "fx_rate": {
       "FX_RATE00": {
-        "destinationCurrency": "s32",
-        "exchangeRate": 51,
-        "expiryTime": "s34",
-        "quoteID": "s35",
-        "sourceCurrency": "s36",
+        "destinationCurrency": "s3c",
+        "exchangeRate": 61,
+        "expiryTime": "s3e",
+        "id": "FX_RATE00",
+        "quoteID": "s40",
+        "sourceCurrency": "s41",
         "destination": "DESTINATION01",
         "source": "SOURCE01",
-        "valid_for_minute": "VALID_FOR_MINUTE01",
-        "id": "FX_RATE00"
+        "valid_for_minute": "VALID_FOR_MINUTE01"
       },
       "FX_RATE01": {
-        "destinationCurrency": "s64",
-        "exchangeRate": 101,
-        "expiryTime": "s66",
-        "quoteID": "s67",
-        "sourceCurrency": "s68",
+        "destinationCurrency": "s78",
+        "exchangeRate": 121,
+        "expiryTime": "s7a",
+        "id": "FX_RATE01",
+        "quoteID": "s7c",
+        "sourceCurrency": "s7d",
         "destination": "DESTINATION01",
         "source": "SOURCE01",
-        "valid_for_minute": "VALID_FOR_MINUTE01",
-        "id": "FX_RATE01"
+        "valid_for_minute": "VALID_FOR_MINUTE01"
       },
       "FX_RATE02": {
-        "destinationCurrency": "s96",
-        "exchangeRate": 151,
-        "expiryTime": "s98",
-        "quoteID": "s99",
-        "sourceCurrency": "s9a",
+        "destinationCurrency": "sb4",
+        "exchangeRate": 181,
+        "expiryTime": "sb6",
+        "id": "FX_RATE02",
+        "quoteID": "sb8",
+        "sourceCurrency": "sb9",
         "destination": "DESTINATION01",
         "source": "SOURCE01",
-        "valid_for_minute": "VALID_FOR_MINUTE01",
-        "id": "FX_RATE02"
+        "valid_for_minute": "VALID_FOR_MINUTE01"
       }
     }
   },
   "new": {
     "fx_rate": {
       "fx_rate_ref01": {
-        "destinationCurrency": "sc8",
-        "exchangeRate": 201,
-        "expiryTime": "sca",
-        "quoteID": "scb",
-        "sourceCurrency": "scc"
+        "destinationCurrency": "sf0",
+        "exchangeRate": 241,
+        "expiryTime": "sf2",
+        "quoteID": "sf4",
+        "sourceCurrency": "sf5"
       }
     }
   }

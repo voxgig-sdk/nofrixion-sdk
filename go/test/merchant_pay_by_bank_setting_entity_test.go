@@ -98,7 +98,7 @@ func TestMerchantPayByBankSettingEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		merchantPayByBankSettingRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.merchant_pay_by_bank_setting", setup.data)))
+		merchantPayByBankSettingRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.merchant_pay_by_bank_setting")))
 		var merchantPayByBankSettingRef01Data map[string]any
 		if len(merchantPayByBankSettingRef01DataRaw) > 0 {
 			merchantPayByBankSettingRef01Data = core.ToMapAny(merchantPayByBankSettingRef01DataRaw[0][1])
@@ -149,7 +149,7 @@ func merchant_pay_by_bank_settingBasicSetup(extra map[string]any) *entityTestSet
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"merchant_pay_by_bank_setting01", "merchant_pay_by_bank_setting02", "merchant_pay_by_bank_setting03", "merchant01", "merchant02", "merchant03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -169,7 +169,7 @@ func merchant_pay_by_bank_settingBasicSetup(extra map[string]any) *entityTestSet
 		"NOFRIXION_TEST_MERCHANT_PAY_BY_BANK_SETTING_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_MERCHANT_PAY_BY_BANK_SETTING_ENTID"])
@@ -178,11 +178,23 @@ func merchant_pay_by_bank_settingBasicSetup(extra map[string]any) *entityTestSet
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

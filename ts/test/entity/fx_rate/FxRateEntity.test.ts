@@ -1,6 +1,4 @@
 
-const envlocal = __dirname + '/../../../.env.local'
-require('dotenv').config({ quiet: true, path: [envlocal] })
 
 import Path from 'node:path'
 import * as Fs from 'node:fs'
@@ -13,7 +11,9 @@ import { NofrixionSDK, BaseFeature, stdutil } from '../../..'
 
 import {
   envOverride,
+  liveClientOptions,
   liveDelay,
+  loadEnvLocal,
   makeCtrl,
   makeMatch,
   makeReqdata,
@@ -21,6 +21,13 @@ import {
   makeValid,
   maybeSkipControl,
 } from '../../utility'
+
+
+// AFTER the imports on purpose: TypeScript hoists `import` above any
+// statement in the emitted CommonJS, so a loader placed above them would
+// run only after every imported module had already been evaluated - and
+// anything reading process.env at module scope would miss these values.
+loadEnvLocal(__dirname + '/../../../.env.local')
 
 
 describe('FxRateEntity', async () => {
@@ -67,6 +74,12 @@ describe('FxRateEntity', async () => {
 
     const fx_rate_ref01_list = (await fx_rate_ref01_ent.list(fx_rate_ref01_match)).map((e: any) => e.data())
 
+
+    // LOAD
+    const fx_rate_ref01_match_dt0: any = {}
+    fx_rate_ref01_match_dt0.id = fx_rate_ref01_data.id
+    const fx_rate_ref01_data_dt0 = (await fx_rate_ref01_ent.load(fx_rate_ref01_match_dt0)).data()
+    assert(fx_rate_ref01_data_dt0.id === fx_rate_ref01_data.id)
 
 
   })
@@ -116,7 +129,7 @@ function basicSetup(extra?: any) {
     'NOFRIXION_TEST_FX_RATE_ENTID': idmap,
     'NOFRIXION_TEST_LIVE': 'FALSE',
     'NOFRIXION_TEST_EXPLAIN': 'FALSE',
-    'NOFRIXION_APIKEY': 'NONE',
+    'NOFRIXION_APIKEY': '',
   })
 
   idmap = env['NOFRIXION_TEST_FX_RATE_ENTID']
@@ -125,10 +138,18 @@ function basicSetup(extra?: any) {
 
   if (live) {
     client = new NofrixionSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
       {
         apikey: env.NOFRIXION_APIKEY,
       },
-      extra
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {}
     ]))
   }
 

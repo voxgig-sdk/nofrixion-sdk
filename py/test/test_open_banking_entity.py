@@ -48,7 +48,13 @@ class TestOpenBankingEntity:
 
         open_banking_ref01_data = helpers.to_map(runner.entity_data(open_banking_ref01_ent.create(open_banking_ref01_data, None)))
         assert open_banking_ref01_data is not None
+        assert open_banking_ref01_data["id"] is not None
 
+        # REMOVE
+        open_banking_ref01_match_rm0 = {
+            "id": open_banking_ref01_data["id"],
+        }
+        open_banking_ref01_ent.remove(open_banking_ref01_match_rm0, None)
 
 
 
@@ -88,7 +94,7 @@ def _open_banking_basic_setup(extra):
         "NOFRIXION_TEST_OPEN_BANKING_ENTID": idmap,
         "NOFRIXION_TEST_LIVE": "FALSE",
         "NOFRIXION_TEST_EXPLAIN": "FALSE",
-        "NOFRIXION_APIKEY": "NONE",
+        "NOFRIXION_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -98,6 +104,10 @@ def _open_banking_basic_setup(extra):
 
     if env.get("NOFRIXION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("NOFRIXION_APIKEY"),
             },

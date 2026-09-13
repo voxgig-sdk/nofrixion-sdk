@@ -80,11 +80,19 @@ main: kit: entity: payout_metric: {
           }
           method: "GET"
           orig: "/api/v1/payouts/metrics"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "metrics"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "metrics"
+            }
           ]
           select: {
             exist: [

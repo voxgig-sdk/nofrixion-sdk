@@ -1,4 +1,5 @@
 import { BaseFeature } from './feature/base/BaseFeature';
+declare const FEATURE_PLUGINS: Record<string, any[]>;
 declare class Config {
     makeFeature(this: any, fn: string): BaseFeature;
     hasFeature(this: any, fn: string): boolean;
@@ -82,18 +83,56 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -112,12 +151,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -126,6 +171,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -139,12 +185,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -166,6 +218,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -173,7 +226,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist?: undefined;
                             $action?: undefined;
@@ -195,6 +250,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -221,7 +277,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -229,6 +287,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -250,12 +309,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -263,6 +328,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 load: {
@@ -288,7 +354,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -297,6 +365,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -324,13 +393,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -339,6 +414,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -353,13 +429,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -368,6 +450,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -382,13 +465,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -397,6 +486,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -411,7 +501,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -420,6 +516,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -429,7 +526,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -438,6 +537,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -457,7 +557,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -466,6 +572,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -473,7 +580,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -482,6 +591,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 update: {
@@ -500,12 +610,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -513,6 +629,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -526,7 +643,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -534,6 +657,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -548,7 +672,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -559,6 +689,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -572,11 +703,22 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -587,12 +729,15 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -611,7 +756,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -619,6 +770,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -631,9 +783,18 @@ declare class Config {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
                 req?: undefined;
                 op?: undefined;
             } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
@@ -644,6 +805,7 @@ declare class Config {
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
                 op?: undefined;
             } | {
                 name: string;
@@ -656,6 +818,7 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
             } | {
                 name: string;
                 op: {
@@ -667,8 +830,17 @@ declare class Config {
                 };
                 type: string;
                 short?: undefined;
+                format?: undefined;
                 req?: undefined;
             } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                req?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
                 name: string;
                 op: {
                     create: {
@@ -681,6 +853,10 @@ declare class Config {
                 type: string;
                 req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -699,7 +875,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -708,6 +890,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -715,7 +898,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist?: undefined;
                             $action?: undefined;
@@ -732,6 +917,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -739,7 +925,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -748,6 +936,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 list: {
@@ -773,7 +962,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -781,6 +972,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -808,12 +1000,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -821,6 +1019,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 load: {
@@ -846,7 +1045,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -855,6 +1056,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -870,12 +1072,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -884,6 +1092,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -898,7 +1107,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -907,6 +1122,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -926,7 +1142,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -934,6 +1156,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -952,7 +1175,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -960,6 +1189,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -973,7 +1203,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -987,6 +1223,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -1000,17 +1237,36 @@ declare class Config {
                 short: string;
                 type: string;
                 req?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
             } | {
+                format: string;
                 name: string;
                 type: string;
                 short?: undefined;
                 req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                req: boolean;
+                short: string;
+                type: string;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -1035,12 +1291,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1048,6 +1310,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1060,10 +1323,32 @@ declare class Config {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                short?: undefined;
+                format?: undefined;
             })[];
             name: string;
             op: {
@@ -1083,12 +1368,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1096,6 +1387,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1108,11 +1400,27 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -1131,13 +1439,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 customerEmailAddress: string;
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1145,6 +1459,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -1163,12 +1478,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 customerEmailAddress: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1176,6 +1497,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -1194,13 +1516,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 customerEmailAddress: string;
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1208,6 +1536,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -1221,13 +1550,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 customerEmailAddress: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1235,6 +1570,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -1248,7 +1584,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1256,6 +1598,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -1269,10 +1612,32 @@ declare class Config {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                short?: undefined;
+                format?: undefined;
             })[];
             name: string;
             op: {
@@ -1292,13 +1657,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                                 partialRefundAmount: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1306,6 +1677,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -1319,13 +1691,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                                 partialRefundAmount?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1333,6 +1711,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -1363,12 +1742,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1376,6 +1761,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1388,8 +1774,16 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
                 op?: undefined;
             } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                op?: undefined;
+            } | {
+                format: string;
                 name: string;
                 type: string;
                 short?: undefined;
@@ -1404,7 +1798,29 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                format?: undefined;
+            } | {
+                name: string;
+                type: string;
+                short?: undefined;
+                format?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
+                short: string;
+                type: string;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -1415,7 +1831,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -1429,6 +1847,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -1447,12 +1866,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1460,6 +1885,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -1478,7 +1904,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1486,6 +1918,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -1504,7 +1937,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1512,6 +1951,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -1530,7 +1970,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1538,6 +1984,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1546,10 +1993,15 @@ declare class Config {
             };
         };
         currency: {
-            fields: {
+            fields: ({
                 name: string;
                 type: string;
-            }[];
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+            })[];
             name: string;
             op: {
                 list: {
@@ -1567,7 +2019,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -1575,6 +2029,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1598,12 +2053,15 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1615,12 +2073,25 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 short?: undefined;
             } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+                parts: string[];
+                sep: string;
+            };
             name: string;
             op: {
                 list: {
@@ -1639,7 +2110,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1647,6 +2124,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -1665,12 +2143,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 validForMinutes: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1678,6 +2162,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1686,10 +2171,17 @@ declare class Config {
             };
         };
         i_payment: {
-            fields: {
+            fields: ({
+                format: string;
                 name: string;
                 type: string;
-            }[];
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+            })[];
             name: string;
             op: {
                 create: {
@@ -1700,12 +2192,15 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1719,12 +2214,21 @@ declare class Config {
                 short: string;
                 type: string;
                 req?: undefined;
+                format?: undefined;
                 op?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                req?: undefined;
                 op?: undefined;
             } | {
                 name: string;
@@ -1737,7 +2241,31 @@ declare class Config {
                 short: string;
                 type: string;
                 req?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                req: boolean;
+                short: string;
+                type: string;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
+                short: string;
+                type: string;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -1748,7 +2276,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -1770,6 +2300,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -1788,7 +2319,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -1796,6 +2333,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -1808,11 +2346,22 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -1844,12 +2393,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -1858,6 +2413,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             query: ({
@@ -1884,7 +2440,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -1893,6 +2451,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -1902,7 +2461,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action?: undefined;
                             exist?: undefined;
@@ -1911,6 +2472,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -1943,12 +2505,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -1957,6 +2525,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -1971,12 +2540,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -1985,6 +2560,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 remove: {
@@ -2003,7 +2579,6 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantId: string;
@@ -2012,6 +2587,13 @@ declare class Config {
                                 tagID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2019,6 +2601,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -2032,7 +2615,6 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
@@ -2041,6 +2623,13 @@ declare class Config {
                                 userId?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2048,6 +2637,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 update: {
@@ -2066,13 +2656,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 merchantId?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -2088,6 +2684,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -2101,13 +2698,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantId: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -2123,6 +2726,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -2131,10 +2735,19 @@ declare class Config {
             };
         };
         merchant_authorisation_setting: {
-            fields: {
+            fields: ({
+                format: string;
                 name: string;
                 type: string;
-            }[];
+            } | {
+                name: string;
+                type: string;
+                format?: undefined;
+            })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -2153,12 +2766,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2166,6 +2785,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2174,11 +2794,21 @@ declare class Config {
             };
         };
         merchant_direct_debit_mandate_page: {
-            fields: {
+            fields: ({
+                format: string;
                 name: string;
                 short: string;
                 type: string;
-            }[];
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+            })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -2203,7 +2833,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -2211,6 +2843,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2219,11 +2852,17 @@ declare class Config {
             };
         };
         merchant_pay_by_bank_setting: {
-            fields: {
+            fields: ({
                 name: string;
                 short: string;
                 type: string;
-            }[];
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+            })[];
             name: string;
             op: {
                 list: {
@@ -2255,12 +2894,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2268,6 +2913,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2281,17 +2927,30 @@ declare class Config {
                 type: string;
                 short?: undefined;
                 req?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
                 req?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -2310,12 +2969,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2323,6 +2988,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -2341,13 +3007,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 templateID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2355,6 +3027,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -2373,13 +3046,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 templateID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2387,6 +3066,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -2405,13 +3085,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 templateID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2425,6 +3111,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2434,6 +3121,14 @@ declare class Config {
         };
         merchant_token: {
             fields: ({
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
@@ -2449,20 +3144,39 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                format?: undefined;
                 req?: undefined;
             } | {
+                format: string;
                 name: string;
                 type: string;
                 short?: undefined;
                 op?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
+                short: string;
+                type: string;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
                 op?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -2473,7 +3187,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -2485,6 +3201,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -2509,12 +3226,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2522,6 +3245,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -2540,7 +3264,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2548,6 +3278,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -2566,7 +3297,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2579,6 +3316,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2605,7 +3343,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -2614,6 +3354,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             query?: undefined;
@@ -2621,7 +3362,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -2630,6 +3373,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -2638,10 +3382,15 @@ declare class Config {
             };
         };
         no_frixion_version: {
-            fields: {
+            fields: ({
+                format: string;
                 name: string;
                 type: string;
-            }[];
+            } | {
+                name: string;
+                type: string;
+                format?: undefined;
+            })[];
             name: string;
             op: {
                 load: {
@@ -2652,12 +3401,15 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2666,7 +3418,16 @@ declare class Config {
             };
         };
         open_banking: {
-            fields: never[];
+            fields: {
+                name: string;
+                type: string;
+            }[];
+            id: {
+                field: string;
+                name: string;
+                parts: string[];
+                sep: string;
+            };
             name: string;
             op: {
                 create: {
@@ -2685,19 +3446,27 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
+                            $action: string;
                             exist: string[];
                         };
                         transform: {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -2716,13 +3485,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 accountID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2730,6 +3505,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -2743,13 +3519,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2757,6 +3539,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -2786,7 +3569,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -2798,6 +3583,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -2809,10 +3595,13 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 op?: undefined;
                 short?: undefined;
                 req?: undefined;
+                readOnly?: undefined;
             } | {
+                format: string;
                 name: string;
                 op: {
                     create: {
@@ -2823,31 +3612,120 @@ declare class Config {
                 short: string;
                 type: string;
                 req?: undefined;
+                readOnly?: undefined;
             } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
                 op?: undefined;
                 req?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                req?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 op?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                short?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                op?: undefined;
+                short?: undefined;
+                req?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
                     input: string;
                     name: string;
-                    points: {
-                        args: {};
+                    points: ({
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                            query: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                type: string;
+                            }[];
+                        };
                         kind: string;
                         method: string;
                         orig: string;
+                        rename: {
+                            param: {
+                                id: string;
+                            };
+                        };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
+                        select: {
+                            $action: string;
+                            exist: string[];
+                        };
+                        transform: {
+                            req: string;
+                            res: string;
+                        };
                         parts: string[];
-                        select: {};
+                    } | {
+                        args: {
+                            params?: undefined;
+                            query?: undefined;
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        segments: {
+                            lit: string;
+                        }[];
+                        select: {
+                            $action?: undefined;
+                            exist?: undefined;
+                        };
                         transform: {
                             req: {
                                 amount: string;
@@ -2899,7 +3777,9 @@ declare class Config {
                             };
                             res: string;
                         };
-                    }[];
+                        parts: string[];
+                        rename?: undefined;
+                    })[];
                 };
                 load: {
                     input: string;
@@ -2924,7 +3804,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2932,6 +3818,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -2947,12 +3834,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 orderID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -2960,6 +3853,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 update: {
@@ -2978,7 +3872,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3024,6 +3924,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3036,18 +3937,56 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -3073,7 +4012,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3081,6 +4022,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -3102,12 +4044,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3115,6 +4063,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -3127,13 +4076,35 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -3164,7 +4135,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3172,6 +4145,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3184,10 +4158,26 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                short?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
             })[];
             name: string;
             op: {
@@ -3207,12 +4197,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3220,6 +4216,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3231,74 +4228,77 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 short?: undefined;
                 req?: undefined;
+                readOnly?: undefined;
             } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
                 req?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+                short?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                req?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
                     input: string;
                     name: string;
-                    points: ({
-                        args: {
-                            params: {
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            }[];
-                            query: {
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                        };
+                    points: {
+                        args: {};
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
-                        rename: {
-                            param: {
-                                id: string;
-                            };
-                        };
-                        select: {
-                            exist: string[];
-                        };
+                        segments: {
+                            lit: string;
+                        }[];
+                        select: {};
                         transform: {
                             req: string;
                             res: string;
                         };
-                    } | {
-                        args: {
-                            params?: undefined;
-                            query?: undefined;
-                        };
-                        kind: string;
-                        method: string;
-                        orig: string;
                         parts: string[];
-                        select: {
-                            exist?: undefined;
-                        };
-                        transform: {
-                            req: string;
-                            res: string;
-                        };
-                        rename?: undefined;
-                    })[];
+                    }[];
                 };
                 list: {
                     input: string;
@@ -3334,7 +4334,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3342,6 +4344,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -3379,7 +4382,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3387,6 +4392,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -3402,12 +4408,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3415,6 +4427,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 remove: {
@@ -3433,7 +4446,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3441,6 +4460,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -3459,12 +4479,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3478,6 +4504,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3487,21 +4514,52 @@ declare class Config {
         };
         payment_request_event: {
             fields: ({
+                format: string;
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
                 req?: undefined;
+                readOnly?: undefined;
             } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                req?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
+                short?: undefined;
+                readOnly?: undefined;
+            } | {
+                format: string;
                 name: string;
                 type: string;
                 req?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -3520,12 +4578,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3533,6 +4597,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3566,7 +4631,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3574,6 +4641,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3583,14 +4651,30 @@ declare class Config {
         };
         payment_request_minimal: {
             fields: ({
+                format: string;
                 name: string;
                 short: string;
                 type: string;
             } | {
                 name: string;
                 type: string;
+                format?: undefined;
+                short?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
                 short?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -3609,12 +4693,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3622,6 +4712,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3631,12 +4722,24 @@ declare class Config {
         };
         payment_request_result: {
             fields: ({
+                format: string;
                 name: string;
                 short: string;
                 type: string;
             } | {
+                format: string;
                 name: string;
                 type: string;
+                short?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+            } | {
+                name: string;
+                type: string;
+                format?: undefined;
                 short?: undefined;
             })[];
             name: string;
@@ -3657,12 +4760,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3670,6 +4779,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -3679,6 +4789,7 @@ declare class Config {
         };
         payout: {
             fields: ({
+                format: string;
                 name: string;
                 op: {
                     create: {
@@ -3688,9 +4799,28 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                op?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
                 short: string;
                 type: string;
                 op?: undefined;
@@ -3699,15 +4829,60 @@ declare class Config {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 op?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
             } | {
+                name: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                short?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
+                short: string;
+                type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                short?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
                 name: string;
                 type: string;
                 op?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -3726,7 +4901,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -3735,6 +4916,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -3742,7 +4924,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist?: undefined;
                             $action?: undefined;
@@ -3776,6 +4960,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -3783,7 +4968,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -3792,6 +4979,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -3799,7 +4987,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -3833,6 +5023,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 list: {
@@ -3858,7 +5049,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -3866,6 +5059,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -3886,13 +5080,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3900,6 +5100,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -3919,13 +5120,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 accountID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -3933,6 +5140,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 load: {
@@ -3958,7 +5166,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -3967,6 +5177,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -3981,7 +5192,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -3990,6 +5207,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4004,7 +5222,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4013,6 +5237,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 remove: {
@@ -4031,7 +5256,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -4040,6 +5271,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -4047,7 +5279,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action: string;
                             exist?: undefined;
@@ -4056,6 +5290,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 update: {
@@ -4074,7 +5309,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4082,6 +5323,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4095,7 +5337,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4124,6 +5372,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4137,7 +5386,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4166,6 +5421,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -4175,21 +5431,66 @@ declare class Config {
         };
         payout_keyset_page: {
             fields: ({
+                format: string;
                 name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
                 short: string;
                 type: string;
                 req?: undefined;
             } | {
                 name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 type: string;
+                format?: undefined;
+                short?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
                 short?: undefined;
                 req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -4221,13 +5522,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4235,6 +5542,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4261,13 +5569,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 accountID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4275,6 +5589,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -4308,7 +5623,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -4316,6 +5633,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -4325,21 +5643,52 @@ declare class Config {
         };
         payrun: {
             fields: ({
+                format: string;
                 name: string;
                 type: string;
                 short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+                short?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                type: string;
+                format?: undefined;
+                short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -4358,7 +5707,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4373,6 +5728,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -4387,7 +5743,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4402,6 +5764,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -4416,12 +5779,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -4436,6 +5805,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 list: {
@@ -4460,7 +5830,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -4468,6 +5840,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -4486,7 +5859,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4494,6 +5873,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -4512,7 +5892,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -4521,6 +5907,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4534,7 +5921,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4543,6 +5936,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 update: {
@@ -4561,7 +5955,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -4577,6 +5977,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4590,7 +5991,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4599,6 +6006,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4612,7 +6020,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4628,6 +6042,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -4640,6 +6055,10 @@ declare class Config {
                 name: string;
                 type: string;
             }[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 update: {
@@ -4658,7 +6077,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4667,6 +6092,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -4675,10 +6101,26 @@ declare class Config {
             };
         };
         report_result: {
-            fields: {
+            fields: ({
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+            } | {
                 name: string;
                 type: string;
-            }[];
+                readOnly?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                readOnly?: undefined;
+            })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 load: {
@@ -4697,13 +6139,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                                 statementNumber: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4711,6 +6159,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -4741,12 +6190,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4755,6 +6210,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -4766,19 +6222,36 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                req?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
                 req?: undefined;
                 op?: undefined;
             } | {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                req?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
                 req?: undefined;
                 op?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
                 op?: undefined;
             } | {
@@ -4791,6 +6264,7 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                format?: undefined;
                 req?: undefined;
             } | {
                 name: string;
@@ -4801,9 +6275,14 @@ declare class Config {
                     };
                 };
                 type: string;
+                format?: undefined;
                 short?: undefined;
                 req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -4814,7 +6293,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -4835,6 +6316,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -4865,7 +6347,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -4873,6 +6357,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -4891,7 +6376,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4899,6 +6390,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -4917,7 +6409,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -4925,6 +6423,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -4943,7 +6442,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -4967,6 +6472,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -4980,7 +6486,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -4989,6 +6501,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
             };
@@ -5000,12 +6513,23 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -5037,7 +6561,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5045,6 +6575,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -5056,12 +6587,28 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                req: boolean;
+                type: string;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -5080,12 +6627,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5099,6 +6652,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -5117,12 +6671,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5130,6 +6690,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -5142,6 +6703,10 @@ declare class Config {
                 name: string;
                 type: string;
             }[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -5160,7 +6725,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5168,6 +6739,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -5186,7 +6758,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5194,6 +6772,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -5203,26 +6782,59 @@ declare class Config {
         };
         transaction: {
             fields: ({
+                format: string;
                 name: string;
                 short: string;
                 type: string;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
+                readOnly?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -5241,7 +6853,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -5250,6 +6868,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -5281,13 +6900,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 merchantID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5295,6 +6920,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -5321,13 +6947,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                                 accountID?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5335,6 +6967,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             query: ({
@@ -5355,7 +6988,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist: string[];
                         };
@@ -5363,6 +6998,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -5395,13 +7031,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 sequenceNumber?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -5410,6 +7052,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -5436,13 +7079,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 sequenceNumber?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -5451,6 +7100,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: ({
@@ -5479,13 +7129,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 sequenceNumber: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -5494,6 +7150,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -5508,13 +7165,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 sequenceNumber?: undefined;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -5523,6 +7186,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -5537,7 +7201,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -5546,6 +7216,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -5561,7 +7232,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -5570,6 +7247,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -5595,7 +7273,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -5604,6 +7288,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -5616,9 +7301,11 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
                 op?: undefined;
                 req?: undefined;
             } | {
+                format: string;
                 name: string;
                 op: {
                     update: {
@@ -5630,11 +7317,41 @@ declare class Config {
                 short?: undefined;
             } | {
                 name: string;
+                op: {
+                    update: {
+                        type: string;
+                    };
+                };
+                req: boolean;
+                type: string;
+                short?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
                 type: string;
                 short?: undefined;
                 op?: undefined;
                 req?: undefined;
+            } | {
+                name: string;
+                type: string;
+                short?: undefined;
+                format?: undefined;
+                op?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                op?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 list: {
@@ -5666,12 +7383,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             $action: string;
                             exist: string[];
@@ -5680,6 +7403,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params: {
@@ -5694,12 +7418,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                             $action?: undefined;
@@ -5708,6 +7438,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -5716,7 +7447,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             $action?: undefined;
                             exist?: undefined;
@@ -5725,6 +7458,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     })[];
                 };
@@ -5744,7 +7478,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5758,6 +7498,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -5769,16 +7510,29 @@ declare class Config {
             fields: ({
                 name: string;
                 type: string;
+                format?: undefined;
                 short?: undefined;
                 op?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                op?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
                 op?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
+                format: string;
                 name: string;
                 op: {
                     create: {
@@ -5788,14 +7542,37 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                format?: undefined;
+                op?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                type: string;
+                format?: undefined;
+                short?: undefined;
+                op?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
+                format?: undefined;
                 short?: undefined;
                 op?: undefined;
+                readOnly?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -5814,7 +7591,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5822,6 +7605,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -5829,7 +7613,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist?: undefined;
                         };
@@ -5844,6 +7630,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     } | {
                         args: {
                             params?: undefined;
@@ -5851,7 +7638,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {
                             exist?: undefined;
                         };
@@ -5859,6 +7648,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 list: {
@@ -5890,12 +7680,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5903,6 +7699,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -5921,7 +7718,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5929,6 +7732,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                         rename?: undefined;
                     } | {
                         args: {
@@ -5943,12 +7747,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 id: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5956,6 +7766,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     })[];
                 };
                 remove: {
@@ -5974,7 +7785,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -5982,6 +7799,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -6000,7 +7818,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6008,6 +7832,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -6020,23 +7845,63 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                req?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                name: string;
+                readOnly: boolean;
+                short: string;
+                type: string;
+                format?: undefined;
+                req?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
+                readOnly?: undefined;
                 req?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                readOnly?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
+                readOnly?: undefined;
+                req?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -6055,12 +7920,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6070,6 +7941,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -6088,13 +7960,19 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 accountID: string;
                                 virtualAccountID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6104,6 +7982,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -6116,12 +7995,41 @@ declare class Config {
                 name: string;
                 short: string;
                 type: string;
+                format?: undefined;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                short: string;
+                type: string;
+                op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                type: string;
+                short?: undefined;
                 op?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
+                format?: undefined;
                 op?: undefined;
+            } | {
+                format: string;
+                name: string;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                    update: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
+                short: string;
+                type: string;
             } | {
                 name: string;
                 op: {
@@ -6136,7 +8044,12 @@ declare class Config {
                 };
                 short: string;
                 type: string;
+                format?: undefined;
             })[];
+            id: {
+                field: string;
+                name: string;
+            };
             name: string;
             op: {
                 create: {
@@ -6147,7 +8060,9 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: {
+                            lit: string;
+                        }[];
                         select: {};
                         transform: {
                             req: {
@@ -6164,6 +8079,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 list: {
@@ -6182,12 +8098,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6195,6 +8117,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 load: {
@@ -6213,12 +8136,18 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
                         rename: {
                             param: {
                                 merchantID: string;
                             };
                         };
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6226,6 +8155,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 remove: {
@@ -6244,7 +8174,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6252,6 +8188,7 @@ declare class Config {
                             req: string;
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
                 update: {
@@ -6270,7 +8207,13 @@ declare class Config {
                         kind: string;
                         method: string;
                         orig: string;
-                        parts: string[];
+                        segments: ({
+                            lit: string;
+                            var?: undefined;
+                        } | {
+                            var: string;
+                            lit?: undefined;
+                        })[];
                         select: {
                             exist: string[];
                         };
@@ -6289,6 +8232,7 @@ declare class Config {
                             };
                             res: string;
                         };
+                        parts: string[];
                     }[];
                 };
             };
@@ -6299,4 +8243,4 @@ declare class Config {
     };
 }
 declare const config: Config;
-export { config };
+export { config, FEATURE_PLUGINS, };

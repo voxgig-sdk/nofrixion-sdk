@@ -98,7 +98,7 @@ func TestFxRateEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		fxRateRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.fx_rate", setup.data)))
+		fxRateRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.fx_rate")))
 		var fxRateRef01Data map[string]any
 		if len(fxRateRef01DataRaw) > 0 {
 			fxRateRef01Data = core.ToMapAny(fxRateRef01DataRaw[0][1])
@@ -124,13 +124,19 @@ func TestFxRateEntity(t *testing.T) {
 		}
 
 		// LOAD
-		fxRateRef01MatchDt0 := map[string]any{}
+		fxRateRef01MatchDt0 := map[string]any{
+			"id": fxRateRef01Data["id"],
+		}
 		fxRateRef01DataDt0Loaded, err := fxRateRef01Ent.Load(fxRateRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if fxRateRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		fxRateRef01DataDt0LoadResult := core.ToMapAny(entityData(fxRateRef01DataDt0Loaded))
+		if fxRateRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if fxRateRef01DataDt0LoadResult["id"] != fxRateRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -160,7 +166,7 @@ func fx_rateBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"fx_rate01", "fx_rate02", "fx_rate03", "fxallheldrate01", "fxallheldrate02", "fxallheldrate03", "fxheldrate01", "fxheldrate02", "fxheldrate03", "destination01", "source01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -180,7 +186,7 @@ func fx_rateBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_FX_RATE_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_FX_RATE_ENTID"])
@@ -189,11 +195,23 @@ func fx_rateBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

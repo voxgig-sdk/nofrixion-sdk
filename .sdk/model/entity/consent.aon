@@ -18,18 +18,21 @@ main: kit: entity: consent: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "consentID"
       req: false
       short: "The ID of the open banking consent."
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "emailAddress"
       req: false
       short: "The email address that identifies the end user that will be authorising the open banking consent request."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "expiryDate"
       req: false
       type: "`$STRING`"
@@ -41,11 +44,13 @@ main: kit: entity: consent: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -74,6 +79,7 @@ main: kit: entity: consent: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       op: {
         create: {
@@ -112,11 +118,19 @@ main: kit: entity: consent: {
         {
           method: "POST"
           orig: "/api/v1/openbanking/consents"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
           ]
           transform: {
             req: {
@@ -157,19 +171,31 @@ main: kit: entity: consent: {
           }
           method: "GET"
           orig: "/api/v1/openbanking/consents/{merchantID}/{email}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
-            "{merchant_id}"
-            "{email}"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              var: "email"
+            }
+          ]
           select: {
             exist: [
               "email"
@@ -200,12 +226,22 @@ main: kit: entity: consent: {
           }
           method: "GET"
           orig: "/api/v1/openbanking/consents/{id}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -236,12 +272,22 @@ main: kit: entity: consent: {
           }
           method: "DELETE"
           orig: "/api/v1/openbanking/consents/{id}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -272,12 +318,22 @@ main: kit: entity: consent: {
           }
           method: "PATCH"
           orig: "/api/v1/openbanking/consents/{id}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

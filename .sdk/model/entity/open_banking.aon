@@ -4,6 +4,24 @@ main: kit: entity: open_banking: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "merchant_id"
+      "email"
+    ]
+    sep: "/"
+  }
+
   name: "open_banking"
   op: {
     create: {
@@ -23,20 +41,33 @@ main: kit: entity: open_banking: {
           }
           method: "POST"
           orig: "/api/v1/openbanking/account/{accountID}/synchronise"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "account"
-            "{account_id}"
-            "synchronise"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "account"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "synchronise"
+            }
+          ]
           select: {
+            "$action": "synchronise"
             exist: [
               "account_id"
             ]
@@ -72,19 +103,31 @@ main: kit: entity: open_banking: {
           }
           method: "DELETE"
           orig: "/api/v1/openbanking/consents/{merchantID}/{email}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "consents"
-            "{merchant_id}"
-            "{email}"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "consents"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              var: "email"
+            }
+          ]
           select: {
             exist: [
               "email"
@@ -110,18 +153,28 @@ main: kit: entity: open_banking: {
           }
           method: "DELETE"
           orig: "/api/v1/openbanking/account/{accountID}"
-          parts: [
-            "api"
-            "v1"
-            "openbanking"
-            "account"
-            "{account_id}"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "openbanking"
+            }
+            {
+              lit: "account"
+            }
+            {
+              var: "account_id"
+            }
+          ]
           select: {
             exist: [
               "account_id"

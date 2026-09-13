@@ -101,7 +101,7 @@ func TestConsentEntity(t *testing.T) {
 		// CREATE
 		consentRef01Ent := client.Consent(nil)
 		consentRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "consent"}, setup.data), "consent_ref01"))
+			vs.GetPath(setup.data, []any{"new", "consent"}), "consent_ref01"))
 		consentRef01Data["email"] = setup.idmap["email01"]
 		consentRef01Data["merchant_id"] = setup.idmap["merchant01"]
 
@@ -233,7 +233,7 @@ func consentBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"consent01", "consent02", "consent03", "email01", "merchant01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -253,7 +253,7 @@ func consentBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_CONSENT_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_CONSENT_ENTID"])
@@ -262,11 +262,23 @@ func consentBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

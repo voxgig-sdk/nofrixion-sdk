@@ -18,23 +18,27 @@ main: kit: entity: beneficiary_group: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       short: "Timestamp indicating when the group was created."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       short: "Timestamp indicating when the group was last updated."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: true
       short: "Gets or Sets the merchant id."
@@ -82,18 +86,28 @@ main: kit: entity: beneficiary_group: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/beneficiarygroups"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "beneficiarygroups"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "beneficiarygroups"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"

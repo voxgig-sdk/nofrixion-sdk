@@ -12,6 +12,7 @@ main: kit: entity: card_customer_token: {
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "customerEmailAddress"
       req: false
       short: "When creating a tokenised card the payer's email address must be supplied."
@@ -28,12 +29,14 @@ main: kit: entity: card_customer_token: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "The unique ID of the card token that has been stored for the customer."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -44,6 +47,7 @@ main: kit: entity: card_customer_token: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
@@ -54,11 +58,13 @@ main: kit: entity: card_customer_token: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       type: "`$STRING`"
@@ -96,21 +102,35 @@ main: kit: entity: card_customer_token: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/card/customertokens/{merchantID}/{customerEmailAddress}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "card"
-            "customertokens"
-            "{merchant_id}"
-            "{customer_email_address}"
-          ]
           rename: {
             param: {
               customerEmailAddress: "customer_email_address"
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "customertokens"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              var: "customer_email_address"
+            }
+          ]
           select: {
             exist: [
               "customer_email_address"
@@ -141,19 +161,31 @@ main: kit: entity: card_customer_token: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/card/customertokens/{customerEmailAddress}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "card"
-            "customertokens"
-            "{customer_email_address}"
-          ]
           rename: {
             param: {
               customerEmailAddress: "customer_email_address"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "customertokens"
+            }
+            {
+              var: "customer_email_address"
+            }
+          ]
           select: {
             exist: [
               "customer_email_address"
@@ -190,22 +222,38 @@ main: kit: entity: card_customer_token: {
           }
           method: "DELETE"
           orig: "/api/v1/paymentrequests/card/customertokens/removeall/{merchantID}/{customerEmailAddress}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "card"
-            "customertokens"
-            "removeall"
-            "{merchant_id}"
-            "{customer_email_address}"
-          ]
           rename: {
             param: {
               customerEmailAddress: "customer_email_address"
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "customertokens"
+            }
+            {
+              lit: "removeall"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              var: "customer_email_address"
+            }
+          ]
           select: {
             exist: [
               "customer_email_address"
@@ -231,20 +279,34 @@ main: kit: entity: card_customer_token: {
           }
           method: "DELETE"
           orig: "/api/v1/paymentrequests/card/customertokens/removeall/{customerEmailAddress}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "card"
-            "customertokens"
-            "removeall"
-            "{customer_email_address}"
-          ]
           rename: {
             param: {
               customerEmailAddress: "customer_email_address"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "customertokens"
+            }
+            {
+              lit: "removeall"
+            }
+            {
+              var: "customer_email_address"
+            }
+          ]
           select: {
             exist: [
               "customer_email_address"
@@ -269,13 +331,25 @@ main: kit: entity: card_customer_token: {
           }
           method: "DELETE"
           orig: "/api/v1/paymentrequests/card/customertokens/{id}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "card"
-            "customertokens"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "customertokens"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

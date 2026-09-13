@@ -23,12 +23,14 @@ main: kit: entity: beneficiary: {
       type: "`$ARRAY`"
     }
     {
+      format: "int32"
       name: "authorisersCompletedCount"
       req: false
       short: "The number of distinct authorisers that have authorised the beneficiary."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "authorisersRequiredCount"
       req: false
       short: "The number of authorisers required for this beneficiary."
@@ -101,11 +103,13 @@ main: kit: entity: beneficiary: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -116,16 +120,19 @@ main: kit: entity: beneficiary: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastAuthorised"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       op: {
         create: {
@@ -197,12 +204,22 @@ main: kit: entity: beneficiary: {
           }
           method: "POST"
           orig: "/api/v1/beneficiaries/authorise/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "authorise"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "authorise"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -217,10 +234,16 @@ main: kit: entity: beneficiary: {
         {
           method: "POST"
           orig: "/api/v1/beneficiaries"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
           ]
           transform: {
             req: {
@@ -238,11 +261,19 @@ main: kit: entity: beneficiary: {
         {
           method: "POST"
           orig: "/api/v1/beneficiaries/batchcreate"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "batchcreate"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "batchcreate"
+            }
           ]
           select: {
             "$action": "batchcreate"
@@ -321,10 +352,16 @@ main: kit: entity: beneficiary: {
           }
           method: "GET"
           orig: "/api/v1/beneficiaries"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
           ]
           select: {
             exist: [
@@ -409,18 +446,28 @@ main: kit: entity: beneficiary: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/beneficiaries"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "beneficiaries"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "beneficiaries"
+            }
+          ]
           select: {
             exist: [
               "currency"
@@ -500,11 +547,19 @@ main: kit: entity: beneficiary: {
           }
           method: "GET"
           orig: "/api/v1/beneficiaries/export"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "export"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "export"
+            }
           ]
           select: {
             "$action": "export"
@@ -544,19 +599,31 @@ main: kit: entity: beneficiary: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/beneficiaries/{id}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "beneficiaries"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -582,11 +649,19 @@ main: kit: entity: beneficiary: {
           }
           method: "GET"
           orig: "/api/v1/beneficiaries/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -617,11 +692,19 @@ main: kit: entity: beneficiary: {
           }
           method: "DELETE"
           orig: "/api/v1/beneficiaries/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -652,12 +735,22 @@ main: kit: entity: beneficiary: {
           }
           method: "PUT"
           orig: "/api/v1/beneficiaries/disable/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "disable"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "disable"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -683,12 +776,22 @@ main: kit: entity: beneficiary: {
           }
           method: "PUT"
           orig: "/api/v1/beneficiaries/enable/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "enable"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "enable"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -714,11 +817,19 @@ main: kit: entity: beneficiary: {
           }
           method: "PUT"
           orig: "/api/v1/beneficiaries/{id}"
-          parts: [
-            "api"
-            "v1"
-            "beneficiaries"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

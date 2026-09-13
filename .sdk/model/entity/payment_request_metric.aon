@@ -87,11 +87,19 @@ main: kit: entity: payment_request_metric: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/metrics"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "metrics"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              lit: "metrics"
+            }
           ]
           select: {
             exist: [

@@ -36,12 +36,22 @@ main: kit: entity: token: {
           }
           method: "POST"
           orig: "/api/v1/tokens/authorise/{id}"
-          parts: [
-            "api"
-            "v1"
-            "tokens"
-            "authorise"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "tokens"
+            }
+            {
+              lit: "authorise"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -72,11 +82,19 @@ main: kit: entity: token: {
           }
           method: "DELETE"
           orig: "/api/v1/tokens/{id}"
-          parts: [
-            "api"
-            "v1"
-            "tokens"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "tokens"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

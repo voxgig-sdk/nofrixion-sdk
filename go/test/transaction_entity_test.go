@@ -100,7 +100,7 @@ func TestTransactionEntity(t *testing.T) {
 		// CREATE
 		transactionRef01Ent := client.Transaction(nil)
 		transactionRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "transaction"}, setup.data), "transaction_ref01"))
+			vs.GetPath(setup.data, []any{"new", "transaction"}), "transaction_ref01"))
 		transactionRef01Data["account_id"] = setup.idmap["account01"]
 		transactionRef01Data["merchant_id"] = setup.idmap["merchant01"]
 		transactionRef01Data["transaction_id"] = setup.idmap["transaction01"]
@@ -203,7 +203,7 @@ func transactionBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"transaction01", "transaction02", "transaction03", "account01", "account02", "account03", "merchant01", "merchant02", "merchant03", "from01", "from02", "from03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -223,7 +223,7 @@ func transactionBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_TRANSACTION_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_TRANSACTION_ENTID"])
@@ -232,11 +232,23 @@ func transactionBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

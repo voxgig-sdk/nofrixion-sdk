@@ -6,19 +6,23 @@ main: kit: entity: payout_keyset_page: {
 
   fields: [
     {
+      format: "uuid"
       name: "accountID"
       req: false
       short: "Gets or Sets Account Id of sending account"
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "amount"
       req: false
       short: "Gets or Sets payout amount"
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "amountMinorUnits"
+      readOnly: true
       req: false
       short: "The payout amount expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
@@ -30,6 +34,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "approverID"
       req: false
       short: "Gets the User ID of person that approved the payout."
@@ -48,18 +53,21 @@ main: kit: entity: payout_keyset_page: {
       type: "`$ARRAY`"
     }
     {
+      format: "int32"
       name: "authorisersCompletedCount"
       req: false
       short: "The number of distinct authorisers that have authorised the payout."
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "authorisersRequiredCount"
       req: false
       short: "The number of authorisers required for this payout."
       type: "`$INTEGER`"
     }
     {
+      format: "uuid"
       name: "batchPayoutID"
       req: false
       short: "The ID of the batch the payout is associated with."
@@ -111,6 +119,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "currentUserID"
       req: false
       short: "The ID of the user that requested access to the PayOut record."
@@ -141,40 +150,48 @@ main: kit: entity: payout_keyset_page: {
     }
     {
       name: "formattedAmount"
+      readOnly: true
       req: false
       short: "Currency and formatted amount string."
       type: "`$STRING`"
     }
     {
       name: "formattedFxDestinationAmount"
+      readOnly: true
       req: false
       short: "FX destination currency and amount formatted string."
       type: "`$STRING`"
     }
     {
       name: "formattedSchedule"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "formattedScheduleDayOnly"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
     {
       name: "formattedSourceAccountAvailableBalance"
+      readOnly: true
       req: false
       short: "The available balance of the account the payout is being made from."
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "fxDestinationAmount"
       req: false
       short: "If specified this will be the amount sent to the payee."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "fxDestinationAmountMinorUnits"
+      readOnly: true
       req: false
       short: "The payout FxDestinationAmount expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
@@ -186,6 +203,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "fxQuoteExpiresAt"
       req: false
       short: "If an FX held rate quote ID is being used this is the time the quote expires."
@@ -198,6 +216,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "fxRate"
       req: false
       short: "For an FX payout this is the exchange rate to use for the payout."
@@ -216,12 +235,14 @@ main: kit: entity: payout_keyset_page: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "The ID for the payout."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
@@ -257,11 +278,13 @@ main: kit: entity: payout_keyset_page: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "The ID of the merchant that owns the account."
@@ -290,6 +313,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "payrunID"
       req: false
       short: "The ID of the payrun that this payout is associated with."
@@ -307,6 +331,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "scheduleDate"
       req: false
       short: "The date the payout should be submitted."
@@ -319,13 +344,16 @@ main: kit: entity: payout_keyset_page: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "double"
       name: "sourceAccountAvailableBalance"
       req: false
       short: "The available balance of the account the payout is being made from."
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "sourceAccountAvailableBalanceMinorUnits"
+      readOnly: true
       req: false
       short: "The available balance of the source account expressed in the currency’s minor units (e.g."
       type: "`$INTEGER`"
@@ -390,24 +418,28 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "topupPayrunID"
       req: false
       short: "The ID of a payrun that needs an account top up."
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "transactedAmount"
       req: false
       short: "The actual amount debited from the account in NoFrixion.MoneyMoov.Models.Payout.Currency, as recorded on the settled transaction."
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "transactedFxAmount"
       req: false
       short: "The actual amount received by the beneficiary in NoFrixion.MoneyMoov.Models.Payout.FxDestinationCurrency, as recorded on the settled transaction."
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "transactedFxRate"
       req: false
       short: "The actual FX rate applied during settlement, as recorded on the associated transaction."
@@ -420,6 +452,7 @@ main: kit: entity: payout_keyset_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "userID"
       req: false
       short: "Gets or Sets User ID of who created the payout request"
@@ -474,19 +507,31 @@ main: kit: entity: payout_keyset_page: {
           }
           method: "GET"
           orig: "/api/v1/accounts/{accountID}/payouts/failed"
-          parts: [
-            "api"
-            "v1"
-            "accounts"
-            "{account_id}"
-            "payouts"
-            "failed"
-          ]
           rename: {
             param: {
               accountID: "account_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "failed"
+            }
+          ]
           select: {
             exist: [
               "account_id"
@@ -530,19 +575,31 @@ main: kit: entity: payout_keyset_page: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/payouts/failed"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "payouts"
-            "failed"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "failed"
+            }
+          ]
           select: {
             exist: [
               "from_date_utc"
@@ -586,18 +643,28 @@ main: kit: entity: payout_keyset_page: {
           }
           method: "GET"
           orig: "/api/v1/payouts/{merchantID}/failed"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "{merchant_id}"
-            "failed"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "failed"
+            }
+          ]
           select: {
             exist: [
               "from_date_utc"

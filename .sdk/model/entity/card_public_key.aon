@@ -31,19 +31,31 @@ main: kit: entity: card_public_key: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/{id}/card/publickey"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "card"
-            "publickey"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "card"
+            }
+            {
+              lit: "publickey"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

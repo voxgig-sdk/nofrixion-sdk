@@ -16,17 +16,20 @@ main: kit: entity: user_invite: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "initialRoleID"
       req: false
       short: "The role ID to automatically assign to the merchant’s very first user."
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "inviteeEmailAddress"
       op: {
         create: {
@@ -78,11 +81,13 @@ main: kit: entity: user_invite: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastInvited"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "ID of the merchant the user is being invited to."
@@ -111,6 +116,7 @@ main: kit: entity: user_invite: {
     }
     {
       name: "status"
+      readOnly: true
       req: false
       type: "`$STRING`"
     }
@@ -120,6 +126,7 @@ main: kit: entity: user_invite: {
       type: "`$OBJECT`"
     }
     {
+      format: "uuid"
       name: "userID"
       req: false
       type: "`$STRING`"
@@ -155,12 +162,22 @@ main: kit: entity: user_invite: {
           }
           method: "POST"
           orig: "/api/v1/userinvites/authorise/{id}"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "authorise"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              lit: "authorise"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -175,10 +192,16 @@ main: kit: entity: user_invite: {
         {
           method: "POST"
           orig: "/api/v1/userinvites"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
           ]
           transform: {
             req: {
@@ -195,11 +218,19 @@ main: kit: entity: user_invite: {
         {
           method: "POST"
           orig: "/api/v1/userinvites/batchcreate"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "batchcreate"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              lit: "batchcreate"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -257,18 +288,28 @@ main: kit: entity: user_invite: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/userinvitespaged"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "userinvitespaged"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "userinvitespaged"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"
@@ -302,11 +343,19 @@ main: kit: entity: user_invite: {
           }
           method: "GET"
           orig: "/api/v1/userinvites/{id}"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -332,18 +381,28 @@ main: kit: entity: user_invite: {
           }
           method: "GET"
           orig: "/api/v1/userinvites/{id}/details"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "{userinvite_id}"
-            "details"
-          ]
           rename: {
             param: {
               id: "userinvite_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              var: "userinvite_id"
+            }
+            {
+              lit: "details"
+            }
+          ]
           select: {
             exist: [
               "userinvite_id"
@@ -373,11 +432,19 @@ main: kit: entity: user_invite: {
           }
           method: "DELETE"
           orig: "/api/v1/userinvites/{id}"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -408,11 +475,19 @@ main: kit: entity: user_invite: {
           }
           method: "PUT"
           orig: "/api/v1/userinvites/{id}"
-          parts: [
-            "api"
-            "v1"
-            "userinvites"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "userinvites"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

@@ -91,9 +91,13 @@ class TestFxRateEntity:
         assert isinstance(fx_rate_ref01_list_result, list)
 
         # LOAD
-        fx_rate_ref01_match_dt0 = {}
+        fx_rate_ref01_match_dt0 = {
+            "id": fx_rate_ref01_data["id"],
+        }
         fx_rate_ref01_data_dt0_loaded = fx_rate_ref01_ent.load(fx_rate_ref01_match_dt0, None)
-        assert fx_rate_ref01_data_dt0_loaded is not None
+        fx_rate_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(fx_rate_ref01_data_dt0_loaded))
+        assert fx_rate_ref01_data_dt0_load_result is not None
+        assert fx_rate_ref01_data_dt0_load_result["id"] == fx_rate_ref01_data["id"]
 
 
 
@@ -133,7 +137,7 @@ def _fx_rate_basic_setup(extra):
         "NOFRIXION_TEST_FX_RATE_ENTID": idmap,
         "NOFRIXION_TEST_LIVE": "FALSE",
         "NOFRIXION_TEST_EXPLAIN": "FALSE",
-        "NOFRIXION_APIKEY": "NONE",
+        "NOFRIXION_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -143,6 +147,10 @@ def _fx_rate_basic_setup(extra):
 
     if env.get("NOFRIXION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
                 "apikey": env.get("NOFRIXION_APIKEY"),
             },

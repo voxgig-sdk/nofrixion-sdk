@@ -12,6 +12,7 @@ main: kit: entity: merchant_pay_by_bank_setting: {
       type: "`$ARRAY`"
     }
     {
+      format: "uuid"
       name: "bankID"
       req: false
       short: "ID of the bank to be configured for the merchant."
@@ -54,6 +55,7 @@ main: kit: entity: merchant_pay_by_bank_setting: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "order"
       req: false
       short: "Order in which this setting will appear in the UI."
@@ -128,18 +130,28 @@ main: kit: entity: merchant_pay_by_bank_setting: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/banksettings"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "banksettings"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "banksettings"
+            }
+          ]
           select: {
             exist: [
               "country_code"

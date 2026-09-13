@@ -86,9 +86,13 @@ class FxRateEntityTest < Minitest::Test
     assert fx_rate_ref01_list_result.is_a?(Array)
 
     # LOAD
-    fx_rate_ref01_match_dt0 = {}
+    fx_rate_ref01_match_dt0 = {
+      "id" => fx_rate_ref01_data["id"],
+    }
     fx_rate_ref01_data_dt0_loaded = fx_rate_ref01_ent.load(fx_rate_ref01_match_dt0, nil)
-    assert !fx_rate_ref01_data_dt0_loaded.nil?
+    fx_rate_ref01_data_dt0_load_result = Helpers.to_map(fx_rate_ref01_data_dt0_loaded.respond_to?(:data_get) ? fx_rate_ref01_data_dt0_loaded.data_get : fx_rate_ref01_data_dt0_loaded)
+    assert !fx_rate_ref01_data_dt0_load_result.nil?
+    assert_equal fx_rate_ref01_data_dt0_load_result["id"], fx_rate_ref01_data["id"]
 
   end
 end
@@ -126,7 +130,7 @@ def fx_rate_basic_setup(extra)
     "NOFRIXION_TEST_FX_RATE_ENTID" => idmap,
     "NOFRIXION_TEST_LIVE" => "FALSE",
     "NOFRIXION_TEST_EXPLAIN" => "FALSE",
-    "NOFRIXION_APIKEY" => "NONE",
+    "NOFRIXION_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -137,6 +141,9 @@ def fx_rate_basic_setup(extra)
 
   if env["NOFRIXION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["NOFRIXION_APIKEY"],
       },

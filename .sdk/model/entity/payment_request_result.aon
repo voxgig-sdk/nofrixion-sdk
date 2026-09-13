@@ -6,22 +6,26 @@ main: kit: entity: payment_request_result: {
 
   fields: [
     {
+      format: "double"
       name: "amount"
       req: false
       short: "The authorised payment amount."
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "amountPending"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "amountReceived"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "amountRefunded"
       req: false
       type: "`$NUMBER`"
@@ -39,6 +43,7 @@ main: kit: entity: payment_request_result: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "paymentRequestID"
       req: false
       short: "The ID of the payment request the result is for."
@@ -56,6 +61,7 @@ main: kit: entity: payment_request_result: {
       type: "`$ARRAY`"
     }
     {
+      format: "double"
       name: "requestedAmount"
       req: false
       short: "The full original payment amount requested."
@@ -88,18 +94,28 @@ main: kit: entity: payment_request_result: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/{id}/result"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "result"
-          ]
           rename: {
             param: {
               id: "paymentrequest_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "result"
+            }
+          ]
           select: {
             exist: [
               "paymentrequest_id"

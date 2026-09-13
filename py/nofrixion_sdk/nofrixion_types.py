@@ -87,61 +87,10 @@ class AccountLoadMatch(AccountLoadMatchRequired, total=False):
 
 
 class AccountListMatch(TypedDict, total=False):
-    accountBalances: list
-    accountID: str
-    accountIdentifications: list
-    accountName: str
-    accountNames: list
-    accountSupplierName: str
-    accountType: str
-    availableBalance: float
-    availableBalanceMinorUnits: int
-    balance: float
-    balanceMinorUnits: int
-    bankName: str
-    consentID: str
-    consolidatedAccountInformation: dict
-    createdBy: dict
-    createdByDisplayName: str
-    currency: str
-    defaultPaymentRail: str
-    description: str
-    details: str
-    displayName: str
-    expiryDate: str
-    externalAccountIcon: str
-    format: str
-    fromDate: str
-    id: str
-    identifier: dict
-    inserted: str
-    isArchived: bool
-    isConnectedAccount: bool
-    isDefault: bool
-    isTrustAccount: bool
-    isVirtual: bool
-    lastTransaction: dict
-    lastUpdated: str
-    merchantID: str
-    merchantName: str
-    nickname: str
-    physicalAccountID: str
-    roleIDs: list
-    rules: list
-    submittedPayoutsBalance: float
-    submittedPayoutsBalanceMinorUnits: int
-    summary: str
-    supplierPhysicalAccountID: str
-    supplierSepaInstantStatus: str
-    toDate: str
-    type: str
-    usageType: str
-    xeroBankFeedConnectionStatus: str
-    xeroBankFeedLastSyncedAt: str
-    xeroBankFeedSyncLastFailedAt: str
-    xeroBankFeedSyncLastFailureReason: str
-    xeroBankFeedSyncStatus: str
-    xeroUnsynchronisedTransactionsCount: int
+    connected_account: bool
+    include_archived: bool
+    merchant_id: str
+    only_connect_account: bool
 
 
 class AccountCreateDataRequired(TypedDict):
@@ -328,32 +277,14 @@ class BeneficiaryLoadMatch(BeneficiaryLoadMatchRequired, total=False):
 
 
 class BeneficiaryListMatch(TypedDict, total=False):
-    approvalCallbackUrl: str
-    authenticationMethods: list
-    authorisations: list
-    authorisersCompletedCount: int
-    authorisersRequiredCount: int
-    beneficiaries: list
-    beneficiaryEvents: list
-    canAuthorise: bool
-    canUpdate: bool
-    createdBy: dict
-    createdByEmailAddress: str
     currency: str
-    destination: dict
-    failedBeneficiaries: dict
-    hasCurrentUserAuthorised: bool
-    id: str
-    inserted: str
-    isEnabled: bool
-    lastAuthorised: str
-    lastUpdated: str
-    merchantID: str
-    name: str
-    nonce: str
-    sourceAccountIDs: list
-    sourceAccounts: list
-    theirReference: str
+    include_disabled: bool
+    merchant_id: str
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
+    source_account_id: str
 
 
 class BeneficiaryCreateDataRequired(TypedDict):
@@ -436,8 +367,13 @@ class BeneficiaryGroup(BeneficiaryGroupRequired, total=False):
     lastUpdated: str
 
 
-class BeneficiaryGroupListMatch(TypedDict):
+class BeneficiaryGroupListMatchRequired(TypedDict):
     merchant_id: str
+
+
+class BeneficiaryGroupListMatch(BeneficiaryGroupListMatchRequired, total=False):
+    page_number: int
+    page_size: int
 
 
 class Card(TypedDict, total=False):
@@ -641,12 +577,7 @@ class Currency(TypedDict, total=False):
 
 
 class CurrencyListMatch(TypedDict, total=False):
-    code: str
-    decimals: int
-    isFiat: bool
-    iso4217AlphaCode: str
-    iso4217NumericCode: str
-    symbol: str
+    capability: str
 
 
 class DirectDebitBatchSubmit(TypedDict, total=False):
@@ -663,6 +594,7 @@ class FxRate(TypedDict, total=False):
     destinationCurrency: str
     exchangeRate: float
     expiryTime: str
+    id: str
     quoteID: str
     sourceCurrency: str
 
@@ -925,29 +857,18 @@ class MerchantDirectDebitMandatePage(TypedDict, total=False):
 
 
 class MerchantDirectDebitMandatePageListMatch(TypedDict, total=False):
-    approvedAt: str
     currency: str
-    customerAccountNumber: str
-    customerCity: str
-    customerCountryCode: str
-    customerCountryName: str
-    customerEmailAddress: str
-    customerFirstName: str
-    customerIban: str
-    customerLastName: str
-    customerSortCode: str
-    id: str
-    inserted: str
-    isRecurring: bool
-    lastUpdated: str
-    merchantID: str
-    reference: str
+    from_date: str
+    mandate_i_d: list
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    page: int
+    search: str
+    size: int
+    sort: str
     status: str
-    supplierBankAccountID: str
-    supplierCustomerID: str
-    supplierMandateID: str
-    supplierName: str
-    supplierStatus: str
+    to_date: str
 
 
 class MerchantPayByBankSetting(TypedDict, total=False):
@@ -966,8 +887,14 @@ class MerchantPayByBankSetting(TypedDict, total=False):
     warningMessage: str
 
 
-class MerchantPayByBankSettingListMatch(TypedDict):
+class MerchantPayByBankSettingListMatchRequired(TypedDict):
     merchant_id: str
+
+
+class MerchantPayByBankSettingListMatch(MerchantPayByBankSettingListMatchRequired, total=False):
+    country_code: str
+    currency: str
+    open_banking_operation: str
 
 
 class MerchantPaymentRequestTemplateRequired(TypedDict):
@@ -1062,8 +989,13 @@ class MerchantTokenLoadMatch(TypedDict):
     id: str
 
 
-class MerchantTokenListMatch(TypedDict):
+class MerchantTokenListMatchRequired(TypedDict):
     merchant_id: str
+
+
+class MerchantTokenListMatch(MerchantTokenListMatchRequired, total=False):
+    page_number: int
+    page_size: int
 
 
 class MerchantTokenCreateDataRequired(TypedDict):
@@ -1128,8 +1060,10 @@ class Metadata(TypedDict):
     pass
 
 
-class MetadataLoadMatch(TypedDict):
-    pass
+class MetadataLoadMatch(TypedDict, total=False):
+    id: str
+    secret: str
+    url: str
 
 
 class NoFrixionVersion(TypedDict, total=False):
@@ -1146,12 +1080,16 @@ class NoFrixionVersionLoadMatch(TypedDict, total=False):
     releaseName: str
 
 
-class OpenBanking(TypedDict):
-    pass
+class OpenBanking(TypedDict, total=False):
+    id: str
 
 
-class OpenBankingCreateData(TypedDict):
+class OpenBankingCreateDataRequired(TypedDict):
     account_id: str
+
+
+class OpenBankingCreateData(OpenBankingCreateDataRequired, total=False):
+    id: str
 
 
 class OpenBankingRemoveMatch(TypedDict):
@@ -1266,8 +1204,12 @@ class Payment(PaymentRequired, total=False):
     useHostedPaymentPage: bool
 
 
-class PaymentLoadMatch(TypedDict):
+class PaymentLoadMatchRequired(TypedDict):
     id: str
+
+
+class PaymentLoadMatch(PaymentLoadMatchRequired, total=False):
+    include_event: bool
 
 
 class PaymentCreateDataRequired(TypedDict):
@@ -1480,45 +1422,17 @@ class PaymentAccount(PaymentAccountRequired, total=False):
 
 
 class PaymentAccountListMatch(TypedDict, total=False):
-    accountName: str
-    accountSupplierName: str
-    availableBalance: float
-    availableBalanceMinorUnits: int
-    balance: float
-    balanceMinorUnits: int
-    bankName: str
-    consentID: str
-    createdBy: dict
-    createdByDisplayName: str
-    currency: str
-    defaultPaymentRail: str
-    displayName: str
-    expiryDate: str
-    externalAccountIcon: str
-    id: str
-    identifier: dict
-    inserted: str
-    isArchived: bool
-    isConnectedAccount: bool
-    isDefault: bool
-    isTrustAccount: bool
-    isVirtual: bool
-    lastTransaction: dict
-    lastUpdated: str
-    merchantID: str
-    merchantName: str
-    physicalAccountID: str
-    rules: list
-    submittedPayoutsBalance: float
-    submittedPayoutsBalanceMinorUnits: int
-    summary: str
-    supplierSepaInstantStatus: str
-    xeroBankFeedConnectionStatus: str
-    xeroBankFeedLastSyncedAt: str
-    xeroBankFeedSyncLastFailedAt: str
-    xeroBankFeedSyncLastFailureReason: str
-    xeroBankFeedSyncStatus: str
-    xeroUnsynchronisedTransactionsCount: int
+    connected_account: bool
+    currency: list
+    include_archived: bool
+    include_child_merchant: bool
+    merchant_id: str
+    only_archived: bool
+    only_connect_account: bool
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
 
 
 class PaymentAccountMinimalRequired(TypedDict):
@@ -1539,17 +1453,16 @@ class PaymentAccountMinimal(PaymentAccountMinimalRequired, total=False):
 
 
 class PaymentAccountMinimalListMatch(TypedDict, total=False):
-    accountName: str
-    availableBalance: float
-    balance: float
-    balanceMinorUnits: int
-    currency: str
-    id: str
-    identifier: dict
-    isArchived: bool
-    isConnectedAccount: bool
-    merchantID: str
-    submittedPayoutsBalance: float
+    connected_account: bool
+    currency: list
+    include_archived: bool
+    merchant_id: str
+    only_archived: bool
+    only_connect_account: bool
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
 
 
 class PaymentInitiation(TypedDict, total=False):
@@ -1649,151 +1562,38 @@ class PaymentRequest(PaymentRequestRequired, total=False):
     useHostedPaymentPage: bool
 
 
-class PaymentRequestLoadMatchRequired(TypedDict):
-    id: str
-
-
-class PaymentRequestLoadMatch(PaymentRequestLoadMatchRequired, total=False):
-    addresses: list
-    amount: float
-    amountPending: float
-    amountReceived: float
-    amountRefunded: float
-    autoSendReceipt: bool
-    baseOriginUrl: str
-    callbackUrl: str
-    cardAuthorizeOnly: bool
-    cardCreateToken: bool
-    cardCreateTokenMode: str
-    cardIgnoreCVN: bool
-    cardProcessorMerchantID: str
-    cardStripePaymentIntentID: str
-    cardStripePaymentIntentSecret: str
-    createdByUser: dict
+class PaymentRequestLoadMatch(TypedDict, total=False):
     currency: str
-    customFields: list
-    customerEmailAddress: str
-    customerID: str
-    customerName: str
-    description: str
-    destinationAccount: dict
-    directDebitPayment: dict
-    doSimulateSettlementFailure: bool
-    dueDate: str
-    errorDescription: str
-    events: list
-    failedPaymentRequests: dict
-    failureCallbackUrl: str
-    fieldDisplaySettings: list
-    formattedAmount: str
-    hostedPayCheckoutUrl: str
-    ignoreAddressVerification: bool
-    inserted: str
-    insertedSortable: str
-    institution: str
-    isArchived: bool
-    jwk: str
-    lastUpdated: str
-    lightningInvoice: str
-    lightningInvoiceExpiresAt: str
-    merchantDirectDebitMandateID: str
-    merchantID: str
-    merchantTokenDescription: str
-    notificationEmailAddresses: str
-    notificationRoleIDs: list
-    orderID: str
-    partialPaymentMethod: str
-    partialPaymentSteps: str
-    paymentAttempts: list
-    paymentInitiationID: str
-    paymentMethods: list
-    paymentProcessor: str
-    paymentRequests: list
-    payrunID: str
-    pispAccountID: str
-    priorityBankID: str
-    result: dict
-    sandboxSettleDelayInSeconds: int
-    shippingAddress: dict
+    from_date: str
+    include_archived: bool
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    page: int
+    payment_method: list
+    search: str
+    size: int
+    sort: str
     status: str
-    successWebHookUrl: str
-    tags: list
-    title: str
-    tokenisedCards: list
-    transactions: list
-    useHostedPaymentPage: bool
+    tag: list
+    to_date: str
 
 
 class PaymentRequestListMatch(TypedDict, total=False):
-    addresses: list
-    amount: float
-    amountPending: float
-    amountReceived: float
-    amountRefunded: float
-    autoSendReceipt: bool
-    baseOriginUrl: str
-    callbackUrl: str
-    cardAuthorizeOnly: bool
-    cardCreateToken: bool
-    cardCreateTokenMode: str
-    cardIgnoreCVN: bool
-    cardProcessorMerchantID: str
-    cardStripePaymentIntentID: str
-    cardStripePaymentIntentSecret: str
-    createdByUser: dict
     currency: str
-    customFields: list
-    customerEmailAddress: str
-    customerID: str
-    customerName: str
-    description: str
-    destinationAccount: dict
-    directDebitPayment: dict
-    doSimulateSettlementFailure: bool
-    dueDate: str
-    errorDescription: str
-    events: list
-    failedPaymentRequests: dict
-    failureCallbackUrl: str
-    fieldDisplaySettings: list
-    formattedAmount: str
-    hostedPayCheckoutUrl: str
-    id: str
-    ignoreAddressVerification: bool
-    inserted: str
-    insertedSortable: str
-    institution: str
-    isArchived: bool
-    jwk: str
-    lastUpdated: str
-    lightningInvoice: str
-    lightningInvoiceExpiresAt: str
-    merchantDirectDebitMandateID: str
-    merchantID: str
-    merchantTokenDescription: str
-    notificationEmailAddresses: str
-    notificationRoleIDs: list
-    orderID: str
-    partialPaymentMethod: str
-    partialPaymentSteps: str
-    paymentAttempts: list
-    paymentInitiationID: str
-    paymentMethods: list
-    paymentProcessor: str
-    paymentRequests: list
-    payrunID: str
-    pispAccountID: str
-    priorityBankID: str
-    result: dict
-    sandboxSettleDelayInSeconds: int
-    shippingAddress: dict
+    from_date: str
+    include_archived: bool
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    page: int
+    payment_method: list
+    search: str
+    size: int
+    sort: str
     status: str
-    successWebHookUrl: str
-    tags: list
-    title: str
-    tokenisedCards: list
-    transactions: list
-    useHostedPaymentPage: bool
+    tag: list
+    to_date: str
 
 
 class PaymentRequestCreateDataRequired(TypedDict):
@@ -2001,8 +1801,17 @@ class PaymentRequestMetric(TypedDict):
     pass
 
 
-class PaymentRequestMetricLoadMatch(TypedDict):
-    pass
+class PaymentRequestMetricLoadMatch(TypedDict, total=False):
+    currency: str
+    from_date: str
+    include_archived: bool
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    payment_method: list
+    search: str
+    tag: list
+    to_date: str
 
 
 class PaymentRequestMinimal(TypedDict, total=False):
@@ -2150,85 +1959,19 @@ class PayoutLoadMatch(TypedDict):
 
 
 class PayoutListMatch(TypedDict, total=False):
-    accountID: str
-    allowIncomplete: bool
-    amount: float
-    amountMinorUnits: int
-    approvePayoutUrl: str
-    approverID: str
-    authenticationMethods: list
-    authorisations: list
-    authorisersCompletedCount: int
-    authorisersRequiredCount: int
-    batchPayoutID: str
-    beneficiary: dict
-    beneficiaryID: str
-    canAuthorise: bool
-    canProcess: bool
-    canUpdate: bool
-    chargeBearer: str
-    createdBy: str
-    createdByEmailAddress: str
     currency: str
-    currentUserID: str
-    description: str
-    destination: dict
-    documents: list
-    events: list
-    failedPayouts: dict
-    formattedAmount: str
-    formattedFxDestinationAmount: str
-    formattedSchedule: str
-    formattedScheduleDayOnly: str
-    formattedSourceAccountAvailableBalance: str
-    fxDestinationAmount: float
-    fxDestinationAmountMinorUnits: int
-    fxDestinationCurrency: str
-    fxQuoteExpiresAt: str
-    fxQuoteID: str
-    fxRate: float
-    fxUseDestinationAmount: bool
-    hasCurrentUserAuthorised: bool
-    id: str
-    inserted: str
-    invoiceID: str
-    isArchived: bool
-    isFailed: bool
-    isSettled: bool
-    isSubmitted: bool
-    lastUpdated: str
-    merchantID: str
-    merchantTokenDescription: str
-    nonce: str
-    paymentProcessor: str
-    paymentRail: str
-    payouts: list
-    payrunID: str
-    payrunName: str
-    reason: str
-    rule: dict
-    scheduleDate: str
-    scheduled: bool
-    sourceAccountAvailableBalance: float
-    sourceAccountAvailableBalanceMinorUnits: int
-    sourceAccountBic: str
-    sourceAccountCurrency: str
-    sourceAccountIban: str
-    sourceAccountIdentifier: dict
-    sourceAccountName: str
-    sourceAccountNumber: str
-    sourceAccountSortcode: str
-    status: str
-    tagIds: list
-    tags: list
-    theirReference: str
-    topupPayrunID: str
-    transactedAmount: float
-    transactedFxAmount: float
-    transactedFxRate: float
-    type: str
-    userID: str
-    yourReference: str
+    from_date: str
+    include_archived: bool
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
+    status: list
+    tag: list
+    to_date: str
 
 
 class PayoutCreateDataRequired(TypedDict):
@@ -2484,16 +2227,29 @@ class PayoutKeysetPage(PayoutKeysetPageRequired, total=False):
     yourReference: str
 
 
-class PayoutKeysetPageListMatch(TypedDict):
+class PayoutKeysetPageListMatchRequired(TypedDict):
     merchant_id: str
+
+
+class PayoutKeysetPageListMatch(PayoutKeysetPageListMatchRequired, total=False):
+    from_date_utc: str
+    page_size: int
 
 
 class PayoutMetric(TypedDict):
     pass
 
 
-class PayoutMetricLoadMatch(TypedDict):
-    pass
+class PayoutMetricLoadMatch(TypedDict, total=False):
+    currency: str
+    from_date: str
+    include_archived: bool
+    max_amount: float
+    merchant_id: str
+    min_amount: float
+    search: str
+    tag: list
+    to_date: str
 
 
 class PayrunRequired(TypedDict):
@@ -2539,38 +2295,15 @@ class PayrunLoadMatch(TypedDict):
 
 
 class PayrunListMatch(TypedDict, total=False):
-    authorisationDate: str
-    authorisations: list
-    authorisersCompletedCount: int
-    authorisersRequiredCount: int
-    batchPayoutID: str
-    canAuthorise: bool
-    canDelete: bool
-    canEdit: bool
-    events: list
-    hasCurrentUserAuthorised: bool
-    id: str
-    inserted: str
-    invoices: list
-    invoicesMinimal: list
-    isArchived: bool
-    lastUpdated: str
-    lastUpdatedBy: dict
-    merchantID: str
-    name: str
-    nonce: str
-    notes: str
-    payments: list
-    payouts: list
-    payoutsCount: int
-    reason: str
-    scheduleDate: str
-    scheduledDate: str
-    sourceAccounts: list
-    status: str
-    totalEur: float
-    totalGbp: float
-    totalUsd: float
+    from_date: str
+    merchant_id: str
+    only_archived: bool
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
+    status: list
+    to_date: str
 
 
 class PayrunCreateDataRequired(TypedDict):
@@ -2735,39 +2468,12 @@ class RuleLoadMatch(TypedDict):
 
 
 class RuleListMatch(TypedDict, total=False):
-    account: dict
-    accountID: str
-    approveUrl: str
-    approverID: str
-    authenticationMethods: list
-    authorisations: list
-    authorisersCompletedCount: int
-    authorisersRequiredCount: int
-    canAuthorise: bool
-    createdBy: dict
-    description: str
-    endAt: str
-    hasCurrentUserAuthorised: bool
-    id: str
-    inserted: str
-    isDisabled: bool
-    lastExecutedAt: str
-    lastRunAtTransactionDate: str
-    lastUpdated: str
-    merchantID: str
-    name: str
-    nonce: str
-    onApprovedWebHookUrl: str
-    onExecutionErrorWebHookUrl: str
-    onExecutionSuccessWebHookUrl: str
-    startAt: str
-    status: str
-    sweepAction: dict
-    timeZoneId: str
-    triggerCronExpression: str
-    triggerOnPayIn: bool
-    userID: str
-    webHookSecret: str
+    archived_only: bool
+    merchant_id: str
+    page: int
+    search: str
+    size: int
+    sort: str
 
 
 class RuleCreateDataRequired(TypedDict):
@@ -2867,8 +2573,14 @@ class RuleEvent(RuleEventRequired, total=False):
     ruleID: str
 
 
-class RuleEventListMatch(TypedDict):
+class RuleEventListMatchRequired(TypedDict):
     id: str
+
+
+class RuleEventListMatch(RuleEventListMatchRequired, total=False):
+    event_type: list
+    page: int
+    size: int
 
 
 class TagRequired(TypedDict):
@@ -2969,13 +2681,33 @@ class Transaction(TransactionRequired, total=False):
     yourReference: str
 
 
-class TransactionLoadMatch(TypedDict):
+class TransactionLoadMatchRequired(TypedDict):
     id: str
 
 
-class TransactionListMatch(TypedDict):
+class TransactionLoadMatch(TransactionLoadMatchRequired, total=False):
+    credit_type: str
+    from_date: str
+    max_amount: float
+    min_amount: float
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
+    to_date: str
+
+
+class TransactionListMatchRequired(TypedDict):
     account_id: str
     id: str
+
+
+class TransactionListMatch(TransactionListMatchRequired, total=False):
+    limit: int
+    offset: int
+    sort_inserted_ascending: bool
+    transaction_from: str
+    transaction_to: str
 
 
 class TransactionCreateDataRequired(TypedDict):
@@ -3037,8 +2769,12 @@ class TransactionCreateData(TransactionCreateDataRequired, total=False):
     yourReference: str
 
 
-class TransactionRemoveMatch(TypedDict):
+class TransactionRemoveMatchRequired(TypedDict):
     id: str
+
+
+class TransactionRemoveMatch(TransactionRemoveMatchRequired, total=False):
+    tag_id: str
 
 
 class UserRequired(TypedDict):
@@ -3121,8 +2857,15 @@ class UserInviteLoadMatch(TypedDict):
     id: str
 
 
-class UserInviteListMatch(TypedDict):
+class UserInviteListMatchRequired(TypedDict):
     merchant_id: str
+
+
+class UserInviteListMatch(UserInviteListMatchRequired, total=False):
+    page_number: int
+    page_size: int
+    search: str
+    sort: str
 
 
 class UserInviteCreateDataRequired(TypedDict):

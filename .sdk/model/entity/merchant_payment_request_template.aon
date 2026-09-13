@@ -38,21 +38,25 @@ main: kit: entity: merchant_payment_request_template: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       type: "`$STRING`"
@@ -113,18 +117,28 @@ main: kit: entity: merchant_payment_request_template: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/{merchantID}/templates"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{merchant_id}"
-            "templates"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "templates"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"
@@ -161,20 +175,32 @@ main: kit: entity: merchant_payment_request_template: {
           }
           method: "GET"
           orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "templates"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "paymentrequest_id"
               templateID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -212,20 +238,32 @@ main: kit: entity: merchant_payment_request_template: {
           }
           method: "DELETE"
           orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "templates"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "paymentrequest_id"
               templateID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -263,20 +301,32 @@ main: kit: entity: merchant_payment_request_template: {
           }
           method: "PUT"
           orig: "/api/v1/paymentrequests/{merchantID}/templates/{templateID}"
-          parts: [
-            "api"
-            "v1"
-            "paymentrequests"
-            "{paymentrequest_id}"
-            "templates"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "paymentrequest_id"
               templateID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "paymentrequests"
+            }
+            {
+              var: "paymentrequest_id"
+            }
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

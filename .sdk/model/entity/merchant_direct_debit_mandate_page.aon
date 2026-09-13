@@ -6,6 +6,7 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
 
   fields: [
     {
+      format: "date-time"
       name: "approvedAt"
       req: false
       short: "Date at which the supplier approved this mandate."
@@ -72,12 +73,14 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "Internal ID of the mandate."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       short: "The timestamp this mandate was created at."
@@ -90,12 +93,14 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       short: "The timestamp this mandate was last updated at."
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "merchantID"
       req: false
       short: "Internal ID of this mandate's merchant."
@@ -248,10 +253,16 @@ main: kit: entity: merchant_direct_debit_mandate_page: {
           }
           method: "GET"
           orig: "/api/v1/mandates"
-          parts: [
-            "api"
-            "v1"
-            "mandates"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "mandates"
+            }
           ]
           select: {
             exist: [

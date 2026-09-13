@@ -50,7 +50,7 @@ func TestCardPublicKeyEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		cardPublicKeyRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.card_public_key", setup.data)))
+		cardPublicKeyRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.card_public_key")))
 		var cardPublicKeyRef01Data map[string]any
 		if len(cardPublicKeyRef01DataRaw) > 0 {
 			cardPublicKeyRef01Data = core.ToMapAny(cardPublicKeyRef01DataRaw[0][1])
@@ -97,7 +97,7 @@ func card_public_keyBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"card_public_key01", "card_public_key02", "card_public_key03", "paymentrequest01", "paymentrequest02", "paymentrequest03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -117,7 +117,7 @@ func card_public_keyBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID"])
@@ -126,11 +126,23 @@ func card_public_keyBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

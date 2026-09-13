@@ -12,6 +12,7 @@ main: kit: entity: batch: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       type: "`$STRING`"
@@ -36,11 +37,19 @@ main: kit: entity: batch: {
         {
           method: "POST"
           orig: "/api/v1/payouts/batch"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "batch"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "batch"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -66,12 +75,22 @@ main: kit: entity: batch: {
           }
           method: "GET"
           orig: "/api/v1/payouts/batch/{id}"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "batch"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

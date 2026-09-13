@@ -95,10 +95,14 @@ describe("FxRateEntity", function()
     assert.is_table(fx_rate_ref01_list_result)
 
     -- LOAD
-    local fx_rate_ref01_match_dt0 = {}
+    local fx_rate_ref01_match_dt0 = {
+      id = fx_rate_ref01_data["id"],
+    }
     local fx_rate_ref01_data_dt0_loaded, err = fx_rate_ref01_ent:load(fx_rate_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(fx_rate_ref01_data_dt0_loaded)
+    local fx_rate_ref01_data_dt0_load_result = helpers.to_map(type(fx_rate_ref01_data_dt0_loaded) == 'table' and fx_rate_ref01_data_dt0_loaded.data_get and fx_rate_ref01_data_dt0_loaded:data_get() or fx_rate_ref01_data_dt0_loaded)
+    assert.is_not_nil(fx_rate_ref01_data_dt0_load_result)
+    assert.are.equal(fx_rate_ref01_data_dt0_load_result["id"], fx_rate_ref01_data["id"])
 
   end)
 end)
@@ -142,7 +146,7 @@ function fx_rate_basic_setup(extra)
     ["NOFRIXION_TEST_FX_RATE_ENTID"] = idmap,
     ["NOFRIXION_TEST_LIVE"] = "FALSE",
     ["NOFRIXION_TEST_EXPLAIN"] = "FALSE",
-    ["NOFRIXION_APIKEY"] = "NONE",
+    ["NOFRIXION_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -153,6 +157,9 @@ function fx_rate_basic_setup(extra)
 
   if env["NOFRIXION_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["NOFRIXION_APIKEY"],
       },

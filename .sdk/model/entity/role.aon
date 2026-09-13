@@ -36,19 +36,31 @@ main: kit: entity: role: {
           }
           method: "POST"
           orig: "/api/v1/merchants/{merchantID}/roles/batchcreate"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "roles"
-            "batchcreate"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "roles"
+            }
+            {
+              lit: "batchcreate"
+            }
+          ]
           select: {
             "$action": "batchcreate"
             exist: [

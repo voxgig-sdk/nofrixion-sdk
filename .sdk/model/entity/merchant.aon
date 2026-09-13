@@ -24,6 +24,7 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
+      format: "uuid"
       name: "companyID"
       req: false
       short: "The Company ID recorded in the Compliance system."
@@ -36,18 +37,21 @@ main: kit: entity: merchant: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "int32"
       name: "hostedPayVersion"
       req: false
       short: "The version of the hosted payment page to use with the merchant."
       type: "`$INTEGER`"
     }
     {
+      format: "uuid"
       name: "id"
       req: false
       short: "Unique ID for the merchant."
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "inserted"
       req: false
       short: "Timestamp the merchant was added to MoneyMoov."
@@ -113,6 +117,7 @@ main: kit: entity: merchant: {
       type: "`$OBJECT`"
     }
     {
+      format: "int32"
       name: "paymentAccountLimit"
       req: false
       short: "The maximum number of payment accounts that can be created for the Merchant."
@@ -166,6 +171,7 @@ main: kit: entity: merchant: {
       type: "`$STRING`"
     }
     {
+      format: "int32"
       name: "webHookLimit"
       req: false
       short: "The maximum number of web hooks that can be created for the Merchant."
@@ -235,18 +241,28 @@ main: kit: entity: merchant: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/childmerchants"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "childmerchants"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "childmerchants"
+            }
+          ]
           select: {
             "$action": "childmerchant"
             exist: [
@@ -307,11 +323,19 @@ main: kit: entity: merchant: {
           }
           method: "GET"
           orig: "/api/v1/merchants/paged"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "paged"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              lit: "paged"
+            }
           ]
           select: {
             "$action": "paged"
@@ -331,10 +355,16 @@ main: kit: entity: merchant: {
         {
           method: "GET"
           orig: "/api/v1/merchants"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -344,11 +374,19 @@ main: kit: entity: merchant: {
         {
           method: "GET"
           orig: "/api/v1/metadata/whoamimerchant"
-          parts: [
-            "api"
-            "v1"
-            "metadata"
-            "whoamimerchant"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "whoamimerchant"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -358,11 +396,19 @@ main: kit: entity: merchant: {
         {
           method: "GET"
           orig: "/api/v1/metadata/whoamimerchantsigned"
-          parts: [
-            "api"
-            "v1"
-            "metadata"
-            "whoamimerchantsigned"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "whoamimerchantsigned"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -372,11 +418,19 @@ main: kit: entity: merchant: {
         {
           method: "GET"
           orig: "/api/v1/metadata/whoamimerchantwhitelist"
-          parts: [
-            "api"
-            "v1"
-            "metadata"
-            "whoamimerchantwhitelist"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "whoamimerchantwhitelist"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -481,19 +535,31 @@ main: kit: entity: merchant: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/payouts/export"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "payouts"
-            "export"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "export"
+            }
+          ]
           select: {
             "$action": "payout_export"
             exist: [
@@ -575,19 +641,31 @@ main: kit: entity: merchant: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}/beneficiaries/export"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "beneficiaries"
-            "export"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "beneficiaries"
+            }
+            {
+              lit: "export"
+            }
+          ]
           select: {
             "$action": "beneficiary_export"
             exist: [
@@ -619,17 +697,25 @@ main: kit: entity: merchant: {
           }
           method: "GET"
           orig: "/api/v1/merchants/{merchantID}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -666,20 +752,32 @@ main: kit: entity: merchant: {
           }
           method: "DELETE"
           orig: "/api/v1/merchants/{merchantId}/users/{userId}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{id}"
-            "users"
-            "{user_id}"
-          ]
           rename: {
             param: {
               merchantId: "id"
               userId: "user_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "user_id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -712,20 +810,32 @@ main: kit: entity: merchant: {
           }
           method: "DELETE"
           orig: "/api/v1/merchants/{merchantID}/tags/{tagID}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{merchant_id}"
-            "tags"
-            "{tag_id}"
-          ]
           rename: {
             param: {
               merchantID: "merchant_id"
               tagID: "tag_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "merchant_id"
+            }
+            {
+              lit: "tags"
+            }
+            {
+              var: "tag_id"
+            }
+          ]
           select: {
             exist: [
               "merchant_id"
@@ -756,17 +866,25 @@ main: kit: entity: merchant: {
           }
           method: "PUT"
           orig: "/api/v1/merchants/{merchantID}"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{id}"
-          ]
           rename: {
             param: {
               merchantID: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -797,18 +915,28 @@ main: kit: entity: merchant: {
           }
           method: "PUT"
           orig: "/api/v1/merchants/{merchantId}/suspend"
-          parts: [
-            "api"
-            "v1"
-            "merchants"
-            "{id}"
-            "suspend"
-          ]
           rename: {
             param: {
               merchantId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "merchants"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "suspend"
+            }
+          ]
           select: {
             "$action": "suspend"
             exist: [

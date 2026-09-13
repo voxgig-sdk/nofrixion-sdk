@@ -2,22 +2,22 @@
   "existing": {
     "open_banking": {
       "OPEN_BANKING00": {
+        "id": "OPEN_BANKING00",
         "account_id": "ACCOUNT01",
         "email": "EMAIL01",
-        "merchant_id": "MERCHANT01",
-        "id": "OPEN_BANKING00"
+        "merchant_id": "MERCHANT01"
       },
       "OPEN_BANKING01": {
+        "id": "OPEN_BANKING01",
         "account_id": "ACCOUNT01",
         "email": "EMAIL01",
-        "merchant_id": "MERCHANT01",
-        "id": "OPEN_BANKING01"
+        "merchant_id": "MERCHANT01"
       },
       "OPEN_BANKING02": {
+        "id": "OPEN_BANKING02",
         "account_id": "ACCOUNT01",
         "email": "EMAIL01",
-        "merchant_id": "MERCHANT01",
-        "id": "OPEN_BANKING02"
+        "merchant_id": "MERCHANT01"
       }
     }
   },

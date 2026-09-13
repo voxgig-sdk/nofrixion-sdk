@@ -52,7 +52,7 @@ func TestOpenBankingEntity(t *testing.T) {
 		// CREATE
 		openBankingRef01Ent := client.OpenBanking(nil)
 		openBankingRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "open_banking"}, setup.data), "open_banking_ref01"))
+			vs.GetPath(setup.data, []any{"new", "open_banking"}), "open_banking_ref01"))
 		openBankingRef01Data["account_id"] = setup.idmap["account01"]
 		openBankingRef01Data["merchant_id"] = setup.idmap["merchant01"]
 
@@ -64,7 +64,18 @@ func TestOpenBankingEntity(t *testing.T) {
 		if openBankingRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if openBankingRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
+		// REMOVE
+		openBankingRef01MatchRm0 := map[string]any{
+			"id": openBankingRef01Data["id"],
+		}
+		_, err = openBankingRef01Ent.Remove(openBankingRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 	})
 }
@@ -93,7 +104,7 @@ func open_bankingBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"open_banking01", "open_banking02", "open_banking03", "account01", "account02", "account03", "consent01", "consent02", "consent03", "merchant01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -113,7 +124,7 @@ func open_bankingBasicSetup(extra map[string]any) *entityTestSetup {
 		"NOFRIXION_TEST_OPEN_BANKING_ENTID": idmap,
 		"NOFRIXION_TEST_LIVE":      "FALSE",
 		"NOFRIXION_TEST_EXPLAIN":   "FALSE",
-		"NOFRIXION_APIKEY":         "NONE",
+		"NOFRIXION_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["NOFRIXION_TEST_OPEN_BANKING_ENTID"])
@@ -122,11 +133,23 @@ func open_bankingBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["NOFRIXION_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["NOFRIXION_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewNofrixionSDK(core.ToMapAny(mergedOpts))
 	}

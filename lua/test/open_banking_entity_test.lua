@@ -45,7 +45,14 @@ describe("OpenBankingEntity", function()
     assert.is_nil(err)
     open_banking_ref01_data = helpers.to_map(type(open_banking_ref01_data_result) == 'table' and open_banking_ref01_data_result.data_get and open_banking_ref01_data_result:data_get() or open_banking_ref01_data_result)
     assert.is_not_nil(open_banking_ref01_data)
+    assert.is_not_nil(open_banking_ref01_data["id"])
 
+    -- REMOVE
+    local open_banking_ref01_match_rm0 = {
+      id = open_banking_ref01_data["id"],
+    }
+    local _, err = open_banking_ref01_ent:remove(open_banking_ref01_match_rm0, nil)
+    assert.is_nil(err)
 
   end)
 end)
@@ -89,7 +96,7 @@ function open_banking_basic_setup(extra)
     ["NOFRIXION_TEST_OPEN_BANKING_ENTID"] = idmap,
     ["NOFRIXION_TEST_LIVE"] = "FALSE",
     ["NOFRIXION_TEST_EXPLAIN"] = "FALSE",
-    ["NOFRIXION_APIKEY"] = "NONE",
+    ["NOFRIXION_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -100,6 +107,9 @@ function open_banking_basic_setup(extra)
 
   if env["NOFRIXION_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["NOFRIXION_APIKEY"],
       },

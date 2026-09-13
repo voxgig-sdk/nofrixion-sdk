@@ -11,13 +11,20 @@ main: kit: entity: fx_rate: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "exchangeRate"
       req: false
       short: "The price at which the transaction will buy the source currency using the destination currency."
       type: "`$NUMBER`"
     }
     {
+      format: "date-time"
       name: "expiryTime"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
       req: false
       type: "`$STRING`"
     }
@@ -32,6 +39,17 @@ main: kit: entity: fx_rate: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "source"
+      "destination"
+      "valid_for_minute"
+    ]
+    sep: "/"
+  }
 
   name: "fx_rate"
   op: {
@@ -59,13 +77,25 @@ main: kit: entity: fx_rate: {
           }
           method: "GET"
           orig: "/api/v1/payouts/fxallheldrates/{source}/{destination}"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "fxallheldrates"
-            "{source}"
-            "{destination}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "fxallheldrates"
+            }
+            {
+              var: "source"
+            }
+            {
+              var: "destination"
+            }
           ]
           select: {
             exist: [
@@ -111,20 +141,34 @@ main: kit: entity: fx_rate: {
           }
           method: "GET"
           orig: "/api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}"
-          parts: [
-            "api"
-            "v1"
-            "payouts"
-            "fxheldrate"
-            "{source}"
-            "{destination}"
-            "{valid_for_minute}"
-          ]
           rename: {
             param: {
               validForMinutes: "valid_for_minute"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "payouts"
+            }
+            {
+              lit: "fxheldrate"
+            }
+            {
+              var: "source"
+            }
+            {
+              var: "destination"
+            }
+            {
+              var: "valid_for_minute"
+            }
+          ]
           select: {
             exist: [
               "destination"
