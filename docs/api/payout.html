@@ -740,13 +740,13 @@
 <td><code>allowIncomplete</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true the payout will get created even if the business validation  rules fail. The basic data validation rules must still pass. The original  purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
+<td>If set to true the payout will get created even if the business validation rules fail. The basic data validation rules must still pass. The original purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
 </tr>
 <tr>
 <td><code>amount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>Optional but one of Amount or FxDestinationAmount must be set.  - For single currency payouts this property is mandatory.  - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
+<td>Optional but one of Amount or FxDestinationAmount must be set. - For single currency payouts this property is mandatory. - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
 </tr>
 <tr>
 <td><code>batchPayoutID</code></td>
@@ -788,7 +788,7 @@
 <td><code>destination.accountID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>If set it indicates that the counterparty is an internal belonging to the  same merchant as the source account.</td>
+<td>If set it indicates that the counterparty is an internal belonging to the same merchant as the source account.</td>
 </tr>
 <tr>
 <td><code>destination.addressLine1</code></td>
@@ -866,7 +866,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.phoneNumber</code></td>
@@ -962,7 +962,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>paymentRail</code></td>
@@ -998,13 +998,13 @@
 <td><code>theirReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Their reference field gets sent to the payee and appears on their transaction record.  The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Their reference field gets sent to the payee and appears on their transaction record. The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 <tr>
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>Optional, if set it indicates that this payout will be used to top up  a payment account for a pay run by an internal transfer.</td>
+<td>Optional, if set it indicates that this payout will be used to top up a payment account for a pay run by an internal transfer.</td>
 </tr>
 <tr>
 <td><code>type</code></td>
@@ -1016,7 +1016,7 @@
 <td><code>yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get  sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 </tbody>
 </table>
@@ -1055,7 +1055,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -1955,7 +1955,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -2249,7 +2249,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -2669,7 +2669,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -2873,7 +2873,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -2933,7 +2933,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -3203,7 +3203,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -3276,7 +3276,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -4176,7 +4176,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -4470,7 +4470,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -4890,7 +4890,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -5094,7 +5094,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -5154,7 +5154,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -5424,7 +5424,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -5497,7 +5497,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -6397,7 +6397,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -6691,7 +6691,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -7111,7 +7111,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -7315,7 +7315,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -7375,7 +7375,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -7645,7 +7645,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -7711,13 +7711,13 @@
 <td><code>[].allowIncomplete</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true the payout will get created even if the business validation  rules fail. The basic data validation rules must still pass. The original  purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
+<td>If set to true the payout will get created even if the business validation rules fail. The basic data validation rules must still pass. The original purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
 </tr>
 <tr>
 <td><code>[].amount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>Optional but one of Amount or FxDestinationAmount must be set.  - For single currency payouts this property is mandatory.  - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
+<td>Optional but one of Amount or FxDestinationAmount must be set. - For single currency payouts this property is mandatory. - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
 </tr>
 <tr>
 <td><code>[].batchPayoutID</code></td>
@@ -7759,7 +7759,7 @@
 <td><code>[].destination.accountID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>If set it indicates that the counterparty is an internal belonging to the  same merchant as the source account.</td>
+<td>If set it indicates that the counterparty is an internal belonging to the same merchant as the source account.</td>
 </tr>
 <tr>
 <td><code>[].destination.addressLine1</code></td>
@@ -7837,7 +7837,7 @@
 <td><code>[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>[].destination.phoneNumber</code></td>
@@ -7933,7 +7933,7 @@
 <td><code>[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>[].paymentRail</code></td>
@@ -7969,13 +7969,13 @@
 <td><code>[].theirReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Their reference field gets sent to the payee and appears on their transaction record.  The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Their reference field gets sent to the payee and appears on their transaction record. The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 <tr>
 <td><code>[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>Optional, if set it indicates that this payout will be used to top up  a payment account for a pay run by an internal transfer.</td>
+<td>Optional, if set it indicates that this payout will be used to top up a payment account for a pay run by an internal transfer.</td>
 </tr>
 <tr>
 <td><code>[].type</code></td>
@@ -7987,7 +7987,7 @@
 <td><code>[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get  sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 </tbody>
 </table>
@@ -8038,7 +8038,7 @@
 <td><code>payouts[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>payouts[].approverID</code></td>
@@ -8794,7 +8794,7 @@
 <td><code>payouts[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -9034,7 +9034,7 @@
 <td><code>payouts[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -9454,7 +9454,7 @@
 <td><code>payouts[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].destination.payeeVerificationResult</code></td>
@@ -9658,7 +9658,7 @@
 <td><code>payouts[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>payouts[].fxDestinationAmountMinorUnits</code></td>
@@ -9718,7 +9718,7 @@
 <td><code>payouts[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>payouts[].isArchived</code></td>
@@ -9988,7 +9988,7 @@
 <td><code>payouts[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>payouts[].transactedAmount</code></td>
@@ -10073,7 +10073,7 @@
 <td><code>payouts[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>payouts[].approverID</code></td>
@@ -10829,7 +10829,7 @@
 <td><code>payouts[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -11069,7 +11069,7 @@
 <td><code>payouts[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -11489,7 +11489,7 @@
 <td><code>payouts[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].destination.payeeVerificationResult</code></td>
@@ -11693,7 +11693,7 @@
 <td><code>payouts[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>payouts[].fxDestinationAmountMinorUnits</code></td>
@@ -11753,7 +11753,7 @@
 <td><code>payouts[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>payouts[].isArchived</code></td>
@@ -12023,7 +12023,7 @@
 <td><code>payouts[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>payouts[].transactedAmount</code></td>
@@ -12108,7 +12108,7 @@
 <td><code>payouts[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>payouts[].approverID</code></td>
@@ -12864,7 +12864,7 @@
 <td><code>payouts[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -13104,7 +13104,7 @@
 <td><code>payouts[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>payouts[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -13524,7 +13524,7 @@
 <td><code>payouts[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>payouts[].destination.payeeVerificationResult</code></td>
@@ -13728,7 +13728,7 @@
 <td><code>payouts[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>payouts[].fxDestinationAmountMinorUnits</code></td>
@@ -13788,7 +13788,7 @@
 <td><code>payouts[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>payouts[].isArchived</code></td>
@@ -14058,7 +14058,7 @@
 <td><code>payouts[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>payouts[].transactedAmount</code></td>
@@ -14123,13 +14123,13 @@
 <td><code>allowIncomplete</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true the payout will get created even if the business validation  rules fail. The basic data validation rules must still pass. The original  purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
+<td>If set to true the payout will get created even if the business validation rules fail. The basic data validation rules must still pass. The original purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
 </tr>
 <tr>
 <td><code>amount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>Optional but one of Amount or FxDestinationAmount must be set.  - For single currency payouts this property is mandatory.  - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
+<td>Optional but one of Amount or FxDestinationAmount must be set. - For single currency payouts this property is mandatory. - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
 </tr>
 <tr>
 <td><code>batchPayoutID</code></td>
@@ -14171,7 +14171,7 @@
 <td><code>destination.accountID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>If set it indicates that the counterparty is an internal belonging to the  same merchant as the source account.</td>
+<td>If set it indicates that the counterparty is an internal belonging to the same merchant as the source account.</td>
 </tr>
 <tr>
 <td><code>destination.addressLine1</code></td>
@@ -14249,7 +14249,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.phoneNumber</code></td>
@@ -14345,7 +14345,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>paymentRail</code></td>
@@ -14381,13 +14381,13 @@
 <td><code>theirReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Their reference field gets sent to the payee and appears on their transaction record.  The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Their reference field gets sent to the payee and appears on their transaction record. The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 <tr>
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>Optional, if set it indicates that this payout will be used to top up  a payment account for a pay run by an internal transfer.</td>
+<td>Optional, if set it indicates that this payout will be used to top up a payment account for a pay run by an internal transfer.</td>
 </tr>
 <tr>
 <td><code>type</code></td>
@@ -14399,7 +14399,7 @@
 <td><code>yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get  sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 </tbody>
 </table>
@@ -14438,7 +14438,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -15338,7 +15338,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -15632,7 +15632,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -16052,7 +16052,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -16256,7 +16256,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -16316,7 +16316,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -16586,7 +16586,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -16659,7 +16659,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -17559,7 +17559,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -17853,7 +17853,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -18273,7 +18273,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -18477,7 +18477,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -18537,7 +18537,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -18807,7 +18807,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -18880,7 +18880,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -19780,7 +19780,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -20074,7 +20074,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -20494,7 +20494,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -20698,7 +20698,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -20758,7 +20758,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -21028,7 +21028,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -21094,13 +21094,13 @@
 <td><code>allowIncomplete</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true the payout will get created even if the business validation  rules fail. The basic data validation rules must still pass. The original  purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
+<td>If set to true the payout will get created even if the business validation rules fail. The basic data validation rules must still pass. The original purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
 </tr>
 <tr>
 <td><code>amount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>Optional but one of Amount or FxDestinationAmount must be set.  - For single currency payouts this property is mandatory.  - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
+<td>Optional but one of Amount or FxDestinationAmount must be set. - For single currency payouts this property is mandatory. - For multi-currency payouts this property is optional. If FxDestinationAmount is set this field must be set to 0 and it will be dynamically adjusted based on the FX rate.</td>
 </tr>
 <tr>
 <td><code>batchPayoutID</code></td>
@@ -21142,7 +21142,7 @@
 <td><code>destination.accountID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>If set it indicates that the counterparty is an internal belonging to the  same merchant as the source account.</td>
+<td>If set it indicates that the counterparty is an internal belonging to the same merchant as the source account.</td>
 </tr>
 <tr>
 <td><code>destination.addressLine1</code></td>
@@ -21220,7 +21220,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.phoneNumber</code></td>
@@ -21316,7 +21316,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>paymentRail</code></td>
@@ -21352,13 +21352,13 @@
 <td><code>theirReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Their reference field gets sent to the payee and appears on their transaction record.  The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Their reference field gets sent to the payee and appears on their transaction record. The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 <tr>
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>Optional, if set it indicates that this payout will be used to top up  a payment account for a pay run by an internal transfer.</td>
+<td>Optional, if set it indicates that this payout will be used to top up a payment account for a pay run by an internal transfer.</td>
 </tr>
 <tr>
 <td><code>type</code></td>
@@ -21370,7 +21370,7 @@
 <td><code>yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get  sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported chracters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 </tbody>
 </table>
@@ -21409,7 +21409,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -22309,7 +22309,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -22603,7 +22603,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -23023,7 +23023,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -23227,7 +23227,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -23287,7 +23287,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -23557,7 +23557,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -23630,7 +23630,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -24530,7 +24530,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -24824,7 +24824,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -25244,7 +25244,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -25448,7 +25448,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -25508,7 +25508,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -25778,7 +25778,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -25851,7 +25851,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -26751,7 +26751,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -27045,7 +27045,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -27465,7 +27465,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -27669,7 +27669,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -27729,7 +27729,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -27999,7 +27999,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -28101,7 +28101,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -28857,7 +28857,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -29097,7 +29097,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -29517,7 +29517,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -29721,7 +29721,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -29781,7 +29781,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -30051,7 +30051,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -30154,7 +30154,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -30910,7 +30910,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -31150,7 +31150,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -31570,7 +31570,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -31774,7 +31774,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -31834,7 +31834,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -32104,7 +32104,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -32207,7 +32207,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -32963,7 +32963,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -33203,7 +33203,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -33623,7 +33623,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -33827,7 +33827,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -33887,7 +33887,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -34157,7 +34157,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -34280,7 +34280,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -35036,7 +35036,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -35276,7 +35276,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -35696,7 +35696,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -35900,7 +35900,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -35960,7 +35960,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -36230,7 +36230,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -36333,7 +36333,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -37089,7 +37089,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -37329,7 +37329,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -37749,7 +37749,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -37953,7 +37953,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -38013,7 +38013,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -38283,7 +38283,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -38386,7 +38386,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -39142,7 +39142,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -39382,7 +39382,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -39802,7 +39802,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -40006,7 +40006,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -40066,7 +40066,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -40336,7 +40336,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -40459,7 +40459,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -41215,7 +41215,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -41455,7 +41455,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -41875,7 +41875,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -42079,7 +42079,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -42139,7 +42139,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -42409,7 +42409,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -42512,7 +42512,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -43268,7 +43268,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -43508,7 +43508,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -43928,7 +43928,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -44132,7 +44132,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -44192,7 +44192,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -44462,7 +44462,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -44565,7 +44565,7 @@
 <td><code>content[].approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>content[].approverID</code></td>
@@ -45321,7 +45321,7 @@
 <td><code>content[].beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.destination.payeeVerificationResult</code></td>
@@ -45561,7 +45561,7 @@
 <td><code>content[].beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>content[].beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -45981,7 +45981,7 @@
 <td><code>content[].destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>content[].destination.payeeVerificationResult</code></td>
@@ -46185,7 +46185,7 @@
 <td><code>content[].fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>content[].fxDestinationAmountMinorUnits</code></td>
@@ -46245,7 +46245,7 @@
 <td><code>content[].invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>content[].isArchived</code></td>
@@ -46515,7 +46515,7 @@
 <td><code>content[].topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>content[].transactedAmount</code></td>
@@ -46663,7 +46663,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -47563,7 +47563,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -47857,7 +47857,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -48277,7 +48277,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -48481,7 +48481,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -48541,7 +48541,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -48811,7 +48811,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -48884,7 +48884,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -49784,7 +49784,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -50078,7 +50078,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -50498,7 +50498,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -50702,7 +50702,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -50762,7 +50762,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -51032,7 +51032,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -51105,7 +51105,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -52005,7 +52005,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -52299,7 +52299,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -52719,7 +52719,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -52923,7 +52923,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -52983,7 +52983,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -53253,7 +53253,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -53369,7 +53369,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -54269,7 +54269,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -54563,7 +54563,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -54983,7 +54983,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -55187,7 +55187,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -55247,7 +55247,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -55517,7 +55517,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -55590,7 +55590,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -56490,7 +56490,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -56784,7 +56784,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -57204,7 +57204,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -57408,7 +57408,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -57468,7 +57468,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -57738,7 +57738,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -57811,7 +57811,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -58711,7 +58711,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -59005,7 +59005,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -59425,7 +59425,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -59629,7 +59629,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -59689,7 +59689,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -59959,7 +59959,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -60061,7 +60061,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -60961,7 +60961,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -61255,7 +61255,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -61675,7 +61675,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -61879,7 +61879,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -61939,7 +61939,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -62209,7 +62209,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -62282,7 +62282,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -63182,7 +63182,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -63476,7 +63476,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -63896,7 +63896,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -64100,7 +64100,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -64160,7 +64160,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -64430,7 +64430,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -64503,7 +64503,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -65403,7 +65403,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -65697,7 +65697,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -66117,7 +66117,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -66321,7 +66321,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -66381,7 +66381,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -66651,7 +66651,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -66720,7 +66720,7 @@
 <td><code>allowIncomplete</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true the payout will get updated even if the business validation  rules fail. The basic data validation rules must still pass. The original  purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
+<td>If set to true the payout will get updated even if the business validation rules fail. The basic data validation rules must still pass. The original purpose of this flag was to allow payouts to be created from i3rd party applications, such as Xero, that may not have things like an IBAN set for a supplier. The missing information must be filled, either by an update from the 3rd party application, or manually, before the payout can be submitted for processing.</td>
 </tr>
 <tr>
 <td><code>amount</code></td>
@@ -66864,7 +66864,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -66972,7 +66972,7 @@
 <td><code>theirReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Their reference field gets sent to the payee and appears on their transaction record.  The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Their reference field gets sent to the payee and appears on their transaction record. The maximum length for the field varies depending on the payment network. For SEPA (Euro) it is 140 characters. For Faster Payments (GBP) it is 18 characters. a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 <tr>
 <td><code>type</code></td>
@@ -66984,7 +66984,7 @@
 <td><code>yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get  sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported characters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
+<td>The Your reference field is an optional field that gets set locally on the payer's transaction record. It does not get sent out through the payment network. The maximum length for the field is 256 characters. An empty value is also supported. Supported characters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , ' + Space In addition the field cannot start with a : or - character.</td>
 </tr>
 </tbody>
 </table>
@@ -67023,7 +67023,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -67923,7 +67923,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -68217,7 +68217,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -68637,7 +68637,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -68841,7 +68841,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -68901,7 +68901,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -69171,7 +69171,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -69244,7 +69244,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -70144,7 +70144,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -70438,7 +70438,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -70858,7 +70858,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -71062,7 +71062,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -71122,7 +71122,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -71392,7 +71392,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>
@@ -71465,7 +71465,7 @@
 <td><code>approvePayoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve  the payout.</td>
+<td>This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.</td>
 </tr>
 <tr>
 <td><code>approverID</code></td>
@@ -72365,7 +72365,7 @@
 <td><code>beneficiary.destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>beneficiary.destination.payeeVerificationResult</code></td>
@@ -72659,7 +72659,7 @@
 <td><code>beneficiary.sourceAccounts[].displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>beneficiary.sourceAccounts[].expiryDate</code></td>
@@ -73079,7 +73079,7 @@
 <td><code>destination.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>destination.payeeVerificationResult</code></td>
@@ -73283,7 +73283,7 @@
 <td><code>fxDestinationAmount</code></td>
 <td><code>number (double)</code></td>
 <td>No</td>
-<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on  this amount and the FX rate.</td>
+<td>If specified this will be the amount sent to the payee. The payout's Amount will be dynamically adjusted based on this amount and the FX rate.</td>
 </tr>
 <tr>
 <td><code>fxDestinationAmountMinorUnits</code></td>
@@ -73343,7 +73343,7 @@
 <td><code>invoiceID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional field to associate the payout with the invoice from an external  application such as Xero. The InvoiceID needs to be unique for each account.</td>
+<td>Optional field to associate the payout with the invoice from an external application such as Xero. The InvoiceID needs to be unique for each account.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -73613,7 +73613,7 @@
 <td><code>topupPayrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payouts can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payouts can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>transactedAmount</code></td>

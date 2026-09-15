@@ -163,7 +163,7 @@
 <p>| Parameter | In | Type | Required | Description |
 | --- | --- | --- | --- |
 | <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the rule to get the events for. |
-| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | The page number from where records are retrieved. Note that the paging starts from page 1.             If a 0 is supplied it will be treated as a 1 and the first page is returned. |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | The page number from where records are retrieved. Note that the paging starts from page 1. If a 0 is supplied it will be treated as a 1 and the first page is returned. |
 | <code>size</code> | <code>query</code> | <code>integer (int32)</code> | No | The number of records to be retrieved from a page. |
 | <code>eventTypes</code> | <code>query</code> | <code>array of enum: None, Created, Approved, Edited, Disabled, ExecutionSuccess, ...</code> | No | List of event types to filter the rule events based on type |</p>
 <h4 id="responses">Responses</h4>

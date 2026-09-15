@@ -233,19 +233,19 @@
 <td><code>callbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion. Typically this should be a URL that takes the  user back to the application that they originally started the open banking authorisation from.</td>
+<td>Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion. Typically this should be a URL that takes the user back to the application that they originally started the open banking authorisation from.</td>
 </tr>
 <tr>
 <td><code>emailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>The email address that identifies the end user that will be authorising the  open banking consent request.</td>
+<td>The email address that identifies the end user that will be authorising the open banking consent request.</td>
 </tr>
 <tr>
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message as query parameter. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message as query parameter. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>institutionID</code></td>
@@ -269,7 +269,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional URL that will be called by the MoneyMoov server upon a successful open banking authorisation. The webhook URL will pass a single parameter of &quot;id&quot;. That ID can then be used in the MoneyMoov open banking actions to verify the operation. Note web hooks can easily be spoofed and should NOT be trusted without calling back to the  MoneyMoov server for verification.</td>
+<td>Optional URL that will be called by the MoneyMoov server upon a successful open banking authorisation. The webhook URL will pass a single parameter of &quot;id&quot;. That ID can then be used in the MoneyMoov open banking actions to verify the operation. Note web hooks can easily be spoofed and should NOT be trusted without calling back to the MoneyMoov server for verification.</td>
 </tr>
 </tbody>
 </table>
@@ -394,7 +394,7 @@
 <td><code>[].failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>[].id</code></td>
@@ -436,7 +436,7 @@
 <td><code>[].successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -473,7 +473,7 @@
 <td><code>[].failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>[].id</code></td>
@@ -515,7 +515,7 @@
 <td><code>[].successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -552,7 +552,7 @@
 <td><code>[].failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>[].id</code></td>
@@ -594,7 +594,7 @@
 <td><code>[].successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -641,7 +641,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -683,7 +683,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -720,7 +720,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -762,7 +762,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -799,7 +799,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -841,7 +841,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -888,7 +888,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -930,7 +930,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -967,7 +967,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -1009,7 +1009,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>
@@ -1046,7 +1046,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for open banking consent authorisation failure.  If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
+<td>Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -1088,7 +1088,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application  know when a consent is ready to be used.</td>
+<td>A web hook URL to send an HTTP request to when the open banking consent is successfuly authorised. This web hook lets the calling application know when a consent is ready to be used.</td>
 </tr>
 </tbody>
 </table>

@@ -34,9 +34,7 @@ SDK operations: `create`, `load`.
 
 Key fields to recognise:
 
-- `approveUrl`: This field is used when returning a batch payout record to a client. If set it holds the URL
-the user needs to visit in order to complete a strong authentication check in order to approve 
-the batch payouts.
+- `approveUrl`: This field is used when returning a batch payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the batch payouts.
 
 ### [Beneficiary](docs/api/beneficiary.html)
 
@@ -49,8 +47,7 @@ Key fields to recognise:
 - `authenticationMethods`: A list of authentication types allowed to authorise the payout.
 - `authorisations`: A list of users who have successfully authorised the latest version of the beneficiary.
 - `authorisersCompletedCount`: The number of distinct authorisers that have authorised the beneficiary.
-- `authorisersRequiredCount`: The number of authorisers required for this beneficiary. Is determined by business settings
-on the source account and/or merchant.
+- `authorisersRequiredCount`: The number of authorisers required for this beneficiary. Is determined by business settings on the source account and/or merchant.
 - `canAuthorise`: True if the beneficiary can be authorised by the user who loaded it.
 
 ### [BeneficiaryGroup](docs/api/beneficiary_group.html)
@@ -76,17 +73,10 @@ SDK operations: `create`.
 Key fields to recognise:
 
 - `isPayerAuthenticationRequired`: Gets set to true if 3-D Secure payer authentication is required for a payment.
-- `isSoftDecline`: Gets set to true if the card processor flagged the transaction as having failed address or
-card security number verification. If the payment was for a sale a soft decline will prevent
-the transaction being captured. The merchant can set the ignore address verification flag 
-if they want to allow soft declines to be accepted or false if not.
-- `payerAuthenticationAccessToken`: If a card payment response indicates a 3-D Secure payer authentication is required
-this field holds the access token to POST when performing the redirect.
-- `payerAuthenticationMerchantData`: If a card payment response indicates a 3-D Secure payer authentication this field may 
-get set in order to transfer information back to the &quot;authenticationcallback&quot; method
-that gets called automatically after a successful payer authentication attempt.
-- `payerAuthenticationUrl`: If a card payment response indicates a 3-D Secure payer authentication is required
-this field holds the URL to redirect the payer to their issuing bank.
+- `isSoftDecline`: Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. If the payment was for a sale a soft decline will prevent the transaction being captured. The merchant can set the ignore address verification flag if they want to allow soft declines to be accepted or false if not.
+- `payerAuthenticationAccessToken`: If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.
+- `payerAuthenticationMerchantData`: If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the &quot;authenticationcallback&quot; method that gets called automatically after a successful payer authentication attempt.
+- `payerAuthenticationUrl`: If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.
 
 ### [CardCustomerToken](docs/api/card_customer_token.html)
 
@@ -96,15 +86,9 @@ SDK operations: `list`, `load`, `remove`.
 
 Key fields to recognise:
 
-- `cardType`: The type of the tokenised card, for example Visa, MasterCard etc. It&#39;s possible this could
-be empty if the card type could not be identified. There is no hard and fast way to
-know for sure to know the type of card.
-- `customerEmailAddress`: When creating a tokenised card the payer&#39;s email address must be supplied. This is
-used as away to group card tokens for an end user. For customer initiated transactions 
-it is important that the email address supplied has been verified to belong to the user
-initiating the payment.
-- `id`: The unique ID of the card token that has been stored for the customer. This is 
-the ID to supply when requesting an authorisation on behalf of the customer.
+- `cardType`: The type of the tokenised card, for example Visa, MasterCard etc. It&#39;s possible this could be empty if the card type could not be identified. There is no hard and fast way to know for sure to know the type of card.
+- `customerEmailAddress`: When creating a tokenised card the payer&#39;s email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.
+- `id`: The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.
 
 ### [CardPayment](docs/api/card_payment.html)
 
@@ -115,17 +99,10 @@ SDK operations: `create`.
 Key fields to recognise:
 
 - `isPayerAuthenticationRequired`: Gets set to true if 3-D Secure payer authentication is required for a payment.
-- `isSoftDecline`: Gets set to true if the card processor flagged the transaction as having failed address or
-card security number verification. If the payment was for a sale a soft decline will prevent
-the transaction being captured. The merchant can set the ignore address verification flag 
-if they want to allow soft declines to be accepted or false if not.
-- `payerAuthenticationAccessToken`: If a card payment response indicates a 3-D Secure payer authentication is required
-this field holds the access token to POST when performing the redirect.
-- `payerAuthenticationMerchantData`: If a card payment response indicates a 3-D Secure payer authentication this field may 
-get set in order to transfer information back to the &quot;authenticationcallback&quot; method
-that gets called automatically after a successful payer authentication attempt.
-- `payerAuthenticationUrl`: If a card payment response indicates a 3-D Secure payer authentication is required
-this field holds the URL to redirect the payer to their issuing bank.
+- `isSoftDecline`: Gets set to true if the card processor flagged the transaction as having failed address or card security number verification. If the payment was for a sale a soft decline will prevent the transaction being captured. The merchant can set the ignore address verification flag if they want to allow soft declines to be accepted or false if not.
+- `payerAuthenticationAccessToken`: If a card payment response indicates a 3-D Secure payer authentication is required this field holds the access token to POST when performing the redirect.
+- `payerAuthenticationMerchantData`: If a card payment response indicates a 3-D Secure payer authentication this field may get set in order to transfer information back to the &quot;authenticationcallback&quot; method that gets called automatically after a successful payer authentication attempt.
+- `payerAuthenticationUrl`: If a card payment response indicates a 3-D Secure payer authentication is required this field holds the URL to redirect the payer to their issuing bank.
 
 ### [CardPublicKey](docs/api/card_public_key.html)
 
@@ -141,16 +118,11 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `authorisationUrl`: The URL the authorising user needs to be redirected to in order to get the open banking
-consent token.
+- `authorisationUrl`: The URL the authorising user needs to be redirected to in order to get the open banking consent token.
 - `callbackUrl`: Optional callback URL that the end user performing the open banking authorisation will be redirected to on completion.
-- `consentID`: The ID of the open banking consent. Once the consent has been authorised this
-is the ID that allows it to be utilised via the open banking APIs to list accounts,
-transactions etc.
+- `consentID`: The ID of the open banking consent. Once the consent has been authorised this is the ID that allows it to be utilised via the open banking APIs to list accounts, transactions etc.
 - `emailAddress`: The email address that identifies the end user that will be authorising the open banking consent request.
-- `failureCallbackUrl`: Optional callback URL for open banking consent authorisation failure. 
-If the URL is set, the calling application will be redirected here with the error message.
-If it’s not set it will fall back on default page that will show the error message.
+- `failureCallbackUrl`: Optional callback URL for open banking consent authorisation failure. If the URL is set, the calling application will be redirected here with the error message. If it’s not set it will fall back on default page that will show the error message.
 
 ### [Currency](docs/api/currency.html)
 
@@ -177,8 +149,7 @@ SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
-- `exchangeRate`: The price at which the transaction will buy the source currency 
-using the destination currency.
+- `exchangeRate`: The price at which the transaction will buy the source currency using the destination currency.
 
 ### [IPayment](docs/api/i_payment.html)
 
@@ -209,12 +180,10 @@ SDK operations: `list`, `load`, `remove`, `update`.
 Key fields to recognise:
 
 - `accountCurrencies`: The list of currencies that the merchant has accounts for.
-- `canHaveTrustAccounts`: Trust accounts are a special type of account that allow the account name
-to be trusted for use in statements and verification of payee checks.
+- `canHaveTrustAccounts`: Trust accounts are a special type of account that allow the account name to be trusted for use in statements and verification of payee checks.
 - `cardPaymentProcessor`: Name of the card payment processor. Can be &quot;Checkout&quot;, &quot;Stripe&quot; or none.
 - `companyID`: The Company ID recorded in the Compliance system.
-- `displayQrOnHostedPay`: Indicates if a QR Code containing the payment link should be displayed
-on the hosted payment page.
+- `displayQrOnHostedPay`: Indicates if a QR Code containing the payment link should be displayed on the hosted payment page.
 
 ### [MerchantAuthorisationSetting](docs/api/merchant_authorisation_setting.html)
 
@@ -259,8 +228,7 @@ SDK operations: `list`, `load`, `remove`, `update`.
 Key fields to recognise:
 
 - `customFields`: A list of custom fields that can be included in the payment request template.
-- `defaultFields`: A list of default fields that are included in the payment request template.
-These fields are predefined and map to concrete fields in the payment request.
+- `defaultFields`: A list of default fields that are included in the payment request template. These fields are predefined and map to concrete fields in the payment request.
 
 ### [MerchantToken](docs/api/merchant_token.html)
 
@@ -273,8 +241,7 @@ Key fields to recognise:
 - `authenticationMethods`: A list of authentication types allowed to authorise the merchant token.
 - `authorisations`: A list of users who have successfully authorised the latest version of the beneficiary.
 - `authorisersCompletedCount`: The number of distinct authorisers that have authorised the merchant token.
-- `authorisersRequiredCount`: The number of authorisers required for this merchant token. Is determined by business settings
-on the source account and/or merchant.
+- `authorisersRequiredCount`: The number of authorisers required for this merchant token. Is determined by business settings on the source account and/or merchant.
 - `canAuthorise`: True if the merchant token can be authorised by the user who loaded it.
 
 ### [Metadata](docs/api/metadata.html)
@@ -360,8 +327,7 @@ SDK operations: `create`.
 Key fields to recognise:
 
 - `paymentInitiationID`: The unique identifier of the payment initiation request.
-- `paymentRequestCallbackUrl`: The callback URL that was set when the payment request was created. Payers will be 
-redirected to this URL after a successful payment initiation.
+- `paymentRequestCallbackUrl`: The callback URL that was set when the payment request was created. Payers will be redirected to this URL after a successful payment initiation.
 - `redirectUrl`: A redirect URL for the user to authorise the payment initiation request at the ASPSP
 
 ### [PaymentRequest](docs/api/payment_request.html)
@@ -387,8 +353,7 @@ SDK operations: `list`.
 Key fields to recognise:
 
 - `applePayTransactionID`: Transaction ID received in Apple pay token.
-- `cardAuthorizationResponseID`: For a successful card authorization this field will hold the response ID. If a capture
-needs to be performed this is the ID that must be used.
+- `cardAuthorizationResponseID`: For a successful card authorization this field will hold the response ID. If a capture needs to be performed this is the ID that must be used.
 - `cardExpiryMonth`: For card payment events this field holds the payer&#39;s card expiry month.
 - `cardExpiryYear`: For card payment events this field holds the payer&#39;s card expiry year.
 - `cardIssuer`: For card payment events this field holds the payer&#39;s card issuer.
@@ -439,9 +404,7 @@ Key fields to recognise:
 - `allowIncomplete`: If set to true the payout will get created even if the business validation rules fail.
 - `amount`: Gets or Sets payout amount
 - `amountMinorUnits`: The payout amount expressed in the currency’s minor units (for example cents, pence).
-- `approvePayoutUrl`: This field is used when returning an payout record to a client. If set it holds the URL
-the user needs to visit in order to complete a strong authentication check in order to approve 
-the payout.
+- `approvePayoutUrl`: This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.
 
 ### [PayoutKeysetPage](docs/api/payout_keyset_page.html)
 
@@ -454,9 +417,7 @@ Key fields to recognise:
 - `accountID`: Gets or Sets Account Id of sending account
 - `amount`: Gets or Sets payout amount
 - `amountMinorUnits`: The payout amount expressed in the currency’s minor units (for example cents, pence).
-- `approvePayoutUrl`: This field is used when returning an payout record to a client. If set it holds the URL
-the user needs to visit in order to complete a strong authentication check in order to approve 
-the payout.
+- `approvePayoutUrl`: This field is used when returning an payout record to a client. If set it holds the URL the user needs to visit in order to complete a strong authentication check in order to approve the payout.
 - `approverID`: Gets the User ID of person that approved the payout.
 
 ### [PayoutMetric](docs/api/payout_metric.html)
@@ -475,8 +436,7 @@ Key fields to recognise:
 
 - `authorisations`: A list of the users who have successfully authorised the latest version of the payrun and when.
 - `authorisersCompletedCount`: The number of distinct authorisers that have authorised the payrun.
-- `authorisersRequiredCount`: The number of authorisers required for this payrun. Is determined by business settings
-on the source account and/or merchant.
+- `authorisersRequiredCount`: The number of authorisers required for this payrun. Is determined by business settings on the source account and/or merchant.
 - `canAuthorise`: True if the payrun can be authorised by the user who loaded it.
 - `hasCurrentUserAuthorised`: True if the payrun was loaded for a user and that user has already authorised the latest version of the payrun.
 
@@ -506,10 +466,8 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `accountID`: An optional ID of an internal account the counterparty is associated with. If set
-it will take precedence over any other destination details set for the counterparty.
-- `approveUrl`: If set this property holds the URL an approver needs to visit in order to
-complete a strong authentication check in order to approve the rule.
+- `accountID`: An optional ID of an internal account the counterparty is associated with. If set it will take precedence over any other destination details set for the counterparty.
+- `approveUrl`: If set this property holds the URL an approver needs to visit in order to complete a strong authentication check in order to approve the rule.
 - `authenticationMethods`: A list of authentication types allowed to authorise the payout.
 - `authorisations`: A list of the users who have successfully authorised the latest version of the rule and when.
 - `authorisersCompletedCount`: The number of distinct authorisers that have authorised the rule.
@@ -542,10 +500,8 @@ Key fields to recognise:
 
 - `accountID`: The ID of the account the transaction belongs to.
 - `accountName`: The name of the account the transaction belongs to.
-- `accountSequenceNumber`: The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence 
-number for all transactions belonging to the same account.
-- `amount`: Amount of the transaction. Negative values indicate a pay out debit), positive
-values a pay in (credit).
+- `accountSequenceNumber`: The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.
+- `amount`: Amount of the transaction. Negative values indicate a pay out debit), positive values a pay in (credit).
 - `amountMinorUnits`: Amount of the transaction expressed in the currency’s minor units (for example cents, pence).
 
 ### [User](docs/api/user.html)
@@ -556,10 +512,7 @@ SDK operations: `list`, `update`.
 
 Key fields to recognise:
 
-- `clientSessionTimeouts`: The number of seconds a session for this user should last before expiring.
-This is based on the user&#39;s role on the merchant.
-This is used to set the session timeout in the client. If not set the client&#39;s default
-session timeout will be used.
+- `clientSessionTimeouts`: The number of seconds a session for this user should last before expiring. This is based on the user&#39;s role on the merchant. This is used to set the session timeout in the client. If not set the client&#39;s default session timeout will be used.
 - `userInviteID`: Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.
 
 ### [UserInvite](docs/api/user_invite.html)
@@ -570,8 +523,7 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `initialRoleID`: The role ID to automatically assign to the merchant’s very first user.
-Typically set by the compliance team when the first user is invited to a new merchant.
+- `initialRoleID`: The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.
 - `inviteeEmailAddress`: Email address of the user being invited.
 - `inviteeFirstName`: First Name of the user being invited.
 - `inviteeLastName`: Last Name of the user being invited.
@@ -805,9 +757,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 The default credential is sent in the `Authorization` header with the `Bearer` prefix.
 
-JWT Authorization header using the Bearer scheme.&lt;br/&gt;
-                      Enter your JWT access token in the text input below.&lt;br/&gt;
-                      Example: Bearer eyJhbGciOiJ...
+JWT Authorization header using the Bearer scheme. Enter your JWT access token in the text input below. Example: Bearer eyJhbGciOiJ...
 
 Check authentication for the route you plan to call. A route that declares no authentication can be used without credentials; this does not change the requirements of other routes. Keep credentials in environment variables or a configured secret provider, and keep them out of source control and logs.
 

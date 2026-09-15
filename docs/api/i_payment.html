@@ -349,7 +349,7 @@
 <td><code>CardToken.CardSecurityCode</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Not used for merchant initiated transactions. Optional for customer initiated transactions. If supplied will be sent to the card processor as a check that the customer using the  tokenised card knows the card verification number.</td>
+<td>Not used for merchant initiated transactions. Optional for customer initiated transactions. If supplied will be sent to the card processor as a check that the customer using the tokenised card knows the card verification number.</td>
 </tr>
 <tr>
 <td><code>CardToken.PartialAmount</code></td>
@@ -373,7 +373,7 @@
 <td><code>PaymentInitiationRequest.OriginUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional. If set should indicate the origin URL the payer is making the  payment from. If a pay by bank attempt fails and the payment request does not have a FailureCallbackUrl set then the payer will be redirected to this URL.</td>
+<td>Optional. If set should indicate the origin URL the payer is making the payment from. If a pay by bank attempt fails and the payment request does not have a FailureCallbackUrl set then the payer will be redirected to this URL.</td>
 </tr>
 <tr>
 <td><code>PaymentInitiationRequest.PartialAmount</code></td>
@@ -451,7 +451,7 @@
 <td><code>PaymentRequestCreate.CardNoPayerAuthentication</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). Skipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they can't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant  to liability for charge backs.</td>
+<td>If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). Skipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they can't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant to liability for charge backs.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.CardProcessorMerchantID</code></td>
@@ -463,7 +463,7 @@
 <td><code>PaymentRequestCreate.CardTransmitRawDetails</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true for card payments the sensitive card number and card verification number  will be transmitted directly rather than being tokenised. This makes the payment quicker but more exposed to client side flaws such as cross site scripting.</td>
+<td>If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised. This makes the payment quicker but more exposed to client side flaws such as cross site scripting.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.Currency</code></td>
@@ -517,7 +517,7 @@
 <td><code>PaymentRequestCreate.CustomerID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>An optional customer identifier for the payment request. This field is sent to the  payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
+<td>An optional customer identifier for the payment request. This field is sent to the payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.Description</code></td>
@@ -535,7 +535,7 @@
 <td><code>PaymentRequestCreate.FailureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.FieldDisplaySettings</code></td>
@@ -661,7 +661,7 @@
 <td><code>PaymentRequestCreate.PispRecipientReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For Payment Initiation payments this is the reference that will be requested to used as the reference  on the your transaction record. Note that it is not guaranteed that the sending bank will use this reference and in practice it has been observed to be supported by only half to two thirds of banks.</td>
+<td>For Payment Initiation payments this is the reference that will be requested to used as the reference on the your transaction record. Note that it is not guaranteed that the sending bank will use this reference and in practice it has been observed to be supported by only half to two thirds of banks.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.PriorityBankID</code></td>
@@ -739,7 +739,7 @@
 <td><code>PaymentRequestCreate.SuccessWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>PaymentRequestCreate.TagIds</code></td>

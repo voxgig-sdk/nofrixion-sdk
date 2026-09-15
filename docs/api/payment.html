@@ -594,7 +594,7 @@
 | --- | --- | --- | --- |
 | <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | ID of the payment request to pay. |
 | <code>mandateID</code> | <code>query</code> | <code>string (uuid)</code> | No | ID of the existing Direct Debit mandate record. |
-| <code>submitAfter</code> | <code>query</code> | <code>string (date-time)</code> | No | Defines when this payment should be earliest submitted             to the customer's bank account. Optional.             Payments will be submitted as soon as possible, if not specified. |</p>
+| <code>submitAfter</code> | <code>query</code> | <code>string (date-time)</code> | No | Defines when this payment should be earliest submitted to the customer's bank account. Optional. Payments will be submitted as soon as possible, if not specified. |</p>
 <h4 id="responses">Responses</h4>
 <h5 id="200-no-result-is-returned" class="status" data-status="2xx">200: No result is returned</h5>
 <h5 id="400-configuration-error" class="status" data-status="4xx">400: Configuration error</h5>
@@ -660,7 +660,7 @@
 <td><code>cardNoPayerAuthentication</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). Skipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they can't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant  to liability for charge backs.</td>
+<td>If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). Skipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they can't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant to liability for charge backs.</td>
 </tr>
 <tr>
 <td><code>cardProcessorMerchantID</code></td>
@@ -672,7 +672,7 @@
 <td><code>cardTransmitRawDetails</code></td>
 <td><code>boolean</code></td>
 <td>No</td>
-<td>If set to true for card payments the sensitive card number and card verification number  will be transmitted directly rather than being tokenised. This makes the payment quicker but more exposed to client side flaws such as cross site scripting.</td>
+<td>If set to true for card payments the sensitive card number and card verification number will be transmitted directly rather than being tokenised. This makes the payment quicker but more exposed to client side flaws such as cross site scripting.</td>
 </tr>
 <tr>
 <td><code>currency</code></td>
@@ -726,7 +726,7 @@
 <td><code>customerID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>An optional customer identifier for the payment request. This field is sent to the  payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
+<td>An optional customer identifier for the payment request. This field is sent to the payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
 </tr>
 <tr>
 <td><code>description</code></td>
@@ -744,7 +744,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -912,7 +912,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tagIds</code></td>
@@ -1107,7 +1107,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -1539,7 +1539,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -1827,7 +1827,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -2193,7 +2193,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -2223,7 +2223,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -2259,7 +2259,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -2283,7 +2283,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -2625,7 +2625,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -2925,7 +2925,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -2985,7 +2985,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -3003,7 +3003,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -3063,7 +3063,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -3207,7 +3207,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -3261,7 +3261,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -3399,13 +3399,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -3580,7 +3580,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -4012,7 +4012,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -4300,7 +4300,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -4666,7 +4666,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -4696,7 +4696,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -4732,7 +4732,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -4756,7 +4756,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -5098,7 +5098,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -5398,7 +5398,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -5458,7 +5458,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -5476,7 +5476,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -5536,7 +5536,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -5680,7 +5680,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -5734,7 +5734,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -5872,13 +5872,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -6053,7 +6053,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -6485,7 +6485,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -6773,7 +6773,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -7139,7 +7139,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -7169,7 +7169,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -7205,7 +7205,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -7229,7 +7229,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -7571,7 +7571,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -7871,7 +7871,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -7931,7 +7931,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -7949,7 +7949,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -8009,7 +8009,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -8153,7 +8153,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -8207,7 +8207,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -8345,13 +8345,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -8538,7 +8538,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -8970,7 +8970,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -9258,7 +9258,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -9624,7 +9624,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -9654,7 +9654,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -9690,7 +9690,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -9714,7 +9714,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -10056,7 +10056,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -10356,7 +10356,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -10416,7 +10416,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -10434,7 +10434,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -10494,7 +10494,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -10638,7 +10638,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -10692,7 +10692,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -10830,13 +10830,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -11011,7 +11011,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -11443,7 +11443,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -11731,7 +11731,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -12097,7 +12097,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -12127,7 +12127,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -12163,7 +12163,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -12187,7 +12187,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -12529,7 +12529,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -12829,7 +12829,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -12889,7 +12889,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -12907,7 +12907,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -12967,7 +12967,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -13111,7 +13111,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -13165,7 +13165,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -13303,13 +13303,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -13484,7 +13484,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -13916,7 +13916,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -14204,7 +14204,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -14570,7 +14570,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -14600,7 +14600,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -14636,7 +14636,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -14660,7 +14660,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -15002,7 +15002,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -15302,7 +15302,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -15362,7 +15362,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -15380,7 +15380,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -15440,7 +15440,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -15584,7 +15584,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -15638,7 +15638,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -15776,13 +15776,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -15798,7 +15798,7 @@
 <h4 id="parameters-2">Parameters</h4>
 <p>| Parameter | In | Type | Required | Description |
 | --- | --- | --- | --- |
-| <code>orderID</code> | <code>path</code> | <code>string</code> | Yes | The order ID of the payment request to retrieve. Useful when the             payment request has been created by an external application such as WooCommerce or Xero. |</p>
+| <code>orderID</code> | <code>path</code> | <code>string</code> | Yes | The order ID of the payment request to retrieve. Useful when the payment request has been created by an external application such as WooCommerce or Xero. |</p>
 <h4 id="responses-3">Responses</h4>
 <h5 id="200-returns-a-payment-request-record-1" class="status" data-status="2xx">200: Returns a payment request record</h5>
 <p><code>application/json</code></p>
@@ -15966,7 +15966,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -16398,7 +16398,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -16686,7 +16686,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -17052,7 +17052,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -17082,7 +17082,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -17118,7 +17118,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -17142,7 +17142,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -17484,7 +17484,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -17784,7 +17784,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -17844,7 +17844,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -17862,7 +17862,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -17922,7 +17922,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -18066,7 +18066,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -18120,7 +18120,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -18258,13 +18258,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -18439,7 +18439,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -18871,7 +18871,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -19159,7 +19159,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -19525,7 +19525,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -19555,7 +19555,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -19591,7 +19591,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -19615,7 +19615,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -19957,7 +19957,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -20257,7 +20257,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -20317,7 +20317,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -20335,7 +20335,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -20395,7 +20395,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -20539,7 +20539,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -20593,7 +20593,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -20731,13 +20731,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -20912,7 +20912,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -21344,7 +21344,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -21632,7 +21632,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -21998,7 +21998,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -22028,7 +22028,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -22064,7 +22064,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -22088,7 +22088,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -22430,7 +22430,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -22730,7 +22730,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -22790,7 +22790,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -22808,7 +22808,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -22868,7 +22868,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -23012,7 +23012,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -23066,7 +23066,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -23204,13 +23204,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -23346,7 +23346,7 @@
 <td><code>customerID</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>An optional customer identifier for the payment request. This field is sent to the  payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
+<td>An optional customer identifier for the payment request. This field is sent to the payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
 </tr>
 <tr>
 <td><code>description</code></td>
@@ -23364,7 +23364,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>ignoreAddressVerification</code></td>
@@ -23478,7 +23478,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tagIds</code></td>
@@ -23661,7 +23661,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -24093,7 +24093,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -24381,7 +24381,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -24747,7 +24747,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -24777,7 +24777,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -24813,7 +24813,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -24837,7 +24837,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -25179,7 +25179,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -25479,7 +25479,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -25539,7 +25539,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -25557,7 +25557,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -25617,7 +25617,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -25761,7 +25761,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -25815,7 +25815,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -25953,13 +25953,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -26134,7 +26134,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -26566,7 +26566,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -26854,7 +26854,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -27220,7 +27220,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -27250,7 +27250,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -27286,7 +27286,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -27310,7 +27310,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -27652,7 +27652,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -27952,7 +27952,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -28012,7 +28012,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -28030,7 +28030,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -28090,7 +28090,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -28234,7 +28234,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -28288,7 +28288,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -28426,13 +28426,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
@@ -28607,7 +28607,7 @@
 <td><code>cardCreateTokenMode</code></td>
 <td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
 <td>No</td>
-<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update  CardCreateToken flag on submit card payment.</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. If this is set to 'UserConsentRequired' then, the user consent will potentially update CardCreateToken flag on submit card payment.</td>
 </tr>
 <tr>
 <td><code>cardIgnoreCVN</code></td>
@@ -29039,7 +29039,7 @@
 <td><code>destinationAccount.displayName</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to be listed.</td>
 </tr>
 <tr>
 <td><code>destinationAccount.expiryDate</code></td>
@@ -29327,7 +29327,7 @@
 <td><code>directDebitPayment.merchantMandate</code></td>
 <td><code>object</code></td>
 <td>No</td>
-<td>Represents a Direct Debit mandate entity that contains customer,  bank account and mandate information.</td>
+<td>Represents a Direct Debit mandate entity that contains customer, bank account and mandate information.</td>
 </tr>
 <tr>
 <td><code>directDebitPayment.merchantMandate.approvedAt</code></td>
@@ -29693,7 +29693,7 @@
 <td><code>events[].pispRedirectUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to  authenticate with their financial institution and authorise the payment.</td>
+<td>For a payment initiation this is the redirect URL returned by the service provider initiating the payment for us. This is the URL the payer is redirected to authenticate with their financial institution and authorise the payment.</td>
 </tr>
 <tr>
 <td><code>events[].reconciledTransactionID</code></td>
@@ -29723,7 +29723,7 @@
 <td><code>failureCallbackUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+<td>Optional callback URL for payment failures that can occur when the payer is redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the payer will be redirected back to the original URL the payment attempt was initiated from.</td>
 </tr>
 <tr>
 <td><code>fieldDisplaySettings</code></td>
@@ -29759,7 +29759,7 @@
 <td><code>hostedPayCheckoutUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the  merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
+<td>This is a convenience link generated for payment requests whose merchants are using hosted payment pages. The link will load the MoneyMoov hosted payment page. If the merchant has not been set up for hosted payment or the payment can't be hosted then this property will be empty.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -29783,7 +29783,7 @@
 <td><code>insertedSortable</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The Inserted timestamp output as a sortable string  https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable  Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
+<td>The Inserted timestamp output as a sortable string https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#UniversalSortable Format also supported natively by Javascript https://tc39.es/ecma262/#sec-date-time-string-format.</td>
 </tr>
 <tr>
 <td><code>isArchived</code></td>
@@ -30125,7 +30125,7 @@
 <td><code>payrunID</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The ID of a payrun that needs an account top up.  Payment request can be used to top up payrun accounts.</td>
+<td>The ID of a payrun that needs an account top up. Payment request can be used to top up payrun accounts.</td>
 </tr>
 <tr>
 <td><code>pispAccountID</code></td>
@@ -30425,7 +30425,7 @@
 <td><code>successWebHookUrl</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -30485,7 +30485,7 @@
 <td><code>tokenisedCards[].customerEmailAddress</code></td>
 <td><code>string (email)</code></td>
 <td>No</td>
-<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions  it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
+<td>When creating a tokenised card the payer's email address must be supplied. This is used as away to group card tokens for an end user. For customer initiated transactions it is important that the email address supplied has been verified to belong to the user initiating the payment.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].expiryMonth</code></td>
@@ -30503,7 +30503,7 @@
 <td><code>tokenisedCards[].id</code></td>
 <td><code>string (uuid)</code></td>
 <td>No</td>
-<td>The unique ID of the card token that has been stored for the customer. This is  the ID to supply when requesting an authorisation on behalf of the customer.</td>
+<td>The unique ID of the card token that has been stored for the customer. This is the ID to supply when requesting an authorisation on behalf of the customer.</td>
 </tr>
 <tr>
 <td><code>tokenisedCards[].inserted</code></td>
@@ -30563,7 +30563,7 @@
 <td><code>transactions[].accountSequenceNumber</code></td>
 <td><code>integer (int32)</code></td>
 <td>No</td>
-<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence  number for all transactions belonging to the same account.</td>
+<td>The sequence number of transaction on a per account basis. This sequence number is guaranteed to be an arithemtic sequence number for all transactions belonging to the same account.</td>
 </tr>
 <tr>
 <td><code>transactions[].amount</code></td>
@@ -30707,7 +30707,7 @@
 <td><code>transactions[].counterparty.name</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>The name of the counterparty. For a person this should be their full name. For a  company this should be their registered or trading name.</td>
+<td>The name of the counterparty. For a person this should be their full name. For a company this should be their registered or trading name.</td>
 </tr>
 <tr>
 <td><code>transactions[].counterparty.payeeVerificationResult</code></td>
@@ -30761,7 +30761,7 @@
 <td><code>transactions[].counterpartySummary</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For pay in (credit) transactions this will contain a descriptive string with the  most important fields about the counterparty.</td>
+<td>For pay in (credit) transactions this will contain a descriptive string with the most important fields about the counterparty.</td>
 </tr>
 <tr>
 <td><code>transactions[].currency</code></td>
@@ -30899,13 +30899,13 @@
 <td><code>transactions[].virtualIBAN</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>If set it indicates the  payin was to a virtual IBAN.</td>
+<td>If set it indicates the payin was to a virtual IBAN.</td>
 </tr>
 <tr>
 <td><code>transactions[].yourReference</code></td>
 <td><code>string</code></td>
 <td>No</td>
-<td>For a pay in the reference the sending party attached. For a pay out the  reference that the payer attached for themselves.</td>
+<td>For a pay in the reference the sending party attached. For a pay out the reference that the payer attached for themselves.</td>
 </tr>
 <tr>
 <td><code>useHostedPaymentPage</code></td>
