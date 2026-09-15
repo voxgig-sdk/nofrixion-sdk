@@ -26,7 +26,7 @@ An entity groups related operations, and each operation may cover several routes
 
 ---
 
-# API capabilities 1 / 9
+# API capabilities 1 / 3
 
 - Account: `create`, `list`, `load`, `remove`, `update`
 - Batch: `create`, `load`
@@ -37,7 +37,7 @@ An entity groups related operations, and each operation may cover several routes
 
 ---
 
-# API capabilities 2 / 9
+# API capabilities 2 / 3
 
 - CardPayment: `create`
 - CardPublicKey: `load`
@@ -48,75 +48,14 @@ An entity groups related operations, and each operation may cover several routes
 
 ---
 
-# API capabilities 3 / 9
+# API capabilities 3 / 3
 
 - IPayment: `create`
 - Mandate: `create`, `load`
 - Merchant: `list`, `load`, `remove`, `update`
 - MerchantAuthorisationSetting: `list`
 - MerchantDirectDebitMandatePage: `list`
-- MerchantPayByBankSetting: `list`
-
----
-
-# API capabilities 4 / 9
-
-- MerchantPaymentRequestTemplate: `list`, `load`, `remove`, `update`
-- MerchantToken: `create`, `list`, `load`, `update`
-- Metadata: `load`
-- NoFrixionVersion: `load`
-- OpenBanking: `create`, `remove`
-- Payeeverification: `create`
-
----
-
-# API capabilities 5 / 9
-
-- Payment: `create`, `load`, `update`
-- PaymentAccount: `list`
-- PaymentAccountMinimal: `list`
-- PaymentInitiation: `create`
-- PaymentRequest: `create`, `list`, `load`, `remove`, `update`
-- PaymentRequestEvent: `list`
-
----
-
-# API capabilities 6 / 9
-
-- PaymentRequestMetric: `load`
-- PaymentRequestMinimal: `list`
-- PaymentRequestResult: `list`
-- Payout: `create`, `list`, `load`, `remove`, `update`
-- PayoutKeysetPage: `list`
-- PayoutMetric: `load`
-
----
-
-# API capabilities 7 / 9
-
-- Payrun: `create`, `list`, `load`, `remove`, `update`
-- Report: `update`
-- ReportResult: `load`
-- Role: `create`
-- Rule: `create`, `list`, `load`, `remove`, `update`
-- RuleEvent: `list`
-
----
-
-# API capabilities 8 / 9
-
-- Tag: `create`, `list`
-- Token: `create`, `remove`
-- Transaction: `create`, `list`, `load`, `remove`
-- User: `list`, `update`
-- UserInvite: `create`, `list`, `load`, `remove`, `update`
-- Virtual: `create`, `update`
-
----
-
-# API capabilities 9 / 9
-
-- Webhook: `create`, `list`, `load`, `remove`, `update`
+- and 32 more, in the API reference
 
 ---
 

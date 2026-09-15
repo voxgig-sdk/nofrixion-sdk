@@ -1,7 +1,5 @@
-# Populated by docgen when the project toolchain is installed.
-
-@"summary.aon"
+# Documentation editions.
 
 @"github-pages.aon"
-
 @"presentation.aon"
+@"summary.aon"
