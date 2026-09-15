@@ -29,6 +29,12 @@ main: kit: entity: card_public_key: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v1/paymentrequests/{id}/card/publickey"
+            json: "{\"operationId\":\"GetPublicKeyForCardPayment\",\"parameters\":[{\"description\":\"The ID of the payment request the public key will be used with.\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"format\":\"uuid\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Returns a public key that can be used to encrypt sensitive card details.\"}},\"security\":[{\"Bearer\":[]}],\"securitySchemes\":{\"Bearer\":{\"description\":\"JWT Authorization header using the Bearer scheme.<br/>\\r\\n                      Enter your JWT access token in the text input below.<br/>\\r\\n                      Example: Bearer eyJhbGciOiJ...\",\"in\":\"header\",\"name\":\"Authorization\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v1/paymentrequests/{id}/card/publickey"
           rename: {

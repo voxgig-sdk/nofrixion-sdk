@@ -46,5 +46,770 @@
         "sourceCurrency": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /api/v1/payouts/fxallheldrates/{source}/{destination}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetAllFxHeldRates",
+        "parameters": [
+          {
+            "description": "The source currency to get the the FX held rates for.",
+            "in": "path",
+            "name": "source",
+            "required": true,
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The destination currency to get the FX held rates for.",
+            "in": "path",
+            "name": "destination",
+            "required": true,
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "Represents a Foreign Exchange (FX) rate.",
+                    "properties": {
+                      "destinationCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "exchangeRate": {
+                        "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "expiryTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "quoteID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "sourceCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "Represents a Foreign Exchange (FX) rate.",
+                    "properties": {
+                      "destinationCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "exchangeRate": {
+                        "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "expiryTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "quoteID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "sourceCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "Represents a Foreign Exchange (FX) rate.",
+                    "properties": {
+                      "destinationCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "exchangeRate": {
+                        "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "expiryTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "quoteID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "sourceCurrency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/payouts/fxheldrate/{source}/{destination}/{validForMinutes}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetFxHeldRate",
+        "parameters": [
+          {
+            "description": "The source currency for the FX held rate.",
+            "in": "path",
+            "name": "source",
+            "required": true,
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The destination currency for the FX held rate.",
+            "in": "path",
+            "name": "destination",
+            "required": true,
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The number of minutes the held rate is being requested for.",
+            "in": "path",
+            "name": "validForMinutes",
+            "required": true,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a Foreign Exchange (FX) rate.",
+                  "properties": {
+                    "destinationCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    },
+                    "exchangeRate": {
+                      "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                      "format": "double",
+                      "type": "number"
+                    },
+                    "expiryTime": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "quoteID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "sourceCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a Foreign Exchange (FX) rate.",
+                  "properties": {
+                    "destinationCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    },
+                    "exchangeRate": {
+                      "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                      "format": "double",
+                      "type": "number"
+                    },
+                    "expiryTime": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "quoteID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "sourceCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a Foreign Exchange (FX) rate.",
+                  "properties": {
+                    "destinationCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    },
+                    "exchangeRate": {
+                      "description": "The price at which the transaction will buy the source currency \r\nusing the destination currency.",
+                      "format": "double",
+                      "type": "number"
+                    },
+                    "expiryTime": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "quoteID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "sourceCurrency": {
+                      "enum": [
+                        "NONE",
+                        "GBP",
+                        "EUR",
+                        "USD",
+                        "AUD",
+                        "BGN",
+                        "CAD",
+                        "CZK",
+                        "DKK",
+                        "HUF",
+                        "ISK",
+                        "CHF",
+                        "NOK",
+                        "PLN",
+                        "RON",
+                        "AED",
+                        "CNH",
+                        "HKD",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "NZD",
+                        "SAR",
+                        "SEK",
+                        "SGD",
+                        "TRY",
+                        "ZAR",
+                        "BTC"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

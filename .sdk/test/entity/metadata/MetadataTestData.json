@@ -16,5 +16,90 @@
     "metadata": {
       "metadata_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/v1/metadata/problemnotification": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "ProblemNotification",
+        "parameters": [
+          {
+            "description": "The URL to send the HTTP POST request to with the problem notification.",
+            "in": "query",
+            "name": "url",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. If the id and secret are set the notification request will have the\r\n            HMAC HTTP authentication headers added.",
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. If the id and secret are set the notification request will have the\r\n            HMAC HTTP authentication headers added.",
+            "in": "query",
+            "name": "secret",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Returns OK if the problem notification request is accepted."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/metadata/problem": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "Problem",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Returns an example problem response."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

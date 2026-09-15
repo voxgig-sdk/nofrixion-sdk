@@ -1,0 +1,6488 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>UserInvite | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a aria-current="page" href="../api/user_invite.html">UserInvite</a><div class="nav-sections"><a class="nav-section" href="#post-apiv1userinvitesauthoriseid">POST /api/v1/userinvites/authorise/{id}</a>
+<a class="nav-section" href="#post-apiv1userinvites">POST /api/v1/userinvites</a>
+<a class="nav-section" href="#post-apiv1userinvitesbatchcreate">POST /api/v1/userinvites/batchcreate</a>
+<a class="nav-section" href="#get-apiv1merchantsmerchantiduserinvitespaged">GET /api/v1/merchants/{merchantID}/userinvitespaged</a>
+<a class="nav-section" href="#get-apiv1userinvitesid">GET /api/v1/userinvites/{id}</a>
+<a class="nav-section" href="#get-apiv1userinvitesiddetails">GET /api/v1/userinvites/{id}/details</a>
+<a class="nav-section" href="#delete-apiv1userinvitesid">DELETE /api/v1/userinvites/{id}</a>
+<a class="nav-section" href="#put-apiv1userinvitesid">PUT /api/v1/userinvites/{id}</a></div>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="userinvite">UserInvite</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-apiv1userinvitesauthoriseid"><code>/api/v1/userinvites/authorise/{id}</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-apiv1userinvites"><code>/api/v1/userinvites</code></a></td>
+<td><code>create</code></td>
+<td>Returns an OK response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-apiv1userinvitesbatchcreate"><code>/api/v1/userinvites/batchcreate</code></a></td>
+<td><code>create</code></td>
+<td>A UserInvitesCreateResponse</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1merchantsmerchantiduserinvitespaged"><code>/api/v1/merchants/{merchantID}/userinvitespaged</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1userinvitesid"><code>/api/v1/userinvites/{id}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1userinvitesiddetails"><code>/api/v1/userinvites/{id}/details</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-apiv1userinvitesid"><code>/api/v1/userinvites/{id}</code></a></td>
+<td><code>remove</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-apiv1userinvitesid"><code>/api/v1/userinvites/{id}</code></a></td>
+<td><code>update</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>failedUserInvites</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Email address of the user being invited.</td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>First Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>ID of the merchant the user is being invited to.</td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sendInviteEmail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true an email will be sent to the invitee with instructions on how to accept the invite.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-apiv1userinvitesauthoriseid" class="operation" data-method="post"><code>POST</code> /api/v1/userinvites/authorise/{id}</h3>
+<p>Operation ID: <code>AuthoriseUserInvite</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the user invite to authorise. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<h5 id="202-accepted" class="status" data-status="2xx">202: Accepted</h5>
+<h3 id="post-apiv1userinvites" class="operation" data-method="post"><code>POST</code> /api/v1/userinvites</h3>
+<p>Operation ID: <code>CreateUserInvite</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user.  This property can only be set when the merchant has no users with roles. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>Email address of the user being invited.</td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>First Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>ID of the merchant the user is being invited to. Can be empty if provided by the URL.</td>
+</tr>
+<tr>
+<td><code>sendInviteEmail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true an email will be sent to the invitee with instructions on how to accept the invite.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-returns-an-ok-response" class="status" data-status="2xx">200: Returns an OK response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-apiv1userinvitesbatchcreate" class="operation" data-method="post"><code>POST</code> /api/v1/userinvites/batchcreate</h3>
+<p>Operation ID: <code>CreateUserInvites</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user.  This property can only be set when the merchant has no users with roles. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>[].inviteeEmailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>Email address of the user being invited.</td>
+</tr>
+<tr>
+<td><code>[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>First Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Name of the user being invited.</td>
+</tr>
+<tr>
+<td><code>[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>ID of the merchant the user is being invited to. Can be empty if provided by the URL.</td>
+</tr>
+<tr>
+<td><code>[].sendInviteEmail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true an email will be sent to the invitee with instructions on how to accept the invite.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-a-userinvitescreateresponse" class="status" data-status="2xx">200: A UserInvitesCreateResponse</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>failedUserInvites</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>userInvites[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>userInvites[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>failedUserInvites</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>userInvites[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>userInvites[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>failedUserInvites</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>userInvites[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>userInvites[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>userInvites[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>userInvites[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInvites[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-apiv1merchantsmerchantiduserinvitespaged" class="operation" data-method="get"><code>GET</code> /api/v1/merchants/{merchantID}/userinvitespaged</h3>
+<p>Operation ID: <code>GetUserInvitesPaged</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>merchantID</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the merchant to get the user invites for. |
+| <code>pageNumber</code> | <code>query</code> | <code>integer (int32)</code> | No | The page number |
+| <code>pageSize</code> | <code>query</code> | <code>integer (int32)</code> | No | The page size |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | A search filter to apply to the user list. Typically searches against first name, last name and email address. |
+| <code>sort</code> | <code>query</code> | <code>string</code> | No | The sort expression for the result set, for example, &quot;FirstName asc&quot;. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>content[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>content[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>content[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>content[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>content[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>content[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>content[].authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>content[].inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>content[].isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>content[].lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<h5 id="201-returns-a-paged-list-of-the-user-invites-associated-with-merchant" class="status" data-status="2xx">201: Returns a paged list of the user invites associated with merchant</h5>
+<h2 id="load">load</h2>
+<h3 id="get-apiv1userinvitesid" class="operation" data-method="get"><code>GET</code> /api/v1/userinvites/{id}</h3>
+<p>Operation ID: <code>GetUserInvite</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the user invite to retrieve. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-apiv1userinvitesiddetails" class="operation" data-method="get"><code>GET</code> /api/v1/userinvites/{id}/details</h3>
+<p>Operation ID: <code>GetUserInviteDetails</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the user invite to retrieve. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorisationStatus</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authenticationMethods</code></td>
+<td><code>array of enum: None, WebAuthn, OneTimePassword</code></td>
+<td>No</td>
+<td>A list of authentication types allowed to authorise the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of users who have successfully authorised the latest version of the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisations[].user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersCompletedCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of distinct authorisers that have authorised the parent model.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.authorisersRequiredCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of authorisers required for the parent model. Is determined by business settings on the source account and/or merchant.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canAuthorise</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be authorised by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.canUpdate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model can be updated by the user who loaded it.</td>
+</tr>
+<tr>
+<td><code>authorisationStatus.hasCurrentUserAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the parent model was loaded for a user and that user has already authorised the latest version.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>initialRoleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The role ID to automatically assign to the merchant’s very first user. Typically set by the compliance team when the first user is invited to a new merchant.</td>
+</tr>
+<tr>
+<td><code>inviteeEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviteeLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviterLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>isAuthorised</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Will be set to true once the invite has met the authorisation requirements.</td>
+</tr>
+<tr>
+<td><code>isInviteeRegistered</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, indicates the invitee's email address corresponds to an existing MoneyMoov user.</td>
+</tr>
+<tr>
+<td><code>lastInvited</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>registrationUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: Active, Expired, Accepted, AuthorisationRequired</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>user.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>user.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>user.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>user.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-apiv1userinvitesid" class="operation" data-method="delete"><code>DELETE</code> /api/v1/userinvites/{id}</h3>
+<p>Operation ID: <code>DeleteUserInvite</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | THe ID of the user invite to delete. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<h2 id="update">update</h2>
+<h3 id="put-apiv1userinvitesid" class="operation" data-method="put"><code>PUT</code> /api/v1/userinvites/{id}</h3>
+<p>Operation ID: <code>ResendUserInvite</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the user invite to resend. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-ok-5" class="status" data-status="2xx">200: OK</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

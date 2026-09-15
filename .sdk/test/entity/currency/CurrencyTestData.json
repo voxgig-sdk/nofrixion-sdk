@@ -3,7 +3,7 @@
     "currency": {
       "CURRENCY00": {
         "code": "s3c",
-        "decimals": "s3d",
+        "decimals": 61,
         "isFiat": true,
         "iso4217AlphaCode": "s3f",
         "iso4217NumericCode": "s40",
@@ -11,7 +11,7 @@
       },
       "CURRENCY01": {
         "code": "s78",
-        "decimals": "s79",
+        "decimals": 121,
         "isFiat": true,
         "iso4217AlphaCode": "s7b",
         "iso4217NumericCode": "s7c",
@@ -19,7 +19,7 @@
       },
       "CURRENCY02": {
         "code": "sb4",
-        "decimals": "sb5",
+        "decimals": 181,
         "isFiat": true,
         "iso4217AlphaCode": "sb7",
         "iso4217NumericCode": "sb8",
@@ -31,11 +31,247 @@
     "currency": {
       "currency_ref01": {
         "code": "sf0",
-        "decimals": "sf1",
+        "decimals": 241,
         "isFiat": true,
         "iso4217AlphaCode": "sf3",
         "iso4217NumericCode": "sf4",
         "symbol": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/currencies": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetCurrencies",
+        "parameters": [
+          {
+            "description": "Optional. When supplied, only currencies configured for the requested capability are returned.\n\nCapability values:\n- `None`: No capability flags are selected. Using this value as a filter returns no currencies.\n- `Holding`: Currency is supported for held balances and payment accounts.\n- `Inbound`: Currency is supported for inbound payment flows.\n- `FxConversion`: Currency is supported for FX conversion flows.",
+            "in": "query",
+            "name": "capability",
+            "schema": {
+              "description": "Capability values:\n- `None`: No capability flags are selected. Using this value as a filter returns no currencies.\n- `Holding`: Currency is supported for held balances and payment accounts.\n- `Inbound`: Currency is supported for inbound payment flows.\n- `FxConversion`: Currency is supported for FX conversion flows.",
+              "enum": [
+                "None",
+                "Holding",
+                "Inbound",
+                "FxConversion"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "decimals": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "isFiat": {
+                        "type": "boolean"
+                      },
+                      "iso4217AlphaCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "iso4217NumericCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "symbol": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "decimals": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "isFiat": {
+                        "type": "boolean"
+                      },
+                      "iso4217AlphaCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "iso4217NumericCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "symbol": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "decimals": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "isFiat": {
+                        "type": "boolean"
+                      },
+                      "iso4217AlphaCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "iso4217NumericCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "symbol": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Returns the list of currencies and their static metadata."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

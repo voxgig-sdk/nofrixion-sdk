@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { NofrixionSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('PaymentInitiationEntity', async () => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
     for (const op of ['create']) {
-      if (maybeSkipControl(t, 'entityOp', 'payment_initiation.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'payment_initiation.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set NOFRIXION_TEST_PAYMENT_INITIATION_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"paymentInitiationID","req":false,"short":"The unique identifier of the payment initiation request.","type":"`$STRING`","index$":0},{"active":true,"name":"paymentRequestCallbackUrl","req":false,"short":"The callback URL that was set when the payment request was created.","type":"`$STRING`","index$":1},{"active":true,"format":"uuid","name":"paymentRequestID","req":false,"type":"`$STRING`","index$":2},{"active":true,"name":"redirectUrl","req":false,"short":"A redirect URL for the user to authorise the payment initiation request at the ASPSP","type":"`$STRING`","index$":3},{"active":true,"name":"responseType","readOnly":true,"req":false,"type":"`$STRING`","index$":4},{"active":true,"name":"specificErrorMessage","req":false,"type":"`$STRING`","index$":5}],"name":"payment_initiation","op":{"create":{"input":"data","name":"create","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"paymentrequest_id","orig":"id","reqd":true,"type":"`$STRING`","index$":0}]},"contract":{"id":"POST /api/v1/paymentrequests/{id}/pisp","json":"{\"operationId\":\"SubmitPayByBank\",\"parameters\":[{\"description\":\"The ID of the payment request the payment initiation is being submitted for.\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"format\":\"uuid\",\"type\":\"string\"}}],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"multipart/form-data\":{\"encoding\":{\"OriginUrl\":{\"style\":\"form\"},\"PartialAmount\":{\"style\":\"form\"},\"ProviderID\":{\"style\":\"form\"},\"RedirectToOriginUrl\":{\"style\":\"form\"}},\"schema\":{\"properties\":{\"OriginUrl\":{\"description\":\"Optional. If set should indicate the origin URL the payer is making the \\r\\npayment from. If a pay by bank attempt fails and the payment request does not\\r\\nhave a FailureCallbackUrl set then the payer will be redirected to this URL.\",\"type\":\"string\"},\"PartialAmount\":{\"description\":\"Optional. If 0 the full amount is assumed.\",\"format\":\"double\",\"type\":\"number\"},\"ProviderID\":{\"description\":\"This is the ID of the institution (bank) that the payer ha chosen.\",\"type\":\"string\"},\"RedirectToOriginUrl\":{\"deprecated\":true,\"type\":\"string\"}},\"required\":[\"ProviderID\"],\"type\":\"object\"}}}},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"paymentInitiationID\":{\"description\":\"The unique identifier of the payment initiation request.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestCallbackUrl\":{\"description\":\"The callback URL that was set when the payment request was created. Payers will be \\r\\nredirected to this URL after a successful payment initiation.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestID\":{\"format\":\"uuid\",\"type\":\"string\"},\"redirectUrl\":{\"description\":\"A redirect URL for the user to authorise the payment initiation request at the ASPSP\",\"nullable\":true,\"type\":\"string\"},\"responseType\":{\"enum\":[\"None\",\"CardPayerAuthenticationSetupResponse\",\"CardPaymentResponse\",\"PaymentInitiationResponse\"],\"readOnly\":true,\"type\":\"string\"},\"specificErrorMessage\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"paymentInitiationID\":{\"description\":\"The unique identifier of the payment initiation request.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestCallbackUrl\":{\"description\":\"The callback URL that was set when the payment request was created. Payers will be \\r\\nredirected to this URL after a successful payment initiation.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestID\":{\"format\":\"uuid\",\"type\":\"string\"},\"redirectUrl\":{\"description\":\"A redirect URL for the user to authorise the payment initiation request at the ASPSP\",\"nullable\":true,\"type\":\"string\"},\"responseType\":{\"enum\":[\"None\",\"CardPayerAuthenticationSetupResponse\",\"CardPaymentResponse\",\"PaymentInitiationResponse\"],\"readOnly\":true,\"type\":\"string\"},\"specificErrorMessage\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"paymentInitiationID\":{\"description\":\"The unique identifier of the payment initiation request.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestCallbackUrl\":{\"description\":\"The callback URL that was set when the payment request was created. Payers will be \\r\\nredirected to this URL after a successful payment initiation.\",\"nullable\":true,\"type\":\"string\"},\"paymentRequestID\":{\"format\":\"uuid\",\"type\":\"string\"},\"redirectUrl\":{\"description\":\"A redirect URL for the user to authorise the payment initiation request at the ASPSP\",\"nullable\":true,\"type\":\"string\"},\"responseType\":{\"enum\":[\"None\",\"CardPayerAuthenticationSetupResponse\",\"CardPaymentResponse\",\"PaymentInitiationResponse\"],\"readOnly\":true,\"type\":\"string\"},\"specificErrorMessage\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Returns a payment initiation response that contains the payment ID and the payment link.\"}},\"security\":[{\"Bearer\":[]}],\"securitySchemes\":{\"Bearer\":{\"description\":\"JWT Authorization header using the Bearer scheme.<br/>\\r\\n                      Enter your JWT access token in the text input below.<br/>\\r\\n                      Example: Bearer eyJhbGciOiJ...\",\"in\":\"header\",\"name\":\"Authorization\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}","source":"openapi3","version":1},"kind":"http","method":"POST","orig":"/api/v1/paymentrequests/{id}/pisp","rename":{"param":{"id":"paymentrequest_id"}},"segments":[{"lit":"api"},{"lit":"v1"},{"lit":"paymentrequests"},{"var":"paymentrequest_id"},{"lit":"pisp"}],"select":{"exist":["paymentrequest_id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"}},"relations":{"ancestors":[["paymentrequest"]]},"key$":"payment_initiation","name__orig":"payment_initiation","Name":"PaymentInitiation","name_":"payment_initiation","name-":"payment-initiation","NAME":"PAYMENT_INITIATION","index$":27}, {"active":true,"entity":"payment_initiation","key$":"BasicPaymentInitiationFlow","kind":"basic","name":"BasicPaymentInitiationFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"payment_initiation_ref01"},"match":{"paymentrequest_id":"paymentrequest01"},"op":"create","spec":[],"valid":[],"index$":0}]}, 'PaymentInitiation')
     }
     const client = setup.client
     const struct = setup.struct
@@ -110,13 +109,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['NOFRIXION_TEST_PAYMENT_INITIATION_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'NOFRIXION_TEST_PAYMENT_INITIATION_ENTID': idmap,
     'NOFRIXION_TEST_LIVE': 'FALSE',
@@ -128,7 +120,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.NOFRIXION_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['NOFRIXION_TEST_PAYMENT_INITIATION_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new NofrixionSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -141,7 +139,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -154,7 +153,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.NOFRIXION_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

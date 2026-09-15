@@ -34,6 +34,12 @@ main: kit: entity: report: {
               }
             ]
           }
+          contract: {
+            id: "PUT /api/v1/reports/{id}/initiate"
+            json: "{\"operationId\":\"InitiateReport\",\"parameters\":[{\"description\":\"The ID of the merchant report to execute.\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"format\":\"uuid\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"OK\"}},\"security\":[{\"Bearer\":[]}],\"securitySchemes\":{\"Bearer\":{\"description\":\"JWT Authorization header using the Bearer scheme.<br/>\\r\\n                      Enter your JWT access token in the text input below.<br/>\\r\\n                      Example: Bearer eyJhbGciOiJ...\",\"in\":\"header\",\"name\":\"Authorization\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "PUT"
           orig: "/api/v1/reports/{id}/initiate"
           segments: [

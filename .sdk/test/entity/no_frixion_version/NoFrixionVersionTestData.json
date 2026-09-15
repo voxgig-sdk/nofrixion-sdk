@@ -2,23 +2,23 @@
   "existing": {
     "no_frixion_version": {
       "NO_FRIXION_VERSION00": {
-        "buildVersion": "s28",
-        "majorVersion": "s29",
-        "minorVersion": "s2a",
+        "buildVersion": 40,
+        "majorVersion": 41,
+        "minorVersion": 42,
         "releaseName": "s2b",
         "id": "NO_FRIXION_VERSION00"
       },
       "NO_FRIXION_VERSION01": {
-        "buildVersion": "s50",
-        "majorVersion": "s51",
-        "minorVersion": "s52",
+        "buildVersion": 80,
+        "majorVersion": 81,
+        "minorVersion": 82,
         "releaseName": "s53",
         "id": "NO_FRIXION_VERSION01"
       },
       "NO_FRIXION_VERSION02": {
-        "buildVersion": "s78",
-        "majorVersion": "s79",
-        "minorVersion": "s7a",
+        "buildVersion": 120,
+        "majorVersion": 121,
+        "minorVersion": 122,
         "releaseName": "s7b",
         "id": "NO_FRIXION_VERSION02"
       }
@@ -27,10 +27,113 @@
   "new": {
     "no_frixion_version": {
       "no_frixion_version_ref01": {
-        "buildVersion": "sa0",
-        "majorVersion": "sa1",
-        "minorVersion": "sa2",
+        "buildVersion": 160,
+        "majorVersion": 161,
+        "minorVersion": 162,
         "releaseName": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/metadata/version": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "Version",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "buildVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "majorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "minorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "releaseName": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "buildVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "majorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "minorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "releaseName": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "buildVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "majorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "minorVersion": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "releaseName": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a model with fields describing the current API version."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

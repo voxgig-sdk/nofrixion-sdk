@@ -49,5 +49,750 @@
         "user": {}
       }
     }
+  },
+  "requests": {
+    "GET /api/v1/rules/{id}/events": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetRuleEvents",
+        "parameters": [
+          {
+            "description": "The ID of the rule to get the events for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The page number from where records are retrieved. Note that the paging starts from page 1.\r\n            If a 0 is supplied it will be treated as a 1 and the first page is returned.",
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The number of records to be retrieved from a page.",
+            "in": "query",
+            "name": "size",
+            "schema": {
+              "default": 20,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "List of event types to filter the rule events based on type",
+            "in": "query",
+            "name": "eventTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "None",
+                  "Created",
+                  "Approved",
+                  "Edited",
+                  "Disabled",
+                  "ExecutionSuccess",
+                  "ExecutionError",
+                  "PayeeVerificationInitiated",
+                  "PayeeVerificationComplete",
+                  "PayeeVerificationFailed"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "errorMessage": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isAuthoriseToEnable": {
+                            "type": "boolean"
+                          },
+                          "message": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "rawResponse": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "ruleEventType": {
+                            "enum": [
+                              "None",
+                              "Created",
+                              "Approved",
+                              "Edited",
+                              "Disabled",
+                              "ExecutionSuccess",
+                              "ExecutionError",
+                              "PayeeVerificationInitiated",
+                              "PayeeVerificationComplete",
+                              "PayeeVerificationFailed"
+                            ],
+                            "type": "string"
+                          },
+                          "ruleID": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "user": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "clientSessionTimeouts": {
+                                "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "merchantID": {
+                                      "description": "The merchant ID for which the session timeout applies.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "timeoutSeconds": {
+                                      "description": "The number of seconds a session for this user should last before expiring.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "emailAddress": {
+                                "format": "email",
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "firstName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "id": {
+                                "format": "uuid",
+                                "type": "string"
+                              },
+                              "lastName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "passkeyAdded": {
+                                "type": "boolean"
+                              },
+                              "permissions": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "merchantPermissions": {
+                                    "items": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "accountPermissions": {
+                                          "additionalProperties": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array"
+                                          },
+                                          "nullable": true,
+                                          "type": "object"
+                                        },
+                                        "merchantID": {
+                                          "nullable": true,
+                                          "type": "string"
+                                        },
+                                        "permissions": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "nullable": true,
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "merchantID"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "nullable": true,
+                                    "type": "array"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "rolesWithScope": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "assignedAt": {
+                                      "description": "The date the role was assigned to the user on the merchant.",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "merchantID": {
+                                      "description": "The ID of the merchant the role is in.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleID": {
+                                      "description": "The ID of the role the user has.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleName": {
+                                      "description": "The name of the role the user has.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "scope": {
+                                      "description": "The number of accounts the user has access to in the merchant for the role.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "userID": {
+                                      "description": "The ID of the user.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "assignedAt",
+                                    "roleName",
+                                    "scope"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "twoFactorEnabled": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "emailAddress",
+                              "firstName",
+                              "lastName"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "errorMessage": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isAuthoriseToEnable": {
+                            "type": "boolean"
+                          },
+                          "message": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "rawResponse": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "ruleEventType": {
+                            "enum": [
+                              "None",
+                              "Created",
+                              "Approved",
+                              "Edited",
+                              "Disabled",
+                              "ExecutionSuccess",
+                              "ExecutionError",
+                              "PayeeVerificationInitiated",
+                              "PayeeVerificationComplete",
+                              "PayeeVerificationFailed"
+                            ],
+                            "type": "string"
+                          },
+                          "ruleID": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "user": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "clientSessionTimeouts": {
+                                "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "merchantID": {
+                                      "description": "The merchant ID for which the session timeout applies.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "timeoutSeconds": {
+                                      "description": "The number of seconds a session for this user should last before expiring.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "emailAddress": {
+                                "format": "email",
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "firstName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "id": {
+                                "format": "uuid",
+                                "type": "string"
+                              },
+                              "lastName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "passkeyAdded": {
+                                "type": "boolean"
+                              },
+                              "permissions": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "merchantPermissions": {
+                                    "items": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "accountPermissions": {
+                                          "additionalProperties": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array"
+                                          },
+                                          "nullable": true,
+                                          "type": "object"
+                                        },
+                                        "merchantID": {
+                                          "nullable": true,
+                                          "type": "string"
+                                        },
+                                        "permissions": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "nullable": true,
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "merchantID"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "nullable": true,
+                                    "type": "array"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "rolesWithScope": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "assignedAt": {
+                                      "description": "The date the role was assigned to the user on the merchant.",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "merchantID": {
+                                      "description": "The ID of the merchant the role is in.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleID": {
+                                      "description": "The ID of the role the user has.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleName": {
+                                      "description": "The name of the role the user has.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "scope": {
+                                      "description": "The number of accounts the user has access to in the merchant for the role.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "userID": {
+                                      "description": "The ID of the user.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "assignedAt",
+                                    "roleName",
+                                    "scope"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "twoFactorEnabled": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "emailAddress",
+                              "firstName",
+                              "lastName"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "errorMessage": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isAuthoriseToEnable": {
+                            "type": "boolean"
+                          },
+                          "message": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "rawResponse": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "ruleEventType": {
+                            "enum": [
+                              "None",
+                              "Created",
+                              "Approved",
+                              "Edited",
+                              "Disabled",
+                              "ExecutionSuccess",
+                              "ExecutionError",
+                              "PayeeVerificationInitiated",
+                              "PayeeVerificationComplete",
+                              "PayeeVerificationFailed"
+                            ],
+                            "type": "string"
+                          },
+                          "ruleID": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "user": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "clientSessionTimeouts": {
+                                "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "merchantID": {
+                                      "description": "The merchant ID for which the session timeout applies.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "timeoutSeconds": {
+                                      "description": "The number of seconds a session for this user should last before expiring.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "emailAddress": {
+                                "format": "email",
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "firstName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "id": {
+                                "format": "uuid",
+                                "type": "string"
+                              },
+                              "lastName": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "passkeyAdded": {
+                                "type": "boolean"
+                              },
+                              "permissions": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "merchantPermissions": {
+                                    "items": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "accountPermissions": {
+                                          "additionalProperties": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array"
+                                          },
+                                          "nullable": true,
+                                          "type": "object"
+                                        },
+                                        "merchantID": {
+                                          "nullable": true,
+                                          "type": "string"
+                                        },
+                                        "permissions": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "nullable": true,
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "merchantID"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "nullable": true,
+                                    "type": "array"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "rolesWithScope": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "assignedAt": {
+                                      "description": "The date the role was assigned to the user on the merchant.",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "merchantID": {
+                                      "description": "The ID of the merchant the role is in.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleID": {
+                                      "description": "The ID of the role the user has.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    },
+                                    "roleName": {
+                                      "description": "The name of the role the user has.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "scope": {
+                                      "description": "The number of accounts the user has access to in the merchant for the role.",
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "userID": {
+                                      "description": "The ID of the user.",
+                                      "format": "uuid",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "assignedAt",
+                                    "roleName",
+                                    "scope"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              },
+                              "twoFactorEnabled": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "emailAddress",
+                              "firstName",
+                              "lastName"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a list of the events for the rule."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

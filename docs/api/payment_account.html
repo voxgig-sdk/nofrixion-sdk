@@ -1,0 +1,3299 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PaymentAccount | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a aria-current="page" href="../api/payment_account.html">PaymentAccount</a><div class="nav-sections"><a class="nav-section" href="#get-apiv1accountspaged">GET /api/v1/accounts/paged</a>
+<a class="nav-section" href="#get-apiv1accountsaccountidvirtual">GET /api/v1/accounts/{accountID}/virtual</a></div>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="paymentaccount">PaymentAccount</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1accountspaged"><code>/api/v1/accounts/paged</code></a></td>
+<td><code>list</code></td>
+<td>Returns the list of accounts for the merchant</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1accountsaccountidvirtual"><code>/api/v1/accounts/{accountID}/virtual</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>accountSupplierName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The payment account supplier name.</td>
+</tr>
+<tr>
+<td><code>availableBalance</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The current available balance of the account.</td>
+</tr>
+<tr>
+<td><code>availableBalanceMinorUnits</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example</td>
+</tr>
+<tr>
+<td><code>balance</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>balanceMinorUnits</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example</td>
+</tr>
+<tr>
+<td><code>bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>consentID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>createdBy</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>defaultPaymentRail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account.</td>
+</tr>
+<tr>
+<td><code>expiryDate</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>identifier</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inserted</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived.</td>
+</tr>
+<tr>
+<td><code>isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account.</td>
+</tr>
+<tr>
+<td><code>isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account.</td>
+</tr>
+<tr>
+<td><code>isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastUpdated</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>physicalAccountID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>submittedPayoutsBalance</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>supplierSepaInstantStatus</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>xeroBankFeedConnectionStatus</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>xeroBankFeedLastSyncedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>xeroBankFeedSyncStatus</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-apiv1accountspaged" class="operation" data-method="get"><code>GET</code> /api/v1/accounts/paged</h3>
+<p>Operation ID: <code>GetAccountsPaged</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>merchantID</code> | <code>query</code> | <code>string (uuid)</code> | No | The merchantID of the accounts to retrieve. |
+| <code>currency</code> | <code>query</code> | <code>array of enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code> | No | Optional. Array. If specified will only return accounts for these currencies. |
+| <code>connectedAccounts</code> | <code>query</code> | <code>boolean</code> | No | Optional include connected accounts along with payment accounts. |
+| <code>pageNumber</code> | <code>query</code> | <code>integer (int32)</code> | No | Optional. The page number to retrieve. |
+| <code>pageSize</code> | <code>query</code> | <code>integer (int32)</code> | No | Optional. The number of accounts per page. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | The text filter to apply to retrieve accounts with a similar account name, IBAN etc. |
+| <code>sort</code> | <code>query</code> | <code>string</code> | No | Optional expression to sort the order of the accounts. Example &quot;AvailableBalance desc,Inserted asc&quot;. |
+| <code>onlyConnectAccounts</code> | <code>query</code> | <code>boolean</code> | No | Only return connected accounts |
+| <code>onlyArchived</code> | <code>query</code> | <code>boolean</code> | No | Flag that indicates whether to fetch only archived accounts or not. |
+| <code>includeArchived</code> | <code>query</code> | <code>boolean</code> | No | Flag that indicates whether to fetch archived accounts or not. |
+| <code>includeChildMerchants</code> | <code>query</code> | <code>boolean</code> | No | Flag that indicates whether to include accounts from child merchants. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-the-list-of-accounts-for-the-merchant" class="status" data-status="2xx">200: Returns the list of accounts for the merchant</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-apiv1accountsaccountidvirtual" class="operation" data-method="get"><code>GET</code> /api/v1/accounts/{accountID}/virtual</h3>
+<p>Operation ID: <code>GetVirtualAccounts</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>accountID</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The physical account id to get the virtual accounts for. |
+| <code>pageNumber</code> | <code>query</code> | <code>integer (int32)</code> | No | Optional. The page number to retrieve. |
+| <code>pageSize</code> | <code>query</code> | <code>integer (int32)</code> | No | Optional. The number of accounts per page. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].accountName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name for the account</td>
+</tr>
+<tr>
+<td><code>content[].accountSupplierName</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The payment account supplier name. A payment account can be supplied by multiple payment processors.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.</td>
+</tr>
+<tr>
+<td><code>content[].availableBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The available balance expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].balance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Balance of the account.</td>
+</tr>
+<tr>
+<td><code>content[].balanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Balance of the account expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].bankName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The bank name for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].consentID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the consent used to connect the external account.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].createdBy.twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].createdByDisplayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Either the name of the user, merchant token or api key that created the account</td>
+</tr>
+<tr>
+<td><code>content[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>Currency of the account in ISO 4217 format</td>
+</tr>
+<tr>
+<td><code>content[].defaultPaymentRail</code></td>
+<td><code>enum: Default, SEPA_CT, SEPA_INST, TARGET2</code></td>
+<td>No</td>
+<td>Indicates the default payment rail for this account. Normally it will be left as the default value but in some special cases it may be set to indicate payouts from this account should be attempted with a specific payment rail.</td>
+</tr>
+<tr>
+<td><code>content[].displayName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a unique display name for the payment account. Useful for when payment accounts need to  be listed.</td>
+</tr>
+<tr>
+<td><code>content[].expiryDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date that the external account will expire</td>
+</tr>
+<tr>
+<td><code>content[].externalAccountIcon</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Icon for external accounts</td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Unique id for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.accountNumber</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.bic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>Yes</td>
+<td>The currency for the account.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayBicSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displayScanSummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.displaySummary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.iban</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.sortCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].identifier.summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summary of the account identifier's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].identifier.type</code></td>
+<td><code>enum: Unknown, SCAN, IBAN, DD, BTC, BIC</code></td>
+<td>No</td>
+<td>The type of the account identifier.</td>
+</tr>
+<tr>
+<td><code>content[].inserted</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was created.</td>
+</tr>
+<tr>
+<td><code>content[].isArchived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether the account is archived. Archived accounts are not displayed in the UI. If an account receives a payment it will be automatically unarchived.</td>
+</tr>
+<tr>
+<td><code>content[].isConnectedAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is an externally connected account. Externally connected account can be used to view account balances and transactions.</td>
+</tr>
+<tr>
+<td><code>content[].isDefault</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the default account</td>
+</tr>
+<tr>
+<td><code>content[].isTrustAccount</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates if the payment account is a trust account. The account name is displayed in the statement instead of the merchant name for trust accounts.</td>
+</tr>
+<tr>
+<td><code>content[].isVirtual</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True if the account is a virtual account.</td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastTransaction.date</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastUpdated</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp when the account was last updated.</td>
+</tr>
+<tr>
+<td><code>content[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the merchant that owns the account.</td>
+</tr>
+<tr>
+<td><code>content[].physicalAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>For virtual accounts this is the ID of the physical account that the virtual account is linked to.</td>
+</tr>
+<tr>
+<td><code>content[].rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of rules associated with this account.</td>
+</tr>
+<tr>
+<td><code>content[].rules[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalance</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total of the payouts that have been submitted for processing.</td>
+</tr>
+<tr>
+<td><code>content[].submittedPayoutsBalanceMinorUnits</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The balance of the submitted payouts expressed in the currency’s minor units (for example cents, pence).</td>
+</tr>
+<tr>
+<td><code>content[].summary</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Gets a summary of the payments account's most important properties.</td>
+</tr>
+<tr>
+<td><code>content[].supplierSepaInstantStatus</code></td>
+<td><code>enum: None, Pending, InProgress, Enabled, Disabled, Failed</code></td>
+<td>No</td>
+<td>Indicates the status of the SEPA Instant payment rail for this account.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedConnectionStatus</code></td>
+<td><code>enum: None, Pending, Active, Inactive, Failed</code></td>
+<td>No</td>
+<td>States the status of the Xero bank feed connection, if applicable.</td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedLastSyncedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncLastFailureReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroBankFeedSyncStatus</code></td>
+<td><code>enum: None, InProgress, Completed, Failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].xeroUnsynchronisedTransactionsCount</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Indicates the number of unsynchronised transactions with Xero</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

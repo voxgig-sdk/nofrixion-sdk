@@ -37,9 +37,10 @@ $client = new NofrixionSDK([
 
 ```php
 try {
-    // list() returns an array of Account records — iterate directly.
+    // list() returns entity instances; data_get() reads each record.
     $accounts = $client->Account()->list();
-    foreach ($accounts as $item) {
+    foreach ($accounts as $record) {
+        $item = $record->data_get();
         echo $item["id"] . " " . $item["accountBalances"] . "\n";
     }
 } catch (\Throwable $err) {
@@ -55,7 +56,7 @@ CardCustomerToken is nested under customer_email_address, so provide the `custom
 try {
     // load() returns the ENTITY — call data_get() for the CardCustomerToken record (throws on error).
     $cardcustomertoken = $client->CardCustomerToken()->load(["customer_email_address" => "example_customer_email_address"]);
-    print_r($cardcustomertoken);
+    print_r($cardcustomertoken->data_get());
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -154,13 +155,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = NofrixionSDK::test([
-    "entity" => ["consent" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["merchant" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the ENTITY (throws on error);
+// list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$consent = $client->Consent()->list();
-print_r($consent);
+$merchant = $client->Merchant()->list();
+print_r(array_map(fn($item) => $item->data_get(), $merchant));
 ```
 
 ### Use a custom fetch function

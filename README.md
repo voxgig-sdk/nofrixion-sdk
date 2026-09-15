@@ -259,11 +259,11 @@ $client = new NofrixionSDK([
 
 // List all accounts (returns an array; throws on error)
 $accounts = $client->Account()->list();
-print_r($accounts);
+print_r(array_map(fn($item) => $item->data_get(), $accounts));
 
 // Load a specific account (returns the ENTITY; call data_get() for the record; throws on error)
 $account = $client->Account()->load(["id" => "example_id"]);
-print_r($account);
+print_r($account->data_get());
 ```
 
 ### Golang

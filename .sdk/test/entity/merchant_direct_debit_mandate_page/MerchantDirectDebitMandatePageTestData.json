@@ -105,5 +105,810 @@
         "supplierStatus": "s3ae"
       }
     }
+  },
+  "requests": {
+    "GET /api/v1/mandates": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetMandatesPaged",
+        "parameters": [
+          {
+            "description": "ID of the merchant to retrieve mandates for.",
+            "in": "query",
+            "name": "merchantID",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The page number from where records are retrieved. Note that the paging starts from page 1.\r\n            If a 0 is supplied it will be treated as a 1 and the first page is returned.",
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The number of records to be retrieved from a page.",
+            "in": "query",
+            "name": "size",
+            "schema": {
+              "default": 20,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The date filter to apply to retrieve mandates created after this date.",
+            "in": "query",
+            "name": "fromDate",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The date filter to apply to retrieve mandates created up until this date.",
+            "in": "query",
+            "name": "toDate",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The status filter to apply to retrieve mandates with this status",
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "enum": [
+                "Unknown",
+                "Pending",
+                "Active",
+                "Expired",
+                "Failed"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The text filter to apply to retrieve mandates with similar customer, bank account or mandate information.",
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The currency filter to apply to retrieve mandates with this currency.",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The amount filter to apply to retrieve mandates that exceed this amount.",
+            "in": "query",
+            "name": "minAmount",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The amount filter to apply to retrieve mandates that don't exceed this amount.",
+            "in": "query",
+            "name": "maxAmount",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Optional list of mandate IDs to filter by. When supplied, only mandates whose ID is in this list are returned.",
+            "in": "query",
+            "name": "mandateIDs",
+            "schema": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Optional expression to sort the order of the mandates. Example \"Amount desc,Inserted asc\".",
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents a Direct Debit mandate entity that contains customer,\r\n bank account and mandate information.",
+                        "properties": {
+                          "approvedAt": {
+                            "description": "Date at which the supplier approved this mandate.",
+                            "format": "date-time",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency of this mandate.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "customerAccountNumber": {
+                            "description": "Customer's account number in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCity": {
+                            "description": "Customer's city of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryCode": {
+                            "description": "Customer's country of residence code.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryName": {
+                            "description": "Customer's country of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerEmailAddress": {
+                            "description": "Customer's email address.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerFirstName": {
+                            "description": "Customer's first name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerIban": {
+                            "description": "Customer's IBAN in case of EUR account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerLastName": {
+                            "description": "Customer's last name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerSortCode": {
+                            "description": "Customer's sort code in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Internal ID of the mandate.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "description": "The timestamp this mandate was created at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isRecurring": {
+                            "description": "Whether this mandate is single-use or recurring.",
+                            "type": "boolean"
+                          },
+                          "lastUpdated": {
+                            "description": "The timestamp this mandate was last updated at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "Internal ID of this mandate's merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "reference": {
+                            "description": "Reference assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "General status of this mandate.",
+                            "enum": [
+                              "Unknown",
+                              "Pending",
+                              "Active",
+                              "Expired",
+                              "Failed"
+                            ],
+                            "type": "string"
+                          },
+                          "supplierBankAccountID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\nbank account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierCustomerID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\ncustomer.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierMandateID": {
+                            "description": "ID that the supplier assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierName": {
+                            "description": "Name of the supplier used to create this mandate.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierStatus": {
+                            "description": "Last status that the supplier reported for this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents a Direct Debit mandate entity that contains customer,\r\n bank account and mandate information.",
+                        "properties": {
+                          "approvedAt": {
+                            "description": "Date at which the supplier approved this mandate.",
+                            "format": "date-time",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency of this mandate.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "customerAccountNumber": {
+                            "description": "Customer's account number in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCity": {
+                            "description": "Customer's city of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryCode": {
+                            "description": "Customer's country of residence code.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryName": {
+                            "description": "Customer's country of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerEmailAddress": {
+                            "description": "Customer's email address.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerFirstName": {
+                            "description": "Customer's first name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerIban": {
+                            "description": "Customer's IBAN in case of EUR account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerLastName": {
+                            "description": "Customer's last name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerSortCode": {
+                            "description": "Customer's sort code in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Internal ID of the mandate.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "description": "The timestamp this mandate was created at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isRecurring": {
+                            "description": "Whether this mandate is single-use or recurring.",
+                            "type": "boolean"
+                          },
+                          "lastUpdated": {
+                            "description": "The timestamp this mandate was last updated at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "Internal ID of this mandate's merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "reference": {
+                            "description": "Reference assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "General status of this mandate.",
+                            "enum": [
+                              "Unknown",
+                              "Pending",
+                              "Active",
+                              "Expired",
+                              "Failed"
+                            ],
+                            "type": "string"
+                          },
+                          "supplierBankAccountID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\nbank account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierCustomerID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\ncustomer.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierMandateID": {
+                            "description": "ID that the supplier assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierName": {
+                            "description": "Name of the supplier used to create this mandate.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierStatus": {
+                            "description": "Last status that the supplier reported for this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents a Direct Debit mandate entity that contains customer,\r\n bank account and mandate information.",
+                        "properties": {
+                          "approvedAt": {
+                            "description": "Date at which the supplier approved this mandate.",
+                            "format": "date-time",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency of this mandate.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "customerAccountNumber": {
+                            "description": "Customer's account number in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCity": {
+                            "description": "Customer's city of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryCode": {
+                            "description": "Customer's country of residence code.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerCountryName": {
+                            "description": "Customer's country of residence.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerEmailAddress": {
+                            "description": "Customer's email address.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerFirstName": {
+                            "description": "Customer's first name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerIban": {
+                            "description": "Customer's IBAN in case of EUR account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerLastName": {
+                            "description": "Customer's last name.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "customerSortCode": {
+                            "description": "Customer's sort code in case of GBP account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Internal ID of the mandate.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "inserted": {
+                            "description": "The timestamp this mandate was created at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "isRecurring": {
+                            "description": "Whether this mandate is single-use or recurring.",
+                            "type": "boolean"
+                          },
+                          "lastUpdated": {
+                            "description": "The timestamp this mandate was last updated at.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "Internal ID of this mandate's merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "reference": {
+                            "description": "Reference assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "General status of this mandate.",
+                            "enum": [
+                              "Unknown",
+                              "Pending",
+                              "Active",
+                              "Expired",
+                              "Failed"
+                            ],
+                            "type": "string"
+                          },
+                          "supplierBankAccountID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\nbank account.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierCustomerID": {
+                            "description": "ID that the supplier assigned to this mandate's\r\ncustomer.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierMandateID": {
+                            "description": "ID that the supplier assigned to this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierName": {
+                            "description": "Name of the supplier used to create this mandate.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "supplierStatus": {
+                            "description": "Last status that the supplier reported for this mandate.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Mandate collection paged result."
+          },
+          "403": {
+            "description": "Unauthorized error."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

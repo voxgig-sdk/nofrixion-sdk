@@ -9,7 +9,7 @@
         "merchantID": "s54",
         "reportName": "s55",
         "reportType": "s56",
-        "statementNumber": "s57",
+        "statementNumber": 87,
         "report_id": "REPORT01"
       },
       "REPORT_RESULT01": {
@@ -20,7 +20,7 @@
         "merchantID": "sa4",
         "reportName": "sa5",
         "reportType": "sa6",
-        "statementNumber": "sa7",
+        "statementNumber": 167,
         "report_id": "REPORT01"
       },
       "REPORT_RESULT02": {
@@ -31,7 +31,7 @@
         "merchantID": "sf4",
         "reportName": "sf5",
         "reportType": "sf6",
-        "statementNumber": "sf7",
+        "statementNumber": 247,
         "report_id": "REPORT01"
       }
     }
@@ -45,7 +45,200 @@
         "merchantID": "s144",
         "reportName": "s145",
         "reportType": "s146",
-        "statementNumber": "s147"
+        "statementNumber": 327
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/reports/{id}/result/{statementNumber}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetReportResult",
+        "parameters": [
+          {
+            "description": "The ID of the merchant report to get the result for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. If set the result for this statement number \r\n            will be returned. If not set the latest report will be returned.",
+            "in": "path",
+            "name": "statementNumber",
+            "required": true,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "contentType": {
+                      "nullable": true,
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "contents": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "lastCompletedAt": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "merchantID": {
+                      "format": "uuid",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportName": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportType": {
+                      "enum": [
+                        "Unknown",
+                        "SwiftCustomerStatement",
+                        "CustomerActivity",
+                        "SafeGuardingReconciliation",
+                        "MerchantAccountsBalance",
+                        "MerchantAccountsTransaction",
+                        "VisionBlueTransaction",
+                        "MerchantSafeGuardingReconciliation"
+                      ],
+                      "type": "string"
+                    },
+                    "statementNumber": {
+                      "format": "int32",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "contentType": {
+                      "nullable": true,
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "contents": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "lastCompletedAt": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "merchantID": {
+                      "format": "uuid",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportName": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportType": {
+                      "enum": [
+                        "Unknown",
+                        "SwiftCustomerStatement",
+                        "CustomerActivity",
+                        "SafeGuardingReconciliation",
+                        "MerchantAccountsBalance",
+                        "MerchantAccountsTransaction",
+                        "VisionBlueTransaction",
+                        "MerchantSafeGuardingReconciliation"
+                      ],
+                      "type": "string"
+                    },
+                    "statementNumber": {
+                      "format": "int32",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "contentType": {
+                      "nullable": true,
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "contents": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "lastCompletedAt": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "merchantID": {
+                      "format": "uuid",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportName": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "reportType": {
+                      "enum": [
+                        "Unknown",
+                        "SwiftCustomerStatement",
+                        "CustomerActivity",
+                        "SafeGuardingReconciliation",
+                        "MerchantAccountsBalance",
+                        "MerchantAccountsTransaction",
+                        "VisionBlueTransaction",
+                        "MerchantSafeGuardingReconciliation"
+                      ],
+                      "type": "string"
+                    },
+                    "statementNumber": {
+                      "format": "int32",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

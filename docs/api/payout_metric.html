@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PayoutMetric | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a aria-current="page" href="../api/payout_metric.html">PayoutMetric</a><div class="nav-sections"><a class="nav-section" href="#get-apiv1payoutsmetrics">GET /api/v1/payouts/metrics</a></div>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="payoutmetric">PayoutMetric</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1payoutsmetrics"><code>/api/v1/payouts/metrics</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-apiv1payoutsmetrics" class="operation" data-method="get"><code>GET</code> /api/v1/payouts/metrics</h3>
+<p>Operation ID: <code>GetPayoutMetrics</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>merchantID</code> | <code>query</code> | <code>string (uuid)</code> | No | Required. The ID of the merchant to get the payout metrics for. |
+| <code>fromDate</code> | <code>query</code> | <code>string (date-time)</code> | No | The date filter to apply to retrieve payouts created after this date as metrics. |
+| <code>toDate</code> | <code>query</code> | <code>string (date-time)</code> | No | The date filter to apply to retrieve payouts created up until this date as metrics. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | The text filter to apply to retrieve payouts with a similar title, description, merchant name or contact information as metrics. |
+| <code>currency</code> | <code>query</code> | <code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code> | No | The currency filter to apply to retrieve payouts with this currency as metrics. |
+| <code>minAmount</code> | <code>query</code> | <code>number (double)</code> | No | The amount filter to apply to retrieve payouts that exceed this amount as metrics. |
+| <code>maxAmount</code> | <code>query</code> | <code>number (double)</code> | No | The amount filter to apply to retrieve payouts that don't exceed this amount as metrics. |
+| <code>tags</code> | <code>query</code> | <code>array of string (uuid)</code> | No | The tag filter to apply to retrieve payouts with at least one of these tags as metrics. |
+| <code>includeArchived</code> | <code>query</code> | <code>boolean</code> | No | Flag that indicates whether to include archived payouts in the metrics. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total payout count.</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Failed, Rejected or Unknown status.</td>
+</tr>
+<tr>
+<td><code>inProgress</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Pending, Queued or QueuedUpstream status.</td>
+</tr>
+<tr>
+<td><code>paid</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Processed status.</td>
+</tr>
+<tr>
+<td><code>pendingApproval</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with PendingApproval or PendingInput status.</td>
+</tr>
+<tr>
+<td><code>scheduled</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Scheduled status.</td>
+</tr>
+<tr>
+<td><code>totalAmountsByCurrency</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The total amounts by status and currency.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total payout count.</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Failed, Rejected or Unknown status.</td>
+</tr>
+<tr>
+<td><code>inProgress</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Pending, Queued or QueuedUpstream status.</td>
+</tr>
+<tr>
+<td><code>paid</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Processed status.</td>
+</tr>
+<tr>
+<td><code>pendingApproval</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with PendingApproval or PendingInput status.</td>
+</tr>
+<tr>
+<td><code>scheduled</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Scheduled status.</td>
+</tr>
+<tr>
+<td><code>totalAmountsByCurrency</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The total amounts by status and currency.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total payout count.</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Failed, Rejected or Unknown status.</td>
+</tr>
+<tr>
+<td><code>inProgress</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Pending, Queued or QueuedUpstream status.</td>
+</tr>
+<tr>
+<td><code>paid</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Processed status.</td>
+</tr>
+<tr>
+<td><code>pendingApproval</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with PendingApproval or PendingInput status.</td>
+</tr>
+<tr>
+<td><code>scheduled</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Payouts with Scheduled status.</td>
+</tr>
+<tr>
+<td><code>totalAmountsByCurrency</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The total amounts by status and currency.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

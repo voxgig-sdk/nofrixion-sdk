@@ -16,5 +16,45 @@
     "report": {
       "report_ref01": {}
     }
+  },
+  "requests": {
+    "PUT /api/v1/reports/{id}/initiate": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "InitiateReport",
+        "parameters": [
+          {
+            "description": "The ID of the merchant report to execute.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

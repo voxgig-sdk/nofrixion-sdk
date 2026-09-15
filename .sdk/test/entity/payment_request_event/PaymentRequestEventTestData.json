@@ -5,8 +5,8 @@
         "amount": 360,
         "applePayTransactionID": "s169",
         "cardAuthorizationResponseID": "s16a",
-        "cardExpiryMonth": "s16b",
-        "cardExpiryYear": "s16c",
+        "cardExpiryMonth": 363,
+        "cardExpiryYear": 364,
         "cardIssuer": "s16d",
         "cardIssuerCountry": "s16e",
         "cardLastFourDigits": "s16f",
@@ -44,8 +44,8 @@
         "amount": 720,
         "applePayTransactionID": "s2d1",
         "cardAuthorizationResponseID": "s2d2",
-        "cardExpiryMonth": "s2d3",
-        "cardExpiryYear": "s2d4",
+        "cardExpiryMonth": 723,
+        "cardExpiryYear": 724,
         "cardIssuer": "s2d5",
         "cardIssuerCountry": "s2d6",
         "cardLastFourDigits": "s2d7",
@@ -83,8 +83,8 @@
         "amount": 1080,
         "applePayTransactionID": "s439",
         "cardAuthorizationResponseID": "s43a",
-        "cardExpiryMonth": "s43b",
-        "cardExpiryYear": "s43c",
+        "cardExpiryMonth": 1083,
+        "cardExpiryYear": 1084,
         "cardIssuer": "s43d",
         "cardIssuerCountry": "s43e",
         "cardLastFourDigits": "s43f",
@@ -126,8 +126,8 @@
         "amount": 1440,
         "applePayTransactionID": "s5a1",
         "cardAuthorizationResponseID": "s5a2",
-        "cardExpiryMonth": "s5a3",
-        "cardExpiryYear": "s5a4",
+        "cardExpiryMonth": 1443,
+        "cardExpiryYear": 1444,
         "cardIssuer": "s5a5",
         "cardIssuerCountry": "s5a6",
         "cardLastFourDigits": "s5a7",
@@ -158,6 +158,873 @@
         "refundPayoutID": "s5c1",
         "status": "s5c2",
         "walletName": "s5c3"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/paymentrequests/{id}/events": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetPaymentRequestEvents",
+        "parameters": [
+          {
+            "description": "ID of the payment request to get the events for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "applePayTransactionID": {
+                        "description": "Transaction ID received in Apple pay token.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardAuthorizationResponseID": {
+                        "description": "For a successful card authorization this field will hold the response ID. If a capture\r\nneeds to be performed this is the ID that must be used.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardExpiryMonth": {
+                        "description": "For card payment events this field holds the payer's card expiry month.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardExpiryYear": {
+                        "description": "For card payment events this field holds the payer's card expiry year.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardIssuer": {
+                        "description": "For card payment events this field holds the payer's card issuer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardIssuerCountry": {
+                        "description": "For card payment events this field holds the payer's card issuer country of origin.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardLastFourDigits": {
+                        "description": "For card payment events this field holds the payer's card last four digits.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardRequestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardScheme": {
+                        "description": "For card payment events this field holds the scheme of the payer's card, e.g. Visa, Mastercard, etc.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTokenCustomerID": {
+                        "description": "If the option to create a reusable token for card payments was set this field contains\r\nthe token the merchant can store to use for repeat payments.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTransactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "directDebitPaymentID": {
+                        "description": "Payment ID issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "directDebitPaymentReference": {
+                        "description": "Reference string issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "drirectDebitMandateID": {
+                        "description": "The ID of the mandate that was used wehn requesting payment.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorMessage": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorReason": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "eventType": {
+                        "enum": [
+                          "unknown",
+                          "card_payer_authentication_setup",
+                          "card_authorization",
+                          "card_sale",
+                          "card_capture",
+                          "card_void",
+                          "pisp_initiate",
+                          "pisp_callback",
+                          "lightning_invoice_created",
+                          "lightning_invoice_paid",
+                          "card_payer_authentication_failure",
+                          "pisp_webhook",
+                          "pisp_settle",
+                          "pisp_settle_failure",
+                          "pisp_refund_initiated",
+                          "pisp_refund_settled",
+                          "pisp_refund_cancelled",
+                          "card_webhook",
+                          "card_refund",
+                          "lightning_invoice_expired",
+                          "lightning_invoice_cancelled",
+                          "direct_debit_initiate",
+                          "direct_debit_create",
+                          "direct_debit_state_change",
+                          "direct_debit_paid",
+                          "direct_debit_failed"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lightningInvoice": {
+                        "description": "For Bitcoin Lightning payments this field holds the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "lightningRHash": {
+                        "description": "For Bitcoin Lightning payments the hash of the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "originUrl": {
+                        "description": "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect\r\nback to the URL that initiated the attempt in the case of a failure condition.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentMethodType": {
+                        "description": "The type of payment method the event relates to, e.g. card, pisp, etc.",
+                        "enum": [
+                          "None",
+                          "card",
+                          "pisp",
+                          "lightning",
+                          "cardtoken",
+                          "applePay",
+                          "googlePay",
+                          "directDebit"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "paymentProcessorName": {
+                        "description": "If the event was for a card payment this is the name of the card processor,\r\ne.g. CyberSource or Checkout, that was used.",
+                        "enum": [
+                          "None",
+                          "CyberSource",
+                          "Checkout",
+                          "Stripe",
+                          "Modulr",
+                          "Plaid",
+                          "Yapily",
+                          "Nofrixion",
+                          "Bitcoin",
+                          "BitcoinTestnet",
+                          "BankingCircle",
+                          "BankingCircleAgency",
+                          "Simulator",
+                          "Lightning",
+                          "LightningTestnet",
+                          "BankingCircleDirectDebit",
+                          "Technoxander"
+                        ],
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "pispBankStatus": {
+                        "description": "For payment initiation attempts some providers (e.g. Modulr) will return two status fields. The first\r\nstatus field is from the provider and the second is from the bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInitiationID": {
+                        "description": "For a payment initiation this is the ID returned by the service provider initiating\r\nthe payment for us.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInstitutionName": {
+                        "description": "For a payment initiation this is the name of the financial institution that\r\nis used to initiate and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentServiceProviderID": {
+                        "description": "For a payment initiation this is the service provider ID selected by the payer, typically\r\nthe ID for the bank or similar financial institution.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispRedirectUrl": {
+                        "description": "For a payment initiation this is the redirect URL returned by the service provider\r\ninitiating the payment for us. This is the URL the payer is redirected to \r\nauthenticate with their financial institution and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "reconciledTransactionID": {
+                        "description": "For settlement events (only relevant for non-card payments) this is the payin transaction that\r\nthe payment request event was reconciled with.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "refundPayoutID": {
+                        "description": "ID of the Payout that was created for refund.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "walletName": {
+                        "enum": [
+                          "ApplePay",
+                          "GooglePay"
+                        ],
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "amount"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "applePayTransactionID": {
+                        "description": "Transaction ID received in Apple pay token.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardAuthorizationResponseID": {
+                        "description": "For a successful card authorization this field will hold the response ID. If a capture\r\nneeds to be performed this is the ID that must be used.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardExpiryMonth": {
+                        "description": "For card payment events this field holds the payer's card expiry month.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardExpiryYear": {
+                        "description": "For card payment events this field holds the payer's card expiry year.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardIssuer": {
+                        "description": "For card payment events this field holds the payer's card issuer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardIssuerCountry": {
+                        "description": "For card payment events this field holds the payer's card issuer country of origin.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardLastFourDigits": {
+                        "description": "For card payment events this field holds the payer's card last four digits.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardRequestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardScheme": {
+                        "description": "For card payment events this field holds the scheme of the payer's card, e.g. Visa, Mastercard, etc.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTokenCustomerID": {
+                        "description": "If the option to create a reusable token for card payments was set this field contains\r\nthe token the merchant can store to use for repeat payments.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTransactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "directDebitPaymentID": {
+                        "description": "Payment ID issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "directDebitPaymentReference": {
+                        "description": "Reference string issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "drirectDebitMandateID": {
+                        "description": "The ID of the mandate that was used wehn requesting payment.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorMessage": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorReason": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "eventType": {
+                        "enum": [
+                          "unknown",
+                          "card_payer_authentication_setup",
+                          "card_authorization",
+                          "card_sale",
+                          "card_capture",
+                          "card_void",
+                          "pisp_initiate",
+                          "pisp_callback",
+                          "lightning_invoice_created",
+                          "lightning_invoice_paid",
+                          "card_payer_authentication_failure",
+                          "pisp_webhook",
+                          "pisp_settle",
+                          "pisp_settle_failure",
+                          "pisp_refund_initiated",
+                          "pisp_refund_settled",
+                          "pisp_refund_cancelled",
+                          "card_webhook",
+                          "card_refund",
+                          "lightning_invoice_expired",
+                          "lightning_invoice_cancelled",
+                          "direct_debit_initiate",
+                          "direct_debit_create",
+                          "direct_debit_state_change",
+                          "direct_debit_paid",
+                          "direct_debit_failed"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lightningInvoice": {
+                        "description": "For Bitcoin Lightning payments this field holds the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "lightningRHash": {
+                        "description": "For Bitcoin Lightning payments the hash of the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "originUrl": {
+                        "description": "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect\r\nback to the URL that initiated the attempt in the case of a failure condition.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentMethodType": {
+                        "description": "The type of payment method the event relates to, e.g. card, pisp, etc.",
+                        "enum": [
+                          "None",
+                          "card",
+                          "pisp",
+                          "lightning",
+                          "cardtoken",
+                          "applePay",
+                          "googlePay",
+                          "directDebit"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "paymentProcessorName": {
+                        "description": "If the event was for a card payment this is the name of the card processor,\r\ne.g. CyberSource or Checkout, that was used.",
+                        "enum": [
+                          "None",
+                          "CyberSource",
+                          "Checkout",
+                          "Stripe",
+                          "Modulr",
+                          "Plaid",
+                          "Yapily",
+                          "Nofrixion",
+                          "Bitcoin",
+                          "BitcoinTestnet",
+                          "BankingCircle",
+                          "BankingCircleAgency",
+                          "Simulator",
+                          "Lightning",
+                          "LightningTestnet",
+                          "BankingCircleDirectDebit",
+                          "Technoxander"
+                        ],
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "pispBankStatus": {
+                        "description": "For payment initiation attempts some providers (e.g. Modulr) will return two status fields. The first\r\nstatus field is from the provider and the second is from the bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInitiationID": {
+                        "description": "For a payment initiation this is the ID returned by the service provider initiating\r\nthe payment for us.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInstitutionName": {
+                        "description": "For a payment initiation this is the name of the financial institution that\r\nis used to initiate and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentServiceProviderID": {
+                        "description": "For a payment initiation this is the service provider ID selected by the payer, typically\r\nthe ID for the bank or similar financial institution.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispRedirectUrl": {
+                        "description": "For a payment initiation this is the redirect URL returned by the service provider\r\ninitiating the payment for us. This is the URL the payer is redirected to \r\nauthenticate with their financial institution and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "reconciledTransactionID": {
+                        "description": "For settlement events (only relevant for non-card payments) this is the payin transaction that\r\nthe payment request event was reconciled with.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "refundPayoutID": {
+                        "description": "ID of the Payout that was created for refund.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "walletName": {
+                        "enum": [
+                          "ApplePay",
+                          "GooglePay"
+                        ],
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "amount"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "applePayTransactionID": {
+                        "description": "Transaction ID received in Apple pay token.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardAuthorizationResponseID": {
+                        "description": "For a successful card authorization this field will hold the response ID. If a capture\r\nneeds to be performed this is the ID that must be used.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardExpiryMonth": {
+                        "description": "For card payment events this field holds the payer's card expiry month.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardExpiryYear": {
+                        "description": "For card payment events this field holds the payer's card expiry year.",
+                        "format": "int32",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "cardIssuer": {
+                        "description": "For card payment events this field holds the payer's card issuer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardIssuerCountry": {
+                        "description": "For card payment events this field holds the payer's card issuer country of origin.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardLastFourDigits": {
+                        "description": "For card payment events this field holds the payer's card last four digits.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardRequestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardScheme": {
+                        "description": "For card payment events this field holds the scheme of the payer's card, e.g. Visa, Mastercard, etc.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTokenCustomerID": {
+                        "description": "If the option to create a reusable token for card payments was set this field contains\r\nthe token the merchant can store to use for repeat payments.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "cardTransactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currency": {
+                        "enum": [
+                          "NONE",
+                          "GBP",
+                          "EUR",
+                          "USD",
+                          "AUD",
+                          "BGN",
+                          "CAD",
+                          "CZK",
+                          "DKK",
+                          "HUF",
+                          "ISK",
+                          "CHF",
+                          "NOK",
+                          "PLN",
+                          "RON",
+                          "AED",
+                          "CNH",
+                          "HKD",
+                          "ILS",
+                          "JPY",
+                          "MXN",
+                          "NZD",
+                          "SAR",
+                          "SEK",
+                          "SGD",
+                          "TRY",
+                          "ZAR",
+                          "BTC"
+                        ],
+                        "type": "string"
+                      },
+                      "directDebitPaymentID": {
+                        "description": "Payment ID issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "directDebitPaymentReference": {
+                        "description": "Reference string issued by the Direct Debit supplier.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "drirectDebitMandateID": {
+                        "description": "The ID of the mandate that was used wehn requesting payment.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorMessage": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "errorReason": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "eventType": {
+                        "enum": [
+                          "unknown",
+                          "card_payer_authentication_setup",
+                          "card_authorization",
+                          "card_sale",
+                          "card_capture",
+                          "card_void",
+                          "pisp_initiate",
+                          "pisp_callback",
+                          "lightning_invoice_created",
+                          "lightning_invoice_paid",
+                          "card_payer_authentication_failure",
+                          "pisp_webhook",
+                          "pisp_settle",
+                          "pisp_settle_failure",
+                          "pisp_refund_initiated",
+                          "pisp_refund_settled",
+                          "pisp_refund_cancelled",
+                          "card_webhook",
+                          "card_refund",
+                          "lightning_invoice_expired",
+                          "lightning_invoice_cancelled",
+                          "direct_debit_initiate",
+                          "direct_debit_create",
+                          "direct_debit_state_change",
+                          "direct_debit_paid",
+                          "direct_debit_failed"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lightningInvoice": {
+                        "description": "For Bitcoin Lightning payments this field holds the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "lightningRHash": {
+                        "description": "For Bitcoin Lightning payments the hash of the invoice presented to the payer.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "originUrl": {
+                        "description": "Optional field that can be set by payment methods, such as pay by bank, that may want to redirect\r\nback to the URL that initiated the attempt in the case of a failure condition.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentMethodType": {
+                        "description": "The type of payment method the event relates to, e.g. card, pisp, etc.",
+                        "enum": [
+                          "None",
+                          "card",
+                          "pisp",
+                          "lightning",
+                          "cardtoken",
+                          "applePay",
+                          "googlePay",
+                          "directDebit"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "paymentProcessorName": {
+                        "description": "If the event was for a card payment this is the name of the card processor,\r\ne.g. CyberSource or Checkout, that was used.",
+                        "enum": [
+                          "None",
+                          "CyberSource",
+                          "Checkout",
+                          "Stripe",
+                          "Modulr",
+                          "Plaid",
+                          "Yapily",
+                          "Nofrixion",
+                          "Bitcoin",
+                          "BitcoinTestnet",
+                          "BankingCircle",
+                          "BankingCircleAgency",
+                          "Simulator",
+                          "Lightning",
+                          "LightningTestnet",
+                          "BankingCircleDirectDebit",
+                          "Technoxander"
+                        ],
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "pispBankStatus": {
+                        "description": "For payment initiation attempts some providers (e.g. Modulr) will return two status fields. The first\r\nstatus field is from the provider and the second is from the bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInitiationID": {
+                        "description": "For a payment initiation this is the ID returned by the service provider initiating\r\nthe payment for us.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentInstitutionName": {
+                        "description": "For a payment initiation this is the name of the financial institution that\r\nis used to initiate and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispPaymentServiceProviderID": {
+                        "description": "For a payment initiation this is the service provider ID selected by the payer, typically\r\nthe ID for the bank or similar financial institution.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "pispRedirectUrl": {
+                        "description": "For a payment initiation this is the redirect URL returned by the service provider\r\ninitiating the payment for us. This is the URL the payer is redirected to \r\nauthenticate with their financial institution and authorise the payment.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "reconciledTransactionID": {
+                        "description": "For settlement events (only relevant for non-card payments) this is the payin transaction that\r\nthe payment request event was reconciled with.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "refundPayoutID": {
+                        "description": "ID of the Payout that was created for refund.",
+                        "format": "uuid",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "walletName": {
+                        "enum": [
+                          "ApplePay",
+                          "GooglePay"
+                        ],
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "amount"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Returns a list of payment request event records."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

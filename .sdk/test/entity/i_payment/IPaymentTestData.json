@@ -25,5 +25,976 @@
         "responseType": "s51"
       }
     }
+  },
+  "requests": {
+    "POST /api/v1/paymentrequests/payondemand": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "CreateAndPayPaymentRequest",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {
+                "Card.BillingAddressCity": {
+                  "style": "form"
+                },
+                "Card.BillingAddressCountryCode": {
+                  "style": "form"
+                },
+                "Card.BillingAddressCounty": {
+                  "style": "form"
+                },
+                "Card.BillingAddressLine1": {
+                  "style": "form"
+                },
+                "Card.BillingAddressLine2": {
+                  "style": "form"
+                },
+                "Card.BillingAddressPostCode": {
+                  "style": "form"
+                },
+                "Card.BillingEmail": {
+                  "style": "form"
+                },
+                "Card.BillingPhone": {
+                  "style": "form"
+                },
+                "Card.CardHolderFirstName": {
+                  "style": "form"
+                },
+                "Card.CardHolderLastName": {
+                  "style": "form"
+                },
+                "Card.CvcToken": {
+                  "style": "form"
+                },
+                "Card.ExpiryMonth": {
+                  "style": "form"
+                },
+                "Card.ExpiryYear": {
+                  "style": "form"
+                },
+                "Card.JwtToken": {
+                  "style": "form"
+                },
+                "Card.NumberToken": {
+                  "style": "form"
+                },
+                "Card.PartialAmount": {
+                  "style": "form"
+                },
+                "Card.SaveCardConsent": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressCity": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressCountryCode": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressCounty": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressLine1": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressLine2": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingAddressPostCode": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingEmail": {
+                  "style": "form"
+                },
+                "CardSensitive.BillingPhone": {
+                  "style": "form"
+                },
+                "CardSensitive.CardHolderFirstName": {
+                  "style": "form"
+                },
+                "CardSensitive.CardHolderLastName": {
+                  "style": "form"
+                },
+                "CardSensitive.CardNumber": {
+                  "style": "form"
+                },
+                "CardSensitive.CardSecurityCode": {
+                  "style": "form"
+                },
+                "CardSensitive.CvcToken": {
+                  "style": "form"
+                },
+                "CardSensitive.ExpiryMonth": {
+                  "style": "form"
+                },
+                "CardSensitive.ExpiryYear": {
+                  "style": "form"
+                },
+                "CardSensitive.JwtToken": {
+                  "style": "form"
+                },
+                "CardSensitive.NumberToken": {
+                  "style": "form"
+                },
+                "CardSensitive.PartialAmount": {
+                  "style": "form"
+                },
+                "CardSensitive.SaveCardConsent": {
+                  "style": "form"
+                },
+                "CardToken.CardSecurityCode": {
+                  "style": "form"
+                },
+                "CardToken.PartialAmount": {
+                  "style": "form"
+                },
+                "CardToken.PaymentInitiator": {
+                  "style": "form"
+                },
+                "CardToken.TokenisedCardID": {
+                  "style": "form"
+                },
+                "PaymentInitiationRequest.OriginUrl": {
+                  "style": "form"
+                },
+                "PaymentInitiationRequest.PartialAmount": {
+                  "style": "form"
+                },
+                "PaymentInitiationRequest.ProviderID": {
+                  "style": "form"
+                },
+                "PaymentInitiationRequest.RedirectToOriginUrl": {
+                  "style": "form"
+                },
+                "PaymentMethod": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.Amount": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.AutoSendReceipt": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.BaseOriginUrl": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CallbackUrl": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardAuthorizeOnly": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardCreateToken": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardCreateTokenMode": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardIgnoreCVN": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardNoPayerAuthentication": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardProcessorMerchantID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CardTransmitRawDetails": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.Currency": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CustomFields": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CustomerEmailAddress": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.CustomerID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.Description": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.DueDate": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.FailureCallbackUrl": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.FieldDisplaySettings": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.IgnoreAddressVerification": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.LightningInvoice": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.LightningInvoiceExpiresAt": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.MerchantDirectDebitMandateID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.MerchantID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.NotificationEmailAddresses": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.NotificationRoleIDs": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.OrderID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.OriginUrl": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PartialPaymentMethod": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PartialPaymentSteps": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PaymentMethodTypes": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PaymentMethods": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PaymentProcessor": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PayrunID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PispAccountID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PispRecipientReference": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.PriorityBankID": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.SandboxSettleDelayInSeconds": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressCity": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressCountryCode": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressCounty": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressLine1": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressLine2": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingAddressPostCode": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingEmail": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingFirstName": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingLastName": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.ShippingPhone": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.SuccessWebHookUrl": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.TagIds": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.Tags": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.Title": {
+                  "style": "form"
+                },
+                "PaymentRequestCreate.UseHostedPaymentPage": {
+                  "style": "form"
+                }
+              },
+              "schema": {
+                "properties": {
+                  "Card.BillingAddressCity": {
+                    "type": "string"
+                  },
+                  "Card.BillingAddressCountryCode": {
+                    "type": "string"
+                  },
+                  "Card.BillingAddressCounty": {
+                    "type": "string"
+                  },
+                  "Card.BillingAddressLine1": {
+                    "type": "string"
+                  },
+                  "Card.BillingAddressLine2": {
+                    "type": "string"
+                  },
+                  "Card.BillingAddressPostCode": {
+                    "type": "string"
+                  },
+                  "Card.BillingEmail": {
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "Card.BillingPhone": {
+                    "type": "string"
+                  },
+                  "Card.CardHolderFirstName": {
+                    "type": "string"
+                  },
+                  "Card.CardHolderLastName": {
+                    "type": "string"
+                  },
+                  "Card.CvcToken": {
+                    "type": "string"
+                  },
+                  "Card.ExpiryMonth": {
+                    "type": "string"
+                  },
+                  "Card.ExpiryYear": {
+                    "type": "string"
+                  },
+                  "Card.JwtToken": {
+                    "description": "The tokenised Card Number and CardVerification Number (CVN) details.\r\nTypically generated by the CyberSource javascript library.",
+                    "type": "string"
+                  },
+                  "Card.NumberToken": {
+                    "type": "string"
+                  },
+                  "Card.PartialAmount": {
+                    "description": "Optional partial payment amount. If not specified then the full payment request\r\namount will be attempted.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "Card.SaveCardConsent": {
+                    "type": "boolean"
+                  },
+                  "CardSensitive.BillingAddressCity": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingAddressCountryCode": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingAddressCounty": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingAddressLine1": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingAddressLine2": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingAddressPostCode": {
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingEmail": {
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "CardSensitive.BillingPhone": {
+                    "type": "string"
+                  },
+                  "CardSensitive.CardHolderFirstName": {
+                    "type": "string"
+                  },
+                  "CardSensitive.CardHolderLastName": {
+                    "type": "string"
+                  },
+                  "CardSensitive.CardNumber": {
+                    "type": "string"
+                  },
+                  "CardSensitive.CardSecurityCode": {
+                    "type": "string"
+                  },
+                  "CardSensitive.CvcToken": {
+                    "description": "The Cvc Token is not used if the raw card details are provided. This\r\nproperty is to override the base card property and stop it being required.",
+                    "type": "string"
+                  },
+                  "CardSensitive.ExpiryMonth": {
+                    "type": "string"
+                  },
+                  "CardSensitive.ExpiryYear": {
+                    "type": "string"
+                  },
+                  "CardSensitive.JwtToken": {
+                    "description": "The JWT token is not used if the raw card details are provided. This\r\nproperty is to override the base card property and stop it being required.",
+                    "type": "string"
+                  },
+                  "CardSensitive.NumberToken": {
+                    "description": "The Number Token is not used if the raw card details are provided. This\r\nproperty is to override the base card property and stop it being required.",
+                    "type": "string"
+                  },
+                  "CardSensitive.PartialAmount": {
+                    "description": "Optional partial payment amount. If not specified then the full payment request\r\namount will be attempted.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "CardSensitive.SaveCardConsent": {
+                    "type": "boolean"
+                  },
+                  "CardToken.CardSecurityCode": {
+                    "description": "Not used for merchant initiated transactions. Optional for customer initiated transactions.\r\nIf supplied will be sent to the card processor as a check that the customer using the \r\ntokenised card knows the card verification number.",
+                    "type": "string"
+                  },
+                  "CardToken.PartialAmount": {
+                    "description": "Optional partial payment amount. If not specified then the full payment request\r\namount will be attempted.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "CardToken.PaymentInitiator": {
+                    "description": "Indicates who initiated the card token payment, customer or merchant.",
+                    "enum": [
+                      "customer",
+                      "merchant"
+                    ],
+                    "type": "string"
+                  },
+                  "CardToken.TokenisedCardID": {
+                    "description": "The ID of the tokenised card to use for the payment. The merchant needs to ensure that\r\nthe use of the tokenised card is restricted to the same customer that created it.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentInitiationRequest.OriginUrl": {
+                    "description": "Optional. If set should indicate the origin URL the payer is making the \r\npayment from. If a pay by bank attempt fails and the payment request does not\r\nhave a FailureCallbackUrl set then the payer will be redirected to this URL.",
+                    "type": "string"
+                  },
+                  "PaymentInitiationRequest.PartialAmount": {
+                    "description": "Optional. If 0 the full amount is assumed.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "PaymentInitiationRequest.ProviderID": {
+                    "description": "This is the ID of the institution (bank) that the payer ha chosen.",
+                    "type": "string"
+                  },
+                  "PaymentInitiationRequest.RedirectToOriginUrl": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
+                  "PaymentMethod": {
+                    "description": "The single payment method to use for the pay on demand payment request.",
+                    "enum": [
+                      "None",
+                      "card",
+                      "pisp",
+                      "lightning",
+                      "cardtoken",
+                      "applePay",
+                      "googlePay",
+                      "directDebit"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.Amount": {
+                    "description": "The amount of money to request.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "PaymentRequestCreate.AutoSendReceipt": {
+                    "description": "If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.BaseOriginUrl": {
+                    "deprecated": true,
+                    "description": "For card payments the origin of the payment page needs to be set in advance.\r\nA public key context is generated to encrypt sensitive card details and is bound\r\nto a single origin URL.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CallbackUrl": {
+                    "description": "Once a payment is processed, or a notification of an inbound payment is received,\r\na callback request will be made to this URL. Typically it will be the page on\r\na merchant's web site that displays the results of the payment attempt.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CardAuthorizeOnly": {
+                    "description": "For card payments the default behaviour is to authorise and capture the payment at the same\r\ntime. If a merchant needs to authorise and then capture at a later point this property needs\r\nto be set to true.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.CardCreateToken": {
+                    "description": "For card payments a payment attempt can be used to create a reusable token for subsequent\r\npayments. Setting this field to true will create a reusable customer token.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.CardCreateTokenMode": {
+                    "description": "This specifies whether user consent will be taken before tokenising card or not.\r\nThis cannot be 'None' if CardCreateToken is set to true. If this is set to 'UserConsentRequired'\r\nthen, the user consent will overwrite CardCreateToken flag on submit card payment.",
+                    "enum": [
+                      "None",
+                      "ConsentNotRequired",
+                      "UserConsentRequired"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CardIgnoreCVN": {
+                    "description": "If set to true the card payment gateway will be directed to proceed with a payment even if the\r\ncard verification number check fails.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.CardNoPayerAuthentication": {
+                    "description": "If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent).\r\nSkipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they\r\ncan't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant \r\nto liability for charge backs.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.CardProcessorMerchantID": {
+                    "description": "Optional field that if specified indicates the processor merchant ID that should be used\r\nto process any card payments. Mainly useful where a merchant has multiple processor\r\nmerchant ID's. If left empty the default merchant card settings will be used.",
+                    "pattern": "[a-zA-Z0-9]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CardTransmitRawDetails": {
+                    "description": "If set to true for card payments the sensitive card number and card verification number \r\nwill be transmitted directly rather than being tokenised. This makes the payment quicker\r\nbut more exposed to client side flaws such as cross site scripting.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.Currency": {
+                    "description": "The currency of the payment request.",
+                    "enum": [
+                      "NONE",
+                      "GBP",
+                      "EUR",
+                      "USD",
+                      "AUD",
+                      "BGN",
+                      "CAD",
+                      "CZK",
+                      "DKK",
+                      "HUF",
+                      "ISK",
+                      "CHF",
+                      "NOK",
+                      "PLN",
+                      "RON",
+                      "AED",
+                      "CNH",
+                      "HKD",
+                      "ILS",
+                      "JPY",
+                      "MXN",
+                      "NZD",
+                      "SAR",
+                      "SEK",
+                      "SGD",
+                      "TRY",
+                      "ZAR",
+                      "BTC"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CustomFields": {
+                    "description": "A list of custom fields to add to the payment request. The custom fields\r\nare data type agnostic which means that the API will not do any validation or formatting\r\nin the key-value pairs. The API will store the custom fields as is.",
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "displayOnHostedPaymentPage": {
+                          "description": "If true, the custom field will be displayed on the hosted payment page.",
+                          "type": "boolean"
+                        },
+                        "displayOnPaymentReceipt": {
+                          "description": "If true, the custom field will be displayed on the payment receipt.",
+                          "type": "boolean"
+                        },
+                        "displayOrder": {
+                          "description": "The display order of the custom field. The lowest number is displayed first.\r\nThis is used to determine the order in which the custom fields are displayed\r\non the UI, for example, on the hosted payment page and payment receipt.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "name": {
+                          "description": "The name of the custom field.",
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "The value of the custom field.",
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.CustomerEmailAddress": {
+                    "description": "Optional email address for the customer. If the tokenise card option is set then the customer email address\r\nis mandatory.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.CustomerID": {
+                    "description": "An optional customer identifier for the payment request. This field is sent to the \r\npayer's bank when using payment initiation. The restriction in the available characters\r\nis due to some banks rejecting requests when ones outside the set are used.",
+                    "pattern": "[a-zA-Z0-9\\-]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.Description": {
+                    "description": "An optional description for the payment request. If set this field will appear\r\non the transaction record for some card processors.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.DueDate": {
+                    "description": "An optional due date for the payment request.",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.FailureCallbackUrl": {
+                    "description": "Optional callback URL for payment failures that can occur when the payer is \r\nredirected away from the payment page. Typically the payer is only sent away\r\nfrom the payment page for pay by bank attempts. If this URL is not set the \r\npayer will be redirected back to the original URL the payment attempt was initiated\r\nfrom.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.FieldDisplaySettings": {
+                    "description": "An optional display settings for the payment request fields. This allows the merchant to control how\r\nthe fields are displayed on the hosted payment page, receipt, etc.",
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "displayOnHostedPaymentPage": {
+                          "description": "If false, the field will not be displayed on the hosted payment page.",
+                          "type": "boolean"
+                        },
+                        "displayOnPaymentReceipt": {
+                          "description": "If false, the field will not be displayed on the payment receipt.",
+                          "type": "boolean"
+                        },
+                        "field": {
+                          "description": "The field for which the display settings are defined.",
+                          "enum": [
+                            "None",
+                            "Description",
+                            "Customer",
+                            "DueDate"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.IgnoreAddressVerification": {
+                    "description": "If set to true the card payment gateway will be directed to proceed with a payment even if the\r\naddress verification checks fails.",
+                    "type": "boolean"
+                  },
+                  "PaymentRequestCreate.LightningInvoice": {
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.LightningInvoiceExpiresAt": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.MerchantDirectDebitMandateID": {
+                    "description": "Optional ID of an existing direct debit mandate to associate with this payment request.\r\nOnly applicable when the payment method is direct debit.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.MerchantID": {
+                    "description": "The ID of the merchant to create the payment request for.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.NotificationEmailAddresses": {
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.NotificationRoleIDs": {
+                    "description": "An optional list of notification role IDs that will receive notifications\r\nabout the payment request. This is useful for roles that need to be notified\r\nabout payment request events.",
+                    "items": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.OrderID": {
+                    "description": "An optional order ID for the payment request. If the request is for an invoice this\r\nis the most appropriate field for the invoice ID.",
+                    "pattern": "[a-zA-Z0-9\\-_\\.@&\\*%\\$#!:; ]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.OriginUrl": {
+                    "deprecated": true,
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PartialPaymentMethod": {
+                    "description": "The approach to use, or not, for accepting partial payments.",
+                    "enum": [
+                      "None",
+                      "Partial"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PartialPaymentSteps": {
+                    "description": "An optional comma separated list of partial payment amounts. The amounts represent guidance, or suggestions, as to\r\nhow the payer will be requested to make partial payments.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PaymentMethodTypes": {
+                    "deprecated": true,
+                    "description": "The payment methods that the payment request supports. When setting using form data\r\nshould be supplied as a comma separated list, for example \"card, pisp, lightning\".",
+                    "enum": [
+                      "None",
+                      "card",
+                      "pisp",
+                      "lightning",
+                      "cardtoken",
+                      "applePay",
+                      "googlePay",
+                      "directDebit"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PaymentMethods": {
+                    "description": "The payment methods that the payment request supports.",
+                    "items": {
+                      "enum": [
+                        "None",
+                        "card",
+                        "pisp",
+                        "lightning",
+                        "cardtoken",
+                        "applePay",
+                        "googlePay",
+                        "directDebit"
+                      ],
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.PaymentProcessor": {
+                    "description": "Lists the supported card and PIS processors.",
+                    "enum": [
+                      "None",
+                      "CyberSource",
+                      "Checkout",
+                      "Stripe",
+                      "Modulr",
+                      "Plaid",
+                      "Yapily",
+                      "Nofrixion",
+                      "Bitcoin",
+                      "BitcoinTestnet",
+                      "BankingCircle",
+                      "BankingCircleAgency",
+                      "Simulator",
+                      "Lightning",
+                      "LightningTestnet",
+                      "BankingCircleDirectDebit",
+                      "Technoxander"
+                    ],
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PayrunID": {
+                    "description": "Optional, if set it indicates that this payment request will be used to top up a payment account for a pay run.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PispAccountID": {
+                    "description": "The payment account ID to use to receive payment initiation payments. This must match one of your\r\nNoFrixion payment account IDs. This can be left blank to use your default payment account.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PispRecipientReference": {
+                    "deprecated": true,
+                    "description": "For Payment Initiation payments this is the reference that will be requested to used as the reference \r\non the your transaction record. Note that it is not guaranteed that the sending bank will use this\r\nreference and in practice it has been observed to be supported by only half to two thirds of banks.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.PriorityBankID": {
+                    "description": "The ID of the bank that is set as the priority bank for display on pay element.",
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.SandboxSettleDelayInSeconds": {
+                    "description": "Sandbox only. Optional. If set, the simulated Direct Debit settlement will be delayed by the specified number of seconds.\r\nMust be greater than 0 and less than 600. Otherwise, the default value will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "PaymentRequestCreate.ShippingAddressCity": {
+                    "description": "Optionally the city of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingAddressCountryCode": {
+                    "description": "Optionally the country code of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingAddressCounty": {
+                    "description": "Optionally the state or county of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingAddressLine1": {
+                    "description": "Optionally the first line of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingAddressLine2": {
+                    "description": "Optionally the second line of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingAddressPostCode": {
+                    "description": "Optionally the post code of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingEmail": {
+                    "description": "Optionally the shipping email address for the customer.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingFirstName": {
+                    "description": "Optionally the first name of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingLastName": {
+                    "description": "Optionally the last name of the customer's shipping address.",
+                    "pattern": "[^\\<\\>]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.ShippingPhone": {
+                    "description": "Optionally the shipping phone number for the customer.",
+                    "pattern": "[0-9\\+\\- ]+",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.SuccessWebHookUrl": {
+                    "description": "If a payment event results in the payment request being classified as fully paid this\r\nsuccess webhook URL will be invoked. The URL will be invoked as a GET request, i.e.\r\nthere will be no request body. Two query parameters will be added to the URL. The \r\nfirst one will be \"id\" and will hold the payment request ID. The second one will be\r\n\"orderid\" and will hold the payment request OrderID, note the OrderID could be empty\r\nif it was not set when the payment request was created.\r\nThe recommended approach when receiving a success web hook is to use the \"id\" parameter\r\nto call the moneymoov get payment request endpoint to retrieve the full details of the\r\npayment request and check the status. Web hooks can be easily spoofed and should not be\r\nrelied upon.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.TagIds": {
+                    "description": "An optional list of tag ids to add to the payment request",
+                    "items": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.Tags": {
+                    "description": "An optional list of tag values to set on the payment request. If no matching\r\ntag exists it will be created.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "PaymentRequestCreate.Title": {
+                    "description": "A generic field to contain any additional data that the merchant wishes to store against the payment request.\r\nE.g. product or service information.",
+                    "type": "string"
+                  },
+                  "PaymentRequestCreate.UseHostedPaymentPage": {
+                    "description": "If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs\r\nwill be set to use the hosted payment page.",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "Card.ExpiryMonth",
+                  "Card.ExpiryYear",
+                  "CardSensitive.CardNumber",
+                  "CardSensitive.CardSecurityCode",
+                  "CardSensitive.ExpiryMonth",
+                  "CardSensitive.ExpiryYear",
+                  "PaymentInitiationRequest.ProviderID",
+                  "PaymentRequestCreate.Amount"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "201": {
+            "description": "Returns the payment response."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

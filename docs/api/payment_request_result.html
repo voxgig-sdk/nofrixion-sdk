@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PaymentRequestResult | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a aria-current="page" href="../api/payment_request_result.html">PaymentRequestResult</a><div class="nav-sections"><a class="nav-section" href="#get-apiv1paymentrequestsidresult">GET /api/v1/paymentrequests/{id}/result</a></div>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="paymentrequestresult">PaymentRequestResult</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1paymentrequestsidresult"><code>/api/v1/paymentrequests/{id}/result</code></a></td>
+<td><code>list</code></td>
+<td>Returns a payment request result record</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>customerID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer id</td>
+</tr>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>The list of payment attempts that have been received for the payment request.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>requestedAmount</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The full original payment amount requested.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The result of the payment attempt.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-apiv1paymentrequestsidresult" class="operation" data-method="get"><code>GET</code> /api/v1/paymentrequests/{id}/result</h3>
+<p>Operation ID: <code>GetPaymentRequestResult</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | ID of the payment request to get the result for. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-payment-request-result-record" class="status" data-status="2xx">200: Returns a payment request result record</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>customerID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer id</td>
+</tr>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of payment attempts that have been received for the payment request.</td>
+</tr>
+<tr>
+<td><code>payments[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>payments[].cardAuthorizationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments this is the ID from the initial successful authorization or sale. Required for voids and capture operations.</td>
+</tr>
+<tr>
+<td><code>payments[].cardCapturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The captured amount for a card payment.</td>
+</tr>
+<tr>
+<td><code>payments[].cardIsVoided</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true indicates that the card payment was voided.</td>
+</tr>
+<tr>
+<td><code>payments[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>payments[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment occurred. For cards this will be the time the original authorisation occurred.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments[].refundedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Refunded Amount</td>
+</tr>
+<tr>
+<td><code>payments[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the pisp authorization occurred.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the pisp authorization is for.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].pispPaymentInitiationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For a payment initiation this is the ID returned by the service provider initiating the payment for us.</td>
+</tr>
+<tr>
+<td><code>requestedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The full original payment amount requested.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The result of the payment attempt.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>customerID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer id</td>
+</tr>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of payment attempts that have been received for the payment request.</td>
+</tr>
+<tr>
+<td><code>payments[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>payments[].cardAuthorizationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments this is the ID from the initial successful authorization or sale. Required for voids and capture operations.</td>
+</tr>
+<tr>
+<td><code>payments[].cardCapturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The captured amount for a card payment.</td>
+</tr>
+<tr>
+<td><code>payments[].cardIsVoided</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true indicates that the card payment was voided.</td>
+</tr>
+<tr>
+<td><code>payments[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>payments[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment occurred. For cards this will be the time the original authorisation occurred.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments[].refundedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Refunded Amount</td>
+</tr>
+<tr>
+<td><code>payments[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the pisp authorization occurred.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the pisp authorization is for.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].pispPaymentInitiationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For a payment initiation this is the ID returned by the service provider initiating the payment for us.</td>
+</tr>
+<tr>
+<td><code>requestedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The full original payment amount requested.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The result of the payment attempt.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>customerID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer id</td>
+</tr>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of payment attempts that have been received for the payment request.</td>
+</tr>
+<tr>
+<td><code>payments[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>payments[].cardAuthorizationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments this is the ID from the initial successful authorization or sale. Required for voids and capture operations.</td>
+</tr>
+<tr>
+<td><code>payments[].cardCapturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The captured amount for a card payment.</td>
+</tr>
+<tr>
+<td><code>payments[].cardIsVoided</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true indicates that the card payment was voided.</td>
+</tr>
+<tr>
+<td><code>payments[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>payments[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment occurred. For cards this will be the time the original authorisation occurred.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>payments[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>payments[].refundedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Refunded Amount</td>
+</tr>
+<tr>
+<td><code>payments[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The authorised payment amount.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].occurredAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the pisp authorization occurred.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the pisp authorization is for.</td>
+</tr>
+<tr>
+<td><code>pispAuthorizations[].pispPaymentInitiationID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For a payment initiation this is the ID returned by the service provider initiating the payment for us.</td>
+</tr>
+<tr>
+<td><code>requestedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The full original payment amount requested.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The result of the payment attempt.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

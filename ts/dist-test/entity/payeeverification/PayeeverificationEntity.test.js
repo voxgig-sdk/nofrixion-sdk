@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE;
         for (const op of ['create']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'payeeverification.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'payeeverification.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set NOFRIXION_TEST_PAYEEVERIFICATION_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "accountName", "req": true, "short": "The name of the account to verify", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "accountNumber", "req": false, "short": "The account number of the account to verify (for CoP checks)", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "iban", "req": true, "short": "The IBAN of the account to verify (for VoP checks)", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "payeeVerifiedAccountName", "req": false, "short": "The verified account name of the payee, if available (in case of a close match)", "type": "`$STRING`", "index$": 3 }, { "active": true, "name": "result", "req": false, "short": "The result of the payee verification", "type": "`$STRING`", "index$": 4 }, { "active": true, "name": "secondaryIdentification", "req": false, "short": "Optional secondary identifier for the account to verify.", "type": "`$STRING`", "index$": 5 }, { "active": true, "name": "sortCode", "req": false, "short": "The sort code of the account to verify (for CoP checks)", "type": "`$STRING`", "index$": 6 }], "name": "payeeverification", "op": { "create": { "input": "data", "name": "create", "points": [{ "active": true, "args": {}, "contract": { "id": "POST /api/v1/openbanking/payeeverification", "json": "{\"operationId\":\"VerifyPayee\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/*+json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"accountName\":{\"description\":\"The name of the account to verify\",\"minLength\":1,\"type\":\"string\"},\"accountNumber\":{\"description\":\"The account number of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"},\"iban\":{\"description\":\"The IBAN of the account to verify (for VoP checks)\",\"minLength\":1,\"type\":\"string\"},\"secondaryIdentification\":{\"description\":\"Optional secondary identifier for the account to verify.\\r\\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\\r\\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.\",\"nullable\":true,\"type\":\"string\"},\"sortCode\":{\"description\":\"The sort code of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"}},\"required\":[\"accountName\",\"iban\"],\"type\":\"object\"}},\"application/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"accountName\":{\"description\":\"The name of the account to verify\",\"minLength\":1,\"type\":\"string\"},\"accountNumber\":{\"description\":\"The account number of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"},\"iban\":{\"description\":\"The IBAN of the account to verify (for VoP checks)\",\"minLength\":1,\"type\":\"string\"},\"secondaryIdentification\":{\"description\":\"Optional secondary identifier for the account to verify.\\r\\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\\r\\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.\",\"nullable\":true,\"type\":\"string\"},\"sortCode\":{\"description\":\"The sort code of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"}},\"required\":[\"accountName\",\"iban\"],\"type\":\"object\"}},\"application/json-patch+json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"accountName\":{\"description\":\"The name of the account to verify\",\"minLength\":1,\"type\":\"string\"},\"accountNumber\":{\"description\":\"The account number of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"},\"iban\":{\"description\":\"The IBAN of the account to verify (for VoP checks)\",\"minLength\":1,\"type\":\"string\"},\"secondaryIdentification\":{\"description\":\"Optional secondary identifier for the account to verify.\\r\\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\\r\\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.\",\"nullable\":true,\"type\":\"string\"},\"sortCode\":{\"description\":\"The sort code of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"}},\"required\":[\"accountName\",\"iban\"],\"type\":\"object\"}},\"text/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"accountName\":{\"description\":\"The name of the account to verify\",\"minLength\":1,\"type\":\"string\"},\"accountNumber\":{\"description\":\"The account number of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"},\"iban\":{\"description\":\"The IBAN of the account to verify (for VoP checks)\",\"minLength\":1,\"type\":\"string\"},\"secondaryIdentification\":{\"description\":\"Optional secondary identifier for the account to verify.\\r\\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\\r\\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.\",\"nullable\":true,\"type\":\"string\"},\"sortCode\":{\"description\":\"The sort code of the account to verify (for CoP checks)\",\"nullable\":true,\"type\":\"string\"}},\"required\":[\"accountName\",\"iban\"],\"type\":\"object\"}}},\"description\":\"The payee to verify.\"},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"payeeVerifiedAccountName\":{\"description\":\"The verified account name of the payee, if available (in case of a close match)\",\"nullable\":true,\"type\":\"string\"},\"result\":{\"description\":\"The result of the payee verification\",\"enum\":[\"Unknown\",\"Match\",\"NoMatch\",\"CloseMatch\"],\"type\":\"string\"}},\"type\":\"object\"}},\"text/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"payeeVerifiedAccountName\":{\"description\":\"The verified account name of the payee, if available (in case of a close match)\",\"nullable\":true,\"type\":\"string\"},\"result\":{\"description\":\"The result of the payee verification\",\"enum\":[\"Unknown\",\"Match\",\"NoMatch\",\"CloseMatch\"],\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"payeeVerifiedAccountName\":{\"description\":\"The verified account name of the payee, if available (in case of a close match)\",\"nullable\":true,\"type\":\"string\"},\"result\":{\"description\":\"The result of the payee verification\",\"enum\":[\"Unknown\",\"Match\",\"NoMatch\",\"CloseMatch\"],\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"OK\"}},\"security\":[{\"Bearer\":[]}],\"securitySchemes\":{\"Bearer\":{\"description\":\"JWT Authorization header using the Bearer scheme.<br/>\\r\\n                      Enter your JWT access token in the text input below.<br/>\\r\\n                      Example: Bearer eyJhbGciOiJ...\",\"in\":\"header\",\"name\":\"Authorization\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "POST", "orig": "/api/v1/openbanking/payeeverification", "segments": [{ "lit": "api" }, { "lit": "v1" }, { "lit": "openbanking" }, { "lit": "payeeverification" }], "select": {}, "transform": { "req": { "accountName": "`reqdata.account_name`", "accountNumber": "`reqdata.account_number`", "iban": "`reqdata.iban`", "secondaryIdentification": "`reqdata.secondary_identification`", "sortCode": "`reqdata.sort_code`" }, "res": "`body`" }, "index$": 0 }], "key$": "create" } }, "relations": { "ancestors": [] }, "key$": "payeeverification", "name__orig": "payeeverification", "Name": "Payeeverification", "name_": "payeeverification", "name-": "payeeverification", "NAME": "PAYEEVERIFICATION", "index$": 23 }, { "active": true, "entity": "payeeverification", "key$": "BasicPayeeverificationFlow", "kind": "basic", "name": "BasicPayeeverificationFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "payeeverification_ref01" }, "match": {}, "op": "create", "spec": [], "valid": [], "index$": 0 }] }, 'Payeeverification');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -101,12 +99,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['NOFRIXION_TEST_PAYEEVERIFICATION_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'NOFRIXION_TEST_PAYEEVERIFICATION_ENTID': idmap,
         'NOFRIXION_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['NOFRIXION_TEST_PAYEEVERIFICATION_ENTID'];
     const live = 'TRUE' === env.NOFRIXION_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['NOFRIXION_TEST_PAYEEVERIFICATION_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.NofrixionSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -128,7 +126,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -140,7 +139,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.NOFRIXION_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

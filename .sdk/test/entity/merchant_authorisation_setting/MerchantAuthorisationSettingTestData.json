@@ -11,7 +11,7 @@
         "lastEditorCantAuthorise": true,
         "lastUpdated": "s75",
         "merchantID": "s76",
-        "numberOfAuthorisers": "s77",
+        "numberOfAuthorisers": 119,
         "roleSettings": [],
         "merchant_id": "MERCHANT01"
       },
@@ -25,7 +25,7 @@
         "lastEditorCantAuthorise": true,
         "lastUpdated": "se3",
         "merchantID": "se4",
-        "numberOfAuthorisers": "se5",
+        "numberOfAuthorisers": 229,
         "roleSettings": [],
         "merchant_id": "MERCHANT01"
       },
@@ -39,7 +39,7 @@
         "lastEditorCantAuthorise": true,
         "lastUpdated": "s151",
         "merchantID": "s152",
-        "numberOfAuthorisers": "s153",
+        "numberOfAuthorisers": 339,
         "roleSettings": [],
         "merchant_id": "MERCHANT01"
       }
@@ -56,8 +56,362 @@
         "lastEditorCantAuthorise": true,
         "lastUpdated": "s1bf",
         "merchantID": "s1c0",
-        "numberOfAuthorisers": "s1c1",
+        "numberOfAuthorisers": 449,
         "roleSettings": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/merchants/{merchantID}/authorisationsettings": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetAuthorisationSettings",
+        "parameters": [
+          {
+            "description": "The merchant id",
+            "in": "path",
+            "name": "merchantID",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amountLower": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "amountUpper": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "authorisationType": {
+                        "enum": [
+                          "None",
+                          "Payout",
+                          "Rule",
+                          "Beneficiary",
+                          "Payrun",
+                          "MerchantToken",
+                          "UserInvite",
+                          "RoleUser"
+                        ],
+                        "type": "string"
+                      },
+                      "beneficiariesOnly": {
+                        "type": "boolean"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lastEditorCantAuthorise": {
+                        "type": "boolean"
+                      },
+                      "lastUpdated": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "merchantID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "numberOfAuthorisers": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "roleSettings": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "description": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "inserted": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastUpdated": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "maxNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "merchantID": {
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "minNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "name": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amountLower": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "amountUpper": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "authorisationType": {
+                        "enum": [
+                          "None",
+                          "Payout",
+                          "Rule",
+                          "Beneficiary",
+                          "Payrun",
+                          "MerchantToken",
+                          "UserInvite",
+                          "RoleUser"
+                        ],
+                        "type": "string"
+                      },
+                      "beneficiariesOnly": {
+                        "type": "boolean"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lastEditorCantAuthorise": {
+                        "type": "boolean"
+                      },
+                      "lastUpdated": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "merchantID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "numberOfAuthorisers": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "roleSettings": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "description": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "inserted": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastUpdated": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "maxNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "merchantID": {
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "minNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "name": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amountLower": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "amountUpper": {
+                        "format": "double",
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "authorisationType": {
+                        "enum": [
+                          "None",
+                          "Payout",
+                          "Rule",
+                          "Beneficiary",
+                          "Payrun",
+                          "MerchantToken",
+                          "UserInvite",
+                          "RoleUser"
+                        ],
+                        "type": "string"
+                      },
+                      "beneficiariesOnly": {
+                        "type": "boolean"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "inserted": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lastEditorCantAuthorise": {
+                        "type": "boolean"
+                      },
+                      "lastUpdated": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "merchantID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "numberOfAuthorisers": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "roleSettings": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "description": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "inserted": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastUpdated": {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "maxNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "merchantID": {
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "minNumberAuthorisers": {
+                              "format": "int32",
+                              "nullable": true,
+                              "type": "integer"
+                            },
+                            "name": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "A list of merchant authorisation settings."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

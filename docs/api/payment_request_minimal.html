@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PaymentRequestMinimal | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a aria-current="page" href="../api/payment_request_minimal.html">PaymentRequestMinimal</a><div class="nav-sections"><a class="nav-section" href="#get-apiv1paymentrequestsidminimal">GET /api/v1/paymentrequests/{id}/minimal</a></div>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="paymentrequestminimal">PaymentRequestMinimal</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1paymentrequestsidminimal"><code>/api/v1/paymentrequests/{id}/minimal</code></a></td>
+<td><code>list</code></td>
+<td>Returns a payment request minimal record</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amount of money to request.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amount of money that was authorised but has not arrived in the account yet.</td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amount of money that has been received for this payment request.</td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amount of money that has been refunded for this payment request.</td>
+</tr>
+<tr>
+<td><code>callbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cardStripePaymentIntentSecret</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>countryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The country code associated with the payment.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The currency of the request.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Custom fields to display to the customer.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional description for the payment request.</td>
+</tr>
+<tr>
+<td><code>dueDate</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The due date of the payment request.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>googlePayMerchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Merchant ID from Google Pay</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jwk</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The jwk containing the public key</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlPng</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlSvg</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantShortName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>partialPaymentMethod</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>The payment attempts for this payment request.</td>
+</tr>
+<tr>
+<td><code>paymentMethodsList</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports.</td>
+</tr>
+<tr>
+<td><code>paymentProcessor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The card processor</td>
+</tr>
+<tr>
+<td><code>paymentProcessorKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The card processors public key</td>
+</tr>
+<tr>
+<td><code>pispError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the error returned from the bank which is recorded in payment request events.</td>
+</tr>
+<tr>
+<td><code>priorityBankID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status of the payment request.</td>
+</tr>
+<tr>
+<td><code>stripeAccountID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Account ID of connected customers in Stripe</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The title of the payment request.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-apiv1paymentrequestsidminimal" class="operation" data-method="get"><code>GET</code> /api/v1/paymentrequests/{id}/minimal</h3>
+<p>Operation ID: <code>GetPaymentRequestMinimal</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the payment request to retrieve. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-payment-request-minimal-record" class="status" data-status="2xx">200: Returns a payment request minimal record</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money to request.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that was authorised but has not arrived in the account yet.</td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been received for this payment request.</td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been refunded for this payment request.</td>
+</tr>
+<tr>
+<td><code>callbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cardStripePaymentIntentSecret</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>countryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The country code associated with the payment.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The currency of the request.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Custom fields to display to the customer.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOrder</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional description for the payment request. If set this field will appear on the transaction record for some card processors.</td>
+</tr>
+<tr>
+<td><code>dueDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The due date of the payment request.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the hosted payment page.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the payment receipt.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].field</code></td>
+<td><code>enum: None, Description, Customer, DueDate</code></td>
+<td>No</td>
+<td>The field for which the display settings are defined.</td>
+</tr>
+<tr>
+<td><code>googlePayMerchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Merchant ID from Google Pay</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jwk</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The jwk containing the public key</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlPng</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlSvg</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantShortName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>partialPaymentMethod</code></td>
+<td><code>enum: None, Partial</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The payment attempts for this payment request.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For pay by bank attempts this is the ID that gets set on all the events (initiate, callback, webhook and settlement) for the same attempt. For cards and lightning different fields are used to group payment request events.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount attempted.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The card capture attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture failed.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailureError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Capture failure reason.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was captured.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture was initiated.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthoriseFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was not succesfully authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The card payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardPayerAuthenticationSetupFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt authorisation was not succesfully set up this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].initiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment was initiated at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the ID of the institution used by the payer. For example in PIS attempts this will be the ID of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the name of the institution used by the payer. For example, in PIS attempts this will be the name of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].isPaid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True once the attempt has actually been paid (card authorised or settled).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was actually paid.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The time the payment went through (card authorisation time or settlement time).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].pispAuthorisationFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp for PSIP bank authorisation error or failure.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].reconciledTransactionID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>When the payment attempt is settled (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The refund attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].isCardVoid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundPayoutID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settleFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt failed to settled after the expected settlement time this is the timestamp the failure was recorded at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The funds that were received from the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt was settled this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].walletName</code></td>
+<td><code>enum: ApplePay, GooglePay</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentMethodsList</code></td>
+<td><code>array of enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports.</td>
+</tr>
+<tr>
+<td><code>paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor</td>
+</tr>
+<tr>
+<td><code>paymentProcessorKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The card processors public key</td>
+</tr>
+<tr>
+<td><code>pispError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the error returned from the bank which is recorded in payment request events.</td>
+</tr>
+<tr>
+<td><code>priorityBankID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The status of the payment request.</td>
+</tr>
+<tr>
+<td><code>stripeAccountID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Account ID of connected customers in Stripe</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The title of the payment request.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money to request.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that was authorised but has not arrived in the account yet.</td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been received for this payment request.</td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been refunded for this payment request.</td>
+</tr>
+<tr>
+<td><code>callbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cardStripePaymentIntentSecret</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>countryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The country code associated with the payment.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The currency of the request.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Custom fields to display to the customer.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOrder</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional description for the payment request. If set this field will appear on the transaction record for some card processors.</td>
+</tr>
+<tr>
+<td><code>dueDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The due date of the payment request.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the hosted payment page.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the payment receipt.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].field</code></td>
+<td><code>enum: None, Description, Customer, DueDate</code></td>
+<td>No</td>
+<td>The field for which the display settings are defined.</td>
+</tr>
+<tr>
+<td><code>googlePayMerchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Merchant ID from Google Pay</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jwk</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The jwk containing the public key</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlPng</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlSvg</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantShortName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>partialPaymentMethod</code></td>
+<td><code>enum: None, Partial</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The payment attempts for this payment request.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For pay by bank attempts this is the ID that gets set on all the events (initiate, callback, webhook and settlement) for the same attempt. For cards and lightning different fields are used to group payment request events.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount attempted.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The card capture attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture failed.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailureError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Capture failure reason.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was captured.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture was initiated.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthoriseFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was not succesfully authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The card payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardPayerAuthenticationSetupFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt authorisation was not succesfully set up this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].initiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment was initiated at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the ID of the institution used by the payer. For example in PIS attempts this will be the ID of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the name of the institution used by the payer. For example, in PIS attempts this will be the name of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].isPaid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True once the attempt has actually been paid (card authorised or settled).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was actually paid.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The time the payment went through (card authorisation time or settlement time).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].pispAuthorisationFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp for PSIP bank authorisation error or failure.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].reconciledTransactionID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>When the payment attempt is settled (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The refund attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].isCardVoid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundPayoutID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settleFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt failed to settled after the expected settlement time this is the timestamp the failure was recorded at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The funds that were received from the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt was settled this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].walletName</code></td>
+<td><code>enum: ApplePay, GooglePay</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentMethodsList</code></td>
+<td><code>array of enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports.</td>
+</tr>
+<tr>
+<td><code>paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor</td>
+</tr>
+<tr>
+<td><code>paymentProcessorKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The card processors public key</td>
+</tr>
+<tr>
+<td><code>pispError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the error returned from the bank which is recorded in payment request events.</td>
+</tr>
+<tr>
+<td><code>priorityBankID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The status of the payment request.</td>
+</tr>
+<tr>
+<td><code>stripeAccountID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Account ID of connected customers in Stripe</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The title of the payment request.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money to request.</td>
+</tr>
+<tr>
+<td><code>amountPending</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that was authorised but has not arrived in the account yet.</td>
+</tr>
+<tr>
+<td><code>amountReceived</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been received for this payment request.</td>
+</tr>
+<tr>
+<td><code>amountRefunded</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount of money that has been refunded for this payment request.</td>
+</tr>
+<tr>
+<td><code>callbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cardStripePaymentIntentSecret</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>countryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The country code associated with the payment.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The currency of the request.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Custom fields to display to the customer.</td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].displayOrder</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customFieldsToDisplay[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional description for the payment request. If set this field will appear on the transaction record for some card processors.</td>
+</tr>
+<tr>
+<td><code>dueDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The due date of the payment request.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the hosted payment page.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the payment receipt.</td>
+</tr>
+<tr>
+<td><code>fieldDisplaySettings[].field</code></td>
+<td><code>enum: None, Description, Customer, DueDate</code></td>
+<td>No</td>
+<td>The field for which the display settings are defined.</td>
+</tr>
+<tr>
+<td><code>googlePayMerchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Merchant ID from Google Pay</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jwk</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The jwk containing the public key</td>
+</tr>
+<tr>
+<td><code>merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlPng</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantLogoUrlSvg</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>merchantShortName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>partialPaymentMethod</code></td>
+<td><code>enum: None, Partial</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The payment attempts for this payment request.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For pay by bank attempts this is the ID that gets set on all the events (initiate, callback, webhook and settlement) for the same attempt. For cards and lightning different fields are used to group payment request events.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].attemptedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount attempted.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].authorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The card capture attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture failed.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].captureFailureError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Capture failure reason.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was captured.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].captureAttempts[].capturedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Date and time the capture was initiated.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthoriseFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was not succesfully authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The card payment amount that was authorised by the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardAuthorisedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt was authorised this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].cardPayerAuthenticationSetupFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the card payment attempt authorisation was not succesfully set up this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The authorised payment currency.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].initiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp the payment was initiated at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the ID of the institution used by the payer. For example in PIS attempts this will be the ID of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].institutionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where available this is the name of the institution used by the payer. For example, in PIS attempts this will be the name of the bank the payer used for the attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].isPaid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>True once the attempt has actually been paid (card authorised or settled).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The amount that was actually paid.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paidAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The time the payment went through (card authorisation time or settlement time).</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment type for the received money.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor that was used for the payment event.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the payment request the result is for.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].pispAuthorisationFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp for PSIP bank authorisation error or failure.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].reconciledTransactionID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>When the payment attempt is settled (only relevant for non-card payments) this is the payin transaction that the payment request event was reconciled with.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The refund attempts associated with this payment attempt.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].isCardVoid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundCancelledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundInitiatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundPayoutID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].refundAttempts[].refundSettledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settleFailedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt failed to settled after the expected settlement time this is the timestamp the failure was recorded at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>The funds that were received from the payer.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].settledAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the PISP attempt was settled this is the timestamp it occurred at.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].tokenisedCardID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the merchant can request a reusable token for this payer and use it to submit subsequent merchant initiated payments.</td>
+</tr>
+<tr>
+<td><code>paymentAttempts[].walletName</code></td>
+<td><code>enum: ApplePay, GooglePay</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paymentMethodsList</code></td>
+<td><code>array of enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports.</td>
+</tr>
+<tr>
+<td><code>paymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>The card processor</td>
+</tr>
+<tr>
+<td><code>paymentProcessorKey</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The card processors public key</td>
+</tr>
+<tr>
+<td><code>pispError</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the error returned from the bank which is recorded in payment request events.</td>
+</tr>
+<tr>
+<td><code>priorityBankID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: None, FullyPaid, PartiallyPaid, OverPaid, Voided, Authorized</code></td>
+<td>No</td>
+<td>The status of the payment request.</td>
+</tr>
+<tr>
+<td><code>stripeAccountID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Account ID of connected customers in Stripe</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The title of the payment request.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

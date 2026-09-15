@@ -60,5 +60,2944 @@
         "userInviteID": "s1c2"
       }
     }
+  },
+  "requests": {
+    "GET /api/v1/user/{merchantID}/userspaged": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetUsersPaged",
+        "parameters": [
+          {
+            "description": "The ID of the merchant to get the users for.",
+            "in": "path",
+            "name": "merchantID",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The page number",
+            "in": "query",
+            "name": "pageNumber",
+            "schema": {
+              "default": 1,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The page size",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "default": 20,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "A search filter to apply to the user list. Typically searches against first name, last name and email address.",
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The sort expression for the result set, e.g., \"FirstName asc\".",
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "clientSessionTimeouts": {
+                            "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "merchantID": {
+                                  "description": "The merchant ID for which the session timeout applies.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "timeoutSeconds": {
+                                  "description": "The number of seconds a session for this user should last before expiring.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "emailAddress": {
+                            "format": "email",
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "firstName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "passkeyAdded": {
+                            "type": "boolean"
+                          },
+                          "permissions": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "merchantPermissions": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "accountPermissions": {
+                                      "additionalProperties": {
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "nullable": true,
+                                      "type": "object"
+                                    },
+                                    "merchantID": {
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "permissions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "nullable": true,
+                                      "type": "array"
+                                    }
+                                  },
+                                  "required": [
+                                    "merchantID"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "rolesWithScope": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "assignedAt": {
+                                  "description": "The date the role was assigned to the user on the merchant.",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "merchantID": {
+                                  "description": "The ID of the merchant the role is in.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleID": {
+                                  "description": "The ID of the role the user has.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleName": {
+                                  "description": "The name of the role the user has.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "scope": {
+                                  "description": "The number of accounts the user has access to in the merchant for the role.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "userID": {
+                                  "description": "The ID of the user.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "assignedAt",
+                                "roleName",
+                                "scope"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "twoFactorEnabled": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "emailAddress",
+                          "firstName",
+                          "lastName"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "clientSessionTimeouts": {
+                            "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "merchantID": {
+                                  "description": "The merchant ID for which the session timeout applies.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "timeoutSeconds": {
+                                  "description": "The number of seconds a session for this user should last before expiring.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "emailAddress": {
+                            "format": "email",
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "firstName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "passkeyAdded": {
+                            "type": "boolean"
+                          },
+                          "permissions": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "merchantPermissions": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "accountPermissions": {
+                                      "additionalProperties": {
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "nullable": true,
+                                      "type": "object"
+                                    },
+                                    "merchantID": {
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "permissions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "nullable": true,
+                                      "type": "array"
+                                    }
+                                  },
+                                  "required": [
+                                    "merchantID"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "rolesWithScope": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "assignedAt": {
+                                  "description": "The date the role was assigned to the user on the merchant.",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "merchantID": {
+                                  "description": "The ID of the merchant the role is in.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleID": {
+                                  "description": "The ID of the role the user has.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleName": {
+                                  "description": "The name of the role the user has.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "scope": {
+                                  "description": "The number of accounts the user has access to in the merchant for the role.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "userID": {
+                                  "description": "The ID of the user.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "assignedAt",
+                                "roleName",
+                                "scope"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "twoFactorEnabled": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "emailAddress",
+                          "firstName",
+                          "lastName"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "clientSessionTimeouts": {
+                            "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "merchantID": {
+                                  "description": "The merchant ID for which the session timeout applies.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "timeoutSeconds": {
+                                  "description": "The number of seconds a session for this user should last before expiring.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "emailAddress": {
+                            "format": "email",
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "firstName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "id": {
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "passkeyAdded": {
+                            "type": "boolean"
+                          },
+                          "permissions": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "merchantPermissions": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "accountPermissions": {
+                                      "additionalProperties": {
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "nullable": true,
+                                      "type": "object"
+                                    },
+                                    "merchantID": {
+                                      "nullable": true,
+                                      "type": "string"
+                                    },
+                                    "permissions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "nullable": true,
+                                      "type": "array"
+                                    }
+                                  },
+                                  "required": [
+                                    "merchantID"
+                                  ],
+                                  "type": "object"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "rolesWithScope": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "assignedAt": {
+                                  "description": "The date the role was assigned to the user on the merchant.",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "merchantID": {
+                                  "description": "The ID of the merchant the role is in.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleID": {
+                                  "description": "The ID of the role the user has.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                },
+                                "roleName": {
+                                  "description": "The name of the role the user has.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "scope": {
+                                  "description": "The number of accounts the user has access to in the merchant for the role.",
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "userID": {
+                                  "description": "The ID of the user.",
+                                  "format": "uuid",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "assignedAt",
+                                "roleName",
+                                "scope"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "twoFactorEnabled": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "emailAddress",
+                          "firstName",
+                          "lastName"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "201": {
+            "description": "Returns a paged list of the users associated with the merchant."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/merchants/{merchantID}/users": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetMerchantUsers",
+        "parameters": [
+          {
+            "description": "The ID of the merchant to get the user roles for.",
+            "in": "path",
+            "name": "merchantID",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "clientSessionTimeouts": {
+                        "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "merchantID": {
+                              "description": "The merchant ID for which the session timeout applies.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "timeoutSeconds": {
+                              "description": "The number of seconds a session for this user should last before expiring.",
+                              "format": "int32",
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "emailAddress": {
+                        "format": "email",
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "passkeyAdded": {
+                        "type": "boolean"
+                      },
+                      "permissions": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantPermissions": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "accountPermissions": {
+                                  "additionalProperties": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "nullable": true,
+                                  "type": "object"
+                                },
+                                "merchantID": {
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "permissions": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "nullable": true,
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "merchantID"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "rolesWithScope": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "assignedAt": {
+                              "description": "The date the role was assigned to the user on the merchant.",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "merchantID": {
+                              "description": "The ID of the merchant the role is in.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "description": "The ID of the role the user has.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleName": {
+                              "description": "The name of the role the user has.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "scope": {
+                              "description": "The number of accounts the user has access to in the merchant for the role.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "userID": {
+                              "description": "The ID of the user.",
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "assignedAt",
+                            "roleName",
+                            "scope"
+                          ],
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "twoFactorEnabled": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "emailAddress",
+                      "firstName",
+                      "lastName"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "clientSessionTimeouts": {
+                        "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "merchantID": {
+                              "description": "The merchant ID for which the session timeout applies.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "timeoutSeconds": {
+                              "description": "The number of seconds a session for this user should last before expiring.",
+                              "format": "int32",
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "emailAddress": {
+                        "format": "email",
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "passkeyAdded": {
+                        "type": "boolean"
+                      },
+                      "permissions": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantPermissions": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "accountPermissions": {
+                                  "additionalProperties": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "nullable": true,
+                                  "type": "object"
+                                },
+                                "merchantID": {
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "permissions": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "nullable": true,
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "merchantID"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "rolesWithScope": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "assignedAt": {
+                              "description": "The date the role was assigned to the user on the merchant.",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "merchantID": {
+                              "description": "The ID of the merchant the role is in.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "description": "The ID of the role the user has.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleName": {
+                              "description": "The name of the role the user has.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "scope": {
+                              "description": "The number of accounts the user has access to in the merchant for the role.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "userID": {
+                              "description": "The ID of the user.",
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "assignedAt",
+                            "roleName",
+                            "scope"
+                          ],
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "twoFactorEnabled": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "emailAddress",
+                      "firstName",
+                      "lastName"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "clientSessionTimeouts": {
+                        "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "merchantID": {
+                              "description": "The merchant ID for which the session timeout applies.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "timeoutSeconds": {
+                              "description": "The number of seconds a session for this user should last before expiring.",
+                              "format": "int32",
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "emailAddress": {
+                        "format": "email",
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "passkeyAdded": {
+                        "type": "boolean"
+                      },
+                      "permissions": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantPermissions": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "accountPermissions": {
+                                  "additionalProperties": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "nullable": true,
+                                  "type": "object"
+                                },
+                                "merchantID": {
+                                  "nullable": true,
+                                  "type": "string"
+                                },
+                                "permissions": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "nullable": true,
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "merchantID"
+                              ],
+                              "type": "object"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "rolesWithScope": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "assignedAt": {
+                              "description": "The date the role was assigned to the user on the merchant.",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "merchantID": {
+                              "description": "The ID of the merchant the role is in.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleID": {
+                              "description": "The ID of the role the user has.",
+                              "format": "uuid",
+                              "type": "string"
+                            },
+                            "roleName": {
+                              "description": "The name of the role the user has.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "scope": {
+                              "description": "The number of accounts the user has access to in the merchant for the role.",
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "userID": {
+                              "description": "The ID of the user.",
+                              "format": "uuid",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "assignedAt",
+                            "roleName",
+                            "scope"
+                          ],
+                          "type": "object"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "twoFactorEnabled": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "emailAddress",
+                      "firstName",
+                      "lastName"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "201": {
+            "description": "Returns the users associated with the merchant."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/metadata/whoami": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "WhoAmI",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a user profile model."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/metadata/whoamitrustedapp": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "WhoAmITrustedApplication",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a user model."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "GET /api/v1/user": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetUser",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A user profile model is returned."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "PUT /api/v1/user/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "emailAddress": {
+                    "format": "email",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "profile": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "userInviteID": {
+                    "description": "Optional ID of the invite that is being accepted so the user can be assigned\r\na role on a new merchant.",
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "clientSessionTimeouts": {
+                      "description": "The number of seconds a session for this user should last before expiring.\r\nThis is based on the user's role on the merchant.\r\nThis is used to set the session timeout in the client. If not set the client's default\r\nsession timeout will be used.",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "merchantID": {
+                            "description": "The merchant ID for which the session timeout applies.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "timeoutSeconds": {
+                            "description": "The number of seconds a session for this user should last before expiring.",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "emailAddress": {
+                      "format": "email",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "passkeyAdded": {
+                      "type": "boolean"
+                    },
+                    "permissions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantPermissions": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountPermissions": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "nullable": true,
+                                "type": "object"
+                              },
+                              "merchantID": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "nullable": true,
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "merchantID"
+                            ],
+                            "type": "object"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rolesWithScope": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "assignedAt": {
+                            "description": "The date the role was assigned to the user on the merchant.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant the role is in.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleID": {
+                            "description": "The ID of the role the user has.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "roleName": {
+                            "description": "The name of the role the user has.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "scope": {
+                            "description": "The number of accounts the user has access to in the merchant for the role.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "userID": {
+                            "description": "The ID of the user.",
+                            "format": "uuid",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "assignedAt",
+                          "roleName",
+                          "scope"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "twoFactorEnabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "firstName",
+                    "lastName"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns the updated user profile."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

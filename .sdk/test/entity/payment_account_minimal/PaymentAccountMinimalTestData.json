@@ -5,7 +5,7 @@
         "accountName": "s6e",
         "availableBalance": 111,
         "balance": 112,
-        "balanceMinorUnits": "s71",
+        "balanceMinorUnits": 113,
         "currency": "s72",
         "id": "PAYMENT_ACCOUNT_MINIMAL00",
         "identifier": {},
@@ -18,7 +18,7 @@
         "accountName": "sdc",
         "availableBalance": 221,
         "balance": 222,
-        "balanceMinorUnits": "sdf",
+        "balanceMinorUnits": 223,
         "currency": "se0",
         "id": "PAYMENT_ACCOUNT_MINIMAL01",
         "identifier": {},
@@ -31,7 +31,7 @@
         "accountName": "s14a",
         "availableBalance": 331,
         "balance": 332,
-        "balanceMinorUnits": "s14d",
+        "balanceMinorUnits": 333,
         "currency": "s14e",
         "id": "PAYMENT_ACCOUNT_MINIMAL02",
         "identifier": {},
@@ -48,13 +48,800 @@
         "accountName": "s1b8",
         "availableBalance": 441,
         "balance": 442,
-        "balanceMinorUnits": "s1bb",
+        "balanceMinorUnits": 443,
         "currency": "s1bc",
         "identifier": {},
         "isArchived": false,
         "isConnectedAccount": true,
         "merchantID": "s1c1",
         "submittedPayoutsBalance": 450
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/accounts/minimal": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetAccountsMinimal",
+        "parameters": [
+          {
+            "description": "The merchantID of the accounts to retrieve.",
+            "in": "query",
+            "name": "merchantID",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. Array. If specified will only return accounts for these currencies.",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "items": {
+                "enum": [
+                  "NONE",
+                  "GBP",
+                  "EUR",
+                  "USD",
+                  "AUD",
+                  "BGN",
+                  "CAD",
+                  "CZK",
+                  "DKK",
+                  "HUF",
+                  "ISK",
+                  "CHF",
+                  "NOK",
+                  "PLN",
+                  "RON",
+                  "AED",
+                  "CNH",
+                  "HKD",
+                  "ILS",
+                  "JPY",
+                  "MXN",
+                  "NZD",
+                  "SAR",
+                  "SEK",
+                  "SGD",
+                  "TRY",
+                  "ZAR",
+                  "BTC"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Optional include connected accounts along with payment accounts.",
+            "in": "query",
+            "name": "connectedAccounts",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Optional. The page number to retrieve.",
+            "in": "query",
+            "name": "pageNumber",
+            "schema": {
+              "default": 1,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Optional. The number of accounts per page.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "default": 10,
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The text filter to apply to retrieve accounts with a similar account name, IBAN etc.",
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional expression to sort the order of the accounts. Example \"AvailableBalance desc,Inserted asc\".",
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return connected accounts",
+            "in": "query",
+            "name": "onlyConnectAccounts",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Flag that indicates whether to fetch only archived accounts or not.",
+            "in": "query",
+            "name": "onlyArchived",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Flag that indicates whether to fetch archived accounts or not.",
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "accountName": {
+                            "description": "Name for the account",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "availableBalance": {
+                            "description": "The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.",
+                            "format": "double",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "balance": {
+                            "description": "Balance of the account.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "balanceMinorUnits": {
+                            "description": "Balance of the account expressed in the currency’s minor units (e.g. cents, pence).",
+                            "format": "int64",
+                            "readOnly": true,
+                            "type": "integer"
+                          },
+                          "currency": {
+                            "description": "Currency of the account in ISO 4217 format",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique id for the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountNumber": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "bic": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "currency": {
+                                "description": "The currency for the account.",
+                                "enum": [
+                                  "NONE",
+                                  "GBP",
+                                  "EUR",
+                                  "USD",
+                                  "AUD",
+                                  "BGN",
+                                  "CAD",
+                                  "CZK",
+                                  "DKK",
+                                  "HUF",
+                                  "ISK",
+                                  "CHF",
+                                  "NOK",
+                                  "PLN",
+                                  "RON",
+                                  "AED",
+                                  "CNH",
+                                  "HKD",
+                                  "ILS",
+                                  "JPY",
+                                  "MXN",
+                                  "NZD",
+                                  "SAR",
+                                  "SEK",
+                                  "SGD",
+                                  "TRY",
+                                  "ZAR",
+                                  "BTC"
+                                ],
+                                "type": "string"
+                              },
+                              "displayBicSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displayScanSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displaySummary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "iban": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "sortCode": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "summary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the account identifier.",
+                                "enum": [
+                                  "Unknown",
+                                  "SCAN",
+                                  "IBAN",
+                                  "DD",
+                                  "BTC",
+                                  "BIC"
+                                ],
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "currency"
+                            ],
+                            "type": "object"
+                          },
+                          "isArchived": {
+                            "description": "Is the account archived",
+                            "type": "boolean"
+                          },
+                          "isConnectedAccount": {
+                            "description": "Indicates if the payment account is an externally connected account.\r\nExternally connected account can be used to view account balances and transactions.",
+                            "type": "boolean"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant that owns the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "submittedPayoutsBalance": {
+                            "description": "Total of the payouts that have been submitted for processing.",
+                            "format": "double",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "accountName": {
+                            "description": "Name for the account",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "availableBalance": {
+                            "description": "The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.",
+                            "format": "double",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "balance": {
+                            "description": "Balance of the account.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "balanceMinorUnits": {
+                            "description": "Balance of the account expressed in the currency’s minor units (e.g. cents, pence).",
+                            "format": "int64",
+                            "readOnly": true,
+                            "type": "integer"
+                          },
+                          "currency": {
+                            "description": "Currency of the account in ISO 4217 format",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique id for the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountNumber": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "bic": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "currency": {
+                                "description": "The currency for the account.",
+                                "enum": [
+                                  "NONE",
+                                  "GBP",
+                                  "EUR",
+                                  "USD",
+                                  "AUD",
+                                  "BGN",
+                                  "CAD",
+                                  "CZK",
+                                  "DKK",
+                                  "HUF",
+                                  "ISK",
+                                  "CHF",
+                                  "NOK",
+                                  "PLN",
+                                  "RON",
+                                  "AED",
+                                  "CNH",
+                                  "HKD",
+                                  "ILS",
+                                  "JPY",
+                                  "MXN",
+                                  "NZD",
+                                  "SAR",
+                                  "SEK",
+                                  "SGD",
+                                  "TRY",
+                                  "ZAR",
+                                  "BTC"
+                                ],
+                                "type": "string"
+                              },
+                              "displayBicSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displayScanSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displaySummary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "iban": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "sortCode": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "summary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the account identifier.",
+                                "enum": [
+                                  "Unknown",
+                                  "SCAN",
+                                  "IBAN",
+                                  "DD",
+                                  "BTC",
+                                  "BIC"
+                                ],
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "currency"
+                            ],
+                            "type": "object"
+                          },
+                          "isArchived": {
+                            "description": "Is the account archived",
+                            "type": "boolean"
+                          },
+                          "isConnectedAccount": {
+                            "description": "Indicates if the payment account is an externally connected account.\r\nExternally connected account can be used to view account balances and transactions.",
+                            "type": "boolean"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant that owns the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "submittedPayoutsBalance": {
+                            "description": "Total of the payouts that have been submitted for processing.",
+                            "format": "double",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "accountName": {
+                            "description": "Name for the account",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "availableBalance": {
+                            "description": "The current available balance of the account. Calculated by subtracting any submitted payments from the current balance.",
+                            "format": "double",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "balance": {
+                            "description": "Balance of the account.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "balanceMinorUnits": {
+                            "description": "Balance of the account expressed in the currency’s minor units (e.g. cents, pence).",
+                            "format": "int64",
+                            "readOnly": true,
+                            "type": "integer"
+                          },
+                          "currency": {
+                            "description": "Currency of the account in ISO 4217 format",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique id for the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "accountNumber": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "bic": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "currency": {
+                                "description": "The currency for the account.",
+                                "enum": [
+                                  "NONE",
+                                  "GBP",
+                                  "EUR",
+                                  "USD",
+                                  "AUD",
+                                  "BGN",
+                                  "CAD",
+                                  "CZK",
+                                  "DKK",
+                                  "HUF",
+                                  "ISK",
+                                  "CHF",
+                                  "NOK",
+                                  "PLN",
+                                  "RON",
+                                  "AED",
+                                  "CNH",
+                                  "HKD",
+                                  "ILS",
+                                  "JPY",
+                                  "MXN",
+                                  "NZD",
+                                  "SAR",
+                                  "SEK",
+                                  "SGD",
+                                  "TRY",
+                                  "ZAR",
+                                  "BTC"
+                                ],
+                                "type": "string"
+                              },
+                              "displayBicSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displayScanSummary": {
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "displaySummary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "iban": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "sortCode": {
+                                "nullable": true,
+                                "type": "string"
+                              },
+                              "summary": {
+                                "description": "Summary of the account identifier's most important properties.",
+                                "nullable": true,
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the account identifier.",
+                                "enum": [
+                                  "Unknown",
+                                  "SCAN",
+                                  "IBAN",
+                                  "DD",
+                                  "BTC",
+                                  "BIC"
+                                ],
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "currency"
+                            ],
+                            "type": "object"
+                          },
+                          "isArchived": {
+                            "description": "Is the account archived",
+                            "type": "boolean"
+                          },
+                          "isConnectedAccount": {
+                            "description": "Indicates if the payment account is an externally connected account.\r\nExternally connected account can be used to view account balances and transactions.",
+                            "type": "boolean"
+                          },
+                          "merchantID": {
+                            "description": "The ID of the merchant that owns the account.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "submittedPayoutsBalance": {
+                            "description": "Total of the payouts that have been submitted for processing.",
+                            "format": "double",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "pageNumber": {
+                      "description": "Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "pageSize": {
+                      "description": "Page size",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "totalPages": {
+                      "description": "Total pages",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "totalSize": {
+                      "description": "Total count",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns the list of accounts for the merchant."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

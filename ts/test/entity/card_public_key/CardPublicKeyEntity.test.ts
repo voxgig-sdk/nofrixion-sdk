@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { NofrixionSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('CardPublicKeyEntity', async () => {
 
     const live = 'TRUE' === process.env.NOFRIXION_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'card_public_key.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'card_public_key.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"jwt","req":false,"type":"`$STRING`","index$":0}],"name":"card_public_key","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"paymentrequest_id","orig":"id","reqd":true,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /api/v1/paymentrequests/{id}/card/publickey","json":"{\"operationId\":\"GetPublicKeyForCardPayment\",\"parameters\":[{\"description\":\"The ID of the payment request the public key will be used with.\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"format\":\"uuid\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/json\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"additionalProperties\":false,\"properties\":{\"jwt\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Returns a public key that can be used to encrypt sensitive card details.\"}},\"security\":[{\"Bearer\":[]}],\"securitySchemes\":{\"Bearer\":{\"description\":\"JWT Authorization header using the Bearer scheme.<br/>\\r\\n                      Enter your JWT access token in the text input below.<br/>\\r\\n                      Example: Bearer eyJhbGciOiJ...\",\"in\":\"header\",\"name\":\"Authorization\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/api/v1/paymentrequests/{id}/card/publickey","rename":{"param":{"id":"paymentrequest_id"}},"segments":[{"lit":"api"},{"lit":"v1"},{"lit":"paymentrequests"},{"var":"paymentrequest_id"},{"lit":"card"},{"lit":"publickey"}],"select":{"exist":["paymentrequest_id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[["paymentrequest"]]},"key$":"card_public_key","name__orig":"card_public_key","Name":"CardPublicKey","name_":"card_public_key","name-":"card-public-key","NAME":"CARD_PUBLIC_KEY","index$":7}, {"active":true,"entity":"card_public_key","key$":"BasicCardPublicKeyFlow","kind":"basic","name":"BasicCardPublicKeyFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"card_public_key_ref01","srcdatavar":"card_public_key_ref01_data","suffix":"_dt0"},"match":{"id":"card_public_key01"},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-card_public_key_ref01"}}],"index$":0}]}, 'CardPublicKey')
     }
     const client = setup.client
     const struct = setup.struct
@@ -107,13 +106,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID': idmap,
     'NOFRIXION_TEST_LIVE': 'FALSE',
@@ -125,7 +117,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.NOFRIXION_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['NOFRIXION_TEST_CARD_PUBLIC_KEY_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new NofrixionSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.NOFRIXION_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

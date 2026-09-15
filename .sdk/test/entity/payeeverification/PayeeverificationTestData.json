@@ -45,5 +45,258 @@
         "sortCode": "s11e"
       }
     }
+  },
+  "requests": {
+    "POST /api/v1/openbanking/payeeverification": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "VerifyPayee",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/*+json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "accountName": {
+                    "description": "The name of the account to verify",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "accountNumber": {
+                    "description": "The account number of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "iban": {
+                    "description": "The IBAN of the account to verify (for VoP checks)",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "secondaryIdentification": {
+                    "description": "Optional secondary identifier for the account to verify.\r\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\r\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "sortCode": {
+                    "description": "The sort code of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "accountName",
+                  "iban"
+                ],
+                "type": "object"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "accountName": {
+                    "description": "The name of the account to verify",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "accountNumber": {
+                    "description": "The account number of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "iban": {
+                    "description": "The IBAN of the account to verify (for VoP checks)",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "secondaryIdentification": {
+                    "description": "Optional secondary identifier for the account to verify.\r\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\r\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "sortCode": {
+                    "description": "The sort code of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "accountName",
+                  "iban"
+                ],
+                "type": "object"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "accountName": {
+                    "description": "The name of the account to verify",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "accountNumber": {
+                    "description": "The account number of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "iban": {
+                    "description": "The IBAN of the account to verify (for VoP checks)",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "secondaryIdentification": {
+                    "description": "Optional secondary identifier for the account to verify.\r\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\r\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "sortCode": {
+                    "description": "The sort code of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "accountName",
+                  "iban"
+                ],
+                "type": "object"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "accountName": {
+                    "description": "The name of the account to verify",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "accountNumber": {
+                    "description": "The account number of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "iban": {
+                    "description": "The IBAN of the account to verify (for VoP checks)",
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "secondaryIdentification": {
+                    "description": "Optional secondary identifier for the account to verify.\r\nIt is usually the reason why the payment is being made or what invoice or obligation it relates to.\r\nSome responders may require this where just the identifier is not sufficient to uniquely identify the account.",
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "sortCode": {
+                    "description": "The sort code of the account to verify (for CoP checks)",
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "accountName",
+                  "iban"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "description": "The payee to verify."
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "payeeVerifiedAccountName": {
+                      "description": "The verified account name of the payee, if available (in case of a close match)",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "result": {
+                      "description": "The result of the payee verification",
+                      "enum": [
+                        "Unknown",
+                        "Match",
+                        "NoMatch",
+                        "CloseMatch"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "payeeVerifiedAccountName": {
+                      "description": "The verified account name of the payee, if available (in case of a close match)",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "result": {
+                      "description": "The result of the payee verification",
+                      "enum": [
+                        "Unknown",
+                        "Match",
+                        "NoMatch",
+                        "CloseMatch"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "payeeVerifiedAccountName": {
+                      "description": "The verified account name of the payee, if available (in case of a close match)",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "result": {
+                      "description": "The result of the payee verification",
+                      "enum": [
+                        "Unknown",
+                        "Match",
+                        "NoMatch",
+                        "CloseMatch"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

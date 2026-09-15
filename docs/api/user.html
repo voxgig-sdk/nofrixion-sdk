@@ -1,0 +1,2892 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>User | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a href="../api/i_payment.html">IPayment</a>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a aria-current="page" href="../api/user.html">User</a><div class="nav-sections"><a class="nav-section" href="#get-apiv1usermerchantiduserspaged">GET /api/v1/user/{merchantID}/userspaged</a>
+<a class="nav-section" href="#get-apiv1merchantsmerchantidusers">GET /api/v1/merchants/{merchantID}/users</a>
+<a class="nav-section" href="#get-apiv1metadatawhoami">GET /api/v1/metadata/whoami</a>
+<a class="nav-section" href="#get-apiv1metadatawhoamitrustedapp">GET /api/v1/metadata/whoamitrustedapp</a>
+<a class="nav-section" href="#get-apiv1user">GET /api/v1/user</a>
+<a class="nav-section" href="#put-apiv1userid">PUT /api/v1/user/{id}</a></div>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="user">User</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1usermerchantiduserspaged"><code>/api/v1/user/{merchantID}/userspaged</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1merchantsmerchantidusers"><code>/api/v1/merchants/{merchantID}/users</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1metadatawhoami"><code>/api/v1/metadata/whoami</code></a></td>
+<td><code>list</code></td>
+<td>Returns a user profile model</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1metadatawhoamitrustedapp"><code>/api/v1/metadata/whoamitrustedapp</code></a></td>
+<td><code>list</code></td>
+<td>Returns a user model</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-apiv1user"><code>/api/v1/user</code></a></td>
+<td><code>list</code></td>
+<td>A user profile model is returned</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-apiv1userid"><code>/api/v1/user/{id}</code></a></td>
+<td><code>update</code></td>
+<td>Returns the updated user profile</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInviteID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-apiv1usermerchantiduserspaged" class="operation" data-method="get"><code>GET</code> /api/v1/user/{merchantID}/userspaged</h3>
+<p>Operation ID: <code>GetUsersPaged</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>merchantID</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the merchant to get the users for. |
+| <code>pageNumber</code> | <code>query</code> | <code>integer (int32)</code> | No | The page number |
+| <code>pageSize</code> | <code>query</code> | <code>integer (int32)</code> | No | The page size |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | A search filter to apply to the user list. Typically searches against first name, last name and email address. |
+| <code>sort</code> | <code>query</code> | <code>string</code> | No | The sort expression for the result set, for example, &quot;FirstName asc&quot;. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>content[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>content[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>content[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>content[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Current page number. Its 1 based. i.e firstpage is 1, secondpage is 2</td>
+</tr>
+<tr>
+<td><code>pageSize</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Page size</td>
+</tr>
+<tr>
+<td><code>totalPages</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total pages</td>
+</tr>
+<tr>
+<td><code>totalSize</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>Total count</td>
+</tr>
+</tbody>
+</table>
+<h5 id="201-returns-a-paged-list-of-the-users-associated-with-the-merchant" class="status" data-status="2xx">201: Returns a paged list of the users associated with the merchant</h5>
+<h3 id="get-apiv1merchantsmerchantidusers" class="operation" data-method="get"><code>GET</code> /api/v1/merchants/{merchantID}/users</h3>
+<p>Operation ID: <code>GetMerchantUsers</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>merchantID</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the merchant to get the user roles for. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>[].clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>[].emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>[].rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>[].twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="201-returns-the-users-associated-with-the-merchant" class="status" data-status="2xx">201: Returns the users associated with the merchant</h5>
+<h3 id="get-apiv1metadatawhoami" class="operation" data-method="get"><code>GET</code> /api/v1/metadata/whoami</h3>
+<p>Operation ID: <code>WhoAmI</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-returns-a-user-profile-model" class="status" data-status="2xx">200: Returns a user profile model</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-apiv1metadatawhoamitrustedapp" class="operation" data-method="get"><code>GET</code> /api/v1/metadata/whoamitrustedapp</h3>
+<p>Operation ID: <code>WhoAmITrustedApplication</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-returns-a-user-model" class="status" data-status="2xx">200: Returns a user model</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-apiv1user" class="operation" data-method="get"><code>GET</code> /api/v1/user</h3>
+<p>Operation ID: <code>GetUser</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-a-user-profile-model-is-returned" class="status" data-status="2xx">200: A user profile model is returned</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-apiv1userid" class="operation" data-method="put"><code>PUT</code> /api/v1/user/{id}</h3>
+<p>Operation ID: <code>UpdateUser</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>userInviteID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Optional ID of the invite that is being accepted so the user can be assigned a role on a new merchant.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-returns-the-updated-user-profile" class="status" data-status="2xx">200: Returns the updated user profile</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientSessionTimeouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring. This is based on the user's role on the merchant. This is used to set the session timeout in the client. If not set the client's default session timeout will be used.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The merchant ID for which the session timeout applies.</td>
+</tr>
+<tr>
+<td><code>clientSessionTimeouts[].timeoutSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of seconds a session for this user should last before expiring.</td>
+</tr>
+<tr>
+<td><code>emailAddress</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>passkeyAdded</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].accountPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].merchantID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.merchantPermissions[].permissions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].assignedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date the role was assigned to the user on the merchant.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].merchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant the role is in.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].roleName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the role the user has.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].scope</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The number of accounts the user has access to in the merchant for the role.</td>
+</tr>
+<tr>
+<td><code>rolesWithScope[].userID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td><code>twoFactorEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

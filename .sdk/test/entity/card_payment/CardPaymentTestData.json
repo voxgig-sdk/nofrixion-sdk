@@ -9,8 +9,8 @@
         "payerAuthenticationAccessToken": "sae",
         "payerAuthenticationMerchantData": "saf",
         "payerAuthenticationUrl": "sb0",
-        "payerAuthenticationWindowHeight": "sb1",
-        "payerAuthenticationWindowWidth": "sb2",
+        "payerAuthenticationWindowHeight": 177,
+        "payerAuthenticationWindowWidth": 178,
         "paymentRequestCallbackUrl": "sb3",
         "paymentRequestID": "sb4",
         "requestID": "sb5",
@@ -31,8 +31,8 @@
         "payerAuthenticationAccessToken": "s158",
         "payerAuthenticationMerchantData": "s159",
         "payerAuthenticationUrl": "s15a",
-        "payerAuthenticationWindowHeight": "s15b",
-        "payerAuthenticationWindowWidth": "s15c",
+        "payerAuthenticationWindowHeight": 347,
+        "payerAuthenticationWindowWidth": 348,
         "paymentRequestCallbackUrl": "s15d",
         "paymentRequestID": "s15e",
         "requestID": "s15f",
@@ -53,8 +53,8 @@
         "payerAuthenticationAccessToken": "s202",
         "payerAuthenticationMerchantData": "s203",
         "payerAuthenticationUrl": "s204",
-        "payerAuthenticationWindowHeight": "s205",
-        "payerAuthenticationWindowWidth": "s206",
+        "payerAuthenticationWindowHeight": 517,
+        "payerAuthenticationWindowWidth": 518,
         "paymentRequestCallbackUrl": "s207",
         "paymentRequestID": "s208",
         "requestID": "s209",
@@ -79,8 +79,8 @@
         "payerAuthenticationAccessToken": "s2ac",
         "payerAuthenticationMerchantData": "s2ad",
         "payerAuthenticationUrl": "s2ae",
-        "payerAuthenticationWindowHeight": "s2af",
-        "payerAuthenticationWindowWidth": "s2b0",
+        "payerAuthenticationWindowHeight": 687,
+        "payerAuthenticationWindowWidth": 688,
         "paymentRequestCallbackUrl": "s2b1",
         "paymentRequestID": "s2b2",
         "requestID": "s2b3",
@@ -89,6 +89,1680 @@
         "status": "s2b6",
         "threeDSRedirectUrl": "s2b7",
         "transactionID": "s2b8"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/v1/paymentrequests/{id}/card/refund/{partialRefundAmount}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "RefundCardPayment",
+        "parameters": [
+          {
+            "description": "The ID of the payment request a card payment has previously been captured for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The partial amount to be refunded in case of captured payment.",
+            "in": "path",
+            "name": "partialRefundAmount",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {
+                "authorizationID": {
+                  "style": "form"
+                }
+              },
+              "schema": {
+                "properties": {
+                  "authorizationID": {
+                    "description": "The authorisation ID of the card payment to refund.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a card payment response model that indicates the result of the refund payment attempt."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "POST /api/v1/paymentrequests/{id}/card/capture": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "CaptureCardPayment",
+        "parameters": [
+          {
+            "description": "The ID of the payment request to perform the capture for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {
+                "Amount": {
+                  "style": "form"
+                },
+                "AuthorizationID": {
+                  "style": "form"
+                }
+              },
+              "schema": {
+                "properties": {
+                  "Amount": {
+                    "description": "The amount to capture. Must be less than the authorisation amount.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "AuthorizationID": {
+                    "description": "The ID returned from a successful card authorisation.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "AuthorizationID"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a card payment response model that indicates the result of the capture attempt."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "POST /api/v1/paymentrequests/{id}/card/paywithtoken": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "SubmitTokenisedCardPayment",
+        "parameters": [
+          {
+            "description": "The ID of the payment request the card payment is being submitted for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {
+                "CardSecurityCode": {
+                  "style": "form"
+                },
+                "PartialAmount": {
+                  "style": "form"
+                },
+                "PaymentInitiator": {
+                  "style": "form"
+                },
+                "TokenisedCardID": {
+                  "style": "form"
+                }
+              },
+              "schema": {
+                "properties": {
+                  "CardSecurityCode": {
+                    "description": "Not used for merchant initiated transactions. Optional for customer initiated transactions.\r\nIf supplied will be sent to the card processor as a check that the customer using the \r\ntokenised card knows the card verification number.",
+                    "type": "string"
+                  },
+                  "PartialAmount": {
+                    "description": "Optional partial payment amount. If not specified then the full payment request\r\namount will be attempted.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "PaymentInitiator": {
+                    "description": "Indicates who initiated the card token payment, customer or merchant.",
+                    "enum": [
+                      "customer",
+                      "merchant"
+                    ],
+                    "type": "string"
+                  },
+                  "TokenisedCardID": {
+                    "description": "The ID of the tokenised card to use for the payment. The merchant needs to ensure that\r\nthe use of the tokenised card is restricted to the same customer that created it.",
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a card payment response model that indicates the result of the payment attempt."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "POST /api/v1/paymentrequests/{id}/card/void": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "VoidCardPayment",
+        "parameters": [
+          {
+            "description": "The ID of the payment request a card payment has previously been authorised or captured for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {
+                "authorizationID": {
+                  "style": "form"
+                }
+              },
+              "schema": {
+                "properties": {
+                  "authorizationID": {
+                    "description": "The authorisation ID of the card payment to void.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authorizedAmount": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "isPayerAuthenticationRequired": {
+                      "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                      "type": "boolean"
+                    },
+                    "isSoftDecline": {
+                      "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                      "type": "boolean"
+                    },
+                    "payerAuthenticationAccessToken": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationMerchantData": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationUrl": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "payerAuthenticationWindowHeight": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "payerAuthenticationWindowWidth": {
+                      "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "paymentRequestCallbackUrl": {
+                      "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "paymentRequestID": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "requestID": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseCode": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "responseType": {
+                      "enum": [
+                        "None",
+                        "CardPayerAuthenticationSetupResponse",
+                        "CardPaymentResponse",
+                        "PaymentInitiationResponse"
+                      ],
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "status": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "threeDSRedirectUrl": {
+                      "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "transactionID": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns a card payment response model that indicates the result of the void payment attempt."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    },
+    "POST /api/v1/paymentrequests/{id}/card/voidpaymentrequest": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "VoidAllCardPayments",
+        "parameters": [
+          {
+            "description": "The ID of the payment request to void the payments for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "authorizedAmount": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currencyCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "isPayerAuthenticationRequired": {
+                        "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                        "type": "boolean"
+                      },
+                      "isSoftDecline": {
+                        "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                        "type": "boolean"
+                      },
+                      "payerAuthenticationAccessToken": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationMerchantData": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationUrl": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationWindowHeight": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "payerAuthenticationWindowWidth": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "paymentRequestCallbackUrl": {
+                        "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "requestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseType": {
+                        "enum": [
+                          "None",
+                          "CardPayerAuthenticationSetupResponse",
+                          "CardPaymentResponse",
+                          "PaymentInitiationResponse"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "threeDSRedirectUrl": {
+                        "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "transactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "authorizedAmount": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currencyCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "isPayerAuthenticationRequired": {
+                        "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                        "type": "boolean"
+                      },
+                      "isSoftDecline": {
+                        "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                        "type": "boolean"
+                      },
+                      "payerAuthenticationAccessToken": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationMerchantData": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationUrl": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationWindowHeight": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "payerAuthenticationWindowWidth": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "paymentRequestCallbackUrl": {
+                        "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "requestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseType": {
+                        "enum": [
+                          "None",
+                          "CardPayerAuthenticationSetupResponse",
+                          "CardPaymentResponse",
+                          "PaymentInitiationResponse"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "threeDSRedirectUrl": {
+                        "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "transactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "authorizedAmount": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "currencyCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "isPayerAuthenticationRequired": {
+                        "description": "Gets set to true if 3-D Secure payer authentication is required for a payment.",
+                        "type": "boolean"
+                      },
+                      "isSoftDecline": {
+                        "description": "Gets set to true if the card processor flagged the transaction as having failed address or\r\ncard security number verification. If the payment was for a sale a soft decline will prevent\r\nthe transaction being captured. The merchant can set the ignore address verification flag \r\nif they want to allow soft declines to be accepted or false if not.",
+                        "type": "boolean"
+                      },
+                      "payerAuthenticationAccessToken": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the access token to POST when performing the redirect.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationMerchantData": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication this field may \r\nget set in order to transfer information back to the \"authenticationcallback\" method\r\nthat gets called automatically after a successful payer authentication attempt.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationUrl": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the URL to redirect the payer to their issuing bank.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "payerAuthenticationWindowHeight": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested height of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "payerAuthenticationWindowWidth": {
+                        "description": "If a card payment response indicates a 3-D Secure payer authentication is required\r\nthis field holds the requested width of the iframe used to hold the challenge.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "paymentRequestCallbackUrl": {
+                        "description": "The callback URL that was set when the payment request was created. Payers will be \r\nredirected to this URL after a successful card authorisation.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "paymentRequestID": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "requestID": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseCode": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "responseType": {
+                        "enum": [
+                          "None",
+                          "CardPayerAuthenticationSetupResponse",
+                          "CardPaymentResponse",
+                          "PaymentInitiationResponse"
+                        ],
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "status": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "threeDSRedirectUrl": {
+                        "description": "Checkout.com require a redirect for 3DS authentication. This link will contain the \r\nlink the payer needs to be redirected to.",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "transactionID": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Returns a collection of card payment response models that indicates the result of the void payment request attempt."
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }

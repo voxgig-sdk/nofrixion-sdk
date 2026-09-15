@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IPayment | NoFrixion MoneyMoov API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">NoFrixion MoneyMoov API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/nofrixion-sdk">voxgig-sdk/nofrixion-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><a class="presentation-link" href="../slidev/index.html">Presentation</a><details><summary>Overview</summary><a href="../index.html">NoFrixion MoneyMoov API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/batch.html">Batch</a>
+<a href="../api/beneficiary.html">Beneficiary</a>
+<a href="../api/beneficiary_group.html">BeneficiaryGroup</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_customer_token.html">CardCustomerToken</a>
+<a href="../api/card_payment.html">CardPayment</a>
+<a href="../api/card_public_key.html">CardPublicKey</a>
+<a href="../api/consent.html">Consent</a>
+<a href="../api/currency.html">Currency</a>
+<a href="../api/direct_debit_batch_submit.html">DirectDebitBatchSubmit</a>
+<a href="../api/fx_rate.html">FxRate</a>
+<a aria-current="page" href="../api/i_payment.html">IPayment</a><div class="nav-sections"><a class="nav-section" href="#post-apiv1paymentrequestspayondemand">POST /api/v1/paymentrequests/payondemand</a></div>
+<a href="../api/mandate.html">Mandate</a>
+<a href="../api/merchant.html">Merchant</a>
+<a href="../api/merchant_authorisation_setting.html">MerchantAuthorisationSetting</a>
+<a href="../api/merchant_direct_debit_mandate_page.html">MerchantDirectDebitMandatePage</a>
+<a href="../api/merchant_pay_by_bank_setting.html">MerchantPayByBankSetting</a>
+<a href="../api/merchant_payment_request_template.html">MerchantPaymentRequestTemplate</a>
+<a href="../api/merchant_token.html">MerchantToken</a>
+<a href="../api/metadata.html">Metadata</a>
+<a href="../api/no_frixion_version.html">NoFrixionVersion</a>
+<a href="../api/open_banking.html">OpenBanking</a>
+<a href="../api/payeeverification.html">Payeeverification</a>
+<a href="../api/payment.html">Payment</a>
+<a href="../api/payment_account.html">PaymentAccount</a>
+<a href="../api/payment_account_minimal.html">PaymentAccountMinimal</a>
+<a href="../api/payment_initiation.html">PaymentInitiation</a>
+<a href="../api/payment_request.html">PaymentRequest</a>
+<a href="../api/payment_request_event.html">PaymentRequestEvent</a>
+<a href="../api/payment_request_metric.html">PaymentRequestMetric</a>
+<a href="../api/payment_request_minimal.html">PaymentRequestMinimal</a>
+<a href="../api/payment_request_result.html">PaymentRequestResult</a>
+<a href="../api/payout.html">Payout</a>
+<a href="../api/payout_keyset_page.html">PayoutKeysetPage</a>
+<a href="../api/payout_metric.html">PayoutMetric</a>
+<a href="../api/payrun.html">Payrun</a>
+<a href="../api/report.html">Report</a>
+<a href="../api/report_result.html">ReportResult</a>
+<a href="../api/role.html">Role</a>
+<a href="../api/rule.html">Rule</a>
+<a href="../api/rule_event.html">RuleEvent</a>
+<a href="../api/tag.html">Tag</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/transaction.html">Transaction</a>
+<a href="../api/user.html">User</a>
+<a href="../api/user_invite.html">UserInvite</a>
+<a href="../api/virtual.html">Virtual</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">In-memory mock transport for testing without a live server</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="ipayment">IPayment</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-apiv1paymentrequestspayondemand"><code>/api/v1/paymentrequests/payondemand</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>responseType</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-apiv1paymentrequestspayondemand" class="operation" data-method="post"><code>POST</code> /api/v1/paymentrequests/payondemand</h3>
+<p>Operation ID: <code>CreateAndPayPaymentRequest</code>.</p>
+<p>Authentication: API key in the header (<code>Bearer</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Card.BillingAddressCity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingAddressCountryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingAddressCounty</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingAddressLine1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingAddressLine2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingAddressPostCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingEmail</code></td>
+<td><code>string (email)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.BillingPhone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.CardHolderFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.CardHolderLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.CvcToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.ExpiryMonth</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.ExpiryYear</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.JwtToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The tokenised Card Number and CardVerification Number (CVN) details. Typically generated by the CyberSource javascript library.</td>
+</tr>
+<tr>
+<td><code>Card.NumberToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Card.PartialAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Optional partial payment amount. If not specified then the full payment request amount will be attempted.</td>
+</tr>
+<tr>
+<td><code>Card.SaveCardConsent</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressCity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressCountryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressCounty</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressLine1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressLine2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingAddressPostCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingEmail</code></td>
+<td><code>string (email)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.BillingPhone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.CardHolderFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.CardHolderLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.CardNumber</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.CardSecurityCode</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.CvcToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Cvc Token is not used if the raw card details are provided. This property is to override the base card property and stop it being required.</td>
+</tr>
+<tr>
+<td><code>CardSensitive.ExpiryMonth</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.ExpiryYear</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardSensitive.JwtToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The JWT token is not used if the raw card details are provided. This property is to override the base card property and stop it being required.</td>
+</tr>
+<tr>
+<td><code>CardSensitive.NumberToken</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Number Token is not used if the raw card details are provided. This property is to override the base card property and stop it being required.</td>
+</tr>
+<tr>
+<td><code>CardSensitive.PartialAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Optional partial payment amount. If not specified then the full payment request amount will be attempted.</td>
+</tr>
+<tr>
+<td><code>CardSensitive.SaveCardConsent</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CardToken.CardSecurityCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Not used for merchant initiated transactions. Optional for customer initiated transactions. If supplied will be sent to the card processor as a check that the customer using the  tokenised card knows the card verification number.</td>
+</tr>
+<tr>
+<td><code>CardToken.PartialAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Optional partial payment amount. If not specified then the full payment request amount will be attempted.</td>
+</tr>
+<tr>
+<td><code>CardToken.PaymentInitiator</code></td>
+<td><code>enum: customer, merchant</code></td>
+<td>No</td>
+<td>Indicates who initiated the card token payment, customer or merchant.</td>
+</tr>
+<tr>
+<td><code>CardToken.TokenisedCardID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the tokenised card to use for the payment. The merchant needs to ensure that the use of the tokenised card is restricted to the same customer that created it.</td>
+</tr>
+<tr>
+<td><code>PaymentInitiationRequest.OriginUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional. If set should indicate the origin URL the payer is making the  payment from. If a pay by bank attempt fails and the payment request does not have a FailureCallbackUrl set then the payer will be redirected to this URL.</td>
+</tr>
+<tr>
+<td><code>PaymentInitiationRequest.PartialAmount</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Optional. If 0 the full amount is assumed.</td>
+</tr>
+<tr>
+<td><code>PaymentInitiationRequest.ProviderID</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ID of the institution (bank) that the payer ha chosen.</td>
+</tr>
+<tr>
+<td><code>PaymentInitiationRequest.RedirectToOriginUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentMethod</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The single payment method to use for the pay on demand payment request.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.Amount</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td>The amount of money to request.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.AutoSendReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true, a receipt will be automatically sent to the CustomerEmailAddress when payments are received.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.BaseOriginUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For card payments the origin of the payment page needs to be set in advance. A public key context is generated to encrypt sensitive card details and is bound to a single origin URL.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CallbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Once a payment is processed, or a notification of an inbound payment is received, a callback request will be made to this URL. Typically it will be the page on a merchant's web site that displays the results of the payment attempt.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardAuthorizeOnly</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>For card payments the default behaviour is to authorise and capture the payment at the same time. If a merchant needs to authorise and then capture at a later point this property needs to be set to true.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardCreateToken</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>For card payments a payment attempt can be used to create a reusable token for subsequent payments. Setting this field to true will create a reusable customer token.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardCreateTokenMode</code></td>
+<td><code>enum: None, ConsentNotRequired, UserConsentRequired</code></td>
+<td>No</td>
+<td>This specifies whether user consent will be taken before tokenising card or not. This cannot be 'None' if CardCreateToken is set to true. If this is set to 'UserConsentRequired' then, the user consent will overwrite CardCreateToken flag on submit card payment.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardIgnoreCVN</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true the card payment gateway will be directed to proceed with a payment even if the card verification number check fails.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardNoPayerAuthentication</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true for card payments no attempt will be made to use payer authentication (3-D Secure and equivalent). Skipping payer authentication can help avoid failed payment attempts when a payer is not enrolled or when they can't be bothered completing their issuing bank's authentication steps. A disadvantage is it exposes the merchant  to liability for charge backs.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardProcessorMerchantID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional field that if specified indicates the processor merchant ID that should be used to process any card payments. Mainly useful where a merchant has multiple processor merchant ID's. If left empty the default merchant card settings will be used.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CardTransmitRawDetails</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true for card payments the sensitive card number and card verification number  will be transmitted directly rather than being tokenised. This makes the payment quicker but more exposed to client side flaws such as cross site scripting.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.Currency</code></td>
+<td><code>enum: NONE, GBP, EUR, USD, AUD, BGN, ...</code></td>
+<td>No</td>
+<td>The currency of the payment request.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>A list of custom fields to add to the payment request. The custom fields are data type agnostic which means that the API will not do any validation or formatting in the key-value pairs. The API will store the custom fields as is.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, the custom field will be displayed on the hosted payment page.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If true, the custom field will be displayed on the payment receipt.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields[].displayOrder</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The display order of the custom field. The lowest number is displayed first. This is used to determine the order in which the custom fields are displayed on the UI, for example, on the hosted payment page and payment receipt.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the custom field.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomFields[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The value of the custom field.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomerEmailAddress</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional email address for the customer. If the tokenise card option is set then the customer email address is mandatory.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.CustomerID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional customer identifier for the payment request. This field is sent to the  payer's bank when using payment initiation. The restriction in the available characters is due to some banks rejecting requests when ones outside the set are used.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.Description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional description for the payment request. If set this field will appear on the transaction record for some card processors.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.DueDate</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>An optional due date for the payment request.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.FailureCallbackUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional callback URL for payment failures that can occur when the payer is  redirected away from the payment page. Typically the payer is only sent away from the payment page for pay by bank attempts. If this URL is not set the  payer will be redirected back to the original URL the payment attempt was initiated from.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.FieldDisplaySettings</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An optional display settings for the payment request fields. This allows the merchant to control how the fields are displayed on the hosted payment page, receipt, etc.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.FieldDisplaySettings[].displayOnHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the hosted payment page.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.FieldDisplaySettings[].displayOnPaymentReceipt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If false, the field will not be displayed on the payment receipt.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.FieldDisplaySettings[].field</code></td>
+<td><code>enum: None, Description, Customer, DueDate</code></td>
+<td>No</td>
+<td>The field for which the display settings are defined.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.IgnoreAddressVerification</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true the card payment gateway will be directed to proceed with a payment even if the address verification checks fails.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.LightningInvoice</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.LightningInvoiceExpiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.MerchantDirectDebitMandateID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Optional ID of an existing direct debit mandate to associate with this payment request. Only applicable when the payment method is direct debit.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.MerchantID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the merchant to create the payment request for.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.NotificationEmailAddresses</code></td>
+<td><code>string (email)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.NotificationRoleIDs</code></td>
+<td><code>array of string (uuid)</code></td>
+<td>No</td>
+<td>An optional list of notification role IDs that will receive notifications about the payment request. This is useful for roles that need to be notified about payment request events.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.OrderID</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional order ID for the payment request. If the request is for an invoice this is the most appropriate field for the invoice ID.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.OriginUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PartialPaymentMethod</code></td>
+<td><code>enum: None, Partial</code></td>
+<td>No</td>
+<td>The approach to use, or not, for accepting partial payments.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PartialPaymentSteps</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional comma separated list of partial payment amounts. The amounts represent guidance, or suggestions, as to how the payer will be requested to make partial payments.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PaymentMethodTypes</code></td>
+<td><code>enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports. When setting using form data should be supplied as a comma separated list, for example &quot;card, pisp, lightning&quot;.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PaymentMethods</code></td>
+<td><code>array of enum: None, card, pisp, lightning, cardtoken, applePay, ...</code></td>
+<td>No</td>
+<td>The payment methods that the payment request supports.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PaymentProcessor</code></td>
+<td><code>enum: None, CyberSource, Checkout, Stripe, Modulr, Plaid, ...</code></td>
+<td>No</td>
+<td>Lists the supported card and PIS processors.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PayrunID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Optional, if set it indicates that this payment request will be used to top up a payment account for a pay run.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PispAccountID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The payment account ID to use to receive payment initiation payments. This must match one of your NoFrixion payment account IDs. This can be left blank to use your default payment account.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PispRecipientReference</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>For Payment Initiation payments this is the reference that will be requested to used as the reference  on the your transaction record. Note that it is not guaranteed that the sending bank will use this reference and in practice it has been observed to be supported by only half to two thirds of banks.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.PriorityBankID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the bank that is set as the priority bank for display on pay element.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.SandboxSettleDelayInSeconds</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Sandbox only. Optional. If set, the simulated Direct Debit settlement will be delayed by the specified number of seconds. Must be greater than 0 and less than 600. Otherwise, the default value will be used.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressCity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the city of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressCountryCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the country code of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressCounty</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the state or county of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressLine1</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the first line of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressLine2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the second line of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingAddressPostCode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the post code of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingEmail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the shipping email address for the customer.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingFirstName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the first name of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingLastName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the last name of the customer's shipping address.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.ShippingPhone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optionally the shipping phone number for the customer.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.SuccessWebHookUrl</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>If a payment event results in the payment request being classified as fully paid this success webhook URL will be invoked. The URL will be invoked as a GET request, that is there will be no request body. Two query parameters will be added to the URL. The  first one will be &quot;id&quot; and will hold the payment request ID. The second one will be &quot;orderid&quot; and will hold the payment request OrderID, note the OrderID could be empty if it was not set when the payment request was created. The recommended approach when receiving a success web hook is to use the &quot;id&quot; parameter to call the moneymoov get payment request endpoint to retrieve the full details of the payment request and check the status. Web hooks can be easily spoofed and should not be relied upon.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.TagIds</code></td>
+<td><code>array of string (uuid)</code></td>
+<td>No</td>
+<td>An optional list of tag ids to add to the payment request</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.Tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>An optional list of tag values to set on the payment request. If no matching tag exists it will be created.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.Title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A generic field to contain any additional data that the merchant wishes to store against the payment request. for example product or service information.</td>
+</tr>
+<tr>
+<td><code>PaymentRequestCreate.UseHostedPaymentPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If set to true, and the merchant is configured for hosted payment pages, the base and callback URLs will be set to use the hosted payment page.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>responseType</code></td>
+<td><code>enum: None, CardPayerAuthenticationSetupResponse, CardPaymentResponse, PaymentInitiationResponse</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>responseType</code></td>
+<td><code>enum: None, CardPayerAuthenticationSetupResponse, CardPaymentResponse, PaymentInitiationResponse</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>text/plain</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentRequestID</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>responseType</code></td>
+<td><code>enum: None, CardPayerAuthenticationSetupResponse, CardPaymentResponse, PaymentInitiationResponse</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="201-returns-the-payment-response" class="status" data-status="2xx">201: Returns the payment response</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

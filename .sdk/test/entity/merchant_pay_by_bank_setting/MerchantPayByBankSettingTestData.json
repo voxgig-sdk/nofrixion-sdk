@@ -10,7 +10,7 @@
         "logo": "s87",
         "message": "s88",
         "messageImageUrl": "s89",
-        "order": "s8a",
+        "order": 138,
         "personalInstitutionID": "s8b",
         "processor": "s8c",
         "warningHeading": "s8d",
@@ -26,7 +26,7 @@
         "logo": "s109",
         "message": "s10a",
         "messageImageUrl": "s10b",
-        "order": "s10c",
+        "order": 268,
         "personalInstitutionID": "s10d",
         "processor": "s10e",
         "warningHeading": "s10f",
@@ -42,7 +42,7 @@
         "logo": "s18b",
         "message": "s18c",
         "messageImageUrl": "s18d",
-        "order": "s18e",
+        "order": 398,
         "personalInstitutionID": "s18f",
         "processor": "s190",
         "warningHeading": "s191",
@@ -62,11 +62,536 @@
         "logo": "s20d",
         "message": "s20e",
         "messageImageUrl": "s20f",
-        "order": "s210",
+        "order": 528,
         "personalInstitutionID": "s211",
         "processor": "s212",
         "warningHeading": "s213",
         "warningMessage": "s214"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/merchants/{merchantID}/banksettings": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "GetMerchantBankSettings",
+        "parameters": [
+          {
+            "description": "ID of the merchant.",
+            "in": "path",
+            "name": "merchantID",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. The bank currency.",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "NONE",
+                "GBP",
+                "EUR",
+                "USD",
+                "AUD",
+                "BGN",
+                "CAD",
+                "CZK",
+                "DKK",
+                "HUF",
+                "ISK",
+                "CHF",
+                "NOK",
+                "PLN",
+                "RON",
+                "AED",
+                "CNH",
+                "HKD",
+                "ILS",
+                "JPY",
+                "MXN",
+                "NZD",
+                "SAR",
+                "SEK",
+                "SGD",
+                "TRY",
+                "ZAR",
+                "BTC"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional. Country code for country specific banks.",
+            "in": "query",
+            "name": "countryCode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The open banking operation type.",
+            "in": "query",
+            "name": "openBankingOperation",
+            "schema": {
+              "default": "PIS",
+              "enum": [
+                "None",
+                "PIS",
+                "AIS"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a collection of merchant bank payment settings.",
+                  "properties": {
+                    "merchantID": {
+                      "description": "Merchant to which the settings will be configured.",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "payByBankSettings": {
+                      "description": "Collection of bank payment settings.",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents an individual bank payment setting.",
+                        "properties": {
+                          "bankCountryCodes": {
+                            "description": "The list of country codes representing the banks the country supports.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "bankID": {
+                            "description": "ID of the bank to be configured for the merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "bankName": {
+                            "description": "Name of the Bank/Institution.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "businessInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (business accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency supported by the bank.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "logo": {
+                            "description": "URL of the bank's logo.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Message relating to specific bank.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "messageImageUrl": {
+                            "description": "Optional image URL to be displayed with the message.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "order": {
+                            "description": "Order in which this setting will appear in the UI.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "personalInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (personal accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "processor": {
+                            "description": "Name of the bank payment processor.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "type": "string"
+                          },
+                          "warningHeading": {
+                            "description": "The heading for a warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "warningMessage": {
+                            "description": "The warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a collection of merchant bank payment settings.",
+                  "properties": {
+                    "merchantID": {
+                      "description": "Merchant to which the settings will be configured.",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "payByBankSettings": {
+                      "description": "Collection of bank payment settings.",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents an individual bank payment setting.",
+                        "properties": {
+                          "bankCountryCodes": {
+                            "description": "The list of country codes representing the banks the country supports.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "bankID": {
+                            "description": "ID of the bank to be configured for the merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "bankName": {
+                            "description": "Name of the Bank/Institution.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "businessInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (business accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency supported by the bank.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "logo": {
+                            "description": "URL of the bank's logo.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Message relating to specific bank.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "messageImageUrl": {
+                            "description": "Optional image URL to be displayed with the message.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "order": {
+                            "description": "Order in which this setting will appear in the UI.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "personalInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (personal accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "processor": {
+                            "description": "Name of the bank payment processor.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "type": "string"
+                          },
+                          "warningHeading": {
+                            "description": "The heading for a warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "warningMessage": {
+                            "description": "The warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "additionalProperties": false,
+                  "description": "Represents a collection of merchant bank payment settings.",
+                  "properties": {
+                    "merchantID": {
+                      "description": "Merchant to which the settings will be configured.",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "payByBankSettings": {
+                      "description": "Collection of bank payment settings.",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "Represents an individual bank payment setting.",
+                        "properties": {
+                          "bankCountryCodes": {
+                            "description": "The list of country codes representing the banks the country supports.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "nullable": true,
+                            "type": "array"
+                          },
+                          "bankID": {
+                            "description": "ID of the bank to be configured for the merchant.",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "bankName": {
+                            "description": "Name of the Bank/Institution.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "businessInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (business accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "Currency supported by the bank.",
+                            "enum": [
+                              "NONE",
+                              "GBP",
+                              "EUR",
+                              "USD",
+                              "AUD",
+                              "BGN",
+                              "CAD",
+                              "CZK",
+                              "DKK",
+                              "HUF",
+                              "ISK",
+                              "CHF",
+                              "NOK",
+                              "PLN",
+                              "RON",
+                              "AED",
+                              "CNH",
+                              "HKD",
+                              "ILS",
+                              "JPY",
+                              "MXN",
+                              "NZD",
+                              "SAR",
+                              "SEK",
+                              "SGD",
+                              "TRY",
+                              "ZAR",
+                              "BTC"
+                            ],
+                            "type": "string"
+                          },
+                          "logo": {
+                            "description": "URL of the bank's logo.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Message relating to specific bank.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "messageImageUrl": {
+                            "description": "Optional image URL to be displayed with the message.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "order": {
+                            "description": "Order in which this setting will appear in the UI.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "personalInstitutionID": {
+                            "description": "ID that the processor uses to identify the bank (personal accounts).",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "processor": {
+                            "description": "Name of the bank payment processor.",
+                            "enum": [
+                              "None",
+                              "CyberSource",
+                              "Checkout",
+                              "Stripe",
+                              "Modulr",
+                              "Plaid",
+                              "Yapily",
+                              "Nofrixion",
+                              "Bitcoin",
+                              "BitcoinTestnet",
+                              "BankingCircle",
+                              "BankingCircleAgency",
+                              "Simulator",
+                              "Lightning",
+                              "LightningTestnet",
+                              "BankingCircleDirectDebit",
+                              "Technoxander"
+                            ],
+                            "type": "string"
+                          },
+                          "warningHeading": {
+                            "description": "The heading for a warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "warningMessage": {
+                            "description": "The warning message related to the bank institution to be displayed to the user.",
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "securitySchemes": {
+          "Bearer": {
+            "description": "JWT Authorization header using the Bearer scheme.<br/>\r\n                      Enter your JWT access token in the text input below.<br/>\r\n                      Example: Bearer eyJhbGciOiJ...",
+            "in": "header",
+            "name": "Authorization",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
       }
     }
   }
